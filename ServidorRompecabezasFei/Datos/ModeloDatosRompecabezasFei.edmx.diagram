@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="65fe7bcd3d06492fb04b4b1895a10bc5" Name="Diagram1" ZoomLevel="85" >
+        <EntityTypeShape EntityType="RompecabezasFEIModel.Jugador" Width="1.5" PointX="3" PointY="5.75" />
+        <EntityTypeShape EntityType="RompecabezasFEIModel.SolicitudAmistad" Width="1.5" PointX="5.25" PointY="2.75" />
+        <EntityTypeShape EntityType="RompecabezasFEIModel.Partida" Width="1.5" PointX="7.5" PointY="11.25" />
+        <EntityTypeShape EntityType="RompecabezasFEIModel.Jugador_Partida" Width="1.5" PointX="9.75" PointY="8.375" />
+        <EntityTypeShape EntityType="RompecabezasFEIModel.Usuario" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="RompecabezasFEIModel.Amigo" Width="1.5" PointX="5.25" PointY="8.375" />
+        <EntityTypeShape EntityType="RompecabezasFEIModel.Sala" Width="1.5" PointX="5.25" PointY="11.125" />
+        <AssociationConnector Association="RompecabezasFEIModel.JugadorAmigo" />
+        <AssociationConnector Association="RompecabezasFEIModel.JugadorAmigo1" />
+        <AssociationConnector Association="RompecabezasFEIModel.JugadorSolicitudAmistad" />
+        <AssociationConnector Association="RompecabezasFEIModel.JugadorSolicitudAmistad1" />
+        <AssociationConnector Association="RompecabezasFEIModel.JugadorJugador_Partida" />
+        <AssociationConnector Association="RompecabezasFEIModel.JugadorSala" />
+        <AssociationConnector Association="RompecabezasFEIModel.PartidaJugador_Partida" />
+        <AssociationConnector Association="RompecabezasFEIModel.SalaPartida" />
+        <AssociationConnector Association="RompecabezasFEIModel.JugadorUsuario" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

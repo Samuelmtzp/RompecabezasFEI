@@ -1,0 +1,18 @@
+﻿<Window x:Class="RompecabezasFei.VentanaPrincipal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RompecabezasFei"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="720" Width="1280"
+        Background="#262626" 
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel Margin="0,0,0,0" Width="1280" Height="720">
+            <Frame Name="MarcoPaginaActual" Width="1280" Height="720" NavigationUIVisibility="Hidden"></Frame>
+        </StackPanel>
+    </Grid>
+
+</Window>
