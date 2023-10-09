@@ -206,5 +206,11 @@
   <ItemGroup>
     <Resource Include="Imagenes\Indicadores\Musica.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Seguridad\Seguridad.csproj">
+      <Project>{81E8F49E-E3B9-4DE1-BC8B-530306943FE4}</Project>
+      <Name>Seguridad</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

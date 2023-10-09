@@ -208,6 +208,18 @@ namespace RompecabezasFei.ServicioGestionJugador {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionJugador/Registrar", ReplyAction="http://tempuri.org/IServicioGestionJugador/RegistrarResponse")]
         System.Threading.Tasks.Task<bool> RegistrarAsync(RompecabezasFei.ServicioGestionJugador.Usuario usuario, RompecabezasFei.ServicioGestionJugador.Jugador jugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionJugador/ExisteCorreoElectronico", ReplyAction="http://tempuri.org/IServicioGestionJugador/ExisteCorreoElectronicoResponse")]
+        bool ExisteCorreoElectronico(string correoElectronico);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionJugador/ExisteCorreoElectronico", ReplyAction="http://tempuri.org/IServicioGestionJugador/ExisteCorreoElectronicoResponse")]
+        System.Threading.Tasks.Task<bool> ExisteCorreoElectronicoAsync(string correoElectronico);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionJugador/ExisteNombreUsuario", ReplyAction="http://tempuri.org/IServicioGestionJugador/ExisteNombreUsuarioResponse")]
+        bool ExisteNombreUsuario(string nombreUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionJugador/ExisteNombreUsuario", ReplyAction="http://tempuri.org/IServicioGestionJugador/ExisteNombreUsuarioResponse")]
+        System.Threading.Tasks.Task<bool> ExisteNombreUsuarioAsync(string nombreUsuario);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -243,6 +255,22 @@ namespace RompecabezasFei.ServicioGestionJugador {
         
         public System.Threading.Tasks.Task<bool> RegistrarAsync(RompecabezasFei.ServicioGestionJugador.Usuario usuario, RompecabezasFei.ServicioGestionJugador.Jugador jugador) {
             return base.Channel.RegistrarAsync(usuario, jugador);
+        }
+        
+        public bool ExisteCorreoElectronico(string correoElectronico) {
+            return base.Channel.ExisteCorreoElectronico(correoElectronico);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ExisteCorreoElectronicoAsync(string correoElectronico) {
+            return base.Channel.ExisteCorreoElectronicoAsync(correoElectronico);
+        }
+        
+        public bool ExisteNombreUsuario(string nombreUsuario) {
+            return base.Channel.ExisteNombreUsuario(nombreUsuario);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ExisteNombreUsuarioAsync(string nombreUsuario) {
+            return base.Channel.ExisteNombreUsuarioAsync(nombreUsuario);
         }
     }
 }

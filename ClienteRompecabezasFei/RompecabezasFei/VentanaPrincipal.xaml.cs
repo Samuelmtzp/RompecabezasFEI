@@ -30,5 +30,11 @@ namespace RompecabezasFei
             InitializeComponent();
             MarcoPaginaActual.Navigate(new PaginaInicioSesion());
         }
+
+        public static void CambiarPagina(Page paginaAntigua, Page nuevaPagina)
+        {
+            VentanaPrincipal ventanaPrincipal = (VentanaPrincipal) GetWindow(paginaAntigua);
+            ventanaPrincipal.MarcoPaginaActual.Navigate(nuevaPagina);
+        }
     }
 }

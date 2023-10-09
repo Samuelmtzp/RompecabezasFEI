@@ -15,6 +15,10 @@ namespace Contratos
 
         [OperationContract]
         bool Registrar(Datos.Usuario usuario, Datos.Jugador jugador);
+        [OperationContract]
+        bool ExisteCorreoElectronico(string correoElectronico);
+        [OperationContract]
+        bool ExisteNombreUsuario(string nombreUsuario);
 
     }
 
