@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -20,9 +22,42 @@ namespace RompecabezasFei
     /// </summary>
     public partial class PaginaAjustes : Page
     {
+        string idioma;
+        
         public PaginaAjustes()
         {
             InitializeComponent();
+            if (App.Current.IdiomaActual == "en-US")
+                CajaOpcionesIdioma.SelectedIndex = 0;
+            else
+                CajaOpcionesIdioma.SelectedIndex = 1;
+        }
+
+        private void SeleccionLenguaje(object sender, SelectionChangedEventArgs e)
+        {
+            if (CajaOpcionesIdioma.SelectedIndex == 0)
+                idioma = "en-US";
+            else
+                idioma = "es-MX";
+        }
+
+        private void RefrescarPaginaActual()
+        {
+            VentanaPrincipal ventanaPrincipal = (VentanaPrincipal)Window.GetWindow(this);
+            ventanaPrincipal.MarcoPaginaActual.Navigate(new PaginaAjustes());
+        }
+
+
+        private void ImagenFlechaRegreso_Click(object sender, MouseButtonEventArgs e)
+        {
+            VentanaPrincipal ventanaPrincipal = (VentanaPrincipal)Window.GetWindow(this);
+            ventanaPrincipal.MarcoPaginaActual.Navigate(new PaginaInicioSesion());
+        }
+
+        private void CajaOpcionesIdioma_Cerrada(object sender, EventArgs e)
+        {
+            App.Current.CambiarIdioma(idioma);
+            RefrescarPaginaActual();
         }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RompecabezasFei"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1280"
+        Title="Rompecabezas FEI" Height="720" Width="1280"
         Background="#262626" 
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
