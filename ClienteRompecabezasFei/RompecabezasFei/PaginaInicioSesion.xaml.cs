@@ -1,21 +1,11 @@
 ﻿using RompecabezasFei.ServicioGestionJugador;
 using Security;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.ServiceModel;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace RompecabezasFei
 {
@@ -34,7 +24,8 @@ namespace RompecabezasFei
             VentanaPrincipal.CambiarPagina(this, new PaginaMenuPrincipal());
         }
 
-        private void OpcionRecuperarContrasena_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void OpcionRecuperarContrasena_MouseLeftButtonUp(object sender, 
+            MouseButtonEventArgs e)
         {
             MessageBox.Show("Click en opción recuperar contraseña");
         }
@@ -54,9 +45,11 @@ namespace RompecabezasFei
         {
             var nombreUsuario = CuadroTextoNombreUsuario.Text;
             var contrasena = CuadroContrasena.Password;
-            if (!String.IsNullOrWhiteSpace(nombreUsuario) && !String.IsNullOrWhiteSpace(contrasena))
+            if (!String.IsNullOrWhiteSpace(nombreUsuario) && !String.IsNullOrWhiteSpace(
+                contrasena))
             {
-                if (ExistenCadenasValidas(nombreUsuario, contrasena) && !ExistenLongitudesExcedidas(nombreUsuario, contrasena))
+                if (ExistenCadenasValidas(nombreUsuario, contrasena) && 
+                    !ExistenLongitudesExcedidas(nombreUsuario, contrasena))
                 {
                     try
                     {
@@ -81,23 +74,27 @@ namespace RompecabezasFei
         private void IniciarSesion(string nombreUsuario, string contrasena)
         {
             ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
-            Jugador jugador = cliente.IniciarSesion(nombreUsuario, EncriptadorContrasena.CalcularHashSha512(contrasena));
+            Jugador jugador = cliente.IniciarSesion(nombreUsuario, 
+                EncriptadorContrasena.CalcularHashSha512(contrasena));
 
             if (jugador != null)
             {
-                MessageBox.Show($"Bienvenido a Rompecabezas FEI {jugador.NombreJugador}", "Bienvenido", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Bienvenido a Rompecabezas FEI {jugador.NombreJugador}", 
+                    "Bienvenido", MessageBoxButton.OK, MessageBoxImage.Information);
                 VentanaPrincipal.CambiarPagina(this, new PaginaMenuPrincipal());
             }
             else
             {
-                MessageBox.Show("No se pudo iniciar sesión", "Inicio de sesión cancelado", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("No se pudo iniciar sesión", "Inicio de sesión cancelado", 
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private bool ExistenCadenasValidas(string nombreUsuario, string contrasena)
         {
             var esValido = false;
-            if (Regex.IsMatch(nombreUsuario, "^[a-zA-Z0-9]*$") && Regex.IsMatch(contrasena, "^[a-zA-Z0-9]*$"))
+            if (Regex.IsMatch(nombreUsuario, "^[a-zA-Z0-9]*$") && Regex.IsMatch(contrasena, 
+                "^[a-zA-Z0-9]*$"))
             {
                 esValido = true;
             }
