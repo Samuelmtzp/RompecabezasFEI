@@ -27,19 +27,17 @@ namespace RompecabezasFei
 
         private void BotonInicioSesion_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Click en boton inicio sesion");
+            VentanaPrincipal.CambiarPagina(this, new PaginaMenuPrincipal());
         }
 
         private void BotonModoInvitado_Click(object sender, RoutedEventArgs e)
         {
-            VentanaPrincipal ventanaPrincipal = (VentanaPrincipal)Window.GetWindow(this);
-            ventanaPrincipal.MarcoPaginaActual.Navigate(new PaginaMenuPrincipal());
+            VentanaPrincipal.CambiarPagina(this, new PaginaMenuPrincipal());
         }
 
         private void OpcionRegistro_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            VentanaPrincipal ventanaPrincipal = (VentanaPrincipal)Window.GetWindow(this);
-            ventanaPrincipal.MarcoPaginaActual.Navigate(new PaginaRegistroUsuario());
+            VentanaPrincipal.CambiarPagina(this, new PaginaRegistroUsuario());
         }
 
         private void OpcionRecuperarContrasena_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -48,8 +46,7 @@ namespace RompecabezasFei
         }
         private void ImagenAjustes_Click(object sender, MouseButtonEventArgs e)
         {
-            VentanaPrincipal ventanaPrincipal = (VentanaPrincipal)Window.GetWindow(this);
-            ventanaPrincipal.MarcoPaginaActual.Navigate(new PaginaAjustes());
+            VentanaPrincipal.CambiarPagina(this, new PaginaAjustes());
         }
     }
 }

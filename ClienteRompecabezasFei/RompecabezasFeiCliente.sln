@@ -5,7 +5,7 @@ VisualStudioVersion = 17.6.33717.318
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RompecabezasFei", "RompecabezasFei\RompecabezasFei.csproj", "{9B80DAD0-8255-4495-9D72-EEB8AC2B5479}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Seguridad", "Seguridad\Seguridad.csproj", "{52FF7381-B7EC-44C4-A10D-1F8C4FBB27CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seguridad", "Seguridad\Seguridad.csproj", "{81E8F49E-E3B9-4DE1-BC8B-530306943FE4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{9B80DAD0-8255-4495-9D72-EEB8AC2B5479}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B80DAD0-8255-4495-9D72-EEB8AC2B5479}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B80DAD0-8255-4495-9D72-EEB8AC2B5479}.Release|Any CPU.Build.0 = Release|Any CPU
-		{52FF7381-B7EC-44C4-A10D-1F8C4FBB27CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{52FF7381-B7EC-44C4-A10D-1F8C4FBB27CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{52FF7381-B7EC-44C4-A10D-1F8C4FBB27CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{52FF7381-B7EC-44C4-A10D-1F8C4FBB27CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81E8F49E-E3B9-4DE1-BC8B-530306943FE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81E8F49E-E3B9-4DE1-BC8B-530306943FE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81E8F49E-E3B9-4DE1-BC8B-530306943FE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81E8F49E-E3B9-4DE1-BC8B-530306943FE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -43,15 +43,13 @@ namespace RompecabezasFei
 
         private void RefrescarPaginaActual()
         {
-            VentanaPrincipal ventanaPrincipal = (VentanaPrincipal)Window.GetWindow(this);
-            ventanaPrincipal.MarcoPaginaActual.Navigate(new PaginaAjustes());
+            VentanaPrincipal.CambiarPagina(this, new PaginaAjustes());
         }
 
 
         private void ImagenFlechaRegreso_Click(object sender, MouseButtonEventArgs e)
         {
-            VentanaPrincipal ventanaPrincipal = (VentanaPrincipal)Window.GetWindow(this);
-            ventanaPrincipal.MarcoPaginaActual.Navigate(new PaginaInicioSesion());
+            VentanaPrincipal.CambiarPagina(this, new PaginaInicioSesion());
         }
 
         private void CajaOpcionesIdioma_Cerrada(object sender, EventArgs e)

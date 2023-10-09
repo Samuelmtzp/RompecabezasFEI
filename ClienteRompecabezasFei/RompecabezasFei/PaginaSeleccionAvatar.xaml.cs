@@ -44,11 +44,10 @@ namespace RompecabezasFei
 
         private void regresarPaginaRegistroUsuario()
         {
-            VentanaPrincipal ventanaPrincipal = (VentanaPrincipal)Window.GetWindow(this);
             PaginaRegistroUsuario paginaRegistroUsuario = new PaginaRegistroUsuario();
             paginaRegistroUsuario.ImagenAvatarActual.Source = this.ImagenAvatarActual.Source;
             paginaRegistroUsuario.ImagenAvatarActual.Tag = this.ImagenAvatarActual.Tag;
-            ventanaPrincipal.MarcoPaginaActual.Navigate(paginaRegistroUsuario);
+            VentanaPrincipal.CambiarPagina(this, paginaRegistroUsuario);
         }
     }
 }

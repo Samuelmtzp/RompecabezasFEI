@@ -47,8 +47,7 @@ namespace RompecabezasFei
 
             if (resultado == MessageBoxResult.Yes)
             {
-                VentanaPrincipal ventanaPrincipal = (VentanaPrincipal)Window.GetWindow(this);
-                ventanaPrincipal.MarcoPaginaActual.Navigate(new PaginaInicioSesion());
+                VentanaPrincipal.CambiarPagina(this, new PaginaInicioSesion());
             }
         }
 
@@ -59,7 +58,7 @@ namespace RompecabezasFei
 
         private void ImagenAjustes_Click(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Click en opción ajustes");
+            VentanaPrincipal.CambiarPagina(this, new PaginaAjustes());
         }
 
     }
