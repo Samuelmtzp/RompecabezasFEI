@@ -19,6 +19,8 @@ namespace Contratos
         bool ExisteCorreoElectronico(string correoElectronico);
         [OperationContract]
         bool ExisteNombreUsuario(string nombreUsuario);
+        [OperationContract]
+        Datos.Jugador IniciarSesion(string nombreUsuario, string contrasena);
 
     }
 

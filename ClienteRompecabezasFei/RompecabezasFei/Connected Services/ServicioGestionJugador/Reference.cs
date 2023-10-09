@@ -220,6 +220,12 @@ namespace RompecabezasFei.ServicioGestionJugador {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionJugador/ExisteNombreUsuario", ReplyAction="http://tempuri.org/IServicioGestionJugador/ExisteNombreUsuarioResponse")]
         System.Threading.Tasks.Task<bool> ExisteNombreUsuarioAsync(string nombreUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionJugador/IniciarSesion", ReplyAction="http://tempuri.org/IServicioGestionJugador/IniciarSesionResponse")]
+        RompecabezasFei.ServicioGestionJugador.Jugador IniciarSesion(string nombreUsuario, string contrasena);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionJugador/IniciarSesion", ReplyAction="http://tempuri.org/IServicioGestionJugador/IniciarSesionResponse")]
+        System.Threading.Tasks.Task<RompecabezasFei.ServicioGestionJugador.Jugador> IniciarSesionAsync(string nombreUsuario, string contrasena);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -271,6 +277,14 @@ namespace RompecabezasFei.ServicioGestionJugador {
         
         public System.Threading.Tasks.Task<bool> ExisteNombreUsuarioAsync(string nombreUsuario) {
             return base.Channel.ExisteNombreUsuarioAsync(nombreUsuario);
+        }
+        
+        public RompecabezasFei.ServicioGestionJugador.Jugador IniciarSesion(string nombreUsuario, string contrasena) {
+            return base.Channel.IniciarSesion(nombreUsuario, contrasena);
+        }
+        
+        public System.Threading.Tasks.Task<RompecabezasFei.ServicioGestionJugador.Jugador> IniciarSesionAsync(string nombreUsuario, string contrasena) {
+            return base.Channel.IniciarSesionAsync(nombreUsuario, contrasena);
         }
     }
 }

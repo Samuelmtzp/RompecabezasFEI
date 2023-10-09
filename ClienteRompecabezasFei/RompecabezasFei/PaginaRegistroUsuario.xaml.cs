@@ -134,9 +134,9 @@ namespace RompecabezasFei
             return camposExcedidos;
         }
 
-        private Boolean ExistenCadenasInvalidas()
+        private bool ExistenCadenasInvalidas()
         {
-            Boolean cadenasInvalidas = false;
+            bool cadenasInvalidas = false;
             if (ExistenCaracteresInvalidos(CuadroTextoNombreUsuario.Text))
             {
                 MessageBox.Show("El correo electrónico que has ingresado es inválido", 
@@ -155,7 +155,7 @@ namespace RompecabezasFei
 
         private bool ExisteContrasenaInvalida()
         {
-            Boolean contrasenaInvalida = false;
+            bool contrasenaInvalida = false;
             if (Regex.IsMatch(contrasena, "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$") 
                 == false)
             {
@@ -168,7 +168,7 @@ namespace RompecabezasFei
 
         private bool ExistenCaracteresInvalidosParaCorreo(String textoValido)
         {
-            Boolean caracteresInvalidos = false;
+            bool caracteresInvalidos = false;
             if (Regex.IsMatch(textoValido, @"^[^@\s]+@[^@\s]+\.[^@\s]+$") == false)
             {
                 caracteresInvalidos = true;
@@ -178,7 +178,7 @@ namespace RompecabezasFei
 
         private bool ExistenCaracteresInvalidos(String textoValido)
         {
-            Boolean caracteresInvalidos = false;
+            bool caracteresInvalidos = false;
             if (Regex.IsMatch(textoValido, "^[A-Za-zÁÉÍÓÚáéíóúñÑ\\s]+$") == false)
             {
                 caracteresInvalidos = true;
@@ -188,7 +188,7 @@ namespace RompecabezasFei
 
         private bool ExisteContrasenaIncorrecta()
         {
-            Boolean contrasenaInvalida;
+            bool contrasenaInvalida;
             if (contrasena == confirmacionContrasena)
             {
                 contrasenaInvalida = false;
