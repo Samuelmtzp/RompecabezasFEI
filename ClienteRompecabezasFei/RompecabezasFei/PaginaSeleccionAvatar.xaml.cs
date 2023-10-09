@@ -25,12 +25,12 @@ namespace RompecabezasFei
             InitializeComponent();
         }
 
-        private void ImagenFlechaRegreso_MouseDown(object sender, MouseButtonEventArgs e)
+        private void ImagenFlechaRegreso_Click(object sender, MouseButtonEventArgs e)
         {
             regresarPaginaRegistroUsuario();
         }
 
-        private void ImagenSeleccionada_MouseDown(object sender, MouseButtonEventArgs e)
+        private void ImagenSeleccionada_Click(object sender, MouseButtonEventArgs e)
         {
             Image imagenSeleccionada = sender as Image;
             ImagenAvatarActual.Source = imagenSeleccionada.Source;

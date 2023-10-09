@@ -32,8 +32,8 @@ namespace RompecabezasFei
 
         private void BotonModoInvitado_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Click en boton modo invitado");
-
+            VentanaPrincipal ventanaPrincipal = (VentanaPrincipal)Window.GetWindow(this);
+            ventanaPrincipal.MarcoPaginaActual.Navigate(new PaginaMenuPrincipal());
         }
 
         private void OpcionRegistro_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)

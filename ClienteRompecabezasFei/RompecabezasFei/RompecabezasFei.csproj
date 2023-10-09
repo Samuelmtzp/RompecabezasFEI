@@ -68,8 +68,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="PaginaAjustes.xaml.cs">
+      <DependentUpon>PaginaAjustes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PaginaInicioSesion.xaml.cs">
       <DependentUpon>PaginaInicioSesion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PaginaMenuPrincipal.xaml.cs">
+      <DependentUpon>PaginaMenuPrincipal.xaml</DependentUpon>
     </Compile>
     <Compile Include="PaginaRegistroUsuario.xaml.cs">
       <DependentUpon>PaginaRegistroUsuario.xaml</DependentUpon>
@@ -116,7 +122,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="PaginaAjustes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PaginaInicioSesion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PaginaMenuPrincipal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -167,6 +181,24 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Indicadores\CrearSala.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Indicadores\CerrarSesion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Indicadores\Amigos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Avatares\Invitado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Indicadores\Ajustes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Indicadores\UnirseASala.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
