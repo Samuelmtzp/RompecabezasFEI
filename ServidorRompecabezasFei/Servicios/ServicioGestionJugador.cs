@@ -69,9 +69,22 @@ namespace Servicios
             }
             catch (EntityException excepcionEntidad)
             {
-                Console.WriteLine($"{excepcionEntidad.Message}");
             }
             return estadoRegistro;
+        }
+
+        public Datos.Jugador IniciarSesion(String nombreUsuario, String contrasena)
+        {
+            Datos.Jugador jugador = new Datos.Jugador();
+            try
+            {
+                var cliente = new Autenticacion();
+                jugador = cliente.iniciarSesion(nombreUsuario, contrasena);
+            }
+            catch (EntityException excepcionEntidad)
+            {
+            };
+            return jugador;
         }
     }
 }
