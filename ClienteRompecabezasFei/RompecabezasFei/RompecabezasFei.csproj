@@ -200,5 +200,11 @@
   <ItemGroup>
     <Resource Include="Imagenes\Indicadores\UnirseASala.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Indicadores\Idioma.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Indicadores\Musica.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

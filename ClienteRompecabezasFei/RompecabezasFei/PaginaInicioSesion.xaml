@@ -18,5 +18,7 @@
         <Button Name="BotonModoInvitado" Content="Modo invitado" HorizontalAlignment="Left" Margin="596,447,0,0" VerticalAlignment="Top" FontSize="36" Height="58" Width="548" Foreground="White" Background="#FF048ABF" Click="BotonModoInvitado_Click"/>
         <Label Name="OpcionRegistro" Content="¿No tienes una cuenta? Registrate aquí" HorizontalAlignment="Left" Margin="625,520,0,0" VerticalAlignment="Top" FontSize="28" Foreground="White" MouseLeftButtonUp="OpcionRegistro_MouseLeftButtonUp"/>
         <Label Name="OpcionRecuperarContrasena" Content="¿Olvidaste tu contraseña?" HorizontalAlignment="Left" Margin="707,572,0,0" VerticalAlignment="Top" FontSize="28" Foreground="White" MouseLeftButtonUp="OpcionRecuperarContrasena_MouseLeftButtonUp" />
+        <Image Source="/Imagenes/Indicadores/Ajustes.png" HorizontalAlignment="Left" Height="82" Margin="1136,21,0,0" VerticalAlignment="Top" Width="82" MouseDown="ImagenAjustes_Click"/>
+        <Label Content="Ajustes" HorizontalAlignment="Left" Margin="1136,103,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24"/>
     </Grid>
 </Page>

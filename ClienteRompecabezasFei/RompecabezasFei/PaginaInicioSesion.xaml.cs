@@ -45,7 +45,11 @@ namespace RompecabezasFei
         private void OpcionRecuperarContrasena_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             MessageBox.Show("Click en opción recuperar contraseña");
-
+        }
+        private void ImagenAjustes_Click(object sender, MouseButtonEventArgs e)
+        {
+            VentanaPrincipal ventanaPrincipal = (VentanaPrincipal)Window.GetWindow(this);
+            ventanaPrincipal.MarcoPaginaActual.Navigate(new PaginaAjustes());
         }
     }
 }
