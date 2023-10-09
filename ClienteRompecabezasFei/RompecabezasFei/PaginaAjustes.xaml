@@ -4,12 +4,13 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RompecabezasFei"
+      xmlns:p="clr-namespace:RompecabezasFei.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1280"
       Title="PaginaAjustes">
 
     <Grid>
-        <Label Content="Ajustes" HorizontalAlignment="Center" Margin="0,26,0,0" VerticalAlignment="Top" Foreground="White" FontSize="48" FontWeight="Bold"/>
+        <Label Content="{x:Static p:Resources.Ajustes}" HorizontalAlignment="Center" Margin="0,26,0,0" VerticalAlignment="Top" Foreground="White" FontSize="48" FontWeight="Bold"/>
         <Image Name="ImagenFlechaRegreso" Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="42,36,1157,604" Height="81" Width="81" MouseDown="ImagenFlechaRegreso_Click"/>
         <Image HorizontalAlignment="Left" Height="106" Margin="254,204,0,0" VerticalAlignment="Top" Width="106" Source="\Imagenes/Indicadores/Musica.png"/>
         <Image HorizontalAlignment="Left" Height="106" Margin="254,382,0,0" VerticalAlignment="Top" Width="106" Source="\Imagenes/Indicadores/Idioma.png"/>
@@ -18,23 +19,23 @@
                 <Style TargetType="{x:Type ToggleButton}">
                     <Style.Triggers>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter Property="Content" Value="Activada"/>
+                            <Setter Property="Content" Value="{x:Static p:Resources.Activada}"/>
                         </Trigger>
                         <Trigger Property="IsChecked" Value="False">
-                            <Setter Property="Content" Value="Desactivada"/>
+                            <Setter Property="Content" Value="{x:Static p:Resources.Desactivada}"/>
                         </Trigger>
                     </Style.Triggers>
                 </Style>
             </ToggleButton.Style>
         </ToggleButton>
-        <Label Content="Música" HorizontalAlignment="Left" Margin="418,232,0,0" VerticalAlignment="Top" Height="50" Width="154" FontSize="36" Foreground="White" FontWeight="Bold"/>
-        <Label Content="Idioma" HorizontalAlignment="Left" Margin="418,410,0,0" VerticalAlignment="Top" Height="50" Width="154" FontSize="36" Foreground="White" FontWeight="Bold"/>
+        <Label Content="{x:Static p:Resources.Música}" HorizontalAlignment="Left" Margin="418,232,0,0" VerticalAlignment="Top" Height="50" Width="154" FontSize="36" Foreground="White" FontWeight="Bold"/>
+        <Label Content="{x:Static p:Resources.Idioma}" HorizontalAlignment="Left" Margin="418,410,0,0" VerticalAlignment="Top" Height="50" Width="154" FontSize="36" Foreground="White" FontWeight="Bold"/>
         <ComboBox Name="CajaOpcionesIdioma" HorizontalAlignment="Left" Margin="664,405,0,0" VerticalAlignment="Top" FontSize="10" Width="138" Height="21" SelectionChanged="SeleccionLenguaje" DropDownClosed="CajaOpcionesIdioma_Cerrada">
             <ComboBox.LayoutTransform>
                 <ScaleTransform ScaleX="3" ScaleY="3"/>
             </ComboBox.LayoutTransform>
-            <ComboBoxItem Content="Inglés"/>
-            <ComboBoxItem Content="Español"/>
+            <ComboBoxItem Content="{x:Static p:Resources.Inglés}"/>
+            <ComboBoxItem Content="{x:Static p:Resources.Español}"/>
         </ComboBox>
 
     </Grid>
