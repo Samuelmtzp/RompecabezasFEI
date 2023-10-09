@@ -35,11 +35,56 @@ namespace Servicios
 
                 estadoRegistro = registro.Registrar(usuarioRegistro, jugadorRegistro);
             }
-            catch (EntityException excepcionEntity)
+            catch (EntityException excepcionEntidad)
             {
-                Console.WriteLine($"{excepcionEntity.Message}");
+                Console.WriteLine($"{excepcionEntidad.Message}");
             }
             return estadoRegistro;
+        }
+
+        public bool ExisteCorreoElectronico(string correoElectronico)
+        {
+            Registro registro = new Registro();
+            var estadoRegistro = false;
+
+            try
+            {
+                estadoRegistro = registro.ExisteCorreoElectronico(correoElectronico);
+            }
+            catch (EntityException excepcionEntidad)
+            {
+                Console.WriteLine($"{excepcionEntidad.Message}");
+            }
+            return estadoRegistro;
+        }
+
+        public bool ExisteNombreUsuario(string nombreUsuario)
+        {
+            Registro registro = new Registro();
+            var estadoRegistro = false;
+
+            try
+            {
+                estadoRegistro = registro.ExisteNombreUsuario(nombreUsuario);
+            }
+            catch (EntityException excepcionEntidad)
+            {
+            }
+            return estadoRegistro;
+        }
+
+        public Datos.Jugador IniciarSesion(String nombreUsuario, String contrasena)
+        {
+            Datos.Jugador jugador = new Datos.Jugador();
+            try
+            {
+                var cliente = new Autenticacion();
+                jugador = cliente.iniciarSesion(nombreUsuario, contrasena);
+            }
+            catch (EntityException excepcionEntidad)
+            {
+            };
+            return jugador;
         }
     }
 }

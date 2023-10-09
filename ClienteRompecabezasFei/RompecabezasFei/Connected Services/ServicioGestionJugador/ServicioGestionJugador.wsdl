@@ -42,10 +42,40 @@
   <wsdl:message name="IServicioGestionJugador_Registrar_OutputMessage">
     <wsdl:part name="parameters" element="tns:RegistrarResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_ExisteCorreoElectronico_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteCorreoElectronico" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_ExisteCorreoElectronico_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteCorreoElectronicoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_ExisteNombreUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteNombreUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_ExisteNombreUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteNombreUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_IniciarSesion_InputMessage">
+    <wsdl:part name="parameters" element="tns:IniciarSesion" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_IniciarSesion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IniciarSesionResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServicioGestionJugador">
     <wsdl:operation name="Registrar">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/Registrar" message="tns:IServicioGestionJugador_Registrar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionJugador/RegistrarResponse" message="tns:IServicioGestionJugador_Registrar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExisteCorreoElectronico">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/ExisteCorreoElectronico" message="tns:IServicioGestionJugador_ExisteCorreoElectronico_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionJugador/ExisteCorreoElectronicoResponse" message="tns:IServicioGestionJugador_ExisteCorreoElectronico_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExisteNombreUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/ExisteNombreUsuario" message="tns:IServicioGestionJugador_ExisteNombreUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionJugador/ExisteNombreUsuarioResponse" message="tns:IServicioGestionJugador_ExisteNombreUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IniciarSesion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/IniciarSesion" message="tns:IServicioGestionJugador_IniciarSesion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionJugador/IniciarSesionResponse" message="tns:IServicioGestionJugador_IniciarSesion_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="EndPointIServicioGestionJugador" type="tns:IServicioGestionJugador">
@@ -53,6 +83,33 @@
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
     <wsdl:operation name="Registrar">
       <soap12:operation soapAction="http://tempuri.org/IServicioGestionJugador/Registrar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExisteCorreoElectronico">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionJugador/ExisteCorreoElectronico" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExisteNombreUsuario">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionJugador/ExisteNombreUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IniciarSesion">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionJugador/IniciarSesion" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

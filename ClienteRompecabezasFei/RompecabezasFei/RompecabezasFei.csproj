@@ -118,6 +118,9 @@
     <None Include="Connected Services\ServicioGestionJugador\item2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ServicioGestionJugador\RompecabezasFei.ServicioGestionJugador.Jugador.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServicioGestionJugador\ServicioGestionJugador.wsdl" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -228,6 +231,10 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <ProjectReference Include="..\Seguridad\Seguridad.csproj">
+      <Project>{81E8F49E-E3B9-4DE1-BC8B-530306943FE4}</Project>
+      <Name>Seguridad</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
