@@ -118,99 +118,99 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Aceptar" xml:space="preserve">
-    <value>Aceptar</value>
+    <value>Accept</value>
   </data>
   <data name="Activada" xml:space="preserve">
-    <value>Activada</value>
+    <value>Activated</value>
   </data>
   <data name="Ajustes" xml:space="preserve">
-    <value>Ajustes</value>
+    <value>Settings</value>
   </data>
   <data name="CerrarSesion" xml:space="preserve">
-    <value>Cerrar sesión</value>
+    <value>Sign off</value>
   </data>
   <data name="ConfirmarContraseña" xml:space="preserve">
-    <value>Confirmar contraseña</value>
+    <value>Confirm password</value>
   </data>
   <data name="Contraseña" xml:space="preserve">
-    <value>Contraseña</value>
+    <value>Password</value>
   </data>
   <data name="ContraseñaIncorrecta" xml:space="preserve">
-    <value>Contraseña incorrecta</value>
+    <value>Wrong password</value>
   </data>
   <data name="ContraseñaInválida" xml:space="preserve">
-    <value>Contraseña inválida</value>
+    <value>Invalid password</value>
   </data>
   <data name="Correo" xml:space="preserve">
-    <value>Correo electrónico</value>
+    <value>Email</value>
   </data>
   <data name="CorreoNoDisponible" xml:space="preserve">
-    <value>Correo no disponible</value>
+    <value>Unavailable email</value>
   </data>
   <data name="CrearNuevaSala" xml:space="preserve">
-    <value>Crear nueva sala</value>
+    <value>Create new lobby</value>
   </data>
   <data name="Desactivada" xml:space="preserve">
-    <value>Desactivada</value>
+    <value>Disabled</value>
   </data>
   <data name="Español" xml:space="preserve">
-    <value>Español</value>
+    <value>Spanish</value>
   </data>
   <data name="Idioma" xml:space="preserve">
-    <value>Idioma</value>
+    <value>Languague</value>
   </data>
   <data name="InformacionRequisitosContraseña" xml:space="preserve">
-    <value>La contraseña debe ser de al menos 8 caracteres, debes incluir letras mayúsculas, minúsculas y números</value>
+    <value>The password must be at least 8 characters, including uppercase and lowercase letters and numbers</value>
   </data>
   <data name="Inglés" xml:space="preserve">
-    <value>Inglés</value>
+    <value>English</value>
   </data>
   <data name="IniciarSesion" xml:space="preserve">
-    <value>Iniciar sesión</value>
+    <value>Log in</value>
   </data>
   <data name="MiPerfil" xml:space="preserve">
-    <value>Mi perfil</value>
+    <value>My profile</value>
   </data>
   <data name="MisAmigos" xml:space="preserve">
-    <value>Mis amigos</value>
+    <value>My friends</value>
   </data>
   <data name="ModoInvitado" xml:space="preserve">
-    <value>Modo invitado</value>
+    <value>Guest mode</value>
   </data>
   <data name="Música" xml:space="preserve">
-    <value>Música</value>
+    <value>Music</value>
   </data>
   <data name="NombreUsuario" xml:space="preserve">
-    <value>Nombre de usuario</value>
+    <value>User name</value>
   </data>
   <data name="OpcionContraseñaOlvidada" xml:space="preserve">
-    <value>¿Olvidaste tu contraseña?</value>
+    <value>Did you forget your password?</value>
   </data>
   <data name="OpcionRegistrateAqui" xml:space="preserve">
-    <value>¿No tienes una cuenta? Registrate aquí</value>
+    <value>You do not have an account? sign up here</value>
   </data>
   <data name="RegistroUsuario" xml:space="preserve">
-    <value>Registro de usuario</value>
+    <value>User register</value>
   </data>
   <data name="RompecabezasFEI" xml:space="preserve">
-    <value>Rompecabezas FEI</value>
+    <value>FEI Puzzle</value>
   </data>
   <data name="SeleccionarAvatar" xml:space="preserve">
-    <value>Seleccionar avatar</value>
+    <value>Select avatar</value>
   </data>
   <data name="Siguiente" xml:space="preserve">
-    <value>Siguiente</value>
+    <value>Next</value>
   </data>
   <data name="TituloIniciarSesion" xml:space="preserve">
     <value>Iniciar sesión</value>
   </data>
   <data name="UnirseSala" xml:space="preserve">
-    <value>Unirse a sala</value>
+    <value>Join lobby</value>
   </data>
   <data name="UsuarioExistente" xml:space="preserve">
-    <value>Usuario existente</value>
+    <value>Existing user</value>
   </data>
   <data name="UsuarioIncorrecto" xml:space="preserve">
-    <value>Usuario incorrecto</value>
+    <value>Wrong user</value>
   </data>
 </root>
