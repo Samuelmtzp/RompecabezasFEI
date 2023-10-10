@@ -49,7 +49,7 @@ namespace RompecabezasFei
 
         private void ImagenFlechaRegreso_Click(object sender, MouseButtonEventArgs e)
         {
-            VentanaPrincipal.CambiarPagina(this, new PaginaInicioSesion());
+            VentanaPrincipal.IrPaginaAnterior(this);
         }
 
         private void CajaOpcionesIdioma_Cerrada(object sender, EventArgs e)

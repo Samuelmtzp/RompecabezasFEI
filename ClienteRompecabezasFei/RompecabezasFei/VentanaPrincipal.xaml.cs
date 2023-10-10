@@ -20,6 +20,19 @@ namespace RompecabezasFei
     /// </summary>
     public partial class VentanaPrincipal : Window
     {
+        private static Page paginaAnterior;
+        public static Page PaginaAnterior
+        {
+            get
+            {
+                return paginaAnterior;
+            }
+            private set
+            {
+                paginaAnterior = value;
+            }
+        }
+
         public Window GetVentana()
         {
             return this;
@@ -33,8 +46,14 @@ namespace RompecabezasFei
 
         public static void CambiarPagina(Page paginaAntigua, Page nuevaPagina)
         {
+            PaginaAnterior = paginaAntigua;
             VentanaPrincipal ventanaPrincipal = (VentanaPrincipal) GetWindow(paginaAntigua);
             ventanaPrincipal.MarcoPaginaActual.Navigate(nuevaPagina);
+        }
+
+        public static void IrPaginaAnterior(Page paginaAntigua)
+        {
+            CambiarPagina(paginaAntigua, paginaAnterior);
         }
     }
 }

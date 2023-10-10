@@ -10,7 +10,7 @@
       Title="PaginaMenuPrincipal">
     <Grid>
         <Image Margin="142,107,874,357" Source="/Imagenes/Logos/RompecabezasFEI.png" Stretch="Fill"/>
-        <Label Content="{x:Static p:Resources.RompecabezasFEI}"  HorizontalAlignment="Left" Margin="126,370,0,0" VerticalAlignment="Top" FontSize="32" FontWeight="Bold" Foreground="White"/>
+        <Label Content="{x:Static p:Resources.RompecabezasFEI}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="126,370,0,0" VerticalAlignment="Top" FontSize="32" FontWeight="Bold" Foreground="White" Width="305"/>
         <Button Name="BotonCrearSala" HorizontalAlignment="Left" Margin="595,107,0,0" VerticalAlignment="Top" FontSize="36" Height="110" Width="549" Background="#FF03A64A" Click="BotonCrearSala_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/Imagenes/Indicadores/CrearSala.png" Height="93" Width="93" HorizontalAlignment="Left"/>
@@ -25,7 +25,7 @@
         </Button>
 
         <Image Source="/Imagenes/Indicadores/CerrarSesion.png" HorizontalAlignment="Left" Height="82" Margin="526,510,0,0" VerticalAlignment="Top" Width="82" MouseDown="ImagenCerrarSesion_Click"/>
-        <Label Content="{x:Static p:Resources.CerrarSesion}" HorizontalAlignment="Left" Margin="492,592,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24"/>
+        <Label Content="{x:Static p:Resources.CerrarSesion}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="492,592,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Width="148"/>
         <Image Source="/Imagenes/Indicadores/Amigos.png" HorizontalAlignment="Left" Height="82" Margin="733,510,0,0" VerticalAlignment="Top" Width="82" MouseDown="ImagenMisAmigos_Click"/>
         <Label Content="{x:Static p:Resources.MisAmigos}" HorizontalAlignment="Left" Margin="707,592,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24"/>
         <Image Name="Imagen_AvatarUsuario" HorizontalAlignment="Left" Height="82" Margin="909,510,0,0" VerticalAlignment="Top" Width="82" MouseDown="ImagenMiPerfil_Click"/>
