@@ -45,6 +45,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,18 +55,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Autenticacion.cs" />
+    <Compile Include="Jugador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registro.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Datos\Datos.csproj">
-      <Project>{979C4A3E-9308-4B93-82BA-EA3374EBEA05}</Project>
-      <Name>Datos</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Datos\Datos.csproj">
+      <Project>{7523DD43-A75A-4E06-9367-3581D7306513}</Project>
+      <Name>Datos</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

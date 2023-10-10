@@ -15,25 +15,21 @@ namespace Servicios
     [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Multiple, InstanceContextMode = InstanceContextMode.Single)]
     public partial class ServicioGestionJugador : IServicioGestionJugador
     {
-        public bool Registrar(Datos.Usuario usuario, Datos.Jugador jugador)
+        public bool Registrar(Logica.Jugador jugador)
         {
             var estadoRegistro = false;
             try
             {
                 Registro registro = new Registro();
-                Datos.Jugador jugadorRegistro = new Datos.Jugador()
+                Logica.Jugador jugadorRegistro = new Logica.Jugador()
                 {
                     NombreJugador = jugador.NombreJugador,
                     NumeroAvatar = jugador.NumeroAvatar,
+                    Contrasena = jugador.Contrasena,
+                    Correo = jugador.Correo,
                 };
 
-                Datos.Usuario usuarioRegistro = new Datos.Usuario()
-                {
-                    Contrasena = usuario.Contrasena,
-                    Correo = usuario.Correo,
-                };
-
-                estadoRegistro = registro.Registrar(usuarioRegistro, jugadorRegistro);
+                estadoRegistro = registro.Registrar(jugadorRegistro);
             }
             catch (EntityException excepcionEntidad)
             {
@@ -73,13 +69,13 @@ namespace Servicios
             return estadoRegistro;
         }
 
-        public Datos.Jugador IniciarSesion(String nombreUsuario, String contrasena)
+        public Logica.Jugador IniciarSesion(string nombreUsuario, string contrasena)
         {
-            Datos.Jugador jugador = new Datos.Jugador();
+            Logica.Jugador jugador = new Logica.Jugador();
             try
             {
                 var cliente = new Autenticacion();
-                jugador = cliente.iniciarSesion(nombreUsuario, contrasena);
+                jugador = cliente.IniciarSesion(nombreUsuario, contrasena);
             }
             catch (EntityException excepcionEntidad)
             {

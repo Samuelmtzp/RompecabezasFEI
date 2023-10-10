@@ -15,9 +15,9 @@ namespace RompecabezasFei.ServicioGestionJugador {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Usuario", Namespace="http://schemas.datacontract.org/2004/07/Datos")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Jugador", Namespace="http://schemas.datacontract.org/2004/07/Logica")]
     [System.SerializableAttribute()]
-    public partial class Usuario : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Jugador : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -29,10 +29,16 @@ namespace RompecabezasFei.ServicioGestionJugador {
         private string CorreoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdJugadorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdUsuarioField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private RompecabezasFei.ServicioGestionJugador.Jugador JugadorField;
+        private string NombreJugadorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private short NumeroAvatarField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -71,73 +77,6 @@ namespace RompecabezasFei.ServicioGestionJugador {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IdUsuario {
-            get {
-                return this.IdUsuarioField;
-            }
-            set {
-                if ((this.IdUsuarioField.Equals(value) != true)) {
-                    this.IdUsuarioField = value;
-                    this.RaisePropertyChanged("IdUsuario");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public RompecabezasFei.ServicioGestionJugador.Jugador Jugador {
-            get {
-                return this.JugadorField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.JugadorField, value) != true)) {
-                    this.JugadorField = value;
-                    this.RaisePropertyChanged("Jugador");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Jugador", Namespace="http://schemas.datacontract.org/2004/07/Datos")]
-    [System.SerializableAttribute()]
-    public partial class Jugador : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdJugadorField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NombreJugadorField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private short NumeroAvatarField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private RompecabezasFei.ServicioGestionJugador.Usuario UsuarioField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public int IdJugador {
             get {
                 return this.IdJugadorField;
@@ -146,6 +85,19 @@ namespace RompecabezasFei.ServicioGestionJugador {
                 if ((this.IdJugadorField.Equals(value) != true)) {
                     this.IdJugadorField = value;
                     this.RaisePropertyChanged("IdJugador");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdUsuario {
+            get {
+                return this.IdUsuarioField;
+            }
+            set {
+                if ((this.IdUsuarioField.Equals(value) != true)) {
+                    this.IdUsuarioField = value;
+                    this.RaisePropertyChanged("IdUsuario");
                 }
             }
         }
@@ -176,19 +128,6 @@ namespace RompecabezasFei.ServicioGestionJugador {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public RompecabezasFei.ServicioGestionJugador.Usuario Usuario {
-            get {
-                return this.UsuarioField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UsuarioField, value) != true)) {
-                    this.UsuarioField = value;
-                    this.RaisePropertyChanged("Usuario");
-                }
-            }
-        }
-        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -204,10 +143,10 @@ namespace RompecabezasFei.ServicioGestionJugador {
     public interface IServicioGestionJugador {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionJugador/Registrar", ReplyAction="http://tempuri.org/IServicioGestionJugador/RegistrarResponse")]
-        bool Registrar(RompecabezasFei.ServicioGestionJugador.Usuario usuario, RompecabezasFei.ServicioGestionJugador.Jugador jugador);
+        bool Registrar(RompecabezasFei.ServicioGestionJugador.Jugador jugador);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionJugador/Registrar", ReplyAction="http://tempuri.org/IServicioGestionJugador/RegistrarResponse")]
-        System.Threading.Tasks.Task<bool> RegistrarAsync(RompecabezasFei.ServicioGestionJugador.Usuario usuario, RompecabezasFei.ServicioGestionJugador.Jugador jugador);
+        System.Threading.Tasks.Task<bool> RegistrarAsync(RompecabezasFei.ServicioGestionJugador.Jugador jugador);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionJugador/ExisteCorreoElectronico", ReplyAction="http://tempuri.org/IServicioGestionJugador/ExisteCorreoElectronicoResponse")]
         bool ExisteCorreoElectronico(string correoElectronico);
@@ -255,12 +194,12 @@ namespace RompecabezasFei.ServicioGestionJugador {
                 base(binding, remoteAddress) {
         }
         
-        public bool Registrar(RompecabezasFei.ServicioGestionJugador.Usuario usuario, RompecabezasFei.ServicioGestionJugador.Jugador jugador) {
-            return base.Channel.Registrar(usuario, jugador);
+        public bool Registrar(RompecabezasFei.ServicioGestionJugador.Jugador jugador) {
+            return base.Channel.Registrar(jugador);
         }
         
-        public System.Threading.Tasks.Task<bool> RegistrarAsync(RompecabezasFei.ServicioGestionJugador.Usuario usuario, RompecabezasFei.ServicioGestionJugador.Jugador jugador) {
-            return base.Channel.RegistrarAsync(usuario, jugador);
+        public System.Threading.Tasks.Task<bool> RegistrarAsync(RompecabezasFei.ServicioGestionJugador.Jugador jugador) {
+            return base.Channel.RegistrarAsync(jugador);
         }
         
         public bool ExisteCorreoElectronico(string correoElectronico) {

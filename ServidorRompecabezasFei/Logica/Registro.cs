@@ -1,9 +1,5 @@
 ﻿using Datos;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Logica
 {
@@ -13,17 +9,17 @@ namespace Logica
         {
         }
 
-        public bool Registrar(Datos.Usuario usuarioRegistro, Datos.Jugador jugadorRegistro)
+        public bool Registrar(Logica.Jugador jugadorRegistro )
         {
             bool estadoRegistro = false;
             using (var contexto = new EntidadesRompecabezasFei())
             {
-                Usuario nuevoUsuario = new Usuario()
+                Datos.Usuario nuevoUsuario = new Datos.Usuario()
                 {
-                    Correo = usuarioRegistro.Correo,
-                    Contrasena = usuarioRegistro.Contrasena,
+                    Correo = jugadorRegistro.Correo,
+                    Contrasena = jugadorRegistro.Contrasena,
                 };
-                Jugador nuevoJugador = new Jugador()
+                Datos.Jugador nuevoJugador = new Datos.Jugador()
                 {
                     NombreJugador = jugadorRegistro.NombreJugador,
                     NumeroAvatar = jugadorRegistro.NumeroAvatar,

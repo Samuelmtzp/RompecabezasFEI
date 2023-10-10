@@ -1,11 +1,4 @@
-﻿using Datos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ServiceModel;
 
 namespace Contratos
 {
@@ -14,35 +7,13 @@ namespace Contratos
     {
 
         [OperationContract]
-        bool Registrar(Datos.Usuario usuario, Datos.Jugador jugador);
+        bool Registrar(Logica.Jugador jugador);
         [OperationContract]
         bool ExisteCorreoElectronico(string correoElectronico);
         [OperationContract]
         bool ExisteNombreUsuario(string nombreUsuario);
         [OperationContract]
-        Datos.Jugador IniciarSesion(string nombreUsuario, string contrasena);
+        Logica.Jugador IniciarSesion(string nombreUsuario, string contrasena);
 
-    }
-
-    [DataContract]
-    public class Jugador
-    {
-        [DataMember]
-        public int IdJugador { get; set; }
-        [DataMember]
-        public string NombreJugador { get; set; }
-        [DataMember]
-        public short NumeroAvatar { get; set; }
-    }
-
-    [DataContract]
-    public class Usuario
-    {
-        [DataMember]
-        public int IdUsuario { get; set; }
-        [DataMember]
-        public string Correo { get; set; }
-        [DataMember]
-        public string Contrasena { get; set; }
     }
 }

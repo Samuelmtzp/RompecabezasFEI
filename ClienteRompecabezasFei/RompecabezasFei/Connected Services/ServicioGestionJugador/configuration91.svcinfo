@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="HiVGIMBe65cYahurEMlkYOOb5hc3ZDCsawoTyzmuXNM=">
+<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="ob3iJTg6KNyMECcRF9MpposZ6WzP7L0Beti9JVFBwIU=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="netTcpBinding" name="EndPointIServicioGestionJugador">
+    <bindingConfiguration bindingType="netTcpBinding" name="NetTcpBinding_IServicioGestionJugador">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>EndPointIServicioGestionJugador</serializedValue>
+          <serializedValue>NetTcpBinding_IServicioGestionJugador</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -121,7 +121,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="EndPointIServicioGestionJugador" contract="ServicioGestionJugador.IServicioGestionJugador" bindingType="netTcpBinding" address="net.tcp://localhost:8081/Contratos" bindingConfiguration="EndPointIServicioGestionJugador">
+    <endpoint name="NetTcpBinding_IServicioGestionJugador" contract="ServicioGestionJugador.IServicioGestionJugador" bindingType="netTcpBinding" address="net.tcp://localhost:8081/Contratos" bindingConfiguration="NetTcpBinding_IServicioGestionJugador">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>net.tcp://localhost:8081/Contratos</serializedValue>
@@ -133,7 +133,7 @@
           <serializedValue>netTcpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>EndPointIServicioGestionJugador</serializedValue>
+          <serializedValue>NetTcpBinding_IServicioGestionJugador</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>ServicioGestionJugador.IServicioGestionJugador</serializedValue>
@@ -196,7 +196,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>EndPointIServicioGestionJugador</serializedValue>
+          <serializedValue>NetTcpBinding_IServicioGestionJugador</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
