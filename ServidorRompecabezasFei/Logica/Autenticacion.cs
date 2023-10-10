@@ -1,31 +1,38 @@
 ﻿using Datos;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Logica
 {
     public class Autenticacion
     {
-        public Datos.Jugador iniciarSesion(string nombreJugador, string contrasena)
+        public Logica.Jugador IniciarSesion(string nombreJugador, string contrasena)
         {
-            Datos.Jugador jugador = new Datos.Jugador();
+            Logica.Jugador jugador = new Logica.Jugador();
             using (var contexto = new EntidadesRompecabezasFei())
             {
-                var cuentas = (from jugadores in contexto.Jugador
-                               from usuarios in contexto.Usuario
-                                where jugadores.NombreJugador == nombreJugador && 
-                                jugadores.Usuario == usuarios &&
+                var cuentasJugador = (from jugadores in contexto.Jugador
+                                from usuarios in contexto.Usuario
+                                where jugadores.NombreJugador == nombreJugador &&
+                                usuarios.Jugador == jugadores &&
                                 usuarios.Contrasena == contrasena
                                 select jugadores);
-                if (cuentas.Any())
+                if (cuentasJugador.Any())
                 {
-                    jugador.NumeroAvatar = cuentas.First().NumeroAvatar;
-                    jugador.Usuario = cuentas.First().Usuario;
-                    jugador.NombreJugador = cuentas.First().NombreJugador;
-                    jugador.IdJugador = cuentas.First().IdJugador;
+                    jugador.IdJugador = cuentasJugador.First().IdJugador; 
+                    jugador.NumeroAvatar = cuentasJugador.First().NumeroAvatar;
+                    jugador.NombreJugador = cuentasJugador.First().NombreJugador;
+                }
+                var cuentasUsuario = (from jugadores in contexto.Jugador
+                                      from usuarios in contexto.Usuario
+                                      where jugadores.NombreJugador == nombreJugador &&
+                                      usuarios.Jugador == jugadores &&
+                                      usuarios.Contrasena == contrasena
+                                      select usuarios);
+                if (cuentasUsuario.Any())
+                {
+                    jugador.Correo = cuentasUsuario.First().Correo;
+                    jugador.Contrasena = cuentasUsuario.First().Contrasena;
+                    jugador.IdUsuario = cuentasUsuario.First().IdUsuario;
                 }
             }
             return jugador;

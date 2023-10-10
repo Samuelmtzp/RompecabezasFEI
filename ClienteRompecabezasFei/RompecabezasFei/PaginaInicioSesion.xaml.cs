@@ -1,4 +1,5 @@
 ﻿using RompecabezasFei.ServicioGestionJugador;
+using Dominio;
 using Security;
 using System;
 using System.ServiceModel;
@@ -57,15 +58,18 @@ namespace RompecabezasFei
                     }
                     catch (EndpointNotFoundException excepcion)
                     {
-                        MessageBox.Show("No se ha establecido una conexión", "Error de conexión", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show("No se ha establecido una conexión", "Error de conexión", 
+                            MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                     catch (CommunicationObjectFaultedException excepcion)
                     {
-                        MessageBox.Show("No se ha establecido una conexión", "Error de conexión", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show("No se ha establecido una conexión", "Error de conexión", 
+                            MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                     catch (TimeoutException excepcion)
                     {
-                        MessageBox.Show("No se ha establecido una conexión", "Error de conexión", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show("No se ha establecido una conexión", "Error de conexión", 
+                            MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             }
@@ -74,13 +78,23 @@ namespace RompecabezasFei
         private void IniciarSesion(string nombreUsuario, string contrasena)
         {
             ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
-            Jugador jugador = cliente.IniciarSesion(nombreUsuario, 
+            ServicioGestionJugador.Jugador jugadorAutenticado = cliente.IniciarSesion(nombreUsuario, 
                 EncriptadorContrasena.CalcularHashSha512(contrasena));
 
-            if (jugador != null)
+            if (jugadorAutenticado != null)
             {
-                MessageBox.Show($"Bienvenido a Rompecabezas FEI {jugador.NombreJugador}", 
-                    "Bienvenido", MessageBoxButton.OK, MessageBoxImage.Information);
+                Dominio.Jugador.JugadorActual = new Dominio.Jugador
+                {
+                    Contrasena = jugadorAutenticado.Contrasena,
+                    Correo = jugadorAutenticado.Correo,
+                    IdJugador = jugadorAutenticado.IdJugador,
+                    IdUsuario = jugadorAutenticado.IdUsuario,
+                    NombreJugador = jugadorAutenticado.NombreJugador,
+                    NumeroAvatar = jugadorAutenticado.NumeroAvatar,
+                    EsInvitado = false
+                };
+                    
+
                 VentanaPrincipal.CambiarPagina(this, new PaginaMenuPrincipal());
             }
             else
