@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,31 @@ namespace RompecabezasFei
         public PaginaMenuPrincipal()
         {
             InitializeComponent();
+            cargarImagenUsuario();
         }
+
+        private void cargarImagenUsuario()
+        {
+            string rutaImagen = "/Imagenes/Avatares/";
+            BitmapImage ImagenUsuarioMapaBits = new BitmapImage();
+            ImagenUsuarioMapaBits.BeginInit();
+
+            MessageBox.Show("Es invitado = " + Jugador.JugadorActual.EsInvitado);
+            MessageBox.Show("Número de avatar = " + Jugador.JugadorActual.NumeroAvatar);
+            if (Jugador.JugadorActual.EsInvitado)
+            {
+                rutaImagen += "Invitado.png";
+            } 
+            else
+            {
+                rutaImagen += Jugador.JugadorActual.NumeroAvatar + ".png";
+            }
+
+            ImagenUsuarioMapaBits.UriSource = new Uri(rutaImagen, UriKind.RelativeOrAbsolute);
+            ImagenUsuarioMapaBits.EndInit();
+            Imagen_AvatarUsuario.Source = ImagenUsuarioMapaBits;
+        }
+
         private void BotonCrearSala_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Click en botón crear sala");
@@ -47,6 +72,7 @@ namespace RompecabezasFei
 
             if (resultado == MessageBoxResult.Yes)
             {
+                Jugador.JugadorActual = null;
                 VentanaPrincipal.CambiarPagina(this, new PaginaInicioSesion());
             }
         }

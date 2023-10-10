@@ -28,7 +28,7 @@
         <Label Content="{x:Static p:Resources.CerrarSesion}" HorizontalAlignment="Left" Margin="492,592,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24"/>
         <Image Source="/Imagenes/Indicadores/Amigos.png" HorizontalAlignment="Left" Height="82" Margin="733,510,0,0" VerticalAlignment="Top" Width="82" MouseDown="ImagenMisAmigos_Click"/>
         <Label Content="{x:Static p:Resources.MisAmigos}" HorizontalAlignment="Left" Margin="707,592,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24"/>
-        <Image Name="Imagen_AvatarUsuario" Source="/Imagenes/Avatares/Invitado.png" HorizontalAlignment="Left" Height="82" Margin="909,510,0,0" VerticalAlignment="Top" Width="82" MouseDown="ImagenMiPerfil_Click"/>
+        <Image Name="Imagen_AvatarUsuario" HorizontalAlignment="Left" Height="82" Margin="909,510,0,0" VerticalAlignment="Top" Width="82" MouseDown="ImagenMiPerfil_Click"/>
         <Label Content="{x:Static p:Resources.MiPerfil}" HorizontalAlignment="Left" Margin="900,592,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24"/>
         <Image Source="/Imagenes/Indicadores/Ajustes.png" HorizontalAlignment="Left" Height="82" Margin="1058,510,0,0" VerticalAlignment="Top" Width="82" MouseDown="ImagenAjustes_Click"/>
         <Label Content="{x:Static p:Resources.Ajustes}" HorizontalAlignment="Left" Margin="1058,592,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24"/>
