@@ -61,6 +61,15 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Aceptar.
+        /// </summary>
+        public static string Aceptar {
+            get {
+                return ResourceManager.GetString("Aceptar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Activada.
         /// </summary>
         public static string Activada {
@@ -75,15 +84,6 @@ namespace RompecabezasFei.Properties {
         public static string Ajustes {
             get {
                 return ResourceManager.GetString("Ajustes", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Aceptar.
-        /// </summary>
-        public static string BOTNO {
-            get {
-                return ResourceManager.GetString("BOTNO", resourceCulture);
             }
         }
         
