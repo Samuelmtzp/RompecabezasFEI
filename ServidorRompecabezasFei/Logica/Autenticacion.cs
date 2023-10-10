@@ -11,28 +11,27 @@ namespace Logica
             using (var contexto = new EntidadesRompecabezasFei())
             {
                 var cuentasJugador = (from jugadores in contexto.Jugador
-                                from usuarios in contexto.Usuario
+                                join usuarios in contexto.Usuario 
+                                on jugadores.Usuario.IdUsuario equals usuarios.IdUsuario
                                 where jugadores.NombreJugador == nombreJugador &&
-                                usuarios.Jugador == jugadores &&
                                 usuarios.Contrasena == contrasena
-                                select jugadores);
-                if (cuentasJugador.Any())
+                                select new Logica.Jugador
+                                {
+                                    IdJugador = jugadores.IdJugador,
+                                    NumeroAvatar = jugadores.NumeroAvatar,
+                                    NombreJugador = jugadores.NombreJugador, 
+                                    IdUsuario = usuarios.IdUsuario,
+                                    Correo = usuarios.Correo,
+                                    Contrasena = ""
+                                }).FirstOrDefault();
+                if (cuentasJugador != null)
                 {
-                    jugador.IdJugador = cuentasJugador.First().IdJugador; 
-                    jugador.NumeroAvatar = cuentasJugador.First().NumeroAvatar;
-                    jugador.NombreJugador = cuentasJugador.First().NombreJugador;
-                }
-                var cuentasUsuario = (from jugadores in contexto.Jugador
-                                      from usuarios in contexto.Usuario
-                                      where jugadores.NombreJugador == nombreJugador &&
-                                      usuarios.Jugador == jugadores &&
-                                      usuarios.Contrasena == contrasena
-                                      select usuarios);
-                if (cuentasUsuario.Any())
-                {
-                    jugador.Correo = cuentasUsuario.First().Correo;
-                    jugador.Contrasena = cuentasUsuario.First().Contrasena;
-                    jugador.IdUsuario = cuentasUsuario.First().IdUsuario;
+                    jugador.IdJugador = cuentasJugador.IdJugador; 
+                    jugador.NumeroAvatar = cuentasJugador.NumeroAvatar;
+                    jugador.NombreJugador = cuentasJugador.NombreJugador;
+                    jugador.Correo = cuentasJugador.Correo;
+                    jugador.Contrasena = cuentasJugador.Contrasena;
+                    jugador.IdUsuario = cuentasJugador.IdUsuario;
                 }
             }
             return jugador;

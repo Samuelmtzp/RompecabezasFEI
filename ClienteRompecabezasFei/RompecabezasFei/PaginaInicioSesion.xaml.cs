@@ -22,6 +22,13 @@ namespace RompecabezasFei
 
         private void BotonModoInvitado_Click(object sender, RoutedEventArgs e)
         {
+            
+            Dominio.Jugador.JugadorActual = new Dominio.Jugador()
+            {
+                NombreJugador = $"Invitado{new Random().Next()}",
+                EsInvitado = true
+            };
+
             VentanaPrincipal.CambiarPagina(this, new PaginaMenuPrincipal());
         }
 
@@ -81,7 +88,7 @@ namespace RompecabezasFei
             ServicioGestionJugador.Jugador jugadorAutenticado = cliente.IniciarSesion(nombreUsuario, 
                 EncriptadorContrasena.CalcularHashSha512(contrasena));
 
-            if (jugadorAutenticado != null)
+            if (jugadorAutenticado.IdJugador != 0)
             {
                 Dominio.Jugador.JugadorActual = new Dominio.Jugador
                 {
