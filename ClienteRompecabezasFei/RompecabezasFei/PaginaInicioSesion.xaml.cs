@@ -93,7 +93,6 @@ namespace RompecabezasFei
                     NumeroAvatar = jugadorAutenticado.NumeroAvatar,
                     EsInvitado = false
                 };
-                    
 
                 VentanaPrincipal.CambiarPagina(this, new PaginaMenuPrincipal());
             }

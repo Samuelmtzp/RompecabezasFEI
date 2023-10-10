@@ -20,6 +20,11 @@ namespace RompecabezasFei
     /// </summary>
     public partial class PaginaSeleccionAvatar : Page
     {
+        String nombreUsuario;
+        String correoElectronico;
+        String contrasena;
+        String confirmacionContrasena;
+
         public PaginaSeleccionAvatar()
         {
             InitializeComponent();

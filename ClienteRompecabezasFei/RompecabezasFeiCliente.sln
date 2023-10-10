@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RompecabezasFei", "Rompecab
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seguridad", "Seguridad\Seguridad.csproj", "{81E8F49E-E3B9-4DE1-BC8B-530306943FE4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio", "Dominio\Dominio.csproj", "{C2B901FC-9F36-4C72-9815-301A7077F7D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{81E8F49E-E3B9-4DE1-BC8B-530306943FE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81E8F49E-E3B9-4DE1-BC8B-530306943FE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81E8F49E-E3B9-4DE1-BC8B-530306943FE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2B901FC-9F36-4C72-9815-301A7077F7D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2B901FC-9F36-4C72-9815-301A7077F7D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2B901FC-9F36-4C72-9815-301A7077F7D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2B901FC-9F36-4C72-9815-301A7077F7D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
