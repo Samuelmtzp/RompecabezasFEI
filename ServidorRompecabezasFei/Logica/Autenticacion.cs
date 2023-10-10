@@ -23,15 +23,15 @@ namespace Logica
                                     IdUsuario = usuarios.IdUsuario,
                                     Correo = usuarios.Correo,
                                     Contrasena = ""
-                                }).FirstOrDefault();
-                if (cuentasJugador != null)
+                                });
+                if (cuentasJugador.Any())
                 {
-                    jugador.IdJugador = cuentasJugador.IdJugador; 
-                    jugador.NumeroAvatar = cuentasJugador.NumeroAvatar;
-                    jugador.NombreJugador = cuentasJugador.NombreJugador;
-                    jugador.Correo = cuentasJugador.Correo;
-                    jugador.Contrasena = cuentasJugador.Contrasena;
-                    jugador.IdUsuario = cuentasJugador.IdUsuario;
+                    jugador.IdJugador = cuentasJugador.First().IdJugador; 
+                    jugador.NumeroAvatar = cuentasJugador.First().NumeroAvatar;
+                    jugador.NombreJugador = cuentasJugador.First().NombreJugador;
+                    jugador.Correo = cuentasJugador.First().Correo;
+                    jugador.Contrasena = cuentasJugador.First().Contrasena;
+                    jugador.IdUsuario = cuentasJugador.First().IdUsuario;
                 }
             }
             return jugador;

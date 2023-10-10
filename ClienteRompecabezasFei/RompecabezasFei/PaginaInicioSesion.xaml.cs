@@ -79,8 +79,19 @@ namespace RompecabezasFei
                             MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Alguno de los campos es inválido", 
+                        "Campos inválidos", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Alguno de los campos está vacío", "Campos vacíos",
+                            MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
 
         private void IniciarSesion(string nombreUsuario, string contrasena)
         {
