@@ -157,7 +157,7 @@
     <value>Spanish</value>
   </data>
   <data name="Idioma" xml:space="preserve">
-    <value>Languague</value>
+    <value>Language</value>
   </data>
   <data name="InformacionRequisitosContraseña" xml:space="preserve">
     <value>The password must be at least 8 characters, including uppercase and lowercase letters and numbers</value>
