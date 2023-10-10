@@ -68,7 +68,7 @@ namespace RompecabezasFei
         {
             MessageBoxResult resultado = MessageBox.Show(
                 "¿Estás seguro de que deseas cerrar sesión?", 
-                "Conformación", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
             if (resultado == MessageBoxResult.Yes)
             {
