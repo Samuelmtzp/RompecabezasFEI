@@ -24,17 +24,15 @@ namespace RompecabezasFei
         public PaginaMenuPrincipal()
         {
             InitializeComponent();
-            cargarImagenUsuario();
+            CargarImagenUsuario();
         }
 
-        private void cargarImagenUsuario()
+        private void CargarImagenUsuario()
         {
             string rutaImagen = "/Imagenes/Avatares/";
             BitmapImage ImagenUsuarioMapaBits = new BitmapImage();
             ImagenUsuarioMapaBits.BeginInit();
 
-            MessageBox.Show("Es invitado = " + Jugador.JugadorActual.EsInvitado);
-            MessageBox.Show("Número de avatar = " + Jugador.JugadorActual.NumeroAvatar);
             if (Jugador.JugadorActual.EsInvitado)
             {
                 rutaImagen += "Invitado.png";
@@ -49,22 +47,22 @@ namespace RompecabezasFei
             Imagen_AvatarUsuario.Source = ImagenUsuarioMapaBits;
         }
 
-        private void BotonCrearSala_Click(object sender, RoutedEventArgs e)
+        private void AccionCrearSala(object remitente, RoutedEventArgs evento)
         {
-            MessageBox.Show("Click en botón crear sala");
+            VentanaPrincipal.CambiarPagina(this, new PaginaSala());
         }
 
-        private void BotonUnirseASala_Click(object sender, RoutedEventArgs e)
+        private void AccionUnirseASala(object remintente, RoutedEventArgs evento)
         {
             MessageBox.Show("Click en botón unirse a sala");
         }
 
-        private void ImagenMisAmigos_Click(object sender, MouseButtonEventArgs e)
+        private void AccionMisAmigos(object remitente, MouseButtonEventArgs evento)
         {
             MessageBox.Show("Click en opción mis amigos");
         }
 
-        private void ImagenCerrarSesion_Click(object sender, MouseButtonEventArgs e)
+        private void AccionCerrarSesion(object remitente, MouseButtonEventArgs evento)
         {
             MessageBoxResult resultado = MessageBox.Show(
                 "¿Estás seguro de que deseas cerrar sesión?", 
@@ -77,14 +75,14 @@ namespace RompecabezasFei
             }
         }
 
-        private void ImagenMiPerfil_Click(object sender, MouseButtonEventArgs e)
+        private void AccionMiPerfil(object remitente, MouseButtonEventArgs evento)
         {
             MessageBox.Show("Click en opción mi perfil");
         }
 
-        private void ImagenAjustes_Click(object sender, MouseButtonEventArgs e)
+        private void AccionAjustes(object remitente, MouseButtonEventArgs evento)
         {
-            VentanaPrincipal.CambiarPagina(this, new PaginaAjustes());
+            VentanaPrincipal.CambiarPaginaGuardandoAnterior(this, new PaginaAjustes());
         }
 
     }

@@ -23,14 +23,8 @@ namespace RompecabezasFei
         private static Page paginaAnterior;
         public static Page PaginaAnterior
         {
-            get
-            {
-                return paginaAnterior;
-            }
-            private set
-            {
-                paginaAnterior = value;
-            }
+            get { return paginaAnterior; }
+            set { paginaAnterior = value; }
         }
 
         public Window GetVentana()
@@ -46,14 +40,14 @@ namespace RompecabezasFei
 
         public static void CambiarPagina(Page paginaAntigua, Page nuevaPagina)
         {
-            PaginaAnterior = paginaAntigua;
             VentanaPrincipal ventanaPrincipal = (VentanaPrincipal) GetWindow(paginaAntigua);
             ventanaPrincipal.MarcoPaginaActual.Navigate(nuevaPagina);
         }
 
-        public static void IrPaginaAnterior(Page paginaAntigua)
+        public static void CambiarPaginaGuardandoAnterior(Page paginaAntigua, Page nuevaPagina)
         {
-            CambiarPagina(paginaAntigua, paginaAnterior);
+            PaginaAnterior = paginaAntigua;
+            CambiarPagina(paginaAntigua, nuevaPagina);
         }
     }
 }

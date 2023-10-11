@@ -33,7 +33,7 @@ namespace RompecabezasFei
                 CajaOpcionesIdioma.SelectedIndex = 1;
         }
 
-        private void SeleccionLenguaje(object sender, SelectionChangedEventArgs e)
+        private void AccionSeleccionIdioma(object remitente, SelectionChangedEventArgs evento)
         {
             if (CajaOpcionesIdioma.SelectedIndex == 0)
                 idioma = "en-US";
@@ -46,13 +46,20 @@ namespace RompecabezasFei
             VentanaPrincipal.CambiarPagina(this, new PaginaAjustes());
         }
 
-
-        private void ImagenFlechaRegreso_Click(object sender, MouseButtonEventArgs e)
+        private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
         {
-            VentanaPrincipal.IrPaginaAnterior(this);
+            if (typeof(PaginaInicioSesion).IsInstanceOfType(VentanaPrincipal.PaginaAnterior))
+            {
+                VentanaPrincipal.CambiarPagina(this, new PaginaInicioSesion());
+            } 
+            else
+            {
+                VentanaPrincipal.CambiarPagina(this, new PaginaMenuPrincipal());
+            }
+            
         }
 
-        private void CajaOpcionesIdioma_Cerrada(object sender, EventArgs e)
+        private void AccionOpcionesIdiomaCerrado(object remitente, EventArgs evento)
         {
             App.Current.CambiarIdioma(idioma);
             RefrescarPaginaActual();
