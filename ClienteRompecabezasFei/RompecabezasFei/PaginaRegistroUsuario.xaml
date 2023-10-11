@@ -11,21 +11,21 @@
 
     <Grid>
         <Image Name="ImagenFlechaRegreso" Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="30,30,1145,598" Height="81" Width="81" MouseDown="AccionRegresar"/>
-        <Label Content="{x:Static p:Resources.RegistroUsuario}" HorizontalAlignment="Center" Margin="0,26,0,0" VerticalAlignment="Top" Foreground="White" FontSize="48" FontWeight="Bold"/>
-        <Label Content="{x:Static p:Resources.NombreUsuario}" HorizontalAlignment="Left" Margin="77,320,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32"/>
+        <Label Content="{x:Static p:Resources.ETIQUETA_REGISTRO_REGISTROUSUARIO}" HorizontalAlignment="Center" Margin="0,26,0,0" VerticalAlignment="Top" Foreground="White" FontSize="48" FontWeight="Bold"/>
+        <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_NOMBREUSUARIO}" HorizontalAlignment="Left" Margin="77,320,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32"/>
         <TextBox Name="CuadroTextoNombreUsuario" HorizontalAlignment="Left" Margin="77,373,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="508" Height="42" FontSize="24"/>
-        <Label Content="{x:Static p:Resources.Correo}" HorizontalAlignment="Left" Margin="654,320,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32"/>
+        <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_CORREO}" HorizontalAlignment="Left" Margin="654,320,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32"/>
         <TextBox Name="CuadroTextoCorreoElectronico" HorizontalAlignment="Left" Margin="654,373,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="554" Height="42" FontSize="24"/>
-        <Label Content="{x:Static p:Resources.Contraseña}" HorizontalAlignment="Left" Margin="77,462,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32"/>
+        <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_CONTRASENA}" HorizontalAlignment="Left" Margin="77,462,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32"/>
         <PasswordBox Name="CuadroContrasena" HorizontalAlignment="Left" Margin="77,520,0,0" VerticalAlignment="Top" Width="508" Height="42" FontSize="22"/>
-        <Label Content="{x:Static p:Resources.ConfirmarContraseña}" HorizontalAlignment="Left" Margin="654,462,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32"/>
+        <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_CONFIRMACIONCONTRASENA}" HorizontalAlignment="Left" Margin="654,462,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32"/>
         <PasswordBox Name="CuadroConfirmacionContrasena" HorizontalAlignment="Left" Margin="654,520,0,0" VerticalAlignment="Top" Width="554" Height="42" FontSize="24"/>
 
-        <Button Name="BotonSiguiente" Content="{x:Static p:Resources.Siguiente}" HorizontalAlignment="Left" Margin="940,595,0,0" VerticalAlignment="Top" Height="73" Width="268" FontSize="36" Background="#FF03A64A" Foreground="White" FontWeight="Bold" Click="AccionSiguiente">
+        <Button Name="BotonSiguiente" Content="{x:Static p:Resources.ETIQUETA_GENERAL_SIGUIENTE}" HorizontalAlignment="Left" Margin="940,595,0,0" VerticalAlignment="Top" Height="73" Width="268" FontSize="36" Background="#FF03A64A" Foreground="White" FontWeight="Bold" Click="AccionSiguiente">
         </Button>
-        <Button Name="BotonSeleccionarAvatar" Content="{x:Static p:Resources.SeleccionarAvatar}" HorizontalAlignment="Left" Margin="654,238,0,0" VerticalAlignment="Top" Height="52" Width="313" FontSize="24" Background="#FF03A64A" Foreground="White" FontWeight="Bold" Click="AccionSeleccionarAvatar">
+        <Button Name="BotonSeleccionarAvatar" Content="{x:Static p:Resources.ETIQUETA_REGISTRO_SELECCIONAVATAR}" HorizontalAlignment="Left" Margin="654,238,0,0" VerticalAlignment="Top" Height="52" Width="313" FontSize="24" Background="#FF03A64A" Foreground="White" FontWeight="Bold" Click="AccionSeleccionarAvatar">
         </Button>
         <Image Name="ImagenAvatarActual" HorizontalAlignment="Left" Height="200" Margin="1008,89,0,0" VerticalAlignment="Top" Width="200" Source="/Imagenes/Avatares/1.png" Tag="1"/>
-        <TextBlock TextWrapping="Wrap" VerticalAlignment="Top" Height="62" Width="508" Text="{x:Static p:Resources.InformacionRequisitosContraseña}" HorizontalAlignment="Left" Margin="77,593,0,0" Foreground="White" FontSize="20"/>
+        <TextBlock TextWrapping="Wrap" VerticalAlignment="Top" Height="62" Width="508" Text="{x:Static p:Resources.ETIQUETA_GENERAL_REQUISITOSCONTRASENA}" HorizontalAlignment="Left" Margin="77,593,0,0" Foreground="White" FontSize="20"/>
     </Grid>
 </Page>
