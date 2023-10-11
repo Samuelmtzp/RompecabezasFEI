@@ -13,51 +13,73 @@ namespace RompecabezasFei
     /// </summary>
     public partial class PaginaRegistroUsuario : Page
     {
-        String nombreUsuario;
-        String correoElectronico;
-        String contrasena;
-        String confirmacionContrasena;
-        short numeroAvatar;
+        private Dominio.DatosRegistro datosRegistro;
+        public Dominio.DatosRegistro DatosRegistro
+        {
+            get { return datosRegistro; }
+            set { datosRegistro = value; }
+        }
 
         public PaginaRegistroUsuario()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
-        private void ImagenFlechaRegreso_MouseDown(object sender, MouseButtonEventArgs e)
+        private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(this, new PaginaInicioSesion());
         }
 
-        private void BotonSeleccionarAvatar_Click(object sender, RoutedEventArgs e)
+        private void AccionSeleccionarAvatar(object remitente, RoutedEventArgs evento)
         {
             PaginaSeleccionAvatar paginaSeleccionAvatar = new PaginaSeleccionAvatar();
-            paginaSeleccionAvatar.ImagenAvatarActual.Source = this.ImagenAvatarActual.Source;
+            paginaSeleccionAvatar.ImagenAvatarActual.Source = ImagenAvatarActual.Source;
+            GuardarDatosEdicion();
+            paginaSeleccionAvatar.DatosRegistro = DatosRegistro;
             VentanaPrincipal.CambiarPagina(this, paginaSeleccionAvatar);
         }
 
-        private void BotonSiguiente_Click(object sender, RoutedEventArgs e)
+        public void CargarDatosEdicion()
         {
-            nombreUsuario = CuadroTextoNombreUsuario.Text;
-            correoElectronico = CuadroTextoCorreoElectronico.Text;
-            contrasena = CuadroContrasena.Password;
-            confirmacionContrasena = CuadroConfirmacionContrasena.Password;
-            numeroAvatar = Convert.ToInt16(ImagenAvatarActual.Tag);
+            CuadroTextoNombreUsuario.Text = datosRegistro.NombreUsuario;
+            CuadroTextoCorreoElectronico.Text = datosRegistro.CorreoElectronico;
+            CuadroContrasena.Password = datosRegistro.Contrasena;
+            CuadroConfirmacionContrasena.Password = datosRegistro.ConfirmacionContrasena;
+        }
+
+        private void GuardarDatosEdicion()
+        {
+            DatosRegistro = new Dominio.DatosRegistro()
+            {
+                NombreUsuario = CuadroTextoNombreUsuario.Text,
+                CorreoElectronico = CuadroTextoCorreoElectronico.Text,
+                Contrasena = CuadroContrasena.Password,
+                ConfirmacionContrasena = CuadroConfirmacionContrasena.Password
+            };
+        }
+
+        private void AccionSiguiente(object remitente, RoutedEventArgs evento)
+        {
+            datosRegistro.NombreUsuario = CuadroTextoNombreUsuario.Text;
+            datosRegistro.CorreoElectronico = CuadroTextoCorreoElectronico.Text;
+            datosRegistro.Contrasena = CuadroContrasena.Password;
+            datosRegistro.ConfirmacionContrasena = CuadroConfirmacionContrasena.Password;
+            datosRegistro.NumeroAvatar = Convert.ToInt16(ImagenAvatarActual.Tag);
             ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
 
             if (!ExistenCamposInvalidos())
             {
-                string contrasenaCifrada = EncriptadorContrasena.CalcularHashSha512(contrasena);
+                string contrasenaCifrada = EncriptadorContrasena.CalcularHashSha512(datosRegistro.Contrasena);
                 Jugador jugador = new Jugador()
                 {
-                    NombreJugador = nombreUsuario,
-                    NumeroAvatar = numeroAvatar,
+                    NombreJugador = datosRegistro.NombreUsuario,
+                    NumeroAvatar = datosRegistro.NumeroAvatar,
                     Contrasena = contrasenaCifrada,
-                    Correo = correoElectronico
+                    Correo = datosRegistro.CorreoElectronico
                 };
                 bool resultadoExistencias = false;
-                if (cliente.ExisteNombreUsuario(nombreUsuario) || 
-                    cliente.ExisteCorreoElectronico(correoElectronico))
+                if (cliente.ExisteNombreUsuario(datosRegistro.NombreUsuario) || 
+                    cliente.ExisteCorreoElectronico(datosRegistro.CorreoElectronico))
                 {
                     resultadoExistencias = true;
                 }
@@ -95,10 +117,10 @@ namespace RompecabezasFei
         private bool ExistenCamposVacios()
         {
             bool camposVacios = false;
-            if (String.IsNullOrWhiteSpace(nombreUsuario) 
-                || String.IsNullOrWhiteSpace(correoElectronico) 
-                || String.IsNullOrWhiteSpace(contrasena) 
-                || String.IsNullOrWhiteSpace(confirmacionContrasena))
+            if (String.IsNullOrWhiteSpace(datosRegistro.NombreUsuario) 
+                || String.IsNullOrWhiteSpace(datosRegistro.CorreoElectronico) 
+                || String.IsNullOrWhiteSpace(datosRegistro.Contrasena) 
+                || String.IsNullOrWhiteSpace(datosRegistro.ConfirmacionContrasena))
             {
                 camposVacios = true;
                 MessageBox.Show("No puedes dejar campos vacíos", 
@@ -110,8 +132,8 @@ namespace RompecabezasFei
         private bool ExistenLongitudesExcedidas()
         {
             bool camposExcedidos = false;
-            if (nombreUsuario.Length > 15 || correoElectronico.Length > 65 
-                || contrasena.Length > 45)
+            if (datosRegistro.NombreUsuario.Length > 15 || datosRegistro.CorreoElectronico.Length > 65 
+                || datosRegistro.Contrasena.Length > 45)
             {
                 camposExcedidos = true;
                 MessageBox.Show("Corrige los campos excedidos", 
@@ -142,7 +164,7 @@ namespace RompecabezasFei
         private bool ExisteContrasenaInvalida()
         {
             bool contrasenaInvalida = false;
-            if (Regex.IsMatch(contrasena, "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$") 
+            if (Regex.IsMatch(datosRegistro.Contrasena, "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$") 
                 == false)
             {
                 MessageBox.Show("La contraseña que has ingresado es inválida", 
@@ -175,7 +197,7 @@ namespace RompecabezasFei
         private bool ExisteContrasenaIncorrecta()
         {
             bool contrasenaInvalida;
-            if (contrasena == confirmacionContrasena)
+            if (datosRegistro.Contrasena == datosRegistro.ConfirmacionContrasena)
             {
                 contrasenaInvalida = false;
             }

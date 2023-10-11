@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,38 +21,42 @@ namespace RompecabezasFei
     /// </summary>
     public partial class PaginaSeleccionAvatar : Page
     {
-        String nombreUsuario;
-        String correoElectronico;
-        String contrasena;
-        String confirmacionContrasena;
+        private DatosRegistro datosRegistro;
+        public DatosRegistro DatosRegistro
+        {
+            get { return datosRegistro; }
+            set { datosRegistro = value; }
+        }
 
         public PaginaSeleccionAvatar()
         {
             InitializeComponent();
         }
 
-        private void ImagenFlechaRegreso_Click(object sender, MouseButtonEventArgs e)
+        private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
         {
-            regresarPaginaRegistroUsuario();
+            Regresar();
         }
 
-        private void ImagenSeleccionada_Click(object sender, MouseButtonEventArgs e)
+        private void AccionSeleccionAvatar(object remitente, MouseButtonEventArgs evento)
         {
-            Image imagenSeleccionada = sender as Image;
+            Image imagenSeleccionada = remitente as Image;
             ImagenAvatarActual.Source = imagenSeleccionada.Source;
             ImagenAvatarActual.Tag = imagenSeleccionada.Tag;
         }
 
-        private void BotonAceptar_Click(object sender, RoutedEventArgs e)
+        private void AccionAceptar(object remitente, RoutedEventArgs evento)
         {
-            regresarPaginaRegistroUsuario();
+            Regresar();
         }
 
-        private void regresarPaginaRegistroUsuario()
+        private void Regresar()
         {
             PaginaRegistroUsuario paginaRegistroUsuario = new PaginaRegistroUsuario();
-            paginaRegistroUsuario.ImagenAvatarActual.Source = this.ImagenAvatarActual.Source;
-            paginaRegistroUsuario.ImagenAvatarActual.Tag = this.ImagenAvatarActual.Tag;
+            paginaRegistroUsuario.ImagenAvatarActual.Source = ImagenAvatarActual.Source;
+            paginaRegistroUsuario.ImagenAvatarActual.Tag = ImagenAvatarActual.Tag;
+            paginaRegistroUsuario.DatosRegistro = DatosRegistro;
+            paginaRegistroUsuario.CargarDatosEdicion();
             VentanaPrincipal.CambiarPagina(this, paginaRegistroUsuario);
         }
     }
