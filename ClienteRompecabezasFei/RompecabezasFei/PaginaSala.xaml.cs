@@ -1,7 +1,9 @@
 ﻿using Dominio;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace RompecabezasFei
 {
@@ -27,12 +29,13 @@ namespace RompecabezasFei
 
         private void AccionEnviarMensaje(object remitente, RoutedEventArgs evento)
         {
-
+            CuadroTextoMensajes.AppendText(Jugador.JugadorActual.NombreJugador + ": " + 
+                CuadroTextoMensajeUsuario.Text + "\n");
         }
 
         private void AccionIniciarPartida(object remitente, RoutedEventArgs evento)
         {
-
+            
         }
     }
 }
