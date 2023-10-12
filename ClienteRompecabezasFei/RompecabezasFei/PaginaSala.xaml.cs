@@ -29,5 +29,10 @@ namespace RompecabezasFei
         {
 
         }
+
+        private void AccionIniciarPartida(object remitente, RoutedEventArgs evento)
+        {
+
+        }
     }
 }

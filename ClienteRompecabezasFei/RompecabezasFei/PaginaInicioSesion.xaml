@@ -6,8 +6,7 @@
       xmlns:local="clr-namespace:RompecabezasFei"
       xmlns:p="clr-namespace:RompecabezasFei.Properties"
       mc:Ignorable="d" 
-      d:DesignHeight="720" d:DesignWidth="1280"
-      Title="{x:Static p:Resources.ETIQUETA_GENERAL_ROMPECABEZASFEI}">
+      d:DesignHeight="720" d:DesignWidth="1280">
     <Grid>
         <Image Margin="140,175,876,289" Source="/Imagenes/Logos/RompecabezasFEI.png" Stretch="Fill"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_ROMPECABEZASFEI}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="103,436,0,0" VerticalAlignment="Top" FontSize="32" FontWeight="Bold" Foreground="White" Width="338"/>

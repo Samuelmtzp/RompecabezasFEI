@@ -201,6 +201,9 @@
   <data name="BOTON_SALA_ENVIARMENSAJE" xml:space="preserve">
     <value>Enviar</value>
   </data>
+  <data name="BOTON_SALA_INICIARPARTIDA" xml:space="preserve">
+    <value>Iniciar partida</value>
+  </data>
   <data name="BOTON_SALA_OPCIONESSALA" xml:space="preserve">
     <value>Opciones sala</value>
   </data>

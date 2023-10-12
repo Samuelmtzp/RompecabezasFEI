@@ -313,6 +313,15 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Iniciar partida.
+        /// </summary>
+        public static string BOTON_SALA_INICIARPARTIDA {
+            get {
+                return ResourceManager.GetString("BOTON_SALA_INICIARPARTIDA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Opciones sala.
         /// </summary>
         public static string BOTON_SALA_OPCIONESSALA {

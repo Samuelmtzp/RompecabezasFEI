@@ -69,7 +69,8 @@ namespace RompecabezasFei
 
             if (!ExistenCamposInvalidos())
             {
-                string contrasenaCifrada = EncriptadorContrasena.CalcularHashSha512(jugadorRegistro.Contrasena);
+                string contrasenaCifrada = EncriptadorContrasena.CalcularHashSha512(
+                    jugadorRegistro.Contrasena);
                 Jugador jugador = new Jugador()
                 {
                     NombreJugador = jugadorRegistro.NombreJugador,
@@ -81,7 +82,8 @@ namespace RompecabezasFei
                 if (cliente.ExisteNombreUsuario(jugadorRegistro.NombreJugador) || 
                     cliente.ExisteCorreoElectronico(jugadorRegistro.Correo))
                 {
-                    PaginaVerificacionCorreo paginaVerificacionCorreo = new PaginaVerificacionCorreo();
+                    PaginaVerificacionCorreo paginaVerificacionCorreo = 
+                        new PaginaVerificacionCorreo();
                     paginaVerificacionCorreo.JugadorRegistro = jugadorRegistro;
                     VentanaPrincipal.CambiarPagina(this, paginaVerificacionCorreo);
                 }
@@ -150,7 +152,8 @@ namespace RompecabezasFei
         private bool ExisteContrasenaInvalida()
         {
             bool contrasenaInvalida = false;
-            if (Regex.IsMatch(jugadorRegistro.Contrasena, "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$") 
+            if (Regex.IsMatch(jugadorRegistro.Contrasena, 
+                "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$") 
                 == false)
             {
                 MessageBox.Show("La contraseña que has ingresado es inválida", 
