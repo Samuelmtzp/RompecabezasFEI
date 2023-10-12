@@ -21,11 +21,11 @@ namespace RompecabezasFei
     /// </summary>
     public partial class PaginaSeleccionAvatar : Page
     {
-        private DatosRegistro datosRegistro;
-        public DatosRegistro DatosRegistro
+        private Jugador jugadorRegistro;
+        public Jugador JugadorRegistro
         {
-            get { return datosRegistro; }
-            set { datosRegistro = value; }
+            get { return jugadorRegistro; }
+            set { jugadorRegistro = value; }
         }
 
         public PaginaSeleccionAvatar()
@@ -52,12 +52,20 @@ namespace RompecabezasFei
 
         private void Regresar()
         {
-            PaginaRegistroUsuario paginaRegistroUsuario = new PaginaRegistroUsuario();
-            paginaRegistroUsuario.ImagenAvatarActual.Source = ImagenAvatarActual.Source;
-            paginaRegistroUsuario.ImagenAvatarActual.Tag = ImagenAvatarActual.Tag;
-            paginaRegistroUsuario.DatosRegistro = DatosRegistro;
-            paginaRegistroUsuario.CargarDatosEdicion();
-            VentanaPrincipal.CambiarPagina(this, paginaRegistroUsuario);
+            if (typeof(PaginaRegistroUsuario).IsInstanceOfType(VentanaPrincipal.PaginaAnterior))
+            {
+                PaginaRegistroUsuario paginaRegistroUsuario = new PaginaRegistroUsuario();
+                paginaRegistroUsuario.ImagenAvatarActual.Source = ImagenAvatarActual.Source;
+                paginaRegistroUsuario.ImagenAvatarActual.Tag = ImagenAvatarActual.Tag;
+                paginaRegistroUsuario.JugadorRegistro = jugadorRegistro;
+                paginaRegistroUsuario.CargarDatosEdicion();
+                VentanaPrincipal.CambiarPagina(this, paginaRegistroUsuario);
+            }
+            else
+            {
+                VentanaPrincipal.CambiarPagina(this, new PaginaActualizacionInformacion());
+            }
+            
         }
     }
 }
