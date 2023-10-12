@@ -72,6 +72,7 @@ namespace RompecabezasFei
                         MessageBox.Show("El registro de usuario se ha realizado correctamente",
                             "Registro realizado correctamente", MessageBoxButton.OK);
                         cliente.Abort();
+                        VentanaPrincipal.CambiarPagina(this, new PaginaMenuPrincipal());
                     }
                     else
                     {
