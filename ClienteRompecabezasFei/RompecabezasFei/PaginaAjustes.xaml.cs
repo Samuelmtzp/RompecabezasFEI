@@ -55,8 +55,7 @@ namespace RompecabezasFei
             else
             {
                 VentanaPrincipal.CambiarPagina(this, new PaginaMenuPrincipal());
-            }
-            
+            }            
         }
 
         private void AccionOpcionesIdiomaCerrado(object remitente, EventArgs evento)

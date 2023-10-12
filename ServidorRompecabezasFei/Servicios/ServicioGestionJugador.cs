@@ -51,9 +51,8 @@ namespace Servicios
             {
                 estadoRegistro = registro.ExisteCorreoElectronico(correoElectronico);
             }
-            catch (EntityException excepcionEntidad)
+            catch (EntityException)
             {
-                Console.WriteLine($"{excepcionEntidad.Message}");
             }
             return estadoRegistro;
         }
@@ -65,9 +64,9 @@ namespace Servicios
 
             try
             {
-                estadoRegistro = registro.ExisteNombreUsuario(nombreUsuario);
+                estadoRegistro = registro.ExisteNombreJugador(nombreUsuario);
             }
-            catch (EntityException excepcionEntidad)
+            catch (EntityException)
             {
             }
             return estadoRegistro;
@@ -81,9 +80,9 @@ namespace Servicios
                 var cliente = new Autenticacion();
                 jugador = cliente.IniciarSesion(nombreUsuario, contrasena);
             }
-            catch (EntityException excepcionEntidad)
+            catch (EntityException)
             {
-            };
+            }
             return jugador;
         }
 

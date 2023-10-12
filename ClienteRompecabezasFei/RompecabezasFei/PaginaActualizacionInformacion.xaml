@@ -1,0 +1,22 @@
+﻿<Page x:Class="RompecabezasFei.PaginaActualizacionInformacion"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RompecabezasFei"
+        xmlns:p="clr-namespace:RompecabezasFei.Properties"
+  mc:Ignorable="d" 
+  d:DesignHeight="720" d:DesignWidth="1280"
+  Title="PaginaActualizacionInformacion">
+
+    <Grid>
+        <Image Name="ImagenFlechaRegreso" Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="30,30,1145,598" Height="81" Width="81" MouseDown="AccionRegresar"/>
+        <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_NOMBREUSUARIO}" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="544,226,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32" Width="508" FontWeight="Bold"/>
+        <TextBox Name="CuadroTextoNombreUsuario" HorizontalAlignment="Left" Margin="544,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="508" Height="42" FontSize="24"/>
+
+        <Button Name="BotonGuardarCambios" Content="{x:Static p:Resources.ETIQUETA_GENERAL_GUARDARCAMBIOS}" HorizontalAlignment="Center" Margin="0,574,0,0" VerticalAlignment="Top" Height="72" Width="528" FontSize="36" Background="#FF03A64A" Foreground="White" Click="AccionGuardarCambios" FontWeight="Bold"/>
+        <Label Content="{x:Static p:Resources.ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONINFORMACION}" HorizontalAlignment="Center" Margin="0,50,0,0" HorizontalContentAlignment="Center" VerticalAlignment="Top" Foreground="White" FontSize="48" FontWeight="Bold" Width="765"/>
+        <Button x:Name="BotonCambiarAvatar" Content="{x:Static p:Resources.BOTON_INFORMACIONJUGADOR_CAMBIARCONTRASENA}" HorizontalAlignment="Left" Margin="228,411,0,0" VerticalAlignment="Top" Height="51" Width="254" FontSize="24" Background="#048ABF" Foreground="White" FontWeight="Bold" Click="AccionCambiarAvatar"/>
+        <Image HorizontalAlignment="Left" Height="200" Margin="255,185,0,0" VerticalAlignment="Top" Width="200"/>
+    </Grid>
+</Page>

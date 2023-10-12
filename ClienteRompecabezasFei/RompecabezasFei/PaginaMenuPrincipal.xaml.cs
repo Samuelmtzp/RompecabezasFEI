@@ -77,7 +77,7 @@ namespace RompecabezasFei
 
         private void AccionMiPerfil(object remitente, MouseButtonEventArgs evento)
         {
-            MessageBox.Show("Click en opción mi perfil");
+            VentanaPrincipal.CambiarPagina(this, new PaginaInformacionJugador());
         }
 
         private void AccionAjustes(object remitente, MouseButtonEventArgs evento)
