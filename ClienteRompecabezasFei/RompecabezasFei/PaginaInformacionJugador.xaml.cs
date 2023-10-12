@@ -27,7 +27,7 @@ namespace RompecabezasFei
 
         private void AccionCambiarContrasena(object remitente, RoutedEventArgs evento)
         {
-
+            VentanaPrincipal.CambiarPagina(this, new PaginaActualizacionContrasena());
         }
 
         private void AccionActualizarInformacion(object remitente, RoutedEventArgs evento)

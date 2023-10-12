@@ -77,36 +77,13 @@ namespace RompecabezasFei
                     Contrasena = contrasenaCifrada,
                     Correo = jugadorRegistro.Correo
                 };
-                bool resultadoExistencias = false;
-                //Random randomNumber = new Random();
-                //var codigoVerificacion = randomNumber.Next(100000, 1000000);
 
-                var resultado = false;
-                if (cliente.ExisteNombreUsuario(DatosRegistro.NombreUsuario) || 
-                    cliente.ExisteCorreoElectronico(DatosRegistro.CorreoElectronico))
+                if (cliente.ExisteNombreUsuario(jugadorRegistro.NombreJugador) || 
+                    cliente.ExisteCorreoElectronico(jugadorRegistro.Correo))
                 {
-                    //resultado = cliente.EnviarValidacionCorreo(DatosRegistro.CorreoElectronico, "Código de verificación", codigoVerificacion);
-                    //resultadoExistencias = true;
                     PaginaVerificacionCorreo paginaVerificacionCorreo = new PaginaVerificacionCorreo();
-                    paginaVerificacionCorreo.Dominio.Jugador.JugadorRegistro;
+                    paginaVerificacionCorreo.JugadorRegistro = jugadorRegistro;
                     VentanaPrincipal.CambiarPagina(this, paginaVerificacionCorreo);
-                }
-               
-
-                if (!resultadoExistencias)
-                {
-                    bool resultadoRegistro = cliente.Registrar(jugador);
-                    if (resultadoRegistro)
-                    {
-                        MessageBox.Show("El registro de usuario se ha realizado correctamente", 
-                            "Registro realizado correctamente", MessageBoxButton.OK);
-                        cliente.Abort();
-                    }
-                    else
-                    {
-                        MessageBox.Show("El registro de usuario no se ha realizado", 
-                            "Error al realizar registro", MessageBoxButton.OK);
-                    }
                 }
             }
         }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Dominio;
 using RompecabezasFei.ServicioGestionJugador;
 
 namespace RompecabezasFei
@@ -28,43 +29,60 @@ namespace RompecabezasFei
             set {  jugadorRegistro = value; }
         }
 
-        string codigo;
+        string codigoGenerado;
 
         public PaginaVerificacionCorreo()
         {
             InitializeComponent();
         }
 
-      
-
-        public void EnviarCorreo_Clic(object sender, RoutedEventArgs e)
+        public void AccionEnviarCodigo(object remitente, RoutedEventArgs evento)
         {
             ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
-            Random randomNumber = new Random();
-            var codigoVerificacion = randomNumber.Next(100000, 1000000);
-            cliente.EnviarValidacionCorreo(jugadorRegistro.Correo, "Código de verificación", codigoVerificacion);
-            codigo=codigoVerificacion.ToString();
+            Random numeroAleatorio = new Random();
+            var codigo = numeroAleatorio.Next(100000, 1000000);
+            cliente.EnviarValidacionCorreo(jugadorRegistro.Correo, "Código de verificación", codigo);
+            codigoGenerado = codigoGenerado.ToString();
         }
 
-       
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void AccionRegistrar(object remitente, RoutedEventArgs evento)
         {
-            string validacion= CuadroTextoCodigoVerificacion.Text;
-            if (!string.IsNullOrEmpty(codigo))
+            string codigoVerificacion = CuadroTextoCodigoVerificacion.Text;
+
+            if (!string.IsNullOrEmpty(codigoGenerado))
             {
-                if (validacion.Equals(codigo))
+                bool codigoVerificacionCoincide = codigoVerificacion.Equals(codigoGenerado);
+                bool registroRealizado = false;
+                if (codigoVerificacionCoincide)
                 {
                     ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
-                    cliente.Registrar(JugadorRegistro);
+                    ServicioGestionJugador.Jugador nuevoJugador = new ServicioGestionJugador.Jugador()
+                    {
+                        Contrasena = JugadorRegistro.Contrasena,
+                        Correo = JugadorRegistro.Correo,
+                        NombreJugador = JugadorRegistro.NombreJugador,
+                        NumeroAvatar = JugadorRegistro.NumeroAvatar
+                    };
+                    registroRealizado = cliente.Registrar(nuevoJugador);
+                    cliente.Abort();
+                }
+
+                if (registroRealizado)
+                {
+                    MessageBox.Show("El registro de usuario se ha realizado correctamente",
+                            "Registro realizado correctamente", MessageBoxButton.OK);                        
+                }
+                else
+                {
+                    MessageBox.Show("El registro de usuario no se ha realizado",
+                            "Error al realizar registro", MessageBoxButton.OK);
                 }
             }
         }
 
-        private void ImagenFlechaRegreso_Click(object sender, MouseButtonEventArgs e)
+        private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(this, new PaginaRegistroUsuario());
         }
-    
     }
 }

@@ -68,6 +68,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="PaginaActualizacionContrasena.xaml.cs">
+      <DependentUpon>PaginaActualizacionContrasena.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PaginaActualizacionInformacion.xaml.cs">
       <DependentUpon>PaginaActualizacionInformacion.xaml</DependentUpon>
     </Compile>
@@ -143,6 +146,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="PaginaActualizacionContrasena.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PaginaActualizacionInformacion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
