@@ -13,11 +13,11 @@ namespace RompecabezasFei
     /// </summary>
     public partial class PaginaRegistroUsuario : Page
     {
-        private Dominio.DatosRegistro datosRegistro;
-        public Dominio.DatosRegistro DatosRegistro
+        private Dominio.Jugador jugadorRegistro;
+        public Dominio.Jugador JugadorRegistro
         {
-            get { return datosRegistro; }
-            set { datosRegistro = value; }
+            get { return jugadorRegistro; }
+            set { jugadorRegistro = value; }
         }
 
         public PaginaRegistroUsuario()
@@ -41,7 +41,7 @@ namespace RompecabezasFei
 
         public void CargarDatosEdicion()
         {
-            CuadroTextoNombreUsuario.Text = datosRegistro.NombreUsuario;
+            CuadroTextoNombreUsuario.Text = Dominio.Jugador.jugadorRegistro.NombreUsuario;
             CuadroTextoCorreoElectronico.Text = datosRegistro.CorreoElectronico;
             CuadroContrasena.Password = datosRegistro.Contrasena;
             CuadroConfirmacionContrasena.Password = datosRegistro.ConfirmacionContrasena;
@@ -78,16 +78,18 @@ namespace RompecabezasFei
                     Correo = datosRegistro.CorreoElectronico
                 };
                 bool resultadoExistencias = false;
-                Random randomNumber = new Random();
-                var codigoVerificacion = randomNumber.Next(100000, 1000000);
+                //Random randomNumber = new Random();
+                //var codigoVerificacion = randomNumber.Next(100000, 1000000);
 
                 var resultado = false;
-                if (cliente.ExisteNombreUsuario(nombreUsuario) || 
-                    cliente.ExisteCorreoElectronico(correoElectronico))
+                if (cliente.ExisteNombreUsuario(DatosRegistro.NombreUsuario) || 
+                    cliente.ExisteCorreoElectronico(DatosRegistro.CorreoElectronico))
                 {
-                    resultado = cliente.EnviarValidacionCorreo(correoElectronico, "Código de verificación", codigoVerificacion);
+                    //resultado = cliente.EnviarValidacionCorreo(DatosRegistro.CorreoElectronico, "Código de verificación", codigoVerificacion);
                     //resultadoExistencias = true;
-                    VentanaPrincipal.CambiarPagina(this, new PaginaVerificacionCorreo());
+                    PaginaVerificacionCorreo paginaVerificacionCorreo = new PaginaVerificacionCorreo();
+                    paginaVerificacionCorreo.Dominio.Jugador.JugadorRegistro;
+                    VentanaPrincipal.CambiarPagina(this, paginaVerificacionCorreo);
                 }
                
 

@@ -21,25 +21,50 @@ namespace RompecabezasFei
     /// </summary>
     public partial class PaginaVerificacionCorreo : Page
     {
-        Jugador jugador = new Jugador();
+        private Dominio.Jugador jugadorRegistro;
+        public Dominio.Jugador JugadorRegistro
+        {
+            get { return jugadorRegistro; } 
+            set {  jugadorRegistro = value; }
+        }
+
+        string codigo;
 
         public PaginaVerificacionCorreo()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+      
+
+        public void EnviarCorreo_Clic(object sender, RoutedEventArgs e)
         {
             ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
-            var resultado = false;
             Random randomNumber = new Random();
             var codigoVerificacion = randomNumber.Next(100000, 1000000);
-            resultado = cliente.EnviarValidacionCorreo(correoElectronico, "Código de verificación", codigoVerificacion);
+            cliente.EnviarValidacionCorreo(jugadorRegistro.Correo, "Código de verificación", codigoVerificacion);
+            codigo=codigoVerificacion.ToString();
+        }
+
+       
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string validacion= CuadroTextoCodigoVerificacion.Text;
+            if (!string.IsNullOrEmpty(codigo))
+            {
+                if (validacion.Equals(codigo))
+                {
+                    ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
+                    cliente.Registrar(JugadorRegistro);
+                }
+            }
         }
 
         private void ImagenFlechaRegreso_Click(object sender, MouseButtonEventArgs e)
         {
-            VentanaPrincipal.IrPaginaAnterior(this);
+            VentanaPrincipal.CambiarPagina(this, new PaginaRegistroUsuario());
         }
+    
     }
 }

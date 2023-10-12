@@ -12,9 +12,10 @@
         <Image Name="ImagenFlechaRegreso" HorizontalAlignment="Left" Height="81" Margin="36,28,0,0" VerticalAlignment="Top" Width="81" Source="/Regresar.png" MouseDown="ImagenFlechaRegreso_Click" />
         <Label Content="Confirmación de correo electrónico&#xD;&#xA;" HorizontalAlignment="Left" Margin="294,25,0,0" VerticalAlignment="Top" Width="767" Height="84" FontSize="48" Foreground="White"/>
         <TextBlock HorizontalAlignment="Left" Margin="226,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="86" Width="822" FontSize="24" Foreground="White"><Run Language="es-mx" Text="Para completar tu registro, te enviamos un código a tu correo electrónico para que puedas restablecer tu contraseña, ingresalo a continuación"/></TextBlock>
-        <TextBox HorizontalAlignment="Left" Margin="152,390,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="869" Height="57"/>
+        <TextBox Name="CuadroTextoCodigoVerificacion" HorizontalAlignment="Left" Margin="52,432,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="869" Height="57"/>
         <Button Name="Boton_Terminar" Content="Terminar" HorizontalAlignment="Left" Margin="328,566,0,0" VerticalAlignment="Top" Height="72" Width="618" Background="#FF03A64A" Foreground="White" FontSize="36" Click="Button_Click"/>
-        <Label Content="Código de confirmación&#xD;&#xA;" HorizontalAlignment="Left" Margin="152,0,0,0" VerticalAlignment="Center" Height="84" Width="452" FontSize="36" Foreground="White"/>
+        <Label Content="Código de confirmación&#xD;&#xA;" HorizontalAlignment="Left" Margin="52,360,0,0" VerticalAlignment="Top" Height="84" Width="452" FontSize="36" Foreground="White"/>
+        <Button Name ="Boton_EnviarCorreo" Content="Enviar correo" HorizontalAlignment="Left" Margin="1016,429,0,0" VerticalAlignment="Top" Height="60" Width="172" Background="#FF03A64A" Foreground="White" Click="EnviarCorreo_Clic"/>
 
     </Grid>
 </Page>
