@@ -20,9 +20,11 @@ namespace RompecabezasFei
             set { jugadorRegistro = value; }
         }
 
+
         public PaginaRegistroUsuario()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            jugadorRegistro = new Dominio.Jugador();
         }
 
         private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
@@ -64,28 +66,21 @@ namespace RompecabezasFei
             jugadorRegistro.Correo = CuadroTextoCorreoElectronico.Text;
             jugadorRegistro.Contrasena = CuadroContrasena.Password;
             jugadorRegistro.ConfirmacionContrasena = CuadroConfirmacionContrasena.Password;
-            jugadorRegistro.NumeroAvatar = Convert.ToInt16(ImagenAvatarActual.Tag);
+            jugadorRegistro.NumeroAvatar = Convert.ToInt16(ImagenAvatarActual.Tag); 
+
             ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
 
             if (!ExistenCamposInvalidos())
-            {
-                string contrasenaCifrada = EncriptadorContrasena.CalcularHashSha512(
-                    jugadorRegistro.Contrasena);
-                Jugador jugador = new Jugador()
+            {     
+                
+                if (!(cliente.ExisteNombreUsuario(jugadorRegistro.NombreJugador)) || 
+                    !(cliente.ExisteCorreoElectronico(jugadorRegistro.Correo)))
                 {
-                    NombreJugador = jugadorRegistro.NombreJugador,
-                    NumeroAvatar = jugadorRegistro.NumeroAvatar,
-                    Contrasena = contrasenaCifrada,
-                    Correo = jugadorRegistro.Correo
-                };
-
-                if (cliente.ExisteNombreUsuario(jugadorRegistro.NombreJugador) || 
-                    cliente.ExisteCorreoElectronico(jugadorRegistro.Correo))
-                {
-                    PaginaVerificacionCorreo paginaVerificacionCorreo = 
-                        new PaginaVerificacionCorreo();
-                    paginaVerificacionCorreo.JugadorRegistro = jugadorRegistro;
+                   
+                    PaginaVerificacionCorreo paginaVerificacionCorreo = new PaginaVerificacionCorreo();
+                    paginaVerificacionCorreo.JugadorRegistro = JugadorRegistro;
                     VentanaPrincipal.CambiarPagina(this, paginaVerificacionCorreo);
+
                 }
             }
         }

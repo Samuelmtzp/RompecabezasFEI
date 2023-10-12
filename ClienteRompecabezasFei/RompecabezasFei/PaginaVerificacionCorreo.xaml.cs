@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Dominio;
 using RompecabezasFei.ServicioGestionJugador;
+using Security;
 
 namespace RompecabezasFei
 {
@@ -55,6 +56,7 @@ namespace RompecabezasFei
                 bool registroRealizado = false;
                 if (codigoVerificacionCoincide)
                 {
+                    string contrasenaCifrada = EncriptadorContrasena.CalcularHashSha512(jugadorRegistro.Contrasena);
                     ServicioGestionJugador.Jugador nuevoJugador = new ServicioGestionJugador.Jugador
                     {
                         NombreJugador = jugadorRegistro.NombreJugador,
@@ -62,6 +64,7 @@ namespace RompecabezasFei
                         Contrasena = jugadorRegistro.Contrasena,
                         Correo = jugadorRegistro.Correo
                     };
+                    nuevoJugador.Contrasena = contrasenaCifrada;
                     ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
                     bool resultadoRegistro = cliente.Registrar(nuevoJugador);
                     if (resultadoRegistro)
@@ -95,6 +98,16 @@ namespace RompecabezasFei
         private void ImagenFlechaRegreso_Click(object sender, MouseButtonEventArgs e)
         {
             Regresar();
+        }
+
+        private void CuadroTextoCodigoVerificacion_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+           if (System.Text.RegularExpressions.Regex.IsMatch(CuadroTextoCodigoVerificacion.Text, "  ^ [0-9]"))
+              {
+                  CuadroTextoCodigoVerificacion.Text = "";
+              }
+            
         }
     }
 }
