@@ -60,6 +60,12 @@
   <wsdl:message name="IServicioGestionJugador_IniciarSesion_OutputMessage">
     <wsdl:part name="parameters" element="tns:IniciarSesionResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_EnviarValidacionCorreo_InputMessage">
+    <wsdl:part name="parameters" element="tns:EnviarValidacionCorreo" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_EnviarValidacionCorreo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EnviarValidacionCorreoResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServicioGestionJugador">
     <wsdl:operation name="Registrar">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/Registrar" message="tns:IServicioGestionJugador_Registrar_InputMessage" />
@@ -76,6 +82,10 @@
     <wsdl:operation name="IniciarSesion">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/IniciarSesion" message="tns:IServicioGestionJugador_IniciarSesion_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionJugador/IniciarSesionResponse" message="tns:IServicioGestionJugador_IniciarSesion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EnviarValidacionCorreo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/EnviarValidacionCorreo" message="tns:IServicioGestionJugador_EnviarValidacionCorreo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionJugador/EnviarValidacionCorreoResponse" message="tns:IServicioGestionJugador_EnviarValidacionCorreo_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IServicioGestionJugador" type="tns:IServicioGestionJugador">
@@ -117,6 +127,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="EnviarValidacionCorreo">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionJugador/EnviarValidacionCorreo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="ServicioGestionJugador">
     <wsdl:port name="NetTcpBinding_IServicioGestionJugador" binding="tns:NetTcpBinding_IServicioGestionJugador">
@@ -124,7 +143,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8081/Contratos</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-N0M5A4F\samue</Upn>
+          <Upn>DESKTOP-TL0QS43\king_</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

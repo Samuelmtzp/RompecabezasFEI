@@ -1,4 +1,6 @@
-﻿using System.ServiceModel;
+﻿using System;
+using System.ServiceModel;
+using Logica;
 
 namespace Contratos
 {
@@ -14,6 +16,9 @@ namespace Contratos
         bool ExisteNombreUsuario(string nombreUsuario);
         [OperationContract]
         Logica.Jugador IniciarSesion(string nombreUsuario, string contrasena);
+
+        [OperationContract]
+        bool EnviarValidacionCorreo(String toEmail, String affair, int codigoVerificacion);
 
     }
 }
