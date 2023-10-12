@@ -53,7 +53,6 @@ namespace RompecabezasFei
             if (!string.IsNullOrEmpty(codigoGenerado))
             {
                 bool codigoVerificacionCoincide = codigoVerificacion.Equals(codigoGenerado);
-                bool registroRealizado = false;
                 if (codigoVerificacionCoincide)
                 {
                     string contrasenaCifrada = EncriptadorContrasena.CalcularHashSha512(jugadorRegistro.Contrasena);
@@ -64,6 +63,7 @@ namespace RompecabezasFei
                         Contrasena = jugadorRegistro.Contrasena,
                         Correo = jugadorRegistro.Correo
                     };
+
                     nuevoJugador.Contrasena = contrasenaCifrada;
                     ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
                     bool resultadoRegistro = cliente.Registrar(nuevoJugador);
@@ -95,7 +95,7 @@ namespace RompecabezasFei
             VentanaPrincipal.CambiarPagina(this, paginaRegistroUsuario);
         }
 
-        private void ImagenFlechaRegreso_Click(object sender, MouseButtonEventArgs e)
+        private void AccionRegresar(object sender, MouseButtonEventArgs e)
         {
             Regresar();
         }
