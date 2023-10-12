@@ -15,6 +15,7 @@ namespace Dominio
         private int idUsuario;
         private string correo;
         private string contrasena;
+        private string confirmacionContrasena;
         private bool esInvitado;
         #endregion
 
@@ -57,6 +58,11 @@ namespace Dominio
         {
             get { return contrasena; }
             set { contrasena = value; }
+        }
+        public string ConfirmacionContrasena
+        {
+            get { return confirmacionContrasena; }
+            set { confirmacionContrasena = value; }
         }
         public bool EsInvitado
         {

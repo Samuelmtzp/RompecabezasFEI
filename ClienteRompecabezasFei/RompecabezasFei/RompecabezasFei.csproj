@@ -68,8 +68,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="PaginaActualizacionInformacion.xaml.cs">
+      <DependentUpon>PaginaActualizacionInformacion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PaginaAjustes.xaml.cs">
       <DependentUpon>PaginaAjustes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PaginaInformacionJugador.xaml.cs">
+      <DependentUpon>PaginaInformacionJugador.xaml</DependentUpon>
     </Compile>
     <Compile Include="PaginaInicioSesion.xaml.cs">
       <DependentUpon>PaginaInicioSesion.xaml</DependentUpon>
@@ -134,7 +140,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="PaginaActualizacionInformacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PaginaAjustes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PaginaInformacionJugador.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -246,6 +260,9 @@
       <Project>{81E8F49E-E3B9-4DE1-BC8B-530306943FE4}</Project>
       <Name>Seguridad</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Indicadores\Corona.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
