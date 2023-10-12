@@ -82,13 +82,13 @@ namespace RompecabezasFei
                 //var codigoVerificacion = randomNumber.Next(100000, 1000000);
 
                 var resultado = false;
-                if (cliente.ExisteNombreUsuario(DatosRegistro.NombreUsuario) || 
-                    cliente.ExisteCorreoElectronico(DatosRegistro.CorreoElectronico))
+                if (cliente.ExisteNombreUsuario(jugadorRegistro.NombreJugador) || 
+                    cliente.ExisteCorreoElectronico(jugadorRegistro.Correo))
                 {
                     //resultado = cliente.EnviarValidacionCorreo(DatosRegistro.CorreoElectronico, "Código de verificación", codigoVerificacion);
                     //resultadoExistencias = true;
                     PaginaVerificacionCorreo paginaVerificacionCorreo = new PaginaVerificacionCorreo();
-                    paginaVerificacionCorreo.Dominio.Jugador.JugadorRegistro;
+                    paginaVerificacionCorreo.JugadorRegistro = JugadorRegistro;
                     VentanaPrincipal.CambiarPagina(this, paginaVerificacionCorreo);
                 }
                

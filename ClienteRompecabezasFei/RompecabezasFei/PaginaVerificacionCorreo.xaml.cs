@@ -28,6 +28,8 @@ namespace RompecabezasFei
             set {  jugadorRegistro = value; }
         }
 
+
+
         string codigo;
 
         public PaginaVerificacionCorreo()
@@ -55,15 +57,46 @@ namespace RompecabezasFei
             {
                 if (validacion.Equals(codigo))
                 {
+                    ServicioGestionJugador.Jugador nuevoJugador = new ServicioGestionJugador.Jugador
+                    {
+                        NombreJugador = jugadorRegistro.NombreJugador,
+                        NumeroAvatar = jugadorRegistro.NumeroAvatar,
+                        Contrasena = jugadorRegistro.Contrasena,
+                        Correo = jugadorRegistro.Correo
+                    };
                     ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
-                    cliente.Registrar(JugadorRegistro);
+                    bool resultadoRegistro = cliente.Registrar(nuevoJugador);
+                    if (resultadoRegistro)
+                    {
+                        MessageBox.Show("El registro de usuario se ha realizado correctamente",
+                            "Registro realizado correctamente", MessageBoxButton.OK);
+                        cliente.Abort();
+                    }
+                    else
+                    {
+                        MessageBox.Show("El registro de usuario no se ha realizado",
+                            "Error al realizar registro", MessageBoxButton.OK);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Código incorrecto", 
+                        "El código de verificacion es incorrecto" ,MessageBoxButton.OK);
                 }
             }
         }
 
+        private void Regresar()
+        {
+            PaginaRegistroUsuario paginaRegistroUsuario = new PaginaRegistroUsuario();
+            paginaRegistroUsuario.JugadorRegistro = jugadorRegistro;
+            paginaRegistroUsuario.CargarDatosEdicion();
+            VentanaPrincipal.CambiarPagina(this, paginaRegistroUsuario);
+        }
+
         private void ImagenFlechaRegreso_Click(object sender, MouseButtonEventArgs e)
         {
-            VentanaPrincipal.CambiarPagina(this, new PaginaRegistroUsuario());
+            Regresar();
         }
     
     }
