@@ -6,8 +6,7 @@
       xmlns:local="clr-namespace:RompecabezasFei"
         xmlns:p="clr-namespace:RompecabezasFei.Properties"
   mc:Ignorable="d" 
-  d:DesignHeight="720" d:DesignWidth="1280"
-  Title="PaginaActualizacionInformacion">
+  d:DesignHeight="720" d:DesignWidth="1280">
 
     <Grid>
         <Image Name="ImagenFlechaRegreso" Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="30,30,1145,598" Height="81" Width="81" MouseDown="AccionRegresar"/>
@@ -16,7 +15,7 @@
 
         <Button Name="BotonGuardarCambios" Content="{x:Static p:Resources.ETIQUETA_GENERAL_GUARDARCAMBIOS}" HorizontalAlignment="Center" Margin="0,574,0,0" VerticalAlignment="Top" Height="72" Width="528" FontSize="36" Background="#FF03A64A" Foreground="White" Click="AccionGuardarCambios" FontWeight="Bold"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONINFORMACION}" HorizontalAlignment="Center" Margin="0,50,0,0" HorizontalContentAlignment="Center" VerticalAlignment="Top" Foreground="White" FontSize="48" FontWeight="Bold" Width="765"/>
-        <Button x:Name="BotonCambiarAvatar" Content="{x:Static p:Resources.BOTON_INFORMACIONJUGADOR_CAMBIARCONTRASENA}" HorizontalAlignment="Left" Margin="228,411,0,0" VerticalAlignment="Top" Height="51" Width="254" FontSize="24" Background="#048ABF" Foreground="White" FontWeight="Bold" Click="AccionCambiarAvatar"/>
+        <Button x:Name="BotonCambiarAvatar" Content="{x:Static p:Resources.BOTON_ACTUALIZACIONINFORMACION_CAMBIARAVATAR}" HorizontalAlignment="Left" Margin="228,411,0,0" VerticalAlignment="Top" Height="51" Width="254" FontSize="24" Background="#048ABF" Foreground="White" FontWeight="Bold" Click="AccionCambiarAvatar"/>
         <Image HorizontalAlignment="Left" Height="200" Margin="255,185,0,0" VerticalAlignment="Top" Width="200"/>
     </Grid>
 </Page>

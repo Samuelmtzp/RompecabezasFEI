@@ -9,15 +9,15 @@ using System.ServiceModel;
 
 namespace Servidor
 {
-    public class Program
+    public class Servidor
     {
         public static void Main(string[] args)
         {
-            using (ServiceHost host = new ServiceHost(typeof(ServicioGestionJugador)))
+            using (ServiceHost anfitrion = new ServiceHost(typeof(ServicioGestionJugador)))
             {
                 try
                 {
-                    host.Open();
+                    anfitrion.Open();
                     Console.WriteLine("Servidor iniciado");
                 }
                 catch (AddressAccessDeniedException)

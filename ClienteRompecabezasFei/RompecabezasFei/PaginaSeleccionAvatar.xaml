@@ -6,8 +6,7 @@
       xmlns:local="clr-namespace:RompecabezasFei"
       xmlns:p="clr-namespace:RompecabezasFei.Properties"
       mc:Ignorable="d" 
-      d:DesignHeight="720" d:DesignWidth="1280"
-      Title="PaginaSeleccionAvatar">
+      d:DesignHeight="720" d:DesignWidth="1280">
 
     <Grid>
         <Image Name="ImagenFlechaRegreso" Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="42,36,1157,604" Height="81" Width="81" MouseDown="AccionRegresar"/>
@@ -23,11 +22,6 @@
         <Image HorizontalAlignment="Left" Height="100" Margin="760,448,0,0" VerticalAlignment="Top" Width="100" Source="\Imagenes/Avatares/9.png" Tag="9" MouseDown="AccionSeleccionAvatar"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="928,448,0,0" VerticalAlignment="Top" Width="100" Source="\Imagenes/Avatares/10.png" Tag="10" MouseDown="AccionSeleccionAvatar"/>
         <Button x:Name="BotonAceptar" Content="{x:Static p:Resources.ETIQUETA_GENERAL_ACEPTAR}" HorizontalAlignment="Center" Margin="0,595,0,0" VerticalAlignment="Top" Height="72" Width="268" FontSize="36" Background="#FF03A64A" Foreground="White" FontWeight="Bold" Click="AccionAceptar">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </Button.Resources>
         </Button>
 
     </Grid>

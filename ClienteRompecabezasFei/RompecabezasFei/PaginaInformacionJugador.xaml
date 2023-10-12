@@ -6,8 +6,7 @@
         xmlns:local="clr-namespace:RompecabezasFei"
       xmlns:p="clr-namespace:RompecabezasFei.Properties"
       mc:Ignorable="d" 
-      d:DesignHeight="720" d:DesignWidth="1280"
-      Title="PaginaInformacionUsuario">
+      d:DesignHeight="720" d:DesignWidth="1280">
 
     <Grid>
         <Image Name="ImagenFlechaRegreso" Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="30,30,1145,598" Height="81" Width="81" MouseDown="AccionRegresar"/>

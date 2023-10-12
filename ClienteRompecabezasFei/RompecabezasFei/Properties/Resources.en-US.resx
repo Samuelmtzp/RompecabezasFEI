@@ -144,6 +144,9 @@
   <data name="BOTON_CODIGO_INVALIDO" xml:space="preserve">
     <value>Invalid reset code</value>
   </data>
+  <data name="BOTON_CONFIRMACIONCORREO_ENVIARCODIGO" xml:space="preserve">
+    <value>Send code</value>
+  </data>
   <data name="BOTON_INFORMACIONJUGADOR_ACTUALIZARINFORMACION" xml:space="preserve">
     <value>Update information</value>
   </data>
@@ -197,6 +200,9 @@
   </data>
   <data name="BOTON_SALA_ENVIARMENSAJE" xml:space="preserve">
     <value>Send</value>
+  </data>
+  <data name="BOTON_SALA_INICIARPARTIDA" xml:space="preserve">
+    <value>Start game</value>
   </data>
   <data name="BOTON_SALA_OPCIONESSALA" xml:space="preserve">
     <value>Room options</value>

@@ -147,7 +147,8 @@ namespace RompecabezasFei
         private bool ExisteContrasenaInvalida()
         {
             bool contrasenaInvalida = false;
-            if (Regex.IsMatch(jugadorRegistro.Contrasena, "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$") 
+            if (Regex.IsMatch(jugadorRegistro.Contrasena, 
+                "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$") 
                 == false)
             {
                 MessageBox.Show("La contraseña que has ingresado es inválida", 

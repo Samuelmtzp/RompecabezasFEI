@@ -142,6 +142,15 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enviar código.
+        /// </summary>
+        public static string BOTON_CONFIRMACIONCORREO_ENVIARCODIGO {
+            get {
+                return ResourceManager.GetString("BOTON_CONFIRMACIONCORREO_ENVIARCODIGO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Actualizar información.
         /// </summary>
         public static string BOTON_INFORMACIONJUGADOR_ACTUALIZARINFORMACION {
@@ -300,6 +309,15 @@ namespace RompecabezasFei.Properties {
         public static string BOTON_SALA_ENVIARMENSAJE {
             get {
                 return ResourceManager.GetString("BOTON_SALA_ENVIARMENSAJE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Iniciar partida.
+        /// </summary>
+        public static string BOTON_SALA_INICIARPARTIDA {
+            get {
+                return ResourceManager.GetString("BOTON_SALA_INICIARPARTIDA", resourceCulture);
             }
         }
         

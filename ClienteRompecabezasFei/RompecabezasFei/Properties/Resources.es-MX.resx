@@ -144,6 +144,9 @@
   <data name="BOTON_CODIGO_INVALIDO" xml:space="preserve">
     <value>Código de restablecimiento inválido</value>
   </data>
+  <data name="BOTON_CONFIRMACIONCORREO_ENVIARCODIGO" xml:space="preserve">
+    <value>Enviar código</value>
+  </data>
   <data name="BOTON_INFORMACIONJUGADOR_ACTUALIZARINFORMACION" xml:space="preserve">
     <value>Actualizar información</value>
   </data>
@@ -197,6 +200,9 @@
   </data>
   <data name="BOTON_SALA_ENVIARMENSAJE" xml:space="preserve">
     <value>Enviar</value>
+  </data>
+  <data name="BOTON_SALA_INICIARPARTIDA" xml:space="preserve">
+    <value>Iniciar partida</value>
   </data>
   <data name="BOTON_SALA_OPCIONESSALA" xml:space="preserve">
     <value>Opciones sala</value>

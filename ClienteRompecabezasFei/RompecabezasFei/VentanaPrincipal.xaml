@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RompecabezasFei"
+        xmlns:p="clr-namespace:RompecabezasFei.Properties"
         mc:Ignorable="d"
-        Title="Rompecabezas FEI" Height="720" Width="1280"
+        Title="{x:Static p:Resources.ETIQUETA_GENERAL_ROMPECABEZASFEI}" Height="720" Width="1280"
         Background="#262626" 
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
