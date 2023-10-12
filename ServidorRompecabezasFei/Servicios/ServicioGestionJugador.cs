@@ -9,12 +9,16 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
+using Registros;
+using log4net;
+using log4net.Repository.Hierarchy;
 
 namespace Servicios
 {
     [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Multiple, InstanceContextMode = InstanceContextMode.Single)]
     public partial class ServicioGestionJugador : IServicioGestionJugador
     {
+
         public bool Registrar(Logica.Jugador jugador)
         {
             var estadoRegistro = false;
@@ -80,6 +84,13 @@ namespace Servicios
             {
             }
             return jugador;
+        }
+
+        public bool EnviarValidacionCorreo(string toEmail, string affair, int codigoVerificacion)
+        {
+            var cliente = new VerificadorCorreo();
+            var estado = cliente.EnviarValidacionCorreo(toEmail, affair, codigoVerificacion);
+            return estado;
         }
     }
 }

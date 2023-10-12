@@ -92,6 +92,9 @@
     <Compile Include="PaginaSeleccionAvatar.xaml.cs">
       <DependentUpon>PaginaSeleccionAvatar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PaginaVerificacionCorreo.xaml.cs">
+      <DependentUpon>PaginaVerificacionCorreo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -169,6 +172,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PaginaSeleccionAvatar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PaginaVerificacionCorreo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -260,6 +267,9 @@
       <Project>{81E8F49E-E3B9-4DE1-BC8B-530306943FE4}</Project>
       <Name>Seguridad</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Regresar.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\Indicadores\Corona.png" />

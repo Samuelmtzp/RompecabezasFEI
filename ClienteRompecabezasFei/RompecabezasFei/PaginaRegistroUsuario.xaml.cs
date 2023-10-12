@@ -78,11 +78,18 @@ namespace RompecabezasFei
                     Correo = jugadorRegistro.Correo
                 };
                 bool resultadoExistencias = false;
-                if (cliente.ExisteNombreUsuario(jugadorRegistro.NombreJugador) || 
-                    cliente.ExisteCorreoElectronico(jugadorRegistro.Correo))
+                Random randomNumber = new Random();
+                var codigoVerificacion = randomNumber.Next(100000, 1000000);
+
+                var resultado = false;
+                if (cliente.ExisteNombreUsuario(nombreUsuario) || 
+                    cliente.ExisteCorreoElectronico(correoElectronico))
                 {
-                    resultadoExistencias = true;
+                    resultado = cliente.EnviarValidacionCorreo(correoElectronico, "Código de verificación", codigoVerificacion);
+                    //resultadoExistencias = true;
+                    VentanaPrincipal.CambiarPagina(this, new PaginaVerificacionCorreo());
                 }
+               
 
                 if (!resultadoExistencias)
                 {
