@@ -117,100 +117,403 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Aceptar" xml:space="preserve">
-    <value>Aceptar</value>
+  <data name="BOTON_ACTUALIZACIONINFORMACION_CAMBIARAVATAR" xml:space="preserve">
+    <value>Cambiar avatar</value>
   </data>
-  <data name="Activada" xml:space="preserve">
+  <data name="BOTON_AJUSTES_ACTIVADA" xml:space="preserve">
     <value>Activada</value>
   </data>
-  <data name="Ajustes" xml:space="preserve">
-    <value>Ajustes</value>
-  </data>
-  <data name="CerrarSesion" xml:space="preserve">
-    <value>Cerrar sesión</value>
-  </data>
-  <data name="ConfirmarContraseña" xml:space="preserve">
-    <value>Confirmar contraseña</value>
-  </data>
-  <data name="Contraseña" xml:space="preserve">
-    <value>Contraseña</value>
-  </data>
-  <data name="ContraseñaIncorrecta" xml:space="preserve">
-    <value>Contraseña incorrecta</value>
-  </data>
-  <data name="ContraseñaInválida" xml:space="preserve">
-    <value>Contraseña inválida</value>
-  </data>
-  <data name="Correo" xml:space="preserve">
-    <value>Correo electrónico</value>
-  </data>
-  <data name="CorreoNoDisponible" xml:space="preserve">
-    <value>Correo no disponible</value>
-  </data>
-  <data name="CrearNuevaSala" xml:space="preserve">
-    <value>Crear nueva sala</value>
-  </data>
-  <data name="Desactivada" xml:space="preserve">
+  <data name="BOTON_AJUSTES_DESACTIVADA" xml:space="preserve">
     <value>Desactivada</value>
   </data>
-  <data name="Español" xml:space="preserve">
-    <value>Español</value>
+  <data name="BOTON_AMIGOS_AGREGAR" xml:space="preserve">
+    <value>Agregar</value>
   </data>
-  <data name="Idioma" xml:space="preserve">
-    <value>Idioma</value>
+  <data name="BOTON_AMIGOS_ENVIARSOLICITUD" xml:space="preserve">
+    <value>Enviar solicitud</value>
   </data>
-  <data name="InformacionRequisitosContraseña" xml:space="preserve">
-    <value>La contraseña debe ser de al menos 8 caracteres, debes incluir letras mayúsculas, minúsculas y números</value>
+  <data name="BOTON_AMIGOS_RECHAZAR" xml:space="preserve">
+    <value>Rechazar</value>
   </data>
-  <data name="Inglés" xml:space="preserve">
-    <value>Inglés</value>
+  <data name="BOTON_AMIGOS_REMOVER" xml:space="preserve">
+    <value>Remover</value>
   </data>
-  <data name="IniciarSesion" xml:space="preserve">
+  <data name="BOTON_AMIGOS_SOLICITUDES" xml:space="preserve">
+    <value>Solicitudes</value>
+  </data>
+  <data name="BOTON_CODIGO_INVALIDO" xml:space="preserve">
+    <value>Código de restablecimiento inválido</value>
+  </data>
+  <data name="BOTON_INFORMACIONJUGADOR_ACTUALIZARINFORMACION" xml:space="preserve">
+    <value>Actualizar información</value>
+  </data>
+  <data name="BOTON_INFORMACIONJUGADOR_CAMBIARCONTRASENA" xml:space="preserve">
+    <value>Cambiar contraseña</value>
+  </data>
+  <data name="BOTON_INICIOSESION_INICIARSESION" xml:space="preserve">
     <value>Iniciar sesión</value>
   </data>
-  <data name="MiPerfil" xml:space="preserve">
-    <value>Mi perfil</value>
-  </data>
-  <data name="MisAmigos" xml:space="preserve">
-    <value>Mis amigos</value>
-  </data>
-  <data name="ModoInvitado" xml:space="preserve">
+  <data name="BOTON_INICIOSESION_INVITADO" xml:space="preserve">
     <value>Modo invitado</value>
   </data>
-  <data name="Música" xml:space="preserve">
-    <value>Música</value>
+  <data name="BOTON_MENUPRINCIPAL_CREACIONSALA" xml:space="preserve">
+    <value>Crear nueva sala</value>
   </data>
-  <data name="NombreUsuario" xml:space="preserve">
-    <value>Nombre de usuario</value>
-  </data>
-  <data name="OpcionContraseñaOlvidada" xml:space="preserve">
-    <value>¿Olvidaste tu contraseña?</value>
-  </data>
-  <data name="OpcionRegistrateAqui" xml:space="preserve">
-    <value>¿No tienes una cuenta? Registrate aquí</value>
-  </data>
-  <data name="RegistroUsuario" xml:space="preserve">
-    <value>Registro de usuario</value>
-  </data>
-  <data name="RompecabezasFEI" xml:space="preserve">
-    <value>Rompecabezas FEI</value>
-  </data>
-  <data name="SeleccionarAvatar" xml:space="preserve">
-    <value>Seleccionar avatar</value>
-  </data>
-  <data name="Siguiente" xml:space="preserve">
-    <value>Siguiente</value>
-  </data>
-  <data name="TituloIniciarSesion" xml:space="preserve">
-    <value>Iniciar sesión</value>
-  </data>
-  <data name="UnirseSala" xml:space="preserve">
+  <data name="BOTON_MENUPRINCIPAL_UNIRSESALA" xml:space="preserve">
     <value>Unirse a sala</value>
   </data>
-  <data name="UsuarioExistente" xml:space="preserve">
+  <data name="BOTON_OPCIONESSALA_AJUSTESPARTIDA" xml:space="preserve">
+    <value>Ajustes de partida</value>
+  </data>
+  <data name="BOTON_OPCIONESSALA_CONVERTIRANFITRION" xml:space="preserve">
+    <value>Convertir en anfitrión</value>
+  </data>
+  <data name="BOTON_OPCIONESSALA_DIFICIL" xml:space="preserve">
+    <value>Difícil</value>
+  </data>
+  <data name="BOTON_OPCIONESSALA_EXPULSAR" xml:space="preserve">
+    <value>Expulsar</value>
+  </data>
+  <data name="BOTON_OPCIONESSALA_FACIL" xml:space="preserve">
+    <value>Fácil</value>
+  </data>
+  <data name="BOTON_OPCIONESSALA_INVITACIONAMIGO" xml:space="preserve">
+    <value>Invitar amigo</value>
+  </data>
+  <data name="BOTON_OPCIONESSALA_INVITACIONCORREO" xml:space="preserve">
+    <value>Invitar por correo</value>
+  </data>
+  <data name="BOTON_OPCIONESSALA_INVITACIONSALA" xml:space="preserve">
+    <value>Invitar a sala</value>
+  </data>
+  <data name="BOTON_OPCIONESSALA_MEDIA" xml:space="preserve">
+    <value>Media</value>
+  </data>
+  <data name="BOTON_OPCIONESSALA_MINUTOS" xml:space="preserve">
+    <value>Minutos</value>
+  </data>
+  <data name="BOTON_PARTIDA_ABANDONOPARTIDA" xml:space="preserve">
+    <value>Abandonar partida</value>
+  </data>
+  <data name="BOTON_SALA_ENVIARMENSAJE" xml:space="preserve">
+    <value>Enviar</value>
+  </data>
+  <data name="BOTON_SALA_OPCIONESSALA" xml:space="preserve">
+    <value>Opciones sala</value>
+  </data>
+  <data name="BOTON_UNIRSESALA_UNIRSE" xml:space="preserve">
+    <value>Unirse</value>
+  </data>
+  <data name="COLUMNA_AJUSTES_IDIOMAESPANOL" xml:space="preserve">
+    <value>Español</value>
+  </data>
+  <data name="COLUMNA_AJUSTES_IDIOMAINGLES" xml:space="preserve">
+    <value>Inglés</value>
+  </data>
+  <data name="ETIQUETA_ABANDONOPARTIDA_MENSAJE" xml:space="preserve">
+    <value>¿Estás seguro de que quieres abandonar la partida?</value>
+  </data>
+  <data name="ETIQUETA_ABANDONOPARTIDA_TITULO" xml:space="preserve">
+    <value>Confirmación de abandono de partida</value>
+  </data>
+  <data name="ETIQUETA_ABANDONOSALA_MENSAJE" xml:space="preserve">
+    <value>¿Estás seguro de que quieres abandonar la sala?</value>
+  </data>
+  <data name="ETIQUETA_ABANDONOSALA_TITULO" xml:space="preserve">
+    <value>Confirmación de abandono de sala</value>
+  </data>
+  <data name="ETIQUETA_ACTUALIZACIONCONTRASENA_CONTRASENAACTUAL" xml:space="preserve">
+    <value>Contraseña actual</value>
+  </data>
+  <data name="ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONINFORMACION" xml:space="preserve">
+    <value>Actualizar información</value>
+  </data>
+  <data name="ETIQUETA_AJUSTES_IDIOMA" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="ETIQUETA_AJUSTES_MUSICA" xml:space="preserve">
+    <value>Música</value>
+  </data>
+  <data name="ETIQUETA_AMIGOS_DESCONECTADO" xml:space="preserve">
+    <value>Desconectado</value>
+  </data>
+  <data name="ETIQUETA_AMIGOS_ENPARTIDA" xml:space="preserve">
+    <value>En partida</value>
+  </data>
+  <data name="ETIQUETA_AMIGOS_INSTRUCCIONSOLICITUDAMISTAD" xml:space="preserve">
+    <value>Para mandar una solicitud de amistad a un jugador, debes de ingresar su nombre de usuario</value>
+  </data>
+  <data name="ETIQUETA_AMIGOS_USUARIONOENCONTRADO" xml:space="preserve">
+    <value>Usuario no encontrado</value>
+  </data>
+  <data name="ETIQUETA_CANCELACIONACTUALIZACIONINFO_MENSAJE" xml:space="preserve">
+    <value>Si regresas, el proceso de actualización de información se cancelará ¿Estás seguro de que deseas regresar?</value>
+  </data>
+  <data name="ETIQUETA_CANCELACIONACTUALIZACIONINFO_TITULO" xml:space="preserve">
+    <value>Confirmación cancelación actualización de información</value>
+  </data>
+  <data name="ETIQUETA_CANCELACIONREGISTRO_MENSAJE" xml:space="preserve">
+    <value>¿Estás seguro de que desea cancelar el proceso de registro? La información ingresada se descartará</value>
+  </data>
+  <data name="ETIQUETA_CANCELACIONREGISTRO_TITULO" xml:space="preserve">
+    <value>Confirmación cancelación registro de usuario</value>
+  </data>
+  <data name="ETIQUETA_CANCELACIONRESTABLECIMIENTO_MENSAJE" xml:space="preserve">
+    <value>Si regresas, el proceso de restablecimiento de contraseña se cancelará ¿Estás seguro de que desea regresar?</value>
+  </data>
+  <data name="ETIQUETA_CANCELACIONRESTABLECIMIENTO_TITULO" xml:space="preserve">
+    <value>Confirmación cancelación restablecimiento contraseña</value>
+  </data>
+  <data name="ETIQUETA_CERRARSESION_MENSAJE" xml:space="preserve">
+    <value>¿Estás seguro de que quieres cerrar la sesión?</value>
+  </data>
+  <data name="ETIQUETA_CERRARSESION_TITULO" xml:space="preserve">
+    <value>Confirmación de cerrar sesión</value>
+  </data>
+  <data name="ETIQUETA_CODIGO_CODIGORESTABLECIMIENTO" xml:space="preserve">
+    <value>Código de restablecimiento de contraseña</value>
+  </data>
+  <data name="ETIQUETA_CODIGO_INSTRUCCIONCODIGO" xml:space="preserve">
+    <value>Revisa tu bandeja de entrada e introduce el código de restablecimiento de contraseña que te hemos enviado</value>
+  </data>
+  <data name="ETIQUETA_CODIGO_INTRODUCECODIGO" xml:space="preserve">
+    <value>Introduce el código</value>
+  </data>
+  <data name="ETIQUETA_CONFIRMACIONCORREO_CODIGOCONFIRMACION" xml:space="preserve">
+    <value>Código de confirmación</value>
+  </data>
+  <data name="ETIQUETA_CONFIRMACIONCORREO_CONFIRMACIONCORREO" xml:space="preserve">
+    <value>Confirmación de correo electrónico</value>
+  </data>
+  <data name="ETIQUETA_CONFIRMACIONCORREO_INSTRUCCIONCORREO" xml:space="preserve">
+    <value>Para completar tu registro, te enviamos un código a tu correo electrónico para que puedas restablecer tu contraseña, ingresalo a continuación</value>
+  </data>
+  <data name="ETIQUETA_CONFIRMACIONCORREO_TERMINAR" xml:space="preserve">
+    <value>Terminar</value>
+  </data>
+  <data name="ETIQUETA_CONTRASENAACTUALIZADA_MENSAJE" xml:space="preserve">
+    <value>La contraseña se ha actualizado correctamente</value>
+  </data>
+  <data name="ETIQUETA_CONTRASENAACTUALIZADA_TITULO" xml:space="preserve">
+    <value>Contraseña actualizada</value>
+  </data>
+  <data name="ETIQUETA_CONVERTIRANFITRION_MENSAJE" xml:space="preserve">
+    <value>¿Estás seguro de que quieres convertir al jugador en anfitrión?</value>
+  </data>
+  <data name="ETIQUETA_CONVERTIRANFITRION_TITULO" xml:space="preserve">
+    <value>Confirmación de convertir jugador en anfitrión</value>
+  </data>
+  <data name="ETIQUETA_ELIMINACIONAMIGO_MENSAJE" xml:space="preserve">
+    <value>¿Está seguro de que quieres eliminar al jugador de tu lista de amigos?</value>
+  </data>
+  <data name="ETIQUETA_ELIMINACIONAMIGO_TITULO" xml:space="preserve">
+    <value>Confirmación eliminación amigo</value>
+  </data>
+  <data name="ETIQUETA_ERRORCONEXIONBASEDEDATOS_MENSAJE" xml:space="preserve">
+    <value>No se pudo establecer una conexión con la base de datos. Por favor, inténtelo más tarde.</value>
+  </data>
+  <data name="ETIQUETA_ERRORCONEXIONBASEDEDATOS_TITULO" xml:space="preserve">
+    <value>Error de conexión base de datos</value>
+  </data>
+  <data name="ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE" xml:space="preserve">
+    <value>No se pudo establecer una conexión con el servidor. Por favor, inténtelo más tarde.</value>
+  </data>
+  <data name="ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO" xml:space="preserve">
+    <value>Error de conexión con el servidor</value>
+  </data>
+  <data name="ETIQUETA_EXPULSIONJUGADOR_MENSAJE" xml:space="preserve">
+    <value>¿Estás seguro de que quieres expulsar al jugador?</value>
+  </data>
+  <data name="ETIQUETA_EXPULSIONJUGADOR_TITULO" xml:space="preserve">
+    <value>Confirmación expulsión de jugador</value>
+  </data>
+  <data name="ETIQUETA_GENERAL_ACEPTAR" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
+  <data name="ETIQUETA_GENERAL_ACTUALIZACIONCONTRASENA" xml:space="preserve">
+    <value>Actualizar contraseña</value>
+  </data>
+  <data name="ETIQUETA_GENERAL_AJUSTES" xml:space="preserve">
+    <value>Ajustes</value>
+  </data>
+  <data name="ETIQUETA_GENERAL_AMIGOS" xml:space="preserve">
+    <value>Mis amigos</value>
+  </data>
+  <data name="ETIQUETA_GENERAL_CODIGOSALA" xml:space="preserve">
+    <value>Código de sala</value>
+  </data>
+  <data name="ETIQUETA_GENERAL_CONFIRMACIONCONTRASENA" xml:space="preserve">
+    <value>Confirmar nueva contraseña</value>
+  </data>
+  <data name="ETIQUETA_GENERAL_CONFIRMAR" xml:space="preserve">
+    <value>Confirmar</value>
+  </data>
+  <data name="ETIQUETA_GENERAL_CONTRASENA" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="ETIQUETA_GENERAL_CONTRASENAINVALIDA" xml:space="preserve">
+    <value>Contraseña inválida</value>
+  </data>
+  <data name="ETIQUETA_GENERAL_CORREO" xml:space="preserve">
+    <value>Correo electrónico</value>
+  </data>
+  <data name="ETIQUETA_GENERAL_ENLINEA" xml:space="preserve">
+    <value>En línea</value>
+  </data>
+  <data name="ETIQUETA_GENERAL_GUARDARCAMBIOS" xml:space="preserve">
+    <value>Guardar cambios</value>
+  </data>
+  <data name="ETIQUETA_GENERAL_JUGADORES" xml:space="preserve">
+    <value>Jugadores</value>
+  </data>
+  <data name="ETIQUETA_GENERAL_NOMBREUSUARIO" xml:space="preserve">
+    <value>Nombre de usuario</value>
+  </data>
+  <data name="ETIQUETA_GENERAL_NUEVACONTRASENA" xml:space="preserve">
+    <value>Nueva contraseña</value>
+  </data>
+  <data name="ETIQUETA_GENERAL_REQUISITOSCONTRASENA" xml:space="preserve">
+    <value>La contraseña debe ser de al menos 8 caracteres, debes incluir letras mayúsculas, minúsculas y números</value>
+  </data>
+  <data name="ETIQUETA_GENERAL_ROMPECABEZASFEI" xml:space="preserve">
+    <value>Rompecabezas FEI</value>
+  </data>
+  <data name="ETIQUETA_GENERAL_SIGUIENTE" xml:space="preserve">
+    <value>Siguiente</value>
+  </data>
+  <data name="ETIQUETA_GENERAL_USUARIOEXISTENTE" xml:space="preserve">
     <value>Usuario existente</value>
   </data>
-  <data name="UsuarioIncorrecto" xml:space="preserve">
+  <data name="ETIQUETA_INFORMACIONACTUALIZADA_MENSAJE" xml:space="preserve">
+    <value>La información se ha actualizado correctamente</value>
+  </data>
+  <data name="ETIQUETA_INFORMACIONACTUALIZADA_TITULO" xml:space="preserve">
+    <value>Información actualizada</value>
+  </data>
+  <data name="ETIQUETA_INFORMACIONJUGADOR_PARTIDASGANADAS" xml:space="preserve">
+    <value>Partidas ganadas</value>
+  </data>
+  <data name="ETIQUETA_INFORMACIONJUGADOR_PARTIDASJUGADAS" xml:space="preserve">
+    <value>Partidas jugadas</value>
+  </data>
+  <data name="ETIQUETA_INICIOSESION_CONTRASENAINCORRECTA" xml:space="preserve">
+    <value>Contraseña incorrecta</value>
+  </data>
+  <data name="ETIQUETA_INICIOSESION_RECUPERACIONCONTRASENA" xml:space="preserve">
+    <value>¿Olvidaste tu contraseña?</value>
+  </data>
+  <data name="ETIQUETA_INICIOSESION_REGISTRO" xml:space="preserve">
+    <value>¿No tienes una cuenta? Registrate aquí</value>
+  </data>
+  <data name="ETIQUETA_INICIOSESION_USUARIOINCORRECTO" xml:space="preserve">
     <value>Usuario incorrecto</value>
+  </data>
+  <data name="ETIQUETA_INVITACIONSALAENVIADA_MENSAJE" xml:space="preserve">
+    <value>La invitación de sala se ha enviado correctamente</value>
+  </data>
+  <data name="ETIQUETA_INVITACIONSALAENVIADA_TITULO" xml:space="preserve">
+    <value>Invitación a sala enviada</value>
+  </data>
+  <data name="ETIQUETA_INVITACIONSALA_MENSAJE" xml:space="preserve">
+    <value>te ha invitado a su sala. ¿Deseas unirte?</value>
+  </data>
+  <data name="ETIQUETA_INVITACIONSALA_TITULO" xml:space="preserve">
+    <value>Invitación a sala</value>
+  </data>
+  <data name="ETIQUETA_MENUPRINCIPAL_CERRARSESION" xml:space="preserve">
+    <value>Cerrar sesión</value>
+  </data>
+  <data name="ETIQUETA_MENUPRINCIPAL_PERFIL" xml:space="preserve">
+    <value>Mi perfil</value>
+  </data>
+  <data name="ETIQUETA_OPCIONESSALA_CORREOINVALIDO" xml:space="preserve">
+    <value>Correo electrónico inválido</value>
+  </data>
+  <data name="ETIQUETA_OPCIONESSALA_DIFICULTAD" xml:space="preserve">
+    <value>Dificultad</value>
+  </data>
+  <data name="ETIQUETA_OPCIONESSALA_DURACION" xml:space="preserve">
+    <value>Duración</value>
+  </data>
+  <data name="ETIQUETA_OPCIONESSALA_INSTRUCCIONINVITACIONCORREO" xml:space="preserve">
+    <value>Para invitar a un jugador que no esta en tu lista de amigos, es necesario que ingreses su correo electrónico para que le podamos enviar el código de sala</value>
+  </data>
+  <data name="ETIQUETA_PARTIDAENCURSO_MENSAJE" xml:space="preserve">
+    <value>No es posible unirse a la sala debido a que hay una partida en progreso. Por favor, inténtelo más tarde.</value>
+  </data>
+  <data name="ETIQUETA_PARTIDAENCURSO_TITULO" xml:space="preserve">
+    <value>Partida en transcurso</value>
+  </data>
+  <data name="ETIQUETA_PARTIDA_TIEMPORESTANTE" xml:space="preserve">
+    <value>Tiempo restante</value>
+  </data>
+  <data name="ETIQUETA_RECUPERACION_CORREONOENCONTRADO" xml:space="preserve">
+    <value>Correo electrónico no registrado</value>
+  </data>
+  <data name="ETIQUETA_RECUPERACION_INSTRUCCIONRECUPERACION" xml:space="preserve">
+    <value>Ingresa el correo electrónico con el cual te registraste, te enviaremos un código para que puedas restablecer tu contraseña</value>
+  </data>
+  <data name="ETIQUETA_RECUPERACION_RECUPERACIONCONTRASENA" xml:space="preserve">
+    <value>Recuperación de contraseña</value>
+  </data>
+  <data name="ETIQUETA_REGISTROREALIZADO_MENSAJE" xml:space="preserve">
+    <value>Se ha realizado el registro correctamente. Ya puedes iniciar sesión en tu cuenta.</value>
+  </data>
+  <data name="ETIQUETA_REGISTROREALIZADO_TITULO" xml:space="preserve">
+    <value>Registro de jugador realizado</value>
+  </data>
+  <data name="ETIQUETA_REGISTRO_CONFIRMACIONCONTRASENA" xml:space="preserve">
+    <value>Confirmar contraseña</value>
+  </data>
+  <data name="ETIQUETA_REGISTRO_CONTRASENAINVALIDA" xml:space="preserve">
+    <value>Contraseña inválida</value>
+  </data>
+  <data name="ETIQUETA_REGISTRO_CORREONODISPONIBLE" xml:space="preserve">
+    <value>Correo electrónico no disponible</value>
+  </data>
+  <data name="ETIQUETA_REGISTRO_REGISTROUSUARIO" xml:space="preserve">
+    <value>Registro de usuario</value>
+  </data>
+  <data name="ETIQUETA_REGISTRO_SELECCIONAVATAR" xml:space="preserve">
+    <value>Seleccionar avatar</value>
+  </data>
+  <data name="ETIQUETA_RESTABLECIMIENTO_CONTRASENAINVALIDA" xml:space="preserve">
+    <value>Contraseña inválida</value>
+  </data>
+  <data name="ETIQUETA_RESTABLECIMIENTO_RESTABLECIMIENTOCONTRASENA" xml:space="preserve">
+    <value>Restablecer contraseña</value>
+  </data>
+  <data name="ETIQUETA_RESULTADOS_MENSAJEGANADOR" xml:space="preserve">
+    <value>ha ganado la partida</value>
+  </data>
+  <data name="ETIQUETA_RESULTADOS_RESULTADOS" xml:space="preserve">
+    <value>Resultados</value>
+  </data>
+  <data name="ETIQUETA_SALALLENA_MENSAJE" xml:space="preserve">
+    <value>No es posible unirse a la sala debido a que se encuentra llena. Por favor, inténtelo más tarde.</value>
+  </data>
+  <data name="ETIQUETA_SALALLENA_TITULO" xml:space="preserve">
+    <value>Sala llena</value>
+  </data>
+  <data name="ETIQUETA_SALA_ANFITRION" xml:space="preserve">
+    <value>Anfitrión</value>
+  </data>
+  <data name="ETIQUETA_SALA_MENSAJES" xml:space="preserve">
+    <value>Mensajes</value>
+  </data>
+  <data name="ETIQUETA_SOLICITUDAMISTADENVIADA_MENSAJE" xml:space="preserve">
+    <value>La solicitud de amistad se ha enviado correctamente</value>
+  </data>
+  <data name="ETIQUETA_SOLICITUDAMISTADENVIADA_TITULO" xml:space="preserve">
+    <value>Solicitud de amistad enviada</value>
+  </data>
+  <data name="ETIQUETA_UNIRSESALA_CODIGOSALAINVALIDO" xml:space="preserve">
+    <value>Código de sala inválido</value>
+  </data>
+  <data name="ETIQUETA_UNIRSESALA_INSTRUCCIONUNIRSE" xml:space="preserve">
+    <value>Si cuentas con un código de acceso a una sala, puedes ingresarlo a continuación para poder unirte</value>
+  </data>
+  <data name="ETIQUETA_UNIRSESALA_UNIRSESALA" xml:space="preserve">
+    <value>Unirse a sala</value>
   </data>
 </root>

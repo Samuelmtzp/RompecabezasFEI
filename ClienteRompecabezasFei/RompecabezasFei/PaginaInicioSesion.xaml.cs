@@ -20,7 +20,7 @@ namespace RompecabezasFei
             InitializeComponent();
         }
 
-        private void BotonModoInvitado_Click(object sender, RoutedEventArgs e)
+        private void AccionModoInvitado(object remitente, RoutedEventArgs evento)
         {
             
             Dominio.Jugador.JugadorActual = new Dominio.Jugador()
@@ -32,24 +32,24 @@ namespace RompecabezasFei
             VentanaPrincipal.CambiarPagina(this, new PaginaMenuPrincipal());
         }
 
-        private void OpcionRecuperarContrasena_MouseLeftButtonUp(object sender, 
-            MouseButtonEventArgs e)
+        private void AccionRecuperarContrasena(object remitente, 
+            MouseButtonEventArgs evento)
         {
             MessageBox.Show("Click en opción recuperar contraseña");
         }
 
-        private void OpcionRegistro_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
+        private void AccionRegistro(object remitente, MouseButtonEventArgs evento)
+        {            
             VentanaPrincipal.CambiarPagina(this, new PaginaRegistroUsuario());
         }
 
         
-        private void ImagenAjustes_Click(object sender, MouseButtonEventArgs e)
+        private void AccionAjustes(object remitente, MouseButtonEventArgs evento)
         {
-            VentanaPrincipal.CambiarPagina(this, new PaginaAjustes());
+            VentanaPrincipal.CambiarPaginaGuardandoAnterior(this, new PaginaAjustes());
         }
 
-        private void BotonInicioSesion_Click(object sender, RoutedEventArgs e)
+        private void AccionInicioSesion(object remitente, RoutedEventArgs evento)
         {
             var nombreUsuario = CuadroTextoNombreUsuario.Text;
             var contrasena = CuadroContrasena.Password;

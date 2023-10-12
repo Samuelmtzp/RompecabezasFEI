@@ -80,6 +80,9 @@
     <Compile Include="PaginaRegistroUsuario.xaml.cs">
       <DependentUpon>PaginaRegistroUsuario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PaginaSala.xaml.cs">
+      <DependentUpon>PaginaSala.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PaginaSeleccionAvatar.xaml.cs">
       <DependentUpon>PaginaSeleccionAvatar.xaml</DependentUpon>
     </Compile>
@@ -147,6 +150,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PaginaRegistroUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PaginaSala.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

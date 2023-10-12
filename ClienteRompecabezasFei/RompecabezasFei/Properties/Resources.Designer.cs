@@ -61,290 +61,1199 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aceptar.
+        ///   Looks up a localized string similar to Cambiar avatar.
         /// </summary>
-        public static string Aceptar {
+        public static string BOTON_ACTUALIZACIONINFORMACION_CAMBIARAVATAR {
             get {
-                return ResourceManager.GetString("Aceptar", resourceCulture);
+                return ResourceManager.GetString("BOTON_ACTUALIZACIONINFORMACION_CAMBIARAVATAR", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Activada.
         /// </summary>
-        public static string Activada {
+        public static string BOTON_AJUSTES_ACTIVADA {
             get {
-                return ResourceManager.GetString("Activada", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ajustes.
-        /// </summary>
-        public static string Ajustes {
-            get {
-                return ResourceManager.GetString("Ajustes", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Cerrar sesión.
-        /// </summary>
-        public static string CerrarSesion {
-            get {
-                return ResourceManager.GetString("CerrarSesion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Confirmar contraseña.
-        /// </summary>
-        public static string ConfirmarContraseña {
-            get {
-                return ResourceManager.GetString("ConfirmarContraseña", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Contraseña.
-        /// </summary>
-        public static string Contraseña {
-            get {
-                return ResourceManager.GetString("Contraseña", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Contraseña incorrecta.
-        /// </summary>
-        public static string ContraseñaIncorrecta {
-            get {
-                return ResourceManager.GetString("ContraseñaIncorrecta", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Contraseña inválida.
-        /// </summary>
-        public static string ContraseñaInválida {
-            get {
-                return ResourceManager.GetString("ContraseñaInválida", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Correo electrónico.
-        /// </summary>
-        public static string Correo {
-            get {
-                return ResourceManager.GetString("Correo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Correo no disponible.
-        /// </summary>
-        public static string CorreoNoDisponible {
-            get {
-                return ResourceManager.GetString("CorreoNoDisponible", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Crear nueva sala.
-        /// </summary>
-        public static string CrearNuevaSala {
-            get {
-                return ResourceManager.GetString("CrearNuevaSala", resourceCulture);
+                return ResourceManager.GetString("BOTON_AJUSTES_ACTIVADA", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Desactivada.
         /// </summary>
-        public static string Desactivada {
+        public static string BOTON_AJUSTES_DESACTIVADA {
             get {
-                return ResourceManager.GetString("Desactivada", resourceCulture);
+                return ResourceManager.GetString("BOTON_AJUSTES_DESACTIVADA", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Español.
+        ///   Looks up a localized string similar to Agregar.
         /// </summary>
-        public static string Español {
+        public static string BOTON_AMIGOS_AGREGAR {
             get {
-                return ResourceManager.GetString("Español", resourceCulture);
+                return ResourceManager.GetString("BOTON_AMIGOS_AGREGAR", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Idioma.
+        ///   Looks up a localized string similar to Enviar solicitud.
         /// </summary>
-        public static string Idioma {
+        public static string BOTON_AMIGOS_ENVIARSOLICITUD {
             get {
-                return ResourceManager.GetString("Idioma", resourceCulture);
+                return ResourceManager.GetString("BOTON_AMIGOS_ENVIARSOLICITUD", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to La contraseña debe ser de al menos 8 caracteres, debes incluir letras mayúsculas, minúsculas y números.
+        ///   Looks up a localized string similar to Rechazar.
         /// </summary>
-        public static string InformacionRequisitosContraseña {
+        public static string BOTON_AMIGOS_RECHAZAR {
             get {
-                return ResourceManager.GetString("InformacionRequisitosContraseña", resourceCulture);
+                return ResourceManager.GetString("BOTON_AMIGOS_RECHAZAR", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Inglés.
+        ///   Looks up a localized string similar to Remover.
         /// </summary>
-        public static string Inglés {
+        public static string BOTON_AMIGOS_REMOVER {
             get {
-                return ResourceManager.GetString("Inglés", resourceCulture);
+                return ResourceManager.GetString("BOTON_AMIGOS_REMOVER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Solicitudes.
+        /// </summary>
+        public static string BOTON_AMIGOS_SOLICITUDES {
+            get {
+                return ResourceManager.GetString("BOTON_AMIGOS_SOLICITUDES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Código de restablecimiento inválido.
+        /// </summary>
+        public static string BOTON_CODIGO_INVALIDO {
+            get {
+                return ResourceManager.GetString("BOTON_CODIGO_INVALIDO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Actualizar información.
+        /// </summary>
+        public static string BOTON_INFORMACIONJUGADOR_ACTUALIZARINFORMACION {
+            get {
+                return ResourceManager.GetString("BOTON_INFORMACIONJUGADOR_ACTUALIZARINFORMACION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cambiar contraseña.
+        /// </summary>
+        public static string BOTON_INFORMACIONJUGADOR_CAMBIARCONTRASENA {
+            get {
+                return ResourceManager.GetString("BOTON_INFORMACIONJUGADOR_CAMBIARCONTRASENA", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Iniciar sesión.
         /// </summary>
-        public static string IniciarSesion {
+        public static string BOTON_INICIOSESION_INICIARSESION {
             get {
-                return ResourceManager.GetString("IniciarSesion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Mi perfil.
-        /// </summary>
-        public static string MiPerfil {
-            get {
-                return ResourceManager.GetString("MiPerfil", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Mis amigos.
-        /// </summary>
-        public static string MisAmigos {
-            get {
-                return ResourceManager.GetString("MisAmigos", resourceCulture);
+                return ResourceManager.GetString("BOTON_INICIOSESION_INICIARSESION", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Modo invitado.
         /// </summary>
-        public static string ModoInvitado {
+        public static string BOTON_INICIOSESION_INVITADO {
             get {
-                return ResourceManager.GetString("ModoInvitado", resourceCulture);
+                return ResourceManager.GetString("BOTON_INICIOSESION_INVITADO", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Música.
+        ///   Looks up a localized string similar to Crear nueva sala.
         /// </summary>
-        public static string Música {
+        public static string BOTON_MENUPRINCIPAL_CREACIONSALA {
             get {
-                return ResourceManager.GetString("Música", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Nombre de usuario.
-        /// </summary>
-        public static string NombreUsuario {
-            get {
-                return ResourceManager.GetString("NombreUsuario", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ¿Olvidaste tu contraseña?.
-        /// </summary>
-        public static string OpcionContraseñaOlvidada {
-            get {
-                return ResourceManager.GetString("OpcionContraseñaOlvidada", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ¿No tienes una cuenta? Registrate aquí.
-        /// </summary>
-        public static string OpcionRegistrateAqui {
-            get {
-                return ResourceManager.GetString("OpcionRegistrateAqui", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Registro de usuario.
-        /// </summary>
-        public static string RegistroUsuario {
-            get {
-                return ResourceManager.GetString("RegistroUsuario", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Rompecabezas FEI.
-        /// </summary>
-        public static string RompecabezasFEI {
-            get {
-                return ResourceManager.GetString("RompecabezasFEI", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Seleccionar avatar.
-        /// </summary>
-        public static string SeleccionarAvatar {
-            get {
-                return ResourceManager.GetString("SeleccionarAvatar", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Siguiente.
-        /// </summary>
-        public static string Siguiente {
-            get {
-                return ResourceManager.GetString("Siguiente", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Iniciar sesión.
-        /// </summary>
-        public static string TituloIniciarSesion {
-            get {
-                return ResourceManager.GetString("TituloIniciarSesion", resourceCulture);
+                return ResourceManager.GetString("BOTON_MENUPRINCIPAL_CREACIONSALA", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Unirse a sala.
         /// </summary>
-        public static string UnirseSala {
+        public static string BOTON_MENUPRINCIPAL_UNIRSESALA {
             get {
-                return ResourceManager.GetString("UnirseSala", resourceCulture);
+                return ResourceManager.GetString("BOTON_MENUPRINCIPAL_UNIRSESALA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ajustes de partida.
+        /// </summary>
+        public static string BOTON_OPCIONESSALA_AJUSTESPARTIDA {
+            get {
+                return ResourceManager.GetString("BOTON_OPCIONESSALA_AJUSTESPARTIDA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Convertir en anfitrión.
+        /// </summary>
+        public static string BOTON_OPCIONESSALA_CONVERTIRANFITRION {
+            get {
+                return ResourceManager.GetString("BOTON_OPCIONESSALA_CONVERTIRANFITRION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Difícil.
+        /// </summary>
+        public static string BOTON_OPCIONESSALA_DIFICIL {
+            get {
+                return ResourceManager.GetString("BOTON_OPCIONESSALA_DIFICIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expulsar.
+        /// </summary>
+        public static string BOTON_OPCIONESSALA_EXPULSAR {
+            get {
+                return ResourceManager.GetString("BOTON_OPCIONESSALA_EXPULSAR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fácil.
+        /// </summary>
+        public static string BOTON_OPCIONESSALA_FACIL {
+            get {
+                return ResourceManager.GetString("BOTON_OPCIONESSALA_FACIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invitar amigo.
+        /// </summary>
+        public static string BOTON_OPCIONESSALA_INVITACIONAMIGO {
+            get {
+                return ResourceManager.GetString("BOTON_OPCIONESSALA_INVITACIONAMIGO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invitar por correo.
+        /// </summary>
+        public static string BOTON_OPCIONESSALA_INVITACIONCORREO {
+            get {
+                return ResourceManager.GetString("BOTON_OPCIONESSALA_INVITACIONCORREO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invitar a sala.
+        /// </summary>
+        public static string BOTON_OPCIONESSALA_INVITACIONSALA {
+            get {
+                return ResourceManager.GetString("BOTON_OPCIONESSALA_INVITACIONSALA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Media.
+        /// </summary>
+        public static string BOTON_OPCIONESSALA_MEDIA {
+            get {
+                return ResourceManager.GetString("BOTON_OPCIONESSALA_MEDIA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minutos.
+        /// </summary>
+        public static string BOTON_OPCIONESSALA_MINUTOS {
+            get {
+                return ResourceManager.GetString("BOTON_OPCIONESSALA_MINUTOS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Abandonar partida.
+        /// </summary>
+        public static string BOTON_PARTIDA_ABANDONOPARTIDA {
+            get {
+                return ResourceManager.GetString("BOTON_PARTIDA_ABANDONOPARTIDA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enviar.
+        /// </summary>
+        public static string BOTON_SALA_ENVIARMENSAJE {
+            get {
+                return ResourceManager.GetString("BOTON_SALA_ENVIARMENSAJE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opciones sala.
+        /// </summary>
+        public static string BOTON_SALA_OPCIONESSALA {
+            get {
+                return ResourceManager.GetString("BOTON_SALA_OPCIONESSALA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unirse.
+        /// </summary>
+        public static string BOTON_UNIRSESALA_UNIRSE {
+            get {
+                return ResourceManager.GetString("BOTON_UNIRSESALA_UNIRSE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Español.
+        /// </summary>
+        public static string COLUMNA_AJUSTES_IDIOMAESPANOL {
+            get {
+                return ResourceManager.GetString("COLUMNA_AJUSTES_IDIOMAESPANOL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inglés.
+        /// </summary>
+        public static string COLUMNA_AJUSTES_IDIOMAINGLES {
+            get {
+                return ResourceManager.GetString("COLUMNA_AJUSTES_IDIOMAINGLES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ¿Estás seguro de que quieres abandonar la partida?.
+        /// </summary>
+        public static string ETIQUETA_ABANDONOPARTIDA_MENSAJE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_ABANDONOPARTIDA_MENSAJE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirmación de abandono de partida.
+        /// </summary>
+        public static string ETIQUETA_ABANDONOPARTIDA_TITULO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_ABANDONOPARTIDA_TITULO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ¿Estás seguro de que quieres abandonar la sala?.
+        /// </summary>
+        public static string ETIQUETA_ABANDONOSALA_MENSAJE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_ABANDONOSALA_MENSAJE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirmación de abandono de sala.
+        /// </summary>
+        public static string ETIQUETA_ABANDONOSALA_TITULO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_ABANDONOSALA_TITULO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contraseña actual.
+        /// </summary>
+        public static string ETIQUETA_ACTUALIZACIONCONTRASENA_CONTRASENAACTUAL {
+            get {
+                return ResourceManager.GetString("ETIQUETA_ACTUALIZACIONCONTRASENA_CONTRASENAACTUAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Actualizar información.
+        /// </summary>
+        public static string ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONINFORMACION {
+            get {
+                return ResourceManager.GetString("ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONINFORMACION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Idioma.
+        /// </summary>
+        public static string ETIQUETA_AJUSTES_IDIOMA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_AJUSTES_IDIOMA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Música.
+        /// </summary>
+        public static string ETIQUETA_AJUSTES_MUSICA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_AJUSTES_MUSICA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Desconectado.
+        /// </summary>
+        public static string ETIQUETA_AMIGOS_DESCONECTADO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_AMIGOS_DESCONECTADO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to En partida.
+        /// </summary>
+        public static string ETIQUETA_AMIGOS_ENPARTIDA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_AMIGOS_ENPARTIDA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Para mandar una solicitud de amistad a un jugador, debes de ingresar su nombre de usuario.
+        /// </summary>
+        public static string ETIQUETA_AMIGOS_INSTRUCCIONSOLICITUDAMISTAD {
+            get {
+                return ResourceManager.GetString("ETIQUETA_AMIGOS_INSTRUCCIONSOLICITUDAMISTAD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usuario no encontrado.
+        /// </summary>
+        public static string ETIQUETA_AMIGOS_USUARIONOENCONTRADO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_AMIGOS_USUARIONOENCONTRADO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Si regresas, el proceso de actualización de información se cancelará ¿Estás seguro de que deseas regresar?.
+        /// </summary>
+        public static string ETIQUETA_CANCELACIONACTUALIZACIONINFO_MENSAJE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_CANCELACIONACTUALIZACIONINFO_MENSAJE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirmación cancelación actualización de información.
+        /// </summary>
+        public static string ETIQUETA_CANCELACIONACTUALIZACIONINFO_TITULO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_CANCELACIONACTUALIZACIONINFO_TITULO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ¿Estás seguro de que desea cancelar el proceso de registro? La información ingresada se descartará.
+        /// </summary>
+        public static string ETIQUETA_CANCELACIONREGISTRO_MENSAJE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_CANCELACIONREGISTRO_MENSAJE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirmación cancelación registro de usuario.
+        /// </summary>
+        public static string ETIQUETA_CANCELACIONREGISTRO_TITULO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_CANCELACIONREGISTRO_TITULO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Si regresas, el proceso de restablecimiento de contraseña se cancelará ¿Estás seguro de que desea regresar?.
+        /// </summary>
+        public static string ETIQUETA_CANCELACIONRESTABLECIMIENTO_MENSAJE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_CANCELACIONRESTABLECIMIENTO_MENSAJE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirmación cancelación restablecimiento contraseña.
+        /// </summary>
+        public static string ETIQUETA_CANCELACIONRESTABLECIMIENTO_TITULO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_CANCELACIONRESTABLECIMIENTO_TITULO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ¿Estás seguro de que quieres cerrar la sesión?.
+        /// </summary>
+        public static string ETIQUETA_CERRARSESION_MENSAJE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_CERRARSESION_MENSAJE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirmación de cerrar sesión.
+        /// </summary>
+        public static string ETIQUETA_CERRARSESION_TITULO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_CERRARSESION_TITULO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Código de restablecimiento de contraseña.
+        /// </summary>
+        public static string ETIQUETA_CODIGO_CODIGORESTABLECIMIENTO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_CODIGO_CODIGORESTABLECIMIENTO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Revisa tu bandeja de entrada e introduce el código de restablecimiento de contraseña que te hemos enviado.
+        /// </summary>
+        public static string ETIQUETA_CODIGO_INSTRUCCIONCODIGO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_CODIGO_INSTRUCCIONCODIGO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Introduce el código.
+        /// </summary>
+        public static string ETIQUETA_CODIGO_INTRODUCECODIGO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_CODIGO_INTRODUCECODIGO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Código de confirmación.
+        /// </summary>
+        public static string ETIQUETA_CONFIRMACIONCORREO_CODIGOCONFIRMACION {
+            get {
+                return ResourceManager.GetString("ETIQUETA_CONFIRMACIONCORREO_CODIGOCONFIRMACION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirmación de correo electrónico.
+        /// </summary>
+        public static string ETIQUETA_CONFIRMACIONCORREO_CONFIRMACIONCORREO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_CONFIRMACIONCORREO_CONFIRMACIONCORREO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Para completar tu registro, te enviamos un código a tu correo electrónico para que puedas restablecer tu contraseña, ingresalo a continuación.
+        /// </summary>
+        public static string ETIQUETA_CONFIRMACIONCORREO_INSTRUCCIONCORREO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_CONFIRMACIONCORREO_INSTRUCCIONCORREO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Terminar.
+        /// </summary>
+        public static string ETIQUETA_CONFIRMACIONCORREO_TERMINAR {
+            get {
+                return ResourceManager.GetString("ETIQUETA_CONFIRMACIONCORREO_TERMINAR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La contraseña se ha actualizado correctamente.
+        /// </summary>
+        public static string ETIQUETA_CONTRASENAACTUALIZADA_MENSAJE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_CONTRASENAACTUALIZADA_MENSAJE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contraseña actualizada.
+        /// </summary>
+        public static string ETIQUETA_CONTRASENAACTUALIZADA_TITULO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_CONTRASENAACTUALIZADA_TITULO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ¿Estás seguro de que quieres convertir al jugador en anfitrión?.
+        /// </summary>
+        public static string ETIQUETA_CONVERTIRANFITRION_MENSAJE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_CONVERTIRANFITRION_MENSAJE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirmación de convertir jugador en anfitrión.
+        /// </summary>
+        public static string ETIQUETA_CONVERTIRANFITRION_TITULO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_CONVERTIRANFITRION_TITULO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ¿Está seguro de que quieres eliminar al jugador de tu lista de amigos?.
+        /// </summary>
+        public static string ETIQUETA_ELIMINACIONAMIGO_MENSAJE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_ELIMINACIONAMIGO_MENSAJE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirmación eliminación amigo.
+        /// </summary>
+        public static string ETIQUETA_ELIMINACIONAMIGO_TITULO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_ELIMINACIONAMIGO_TITULO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No se pudo establecer una conexión con la base de datos. Por favor, inténtelo más tarde..
+        /// </summary>
+        public static string ETIQUETA_ERRORCONEXIONBASEDEDATOS_MENSAJE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_ERRORCONEXIONBASEDEDATOS_MENSAJE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error de conexión base de datos.
+        /// </summary>
+        public static string ETIQUETA_ERRORCONEXIONBASEDEDATOS_TITULO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_ERRORCONEXIONBASEDEDATOS_TITULO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No se pudo establecer una conexión con el servidor. Por favor, inténtelo más tarde..
+        /// </summary>
+        public static string ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error de conexión con el servidor.
+        /// </summary>
+        public static string ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ¿Estás seguro de que quieres expulsar al jugador?.
+        /// </summary>
+        public static string ETIQUETA_EXPULSIONJUGADOR_MENSAJE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_EXPULSIONJUGADOR_MENSAJE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirmación expulsión de jugador.
+        /// </summary>
+        public static string ETIQUETA_EXPULSIONJUGADOR_TITULO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_EXPULSIONJUGADOR_TITULO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Aceptar.
+        /// </summary>
+        public static string ETIQUETA_GENERAL_ACEPTAR {
+            get {
+                return ResourceManager.GetString("ETIQUETA_GENERAL_ACEPTAR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Actualizar contraseña.
+        /// </summary>
+        public static string ETIQUETA_GENERAL_ACTUALIZACIONCONTRASENA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_GENERAL_ACTUALIZACIONCONTRASENA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ajustes.
+        /// </summary>
+        public static string ETIQUETA_GENERAL_AJUSTES {
+            get {
+                return ResourceManager.GetString("ETIQUETA_GENERAL_AJUSTES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mis amigos.
+        /// </summary>
+        public static string ETIQUETA_GENERAL_AMIGOS {
+            get {
+                return ResourceManager.GetString("ETIQUETA_GENERAL_AMIGOS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Código de sala.
+        /// </summary>
+        public static string ETIQUETA_GENERAL_CODIGOSALA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_GENERAL_CODIGOSALA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirmar nueva contraseña.
+        /// </summary>
+        public static string ETIQUETA_GENERAL_CONFIRMACIONCONTRASENA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_GENERAL_CONFIRMACIONCONTRASENA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirmar.
+        /// </summary>
+        public static string ETIQUETA_GENERAL_CONFIRMAR {
+            get {
+                return ResourceManager.GetString("ETIQUETA_GENERAL_CONFIRMAR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contraseña.
+        /// </summary>
+        public static string ETIQUETA_GENERAL_CONTRASENA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_GENERAL_CONTRASENA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contraseña inválida.
+        /// </summary>
+        public static string ETIQUETA_GENERAL_CONTRASENAINVALIDA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_GENERAL_CONTRASENAINVALIDA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Correo electrónico.
+        /// </summary>
+        public static string ETIQUETA_GENERAL_CORREO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_GENERAL_CORREO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to En línea.
+        /// </summary>
+        public static string ETIQUETA_GENERAL_ENLINEA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_GENERAL_ENLINEA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Guardar cambios.
+        /// </summary>
+        public static string ETIQUETA_GENERAL_GUARDARCAMBIOS {
+            get {
+                return ResourceManager.GetString("ETIQUETA_GENERAL_GUARDARCAMBIOS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jugadores.
+        /// </summary>
+        public static string ETIQUETA_GENERAL_JUGADORES {
+            get {
+                return ResourceManager.GetString("ETIQUETA_GENERAL_JUGADORES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nombre de usuario.
+        /// </summary>
+        public static string ETIQUETA_GENERAL_NOMBREUSUARIO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_GENERAL_NOMBREUSUARIO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nueva contraseña.
+        /// </summary>
+        public static string ETIQUETA_GENERAL_NUEVACONTRASENA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_GENERAL_NUEVACONTRASENA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La contraseña debe ser de al menos 8 caracteres, debes incluir letras mayúsculas, minúsculas y números.
+        /// </summary>
+        public static string ETIQUETA_GENERAL_REQUISITOSCONTRASENA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_GENERAL_REQUISITOSCONTRASENA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rompecabezas FEI.
+        /// </summary>
+        public static string ETIQUETA_GENERAL_ROMPECABEZASFEI {
+            get {
+                return ResourceManager.GetString("ETIQUETA_GENERAL_ROMPECABEZASFEI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Siguiente.
+        /// </summary>
+        public static string ETIQUETA_GENERAL_SIGUIENTE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_GENERAL_SIGUIENTE", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Usuario existente.
         /// </summary>
-        public static string UsuarioExistente {
+        public static string ETIQUETA_GENERAL_USUARIOEXISTENTE {
             get {
-                return ResourceManager.GetString("UsuarioExistente", resourceCulture);
+                return ResourceManager.GetString("ETIQUETA_GENERAL_USUARIOEXISTENTE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La información se ha actualizado correctamente.
+        /// </summary>
+        public static string ETIQUETA_INFORMACIONACTUALIZADA_MENSAJE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_INFORMACIONACTUALIZADA_MENSAJE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Información actualizada.
+        /// </summary>
+        public static string ETIQUETA_INFORMACIONACTUALIZADA_TITULO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_INFORMACIONACTUALIZADA_TITULO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Partidas ganadas.
+        /// </summary>
+        public static string ETIQUETA_INFORMACIONJUGADOR_PARTIDASGANADAS {
+            get {
+                return ResourceManager.GetString("ETIQUETA_INFORMACIONJUGADOR_PARTIDASGANADAS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Partidas jugadas.
+        /// </summary>
+        public static string ETIQUETA_INFORMACIONJUGADOR_PARTIDASJUGADAS {
+            get {
+                return ResourceManager.GetString("ETIQUETA_INFORMACIONJUGADOR_PARTIDASJUGADAS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contraseña incorrecta.
+        /// </summary>
+        public static string ETIQUETA_INICIOSESION_CONTRASENAINCORRECTA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_INICIOSESION_CONTRASENAINCORRECTA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ¿Olvidaste tu contraseña?.
+        /// </summary>
+        public static string ETIQUETA_INICIOSESION_RECUPERACIONCONTRASENA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_INICIOSESION_RECUPERACIONCONTRASENA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ¿No tienes una cuenta? Registrate aquí.
+        /// </summary>
+        public static string ETIQUETA_INICIOSESION_REGISTRO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_INICIOSESION_REGISTRO", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Usuario incorrecto.
         /// </summary>
-        public static string UsuarioIncorrecto {
+        public static string ETIQUETA_INICIOSESION_USUARIOINCORRECTO {
             get {
-                return ResourceManager.GetString("UsuarioIncorrecto", resourceCulture);
+                return ResourceManager.GetString("ETIQUETA_INICIOSESION_USUARIOINCORRECTO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to te ha invitado a su sala. ¿Deseas unirte?.
+        /// </summary>
+        public static string ETIQUETA_INVITACIONSALA_MENSAJE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_INVITACIONSALA_MENSAJE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invitación a sala.
+        /// </summary>
+        public static string ETIQUETA_INVITACIONSALA_TITULO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_INVITACIONSALA_TITULO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La invitación de sala se ha enviado correctamente.
+        /// </summary>
+        public static string ETIQUETA_INVITACIONSALAENVIADA_MENSAJE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_INVITACIONSALAENVIADA_MENSAJE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invitación a sala enviada.
+        /// </summary>
+        public static string ETIQUETA_INVITACIONSALAENVIADA_TITULO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_INVITACIONSALAENVIADA_TITULO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cerrar sesión.
+        /// </summary>
+        public static string ETIQUETA_MENUPRINCIPAL_CERRARSESION {
+            get {
+                return ResourceManager.GetString("ETIQUETA_MENUPRINCIPAL_CERRARSESION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mi perfil.
+        /// </summary>
+        public static string ETIQUETA_MENUPRINCIPAL_PERFIL {
+            get {
+                return ResourceManager.GetString("ETIQUETA_MENUPRINCIPAL_PERFIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Correo electrónico inválido.
+        /// </summary>
+        public static string ETIQUETA_OPCIONESSALA_CORREOINVALIDO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_OPCIONESSALA_CORREOINVALIDO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dificultad.
+        /// </summary>
+        public static string ETIQUETA_OPCIONESSALA_DIFICULTAD {
+            get {
+                return ResourceManager.GetString("ETIQUETA_OPCIONESSALA_DIFICULTAD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Duración.
+        /// </summary>
+        public static string ETIQUETA_OPCIONESSALA_DURACION {
+            get {
+                return ResourceManager.GetString("ETIQUETA_OPCIONESSALA_DURACION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Para invitar a un jugador que no esta en tu lista de amigos, es necesario que ingreses su correo electrónico para que le podamos enviar el código de sala.
+        /// </summary>
+        public static string ETIQUETA_OPCIONESSALA_INSTRUCCIONINVITACIONCORREO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_OPCIONESSALA_INSTRUCCIONINVITACIONCORREO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tiempo restante.
+        /// </summary>
+        public static string ETIQUETA_PARTIDA_TIEMPORESTANTE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_PARTIDA_TIEMPORESTANTE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No es posible unirse a la sala debido a que hay una partida en progreso. Por favor, inténtelo más tarde..
+        /// </summary>
+        public static string ETIQUETA_PARTIDAENCURSO_MENSAJE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_PARTIDAENCURSO_MENSAJE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Partida en transcurso.
+        /// </summary>
+        public static string ETIQUETA_PARTIDAENCURSO_TITULO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_PARTIDAENCURSO_TITULO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Correo electrónico no registrado.
+        /// </summary>
+        public static string ETIQUETA_RECUPERACION_CORREONOENCONTRADO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_RECUPERACION_CORREONOENCONTRADO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ingresa el correo electrónico con el cual te registraste, te enviaremos un código para que puedas restablecer tu contraseña.
+        /// </summary>
+        public static string ETIQUETA_RECUPERACION_INSTRUCCIONRECUPERACION {
+            get {
+                return ResourceManager.GetString("ETIQUETA_RECUPERACION_INSTRUCCIONRECUPERACION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recuperación de contraseña.
+        /// </summary>
+        public static string ETIQUETA_RECUPERACION_RECUPERACIONCONTRASENA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_RECUPERACION_RECUPERACIONCONTRASENA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirmar contraseña.
+        /// </summary>
+        public static string ETIQUETA_REGISTRO_CONFIRMACIONCONTRASENA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_REGISTRO_CONFIRMACIONCONTRASENA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contraseña inválida.
+        /// </summary>
+        public static string ETIQUETA_REGISTRO_CONTRASENAINVALIDA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_REGISTRO_CONTRASENAINVALIDA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Correo electrónico no disponible.
+        /// </summary>
+        public static string ETIQUETA_REGISTRO_CORREONODISPONIBLE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_REGISTRO_CORREONODISPONIBLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registro de usuario.
+        /// </summary>
+        public static string ETIQUETA_REGISTRO_REGISTROUSUARIO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_REGISTRO_REGISTROUSUARIO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seleccionar avatar.
+        /// </summary>
+        public static string ETIQUETA_REGISTRO_SELECCIONAVATAR {
+            get {
+                return ResourceManager.GetString("ETIQUETA_REGISTRO_SELECCIONAVATAR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Se ha realizado el registro correctamente. Ya puedes iniciar sesión en tu cuenta..
+        /// </summary>
+        public static string ETIQUETA_REGISTROREALIZADO_MENSAJE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_REGISTROREALIZADO_MENSAJE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registro de jugador realizado.
+        /// </summary>
+        public static string ETIQUETA_REGISTROREALIZADO_TITULO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_REGISTROREALIZADO_TITULO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contraseña inválida.
+        /// </summary>
+        public static string ETIQUETA_RESTABLECIMIENTO_CONTRASENAINVALIDA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_RESTABLECIMIENTO_CONTRASENAINVALIDA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restablecer contraseña.
+        /// </summary>
+        public static string ETIQUETA_RESTABLECIMIENTO_RESTABLECIMIENTOCONTRASENA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_RESTABLECIMIENTO_RESTABLECIMIENTOCONTRASENA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ha ganado la partida.
+        /// </summary>
+        public static string ETIQUETA_RESULTADOS_MENSAJEGANADOR {
+            get {
+                return ResourceManager.GetString("ETIQUETA_RESULTADOS_MENSAJEGANADOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resultados.
+        /// </summary>
+        public static string ETIQUETA_RESULTADOS_RESULTADOS {
+            get {
+                return ResourceManager.GetString("ETIQUETA_RESULTADOS_RESULTADOS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Anfitrión.
+        /// </summary>
+        public static string ETIQUETA_SALA_ANFITRION {
+            get {
+                return ResourceManager.GetString("ETIQUETA_SALA_ANFITRION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mensajes.
+        /// </summary>
+        public static string ETIQUETA_SALA_MENSAJES {
+            get {
+                return ResourceManager.GetString("ETIQUETA_SALA_MENSAJES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No es posible unirse a la sala debido a que se encuentra llena. Por favor, inténtelo más tarde..
+        /// </summary>
+        public static string ETIQUETA_SALALLENA_MENSAJE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_SALALLENA_MENSAJE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sala llena.
+        /// </summary>
+        public static string ETIQUETA_SALALLENA_TITULO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_SALALLENA_TITULO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La solicitud de amistad se ha enviado correctamente.
+        /// </summary>
+        public static string ETIQUETA_SOLICITUDAMISTADENVIADA_MENSAJE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_SOLICITUDAMISTADENVIADA_MENSAJE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Solicitud de amistad enviada.
+        /// </summary>
+        public static string ETIQUETA_SOLICITUDAMISTADENVIADA_TITULO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_SOLICITUDAMISTADENVIADA_TITULO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Código de sala inválido.
+        /// </summary>
+        public static string ETIQUETA_UNIRSESALA_CODIGOSALAINVALIDO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_UNIRSESALA_CODIGOSALAINVALIDO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Si cuentas con un código de acceso a una sala, puedes ingresarlo a continuación para poder unirte.
+        /// </summary>
+        public static string ETIQUETA_UNIRSESALA_INSTRUCCIONUNIRSE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_UNIRSESALA_INSTRUCCIONUNIRSE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unirse a sala.
+        /// </summary>
+        public static string ETIQUETA_UNIRSESALA_UNIRSESALA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_UNIRSESALA_UNIRSESALA", resourceCulture);
             }
         }
     }
