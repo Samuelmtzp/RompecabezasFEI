@@ -55,34 +55,46 @@ namespace RompecabezasFei
                 bool registroRealizado = false;
                 if (codigoVerificacionCoincide)
                 {
-                    ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
-                    ServicioGestionJugador.Jugador nuevoJugador = new ServicioGestionJugador.Jugador()
+                    ServicioGestionJugador.Jugador nuevoJugador = new ServicioGestionJugador.Jugador
                     {
-                        Contrasena = JugadorRegistro.Contrasena,
-                        Correo = JugadorRegistro.Correo,
-                        NombreJugador = JugadorRegistro.NombreJugador,
-                        NumeroAvatar = JugadorRegistro.NumeroAvatar
+                        NombreJugador = jugadorRegistro.NombreJugador,
+                        NumeroAvatar = jugadorRegistro.NumeroAvatar,
+                        Contrasena = jugadorRegistro.Contrasena,
+                        Correo = jugadorRegistro.Correo
                     };
-                    registroRealizado = cliente.Registrar(nuevoJugador);
-                    cliente.Abort();
-                }
-
-                if (registroRealizado)
-                {
-                    MessageBox.Show("El registro de usuario se ha realizado correctamente",
-                            "Registro realizado correctamente", MessageBoxButton.OK);                        
+                    ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
+                    bool resultadoRegistro = cliente.Registrar(nuevoJugador);
+                    if (resultadoRegistro)
+                    {
+                        MessageBox.Show("El registro de usuario se ha realizado correctamente",
+                            "Registro realizado correctamente", MessageBoxButton.OK);
+                        cliente.Abort();
+                    }
+                    else
+                    {
+                        MessageBox.Show("El registro de usuario no se ha realizado",
+                            "Error al realizar registro", MessageBoxButton.OK);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("El registro de usuario no se ha realizado",
-                            "Error al realizar registro", MessageBoxButton.OK);
+                    MessageBox.Show("Código incorrecto", 
+                        "El código de verificacion es incorrecto" ,MessageBoxButton.OK);
                 }
             }
         }
 
-        private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
+        private void Regresar()
         {
-            VentanaPrincipal.CambiarPagina(this, new PaginaRegistroUsuario());
+            PaginaRegistroUsuario paginaRegistroUsuario = new PaginaRegistroUsuario();
+            paginaRegistroUsuario.JugadorRegistro = jugadorRegistro;
+            paginaRegistroUsuario.CargarDatosEdicion();
+            VentanaPrincipal.CambiarPagina(this, paginaRegistroUsuario);
+        }
+
+        private void ImagenFlechaRegreso_Click(object sender, MouseButtonEventArgs e)
+        {
+            Regresar();
         }
     }
 }
