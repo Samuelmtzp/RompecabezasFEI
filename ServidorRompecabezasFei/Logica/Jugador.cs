@@ -1,4 +1,5 @@
 ﻿using System.Runtime.Serialization;
+using System.Xml.Linq;
 
 namespace Logica
 {
@@ -52,5 +53,13 @@ namespace Logica
             set { contrasena = value; }
         }
         #endregion
+
+        public override string ToString()
+        {
+            return $"NombreJugador = {nombreJugador}\n" +
+                $"NumeroAvatar = {numeroAvatar}\n" +
+                $"Correo = {correo}\n" +
+                $"Contrasena = {contrasena}";
+        }
     }
 }

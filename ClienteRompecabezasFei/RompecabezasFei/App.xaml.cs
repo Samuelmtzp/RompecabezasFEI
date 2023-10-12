@@ -44,7 +44,6 @@ namespace RompecabezasFei
 
         public void CambiarIdioma(string nuevoIdioma)
         {
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(nuevoIdioma);
             IdiomaActual = nuevoIdioma;
         }
     }

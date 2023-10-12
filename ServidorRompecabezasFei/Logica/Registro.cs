@@ -51,22 +51,6 @@ namespace Logica
             return resultado;
         }
 
-        public bool ExisteNombreUsuario(string nombreJugador)
-        {
-            bool resultado = false;
-            using (var contexto = new EntidadesRompecabezasFei())
-            {
-                var cuentasJugador = (from jugadores in contexto.Jugador
-                                      where jugadores.NombreJugador == nombreJugador
-                                      select jugadores).Count();
-                if (cuentasJugador > 0)
-                {
-                    resultado = true;
-                }
-            }
-            return resultado;
-        }
-
         public bool ExisteCorreoElectronico(string correoElectronico)
         {
             bool resultado = false;
