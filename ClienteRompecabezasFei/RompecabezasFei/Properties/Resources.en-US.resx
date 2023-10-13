@@ -144,8 +144,8 @@
   <data name="BOTON_CODIGO_INVALIDO" xml:space="preserve">
     <value>Invalid reset code</value>
   </data>
-  <data name="BOTON_CONFIRMACIONCORREO_ENVIARCODIGO" xml:space="preserve">
-    <value>Send code</value>
+  <data name="BOTON_CONFIRMACIONCORREO_REENVIARCODIGO" xml:space="preserve">
+    <value>Resend code</value>
   </data>
   <data name="BOTON_INFORMACIONJUGADOR_ACTUALIZARINFORMACION" xml:space="preserve">
     <value>Update information</value>
