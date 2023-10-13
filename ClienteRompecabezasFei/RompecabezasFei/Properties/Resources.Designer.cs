@@ -142,11 +142,11 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enviar código.
+        ///   Looks up a localized string similar to Reenviar código.
         /// </summary>
-        public static string BOTON_CONFIRMACIONCORREO_ENVIARCODIGO {
+        public static string BOTON_CONFIRMACIONCORREO_REENVIARCODIGO {
             get {
-                return ResourceManager.GetString("BOTON_CONFIRMACIONCORREO_ENVIARCODIGO", resourceCulture);
+                return ResourceManager.GetString("BOTON_CONFIRMACIONCORREO_REENVIARCODIGO", resourceCulture);
             }
         }
         
