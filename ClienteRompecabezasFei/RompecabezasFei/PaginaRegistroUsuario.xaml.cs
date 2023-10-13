@@ -25,6 +25,7 @@ namespace RompecabezasFei
         {
             InitializeComponent();
             jugadorRegistro = new Dominio.Jugador();
+
         }
 
         private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
@@ -73,7 +74,7 @@ namespace RompecabezasFei
             if (!ExistenCamposInvalidos())
             {     
                 
-                if (!(cliente.ExisteNombreUsuario(jugadorRegistro.NombreJugador)) || 
+                if (!(cliente.ExisteNombreUsuario(jugadorRegistro.NombreJugador)) &&
                     !(cliente.ExisteCorreoElectronico(jugadorRegistro.Correo)))
                 {
                    
