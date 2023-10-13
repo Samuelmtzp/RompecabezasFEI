@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -43,7 +44,7 @@ namespace RompecabezasFei
             Random numeroAleatorio = new Random();
             var codigo = numeroAleatorio.Next(100000, 1000000);
             cliente.EnviarValidacionCorreo(jugadorRegistro.Correo, "Código de verificación", codigo);
-            codigoGenerado = codigoGenerado.ToString();
+            codigoGenerado = codigo.ToString();
         }
 
         private void AccionRegistrar(object remitente, RoutedEventArgs evento)
@@ -72,7 +73,7 @@ namespace RompecabezasFei
                         MessageBox.Show("El registro de usuario se ha realizado correctamente",
                             "Registro realizado correctamente", MessageBoxButton.OK);
                         cliente.Abort();
-                        VentanaPrincipal.CambiarPagina(this, new PaginaMenuPrincipal());
+                        VentanaPrincipal.CambiarPagina(this, new PaginaInicioSesion());
                     }
                     else
                     {
@@ -96,19 +97,16 @@ namespace RompecabezasFei
             VentanaPrincipal.CambiarPagina(this, paginaRegistroUsuario);
         }
 
-        private void AccionRegresar(object sender, MouseButtonEventArgs e)
+        private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
         {
             Regresar();
         }
 
-        private void CuadroTextoCodigoVerificacion_TextChanged(object sender, TextChangedEventArgs e)
+        private void AceptarSoloCaracteresNumericos(object remitente, TextChangedEventArgs evento)
         {
-            
-           if (System.Text.RegularExpressions.Regex.IsMatch(CuadroTextoCodigoVerificacion.Text, "  ^ [0-9]"))
-              {
-                  CuadroTextoCodigoVerificacion.Text = "";
-              }
-            
+            string texto = new string(CuadroTextoCodigoVerificacion.Text.Where(char.IsDigit).ToArray());
+            CuadroTextoCodigoVerificacion.Text = texto;
+            CuadroTextoCodigoVerificacion.CaretIndex = texto.Length;
         }
     }
 }

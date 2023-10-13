@@ -209,24 +209,6 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\ServicioGestionJugador\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServicioGestionJugador\item.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServicioGestionJugador\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServicioGestionJugador\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServicioGestionJugador\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Imagenes\Indicadores\CrearSala.png" />
   </ItemGroup>
   <ItemGroup>
@@ -277,6 +259,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\Indicadores\Corona.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServicioGestionJugador\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServicioGestionJugador\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServicioGestionJugador\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServicioGestionJugador\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServicioGestionJugador\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

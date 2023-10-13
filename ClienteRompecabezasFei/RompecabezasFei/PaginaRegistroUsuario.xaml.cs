@@ -5,6 +5,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace RompecabezasFei
 {
@@ -47,6 +48,21 @@ namespace RompecabezasFei
             CuadroTextoCorreoElectronico.Text = jugadorRegistro.Correo;
             CuadroContrasena.Password = jugadorRegistro.Contrasena;
             CuadroConfirmacionContrasena.Password = jugadorRegistro.ConfirmacionContrasena;
+            if (jugadorRegistro.NumeroAvatar != 0 )
+            {
+                CargarImagenUsuario();
+            }
+        }
+
+        private void CargarImagenUsuario()
+        {
+            string rutaImagen = "/Imagenes/Avatares/";
+            BitmapImage ImagenUsuarioMapaBits = new BitmapImage();
+            ImagenUsuarioMapaBits.BeginInit();
+            rutaImagen += jugadorRegistro.NumeroAvatar + ".png";
+            ImagenUsuarioMapaBits.UriSource = new Uri(rutaImagen, UriKind.RelativeOrAbsolute);
+            ImagenUsuarioMapaBits.EndInit();
+            ImagenAvatarActual.Source = ImagenUsuarioMapaBits;
         }
 
         private void GuardarDatosEdicion()
@@ -73,7 +89,7 @@ namespace RompecabezasFei
             if (!ExistenCamposInvalidos())
             {     
                 
-                if (!(cliente.ExisteNombreUsuario(jugadorRegistro.NombreJugador)) || 
+                if (!(cliente.ExisteNombreUsuario(jugadorRegistro.NombreJugador)) &&
                     !(cliente.ExisteCorreoElectronico(jugadorRegistro.Correo)))
                 {
                    
