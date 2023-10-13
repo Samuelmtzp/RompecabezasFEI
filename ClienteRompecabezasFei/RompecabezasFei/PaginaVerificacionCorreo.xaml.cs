@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
+using Dominio;
 using RompecabezasFei.ServicioGestionJugador;
 using Security;
 
@@ -22,6 +26,9 @@ namespace RompecabezasFei
     /// </summary>
     public partial class PaginaVerificacionCorreo : Page
     {
+        string codigoGenerado;
+        private int segundosRestantes;
+        DispatcherTimer temporizador; 
         private Dominio.Jugador jugadorRegistro;
         public Dominio.Jugador JugadorRegistro
         {
@@ -29,32 +36,43 @@ namespace RompecabezasFei
             set {  jugadorRegistro = value; }
         }
 
-
-
-        string codigo;
-
         public PaginaVerificacionCorreo()
         {
             InitializeComponent();
+            InicializarTemporizador();
         }
 
-            public void EnviarCorreo_Clic(object sender, RoutedEventArgs e)
+        private void InicializarTemporizador()
         {
-            ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
-            Random randomNumber = new Random();
-            var codigoVerificacion = randomNumber.Next(100000, 1000000);
-            cliente.EnviarValidacionCorreo(jugadorRegistro.Correo, "Código de verificación", codigoVerificacion);
-            codigo=codigoVerificacion.ToString();
+            segundosRestantes = 60;
+            temporizador = new DispatcherTimer();
+            temporizador.Interval = TimeSpan.FromSeconds(1);
+            temporizador.Tick += ActualizarTiempo;
+            temporizador.Start();
         }
 
-       
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void AccionEnviarCodigo(object remitente, RoutedEventArgs evento)
         {
-            string validacion= CuadroTextoCodigoVerificacion.Text;
-            if (!string.IsNullOrEmpty(codigo))
+            if (segundosRestantes == 0)
             {
-                if (validacion.Equals(codigo))
+                ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
+                Random numeroAleatorio = new Random();
+                var codigo = numeroAleatorio.Next(100000, 1000000);
+                cliente.EnviarValidacionCorreo(jugadorRegistro.Correo, "Código de verificación", codigo);
+                codigoGenerado = codigo.ToString();
+                DeshabilitarBotonEnvioCodigo();
+                InicializarTemporizador();
+            }
+        }
+
+        private void AccionRegistrar(object remitente, RoutedEventArgs evento)
+        {
+            string codigoVerificacion = CuadroTextoCodigoVerificacion.Text;
+
+            if (!string.IsNullOrEmpty(codigoGenerado))
+            {
+                bool codigoVerificacionCoincide = codigoVerificacion.Equals(codigoGenerado);
+                if (codigoVerificacionCoincide)
                 {
                     string contrasenaCifrada = EncriptadorContrasena.CalcularHashSha512(jugadorRegistro.Contrasena);
                     ServicioGestionJugador.Jugador nuevoJugador = new ServicioGestionJugador.Jugador
@@ -64,6 +82,7 @@ namespace RompecabezasFei
                         Contrasena = jugadorRegistro.Contrasena,
                         Correo = jugadorRegistro.Correo
                     };
+
                     nuevoJugador.Contrasena = contrasenaCifrada;
                     ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
                     bool resultadoRegistro = cliente.Registrar(nuevoJugador);
@@ -72,6 +91,7 @@ namespace RompecabezasFei
                         MessageBox.Show("El registro de usuario se ha realizado correctamente",
                             "Registro realizado correctamente", MessageBoxButton.OK);
                         cliente.Abort();
+                        VentanaPrincipal.CambiarPagina(this, new PaginaInicioSesion());
                     }
                     else
                     {
@@ -87,27 +107,40 @@ namespace RompecabezasFei
             }
         }
 
-        private void Regresar()
+        private void AceptarSoloCaracteresNumericos(object remitente, TextChangedEventArgs evento)
         {
-            PaginaRegistroUsuario paginaRegistroUsuario = new PaginaRegistroUsuario();
-            paginaRegistroUsuario.JugadorRegistro = jugadorRegistro;
-            paginaRegistroUsuario.CargarDatosEdicion();
-            VentanaPrincipal.CambiarPagina(this, paginaRegistroUsuario);
+            string texto = new string(CuadroTextoCodigoVerificacion.Text.Where(char.IsDigit).ToArray());
+            CuadroTextoCodigoVerificacion.Text = texto;
+            CuadroTextoCodigoVerificacion.CaretIndex = texto.Length;
         }
 
-        private void ImagenFlechaRegreso_Click(object sender, MouseButtonEventArgs e)
+        private void ActualizarTiempo(object remitente, EventArgs evento)
         {
-            Regresar();
+            segundosRestantes--;
+            if (segundosRestantes > 0)
+            {
+                TimeSpan time = TimeSpan.FromSeconds(segundosRestantes);
+                EtiquetaTiempoRestante.Content = $"{time.Minutes:00}:{time.Seconds:00}";
+            }
+            else
+            {
+                temporizador.Stop();
+                EtiquetaTiempoRestante.Content = "00:00";
+                HabilitarBotonEnvioCodigo();
+            }
+            
         }
 
-        private void CuadroTextoCodigoVerificacion_TextChanged(object sender, TextChangedEventArgs e)
+        private void HabilitarBotonEnvioCodigo()
         {
-            
-           if (System.Text.RegularExpressions.Regex.IsMatch(CuadroTextoCodigoVerificacion.Text, "  ^ [0-9]"))
-              {
-                  CuadroTextoCodigoVerificacion.Text = "";
-              }
-            
+            BotonEnviarCodigo.IsEnabled = true;
+            BotonEnviarCodigo.Foreground = Brushes.White;
+        }
+
+        private void DeshabilitarBotonEnvioCodigo()
+        {
+            BotonEnviarCodigo.IsEnabled = false;
+            BotonEnviarCodigo.Foreground = Brushes.Black;
         }
     }
 }

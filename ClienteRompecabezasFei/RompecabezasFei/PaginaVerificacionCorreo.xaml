@@ -4,18 +4,18 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RompecabezasFei"
-      mc:Ignorable="d" 
-      d:DesignHeight="720" d:DesignWidth="1280"
-      Title="PaginaVerificacionCorreo">
+      xmlns:p="clr-namespace:RompecabezasFei.Properties"
+      mc:Ignorable="d"
+      d:DesignHeight="720" d:DesignWidth="1280">
 
     <Grid>
-        <Image Name="ImagenFlechaRegreso" HorizontalAlignment="Left" Height="81" Margin="36,28,0,0" VerticalAlignment="Top" Width="81" Source="/Regresar.png" MouseDown="ImagenFlechaRegreso_Click" />
-        <Label Content="Confirmación de correo electrónico&#xD;&#xA;" HorizontalAlignment="Left" Margin="294,25,0,0" VerticalAlignment="Top" Width="767" Height="84" FontSize="48" Foreground="White"/>
-        <TextBlock HorizontalAlignment="Left" Margin="226,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="86" Width="822" FontSize="24" Foreground="White"><Run Language="es-mx" Text="Para completar tu registro, te enviamos un código a tu correo electrónico para que puedas restablecer tu contraseña, ingresalo a continuación"/></TextBlock>
-        <TextBox Name="CuadroTextoCodigoVerificacion" HorizontalAlignment="Left" Margin="434,429,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365" Height="57" TextChanged="CuadroTextoCodigoVerificacion_TextChanged" FontSize="20"/>
-        <Button Name="Boton_Terminar" Content="Terminar" HorizontalAlignment="Left" Margin="328,566,0,0" VerticalAlignment="Top" Height="72" Width="618" Background="#FF03A64A" Foreground="White" FontSize="36" Click="Button_Click"/>
-        <Label Content="Código de confirmación&#xD;&#xA;" HorizontalAlignment="Left" Margin="411,0,0,0" VerticalAlignment="Center" Height="84" Width="452" FontSize="36" Foreground="White"/>
-        <Button Name ="Boton_EnviarCorreo" Content="Enviar correo" HorizontalAlignment="Left" Margin="1016,429,0,0" VerticalAlignment="Top" Height="60" Width="172" Background="#FF03A64A" Foreground="White" Click="EnviarCorreo_Clic" FontSize="20"/>
+        <Label Content="{x:Static p:Resources.ETIQUETA_CONFIRMACIONCORREO_CONFIRMACIONCORREO}" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,28,0,0" VerticalAlignment="Top" Width="768" Height="84" FontSize="48" Foreground="White"/>
+        <TextBlock Text="{x:Static p:Resources.ETIQUETA_CONFIRMACIONCORREO_INSTRUCCIONCORREO}"  HorizontalAlignment="Left" Margin="76,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="86" Width="1131" FontSize="24" Foreground="White"/>
+        <TextBox Name="CuadroTextoCodigoVerificacion" HorizontalAlignment="Left" Margin="275,401,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="452" Height="58" FontSize="24" TextChanged="AceptarSoloCaracteresNumericos"/>
+        <Button Name="BotonTerminar" Content="{x:Static p:Resources.ETIQUETA_CONFIRMACIONCORREO_TERMINAR}" HorizontalAlignment="Left" Margin="328,566,0,0" VerticalAlignment="Top" Height="72" Width="618" Background="#FF03A64A" Foreground="White" FontSize="36" Click="AccionRegistrar" FontWeight="Bold"/>
+        <Label Content="{x:Static p:Resources.ETIQUETA_CONFIRMACIONCORREO_CODIGOCONFIRMACION}" HorizontalAlignment="Left" Margin="275,0,0,0" VerticalAlignment="Center" Height="60" Width="452" FontSize="36" Foreground="White"/>
+        <Button Name ="BotonEnviarCodigo" Content="{x:Static p:Resources.BOTON_CONFIRMACIONCORREO_REENVIARCODIGO}" HorizontalAlignment="Left" Margin="795,400,0,0" VerticalAlignment="Top" Height="60" Width="194" Background="#FF03A64A" Foreground="Black" Click="AccionEnviarCodigo" FontSize="24" FontWeight="Bold" IsEnabled="False"/>
+        <Label Name="EtiquetaTiempoRestante" HorizontalAlignment="Left" Margin="795,0,0,0" VerticalAlignment="Center" Width="194" Foreground="White" Content="1:00" FontWeight="Bold" FontSize="30" HorizontalContentAlignment="Center"/>
 
     </Grid>
 </Page>

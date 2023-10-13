@@ -5,6 +5,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace RompecabezasFei
 {
@@ -73,7 +74,7 @@ namespace RompecabezasFei
             if (!ExistenCamposInvalidos())
             {     
                 
-                if (!(cliente.ExisteNombreUsuario(jugadorRegistro.NombreJugador)) || 
+                if (!(cliente.ExisteNombreUsuario(jugadorRegistro.NombreJugador)) &&
                     !(cliente.ExisteCorreoElectronico(jugadorRegistro.Correo)))
                 {
                    
@@ -147,7 +148,8 @@ namespace RompecabezasFei
         private bool ExisteContrasenaInvalida()
         {
             bool contrasenaInvalida = false;
-            if (Regex.IsMatch(jugadorRegistro.Contrasena, "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$") 
+            if (Regex.IsMatch(jugadorRegistro.Contrasena, 
+                "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$") 
                 == false)
             {
                 MessageBox.Show("La contraseña que has ingresado es inválida", 
