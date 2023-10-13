@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -96,19 +97,16 @@ namespace RompecabezasFei
             VentanaPrincipal.CambiarPagina(this, paginaRegistroUsuario);
         }
 
-        private void AccionRegresar(object sender, MouseButtonEventArgs e)
+        private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
         {
             Regresar();
         }
 
-        private void CuadroTextoCodigoVerificacion_TextChanged(object sender, TextChangedEventArgs e)
+        private void AceptarSoloCaracteresNumericos(object remitente, TextChangedEventArgs evento)
         {
-            
-           if (System.Text.RegularExpressions.Regex.IsMatch(CuadroTextoCodigoVerificacion.Text, "  ^ [0-9]"))
-              {
-                  CuadroTextoCodigoVerificacion.Text = "";
-              }
-            
+            string texto = new string(CuadroTextoCodigoVerificacion.Text.Where(char.IsDigit).ToArray());
+            CuadroTextoCodigoVerificacion.Text = texto;
+            CuadroTextoCodigoVerificacion.CaretIndex = texto.Length;
         }
     }
 }
