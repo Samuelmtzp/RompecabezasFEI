@@ -43,7 +43,7 @@ namespace RompecabezasFei
             Random numeroAleatorio = new Random();
             var codigo = numeroAleatorio.Next(100000, 1000000);
             cliente.EnviarValidacionCorreo(jugadorRegistro.Correo, "Código de verificación", codigo);
-            codigoGenerado = codigoGenerado.ToString();
+            codigoGenerado = codigo.ToString();
         }
 
         private void AccionRegistrar(object remitente, RoutedEventArgs evento)
@@ -72,7 +72,7 @@ namespace RompecabezasFei
                         MessageBox.Show("El registro de usuario se ha realizado correctamente",
                             "Registro realizado correctamente", MessageBoxButton.OK);
                         cliente.Abort();
-                        VentanaPrincipal.CambiarPagina(this, new PaginaMenuPrincipal());
+                        VentanaPrincipal.CambiarPagina(this, new PaginaInicioSesion());
                     }
                     else
                     {
