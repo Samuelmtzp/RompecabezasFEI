@@ -53,6 +53,9 @@
     <Compile Include="Amigo.cs">
       <DependentUpon>ModeloDatosRompecabezasFei.tt</DependentUpon>
     </Compile>
+    <Compile Include="Cuenta.cs">
+      <DependentUpon>ModeloDatosRompecabezasFei.tt</DependentUpon>
+    </Compile>
     <Compile Include="Jugador.cs">
       <DependentUpon>ModeloDatosRompecabezasFei.tt</DependentUpon>
     </Compile>
@@ -84,28 +87,26 @@
     <Compile Include="SolicitudAmistad.cs">
       <DependentUpon>ModeloDatosRompecabezasFei.tt</DependentUpon>
     </Compile>
-    <Compile Include="Usuario.cs">
-      <DependentUpon>ModeloDatosRompecabezasFei.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="ModeloDatosRompecabezasFei.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModeloDatosRompecabezasFei.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
     <None Include="ModeloDatosRompecabezasFei.edmx.diagram">
       <DependentUpon>ModeloDatosRompecabezasFei.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="ModeloDatosRompecabezasFei.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModeloDatosRompecabezasFei.Context.cs</LastGenOutput>
       <DependentUpon>ModeloDatosRompecabezasFei.edmx</DependentUpon>
+      <LastGenOutput>ModeloDatosRompecabezasFei.Context.cs</LastGenOutput>
     </Content>
     <Content Include="ModeloDatosRompecabezasFei.edmx.sql" />
     <Content Include="ModeloDatosRompecabezasFei.tt">
@@ -113,9 +114,6 @@
       <DependentUpon>ModeloDatosRompecabezasFei.edmx</DependentUpon>
       <LastGenOutput>ModeloDatosRompecabezasFei.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

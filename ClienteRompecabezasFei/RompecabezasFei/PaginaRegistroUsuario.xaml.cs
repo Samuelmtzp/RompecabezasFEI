@@ -21,7 +21,6 @@ namespace RompecabezasFei
             set { jugadorRegistro = value; }
         }
 
-
         public PaginaRegistroUsuario()
         {
             InitializeComponent();

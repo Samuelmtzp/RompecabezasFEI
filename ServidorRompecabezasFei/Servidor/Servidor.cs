@@ -13,11 +13,11 @@ namespace Servidor
     {
         public static void Main(string[] args)
         {
-            using (ServiceHost anfitrion = new ServiceHost(typeof(ServicioGestionJugador)))
+            using (ServiceHost hosteador = new ServiceHost(typeof(ServicioRompecabezasFei)))
             {
                 try
                 {
-                    anfitrion.Open();
+                    hosteador.Open();
                     Console.WriteLine("Servidor iniciado");
                 }
                 catch (AddressAccessDeniedException)

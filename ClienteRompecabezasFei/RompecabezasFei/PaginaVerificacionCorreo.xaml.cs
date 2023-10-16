@@ -56,13 +56,19 @@ namespace RompecabezasFei
             if (segundosRestantes == 0)
             {
                 ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
-                Random numeroAleatorio = new Random();
-                var codigo = numeroAleatorio.Next(100000, 1000000);
-                cliente.EnviarValidacionCorreo(jugadorRegistro.Correo, "Código de verificación", codigo);
+                Random generadorNumeroAleatorio = new Random();
+                int codigo = generadorNumeroAleatorio.Next(100000, 1000000);
+                cliente.EnviarValidacionCorreo(jugadorRegistro.Correo, 
+                    "Código de verificación para concluir registro", codigo);
                 codigoGenerado = codigo.ToString();
                 DeshabilitarBotonEnvioCodigo();
                 InicializarTemporizador();
             }
+        }
+
+        private void EnviarCodigo()
+        {
+
         }
 
         private void AccionRegistrar(object remitente, RoutedEventArgs evento)
@@ -88,6 +94,7 @@ namespace RompecabezasFei
                     bool resultadoRegistro = cliente.Registrar(nuevoJugador);
                     if (resultadoRegistro)
                     {
+                        temporizador.Stop();
                         MessageBox.Show("El registro de usuario se ha realizado correctamente",
                             "Registro realizado correctamente", MessageBoxButton.OK);
                         cliente.Abort();

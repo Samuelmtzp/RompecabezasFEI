@@ -24,27 +24,37 @@ namespace RompecabezasFei
         public PaginaMenuPrincipal()
         {
             InitializeComponent();
-            CargarImagenUsuario();
+            if (!Jugador.JugadorActual.EsInvitado)
+            {
+                CargarOpcionesJugador();
+                CargarImagenJugador();
+            }
         }
 
-        private void CargarImagenUsuario()
+        private void CargarOpcionesJugador()
+        {
+            MostrarOpcionesJugadorRegistrado();
+            CargarImagenJugador();
+        }
+
+        private void MostrarOpcionesJugadorRegistrado()
+        {
+            EtiquetaMisAmigos.Visibility = Visibility.Visible;
+            EtiquetaMiPerfil.Visibility = Visibility.Visible;
+            ImagenAvatarUsuario.Visibility = Visibility.Visible;
+            ImagenMisAmigos.Visibility = Visibility.Visible;
+        }
+
+        private void CargarImagenJugador()
         {
             string rutaImagen = "/Imagenes/Avatares/";
             BitmapImage ImagenUsuarioMapaBits = new BitmapImage();
             ImagenUsuarioMapaBits.BeginInit();
-
-            if (Jugador.JugadorActual.EsInvitado)
-            {
-                rutaImagen += "Invitado.png";
-            } 
-            else
-            {
-                rutaImagen += Jugador.JugadorActual.NumeroAvatar + ".png";
-            }
+            rutaImagen += Jugador.JugadorActual.NumeroAvatar + ".png";
 
             ImagenUsuarioMapaBits.UriSource = new Uri(rutaImagen, UriKind.RelativeOrAbsolute);
             ImagenUsuarioMapaBits.EndInit();
-            Imagen_AvatarUsuario.Source = ImagenUsuarioMapaBits;
+            ImagenAvatarUsuario.Source = ImagenUsuarioMapaBits;
         }
 
         private void AccionCrearSala(object remitente, RoutedEventArgs evento)

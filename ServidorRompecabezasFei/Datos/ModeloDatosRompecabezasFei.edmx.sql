@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 10/07/2023 15:27:26
--- Generated from EDMX file: C:\Users\samue\OneDrive - Universidad Veracruzana\UV\Semestre 5\Tecnologías\RompecabezasFei\RompecabezasFeiServidor\Datos\ModeloDatosRompecabezasFei.edmx
+-- Date Created: 10/16/2023 14:08:46
+-- Generated from EDMX file: C:\Users\samue\OneDrive - Universidad Veracruzana\UV\Semestre 5\Tecnologías\RompecabezasFei\ServidorRompecabezasFei\Datos\ModeloDatosRompecabezasFei.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -17,103 +17,87 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_JugadorAmigo]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Amigo] DROP CONSTRAINT [FK_JugadorAmigo];
+IF OBJECT_ID(N'[dbo].[FK_CuentaJugador]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Cuenta] DROP CONSTRAINT [FK_CuentaJugador];
 GO
-IF OBJECT_ID(N'[dbo].[FK_JugadorAmigo1]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Amigo] DROP CONSTRAINT [FK_JugadorAmigo1];
+IF OBJECT_ID(N'[dbo].[FK_JugadorOrigen_SolicitudAmistad]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[SolicitudAmistad] DROP CONSTRAINT [FK_JugadorOrigen_SolicitudAmistad];
 GO
-IF OBJECT_ID(N'[dbo].[FK_JugadorJugador_Partida]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Juego] DROP CONSTRAINT [FK_JugadorJugador_Partida];
+IF OBJECT_ID(N'[dbo].[FK_JugadorDestino_SolicitudAmistad]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[SolicitudAmistad] DROP CONSTRAINT [FK_JugadorDestino_SolicitudAmistad];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Jugador1Amigo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Amigo] DROP CONSTRAINT [FK_Jugador1Amigo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Jugador2Amigo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Amigo] DROP CONSTRAINT [FK_Jugador2Amigo];
 GO
 IF OBJECT_ID(N'[dbo].[FK_JugadorSala]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Sala] DROP CONSTRAINT [FK_JugadorSala];
 GO
-IF OBJECT_ID(N'[dbo].[FK_JugadorSolicitudAmistad]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Solicitud] DROP CONSTRAINT [FK_JugadorSolicitudAmistad];
+IF OBJECT_ID(N'[dbo].[FK_SalaPartida]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Partida] DROP CONSTRAINT [FK_SalaPartida];
 GO
-IF OBJECT_ID(N'[dbo].[FK_JugadorSolicitudAmistad1]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Solicitud] DROP CONSTRAINT [FK_JugadorSolicitudAmistad1];
+IF OBJECT_ID(N'[dbo].[FK_JugadorJugador_Partida]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Jugador_Partida] DROP CONSTRAINT [FK_JugadorJugador_Partida];
 GO
 IF OBJECT_ID(N'[dbo].[FK_PartidaJugador_Partida]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Juego] DROP CONSTRAINT [FK_PartidaJugador_Partida];
-GO
-IF OBJECT_ID(N'[dbo].[FK_SalaPartida]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ResultadosPartida] DROP CONSTRAINT [FK_SalaPartida];
-GO
-IF OBJECT_ID(N'[dbo].[FK_UsuarioJugador]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Usuario] DROP CONSTRAINT [FK_UsuarioJugador];
+    ALTER TABLE [dbo].[Jugador_Partida] DROP CONSTRAINT [FK_PartidaJugador_Partida];
 GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[Amigo]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Amigo];
+IF OBJECT_ID(N'[dbo].[SolicitudAmistad]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SolicitudAmistad];
 GO
-IF OBJECT_ID(N'[dbo].[Juego]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Juego];
+IF OBJECT_ID(N'[dbo].[Cuenta]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Cuenta];
 GO
 IF OBJECT_ID(N'[dbo].[Jugador]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Jugador];
 GO
-IF OBJECT_ID(N'[dbo].[ResultadosPartida]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[ResultadosPartida];
+IF OBJECT_ID(N'[dbo].[Amigo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Amigo];
 GO
 IF OBJECT_ID(N'[dbo].[Sala]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Sala];
 GO
-IF OBJECT_ID(N'[dbo].[Solicitud]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Solicitud];
+IF OBJECT_ID(N'[dbo].[Partida]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Partida];
 GO
-IF OBJECT_ID(N'[dbo].[Usuario]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Usuario];
+IF OBJECT_ID(N'[dbo].[Jugador_Partida]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Jugador_Partida];
 GO
 
 -- --------------------------------------------------
 -- Creating all tables
 -- --------------------------------------------------
 
+-- Creating table 'SolicitudAmistad'
+CREATE TABLE [dbo].[SolicitudAmistad] (
+    [Estado] int  NOT NULL,
+    [FechaEnvioSolicitud] nvarchar(max)  NOT NULL,
+    [IdJugadorOrigen] int  NOT NULL,
+    [IdJugadorDestino] int  NOT NULL
+);
+GO
+
+-- Creating table 'Cuenta'
+CREATE TABLE [dbo].[Cuenta] (
+    [IdCuenta] int IDENTITY(1,1) NOT NULL,
+    [Correo] nvarchar(max)  NOT NULL,
+    [Contrasena] nvarchar(max)  NOT NULL,
+    [Jugador_IdJugador] int  NOT NULL
+);
+GO
+
 -- Creating table 'Jugador'
 CREATE TABLE [dbo].[Jugador] (
     [IdJugador] int IDENTITY(1,1) NOT NULL,
     [NombreJugador] nvarchar(max)  NOT NULL,
-    [NumeroAvatar] smallint  NOT NULL,
-    [Usuario_IdUsuario] int  NOT NULL
-);
-GO
-
--- Creating table 'Solicitud'
-CREATE TABLE [dbo].[Solicitud] (
-    [Estado] smallint  NOT NULL,
-    [IdJugadorOrigen] int  NOT NULL,
-    [IdJugadorDestino] int  NOT NULL,
-    [FechaEnvioSolicitud] nvarchar(max)  NOT NULL
-);
-GO
-
--- Creating table 'ResultadosPartida'
-CREATE TABLE [dbo].[ResultadosPartida] (
-    [IdPartida] int IDENTITY(1,1) NOT NULL,
-    [Dificultad] smallint  NOT NULL,
-    [SalaIdSala] int  NOT NULL
-);
-GO
-
--- Creating table 'Juego'
-CREATE TABLE [dbo].[Juego] (
-    [Puntaje] int  NOT NULL,
-    [IdJugador] int  NOT NULL,
-    [IdPartida] int  NOT NULL
-);
-GO
-
--- Creating table 'Usuario'
-CREATE TABLE [dbo].[Usuario] (
-    [IdUsuario] int IDENTITY(1,1) NOT NULL,
-    [Correo] nvarchar(max)  NOT NULL,
-    [Contrasena] nvarchar(max)  NOT NULL
+    [NumeroAvatar] smallint  NOT NULL
 );
 GO
 
@@ -129,9 +113,25 @@ GO
 CREATE TABLE [dbo].[Sala] (
     [IdSala] int IDENTITY(1,1) NOT NULL,
     [Codigo] int  NOT NULL,
-    [MaximoJugadores] smallint  NOT NULL,
-    [MinimoJugadores] smallint  NOT NULL,
+    [MaximoJugadores] int  NOT NULL,
+    [MinimoJugadores] int  NOT NULL,
     [IdAnfitrion] int  NOT NULL
+);
+GO
+
+-- Creating table 'Partida'
+CREATE TABLE [dbo].[Partida] (
+    [IdPartida] int IDENTITY(1,1) NOT NULL,
+    [Dificultad] int  NOT NULL,
+    [IdSala] int  NOT NULL
+);
+GO
+
+-- Creating table 'Jugador_Partida'
+CREATE TABLE [dbo].[Jugador_Partida] (
+    [Puntaje] int  NOT NULL,
+    [IdJugador] int  NOT NULL,
+    [IdPartida] int  NOT NULL
 );
 GO
 
@@ -139,34 +139,22 @@ GO
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
 
+-- Creating primary key on [IdJugadorOrigen], [IdJugadorDestino] in table 'SolicitudAmistad'
+ALTER TABLE [dbo].[SolicitudAmistad]
+ADD CONSTRAINT [PK_SolicitudAmistad]
+    PRIMARY KEY CLUSTERED ([IdJugadorOrigen], [IdJugadorDestino] ASC);
+GO
+
+-- Creating primary key on [IdCuenta] in table 'Cuenta'
+ALTER TABLE [dbo].[Cuenta]
+ADD CONSTRAINT [PK_Cuenta]
+    PRIMARY KEY CLUSTERED ([IdCuenta] ASC);
+GO
+
 -- Creating primary key on [IdJugador] in table 'Jugador'
 ALTER TABLE [dbo].[Jugador]
 ADD CONSTRAINT [PK_Jugador]
     PRIMARY KEY CLUSTERED ([IdJugador] ASC);
-GO
-
--- Creating primary key on [IdJugadorOrigen], [IdJugadorDestino] in table 'Solicitud'
-ALTER TABLE [dbo].[Solicitud]
-ADD CONSTRAINT [PK_Solicitud]
-    PRIMARY KEY CLUSTERED ([IdJugadorOrigen], [IdJugadorDestino] ASC);
-GO
-
--- Creating primary key on [IdPartida] in table 'ResultadosPartida'
-ALTER TABLE [dbo].[ResultadosPartida]
-ADD CONSTRAINT [PK_ResultadosPartida]
-    PRIMARY KEY CLUSTERED ([IdPartida] ASC);
-GO
-
--- Creating primary key on [IdJugador], [IdPartida] in table 'Juego'
-ALTER TABLE [dbo].[Juego]
-ADD CONSTRAINT [PK_Juego]
-    PRIMARY KEY CLUSTERED ([IdJugador], [IdPartida] ASC);
-GO
-
--- Creating primary key on [IdUsuario] in table 'Usuario'
-ALTER TABLE [dbo].[Usuario]
-ADD CONSTRAINT [PK_Usuario]
-    PRIMARY KEY CLUSTERED ([IdUsuario] ASC);
 GO
 
 -- Creating primary key on [IdAmigo] in table 'Amigo'
@@ -181,71 +169,89 @@ ADD CONSTRAINT [PK_Sala]
     PRIMARY KEY CLUSTERED ([IdSala] ASC);
 GO
 
+-- Creating primary key on [IdPartida] in table 'Partida'
+ALTER TABLE [dbo].[Partida]
+ADD CONSTRAINT [PK_Partida]
+    PRIMARY KEY CLUSTERED ([IdPartida] ASC);
+GO
+
+-- Creating primary key on [IdPartida], [IdJugador] in table 'Jugador_Partida'
+ALTER TABLE [dbo].[Jugador_Partida]
+ADD CONSTRAINT [PK_Jugador_Partida]
+    PRIMARY KEY CLUSTERED ([IdPartida], [IdJugador] ASC);
+GO
+
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
 
--- Creating foreign key on [IdJugador1] in table 'Amigo'
-ALTER TABLE [dbo].[Amigo]
-ADD CONSTRAINT [FK_JugadorAmigo]
-    FOREIGN KEY ([IdJugador1])
+-- Creating foreign key on [Jugador_IdJugador] in table 'Cuenta'
+ALTER TABLE [dbo].[Cuenta]
+ADD CONSTRAINT [FK_CuentaJugador]
+    FOREIGN KEY ([Jugador_IdJugador])
     REFERENCES [dbo].[Jugador]
         ([IdJugador])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_JugadorAmigo'
-CREATE INDEX [IX_FK_JugadorAmigo]
-ON [dbo].[Amigo]
-    ([IdJugador1]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_CuentaJugador'
+CREATE INDEX [IX_FK_CuentaJugador]
+ON [dbo].[Cuenta]
+    ([Jugador_IdJugador]);
 GO
 
--- Creating foreign key on [IdJugador2] in table 'Amigo'
-ALTER TABLE [dbo].[Amigo]
-ADD CONSTRAINT [FK_JugadorAmigo1]
-    FOREIGN KEY ([IdJugador2])
-    REFERENCES [dbo].[Jugador]
-        ([IdJugador])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_JugadorAmigo1'
-CREATE INDEX [IX_FK_JugadorAmigo1]
-ON [dbo].[Amigo]
-    ([IdJugador2]);
-GO
-
--- Creating foreign key on [IdJugadorOrigen] in table 'Solicitud'
-ALTER TABLE [dbo].[Solicitud]
-ADD CONSTRAINT [FK_JugadorSolicitudAmistad]
+-- Creating foreign key on [IdJugadorOrigen] in table 'SolicitudAmistad'
+ALTER TABLE [dbo].[SolicitudAmistad]
+ADD CONSTRAINT [FK_JugadorOrigen_SolicitudAmistad]
     FOREIGN KEY ([IdJugadorOrigen])
     REFERENCES [dbo].[Jugador]
         ([IdJugador])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating foreign key on [IdJugadorDestino] in table 'Solicitud'
-ALTER TABLE [dbo].[Solicitud]
-ADD CONSTRAINT [FK_JugadorSolicitudAmistad1]
+-- Creating foreign key on [IdJugadorDestino] in table 'SolicitudAmistad'
+ALTER TABLE [dbo].[SolicitudAmistad]
+ADD CONSTRAINT [FK_JugadorDestino_SolicitudAmistad]
     FOREIGN KEY ([IdJugadorDestino])
     REFERENCES [dbo].[Jugador]
         ([IdJugador])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_JugadorSolicitudAmistad1'
-CREATE INDEX [IX_FK_JugadorSolicitudAmistad1]
-ON [dbo].[Solicitud]
+-- Creating non-clustered index for FOREIGN KEY 'FK_JugadorDestino_SolicitudAmistad'
+CREATE INDEX [IX_FK_JugadorDestino_SolicitudAmistad]
+ON [dbo].[SolicitudAmistad]
     ([IdJugadorDestino]);
 GO
 
--- Creating foreign key on [IdJugador] in table 'Juego'
-ALTER TABLE [dbo].[Juego]
-ADD CONSTRAINT [FK_JugadorJugador_Partida]
-    FOREIGN KEY ([IdJugador])
+-- Creating foreign key on [IdJugador1] in table 'Amigo'
+ALTER TABLE [dbo].[Amigo]
+ADD CONSTRAINT [FK_Jugador1Amigo]
+    FOREIGN KEY ([IdJugador1])
     REFERENCES [dbo].[Jugador]
         ([IdJugador])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Jugador1Amigo'
+CREATE INDEX [IX_FK_Jugador1Amigo]
+ON [dbo].[Amigo]
+    ([IdJugador1]);
+GO
+
+-- Creating foreign key on [IdJugador2] in table 'Amigo'
+ALTER TABLE [dbo].[Amigo]
+ADD CONSTRAINT [FK_Jugador2Amigo]
+    FOREIGN KEY ([IdJugador2])
+    REFERENCES [dbo].[Jugador]
+        ([IdJugador])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Jugador2Amigo'
+CREATE INDEX [IX_FK_Jugador2Amigo]
+ON [dbo].[Amigo]
+    ([IdJugador2]);
 GO
 
 -- Creating foreign key on [IdAnfitrion] in table 'Sala'
@@ -263,25 +269,10 @@ ON [dbo].[Sala]
     ([IdAnfitrion]);
 GO
 
--- Creating foreign key on [IdPartida] in table 'Juego'
-ALTER TABLE [dbo].[Juego]
-ADD CONSTRAINT [FK_PartidaJugador_Partida]
-    FOREIGN KEY ([IdPartida])
-    REFERENCES [dbo].[ResultadosPartida]
-        ([IdPartida])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_PartidaJugador_Partida'
-CREATE INDEX [IX_FK_PartidaJugador_Partida]
-ON [dbo].[Juego]
-    ([IdPartida]);
-GO
-
--- Creating foreign key on [SalaIdSala] in table 'ResultadosPartida'
-ALTER TABLE [dbo].[ResultadosPartida]
+-- Creating foreign key on [IdSala] in table 'Partida'
+ALTER TABLE [dbo].[Partida]
 ADD CONSTRAINT [FK_SalaPartida]
-    FOREIGN KEY ([SalaIdSala])
+    FOREIGN KEY ([IdSala])
     REFERENCES [dbo].[Sala]
         ([IdSala])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -289,23 +280,32 @@ GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_SalaPartida'
 CREATE INDEX [IX_FK_SalaPartida]
-ON [dbo].[ResultadosPartida]
-    ([SalaIdSala]);
+ON [dbo].[Partida]
+    ([IdSala]);
 GO
 
--- Creating foreign key on [Usuario_IdUsuario] in table 'Jugador'
-ALTER TABLE [dbo].[Jugador]
-ADD CONSTRAINT [FK_JugadorUsuario]
-    FOREIGN KEY ([Usuario_IdUsuario])
-    REFERENCES [dbo].[Usuario]
-        ([IdUsuario])
+-- Creating foreign key on [IdJugador] in table 'Jugador_Partida'
+ALTER TABLE [dbo].[Jugador_Partida]
+ADD CONSTRAINT [FK_JugadorJugador_Partida]
+    FOREIGN KEY ([IdJugador])
+    REFERENCES [dbo].[Jugador]
+        ([IdJugador])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_JugadorUsuario'
-CREATE INDEX [IX_FK_JugadorUsuario]
-ON [dbo].[Jugador]
-    ([Usuario_IdUsuario]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_JugadorJugador_Partida'
+CREATE INDEX [IX_FK_JugadorJugador_Partida]
+ON [dbo].[Jugador_Partida]
+    ([IdJugador]);
+GO
+
+-- Creating foreign key on [IdPartida] in table 'Jugador_Partida'
+ALTER TABLE [dbo].[Jugador_Partida]
+ADD CONSTRAINT [FK_PartidaJugador_Partida]
+    FOREIGN KEY ([IdPartida])
+    REFERENCES [dbo].[Partida]
+        ([IdPartida])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
 -- --------------------------------------------------

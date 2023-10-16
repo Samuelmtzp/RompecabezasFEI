@@ -12,42 +12,42 @@ namespace Logica
 {
     public class VerificadorCorreo
     {
-        public const string DISPLAY_NAME = "Rompecabezas FEI";
-        public const string BODY = "Tu código de verificación es: ";
+        public const string ENCABEZADO = "Rompecabezas FEI";
+        public const string CUERPO = "Tu código de verificación es: ";
         private static readonly ILog Log = Registros.Registros.GetLogger();
 
 
-        public bool EnviarValidacionCorreo(String toEmail, String affair, int validationCode)
+        public bool EnviarValidacionCorreo(String correoDestino, String asunto, int codigoValidacion)
         {
-            bool result = true;
-            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+            bool resultado = true;
+            SmtpClient clienteSmtp = new SmtpClient("smtp.gmail.com", 587);
 
             try
             {
-                MailMessage mailMessage = new MailMessage()
+                MailMessage mensajeCorreo = new MailMessage()
                 {
-                    From = new MailAddress(Properties.Settings.Default.Email, DISPLAY_NAME),
-                    Subject = affair,
-                    Body = $"{BODY} {validationCode}",
+                    From = new MailAddress(Properties.Settings.Default.Email, ENCABEZADO),
+                    Subject = asunto,
+                    Body = $"{CUERPO} {codigoValidacion}",
                     BodyEncoding = Encoding.UTF8,
                     IsBodyHtml = true
                 };
-                mailMessage.To.Add(toEmail);
+                mensajeCorreo.To.Add(correoDestino);
 
-                smtpClient.Credentials = new NetworkCredential(Properties.Settings.Default.Email, Properties.Settings.Default.EmailPassword);
-                smtpClient.EnableSsl = true;
-                smtpClient.Send(mailMessage);
+                clienteSmtp.Credentials = new NetworkCredential(Properties.Settings.Default.Email, Properties.Settings.Default.EmailPassword);
+                clienteSmtp.EnableSsl = true;
+                clienteSmtp.Send(mensajeCorreo);
             }
             catch (SmtpException ex)
             {
                 Log.Error($"{ex.Message}");
-                result = false;
+                resultado = false;
             }
             finally
             {
-                smtpClient.Dispose();
+                clienteSmtp.Dispose();
             }
-            return result;
+            return resultado;
         }
     }
 }

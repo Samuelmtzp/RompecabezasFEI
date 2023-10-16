@@ -23,13 +23,13 @@
             </StackPanel>
         </Button>
 
-        <Image Source="/Imagenes/Indicadores/CerrarSesion.png" HorizontalAlignment="Left" Height="82" Margin="526,510,0,0" VerticalAlignment="Top" Width="82" MouseDown="AccionCerrarSesion"/>
-        <Label Content="{x:Static p:Resources.ETIQUETA_MENUPRINCIPAL_CERRARSESION}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="492,592,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Width="148"/>
-        <Image Source="/Imagenes/Indicadores/Amigos.png" HorizontalAlignment="Left" Height="82" Margin="733,510,0,0" VerticalAlignment="Top" Width="82" MouseDown="AccionMisAmigos"/>
-        <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_AMIGOS}" HorizontalAlignment="Left" Margin="707,592,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24"/>
-        <Image Name="Imagen_AvatarUsuario" HorizontalAlignment="Left" Height="82" Margin="909,510,0,0" VerticalAlignment="Top" Width="82" MouseDown="AccionMiPerfil"/>
-        <Label Content="{x:Static p:Resources.ETIQUETA_MENUPRINCIPAL_PERFIL}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="886,592,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Width="132"/>
-        <Image Source="/Imagenes/Indicadores/Ajustes.png" HorizontalAlignment="Left" Height="82" Margin="1059,510,0,0" VerticalAlignment="Top" Width="82" MouseDown="AccionAjustes"/>
-        <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_AJUSTES}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="1046,592,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Width="107"/>
+        <Image Source="/Imagenes/Indicadores/CerrarSesion.png" HorizontalAlignment="Left" Height="82" Margin="79,520,0,0" VerticalAlignment="Top" Width="82" MouseDown="AccionCerrarSesion"/>
+        <Label Content="{x:Static p:Resources.ETIQUETA_MENUPRINCIPAL_CERRARSESION}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="45,602,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Width="148"/>
+        <Image Name="ImagenMisAmigos" Source="/Imagenes/Indicadores/Amigos.png" HorizontalAlignment="Left" Height="82" Margin="732,520,0,0" VerticalAlignment="Top" Width="82" MouseDown="AccionMisAmigos" Visibility="Hidden"/>
+        <Label Name="EtiquetaMisAmigos" Content="{x:Static p:Resources.ETIQUETA_GENERAL_AMIGOS}" HorizontalAlignment="Left" Margin="712,602,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Visibility="Hidden"/>
+        <Image Name="ImagenAvatarUsuario" HorizontalAlignment="Left" Height="82" Margin="898,520,0,0" VerticalAlignment="Top" Width="82" MouseDown="AccionMiPerfil" Visibility="Hidden"/>
+        <Label Name="EtiquetaMiPerfil" Content="{x:Static p:Resources.ETIQUETA_MENUPRINCIPAL_PERFIL}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="870,602,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Width="136" Visibility="Hidden"/>
+        <Image Source="/Imagenes/Indicadores/Ajustes.png" HorizontalAlignment="Left" Height="82" Margin="1050,520,0,0" VerticalAlignment="Top" Width="82" MouseDown="AccionAjustes"/>
+        <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_AJUSTES}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="1038,602,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Width="106"/>
     </Grid>
 </Page>

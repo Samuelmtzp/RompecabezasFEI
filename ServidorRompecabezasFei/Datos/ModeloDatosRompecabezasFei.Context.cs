@@ -25,12 +25,12 @@ namespace Datos
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<SolicitudAmistad> SolicitudAmistad { get; set; }
+        public virtual DbSet<Cuenta> Cuenta { get; set; }
         public virtual DbSet<Jugador> Jugador { get; set; }
-        public virtual DbSet<SolicitudAmistad> Solicitud { get; set; }
-        public virtual DbSet<Partida> ResultadosPartida { get; set; }
-        public virtual DbSet<Jugador_Partida> Juego { get; set; }
-        public virtual DbSet<Usuario> Usuario { get; set; }
         public virtual DbSet<Amigo> Amigo { get; set; }
         public virtual DbSet<Sala> Sala { get; set; }
+        public virtual DbSet<Partida> Partida { get; set; }
+        public virtual DbSet<Jugador_Partida> Jugador_Partida { get; set; }
     }
 }

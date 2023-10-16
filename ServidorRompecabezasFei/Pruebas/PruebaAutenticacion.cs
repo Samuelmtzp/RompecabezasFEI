@@ -35,16 +35,16 @@ namespace Pruebas
 
             Logica.Autenticacion servicioAutenticacion = new Logica.Autenticacion();
 
-            Logica.Jugador jugadorEsperado = new Logica.Jugador()
+            Logica.CuentaJugador jugadorEsperado = new Logica.CuentaJugador()
             {
                 IdJugador = 4,
                 NombreJugador = "KrmaL",
                 Correo = "samuel__martinez@hotmail.com",
                 Contrasena = "",
-                IdUsuario = 4,
+                IdCuenta = 4,
                 NumeroAvatar = 1,
             };
-            Logica.Jugador jugadorResultado = servicioAutenticacion.IniciarSesion(nombreUsuario,
+            Logica.CuentaJugador jugadorResultado = servicioAutenticacion.IniciarSesion(nombreUsuario,
                 contrasena);
 
             Assert.AreEqual(jugadorEsperado.ToString(), jugadorResultado.ToString(),
@@ -59,16 +59,16 @@ namespace Pruebas
 
             Logica.Autenticacion servicioAutenticacion = new Logica.Autenticacion();
 
-            Logica.Jugador jugadorEsperado = new Logica.Jugador()
+            Logica.CuentaJugador jugadorEsperado = new Logica.CuentaJugador()
             {
                 IdJugador = 1,
                 NombreJugador = "Sam",
                 Correo = "smp_pz@gmail.com",
                 Contrasena = "",
-                IdUsuario = 1,
+                IdCuenta = 1,
                 NumeroAvatar = 1,
             };
-            Logica.Jugador jugadorResultado = servicioAutenticacion.IniciarSesion(nombreUsuario,
+            Logica.CuentaJugador jugadorResultado = servicioAutenticacion.IniciarSesion(nombreUsuario,
                 contrasena);
 
             Assert.AreNotEqual(jugadorEsperado.ToString(), jugadorResultado.ToString(),

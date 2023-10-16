@@ -5,36 +5,36 @@ namespace Logica
 {
     public class Autenticacion
     {
-        public Logica.Jugador IniciarSesion(string nombreJugador, string contrasena)
+        public Logica.CuentaJugador IniciarSesion(string nombreJugador, string contrasena)
         {
-            Logica.Jugador jugador = new Logica.Jugador();
+            Logica.CuentaJugador cuentaJugador = new Logica.CuentaJugador();
             using (var contexto = new EntidadesRompecabezasFei())
             {
                 var cuentasJugador = (from jugadores in contexto.Jugador
-                                join usuarios in contexto.Usuario 
-                                on jugadores.Usuario.IdUsuario equals usuarios.IdUsuario
+                                join cuentas in contexto.Cuenta
+                                on jugadores.Cuenta.IdCuenta equals cuentas.IdCuenta
                                 where jugadores.NombreJugador == nombreJugador &&
-                                usuarios.Contrasena == contrasena
-                                select new Logica.Jugador
+                                cuentas.Contrasena == contrasena
+                                select new Logica.CuentaJugador
                                 {
                                     IdJugador = jugadores.IdJugador,
                                     NumeroAvatar = jugadores.NumeroAvatar,
                                     NombreJugador = jugadores.NombreJugador, 
-                                    IdUsuario = usuarios.IdUsuario,
-                                    Correo = usuarios.Correo,
+                                    IdCuenta = cuentas.IdCuenta,
+                                    Correo = cuentas.Correo,
                                     Contrasena = ""
                                 });
                 if (cuentasJugador.Any())
                 {
-                    jugador.IdJugador = cuentasJugador.First().IdJugador; 
-                    jugador.NumeroAvatar = cuentasJugador.First().NumeroAvatar;
-                    jugador.NombreJugador = cuentasJugador.First().NombreJugador;
-                    jugador.Correo = cuentasJugador.First().Correo;
-                    jugador.Contrasena = cuentasJugador.First().Contrasena;
-                    jugador.IdUsuario = cuentasJugador.First().IdUsuario;
+                    cuentaJugador.IdJugador = cuentasJugador.First().IdJugador; 
+                    cuentaJugador.NumeroAvatar = cuentasJugador.First().NumeroAvatar;
+                    cuentaJugador.NombreJugador = cuentasJugador.First().NombreJugador;
+                    cuentaJugador.Correo = cuentasJugador.First().Correo;
+                    cuentaJugador.Contrasena = cuentasJugador.First().Contrasena;
+                    cuentaJugador.IdCuenta = cuentasJugador.First().IdCuenta;
                 }
             }
-            return jugador;
+            return cuentaJugador;
         }
     }
 }

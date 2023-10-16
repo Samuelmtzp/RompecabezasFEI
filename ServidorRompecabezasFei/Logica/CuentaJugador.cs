@@ -4,13 +4,13 @@ using System.Xml.Linq;
 namespace Logica
 {
     [DataContract]
-    public class Jugador
+    public class CuentaJugador
     {
         #region Atributos
         private int idJugador;
         private string nombreJugador;
         private short numeroAvatar;
-        private int idUsuario;
+        private int idCuenta;
         private string correo;
         private string contrasena;
         #endregion
@@ -35,10 +35,10 @@ namespace Logica
             set { numeroAvatar = value; }
         }
         [DataMember]
-        public int IdUsuario
+        public int IdCuenta
         {
-            get { return idUsuario; }
-            set { idUsuario = value; }
+            get { return idCuenta; }
+            set { idCuenta = value; }
         }
         [DataMember]
         public string Correo
