@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,25 @@ namespace RompecabezasFei
         public PaginaInformacionJugador()
         {
             InitializeComponent();
+            CargarDatosJugador();
+        }
+
+        private void CargarDatosJugador()
+        {
+            EtiquetaNombreJugador.Content = Jugador.JugadorActual.NombreJugador;
+            CargarImagenJugador();        
+        }
+
+        private void CargarImagenJugador()
+        {
+            string rutaImagen = "/Imagenes/Avatares/";
+            BitmapImage ImagenUsuarioMapaBits = new BitmapImage();
+            ImagenUsuarioMapaBits.BeginInit();
+            rutaImagen += Jugador.JugadorActual.NumeroAvatar + ".png";
+
+            ImagenUsuarioMapaBits.UriSource = new Uri(rutaImagen, UriKind.RelativeOrAbsolute);
+            ImagenUsuarioMapaBits.EndInit();
+            ImagenAvatarJugador.Source = ImagenUsuarioMapaBits;
         }
 
         private void AccionCambiarContrasena(object remitente, RoutedEventArgs evento)
