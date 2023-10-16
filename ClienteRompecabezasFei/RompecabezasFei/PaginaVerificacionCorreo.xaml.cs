@@ -16,7 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using Dominio;
-using RompecabezasFei.ServicioGestionJugador;
+using RompecabezasFei.ServicioRompecabezasFei;
 using Security;
 
 namespace RompecabezasFei
@@ -81,7 +81,7 @@ namespace RompecabezasFei
                 if (codigoVerificacionCoincide)
                 {
                     string contrasenaCifrada = EncriptadorContrasena.CalcularHashSha512(jugadorRegistro.Contrasena);
-                    ServicioGestionJugador.Jugador nuevoJugador = new ServicioGestionJugador.Jugador
+                    ServicioRompecabezasFei.CuentaJugador nuevoJugador = new ServicioRompecabezasFei.CuentaJugador
                     {
                         NombreJugador = jugadorRegistro.NombreJugador,
                         NumeroAvatar = jugadorRegistro.NumeroAvatar,

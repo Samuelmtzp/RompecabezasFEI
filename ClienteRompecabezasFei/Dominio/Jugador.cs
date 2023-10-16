@@ -12,7 +12,7 @@ namespace Dominio
         private int idJugador;
         private string nombreJugador;
         private short numeroAvatar;
-        private int idUsuario;
+        private int idCuenta;
         private string correo;
         private string contrasena;
         private string confirmacionContrasena;
@@ -21,7 +21,7 @@ namespace Dominio
 
         #region Singletone
         private static Jugador jugadorActual;
-        public static Jugador JugadorActual 
+        public static Jugador CuentaJugadorActual 
         { 
             get { return jugadorActual; } 
             set { jugadorActual = value; } 
@@ -44,10 +44,10 @@ namespace Dominio
             get { return numeroAvatar; }
             set { numeroAvatar = value; }
         }
-        public int IdUsuario
+        public int IdCuenta
         {
-            get { return idUsuario; }
-            set { idUsuario = value; }
+            get { return idCuenta; }
+            set { idCuenta = value; }
         }
         public string Correo
         {

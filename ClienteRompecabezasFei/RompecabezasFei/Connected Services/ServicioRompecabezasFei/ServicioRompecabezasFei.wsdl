@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="ServicioGestionJugador" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="ServicioRompecabezasFei" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsp:Policy wsu:Id="NetTcpBinding_IServicioGestionJugador_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -31,11 +31,11 @@
   <wsdl:message name="IServicioGestionJugador_ExisteCorreoElectronico_OutputMessage">
     <wsdl:part name="parameters" element="tns:ExisteCorreoElectronicoResponse" />
   </wsdl:message>
-  <wsdl:message name="IServicioGestionJugador_ExisteNombreUsuario_InputMessage">
-    <wsdl:part name="parameters" element="tns:ExisteNombreUsuario" />
+  <wsdl:message name="IServicioGestionJugador_ExisteNombreJugador_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteNombreJugador" />
   </wsdl:message>
-  <wsdl:message name="IServicioGestionJugador_ExisteNombreUsuario_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ExisteNombreUsuarioResponse" />
+  <wsdl:message name="IServicioGestionJugador_ExisteNombreJugador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteNombreJugadorResponse" />
   </wsdl:message>
   <wsdl:message name="IServicioGestionJugador_IniciarSesion_InputMessage">
     <wsdl:part name="parameters" element="tns:IniciarSesion" />
@@ -49,6 +49,18 @@
   <wsdl:message name="IServicioGestionJugador_EnviarValidacionCorreo_OutputMessage">
     <wsdl:part name="parameters" element="tns:EnviarValidacionCorreoResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_ObtenerNumeroPartidasJugadas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerNumeroPartidasJugadas" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_ObtenerNumeroPartidasJugadas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerNumeroPartidasJugadasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_ObtenerNumeroPartidasGanadas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerNumeroPartidasGanadas" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_ObtenerNumeroPartidasGanadas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerNumeroPartidasGanadasResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServicioGestionJugador">
     <wsdl:operation name="Registrar">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/Registrar" message="tns:IServicioGestionJugador_Registrar_InputMessage" />
@@ -58,9 +70,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/ExisteCorreoElectronico" message="tns:IServicioGestionJugador_ExisteCorreoElectronico_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionJugador/ExisteCorreoElectronicoResponse" message="tns:IServicioGestionJugador_ExisteCorreoElectronico_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ExisteNombreUsuario">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/ExisteNombreUsuario" message="tns:IServicioGestionJugador_ExisteNombreUsuario_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionJugador/ExisteNombreUsuarioResponse" message="tns:IServicioGestionJugador_ExisteNombreUsuario_OutputMessage" />
+    <wsdl:operation name="ExisteNombreJugador">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/ExisteNombreJugador" message="tns:IServicioGestionJugador_ExisteNombreJugador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionJugador/ExisteNombreJugadorResponse" message="tns:IServicioGestionJugador_ExisteNombreJugador_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="IniciarSesion">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/IniciarSesion" message="tns:IServicioGestionJugador_IniciarSesion_InputMessage" />
@@ -69,6 +81,14 @@
     <wsdl:operation name="EnviarValidacionCorreo">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/EnviarValidacionCorreo" message="tns:IServicioGestionJugador_EnviarValidacionCorreo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionJugador/EnviarValidacionCorreoResponse" message="tns:IServicioGestionJugador_EnviarValidacionCorreo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNumeroPartidasJugadas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/ObtenerNumeroPartidasJugadas" message="tns:IServicioGestionJugador_ObtenerNumeroPartidasJugadas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionJugador/ObtenerNumeroPartidasJugadasResponse" message="tns:IServicioGestionJugador_ObtenerNumeroPartidasJugadas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNumeroPartidasGanadas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/ObtenerNumeroPartidasGanadas" message="tns:IServicioGestionJugador_ObtenerNumeroPartidasGanadas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionJugador/ObtenerNumeroPartidasGanadasResponse" message="tns:IServicioGestionJugador_ObtenerNumeroPartidasGanadas_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IServicioGestionJugador" type="tns:IServicioGestionJugador">
@@ -92,8 +112,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ExisteNombreUsuario">
-      <soap12:operation soapAction="http://tempuri.org/IServicioGestionJugador/ExisteNombreUsuario" style="document" />
+    <wsdl:operation name="ExisteNombreJugador">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionJugador/ExisteNombreJugador" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -119,8 +139,26 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ObtenerNumeroPartidasJugadas">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionJugador/ObtenerNumeroPartidasJugadas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNumeroPartidasGanadas">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionJugador/ObtenerNumeroPartidasGanadas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="ServicioGestionJugador">
+  <wsdl:service name="ServicioRompecabezasFei">
     <wsdl:port name="NetTcpBinding_IServicioGestionJugador" binding="tns:NetTcpBinding_IServicioGestionJugador">
       <soap12:address location="net.tcp://localhost:9000/Contratos" />
       <wsa10:EndpointReference>

@@ -63,7 +63,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\ServicioGestionJugador\Reference.cs">
+    <Compile Include="Connected Services\ServicioRompecabezasFei\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -86,8 +86,8 @@
     <Compile Include="PaginaMenuPrincipal.xaml.cs">
       <DependentUpon>PaginaMenuPrincipal.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PaginaRegistroUsuario.xaml.cs">
-      <DependentUpon>PaginaRegistroUsuario.xaml</DependentUpon>
+    <Compile Include="PaginaRegistroJugador.xaml.cs">
+      <DependentUpon>PaginaRegistroJugador.xaml</DependentUpon>
     </Compile>
     <Compile Include="PaginaSala.xaml.cs">
       <DependentUpon>PaginaSala.xaml</DependentUpon>
@@ -124,19 +124,19 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Connected Services\ServicioGestionJugador\item.xsd">
+    <None Include="Connected Services\ServicioRompecabezasFei\item.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServicioGestionJugador\item1.xsd">
+    <None Include="Connected Services\ServicioRompecabezasFei\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServicioGestionJugador\item2.xsd">
+    <None Include="Connected Services\ServicioRompecabezasFei\item2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServicioGestionJugador\RompecabezasFei.ServicioGestionJugador.Jugador.datasource">
+    <None Include="Connected Services\ServicioRompecabezasFei\RompecabezasFei.ServicioRompecabezasFei.CuentaJugador.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ServicioGestionJugador\ServicioGestionJugador.wsdl" />
+    <None Include="Connected Services\ServicioRompecabezasFei\ServicioRompecabezasFei.wsdl" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -170,7 +170,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PaginaRegistroUsuario.xaml">
+    <Page Include="PaginaRegistroJugador.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -261,19 +261,19 @@
     <Resource Include="Imagenes\Indicadores\Corona.png" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\ServicioGestionJugador\" />
+    <WCFMetadataStorage Include="Connected Services\ServicioRompecabezasFei\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServicioGestionJugador\item.disco" />
+    <None Include="Connected Services\ServicioRompecabezasFei\item.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServicioGestionJugador\configuration91.svcinfo" />
+    <None Include="Connected Services\ServicioRompecabezasFei\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServicioGestionJugador\configuration.svcinfo" />
+    <None Include="Connected Services\ServicioRompecabezasFei\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServicioGestionJugador\Reference.svcmap">
+    <None Include="Connected Services\ServicioRompecabezasFei\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

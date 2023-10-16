@@ -1,4 +1,4 @@
-﻿using RompecabezasFei.ServicioGestionJugador;
+﻿using RompecabezasFei.ServicioRompecabezasFei;
 using Dominio;
 using Security;
 using System;
@@ -23,7 +23,7 @@ namespace RompecabezasFei
         private void AccionModoInvitado(object remitente, RoutedEventArgs evento)
         {
             
-            Dominio.Jugador.JugadorActual = new Dominio.Jugador()
+            Dominio.Jugador.CuentaJugadorActual = new Dominio.Jugador()
             {
                 NombreJugador = $"Invitado{new Random().Next()}",
                 EsInvitado = true
@@ -40,7 +40,7 @@ namespace RompecabezasFei
 
         private void AccionRegistro(object remitente, MouseButtonEventArgs evento)
         {            
-            VentanaPrincipal.CambiarPagina(this, new PaginaRegistroUsuario());
+            VentanaPrincipal.CambiarPagina(this, new PaginaRegistroJugador());
         }
 
         
@@ -93,22 +93,22 @@ namespace RompecabezasFei
         }
 
 
-        private void IniciarSesion(string nombreUsuario, string contrasena)
+        private void IniciarSesion(string nombreJugador, string contrasena)
         {
             ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
-            ServicioGestionJugador.Jugador jugadorAutenticado = cliente.IniciarSesion(nombreUsuario, 
+            ServicioRompecabezasFei.CuentaJugador cuentaJugadorAutenticada = cliente.IniciarSesion(nombreJugador, 
                 EncriptadorContrasena.CalcularHashSha512(contrasena));
 
-            if (jugadorAutenticado.IdJugador != 0)
+            if (cuentaJugadorAutenticada.IdJugador != 0)
             {
-                Dominio.Jugador.JugadorActual = new Dominio.Jugador
+                Dominio.Jugador.CuentaJugadorActual = new Dominio.Jugador
                 {
-                    Contrasena = jugadorAutenticado.Contrasena,
-                    Correo = jugadorAutenticado.Correo,
-                    IdJugador = jugadorAutenticado.IdJugador,
-                    IdUsuario = jugadorAutenticado.IdUsuario,
-                    NombreJugador = jugadorAutenticado.NombreJugador,
-                    NumeroAvatar = jugadorAutenticado.NumeroAvatar,
+                    Contrasena = cuentaJugadorAutenticada.Contrasena,
+                    Correo = cuentaJugadorAutenticada.Correo,
+                    IdJugador = cuentaJugadorAutenticada.IdJugador,
+                    IdCuenta = cuentaJugadorAutenticada.IdCuenta,
+                    NombreJugador = cuentaJugadorAutenticada.NombreJugador,
+                    NumeroAvatar = cuentaJugadorAutenticada.NumeroAvatar,
                     EsInvitado = false
                 };
 
@@ -121,10 +121,10 @@ namespace RompecabezasFei
             }
         }
 
-        private bool ExistenCadenasValidas(string nombreUsuario, string contrasena)
+        private bool ExistenCadenasValidas(string nombreJugador, string contrasena)
         {
             var esValido = false;
-            if (Regex.IsMatch(nombreUsuario, "^[a-zA-Z0-9]*$") && Regex.IsMatch(contrasena, 
+            if (Regex.IsMatch(nombreJugador, "^[a-zA-Z0-9]*$") && Regex.IsMatch(contrasena, 
                 "^[a-zA-Z0-9]*$"))
             {
                 esValido = true;
@@ -132,10 +132,10 @@ namespace RompecabezasFei
             return esValido;
         }
 
-        private bool ExistenLongitudesExcedidas(string nombreUsuario, string contrasena)
+        private bool ExistenLongitudesExcedidas(string nombreJugador, string contrasena)
         {
             var camposExcedidos = true;
-            if (nombreUsuario.Length <= 15 || contrasena.Length <= 45)
+            if (nombreJugador.Length <= 15 || contrasena.Length <= 45)
             {
                 camposExcedidos = false;
             }
