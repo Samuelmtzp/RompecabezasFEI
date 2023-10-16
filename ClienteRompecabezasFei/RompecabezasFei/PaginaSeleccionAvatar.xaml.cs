@@ -52,9 +52,9 @@ namespace RompecabezasFei
 
         private void Regresar()
         {
-            if (typeof(PaginaRegistroUsuario).IsInstanceOfType(VentanaPrincipal.PaginaAnterior))
+            if (typeof(PaginaRegistroJugador).IsInstanceOfType(VentanaPrincipal.PaginaAnterior))
             {
-                PaginaRegistroUsuario paginaRegistroUsuario = new PaginaRegistroUsuario();
+                PaginaRegistroJugador paginaRegistroUsuario = new PaginaRegistroJugador();
                 paginaRegistroUsuario.ImagenAvatarActual.Source = ImagenAvatarActual.Source;
                 paginaRegistroUsuario.ImagenAvatarActual.Tag = ImagenAvatarActual.Tag;
                 paginaRegistroUsuario.JugadorRegistro = jugadorRegistro;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="5a6f7650-b972-4c78-af7b-c66b1e3c1cd6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="f562bce4-a02e-4239-a34e-6395ba813fa5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,11 +22,11 @@
     <MetadataSource Address="http://localhost:8088" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="fb83f0a3-e06c-4df2-9e61-b17304aa367b" SourceId="1" SourceUrl="http://localhost:8088/?xsd=xsd1" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="d9f9341a-b362-4cbd-ac0f-a3835a93df2f" SourceId="1" SourceUrl="http://localhost:8088/?xsd=xsd2" />
-    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="c99a865b-b008-4080-8fdb-5f30d55162ea" SourceId="1" SourceUrl="http://localhost:8088/?xsd=xsd0" />
-    <MetadataFile FileName="ServicioGestionJugador.wsdl" MetadataType="Wsdl" ID="6a8b32b7-5984-442f-b983-0fcb729c14c4" SourceId="1" SourceUrl="http://localhost:8088/?wsdl" />
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="d17fad32-b8cf-4685-a72b-9a779cd58ea7" SourceId="1" SourceUrl="http://localhost:8088/?disco" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="dd25d7e6-98fe-48b0-a7aa-b088ce10d184" SourceId="1" SourceUrl="http://localhost:8088/?xsd=xsd1" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="0b555d5e-e5e2-4e8b-b17c-633dc102cf26" SourceId="1" SourceUrl="http://localhost:8088/?xsd=xsd2" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="822219d3-8151-4d51-a547-fd16b3090be8" SourceId="1" SourceUrl="http://localhost:8088/?xsd=xsd0" />
+    <MetadataFile FileName="ServicioRompecabezasFei.wsdl" MetadataType="Wsdl" ID="9a011e6b-b101-4100-be2f-7483b8ef476c" SourceId="1" SourceUrl="http://localhost:8088/?wsdl" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="02a31b82-eb53-4194-9227-534ac58a3611" SourceId="1" SourceUrl="http://localhost:8088/?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

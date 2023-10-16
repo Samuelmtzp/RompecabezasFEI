@@ -1,4 +1,4 @@
-﻿using RompecabezasFei.ServicioGestionJugador;
+﻿using RompecabezasFei.ServicioRompecabezasFei;
 using Security;
 using System;
 using System.Text.RegularExpressions;
@@ -10,9 +10,9 @@ using System.Windows.Media.Imaging;
 namespace RompecabezasFei
 {
     /// <summary>
-    /// Interaction logic for PaginaRegistroUsuario.xaml
+    /// Interaction logic for PaginaRegistroJugador.xaml
     /// </summary>
-    public partial class PaginaRegistroUsuario : Page
+    public partial class PaginaRegistroJugador : Page
     {
         private Dominio.Jugador jugadorRegistro;
         public Dominio.Jugador JugadorRegistro
@@ -21,7 +21,7 @@ namespace RompecabezasFei
             set { jugadorRegistro = value; }
         }
 
-        public PaginaRegistroUsuario()
+        public PaginaRegistroJugador()
         {
             InitializeComponent();
             jugadorRegistro = new Dominio.Jugador();
@@ -73,7 +73,7 @@ namespace RompecabezasFei
             if (!ExistenCamposInvalidos())
             {     
                 
-                if (!(cliente.ExisteNombreUsuario(jugadorRegistro.NombreJugador)) &&
+                if (!(cliente.ExisteNombreJugador(jugadorRegistro.NombreJugador)) &&
                     !(cliente.ExisteCorreoElectronico(jugadorRegistro.Correo)))
                 {
                    

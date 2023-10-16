@@ -24,7 +24,7 @@ namespace RompecabezasFei
         public PaginaMenuPrincipal()
         {
             InitializeComponent();
-            if (!Jugador.JugadorActual.EsInvitado)
+            if (!Jugador.CuentaJugadorActual.EsInvitado)
             {
                 CargarOpcionesJugador();
                 CargarImagenJugador();
@@ -50,7 +50,7 @@ namespace RompecabezasFei
             string rutaImagen = "/Imagenes/Avatares/";
             BitmapImage ImagenUsuarioMapaBits = new BitmapImage();
             ImagenUsuarioMapaBits.BeginInit();
-            rutaImagen += Jugador.JugadorActual.NumeroAvatar + ".png";
+            rutaImagen += Jugador.CuentaJugadorActual.NumeroAvatar + ".png";
 
             ImagenUsuarioMapaBits.UriSource = new Uri(rutaImagen, UriKind.RelativeOrAbsolute);
             ImagenUsuarioMapaBits.EndInit();
@@ -80,7 +80,7 @@ namespace RompecabezasFei
 
             if (resultado == MessageBoxResult.Yes)
             {
-                Jugador.JugadorActual = null;
+                Jugador.CuentaJugadorActual = null;
                 VentanaPrincipal.CambiarPagina(this, new PaginaInicioSesion());
             }
         }
