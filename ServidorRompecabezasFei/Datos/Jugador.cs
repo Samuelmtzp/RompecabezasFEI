@@ -18,6 +18,6 @@ namespace Datos
         public string NombreJugador { get; set; }
         public short NumeroAvatar { get; set; }
     
-        public virtual Usuario Usuario { get; set; }
+        public virtual Cuenta Cuenta { get; set; }
     }
 }

@@ -14,10 +14,10 @@ namespace Datos
     
     public partial class SolicitudAmistad
     {
-        public short Estado { get; set; }
+        public int Estado { get; set; }
+        public string FechaEnvioSolicitud { get; set; }
         public int IdJugadorOrigen { get; set; }
         public int IdJugadorDestino { get; set; }
-        public string FechaEnvioSolicitud { get; set; }
     
         public virtual Jugador JugadorOrigen { get; set; }
         public virtual Jugador JugadorDestino { get; set; }

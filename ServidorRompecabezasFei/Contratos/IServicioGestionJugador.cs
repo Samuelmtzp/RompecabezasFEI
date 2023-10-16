@@ -9,16 +9,18 @@ namespace Contratos
     {
 
         [OperationContract]
-        bool Registrar(Logica.Jugador jugador);
+        bool Registrar(Logica.CuentaJugador cuentaJugador);
         [OperationContract]
         bool ExisteCorreoElectronico(string correoElectronico);
         [OperationContract]
-        bool ExisteNombreUsuario(string nombreUsuario);
+        bool ExisteNombreJugador(string nombreJugador);
         [OperationContract]
-        Logica.Jugador IniciarSesion(string nombreUsuario, string contrasena);
-
+        Logica.CuentaJugador IniciarSesion(string nombreJugador, string contrasena);
         [OperationContract]
-        bool EnviarValidacionCorreo(String toEmail, String affair, int codigoVerificacion);
-
+        bool EnviarValidacionCorreo(String correoDestino, String asunto, int codigoVerificacion);
+        [OperationContract]
+        int ObtenerNumeroPartidasJugadas(string nombreUsuario);
+        [OperationContract]
+        int ObtenerNumeroPartidasGanadas(string nombreUsuario);
     }
 }

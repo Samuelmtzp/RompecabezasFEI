@@ -12,9 +12,9 @@ namespace Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class Usuario
+    public partial class Cuenta
     {
-        public int IdUsuario { get; set; }
+        public int IdCuenta { get; set; }
         public string Correo { get; set; }
         public string Contrasena { get; set; }
     

@@ -16,10 +16,10 @@ namespace Datos
     {
         public int IdSala { get; set; }
         public int Codigo { get; set; }
-        public short MaximoJugadores { get; set; }
-        public short MinimoJugadores { get; set; }
+        public int MaximoJugadores { get; set; }
+        public int MinimoJugadores { get; set; }
         public int IdAnfitrion { get; set; }
     
-        public virtual Jugador Jugador { get; set; }
+        public virtual Jugador Anfitrion { get; set; }
     }
 }
