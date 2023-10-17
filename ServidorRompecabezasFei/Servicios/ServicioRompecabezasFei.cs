@@ -41,6 +41,21 @@ namespace Servicios
             return estadoRegistro;
         }
 
+        public bool ExisteNombreJugador(string nombreJugador)
+        {
+            ConsultasJugador consultasJugador = new ConsultasJugador();
+            bool existeNombreJugador = false;
+
+            try
+            {
+                existeNombreJugador = consultasJugador.ExisteNombreJugador(nombreJugador);
+            }
+            catch (EntityException)
+            {
+            }
+            return existeNombreJugador;
+        }     
+        
         public bool ExisteCorreoElectronico(string correoElectronico)
         {
             ConsultasJugador consultasJugador = new ConsultasJugador();
@@ -91,21 +106,6 @@ namespace Servicios
             int numeroPartidasGanadas = consultasJugador.
                 ObtenerNumeroPartidasGanadas(nombreJugador);
             return numeroPartidasGanadas;
-        }
-
-        public bool ExisteNombreJugador(string nombreJugador)
-        {
-            ConsultasJugador consultasJugador = new ConsultasJugador();
-            bool existeNombreJugador = false;
-
-            try
-            {
-                existeNombreJugador = consultasJugador.ExisteNombreJugador(nombreJugador);
-            }
-            catch (EntityException)
-            {
-            }
-            return existeNombreJugador;
-        }
+        }        
     }
 }

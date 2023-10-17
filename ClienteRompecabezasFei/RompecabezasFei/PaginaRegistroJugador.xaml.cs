@@ -9,9 +9,6 @@ using System.Windows.Media.Imaging;
 
 namespace RompecabezasFei
 {
-    /// <summary>
-    /// Interaction logic for PaginaRegistroJugador.xaml
-    /// </summary>
     public partial class PaginaRegistroJugador : Page
     {
         private Dominio.CuentaJugador jugadorRegistro;
@@ -72,13 +69,11 @@ namespace RompecabezasFei
 
             if (!ExistenCamposInvalidos())
             {     
-                
                 if (!(cliente.ExisteNombreJugador(jugadorRegistro.NombreJugador)) &&
                     !(cliente.ExisteCorreoElectronico(jugadorRegistro.Correo)))
                 {
-                   
-                    PaginaVerificacionCorreo paginaVerificacionCorreo = new PaginaVerificacionCorreo();
-                    paginaVerificacionCorreo.JugadorRegistro = JugadorRegistro;
+                    PaginaVerificacionCorreo paginaVerificacionCorreo = 
+                        new PaginaVerificacionCorreo(jugadorRegistro);
                     VentanaPrincipal.CambiarPagina(this, paginaVerificacionCorreo);
 
                 }

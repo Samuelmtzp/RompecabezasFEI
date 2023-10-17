@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace RompecabezasFei
 {
-    /// <summary>
-    /// Interaction logic for PaginaSeleccionAvatar.xaml
-    /// </summary>
     public partial class PaginaSeleccionAvatar : Page
     {
         private CuentaJugador jugadorRegistro;

@@ -7,9 +7,6 @@ using System.Windows.Media;
 
 namespace RompecabezasFei
 {
-    /// <summary>
-    /// Interaction logic for PaginaSala.xaml
-    /// </summary>
     public partial class PaginaSala : Page
     {
         public PaginaSala()
@@ -29,8 +26,13 @@ namespace RompecabezasFei
 
         private void AccionEnviarMensaje(object remitente, RoutedEventArgs evento)
         {
-            CuadroTextoMensajes.AppendText(CuentaJugador.CuentaJugadorActual.NombreJugador + ": " + 
-                CuadroTextoMensajeUsuario.Text + "\n");
+            if (!string.IsNullOrEmpty(CuadroTextoMensajeUsuario.Text))
+            {
+                CuadroTextoMensajes.Text = CuadroTextoMensajes.Text +
+                CuentaJugador.CuentaJugadorActual.NombreJugador + ": " +
+                CuadroTextoMensajeUsuario.Text + "\n";
+                CuadroTextoMensajeUsuario.Text = "";
+            }
         }
 
         private void AccionIniciarPartida(object remitente, RoutedEventArgs evento)
