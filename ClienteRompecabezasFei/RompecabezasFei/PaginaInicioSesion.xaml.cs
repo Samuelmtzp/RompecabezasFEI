@@ -97,7 +97,7 @@ namespace RompecabezasFei
         {
             ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
             ServicioRompecabezasFei.CuentaJugador cuentaJugadorAutenticada = cliente.IniciarSesion(nombreJugador, 
-                EncriptadorContrasena.CalcularHashSha512(contrasena));
+                contrasena);
 
             if (cuentaJugadorAutenticada.IdJugador != 0)
             {
@@ -135,7 +135,7 @@ namespace RompecabezasFei
         private bool ExistenLongitudesExcedidas(string nombreJugador, string contrasena)
         {
             var camposExcedidos = true;
-            if (nombreJugador.Length <= 15 || contrasena.Length <= 45)
+            if (nombreJugador.Length > 15 || contrasena.Length > 45)
             {
                 camposExcedidos = false;
             }
