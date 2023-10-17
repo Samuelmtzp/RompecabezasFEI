@@ -29,7 +29,7 @@ namespace RompecabezasFei
 
         private void AccionEnviarMensaje(object remitente, RoutedEventArgs evento)
         {
-            CuadroTextoMensajes.AppendText(Jugador.CuentaJugadorActual.NombreJugador + ": " + 
+            CuadroTextoMensajes.AppendText(CuentaJugador.CuentaJugadorActual.NombreJugador + ": " + 
                 CuadroTextoMensajeUsuario.Text + "\n");
         }
 

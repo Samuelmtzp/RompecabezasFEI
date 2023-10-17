@@ -21,8 +21,8 @@ namespace RompecabezasFei
     /// </summary>
     public partial class PaginaSeleccionAvatar : Page
     {
-        private Jugador jugadorRegistro;
-        public Jugador JugadorRegistro
+        private CuentaJugador jugadorRegistro;
+        public CuentaJugador JugadorRegistro
         {
             get { return jugadorRegistro; }
             set { jugadorRegistro = value; }

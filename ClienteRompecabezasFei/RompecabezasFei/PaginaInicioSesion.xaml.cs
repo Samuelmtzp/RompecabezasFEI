@@ -23,7 +23,7 @@ namespace RompecabezasFei
         private void AccionModoInvitado(object remitente, RoutedEventArgs evento)
         {
             
-            Dominio.Jugador.CuentaJugadorActual = new Dominio.Jugador()
+            Dominio.CuentaJugador.CuentaJugadorActual = new Dominio.CuentaJugador()
             {
                 NombreJugador = $"Invitado{new Random().Next()}",
                 EsInvitado = true
@@ -97,11 +97,11 @@ namespace RompecabezasFei
         {
             ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
             ServicioRompecabezasFei.CuentaJugador cuentaJugadorAutenticada = cliente.IniciarSesion(nombreJugador, 
-                EncriptadorContrasena.CalcularHashSha512(contrasena));
+                contrasena);
 
             if (cuentaJugadorAutenticada.IdJugador != 0)
             {
-                Dominio.Jugador.CuentaJugadorActual = new Dominio.Jugador
+                Dominio.CuentaJugador.CuentaJugadorActual = new Dominio.CuentaJugador
                 {
                     Contrasena = cuentaJugadorAutenticada.Contrasena,
                     Correo = cuentaJugadorAutenticada.Correo,
@@ -135,7 +135,7 @@ namespace RompecabezasFei
         private bool ExistenLongitudesExcedidas(string nombreJugador, string contrasena)
         {
             var camposExcedidos = true;
-            if (nombreJugador.Length <= 15 || contrasena.Length <= 45)
+            if (nombreJugador.Length > 15 || contrasena.Length > 45)
             {
                 camposExcedidos = false;
             }
