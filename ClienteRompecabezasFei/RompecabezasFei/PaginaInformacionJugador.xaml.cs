@@ -29,7 +29,7 @@ namespace RompecabezasFei
 
         private void CargarDatosJugador()
         {
-            EtiquetaNombreJugador.Content = Jugador.CuentaJugadorActual.NombreJugador;
+            EtiquetaNombreJugador.Content = CuentaJugador.CuentaJugadorActual.NombreJugador;
             CargarImagenJugador();        
         }
 
@@ -38,7 +38,7 @@ namespace RompecabezasFei
             string rutaImagen = "/Imagenes/Avatares/";
             BitmapImage ImagenUsuarioMapaBits = new BitmapImage();
             ImagenUsuarioMapaBits.BeginInit();
-            rutaImagen += Jugador.CuentaJugadorActual.NumeroAvatar + ".png";
+            rutaImagen += CuentaJugador.CuentaJugadorActual.NumeroAvatar + ".png";
 
             ImagenUsuarioMapaBits.UriSource = new Uri(rutaImagen, UriKind.RelativeOrAbsolute);
             ImagenUsuarioMapaBits.EndInit();

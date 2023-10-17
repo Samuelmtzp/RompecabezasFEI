@@ -23,7 +23,7 @@ namespace RompecabezasFei
         private void AccionModoInvitado(object remitente, RoutedEventArgs evento)
         {
             
-            Dominio.Jugador.CuentaJugadorActual = new Dominio.Jugador()
+            Dominio.CuentaJugador.CuentaJugadorActual = new Dominio.CuentaJugador()
             {
                 NombreJugador = $"Invitado{new Random().Next()}",
                 EsInvitado = true
@@ -101,7 +101,7 @@ namespace RompecabezasFei
 
             if (cuentaJugadorAutenticada.IdJugador != 0)
             {
-                Dominio.Jugador.CuentaJugadorActual = new Dominio.Jugador
+                Dominio.CuentaJugador.CuentaJugadorActual = new Dominio.CuentaJugador
                 {
                     Contrasena = cuentaJugadorAutenticada.Contrasena,
                     Correo = cuentaJugadorAutenticada.Correo,
