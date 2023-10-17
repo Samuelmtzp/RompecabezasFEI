@@ -10,7 +10,7 @@
 
     <Grid>
         <Image Name="ImagenFlechaRegreso" Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="30,30,1145,598" Height="81" Width="81" MouseDown="AccionRegresar"/>
-        <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_NOMBREUSUARIO}" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="544,226,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32" Width="508" FontWeight="Bold"/>
+        <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_NOMBREJUGADOR}" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="544,226,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32" Width="508" FontWeight="Bold"/>
         <TextBox Name="CuadroTextoNombreUsuario" HorizontalAlignment="Left" Margin="544,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="508" Height="42" FontSize="24"/>
 
         <Button Name="BotonGuardarCambios" Content="{x:Static p:Resources.ETIQUETA_GENERAL_GUARDARCAMBIOS}" HorizontalAlignment="Center" Margin="0,574,0,0" VerticalAlignment="Top" Height="72" Width="528" FontSize="36" Background="#FF03A64A" Foreground="White" Click="AccionGuardarCambios" FontWeight="Bold"/>

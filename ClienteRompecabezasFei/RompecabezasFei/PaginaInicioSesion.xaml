@@ -10,7 +10,7 @@
     <Grid>
         <Image Margin="140,175,876,289" Source="/Imagenes/Logos/RompecabezasFEI.png" Stretch="Fill"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_ROMPECABEZASFEI}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="103,436,0,0" VerticalAlignment="Top" FontSize="32" FontWeight="Bold" Foreground="White" Width="338"/>
-        <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_NOMBREUSUARIO}" HorizontalAlignment="Left" Margin="596,154,0,0" VerticalAlignment="Top" FontSize="32" Foreground="White"/>
+        <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_NOMBREJUGADOR}" HorizontalAlignment="Left" Margin="596,154,0,0" VerticalAlignment="Top" FontSize="32" Foreground="White"/>
         <TextBox Name="CuadroTextoNombreUsuario" HorizontalAlignment="Left" Margin="596,207,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="548" Height="42" FontSize="24"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_CONTRASENA}" HorizontalAlignment="Left" Margin="596,260,0,0" VerticalAlignment="Top" FontSize="32" Foreground="White"/>
         <PasswordBox Name="CuadroContrasena" HorizontalAlignment="Left" Margin="596,313,0,0" VerticalAlignment="Top" Width="548" Height="42" FontSize="24"/>

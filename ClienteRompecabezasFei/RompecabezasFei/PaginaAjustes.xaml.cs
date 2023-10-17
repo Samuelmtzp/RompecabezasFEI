@@ -17,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace RompecabezasFei
 {
-    /// <summary>
-    /// Interaction logic for PaginaAjustes.xaml
-    /// </summary>
     public partial class PaginaAjustes : Page
     {
         string idioma;

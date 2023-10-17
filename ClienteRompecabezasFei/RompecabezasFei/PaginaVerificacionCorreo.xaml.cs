@@ -21,24 +21,17 @@ using Security;
 
 namespace RompecabezasFei
 {
-    /// <summary>
-    /// Lógica de interacción para PaginaVerificacionCorreo.xaml
-    /// </summary>
     public partial class PaginaVerificacionCorreo : Page
     {
         string codigoGenerado;
         private int segundosRestantes;
         DispatcherTimer temporizador; 
         private Dominio.CuentaJugador jugadorRegistro;
-        public Dominio.CuentaJugador JugadorRegistro
-        {
-            get { return jugadorRegistro; } 
-            set {  jugadorRegistro = value; }
-        }
 
-        public PaginaVerificacionCorreo()
+        public PaginaVerificacionCorreo(Dominio.CuentaJugador jugadorRegistro)
         {
             InitializeComponent();
+            this.jugadorRegistro = jugadorRegistro;
             EnviarCodigo();
             InicializarTemporizador();
         }

@@ -9,9 +9,6 @@ using System.Windows.Controls;
 
 namespace RompecabezasFei
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
         private List<string> idiomas = new List<string>() { "es-MX", "en-US" };
