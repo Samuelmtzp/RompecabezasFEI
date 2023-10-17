@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class Jugador
+    public class CuentaJugador
     {
         #region Atributos
         private int idJugador;
@@ -20,11 +20,11 @@ namespace Dominio
         #endregion
 
         #region Singletone
-        private static Jugador jugadorActual;
-        public static Jugador CuentaJugadorActual 
+        private static CuentaJugador cuentaJugadorActual;
+        public static CuentaJugador CuentaJugadorActual 
         { 
-            get { return jugadorActual; } 
-            set { jugadorActual = value; } 
+            get { return cuentaJugadorActual; } 
+            set { cuentaJugadorActual = value; } 
         }
         #endregion
 

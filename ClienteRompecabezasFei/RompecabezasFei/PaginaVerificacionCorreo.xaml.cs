@@ -29,8 +29,8 @@ namespace RompecabezasFei
         string codigoGenerado;
         private int segundosRestantes;
         DispatcherTimer temporizador; 
-        private Dominio.Jugador jugadorRegistro;
-        public Dominio.Jugador JugadorRegistro
+        private Dominio.CuentaJugador jugadorRegistro;
+        public Dominio.CuentaJugador JugadorRegistro
         {
             get { return jugadorRegistro; } 
             set {  jugadorRegistro = value; }
@@ -39,6 +39,7 @@ namespace RompecabezasFei
         public PaginaVerificacionCorreo()
         {
             InitializeComponent();
+            EnviarCodigo();
             InicializarTemporizador();
         }
 
@@ -53,22 +54,19 @@ namespace RompecabezasFei
 
         public void AccionEnviarCodigo(object remitente, RoutedEventArgs evento)
         {
-            if (segundosRestantes == 0)
-            {
-                ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
-                Random generadorNumeroAleatorio = new Random();
-                int codigo = generadorNumeroAleatorio.Next(100000, 1000000);
-                cliente.EnviarValidacionCorreo(jugadorRegistro.Correo, 
-                    "Código de verificación para concluir registro", codigo);
-                codigoGenerado = codigo.ToString();
-                DeshabilitarBotonEnvioCodigo();
-                InicializarTemporizador();
-            }
+            EnviarCodigo();
         }
 
         private void EnviarCodigo()
         {
-
+            ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
+            Random generadorNumeroAleatorio = new Random();
+            int codigo = generadorNumeroAleatorio.Next(100000, 1000000);
+            cliente.EnviarValidacionCorreo(jugadorRegistro.Correo,
+                "Código de verificación para concluir registro", codigo);
+            codigoGenerado = codigo.ToString();
+            DeshabilitarBotonEnvioCodigo();
+            InicializarTemporizador();
         }
 
         private void AccionRegistrar(object remitente, RoutedEventArgs evento)

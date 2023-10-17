@@ -14,8 +14,8 @@ namespace RompecabezasFei
     /// </summary>
     public partial class PaginaRegistroJugador : Page
     {
-        private Dominio.Jugador jugadorRegistro;
-        public Dominio.Jugador JugadorRegistro
+        private Dominio.CuentaJugador jugadorRegistro;
+        public Dominio.CuentaJugador JugadorRegistro
         {
             get { return jugadorRegistro; }
             set { jugadorRegistro = value; }
@@ -24,7 +24,7 @@ namespace RompecabezasFei
         public PaginaRegistroJugador()
         {
             InitializeComponent();
-            jugadorRegistro = new Dominio.Jugador();
+            jugadorRegistro = new Dominio.CuentaJugador();
         }
 
         private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
@@ -51,7 +51,7 @@ namespace RompecabezasFei
 
         private void GuardarDatosEdicion()
         {
-            jugadorRegistro = new Dominio.Jugador()
+            jugadorRegistro = new Dominio.CuentaJugador()
             {
                 NombreJugador = CuadroTextoNombreUsuario.Text,
                 Correo = CuadroTextoCorreoElectronico.Text,
