@@ -493,7 +493,7 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Confirmación cancelación registro de usuario.
+        ///   Looks up a localized string similar to Confirmación cancelación registro de jugador.
         /// </summary>
         public static string ETIQUETA_CANCELACIONREGISTRO_TITULO {
             get {
@@ -826,11 +826,11 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nombre de usuario.
+        ///   Looks up a localized string similar to Nombre de jugador.
         /// </summary>
-        public static string ETIQUETA_GENERAL_NOMBREUSUARIO {
+        public static string ETIQUETA_GENERAL_NOMBREJUGADOR {
             get {
-                return ResourceManager.GetString("ETIQUETA_GENERAL_NOMBREUSUARIO", resourceCulture);
+                return ResourceManager.GetString("ETIQUETA_GENERAL_NOMBREJUGADOR", resourceCulture);
             }
         }
         
@@ -1123,11 +1123,11 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Registro de usuario.
+        ///   Looks up a localized string similar to Registro de jugador.
         /// </summary>
-        public static string ETIQUETA_REGISTRO_REGISTROUSUARIO {
+        public static string ETIQUETA_REGISTRO_REGISTROJUGADOR {
             get {
-                return ResourceManager.GetString("ETIQUETA_REGISTRO_REGISTROUSUARIO", resourceCulture);
+                return ResourceManager.GetString("ETIQUETA_REGISTRO_REGISTROJUGADOR", resourceCulture);
             }
         }
         

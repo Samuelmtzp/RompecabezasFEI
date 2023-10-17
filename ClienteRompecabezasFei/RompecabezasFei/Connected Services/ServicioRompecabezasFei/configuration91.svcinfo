@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="7E9v5+5tv4a/pj9Y/0DP8fZ+ibVR+oJz8ed8dMEa1Kc=">
+<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="RbkBa/KRoKWWBNf0uTiaoo8tJq1sv/8IMQ7R64wfk1M=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="netTcpBinding" name="NetTcpBinding_IServicioGestionJugador1">
       <properties>
@@ -121,10 +121,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="NetTcpBinding_IServicioGestionJugador1" contract="ServicioRompecabezasFei.IServicioGestionJugador" bindingType="netTcpBinding" address="net.tcp://10.30.31.38:9000/Contratos" bindingConfiguration="NetTcpBinding_IServicioGestionJugador1">
+    <endpoint name="NetTcpBinding_IServicioGestionJugador" contract="ServicioRompecabezasFei.IServicioGestionJugador" bindingType="netTcpBinding" address="net.tcp://192.168.1.202:9000/Contratos" bindingConfiguration="NetTcpBinding_IServicioGestionJugador1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.tcp://10.30.31.38:9000/Contratos</serializedValue>
+          <serializedValue>net.tcp://192.168.1.202:9000/Contratos</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

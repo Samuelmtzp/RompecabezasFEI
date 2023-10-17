@@ -262,7 +262,7 @@
     <value>Are you sure you want to cancel the registration process? The information entered will be discarded</value>
   </data>
   <data name="ETIQUETA_CANCELACIONREGISTRO_TITULO" xml:space="preserve">
-    <value>User registration cancellation confirmation</value>
+    <value>Player registration cancellation confirmation</value>
   </data>
   <data name="ETIQUETA_CANCELACIONRESTABLECIMIENTO_MENSAJE" xml:space="preserve">
     <value>If you return, the password reset process will be canceled. Are you sure you want to return?</value>
@@ -372,8 +372,8 @@
   <data name="ETIQUETA_GENERAL_JUGADORES" xml:space="preserve">
     <value>Players</value>
   </data>
-  <data name="ETIQUETA_GENERAL_NOMBREUSUARIO" xml:space="preserve">
-    <value>Username</value>
+  <data name="ETIQUETA_GENERAL_NOMBREJUGADOR" xml:space="preserve">
+    <value>Player name</value>
   </data>
   <data name="ETIQUETA_GENERAL_NUEVACONTRASENA" xml:space="preserve">
     <value>New password</value>
@@ -475,7 +475,7 @@
     <value>Email not available</value>
   </data>
   <data name="ETIQUETA_REGISTRO_REGISTROUSUARIO" xml:space="preserve">
-    <value>User register</value>
+    <value>Player register</value>
   </data>
   <data name="ETIQUETA_REGISTRO_SELECCIONAVATAR" xml:space="preserve">
     <value>Select avatar</value>

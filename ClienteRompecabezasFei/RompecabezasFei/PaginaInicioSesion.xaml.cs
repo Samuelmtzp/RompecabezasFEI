@@ -10,9 +10,6 @@ using System.Windows.Input;
 
 namespace RompecabezasFei
 {
-    /// <summary>
-    /// Interaction logic for PaginaInicioSesion.xaml
-    /// </summary>
     public partial class PaginaInicioSesion : Page
     {
         public PaginaInicioSesion()
@@ -53,15 +50,16 @@ namespace RompecabezasFei
         {
             var nombreUsuario = CuadroTextoNombreUsuario.Text;
             var contrasena = CuadroContrasena.Password;
-            if (!String.IsNullOrWhiteSpace(nombreUsuario) && !String.IsNullOrWhiteSpace(
-                contrasena))
+            if (!String.IsNullOrWhiteSpace(nombreUsuario) && 
+                !String.IsNullOrWhiteSpace(contrasena))
             {
                 if (ExistenCadenasValidas(nombreUsuario, contrasena) && 
                     !ExistenLongitudesExcedidas(nombreUsuario, contrasena))
                 {
                     try
                     {
-                        IniciarSesion(nombreUsuario, contrasena);
+                        IniciarSesion(nombreUsuario, 
+                            EncriptadorContrasena.CalcularHashSha512(contrasena));
                     }
                     catch (EndpointNotFoundException excepcion)
                     {
@@ -96,8 +94,8 @@ namespace RompecabezasFei
         private void IniciarSesion(string nombreJugador, string contrasena)
         {
             ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
-            ServicioRompecabezasFei.CuentaJugador cuentaJugadorAutenticada = cliente.IniciarSesion(nombreJugador, 
-                contrasena);
+            ServicioRompecabezasFei.CuentaJugador cuentaJugadorAutenticada = 
+                cliente.IniciarSesion(nombreJugador, contrasena);
 
             if (cuentaJugadorAutenticada.IdJugador != 0)
             {
@@ -111,7 +109,6 @@ namespace RompecabezasFei
                     NumeroAvatar = cuentaJugadorAutenticada.NumeroAvatar,
                     EsInvitado = false
                 };
-
                 VentanaPrincipal.CambiarPagina(this, new PaginaMenuPrincipal());
             }
             else
@@ -124,8 +121,8 @@ namespace RompecabezasFei
         private bool ExistenCadenasValidas(string nombreJugador, string contrasena)
         {
             var esValido = false;
-            if (Regex.IsMatch(nombreJugador, "^[a-zA-Z0-9]*$") && Regex.IsMatch(contrasena, 
-                "^[a-zA-Z0-9]*$"))
+            if (Regex.IsMatch(nombreJugador, "^[a-zA-Z0-9]*$") && Regex.IsMatch(contrasena,
+                "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$"))
             {
                 esValido = true;
             }
@@ -134,10 +131,10 @@ namespace RompecabezasFei
 
         private bool ExistenLongitudesExcedidas(string nombreJugador, string contrasena)
         {
-            var camposExcedidos = true;
+            var camposExcedidos = false;
             if (nombreJugador.Length > 15 || contrasena.Length > 45)
             {
-                camposExcedidos = false;
+                camposExcedidos = true;
             }
             return camposExcedidos;
         }

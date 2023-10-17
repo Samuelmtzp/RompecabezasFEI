@@ -1,7 +1,9 @@
 ﻿using Datos;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -60,15 +62,18 @@ namespace Logica
             int numeroPartidasGanadas;
             using (var contexto = new EntidadesRompecabezasFei())
             {
-                //numeroPartidasGanadas = (from jugador in contexto.Jugador
-                //                         from partidasGanadas in contexto.Jugador_Partida
-                //                         where partidasGanadas.Puntaje
-                //                         jugador == partidasJugadas.Jugador
-                //                         && partidasJugadas.Puntaje
-                //                         && jugador.NombreJugador == nombreJugador
-                //                         select jugador).Count();
+                numeroPartidasGanadas = contexto.Jugador_Partida
+                    .GroupBy(jugadorEnPartida => jugadorEnPartida.Jugador.NombreJugador)
+                    .Select(group => new
+                    {
+                        NombreJugador = group.Key,
+                        PuntajeMaximo = group.Max(jugadorEnPartida => jugadorEnPartida.Puntaje)
+                    })
+                    .Where(group => group.PuntajeMaximo == contexto.Jugador_Partida
+                        .Where(jugadorEnPartida => group.NombreJugador == nombreJugador)
+                        .Max(jugadorEnPartida => jugadorEnPartida.Puntaje)).Count();
             }
-            return numeroPartidasGanadas = 1;
+            return numeroPartidasGanadas;
         }
 
     }

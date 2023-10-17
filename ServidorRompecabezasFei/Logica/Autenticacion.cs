@@ -22,7 +22,7 @@ namespace Logica
                                     NombreJugador = jugadores.NombreJugador, 
                                     IdCuenta = cuentas.IdCuenta,
                                     Correo = cuentas.Correo,
-                                    Contrasena = ""
+                                    Contrasena = cuentas.Contrasena
                                 });
                 if (cuentasJugador.Any())
                 {

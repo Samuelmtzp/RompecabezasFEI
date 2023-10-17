@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="d01459dd-fada-440b-ba46-16e1e72f7c5a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="6ddcf5e9-a61c-47db-ae23-9525bc200638" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,14 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://10.30.31.38:8088" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://192.168.1.202:8088" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="1c7b37fb-ae03-4033-bbcd-cbd6272c892d" SourceId="1" SourceUrl="http://10.30.31.38:8088/?disco" />
-    <MetadataFile FileName="ServicioRompecabezasFei.wsdl" MetadataType="Wsdl" ID="d56dda8a-0b0c-4fb2-8909-f23c5b1f0a6d" SourceId="1" SourceUrl="http://10.30.31.38:8088/?wsdl" />
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="f9572780-ccfd-4b55-898e-70a0fa2f7b05" SourceId="1" SourceUrl="http://10.30.31.38:8088/?xsd=xsd0" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="ba721dc5-961f-47b7-94ae-940d71b91eaa" SourceId="1" SourceUrl="http://10.30.31.38:8088/?xsd=xsd1" />
-    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="8d599c52-044b-463f-95a0-9fc04af239a9" SourceId="1" SourceUrl="http://10.30.31.38:8088/?xsd=xsd2" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="90d3e517-9a4a-4014-8964-a8594c2b18c8" SourceId="1" SourceUrl="http://192.168.1.202:8088/?xsd=xsd0" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="60ac396e-f358-4011-8003-5a2cd44850a5" SourceId="1" SourceUrl="http://192.168.1.202:8088/?xsd=xsd1" />
+    <MetadataFile FileName="ServicioRompecabezasFei.wsdl" MetadataType="Wsdl" ID="5c1aab47-9ab7-43ab-a723-e026c4d43a3c" SourceId="1" SourceUrl="http://192.168.1.202:8088/?wsdl" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="345d5ca2-8311-4c7d-85e1-4ba9f3f6e1f0" SourceId="1" SourceUrl="http://192.168.1.202:8088/?disco" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="0f35c77e-7bf9-44b4-a4ad-38a58a874653" SourceId="1" SourceUrl="http://192.168.1.202:8088/?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

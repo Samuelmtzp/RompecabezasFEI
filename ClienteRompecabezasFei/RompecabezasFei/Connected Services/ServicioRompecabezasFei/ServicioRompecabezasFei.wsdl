@@ -14,9 +14,9 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://10.30.31.38:8088/?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://10.30.31.38:8088/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://10.30.31.38:8088/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Logica" />
+      <xsd:import schemaLocation="http://192.168.1.202:8088/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.1.202:8088/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://192.168.1.202:8088/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Logica" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IServicioGestionJugador_Registrar_InputMessage">
@@ -160,9 +160,9 @@
   </wsdl:binding>
   <wsdl:service name="ServicioRompecabezasFei">
     <wsdl:port name="NetTcpBinding_IServicioGestionJugador" binding="tns:NetTcpBinding_IServicioGestionJugador">
-      <soap12:address location="net.tcp://10.30.31.38:9000/Contratos" />
+      <soap12:address location="net.tcp://192.168.1.202:9000/Contratos" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://10.30.31.38:9000/Contratos</wsa10:Address>
+        <wsa10:Address>net.tcp://192.168.1.202:9000/Contratos</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

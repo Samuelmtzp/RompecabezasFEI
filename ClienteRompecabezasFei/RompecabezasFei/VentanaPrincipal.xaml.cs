@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace RompecabezasFei
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class VentanaPrincipal : Window
     {
         private static Page paginaAnterior;
