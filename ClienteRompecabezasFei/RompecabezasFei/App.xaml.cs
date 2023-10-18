@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
+using System.Media;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using RompecabezasFei.Properties;
 
 namespace RompecabezasFei
 {
@@ -13,6 +15,7 @@ namespace RompecabezasFei
     {
         private List<string> idiomas = new List<string>() { "es-MX", "en-US" };
         private string idiomaActual;
+        private bool musicaActiva;
         public string IdiomaActual
         {
             get
@@ -43,5 +46,19 @@ namespace RompecabezasFei
         {
             IdiomaActual = nuevoIdioma;
         }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            Task.Run(() =>
+            {
+                System.IO.Stream str = RompecabezasFei.Properties.ResourceSonidos.Elevator_Music___Vanoss_Gaming_Background_Music__HD_;
+                SoundPlayer musicPlayer = new SoundPlayer(str);
+                while (true)
+                {
+                    musicPlayer.PlaySync();
+                }
+            });
+        }
+
     }
 }
