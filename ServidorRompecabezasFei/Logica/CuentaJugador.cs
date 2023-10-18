@@ -1,4 +1,5 @@
 ﻿using System.Runtime.Serialization;
+using System.ServiceModel;
 using System.Xml.Linq;
 
 namespace Logica
@@ -13,6 +14,7 @@ namespace Logica
         private int idCuenta;
         private string correo;
         private string contrasena;
+        private OperationContext contextoOperacion;
         #endregion
 
         #region Propiedades
@@ -51,6 +53,11 @@ namespace Logica
         {
             get { return contrasena; }
             set { contrasena = value; }
+        }
+        public OperationContext ContextoOperacion
+        {
+            get { return contextoOperacion; }
+            set { contextoOperacion = value; }
         }
         #endregion
 
