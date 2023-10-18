@@ -114,12 +114,12 @@ namespace Servicios
 
         public bool NuevaSala(string nombreAnfitrion, string idSala)
         {
-            var nuevaSala = new Logica.Sala()
+            Logica.Sala nuevaSala = new Logica.Sala()
             {
                 IdSala = idSala,
                 NombreAnfitrion = nombreAnfitrion,
                 ContadorJugadoresActuales = 0,
-                Jugadores = new List<Logica.CuentaJugador>(),
+                Jugadores = new List<Logica.CuentaJugador>()
             };
             salasActivas.Add(nuevaSala);
             return true;
@@ -135,7 +135,8 @@ namespace Servicios
 
             Logica.Sala salaEncontrada = 
                 salasActivas.FirstOrDefault(sala => sala.IdSala.Equals(idSala));
-            if (salaEncontrada.Jugadores.Count() > 0)
+            
+            if (salaEncontrada.ContadorJugadoresActuales > 0)
             {
                 EnviarMensaje(nombreJugador, idSala, $"{nombreJugador} se ha unido a la sala!");
             }

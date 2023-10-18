@@ -59,18 +59,18 @@ namespace RompecabezasFei
             PaginaSala paginaSala = new PaginaSala();
             paginaSala.CrearNuevaSala(true);
             VentanaPrincipal.CambiarPagina(this, paginaSala);
-
         }
 
         private void AccionUnirseASala(object remintente, RoutedEventArgs evento)
         {
             PaginaSala paginaSala = new PaginaSala();
-            paginaSala.CrearNuevaSala(true);
 
             if (paginaSala.VerificarDisponibilidadSala(CuadroTextoCodigoSala.Text))
             {
                 if (paginaSala.CrearNuevaSala(false))
                 {
+                    paginaSala.EtiquetaCodigoSala.Content = CuadroTextoCodigoSala.Text;
+                    paginaSala.IdSala = CuadroTextoCodigoSala.Text;
                     VentanaPrincipal.CambiarPagina(this, paginaSala);
                 }
             }

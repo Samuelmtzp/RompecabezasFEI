@@ -70,7 +70,6 @@ namespace RompecabezasFei
         {
             bool estadoCreacionSala = true;
             this.esNuevaSala = esNuevaSala;
-            MessageBox.Show("Es nueva sala? " + esNuevaSala);
 
             if (esNuevaSala)
             {
@@ -107,9 +106,8 @@ namespace RompecabezasFei
                 clienteServicioJuego = new ServicioJuegoClient(new InstanceContext(this));
                 if (esNuevaSala)
                 {
-                    esAnfitrion = true;
-                    MessageBox.Show("Es anfitrion? " + esAnfitrion);
-                    IdSala = clienteServicioJuego.GenerarCodigoParaNuevaSala();
+                    esAnfitrion = true;                    
+                    idSala = clienteServicioJuego.GenerarCodigoParaNuevaSala();
                     clienteServicioJuego.NuevaSala(Dominio.CuentaJugador.
                         CuentaJugadorActual.NombreJugador, idSala);
                 }
@@ -135,15 +133,12 @@ namespace RompecabezasFei
             }
             catch (EndpointNotFoundException)
             {
-                
             }
             catch (CommunicationObjectFaultedException)
             {
-                
             }
-            catch (TimeoutException ex)
+            catch (TimeoutException)
             {
-                
             }
             finally
             {
