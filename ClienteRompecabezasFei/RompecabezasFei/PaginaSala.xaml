@@ -25,7 +25,7 @@
         <Button Content="{x:Static p:Resources.BOTON_SALA_ENVIARMENSAJE}" HorizontalAlignment="Left" Margin="1107,507,0,0" VerticalAlignment="Top" Height="33" Width="129" Background="#FF048ABF" Foreground="White" FontSize="18" FontWeight="Bold" Click="AccionEnviarMensaje"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_SALA_MENSAJES}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="846,137,0,0" VerticalAlignment="Top" Foreground="White" FontSize="40" FontWeight="Bold" Width="284"/>
         <Button Content="{x:Static p:Resources.BOTON_SALA_OPCIONESSALA}" HorizontalAlignment="Left" Margin="1004,53,0,0" VerticalAlignment="Top" Height="55" Width="233" Foreground="White" Background="#FF048ABF" FontSize="28" FontWeight="Bold" Click="AccionOpcionesSala" />
-        <Label Name="EtiquetaCodigoSala" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,110,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36" FontWeight="Bold" Width="302"/>
+        <Label Name="EtiquetaCodigoSala" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,110,0,0" VerticalAlignment="Top" Foreground="White" FontSize="10" FontWeight="Bold" Width="638" Height="27"/>
         <Button x:Name="BotonIniciarPartida" Content="{x:Static p:Resources.BOTON_SALA_INICIARPARTIDA}" HorizontalAlignment="Left" Margin="969,583,0,0" VerticalAlignment="Top" Height="72" Width="268" FontSize="36" Background="#FF03A64A" Foreground="White" FontWeight="Bold" Click="AccionIniciarPartida">
         </Button>
 

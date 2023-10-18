@@ -31,5 +31,6 @@
         <Label Name="EtiquetaMiPerfil" Content="{x:Static p:Resources.ETIQUETA_MENUPRINCIPAL_PERFIL}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="870,602,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Width="136" Visibility="Hidden"/>
         <Image Source="/Imagenes/Indicadores/Ajustes.png" HorizontalAlignment="Left" Height="82" Margin="1050,520,0,0" VerticalAlignment="Top" Width="82" MouseDown="AccionAjustes"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_AJUSTES}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="1038,602,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Width="106"/>
+        <TextBox Name="CuadroTextoCodigoSala" HorizontalAlignment="Left" Margin="595,409,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="549" Height="32"/>
     </Grid>
 </Page>

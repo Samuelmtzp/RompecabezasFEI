@@ -9,13 +9,13 @@ namespace Contratos
     {
 
         [OperationContract]
-        bool Registrar(Logica.CuentaJugador cuentaJugador);
+        bool Registrar(CuentaJugador cuentaJugador);
         [OperationContract]
         bool ExisteCorreoElectronico(string correoElectronico);
         [OperationContract]
         bool ExisteNombreJugador(string nombreJugador);
         [OperationContract]
-        Logica.CuentaJugador IniciarSesion(string nombreJugador, string contrasena);
+        CuentaJugador IniciarSesion(string nombreJugador, string contrasena);
         [OperationContract]
         bool EnviarValidacionCorreo(String correoDestino, String asunto, int codigoVerificacion);
         [OperationContract]
