@@ -54,10 +54,10 @@ namespace RompecabezasFei
 
         private void AccionEnviarMensaje(object remitente, RoutedEventArgs evento)
         {
-            if (!string.IsNullOrEmpty(CuadroTextoMensajeUsuario.Text))
+            if (!String.IsNullOrEmpty(CuadroTextoMensajeUsuario.Text))
             {
                 clienteServicioJuego.EnviarMensaje(Dominio.CuentaJugador.CuentaJugadorActual.NombreJugador, 
-                    idSala, CuadroTextoMensajes.Text);
+                    idSala, CuadroTextoMensajeUsuario.Text);
             }
         }
 
@@ -151,7 +151,7 @@ namespace RompecabezasFei
         #region Callbacks
         public void MensajeCallBack(string mensaje)
         {
-            CuadroTextoMensajes.Text += mensaje + "\n";
+            CuadroTextoMensajes.AppendText(mensaje + "\n");
         }
         #endregion
     }
