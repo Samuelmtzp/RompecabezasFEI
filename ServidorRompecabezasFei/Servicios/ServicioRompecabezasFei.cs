@@ -185,9 +185,9 @@ namespace Servicios
                 {
                     horaActual += $" {cuentaJugadorEncontrada.NombreJugador}: ";
                 }
-                mensaje = horaActual + mensaje;
+                string mensajeFinal = horaActual + mensaje;
                 cuentaJugador.ContextoOperacion.GetCallbackChannel<IServicioJuegoCallback>().
-                    MensajeCallBack(mensaje);
+                    MensajeCallBack(mensajeFinal);
             }
         }
 

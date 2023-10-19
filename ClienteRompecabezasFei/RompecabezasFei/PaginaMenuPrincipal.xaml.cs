@@ -67,10 +67,10 @@ namespace RompecabezasFei
 
             if (paginaSala.VerificarDisponibilidadSala(CuadroTextoCodigoSala.Text))
             {
+                paginaSala.IdSala = CuadroTextoCodigoSala.Text;
                 if (paginaSala.CrearNuevaSala(false))
                 {
                     paginaSala.EtiquetaCodigoSala.Content = CuadroTextoCodigoSala.Text;
-                    paginaSala.IdSala = CuadroTextoCodigoSala.Text;
                     VentanaPrincipal.CambiarPagina(this, paginaSala);
                 }
             }
