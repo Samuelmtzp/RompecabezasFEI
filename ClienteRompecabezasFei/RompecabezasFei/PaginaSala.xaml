@@ -9,25 +9,25 @@
       d:DesignHeight="720" d:DesignWidth="1280">
     <Grid>
         <Image Name="ImagenFlechaRegreso" Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="30,30,1145,598" Height="81" Width="81" MouseDown="AccionRegresar"/>
-        <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_CODIGOSALA}" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,26,0,0" VerticalAlignment="Top" Foreground="White" FontSize="48" FontWeight="Bold"/>
-        <Label Content="{x:Static p:Resources.ETIQUETA_SALA_ANFITRION}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="132,154,0,0" VerticalAlignment="Top" Foreground="White" FontSize="40" FontWeight="Bold"/>
-        <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_JUGADORES}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="132,318,0,0" VerticalAlignment="Top" Foreground="White" FontSize="40" FontWeight="Bold"/>
-        <Image Name="ImagenAvatarAnfitrion" HorizontalAlignment="Left" Height="90" Width="90" Margin="143,222,0,0" VerticalAlignment="Top"/>
-        <Image Name="ImagenAvatarJugador1" HorizontalAlignment="Left" Height="70" Width="70" Margin="132,403,0,0" VerticalAlignment="Top"/>
-        <Image Name="ImagenAvatarJugador2" HorizontalAlignment="Left" Height="70" Width="70" Margin="132,493,0,0" VerticalAlignment="Top"/>
-        <Image Name="ImagenAvatarJugador3" HorizontalAlignment="Left" Height="70" Width="70" Margin="132,583,0,0" VerticalAlignment="Top"/>
-        <Label Name="NombreAnfitrion" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="250,241,0,0" VerticalAlignment="Top" Foreground="Red" FontSize="30" FontWeight="Bold" Width="278"/>
-        <Label Name="NombreJugador1" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="250,413,0,0" VerticalAlignment="Top" Foreground="#FF00FF1B" FontSize="30" FontWeight="Bold" Width="278"/>
-        <Label Name="NombreJugador2" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="250,503,0,0" VerticalAlignment="Top" Foreground="#FF46C8FF" FontSize="30" FontWeight="Bold" Width="278"/>
-        <Label Name="NombreJugador3" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="250,593,0,0" VerticalAlignment="Top" Foreground="#FFFDFF00" FontSize="30" FontWeight="Bold" Width="278"/>
-        <RichTextBox Name="CuadroTextoMensajes" HorizontalAlignment="Left" Margin="740,203,0,0" VerticalAlignment="Top" Width="496" Height="299" FontSize="18" IsReadOnly="True" Background="#FF4A4A4A" Foreground="White" VerticalScrollBarVisibility="Visible" />
-        <TextBox Name="CuadroTextoMensajeUsuario" HorizontalAlignment="Left" Margin="740,507,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="362" Height="33" FontSize="18"/>
-        <Button Content="{x:Static p:Resources.BOTON_SALA_ENVIARMENSAJE}" HorizontalAlignment="Left" Margin="1107,507,0,0" VerticalAlignment="Top" Height="33" Width="129" Background="#FF048ABF" Foreground="White" FontSize="18" FontWeight="Bold" Click="AccionEnviarMensaje"/>
-        <Label Content="{x:Static p:Resources.ETIQUETA_SALA_MENSAJES}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="846,137,0,0" VerticalAlignment="Top" Foreground="White" FontSize="40" FontWeight="Bold" Width="284"/>
+        <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_CODIGOSALA}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="68,506,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36" FontWeight="Bold"/>
+        <Label Content="{x:Static p:Resources.ETIQUETA_SALA_ANFITRION}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="425,20,0,0" VerticalAlignment="Top" Foreground="White" FontSize="40" FontWeight="Bold" Width="385"/>
+        <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_JUGADORES}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="76,155,0,0" VerticalAlignment="Top" Foreground="White" FontSize="40" FontWeight="Bold"/>
+        <Image Name="ImagenAvatarAnfitrion" HorizontalAlignment="Left" Height="90" Width="90" Margin="425,88,0,0" VerticalAlignment="Top"/>
+        <Image Name="ImagenAvatarJugador1" HorizontalAlignment="Left" Height="70" Width="70" Margin="76,240,0,0" VerticalAlignment="Top"/>
+        <Image Name="ImagenAvatarJugador2" HorizontalAlignment="Left" Height="70" Width="70" Margin="76,330,0,0" VerticalAlignment="Top"/>
+        <Image Name="ImagenAvatarJugador3" HorizontalAlignment="Left" Height="70" Width="70" Margin="76,420,0,0" VerticalAlignment="Top"/>
+        <Label Name="NombreAnfitrion" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="532,106,0,0" VerticalAlignment="Top" Foreground="Red" FontSize="30" FontWeight="Bold" Width="278"/>
+        <Label Name="NombreJugador1" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="194,250,0,0" VerticalAlignment="Top" Foreground="#FF00FF1B" FontSize="30" FontWeight="Bold" Width="278"/>
+        <Label Name="NombreJugador2" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="194,340,0,0" VerticalAlignment="Top" Foreground="#FF46C8FF" FontSize="30" FontWeight="Bold" Width="278"/>
+        <Label Name="NombreJugador3" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="194,430,0,0" VerticalAlignment="Top" Foreground="#FFFDFF00" FontSize="30" FontWeight="Bold" Width="278"/>
+        <RichTextBox Name="CuadroTextoMensajes" HorizontalAlignment="Left" Margin="773,236,0,0" VerticalAlignment="Top" Width="463" Height="306" FontSize="18" IsReadOnly="True" Background="#FF4A4A4A" Foreground="White" VerticalScrollBarVisibility="Visible" />
+        <TextBox Name="CuadroTextoMensajeUsuario" HorizontalAlignment="Left" Margin="773,547,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="329" Height="33" FontSize="18"/>
+        <Button Content="{x:Static p:Resources.BOTON_SALA_ENVIARMENSAJE}" HorizontalAlignment="Left" Margin="1107,547,0,0" VerticalAlignment="Top" Height="33" Width="129" Background="#FF048ABF" Foreground="White" FontSize="18" FontWeight="Bold" Click="AccionEnviarMensaje"/>
+        <Label Content="{x:Static p:Resources.ETIQUETA_SALA_MENSAJES}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="846,168,0,0" VerticalAlignment="Top" Foreground="White" FontSize="40" FontWeight="Bold" Width="284"/>
         <Button Content="{x:Static p:Resources.BOTON_SALA_OPCIONESSALA}" HorizontalAlignment="Left" Margin="1004,53,0,0" VerticalAlignment="Top" Height="55" Width="233" Foreground="White" Background="#FF048ABF" FontSize="28" FontWeight="Bold" Click="AccionOpcionesSala" />
-        <Label Name="EtiquetaCodigoSala" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,110,0,0" VerticalAlignment="Top" Foreground="White" FontSize="10" FontWeight="Bold" Width="638" Height="27"/>
-        <Button x:Name="BotonIniciarPartida" Content="{x:Static p:Resources.BOTON_SALA_INICIARPARTIDA}" HorizontalAlignment="Left" Margin="969,583,0,0" VerticalAlignment="Top" Height="72" Width="268" FontSize="36" Background="#FF03A64A" Foreground="White" FontWeight="Bold" Click="AccionIniciarPartida">
+        <Label Name="EtiquetaCodigoSala" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="68,569,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20" FontWeight="Bold" Width="658" Height="43" Content="MMMMMMMM-MMMM-MMMM-MMMM-MMMMMMMMMMMM"/>
+        <Button x:Name="BotonIniciarPartida" Content="{x:Static p:Resources.BOTON_SALA_INICIARPARTIDA}" HorizontalAlignment="Left" Margin="969,595,0,0" VerticalAlignment="Top" Height="72" Width="268" FontSize="36" Background="#FF03A64A" Foreground="White" FontWeight="Bold" Click="AccionIniciarPartida">
         </Button>
-
+        <Button Content="{x:Static p:Resources.ETIQUETA_SALA_COPIAR}" HorizontalAlignment="Left" Margin="68,612,0,0" VerticalAlignment="Top" Height="34" Width="128" Background="#FF048ABF" Foreground="White" FontSize="18" FontWeight="Bold" Click="AccionCopiarCodigoSala"/>
     </Grid>
 </Page>

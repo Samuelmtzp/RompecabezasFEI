@@ -1231,6 +1231,15 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Copiar.
+        /// </summary>
+        public static string ETIQUETA_SALA_COPIAR {
+            get {
+                return ResourceManager.GetString("ETIQUETA_SALA_COPIAR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mensajes.
         /// </summary>
         public static string ETIQUETA_SALA_MENSAJES {
