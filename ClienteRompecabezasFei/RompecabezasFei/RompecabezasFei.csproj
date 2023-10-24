@@ -277,9 +277,6 @@
     <Resource Include="Imagenes\Indicadores\Corona.png" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\ServicioRompecabezasFei\" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Connected Services\ServicioRompecabezasFei\item.disco" />
     <None Include="Connected Services\ServicioRompecabezasFei\configuration91.svcinfo" />
     <None Include="Connected Services\ServicioRompecabezasFei\configuration.svcinfo" />
@@ -288,6 +285,9 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Sonidos\MusicaRompecabezasFei.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServicioRompecabezasFei\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

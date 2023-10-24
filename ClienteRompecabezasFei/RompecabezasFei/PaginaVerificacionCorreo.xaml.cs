@@ -99,10 +99,14 @@ namespace RompecabezasFei
         private void AceptarSoloCaracteresNumericos(object remitente, 
             TextChangedEventArgs evento)
         {
-            string texto = CuadroTextoCodigoVerificacion.Text.
-                Where(char.IsDigit).ToArray().ToString();
-            CuadroTextoCodigoVerificacion.Text = texto;
-            CuadroTextoCodigoVerificacion.CaretIndex = texto.Length;
+            if (remitente is TextBox CuadroTextoCodigoVerificacion)
+            {
+                string texto = 
+                  CuadroTextoCodigoVerificacion.Text = new string(CuadroTextoCodigoVerificacion.Text.Where(char.IsDigit).ToArray());
+                CuadroTextoCodigoVerificacion.CaretIndex = CuadroTextoCodigoVerificacion.Text.Length;
+                CuadroTextoCodigoVerificacion.Text = texto;
+            }
+
         }
 
         private void ActualizarTiempo(object remitente, EventArgs evento)
