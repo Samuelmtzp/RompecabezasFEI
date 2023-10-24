@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="ServicioRompecabezasFei" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IServicioGestionJugador_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IServicioJuego_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8088/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8088/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8088/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Logica" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServicioGestionJugador_Registrar_InputMessage">
+    <wsdl:part name="parameters" element="tns:Registrar" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_Registrar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_ExisteCorreoElectronico_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteCorreoElectronico" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_ExisteCorreoElectronico_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteCorreoElectronicoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_ExisteNombreJugador_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteNombreJugador" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_ExisteNombreJugador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteNombreJugadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_IniciarSesion_InputMessage">
+    <wsdl:part name="parameters" element="tns:IniciarSesion" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_IniciarSesion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IniciarSesionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_EnviarMensajeCorreo_InputMessage">
+    <wsdl:part name="parameters" element="tns:EnviarMensajeCorreo" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_EnviarMensajeCorreo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EnviarMensajeCorreoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_ObtenerNumeroPartidasJugadas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerNumeroPartidasJugadas" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_ObtenerNumeroPartidasJugadas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerNumeroPartidasJugadasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_ObtenerNumeroPartidasGanadas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerNumeroPartidasGanadas" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_ObtenerNumeroPartidasGanadas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerNumeroPartidasGanadasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioJuego_NuevaSala_InputMessage">
+    <wsdl:part name="parameters" element="tns:NuevaSala" />
+  </wsdl:message>
+  <wsdl:message name="IServicioJuego_NuevaSala_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NuevaSalaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioJuego_ConectarCuentaJugadorASala_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConectarCuentaJugadorASala" />
+  </wsdl:message>
+  <wsdl:message name="IServicioJuego_ConectarCuentaJugadorASala_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConectarCuentaJugadorASalaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioJuego_DesconectarCuentaJugadorDeSala_InputMessage">
+    <wsdl:part name="parameters" element="tns:DesconectarCuentaJugadorDeSala" />
+  </wsdl:message>
+  <wsdl:message name="IServicioJuego_DesconectarCuentaJugadorDeSala_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DesconectarCuentaJugadorDeSalaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioJuego_EnviarMensajeDeSala_InputMessage">
+    <wsdl:part name="parameters" element="tns:EnviarMensajeDeSala" />
+  </wsdl:message>
+  <wsdl:message name="IServicioJuego_GenerarCodigoParaNuevaSala_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerarCodigoParaNuevaSala" />
+  </wsdl:message>
+  <wsdl:message name="IServicioJuego_GenerarCodigoParaNuevaSala_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerarCodigoParaNuevaSalaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioJuego_ExisteSalaDisponible_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteSalaDisponible" />
+  </wsdl:message>
+  <wsdl:message name="IServicioJuego_ExisteSalaDisponible_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteSalaDisponibleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioJuego_MensajeDeSalaCallBack_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:MensajeDeSalaCallBack" />
+  </wsdl:message>
+  <wsdl:portType name="IServicioGestionJugador">
+    <wsdl:operation name="Registrar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/Registrar" message="tns:IServicioGestionJugador_Registrar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionJugador/RegistrarResponse" message="tns:IServicioGestionJugador_Registrar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExisteCorreoElectronico">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/ExisteCorreoElectronico" message="tns:IServicioGestionJugador_ExisteCorreoElectronico_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionJugador/ExisteCorreoElectronicoResponse" message="tns:IServicioGestionJugador_ExisteCorreoElectronico_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExisteNombreJugador">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/ExisteNombreJugador" message="tns:IServicioGestionJugador_ExisteNombreJugador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionJugador/ExisteNombreJugadorResponse" message="tns:IServicioGestionJugador_ExisteNombreJugador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IniciarSesion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/IniciarSesion" message="tns:IServicioGestionJugador_IniciarSesion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionJugador/IniciarSesionResponse" message="tns:IServicioGestionJugador_IniciarSesion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EnviarMensajeCorreo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/EnviarMensajeCorreo" message="tns:IServicioGestionJugador_EnviarMensajeCorreo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionJugador/EnviarMensajeCorreoResponse" message="tns:IServicioGestionJugador_EnviarMensajeCorreo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNumeroPartidasJugadas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/ObtenerNumeroPartidasJugadas" message="tns:IServicioGestionJugador_ObtenerNumeroPartidasJugadas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionJugador/ObtenerNumeroPartidasJugadasResponse" message="tns:IServicioGestionJugador_ObtenerNumeroPartidasJugadas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNumeroPartidasGanadas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/ObtenerNumeroPartidasGanadas" message="tns:IServicioGestionJugador_ObtenerNumeroPartidasGanadas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionJugador/ObtenerNumeroPartidasGanadasResponse" message="tns:IServicioGestionJugador_ObtenerNumeroPartidasGanadas_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IServicioJuego">
+    <wsdl:operation name="NuevaSala">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioJuego/NuevaSala" message="tns:IServicioJuego_NuevaSala_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioJuego/NuevaSalaResponse" message="tns:IServicioJuego_NuevaSala_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConectarCuentaJugadorASala">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioJuego/ConectarCuentaJugadorASala" message="tns:IServicioJuego_ConectarCuentaJugadorASala_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioJuego/ConectarCuentaJugadorASalaResponse" message="tns:IServicioJuego_ConectarCuentaJugadorASala_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DesconectarCuentaJugadorDeSala">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioJuego/DesconectarCuentaJugadorDeSala" message="tns:IServicioJuego_DesconectarCuentaJugadorDeSala_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioJuego/DesconectarCuentaJugadorDeSalaResponse" message="tns:IServicioJuego_DesconectarCuentaJugadorDeSala_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EnviarMensajeDeSala">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioJuego/EnviarMensajeDeSala" message="tns:IServicioJuego_EnviarMensajeDeSala_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerarCodigoParaNuevaSala">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioJuego/GenerarCodigoParaNuevaSala" message="tns:IServicioJuego_GenerarCodigoParaNuevaSala_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioJuego/GenerarCodigoParaNuevaSalaResponse" message="tns:IServicioJuego_GenerarCodigoParaNuevaSala_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExisteSalaDisponible">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioJuego/ExisteSalaDisponible" message="tns:IServicioJuego_ExisteSalaDisponible_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioJuego/ExisteSalaDisponibleResponse" message="tns:IServicioJuego_ExisteSalaDisponible_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MensajeDeSalaCallBack">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioJuego/MensajeDeSalaCallBack" message="tns:IServicioJuego_MensajeDeSalaCallBack_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IServicioGestionJugador" type="tns:IServicioGestionJugador">
+    <wsp:PolicyReference URI="#NetTcpBinding_IServicioGestionJugador_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="Registrar">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionJugador/Registrar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExisteCorreoElectronico">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionJugador/ExisteCorreoElectronico" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExisteNombreJugador">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionJugador/ExisteNombreJugador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IniciarSesion">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionJugador/IniciarSesion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnviarMensajeCorreo">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionJugador/EnviarMensajeCorreo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNumeroPartidasJugadas">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionJugador/ObtenerNumeroPartidasJugadas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNumeroPartidasGanadas">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionJugador/ObtenerNumeroPartidasGanadas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IServicioJuego" type="tns:IServicioJuego">
+    <wsp:PolicyReference URI="#NetTcpBinding_IServicioJuego_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="NuevaSala">
+      <soap12:operation soapAction="http://tempuri.org/IServicioJuego/NuevaSala" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConectarCuentaJugadorASala">
+      <soap12:operation soapAction="http://tempuri.org/IServicioJuego/ConectarCuentaJugadorASala" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DesconectarCuentaJugadorDeSala">
+      <soap12:operation soapAction="http://tempuri.org/IServicioJuego/DesconectarCuentaJugadorDeSala" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnviarMensajeDeSala">
+      <soap12:operation soapAction="http://tempuri.org/IServicioJuego/EnviarMensajeDeSala" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GenerarCodigoParaNuevaSala">
+      <soap12:operation soapAction="http://tempuri.org/IServicioJuego/GenerarCodigoParaNuevaSala" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExisteSalaDisponible">
+      <soap12:operation soapAction="http://tempuri.org/IServicioJuego/ExisteSalaDisponible" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MensajeDeSalaCallBack">
+      <soap12:operation soapAction="http://tempuri.org/IServicioJuego/MensajeDeSalaCallBack" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioRompecabezasFei">
+    <wsdl:port name="NetTcpBinding_IServicioGestionJugador" binding="tns:NetTcpBinding_IServicioGestionJugador">
+      <soap12:address location="net.tcp://localhost:9000/Contratos" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:9000/Contratos</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IServicioJuego" binding="tns:NetTcpBinding_IServicioJuego">
+      <soap12:address location="net.tcp://localhost:9000/Contratos" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:9000/Contratos</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

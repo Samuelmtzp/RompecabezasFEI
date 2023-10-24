@@ -817,6 +817,15 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invitado.
+        /// </summary>
+        public static string ETIQUETA_GENERAL_INVITADO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_GENERAL_INVITADO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Jugadores.
         /// </summary>
         public static string ETIQUETA_GENERAL_JUGADORES {
@@ -984,6 +993,24 @@ namespace RompecabezasFei.Properties {
         public static string ETIQUETA_INVITACIONSALAENVIADA_TITULO {
             get {
                 return ResourceManager.GetString("ETIQUETA_INVITACIONSALAENVIADA_TITULO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to se ha unido a la sala!.
+        /// </summary>
+        public static string ETIQUETA_MENSAJESALA_BIENVENIDA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_MENSAJESALA_BIENVENIDA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ha abandonado la sala!.
+        /// </summary>
+        public static string ETIQUETA_MENSAJESALA_DESPEDIDA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_MENSAJESALA_DESPEDIDA", resourceCulture);
             }
         }
         
@@ -1272,6 +1299,24 @@ namespace RompecabezasFei.Properties {
         public static string ETIQUETA_UNIRSESALA_UNIRSESALA {
             get {
                 return ResourceManager.GetString("ETIQUETA_UNIRSESALA_UNIRSESALA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Código de verificación para concluir registro.
+        /// </summary>
+        public static string ETIQUETA_VERIFICACIONCORREO_ASUNTO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VERIFICACIONCORREO_ASUNTO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tu código de verificación es:.
+        /// </summary>
+        public static string ETIQUETA_VERIFICACIONCORREO_MENSAJE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VERIFICACIONCORREO_MENSAJE", resourceCulture);
             }
         }
     }
