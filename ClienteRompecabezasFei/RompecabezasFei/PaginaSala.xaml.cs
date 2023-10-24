@@ -48,12 +48,18 @@ namespace RompecabezasFei
 
         }
 
+        private void AccionCopiarCodigoSala(object remitente, RoutedEventArgs evento)
+        {
+            Clipboard.SetText(idSala);
+        }
+
         private void AccionEnviarMensaje(object remitente, RoutedEventArgs evento)
         {
             if (!String.IsNullOrEmpty(CuadroTextoMensajeUsuario.Text))
             {
                 clienteServicioJuego.EnviarMensajeDeSala(Dominio.CuentaJugador.
                     CuentaJugadorActual.NombreJugador, idSala, CuadroTextoMensajeUsuario.Text);
+                CuadroTextoMensajeUsuario.Clear();
             }
         }
 
@@ -176,5 +182,7 @@ namespace RompecabezasFei
             CuadroTextoMensajes.AppendText(mensaje + "\n");
         }
         #endregion
+
+        
     }
 }

@@ -95,6 +95,9 @@
     <Compile Include="PaginaSeleccionAvatar.xaml.cs">
       <DependentUpon>PaginaSeleccionAvatar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PaginaUnirseSala.xaml.cs">
+      <DependentUpon>PaginaUnirseSala.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PaginaVerificacionCorreo.xaml.cs">
       <DependentUpon>PaginaVerificacionCorreo.xaml</DependentUpon>
     </Compile>
@@ -187,6 +190,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PaginaUnirseSala.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PaginaVerificacionCorreo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -274,22 +281,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ServicioRompecabezasFei\item.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Connected Services\ServicioRompecabezasFei\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Connected Services\ServicioRompecabezasFei\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Connected Services\ServicioRompecabezasFei\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <Content Include="Sonidos\Elevator Music - Vanoss Gaming Background Music %28HD%29.wav" />
+    <Content Include="Sonidos\MusicaRompecabezasFei.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
