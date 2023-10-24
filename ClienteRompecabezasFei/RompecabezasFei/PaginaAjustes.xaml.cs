@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Media;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -8,6 +11,7 @@ namespace RompecabezasFei
     {
         string idioma;
         
+
         public PaginaAjustes()
         {
             InitializeComponent();
@@ -46,6 +50,14 @@ namespace RompecabezasFei
         {
             App.Current.CambiarIdioma(idioma);
             RefrescarPaginaActual();
+        }
+
+        private void BotonCambioMusica_Checked(object remitente, RoutedEventArgs evento)
+        {
+            if (BotonCambioMusica.IsEnabled)
+                App.Current.CambiarMusica(true);
+            else
+                App.Current.CambiarMusica(false);
         }
     }
 }

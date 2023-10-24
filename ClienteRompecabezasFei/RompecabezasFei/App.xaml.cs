@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Media;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace RompecabezasFei
@@ -8,6 +10,8 @@ namespace RompecabezasFei
         private List<string> idiomasDisponibles = new List<string>() { "es-MX", "en-US" };
         private string idiomaActual;
         private bool musicaActiva;
+        public System.IO.Stream str = RompecabezasFei.Properties.ResourceSonidos.Elevator_Music___Vanoss_Gaming_Background_Music__HD_;
+
         public string IdiomaActual
         {
             get
@@ -40,7 +44,47 @@ namespace RompecabezasFei
             IdiomaActual = nuevoIdioma;
         }
 
-        protected override void OnStartup(StartupEventArgs e)
+        public void apagarMusica()
+        {
+            Task.Run(() =>
+            {
+                SoundPlayer musicPlayer = new SoundPlayer(str);
+                while (true)
+                {
+                    musicPlayer.Stop();
+                }
+            });
+        }
+
+        public void encenderMusica()
+        {
+            Task.Run(() =>
+            {
+                SoundPlayer musicPlayer = new SoundPlayer(str);
+                while (true)
+                {
+                    musicPlayer.PlaySync();
+                }
+            });
+        }
+
+        public void CambiarMusica(bool musica)
+        {
+            Task.Run(() =>
+            {
+                SoundPlayer musicPlayer = new SoundPlayer(str);
+                if (musica)
+                {
+                    musicPlayer.PlaySync();
+                }
+                else
+                {
+                    musicPlayer.Stop();
+                }
+            });
+        }
+
+        /*protected override void OnStartup(StartupEventArgs e)
         {
             Task.Run(() =>
             {
@@ -51,7 +95,7 @@ namespace RompecabezasFei
                     musicPlayer.PlaySync();
                 }
             });
-        }
+        }*/
 
     }
 }

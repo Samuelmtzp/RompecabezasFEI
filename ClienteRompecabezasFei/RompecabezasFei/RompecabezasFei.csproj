@@ -270,26 +270,17 @@
     <Resource Include="Imagenes\Indicadores\Corona.png" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\ServicioRompecabezasFei\" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Connected Services\ServicioRompecabezasFei\item.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Connected Services\ServicioRompecabezasFei\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Connected Services\ServicioRompecabezasFei\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Connected Services\ServicioRompecabezasFei\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
     <Content Include="Sonidos\Elevator Music - Vanoss Gaming Background Music %28HD%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServicioRompecabezasFei\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
