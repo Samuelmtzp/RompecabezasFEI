@@ -30,6 +30,10 @@ namespace Logica
                 clienteSmtp.EnableSsl = true;
                 clienteSmtp.Send(mensajeCorreo);                
             }
+            catch (ArgumentException)
+            {
+                resultado = false;
+            }
             catch (SmtpException)
             {
                 resultado = false;

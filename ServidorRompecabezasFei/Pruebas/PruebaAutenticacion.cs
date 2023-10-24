@@ -1,17 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Logica;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Pruebas
 {
     [TestClass]
     public class PruebaAutenticacion
     {
-        public PruebaAutenticacion()
-        {
-        }
-
         private TestContext instanciaContextoPrueba;
 
         public TestContext ContextoPrueba
@@ -29,46 +23,42 @@ namespace Pruebas
         [TestMethod]
         public void PruebaInicioSesionExito()
         {
-            string nombreUsuario = "KrmaL";
-            string contrasena = "537c35589388e5c4eff4a2568b5f27bf9937fc83bbdd168bcbd26b7bbd4fe2" +
-                "44c2ef82546217b4cbc1d54c3947654c8f04e70cc96b472d9d69fbc6250ee353dc";
+            string nombreUsuario = "Sam";
+            string contrasena = "537c35589388e5c4eff4a2568b5f27bf9937fc83bbdd168bcbd26b7bbd4fe" +
+                "244c2ef82546217b4cbc1d54c3947654c8f04e70cc96b472d9d69fbc6250ee353dc";
 
-            Logica.Autenticacion servicioAutenticacion = new Logica.Autenticacion();
+            Autenticacion autenticacion = new Autenticacion();
 
-            Logica.CuentaJugador jugadorEsperado = new Logica.CuentaJugador()
+            CuentaJugador cuentaJugadorEsperada = new CuentaJugador()
             {
-                IdJugador = 4,
-                NombreJugador = "KrmaL",
+                NombreJugador = "Sam",
                 Correo = "zs21013902@estudiantes.uv.mx",
-                Contrasena = "",
-                IdCuenta = 4,
-                NumeroAvatar = 1,
+                Contrasena = "537c35589388e5c4eff4a2568b5f27bf9937fc83bbdd168bcbd26b7bbd4fe" + "244c2ef82546217b4cbc1d54c3947654c8f04e70cc96b472d9d69fbc6250ee353dc",
+                NumeroAvatar = 3,
             };
-            Logica.CuentaJugador jugadorResultado = servicioAutenticacion.IniciarSesion(nombreUsuario,
+            CuentaJugador cuentaJugadorResultado = autenticacion.IniciarSesion(nombreUsuario,
                 contrasena);
 
-            Assert.AreEqual(jugadorEsperado.ToString(), jugadorResultado.ToString(),
+            Assert.AreEqual(cuentaJugadorEsperada.ToString(), cuentaJugadorResultado.ToString(),
                 "Jugadores con mismos datos");
         }
 
         [TestMethod]
         public void PruebaInicioSesionFallo()
         {
-            string nombreUsuario = "KrmaL";
-            string contrasena = "2342vcdxvzsd";
+            string nombreUsuario = "Sam";
+            string contrasena = "";
 
-            Logica.Autenticacion servicioAutenticacion = new Logica.Autenticacion();
+            Autenticacion servicioAutenticacion = new Autenticacion();
 
-            Logica.CuentaJugador jugadorEsperado = new Logica.CuentaJugador()
+            CuentaJugador jugadorEsperado = new CuentaJugador()
             {
-                IdJugador = 1,
                 NombreJugador = "Sam",
-                Correo = "smp_pz@gmail.com",
+                Correo = "zs21013902@estudiantes.uv.mx",
                 Contrasena = "",
-                IdCuenta = 1,
-                NumeroAvatar = 1,
+                NumeroAvatar = 3,
             };
-            Logica.CuentaJugador jugadorResultado = servicioAutenticacion.IniciarSesion(nombreUsuario,
+            CuentaJugador jugadorResultado = servicioAutenticacion.IniciarSesion(nombreUsuario,
                 contrasena);
 
             Assert.AreNotEqual(jugadorEsperado.ToString(), jugadorResultado.ToString(),
