@@ -182,7 +182,5 @@ namespace RompecabezasFei
             CuadroTextoMensajes.AppendText(mensaje + "\n");
         }
         #endregion
-
-        
     }
 }

@@ -1,7 +1,5 @@
 ﻿using Contratos;
-using Datos;
 using Logica;
-using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Data;
