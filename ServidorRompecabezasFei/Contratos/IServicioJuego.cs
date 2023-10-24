@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ServiceModel;
 
 namespace Contratos
 {
@@ -14,13 +9,15 @@ namespace Contratos
         bool NuevaSala(string nombreAnfitrion, string idSala);
 
         [OperationContract]
-        void ConectarCuentaJugadorASala(string nombreJugador, string idSala);
+        void ConectarCuentaJugadorASala(string nombreJugador, string idSala, 
+            string mensajeBienvenida);
 
         [OperationContract]
-        void DesconectarCuentaJugadorDeSala(string nombreJugador, string idSala);
+        void DesconectarCuentaJugadorDeSala(string nombreJugador, string idSala, 
+            string mensajeDespedida);
 
         [OperationContract(IsOneWay = true)]
-        void EnviarMensaje(string nombreJugador, string idSala, string mensaje);
+        void EnviarMensajeDeSala(string nombreJugador, string idSala, string mensaje);
 
         [OperationContract]
         string GenerarCodigoParaNuevaSala();
@@ -32,6 +29,6 @@ namespace Contratos
     public interface IServicioJuegoCallback
     {
         [OperationContract(IsOneWay = true)]
-        void MensajeCallBack(string mensaje);
+        void MensajeDeSalaCallBack(string mensaje);
     }
 }

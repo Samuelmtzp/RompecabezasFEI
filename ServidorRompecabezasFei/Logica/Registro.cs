@@ -1,25 +1,20 @@
 ﻿using Datos;
-using System.Linq;
 
 namespace Logica
 {
     public class Registro
     {
-        public Registro()
-        {
-        }
-
-        public bool Registrar(Logica.CuentaJugador cuentaJugadorRegistro)
+        public bool Registrar(CuentaJugador cuentaJugadorRegistro)
         {
             bool estadoRegistro = false;
             using (var contexto = new EntidadesRompecabezasFei())
             {
-                Datos.Cuenta nuevaCuenta = new Datos.Cuenta()
+                Cuenta nuevaCuenta = new Cuenta()
                 {
                     Correo = cuentaJugadorRegistro.Correo,
                     Contrasena = cuentaJugadorRegistro.Contrasena,
                 };
-                Datos.Jugador nuevoJugador = new Datos.Jugador()
+                Jugador nuevoJugador = new Jugador()
                 {
                     NombreJugador = cuentaJugadorRegistro.NombreJugador,
                     NumeroAvatar = cuentaJugadorRegistro.NumeroAvatar,
@@ -29,7 +24,6 @@ namespace Logica
                 contexto.Cuenta.Add(nuevaCuenta);
                 nuevoJugador.Cuenta = nuevaCuenta;
                 nuevaCuenta.Jugador = nuevoJugador;
-
                 estadoRegistro = contexto.SaveChanges() > 0;
             }
             return estadoRegistro;

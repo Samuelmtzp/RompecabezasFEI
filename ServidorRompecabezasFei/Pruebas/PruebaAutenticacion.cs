@@ -39,7 +39,7 @@ namespace Pruebas
             {
                 IdJugador = 4,
                 NombreJugador = "KrmaL",
-                Correo = "samuel__martinez@hotmail.com",
+                Correo = "zs21013902@estudiantes.uv.mx",
                 Contrasena = "",
                 IdCuenta = 4,
                 NumeroAvatar = 1,

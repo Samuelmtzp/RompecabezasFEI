@@ -8,11 +8,11 @@ using log4net;
 
 namespace Registros
 {
-    public class Registros
+    public class Registrador
     {
-        public static ILog GetLogger([CallerFilePath] string filename = "")
+        public static ILog GetLogger([CallerFilePath] string nombreArchivo = "")
         {
-            return LogManager.GetLogger(filename);
+            return LogManager.GetLogger(nombreArchivo);
         }
     }
 }
