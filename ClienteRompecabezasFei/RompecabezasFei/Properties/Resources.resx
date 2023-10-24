@@ -369,6 +369,9 @@
   <data name="ETIQUETA_GENERAL_GUARDARCAMBIOS" xml:space="preserve">
     <value>Guardar cambios</value>
   </data>
+  <data name="ETIQUETA_GENERAL_INVITADO" xml:space="preserve">
+    <value>Invitado</value>
+  </data>
   <data name="ETIQUETA_GENERAL_JUGADORES" xml:space="preserve">
     <value>Jugadores</value>
   </data>
@@ -425,6 +428,12 @@
   </data>
   <data name="ETIQUETA_INVITACIONSALA_TITULO" xml:space="preserve">
     <value>Invitación a sala</value>
+  </data>
+  <data name="ETIQUETA_MENSAJESALA_BIENVENIDA" xml:space="preserve">
+    <value>se ha unido a la sala!</value>
+  </data>
+  <data name="ETIQUETA_MENSAJESALA_DESPEDIDA" xml:space="preserve">
+    <value>ha abandonado la sala!</value>
   </data>
   <data name="ETIQUETA_MENUPRINCIPAL_CERRARSESION" xml:space="preserve">
     <value>Cerrar sesión</value>
@@ -521,5 +530,11 @@
   </data>
   <data name="ETIQUETA_UNIRSESALA_UNIRSESALA" xml:space="preserve">
     <value>Unirse a sala</value>
+  </data>
+  <data name="ETIQUETA_VERIFICACIONCORREO_ASUNTO" xml:space="preserve">
+    <value>Código de verificación para concluir registro</value>
+  </data>
+  <data name="ETIQUETA_VERIFICACIONCORREO_MENSAJE" xml:space="preserve">
+    <value>Tu código de verificación es:</value>
   </data>
 </root>

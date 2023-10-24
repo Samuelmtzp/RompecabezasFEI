@@ -1,11 +1,9 @@
 ﻿using RompecabezasFei.ServicioRompecabezasFei;
-using Security;
 using System;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media.Imaging;
 
 namespace RompecabezasFei
 {

@@ -19,10 +19,10 @@ namespace RompecabezasFei
 
         private void AccionModoInvitado(object remitente, RoutedEventArgs evento)
         {
-            
+            int numeroAleatorio = new Random().Next();
             Dominio.CuentaJugador.CuentaJugadorActual = new Dominio.CuentaJugador()
             {
-                NombreJugador = $"Invitado{new Random().Next()}",
+                NombreJugador = Properties.Resources.ETIQUETA_GENERAL_INVITADO + numeroAleatorio,
                 EsInvitado = true
             };
 
@@ -32,7 +32,7 @@ namespace RompecabezasFei
         private void AccionRecuperarContrasena(object remitente, 
             MouseButtonEventArgs evento)
         {
-            MessageBox.Show("Click en opción recuperar contraseña");
+
         }
 
         private void AccionRegistro(object remitente, MouseButtonEventArgs evento)
@@ -61,19 +61,25 @@ namespace RompecabezasFei
                         IniciarSesion(nombreUsuario, 
                             EncriptadorContrasena.CalcularHashSha512(contrasena));
                     }
-                    catch (EndpointNotFoundException excepcion)
+                    catch (EndpointNotFoundException)
                     {
-                        MessageBox.Show("No se ha establecido una conexión", "Error de conexión", 
+                        MessageBox.Show(Properties.Resources.
+                            ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                            ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO, 
                             MessageBoxButton.OK, MessageBoxImage.Error);
                     }
-                    catch (CommunicationObjectFaultedException excepcion)
+                    catch (CommunicationObjectFaultedException)
                     {
-                        MessageBox.Show("No se ha establecido una conexión", "Error de conexión", 
+                        MessageBox.Show(Properties.Resources.
+                            ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                            ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
                             MessageBoxButton.OK, MessageBoxImage.Error);
                     }
-                    catch (TimeoutException excepcion)
+                    catch (TimeoutException)
                     {
-                        MessageBox.Show("No se ha establecido una conexión", "Error de conexión", 
+                        MessageBox.Show(Properties.Resources.
+                            ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                            ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
                             MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }

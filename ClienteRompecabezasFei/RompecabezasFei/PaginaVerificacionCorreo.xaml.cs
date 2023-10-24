@@ -1,21 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
-using Dominio;
 using RompecabezasFei.ServicioRompecabezasFei;
 using Security;
 
@@ -25,7 +13,7 @@ namespace RompecabezasFei
     {
         string codigoGenerado;
         private int segundosRestantes;
-        DispatcherTimer temporizador; 
+        private DispatcherTimer temporizador; 
         private Dominio.CuentaJugador jugadorRegistro;
 
         public PaginaVerificacionCorreo(Dominio.CuentaJugador jugadorRegistro)
@@ -39,8 +27,10 @@ namespace RompecabezasFei
         private void InicializarTemporizador()
         {
             segundosRestantes = 60;
-            temporizador = new DispatcherTimer();
-            temporizador.Interval = TimeSpan.FromSeconds(1);
+            temporizador = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromSeconds(1)
+            };
             temporizador.Tick += ActualizarTiempo;
             temporizador.Start();
         }
@@ -54,10 +44,10 @@ namespace RompecabezasFei
         {
             ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
             Random generadorNumeroAleatorio = new Random();
-            int codigo = generadorNumeroAleatorio.Next(100000, 1000000);
-            cliente.EnviarValidacionCorreo(jugadorRegistro.Correo,
-                "Código de verificación para concluir registro", codigo);
-            codigoGenerado = codigo.ToString();
+            codigoGenerado = generadorNumeroAleatorio.Next(100000, 1000000).ToString();
+            cliente.EnviarMensajeCorreo(Properties.Resources.ETIQUETA_GENERAL_ROMPECABEZASFEI, 
+                jugadorRegistro.Correo, Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ASUNTO, 
+                Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJE + $" {codigoGenerado}");
             DeshabilitarBotonEnvioCodigo();
             InicializarTemporizador();
         }
@@ -71,8 +61,9 @@ namespace RompecabezasFei
                 bool codigoVerificacionCoincide = codigoVerificacion.Equals(codigoGenerado);
                 if (codigoVerificacionCoincide)
                 {
-                    string contrasenaCifrada = EncriptadorContrasena.CalcularHashSha512(jugadorRegistro.Contrasena);
-                    ServicioRompecabezasFei.CuentaJugador nuevoJugador = new ServicioRompecabezasFei.CuentaJugador
+                    string contrasenaCifrada = EncriptadorContrasena.
+                        CalcularHashSha512(jugadorRegistro.Contrasena);
+                    CuentaJugador nuevoJugador = new CuentaJugador
                     {
                         NombreJugador = jugadorRegistro.NombreJugador,
                         NumeroAvatar = jugadorRegistro.NumeroAvatar,
@@ -105,9 +96,11 @@ namespace RompecabezasFei
             }
         }
 
-        private void AceptarSoloCaracteresNumericos(object remitente, TextChangedEventArgs evento)
+        private void AceptarSoloCaracteresNumericos(object remitente, 
+            TextChangedEventArgs evento)
         {
-            string texto = new string(CuadroTextoCodigoVerificacion.Text.Where(char.IsDigit).ToArray());
+            string texto = CuadroTextoCodigoVerificacion.Text.
+                Where(char.IsDigit).ToArray().ToString();
             CuadroTextoCodigoVerificacion.Text = texto;
             CuadroTextoCodigoVerificacion.CaretIndex = texto.Length;
         }
@@ -126,7 +119,6 @@ namespace RompecabezasFei
                 EtiquetaTiempoRestante.Content = "00:00";
                 HabilitarBotonEnvioCodigo();
             }
-            
         }
 
         private void HabilitarBotonEnvioCodigo()
