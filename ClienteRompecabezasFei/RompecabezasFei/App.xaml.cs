@@ -88,11 +88,12 @@ namespace RompecabezasFei
         {
             Task.Run(() =>
             {
-                System.IO.Stream str = RompecabezasFei.Properties.ResourceSonidos.Elevator_Music___Vanoss_Gaming_Background_Music__HD_;
-                SoundPlayer musicPlayer = new SoundPlayer(str);
+                System.IO.Stream pistaAudio = RompecabezasFei.Properties.
+                    ResourceSonidos.MusicaRompecabezasFei;
+                SoundPlayer reproductorMusica = new SoundPlayer(pistaAudio);
                 while (true)
                 {
-                    musicPlayer.PlaySync();
+                    reproductorMusica.PlaySync();
                 }
             });
         }*/

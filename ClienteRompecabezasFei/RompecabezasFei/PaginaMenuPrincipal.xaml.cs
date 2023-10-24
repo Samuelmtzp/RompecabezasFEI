@@ -54,17 +54,7 @@ namespace RompecabezasFei
 
         private void AccionUnirseASala(object remintente, RoutedEventArgs evento)
         {
-            PaginaSala paginaSala = new PaginaSala();
-
-            if (paginaSala.VerificarDisponibilidadSala(CuadroTextoCodigoSala.Text))
-            {
-                paginaSala.IdSala = CuadroTextoCodigoSala.Text;
-                if (paginaSala.CrearNuevaSala(false))
-                {
-                    paginaSala.EtiquetaCodigoSala.Content = CuadroTextoCodigoSala.Text;
-                    VentanaPrincipal.CambiarPagina(this, paginaSala);
-                }
-            }
+            VentanaPrincipal.CambiarPagina(this, new PaginaUnirseSala());
         }
 
         private void AccionMisAmigos(object remitente, MouseButtonEventArgs evento)

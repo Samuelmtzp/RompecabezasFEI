@@ -1,7 +1,5 @@
 ﻿using Contratos;
-using Datos;
 using Logica;
-using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -154,7 +152,7 @@ namespace Servicios
             
             if (salaEncontrada.ExisteCupoJugadores())
             {
-                EnviarMensajeDeSala(nombreJugador, idSala, $"{nombreJugador} {mensajeBienvenida}");
+                EnviarMensajeDeSala(nombreJugador, idSala, mensajeBienvenida);
             }
             salaEncontrada.Jugadores.Add(cuentaJugador);
             salaEncontrada.ContadorJugadoresActuales++;
@@ -184,8 +182,7 @@ namespace Servicios
                 }
                 else
                 {
-                    EnviarMensajeDeSala(nombreJugador, idSala, 
-                        $"{nombreJugador} {mensajeDespedida}");
+                    EnviarMensajeDeSala(nombreJugador, idSala, mensajeDespedida);
                 }
             }
         }
@@ -196,14 +193,8 @@ namespace Servicios
                 sala.IdSala.Equals(idSala));
             foreach (CuentaJugador cuentaJugador in salaEncontrada.Jugadores)
             {
-                string mensajeFinal = ""; 
                 string horaActual = DateTime.Now.ToShortTimeString();
-                CuentaJugador cuentaJugadorEncontrada = salaEncontrada.Jugadores.FirstOrDefault(
-                    jugador => jugador.NombreJugador.Equals(nombreJugador));
-                if (cuentaJugadorEncontrada != null)
-                {
-                    mensajeFinal = horaActual + $" {cuentaJugadorEncontrada.NombreJugador}: ";
-                }
+                string mensajeFinal = horaActual + $" {nombreJugador}: {mensaje}";
                 cuentaJugador.ContextoOperacion.GetCallbackChannel<IServicioJuegoCallback>().
                     MensajeDeSalaCallBack(mensajeFinal);
             }

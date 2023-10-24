@@ -15,6 +15,11 @@ namespace RompecabezasFei
         public PaginaAjustes()
         {
             InitializeComponent();
+            InicializarSeleccionIdioma();
+        }
+
+        private void InicializarSeleccionIdioma()
+        {
             if (App.Current.IdiomaActual == "en-US")
                 CajaOpcionesIdioma.SelectedIndex = 0;
             else
@@ -43,7 +48,7 @@ namespace RompecabezasFei
             else
             {
                 VentanaPrincipal.CambiarPagina(this, new PaginaMenuPrincipal());
-            }            
+            }
         }
 
         private void AccionOpcionesIdiomaCerrado(object remitente, EventArgs evento)
