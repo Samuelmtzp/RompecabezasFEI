@@ -17,7 +17,8 @@ namespace Contratos
         [OperationContract]
         CuentaJugador IniciarSesion(string nombreJugador, string contrasena);
         [OperationContract]
-        bool EnviarValidacionCorreo(String correoDestino, String asunto, int codigoVerificacion);
+        bool EnviarMensajeCorreo(string encabezaco, string correoDestino, 
+            string asunto, string mensaje);
         [OperationContract]
         int ObtenerNumeroPartidasJugadas(string nombreUsuario);
         [OperationContract]
