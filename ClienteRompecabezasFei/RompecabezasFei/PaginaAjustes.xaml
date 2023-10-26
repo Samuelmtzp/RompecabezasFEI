@@ -13,7 +13,7 @@
         <Image Name="ImagenFlechaRegreso" Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="42,36,1157,604" Height="81" Width="81" MouseDown="AccionRegresar"/>
         <Image HorizontalAlignment="Left" Height="106" Margin="254,204,0,0" VerticalAlignment="Top" Width="106" Source="\Imagenes/Indicadores/Musica.png"/>
         <Image HorizontalAlignment="Left" Height="106" Margin="254,382,0,0" VerticalAlignment="Top" Width="106" Source="\Imagenes/Indicadores/Idioma.png"/>
-        <ToggleButton x:Name="BotonCambioMusica" HorizontalAlignment="Left" Margin="664,231,0,0" VerticalAlignment="Top" Height="72" Width="414" FontSize="36" FontWeight="Bold" Checked="BotonCambioMusica_Checked">
+        <ToggleButton x:Name="BotonCambioMusica" HorizontalAlignment="Left" Margin="664,231,0,0" VerticalAlignment="Top" Height="72" Width="414" FontSize="36" FontWeight="Bold" Checked="BotonCambioMusica_Checked" Unchecked="BotonCambioMusica_Unchecked">
             <ToggleButton.Style>
                 <Style TargetType="{x:Type ToggleButton}">
                     <Style.Triggers>

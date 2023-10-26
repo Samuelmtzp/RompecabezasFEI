@@ -7,6 +7,8 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace RompecabezasFei
 {
@@ -36,7 +38,7 @@ namespace RompecabezasFei
         }
 
         private void AccionRegistro(object remitente, MouseButtonEventArgs evento)
-        {            
+        {
             VentanaPrincipal.CambiarPagina(this, new PaginaRegistroJugador());
         }
 
