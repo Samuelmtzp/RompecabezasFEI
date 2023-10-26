@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Media;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,12 +11,14 @@ namespace RompecabezasFei
     public partial class PaginaAjustes : Page
     {
         string idioma;
-        
-
+        bool esNuevaVentana;
+     
         public PaginaAjustes()
         {
             InitializeComponent();
             InicializarSeleccionIdioma();
+            esNuevaVentana = true;
+            InicializarSeleccionMusica();
         }
 
         private void InicializarSeleccionIdioma()
@@ -24,6 +27,19 @@ namespace RompecabezasFei
                 CajaOpcionesIdioma.SelectedIndex = 0;
             else
                 CajaOpcionesIdioma.SelectedIndex = 1;
+        }
+
+        private void InicializarSeleccionMusica()
+        {
+            if (App.Current.MusicaActiva)
+            {
+                BotonCambioMusica.IsChecked = true;
+            }
+            else
+            {
+                BotonCambioMusica.IsChecked = false;
+                esNuevaVentana = false;
+            }
         }
 
         private void AccionSeleccionIdioma(object remitente, SelectionChangedEventArgs evento)
@@ -59,10 +75,20 @@ namespace RompecabezasFei
 
         private void BotonCambioMusica_Checked(object remitente, RoutedEventArgs evento)
         {
-            if (BotonCambioMusica.IsEnabled)
-                App.Current.CambiarMusica(true);
+            if (!esNuevaVentana)
+            {
+                App.Current.EstadoMusica(true);
+            }
             else
-                App.Current.CambiarMusica(false);
+            {
+                esNuevaVentana = false;
+            }
+        }
+
+        private void BotonCambioMusica_Unchecked(object sender, RoutedEventArgs e)
+        {
+              
+            App.Current.EstadoMusica(false);
         }
     }
 }
