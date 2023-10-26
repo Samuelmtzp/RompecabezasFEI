@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Media;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -10,7 +11,9 @@ namespace RompecabezasFei
         private List<string> idiomasDisponibles = new List<string>() { "es-MX", "en-US" };
         private string idiomaActual;
         private bool musicaActiva;
-        public System.IO.Stream str = RompecabezasFei.Properties.ResourceSonidos.Elevator_Music___Vanoss_Gaming_Background_Music__HD_;
+        System.IO.Stream pistaAudio = RompecabezasFei.Properties.
+             ResourceSonidos.MusicaRompecabezasFei;
+        SoundPlayer reproductorMusica;
 
         public string IdiomaActual
         {
@@ -23,6 +26,18 @@ namespace RompecabezasFei
                 System.Threading.Thread.CurrentThread.CurrentUICulture = 
                     new System.Globalization.CultureInfo(value);
                 idiomaActual = value;
+            }
+        }
+
+        public bool MusicaActiva
+        {
+            get
+            {
+                return musicaActiva;
+            }
+            set
+            {
+                musicaActiva = value;   
             }
         }
 
@@ -44,59 +59,25 @@ namespace RompecabezasFei
             IdiomaActual = nuevoIdioma;
         }
 
-        public void apagarMusica()
+        public void EstadoMusica(bool musicaReproduciendose)
         {
-            Task.Run(() =>
+            if (musicaReproduciendose)
             {
-                SoundPlayer musicPlayer = new SoundPlayer(str);
-                while (true)
-                {
-                    musicPlayer.Stop();
-                }
-            });
+                reproductorMusica.PlayLooping();    
+                this.musicaActiva = true;
+            }
+            else
+            {
+                reproductorMusica.Stop();
+                this.musicaActiva = false;
+            }
         }
 
-        public void encenderMusica()
+        protected override void OnStartup(StartupEventArgs e)
         {
-            Task.Run(() =>
-            {
-                SoundPlayer musicPlayer = new SoundPlayer(str);
-                while (true)
-                {
-                    musicPlayer.PlaySync();
-                }
-            });
+            reproductorMusica = new SoundPlayer(pistaAudio);
+            EstadoMusica(false);  //pendiente cambio    
         }
-
-        public void CambiarMusica(bool musica)
-        {
-            Task.Run(() =>
-            {
-                SoundPlayer musicPlayer = new SoundPlayer(str);
-                if (musica)
-                {
-                    musicPlayer.PlaySync();
-                }
-                else
-                {
-                    musicPlayer.Stop();
-                }
-            });
-        }
-
-        /*protected override void OnStartup(StartupEventArgs e)
-        {
-            Task.Run(() =>
-            {
-                System.IO.Stream pistaAudio = RompecabezasFei.Properties.
-                    ResourceSonidos.MusicaRompecabezasFei;
-                SoundPlayer reproductorMusica = new SoundPlayer(pistaAudio);
-                while (true)
-                {
-                    reproductorMusica.PlaySync();
-                }
-            });
-        }*/
 
     }
 }
