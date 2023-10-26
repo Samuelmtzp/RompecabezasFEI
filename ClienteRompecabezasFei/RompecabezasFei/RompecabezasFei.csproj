@@ -86,6 +86,9 @@
     <Compile Include="PaginaMenuPrincipal.xaml.cs">
       <DependentUpon>PaginaMenuPrincipal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PaginaPartida.xaml.cs">
+      <DependentUpon>PaginaPartida.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PaginaRegistroJugador.xaml.cs">
       <DependentUpon>PaginaRegistroJugador.xaml</DependentUpon>
     </Compile>
@@ -175,6 +178,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PaginaMenuPrincipal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PaginaPartida.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -277,6 +284,7 @@
     <Resource Include="Imagenes\Indicadores\Corona.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Imagenes\Rompecabezas\GatoMalvado.jpg" />
     <None Include="Connected Services\ServicioRompecabezasFei\item.disco" />
     <None Include="Connected Services\ServicioRompecabezasFei\configuration91.svcinfo" />
     <None Include="Connected Services\ServicioRompecabezasFei\configuration.svcinfo" />

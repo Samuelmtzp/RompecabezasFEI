@@ -13,7 +13,7 @@ namespace RompecabezasFei
 
         private void AccionCambiarAvatar(object remitente, RoutedEventArgs evento)
         {
-            VentanaPrincipal.CambiarPaginaGuardandoAnterior(this, new PaginaSeleccionAvatar()); 
+            VentanaPrincipal.CambiarPaginaGuardandoAnterior(this, new PaginaSeleccionAvatar());
         }
 
         private void AccionGuardarCambios(object remitente, RoutedEventArgs evento)

@@ -16,7 +16,6 @@ namespace RompecabezasFei
         private bool esAnfitrion;
         private bool hayConexionEstablecida;
         private ServicioJuegoClient clienteServicioJuego;
-        private CuentaJugador[] listaCuentasJugador;
         #endregion
 
         #region Propiedades
@@ -108,7 +107,7 @@ namespace RompecabezasFei
                 clienteServicioJuego = new ServicioJuegoClient(new InstanceContext(this));
                 if (esNuevaSala)
                 {
-                    esAnfitrion = true;                    
+                    esAnfitrion = true;
                     idSala = clienteServicioJuego.GenerarCodigoParaNuevaSala();
                     clienteServicioJuego.NuevaSala(Dominio.CuentaJugador.
                         CuentaJugadorActual.NombreJugador, idSala);

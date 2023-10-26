@@ -13,7 +13,7 @@ namespace RompecabezasFei
     {
         string codigoGenerado;
         private int segundosRestantes;
-        private DispatcherTimer temporizador; 
+        private DispatcherTimer temporizador;
         private Dominio.CuentaJugador jugadorRegistro;
 
         public PaginaVerificacionCorreo(Dominio.CuentaJugador jugadorRegistro)
@@ -27,10 +27,8 @@ namespace RompecabezasFei
         private void InicializarTemporizador()
         {
             segundosRestantes = 60;
-            temporizador = new DispatcherTimer
-            {
-                Interval = TimeSpan.FromSeconds(1)
-            };
+            temporizador = new DispatcherTimer();
+            temporizador.Interval = TimeSpan.FromSeconds(1);
             temporizador.Tick += ActualizarTiempo;
             temporizador.Start();
         }
@@ -43,13 +41,18 @@ namespace RompecabezasFei
         private void EnviarCodigo()
         {
             ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
-            Random generadorNumeroAleatorio = new Random();
-            codigoGenerado = generadorNumeroAleatorio.Next(100000, 1000000).ToString();
+            codigoGenerado = GenerarCodigo();
             cliente.EnviarMensajeCorreo(Properties.Resources.ETIQUETA_GENERAL_ROMPECABEZASFEI, 
                 jugadorRegistro.Correo, Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ASUNTO, 
-                Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJE + $" {codigoGenerado}");
+                Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJE + " " + codigoGenerado);
             DeshabilitarBotonEnvioCodigo();
             InicializarTemporizador();
+        }
+
+        private string GenerarCodigo()
+        {
+            Random generadorNumeroAleatorio = new Random();
+            return generadorNumeroAleatorio.Next(100000, 1000000).ToString();
         }
 
         private void AccionRegistrar(object remitente, RoutedEventArgs evento)
@@ -63,6 +66,7 @@ namespace RompecabezasFei
                 {
                     string contrasenaCifrada = EncriptadorContrasena.
                         CalcularHashSha512(jugadorRegistro.Contrasena);
+                    
                     CuentaJugador nuevoJugador = new CuentaJugador
                     {
                         NombreJugador = jugadorRegistro.NombreJugador,
@@ -74,6 +78,7 @@ namespace RompecabezasFei
                     nuevoJugador.Contrasena = contrasenaCifrada;
                     ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
                     bool resultadoRegistro = cliente.Registrar(nuevoJugador);
+
                     if (resultadoRegistro)
                     {
                         temporizador.Stop();
@@ -91,7 +96,7 @@ namespace RompecabezasFei
                 else
                 {
                     MessageBox.Show("Código incorrecto", 
-                        "El código de verificacion es incorrecto" ,MessageBoxButton.OK);
+                        "El código de verificacion es incorrecto" , MessageBoxButton.OK);
                 }
             }
         }
@@ -99,14 +104,10 @@ namespace RompecabezasFei
         private void AceptarSoloCaracteresNumericos(object remitente, 
             TextChangedEventArgs evento)
         {
-            if (remitente is TextBox CuadroTextoCodigoVerificacion)
-            {
-                string texto = 
-                  CuadroTextoCodigoVerificacion.Text = new string(CuadroTextoCodigoVerificacion.Text.Where(char.IsDigit).ToArray());
-                CuadroTextoCodigoVerificacion.CaretIndex = CuadroTextoCodigoVerificacion.Text.Length;
-                CuadroTextoCodigoVerificacion.Text = texto;
-            }
-
+            string texto = CuadroTextoCodigoVerificacion.Text = new 
+                string(CuadroTextoCodigoVerificacion.Text.Where(char.IsDigit).ToArray());
+            CuadroTextoCodigoVerificacion.CaretIndex = CuadroTextoCodigoVerificacion.Text.Length;
+            CuadroTextoCodigoVerificacion.Text = texto;
         }
 
         private void ActualizarTiempo(object remitente, EventArgs evento)
@@ -114,8 +115,9 @@ namespace RompecabezasFei
             segundosRestantes--;
             if (segundosRestantes > 0)
             {
-                TimeSpan time = TimeSpan.FromSeconds(segundosRestantes);
-                EtiquetaTiempoRestante.Content = $"{time.Minutes:00}:{time.Seconds:00}";
+                TimeSpan tiempoRestante = TimeSpan.FromSeconds(segundosRestantes);
+                EtiquetaTiempoRestante.Content = 
+                    $"{tiempoRestante.Minutes:00}:{tiempoRestante.Seconds:00}";
             }
             else
             {

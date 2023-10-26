@@ -2,6 +2,7 @@
 using System.Media;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace RompecabezasFei
 {
@@ -10,13 +11,14 @@ namespace RompecabezasFei
         private List<string> idiomasDisponibles = new List<string>() { "es-MX", "en-US" };
         private string idiomaActual;
         private bool musicaActiva;
-        public System.IO.Stream str = RompecabezasFei.Properties.ResourceSonidos.Elevator_Music___Vanoss_Gaming_Background_Music__HD_;
+
+        public System.IO.Stream str = RompecabezasFei.Properties.ResourceSonidos.MusicaRompecabezasFei;
 
         public string IdiomaActual
         {
-            get
-            {
-                return idiomaActual;
+            get 
+            { 
+                return idiomaActual; 
             }
             private set
             {
