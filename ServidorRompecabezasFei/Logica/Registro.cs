@@ -1,4 +1,7 @@
 ﻿using Datos;
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace Logica
 {
@@ -29,6 +32,18 @@ namespace Logica
             return estadoRegistro;
         }
 
-        
+        public bool ActualizarInformacion(CuentaJugador cuentaJugadorRegistro)
+        {
+            bool informacionActualizada = false;
+            using (var contexto = new EntidadesRompecabezasFei())
+            {
+                var Jugador = contexto.Jugador.Where(x => x.IdJugador ==
+                        cuentaJugadorRegistro.IdJugador).ToList();
+                Jugador[(cuentaJugadorRegistro.IdJugador) - 1].NombreJugador = cuentaJugadorRegistro.NombreJugador;
+                Jugador[(cuentaJugadorRegistro.IdJugador) - 1].NumeroAvatar = cuentaJugadorRegistro.NumeroAvatar;
+                informacionActualizada = contexto.SaveChanges() > 0; 
+            }
+            return informacionActualizada;
+        }
     }
 }

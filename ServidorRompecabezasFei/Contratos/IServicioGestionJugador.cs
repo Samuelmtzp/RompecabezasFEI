@@ -23,5 +23,7 @@ namespace Contratos
         int ObtenerNumeroPartidasJugadas(string nombreUsuario);
         [OperationContract]
         int ObtenerNumeroPartidasGanadas(string nombreUsuario);
+        [OperationContract]
+        bool ActualizarInformacion(CuentaJugador cuentaJugador);   
     }
 }

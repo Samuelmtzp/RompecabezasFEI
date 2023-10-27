@@ -49,7 +49,19 @@ namespace RompecabezasFei
             }
             else
             {
-                VentanaPrincipal.CambiarPagina(this, new PaginaActualizacionInformacion());
+                if (typeof(PaginaActualizacionInformacion).IsInstanceOfType(VentanaPrincipal.PaginaAnterior))
+                {
+                    PaginaActualizacionInformacion paginaActualizacionInformacion = new PaginaActualizacionInformacion();
+                    paginaActualizacionInformacion.ImagenAvatarActual.Source = ImagenAvatarActual.Source;
+                    paginaActualizacionInformacion.ImagenAvatarActual.Tag = ImagenAvatarActual.Tag;
+                    paginaActualizacionInformacion.JugadorRegistro = jugadorRegistro;
+                    paginaActualizacionInformacion.CargarDatosEdicion();
+                    VentanaPrincipal.CambiarPagina(this, paginaActualizacionInformacion);
+                }
+                else
+                {
+                    VentanaPrincipal.CambiarPagina(this, new PaginaActualizacionInformacion());
+                }
             }
             
         }
