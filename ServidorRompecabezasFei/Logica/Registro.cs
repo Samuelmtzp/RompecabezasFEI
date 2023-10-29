@@ -45,5 +45,18 @@ namespace Logica
             }
             return informacionActualizada;
         }
+
+        public bool ActualizarContrasena(CuentaJugador cuentaJugadorRegistro)
+        {
+            bool informacionActualizada = false;
+            using (var contexto = new EntidadesRompecabezasFei())
+            {
+                var Cuenta = contexto.Cuenta.Where(x => x.IdCuenta ==
+                        cuentaJugadorRegistro.IdCuenta).ToList(); 
+                Cuenta[(cuentaJugadorRegistro.IdCuenta) - 1].Contrasena = cuentaJugadorRegistro.Contrasena;
+                informacionActualizada = contexto.SaveChanges() > 0;
+            }
+            return informacionActualizada;
+        }
     }
 }

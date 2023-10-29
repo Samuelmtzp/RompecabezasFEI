@@ -71,6 +71,12 @@
   <wsdl:message name="IServicioGestionJugador_ActualizarInformacion_OutputMessage">
     <wsdl:part name="parameters" element="tns:ActualizarInformacionResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_ActualizarContrasena_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarContrasena" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_ActualizarContrasena_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarContrasenaResponse" />
+  </wsdl:message>
   <wsdl:message name="IServicioJuego_NuevaSala_InputMessage">
     <wsdl:part name="parameters" element="tns:NuevaSala" />
   </wsdl:message>
@@ -139,6 +145,10 @@
     <wsdl:operation name="ActualizarInformacion">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/ActualizarInformacion" message="tns:IServicioGestionJugador_ActualizarInformacion_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionJugador/ActualizarInformacionResponse" message="tns:IServicioGestionJugador_ActualizarInformacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarContrasena">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/ActualizarContrasena" message="tns:IServicioGestionJugador_ActualizarContrasena_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionJugador/ActualizarContrasenaResponse" message="tns:IServicioGestionJugador_ActualizarContrasena_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IServicioJuego">
@@ -237,6 +247,15 @@
     </wsdl:operation>
     <wsdl:operation name="ActualizarInformacion">
       <soap12:operation soapAction="http://tempuri.org/IServicioGestionJugador/ActualizarInformacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarContrasena">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionJugador/ActualizarContrasena" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

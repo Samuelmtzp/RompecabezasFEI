@@ -19,7 +19,7 @@ namespace RompecabezasFei
         }
 
         string nombre= Dominio.CuentaJugador.CuentaJugadorActual.NombreJugador;
-        bool mismoNombre;
+        bool mismoNombre,mismosDatos;
 
         public PaginaActualizacionInformacion()
         {
@@ -69,11 +69,12 @@ namespace RompecabezasFei
 
         private void AccionGuardarCambios(object remitente, RoutedEventArgs evento)
         {
-            jugadorRegistro.NombreJugador = CuadroTextoNombreUsuario.Text;
+            jugadorRegistro.NombreJugador = CuadroTextoNombreUsuario.Text.Trim();
             jugadorRegistro.NumeroAvatar = Convert.ToInt16(ImagenAvatarActual.Tag);
 
             if (jugadorRegistro.NumeroAvatar == 0 && jugadorRegistro.NombreJugador.Equals(nombre))
             {
+                mismosDatos = true;
                 VentanaPrincipal.CambiarPagina(this, new PaginaInformacionJugador());
             }
             else
@@ -95,29 +96,12 @@ namespace RompecabezasFei
                 NumeroAvatar = jugadorRegistro.NumeroAvatar,
             };
 
-            ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
-            if (!ExistenCamposInvalidos())
+            if (!(mismosDatos))
             {
-                if (mismoNombre)
+                ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
+                if (!ExistenCamposInvalidos())
                 {
-                    bool resultadoRegistro = cliente.ActualizarInformacion(datosJugador);
-                    if (resultadoRegistro)
-                    {
-                        MessageBox.Show("La actualización de la información se ha realizado correctamente",
-                            "Actualización realizada correctamente", MessageBoxButton.OK);
-                        cliente.Abort();
-                        VentanaPrincipal.CambiarPagina(this, new PaginaInicioSesion());
-                    }
-                    else
-                    {
-                        MessageBox.Show("La actualización de la información no se ha realizado",
-                            "Error al actualizar información", MessageBoxButton.OK);
-                    }
-                    //VentanaPrincipal.CambiarPagina(this,new  PaginaInformacionJugador);
-                }
-                else
-                {
-                    if (!(cliente.ExisteNombreJugador(jugadorRegistro.NombreJugador)))
+                    if (mismoNombre)
                     {
                         bool resultadoRegistro = cliente.ActualizarInformacion(datosJugador);
                         if (resultadoRegistro)
@@ -125,14 +109,39 @@ namespace RompecabezasFei
                             MessageBox.Show("La actualización de la información se ha realizado correctamente",
                                 "Actualización realizada correctamente", MessageBoxButton.OK);
                             cliente.Abort();
-                            VentanaPrincipal.CambiarPagina(this, new PaginaInicioSesion());
+                            Dominio.CuentaJugador.CuentaJugadorActual.NumeroAvatar = datosJugador.NumeroAvatar;
+                            Dominio.CuentaJugador.CuentaJugadorActual.NombreJugador = datosJugador.NombreJugador;
+                            PaginaInformacionJugador paginaInformacionJugador = new PaginaInformacionJugador();
+                            paginaInformacionJugador.InitializeComponent();
+                            paginaInformacionJugador.CargarDatosJugador();
+                            VentanaPrincipal.CambiarPagina(this, paginaInformacionJugador);
                         }
                         else
                         {
                             MessageBox.Show("La actualización de la información no se ha realizado",
                                 "Error al actualizar información", MessageBoxButton.OK);
                         }
-                        //VentanaPrincipal.CambiarPagina(this, new PaginaInformacionJugador());
+                    }
+                    else
+                    {
+                        if (!(cliente.ExisteNombreJugador(jugadorRegistro.NombreJugador)))
+                        {
+                            bool resultadoRegistro = cliente.ActualizarInformacion(datosJugador);
+                            if (resultadoRegistro)
+                            {
+                                MessageBox.Show("La actualización de la información se ha realizado correctamente",
+                                    "Actualización realizada correctamente", MessageBoxButton.OK);
+                                cliente.Abort();
+                                Dominio.CuentaJugador.CuentaJugadorActual.NumeroAvatar = datosJugador.NumeroAvatar;
+                                Dominio.CuentaJugador.CuentaJugadorActual.NombreJugador = datosJugador.NombreJugador;
+                                VentanaPrincipal.CambiarPagina(this, new PaginaInformacionJugador());
+                            }
+                            else
+                            {
+                                MessageBox.Show("La actualización de la información no se ha realizado",
+                                    "Error al actualizar información", MessageBoxButton.OK);
+                            }
+                        }
                     }
                 }
             }
@@ -194,7 +203,7 @@ namespace RompecabezasFei
         private bool ExistenCaracteresInvalidos(String textoValido)
         {
             bool caracteresInvalidos = false;
-            if (Regex.IsMatch(textoValido, "^[A-Za-zÁÉÍÓÚáéíóúñÑ\\s]+$") == false)
+            if (Regex.IsMatch(textoValido, @"^[A-Za-zÁÉÍÓÚáéíóúñÑ]+(?:\s[A-Za-zÁÉÍÓÚáéíóúñÑ]+)?$") == false) // "^[A-Za-zÁÉÍÓÚáéíóúñÑ\\s]+$")
             {
                 caracteresInvalidos = true;
             }
