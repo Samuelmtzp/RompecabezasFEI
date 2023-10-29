@@ -163,7 +163,7 @@ namespace RompecabezasFei
         private bool ExistenCaracteresInvalidos(String textoValido)
         {
             bool caracteresInvalidos = false;
-            if (Regex.IsMatch(textoValido, "^[A-Za-zÁÉÍÓÚáéíóúñÑ\\s]+$") == false)
+            if (Regex.IsMatch(textoValido, @"^[A-Za-zÁÉÍÓÚáéíóúñÑ]+(?:\s[A-Za-zÁÉÍÓÚáéíóúñÑ]+)?$") == false)
             {
                 caracteresInvalidos = true;
             }

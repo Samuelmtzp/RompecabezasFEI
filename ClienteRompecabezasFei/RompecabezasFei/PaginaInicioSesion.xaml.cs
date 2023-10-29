@@ -50,7 +50,7 @@ namespace RompecabezasFei
 
         private void AccionInicioSesion(object remitente, RoutedEventArgs evento)
         {
-            var nombreUsuario = CuadroTextoNombreUsuario.Text;
+            var nombreUsuario = CuadroTextoNombreUsuario.Text.Trim();
             var contrasena = CuadroContrasena.Password;
             if (!String.IsNullOrWhiteSpace(nombreUsuario) && 
                 !String.IsNullOrWhiteSpace(contrasena))
@@ -129,8 +129,8 @@ namespace RompecabezasFei
         private bool ExistenCadenasValidas(string nombreJugador, string contrasena)
         {
             var esValido = false;
-            if (Regex.IsMatch(nombreJugador, "^[a-zA-Z0-9]*$") && Regex.IsMatch(contrasena,
-                "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$"))
+            if (Regex.IsMatch(nombreJugador, @"^[a-zA-Z0-9]+(?:\s[a-zA-Z0-9]+)?$") && Regex.IsMatch(contrasena,
+                "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$")) //"^[a-zA-Z0-9]*$" - @"^[a-zA-Z0-9]+(?:\s[a-zA-Z0-9]+)?$"
             {
                 esValido = true;
             }
