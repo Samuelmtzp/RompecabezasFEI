@@ -1,0 +1,57 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RompecabezasFei"
+      xmlns:Properties="clr-namespace:RompecabezasFei.Properties" x:Class="RompecabezasFei.PaginaAjustesPartida"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1280"
+      Title="PaginaSeleccionRompecabezas">
+
+    <Grid>
+        <Grid Margin="96,328,90,72" Width="1111" Height="340">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Border Grid.Row="1" BorderBrush="White" BorderThickness="1">
+                <ScrollViewer Background="Transparent">
+                    <ItemsControl x:Name="galeriaImagenesRompecabezas" Grid.Row="1" ItemsSource="{Binding imagenesRompecabezas}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel IsItemsHost="True" Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Border BorderBrush="{Binding ColorDeBorde}"
+                                    BorderThickness="4"
+                                    MouseEnter="EventoCursorSobreImagen"
+                                    MouseLeave="EventoCursorFueraDeImagen"
+                                    MouseLeftButtonDown="EventoClickEnImagen">
+                                        <Image Source="{Binding Ruta}" Width="200" Height="120" Stretch="UniformToFill" />
+                                    </Border>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </Border>
+        </Grid>
+        <Image x:Name="imagenFlechaRegreso" Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="42,36,1157,603" Height="81" Width="81" MouseDown="EventoClickRegresar"/>
+        <Label Content="Ajustes de partida" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Foreground="White" FontSize="48" FontWeight="Bold"/>
+        <Label Content="Dificultad" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="96,173,0,0" VerticalAlignment="Top" Height="58" Width="213" FontSize="36" Foreground="White" FontWeight="Bold"/>
+        <ComboBox x:Name="cuadroSeleccionDificultad" HorizontalAlignment="Left" Margin="334,173,0,0" VerticalAlignment="Top" FontSize="10" Width="138" Height="29" SelectionChanged="EventoSeleccionDificultad">
+            <ComboBox.LayoutTransform>
+                <ScaleTransform ScaleX="2" ScaleY="2"/>
+            </ComboBox.LayoutTransform>
+            <ComboBoxItem Content="{x:Static Properties:Resources.BOTON_OPCIONESSALA_FACIL}"/>
+            <ComboBoxItem Content="{x:Static Properties:Resources.BOTON_OPCIONESSALA_MEDIA}"/>
+            <ComboBoxItem Content="{x:Static Properties:Resources.BOTON_OPCIONESSALA_DIFICIL}"/>
+        </ComboBox>
+        <Button x:Name="botonGestionarJugadores" Content="Gestionar jugadores" HorizontalAlignment="Left" Margin="800,173,0,0" VerticalAlignment="Top" Height="58" Width="407" FontSize="32" Background="#FF048ABF" Foreground="White" FontWeight="Bold" Click="EventoClickGestionarJugadores"/>
+        <Label Content="Elige un rompecabezas" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="385,265,0,0" VerticalAlignment="Top" Height="58" Width="533" FontSize="36" Foreground="White" FontWeight="Bold"/>
+    </Grid>
+</Page>

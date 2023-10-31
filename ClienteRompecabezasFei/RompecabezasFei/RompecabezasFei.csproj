@@ -77,6 +77,12 @@
     <Compile Include="PaginaAjustes.xaml.cs">
       <DependentUpon>PaginaAjustes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PaginaAmistades.xaml.cs">
+      <DependentUpon>PaginaAmistades.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PaginaGestionJugadoresPartida.xaml.cs">
+      <DependentUpon>PaginaGestionJugadoresPartida.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PaginaInformacionJugador.xaml.cs">
       <DependentUpon>PaginaInformacionJugador.xaml</DependentUpon>
     </Compile>
@@ -92,11 +98,17 @@
     <Compile Include="PaginaRegistroJugador.xaml.cs">
       <DependentUpon>PaginaRegistroJugador.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PaginaResultados.xaml.cs">
+      <DependentUpon>PaginaResultados.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PaginaSala.xaml.cs">
       <DependentUpon>PaginaSala.xaml</DependentUpon>
     </Compile>
     <Compile Include="PaginaSeleccionAvatar.xaml.cs">
       <DependentUpon>PaginaSeleccionAvatar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PaginaAjustesPartida.xaml.cs">
+      <DependentUpon>PaginaAjustesPartida.xaml</DependentUpon>
     </Compile>
     <Compile Include="PaginaUnirseSala.xaml.cs">
       <DependentUpon>PaginaUnirseSala.xaml</DependentUpon>
@@ -169,6 +181,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PaginaAmistades.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PaginaGestionJugadoresPartida.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PaginaInformacionJugador.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -189,11 +209,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PaginaResultados.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PaginaSala.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PaginaSeleccionAvatar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PaginaAjustesPartida.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -284,7 +312,6 @@
     <Resource Include="Imagenes\Indicadores\Corona.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\Rompecabezas\GatoMalvado.jpg" />
     <None Include="Connected Services\ServicioRompecabezasFei\item.disco" />
     <None Include="Connected Services\ServicioRompecabezasFei\configuration91.svcinfo" />
     <None Include="Connected Services\ServicioRompecabezasFei\configuration.svcinfo" />
@@ -292,11 +319,28 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Resource Include="Imagenes\Rompecabezas\1.png" />
+    <Resource Include="Imagenes\Rompecabezas\10.png" />
+    <Resource Include="Imagenes\Rompecabezas\11.png" />
+    <Resource Include="Imagenes\Rompecabezas\12.png" />
+    <Resource Include="Imagenes\Rompecabezas\13.png" />
+    <Resource Include="Imagenes\Rompecabezas\14.png" />
+    <Resource Include="Imagenes\Rompecabezas\15.png" />
+    <Resource Include="Imagenes\Rompecabezas\16.png" />
+    <Resource Include="Imagenes\Rompecabezas\2.png" />
+    <Resource Include="Imagenes\Rompecabezas\3.png" />
+    <Resource Include="Imagenes\Rompecabezas\4.png" />
+    <Resource Include="Imagenes\Rompecabezas\5.png" />
+    <Resource Include="Imagenes\Rompecabezas\6.png" />
+    <Resource Include="Imagenes\Rompecabezas\7.png" />
+    <Resource Include="Imagenes\Rompecabezas\8.png" />
+    <Resource Include="Imagenes\Rompecabezas\9.png" />
     <Content Include="Sonidos\ClicSonido.wav" />
     <Content Include="Sonidos\MusicaRompecabezasFei.wav" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ServicioRompecabezasFei\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
