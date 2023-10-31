@@ -82,6 +82,7 @@
     </Compile>
     <Compile Include="PaginaGestionJugadoresPartida.xaml.cs">
       <DependentUpon>PaginaGestionJugadoresPartida.xaml</DependentUpon>
+    </Compile>  
     <Compile Include="PaginaCodigoRestablecimientoContrasena.xaml.cs">
       <DependentUpon>PaginaCodigoRestablecimientoContrasena.xaml</DependentUpon>
     </Compile>
@@ -96,6 +97,7 @@
     </Compile>
     <Compile Include="PaginaPartida.xaml.cs">
       <DependentUpon>PaginaPartida.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PaginaRecuperacionContrasena.xaml.cs">
       <DependentUpon>PaginaRecuperacionContrasena.xaml</DependentUpon>
     </Compile>
@@ -104,6 +106,7 @@
     </Compile>
     <Compile Include="PaginaResultados.xaml.cs">
       <DependentUpon>PaginaResultados.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PaginaRestablecimientoContrasena.xaml.cs">
       <DependentUpon>PaginaRestablecimientoContrasena.xaml</DependentUpon>
     </Compile>
