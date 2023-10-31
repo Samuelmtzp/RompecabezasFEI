@@ -57,6 +57,41 @@ namespace Servicios
             return estadoActualizar;
         }
 
+        public bool ActualizarContrasena(CuentaJugador cuentaJugador)
+        {
+            Registro registro = new Registro();
+            bool estadoActualizar;
+            try
+            {
+                CuentaJugador cuentaJugadorRegistro = new CuentaJugador()
+                {
+                    IdCuenta = cuentaJugador.IdCuenta,
+                    Contrasena = cuentaJugador.Contrasena,
+                };
+                estadoActualizar = registro.ActualizarContrasena(cuentaJugadorRegistro);
+            }
+            catch (EntityException)
+            {
+                estadoActualizar = false;
+            }
+            return estadoActualizar;
+        }
+
+        public bool RestablecerContrasena(string correo, string contrasena)
+        {
+            Registro registro = new Registro();
+            bool estadoActualizar;
+            try
+            {
+                estadoActualizar = registro.RestablecerContrasena(correo, contrasena);
+            }
+            catch (EntityException)
+            {
+                estadoActualizar = false;
+            }
+            return estadoActualizar;
+        }
+
         public bool ExisteNombreJugador(string nombreJugador)
         {
             ConsultasJugador consultasJugador = new ConsultasJugador();

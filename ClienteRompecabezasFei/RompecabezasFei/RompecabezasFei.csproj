@@ -82,6 +82,8 @@
     </Compile>
     <Compile Include="PaginaGestionJugadoresPartida.xaml.cs">
       <DependentUpon>PaginaGestionJugadoresPartida.xaml</DependentUpon>
+    <Compile Include="PaginaCodigoRestablecimientoContrasena.xaml.cs">
+      <DependentUpon>PaginaCodigoRestablecimientoContrasena.xaml</DependentUpon>
     </Compile>
     <Compile Include="PaginaInformacionJugador.xaml.cs">
       <DependentUpon>PaginaInformacionJugador.xaml</DependentUpon>
@@ -94,12 +96,16 @@
     </Compile>
     <Compile Include="PaginaPartida.xaml.cs">
       <DependentUpon>PaginaPartida.xaml</DependentUpon>
+    <Compile Include="PaginaRecuperacionContrasena.xaml.cs">
+      <DependentUpon>PaginaRecuperacionContrasena.xaml</DependentUpon>
     </Compile>
     <Compile Include="PaginaRegistroJugador.xaml.cs">
       <DependentUpon>PaginaRegistroJugador.xaml</DependentUpon>
     </Compile>
     <Compile Include="PaginaResultados.xaml.cs">
       <DependentUpon>PaginaResultados.xaml</DependentUpon>
+    <Compile Include="PaginaRestablecimientoContrasena.xaml.cs">
+      <DependentUpon>PaginaRestablecimientoContrasena.xaml</DependentUpon>
     </Compile>
     <Compile Include="PaginaSala.xaml.cs">
       <DependentUpon>PaginaSala.xaml</DependentUpon>
@@ -189,6 +195,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PaginaCodigoRestablecimientoContrasena.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PaginaInformacionJugador.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -205,11 +215,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PaginaRecuperacionContrasena.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PaginaRegistroJugador.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PaginaResultados.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PaginaRestablecimientoContrasena.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
