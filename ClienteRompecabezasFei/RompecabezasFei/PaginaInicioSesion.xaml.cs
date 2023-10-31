@@ -34,7 +34,7 @@ namespace RompecabezasFei
         private void AccionRecuperarContrasena(object remitente, 
             MouseButtonEventArgs evento)
         {
-
+            VentanaPrincipal.CambiarPagina(this, new PaginaRecuperacionContrasena());
         }
 
         private void AccionRegistro(object remitente, MouseButtonEventArgs evento)

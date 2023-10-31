@@ -7,6 +7,7 @@ namespace Logica
 {
     public class Registro
     {
+        int idCuenta;
         public bool Registrar(CuentaJugador cuentaJugadorRegistro)
         {
             bool estadoRegistro = false;
@@ -41,7 +42,7 @@ namespace Logica
                         cuentaJugadorRegistro.IdJugador).ToList();
                 Jugador[(cuentaJugadorRegistro.IdJugador) - 1].NombreJugador = cuentaJugadorRegistro.NombreJugador;
                 Jugador[(cuentaJugadorRegistro.IdJugador) - 1].NumeroAvatar = cuentaJugadorRegistro.NumeroAvatar;
-                informacionActualizada = contexto.SaveChanges() > 0; 
+                informacionActualizada = contexto.SaveChanges() > 0;
             }
             return informacionActualizada;
         }
@@ -52,11 +53,29 @@ namespace Logica
             using (var contexto = new EntidadesRompecabezasFei())
             {
                 var Cuenta = contexto.Cuenta.Where(x => x.IdCuenta ==
-                        cuentaJugadorRegistro.IdCuenta).ToList(); 
+                        cuentaJugadorRegistro.IdCuenta).ToList();
                 Cuenta[(cuentaJugadorRegistro.IdCuenta) - 1].Contrasena = cuentaJugadorRegistro.Contrasena;
                 informacionActualizada = contexto.SaveChanges() > 0;
             }
             return informacionActualizada;
         }
+
+        public bool RestablecerContrasena(string correo, string contrasena)
+        {
+            bool informacionActualizada = false;
+            using (var contexto = new EntidadesRompecabezasFei())
+            {
+                var cuenta = contexto.Cuenta.SingleOrDefault(x => x.Correo == correo);
+
+                if (cuenta != null)
+                {
+                    cuenta.Contrasena = contrasena;
+                    contexto.SaveChanges();
+                    informacionActualizada = true;
+                }
+            }
+            return informacionActualizada;
+        }
+
     }
 }
