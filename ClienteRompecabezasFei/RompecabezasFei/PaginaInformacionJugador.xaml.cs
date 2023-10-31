@@ -43,17 +43,17 @@ namespace RompecabezasFei
 
         private void AccionCambiarContrasena(object remitente, RoutedEventArgs evento)
         {
-            VentanaPrincipal.CambiarPagina(this, new PaginaActualizacionContrasena());
+            VentanaPrincipal.CambiarPagina(new PaginaActualizacionContrasena());
         }
 
         private void AccionActualizarInformacion(object remitente, RoutedEventArgs evento)
         {
-            VentanaPrincipal.CambiarPagina(this, new PaginaActualizacionInformacion());
+            VentanaPrincipal.CambiarPagina(new PaginaActualizacionInformacion());
         }
 
         private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
         {
-            VentanaPrincipal.CambiarPagina(this, new PaginaMenuPrincipal());
+            VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
         }
     }
 }

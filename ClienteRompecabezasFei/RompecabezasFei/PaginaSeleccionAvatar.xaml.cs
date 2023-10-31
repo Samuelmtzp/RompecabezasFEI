@@ -19,11 +19,6 @@ namespace RompecabezasFei
             InitializeComponent();
         }
 
-        private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
-        {
-            Regresar();
-        }
-
         private void AccionSeleccionAvatar(object remitente, MouseButtonEventArgs evento)
         {
             Image imagenSeleccionada = remitente as Image;
@@ -45,7 +40,7 @@ namespace RompecabezasFei
                 paginaRegistroUsuario.ImagenAvatarActual.Tag = ImagenAvatarActual.Tag;
                 paginaRegistroUsuario.JugadorRegistro = jugadorRegistro;
                 paginaRegistroUsuario.CargarDatosEdicion();
-                VentanaPrincipal.CambiarPagina(this, paginaRegistroUsuario);
+                VentanaPrincipal.CambiarPagina(paginaRegistroUsuario);
             }
             else
             {
@@ -56,11 +51,11 @@ namespace RompecabezasFei
                     paginaActualizacionInformacion.ImagenAvatarActual.Tag = ImagenAvatarActual.Tag;
                     paginaActualizacionInformacion.JugadorRegistro = jugadorRegistro;
                     paginaActualizacionInformacion.CargarDatosEdicion();
-                    VentanaPrincipal.CambiarPagina(this, paginaActualizacionInformacion);
+                    VentanaPrincipal.CambiarPagina(paginaActualizacionInformacion);
                 }
                 else
                 {
-                    VentanaPrincipal.CambiarPagina(this, new PaginaActualizacionInformacion());
+                    VentanaPrincipal.CambiarPagina(new PaginaActualizacionInformacion());
                 }
             }
             

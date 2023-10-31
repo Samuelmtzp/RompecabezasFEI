@@ -15,14 +15,16 @@ using System.Windows.Shapes;
 
 namespace RompecabezasFei
 {
-    /// <summary>
-    /// Interaction logic for PaginaResultados.xaml
-    /// </summary>
     public partial class PaginaResultados : Page
     {
         public PaginaResultados()
         {
             InitializeComponent();
+        }
+
+        private void EventoClickAceptar(object controlOrigen, RoutedEventArgs evento)
+        {
+            VentanaPrincipal.CambiarPagina(new PaginaSala());
         }
     }
 }

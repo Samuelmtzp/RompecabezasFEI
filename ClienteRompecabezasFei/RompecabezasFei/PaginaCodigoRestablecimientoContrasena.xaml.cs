@@ -26,7 +26,7 @@ namespace RompecabezasFei
                 bool codigoVerificacionCoincide = codigoVerificacion.Equals(codigoGenerado);
                 if (codigoVerificacionCoincide)
                 {
-                    VentanaPrincipal.CambiarPagina(this, new PaginaRestablecimientoContrasena(correo));
+                    VentanaPrincipal.CambiarPagina(new PaginaRestablecimientoContrasena(correo));
                 }
                 else
                 {
@@ -37,7 +37,7 @@ namespace RompecabezasFei
 
         private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
         {
-            VentanaPrincipal.CambiarPagina(this, new PaginaRecuperacionContrasena());
+            VentanaPrincipal.CambiarPagina(new PaginaRecuperacionContrasena());
         }
 
         private void EnviarCodigo()
@@ -52,7 +52,7 @@ namespace RompecabezasFei
 
         private void Cancelar(object sender, RoutedEventArgs e)
         {
-            VentanaPrincipal.CambiarPagina(this, new PaginaInicioSesion());
+            VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
         }
 
         private void AceptarSoloCaracteresNumericos(object remitente,

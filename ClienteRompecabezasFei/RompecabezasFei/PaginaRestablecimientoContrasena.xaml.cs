@@ -31,7 +31,7 @@ namespace RompecabezasFei
                     {
                         MessageBox.Show("Su nueva contraseña ha sido actualizada correctamente",
                                         "Contraseña restablecida", MessageBoxButton.OK);
-                        VentanaPrincipal.CambiarPagina(this, new PaginaInicioSesion());
+                        VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
                     }
                     else
                     {

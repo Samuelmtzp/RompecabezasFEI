@@ -49,12 +49,12 @@ namespace RompecabezasFei
         {
             PaginaSala paginaSala = new PaginaSala();
             paginaSala.CrearNuevaSala(true);
-            VentanaPrincipal.CambiarPagina(this, paginaSala);
+            VentanaPrincipal.CambiarPagina(paginaSala);
         }
 
         private void AccionUnirseASala(object remintente, RoutedEventArgs evento)
         {
-            VentanaPrincipal.CambiarPagina(this, new PaginaUnirseSala());
+            VentanaPrincipal.CambiarPagina(new PaginaUnirseSala());
         }
 
         private void AccionMisAmigos(object remitente, MouseButtonEventArgs evento)
@@ -72,18 +72,18 @@ namespace RompecabezasFei
             if (resultado == MessageBoxResult.Yes)
             {
                 CuentaJugador.CuentaJugadorActual = null;
-                VentanaPrincipal.CambiarPagina(this, new PaginaInicioSesion());
+                VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
             }
         }
 
         private void AccionMiPerfil(object remitente, MouseButtonEventArgs evento)
         {
-            VentanaPrincipal.CambiarPagina(this, new PaginaInformacionJugador());
+            VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
         }
 
         private void AccionAjustes(object remitente, MouseButtonEventArgs evento)
         {
-            VentanaPrincipal.CambiarPaginaGuardandoAnterior(this, new PaginaAjustes());
+            VentanaPrincipal.CambiarPaginaGuardandoAnterior(new PaginaAjustes());
         }
     }
 }

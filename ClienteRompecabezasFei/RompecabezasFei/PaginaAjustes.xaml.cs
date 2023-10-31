@@ -52,18 +52,18 @@ namespace RompecabezasFei
 
         private void RefrescarPaginaActual()
         {
-            VentanaPrincipal.CambiarPagina(this, new PaginaAjustes());
+            VentanaPrincipal.CambiarPagina(new PaginaAjustes());
         }
 
         private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
         {
             if (typeof(PaginaInicioSesion).IsInstanceOfType(VentanaPrincipal.PaginaAnterior))
             {
-                VentanaPrincipal.CambiarPagina(this, new PaginaInicioSesion());
+                VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
             } 
             else
             {
-                VentanaPrincipal.CambiarPagina(this, new PaginaMenuPrincipal());
+                VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
             }
         }
 

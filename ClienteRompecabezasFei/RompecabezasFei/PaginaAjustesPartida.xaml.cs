@@ -62,7 +62,7 @@ namespace RompecabezasFei
 
         private void EventoClickRegresar(object sender, MouseButtonEventArgs e)
         {
-
+            VentanaPrincipal.CambiarPagina(new PaginaSala());
         }
 
         private void EventoClickGestionarJugadores(object sender, System.Windows.RoutedEventArgs e)
