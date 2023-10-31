@@ -15,7 +15,7 @@ namespace RompecabezasFei
             CargarDatosJugador();
         }
 
-        private void CargarDatosJugador()
+        public void CargarDatosJugador()
         {
             EtiquetaNombreJugador.Content = Dominio.CuentaJugador.
                 CuentaJugadorActual.NombreJugador;
@@ -36,7 +36,6 @@ namespace RompecabezasFei
             BitmapImage ImagenUsuarioMapaBits = new BitmapImage();
             ImagenUsuarioMapaBits.BeginInit();
             rutaImagen += Dominio.CuentaJugador.CuentaJugadorActual.NumeroAvatar + ".png";
-
             ImagenUsuarioMapaBits.UriSource = new Uri(rutaImagen, UriKind.RelativeOrAbsolute);
             ImagenUsuarioMapaBits.EndInit();
             ImagenAvatarJugador.Source = ImagenUsuarioMapaBits;

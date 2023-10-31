@@ -73,7 +73,6 @@ namespace RompecabezasFei
                     PaginaVerificacionCorreo paginaVerificacionCorreo = 
                         new PaginaVerificacionCorreo(jugadorRegistro);
                     VentanaPrincipal.CambiarPagina(this, paginaVerificacionCorreo);
-
                 }
             }
         }
@@ -123,7 +122,7 @@ namespace RompecabezasFei
             bool cadenasInvalidas = false;
             if (ExistenCaracteresInvalidos(CuadroTextoNombreUsuario.Text))
             {
-                MessageBox.Show("El correo electrónico que has ingresado es inválido", 
+                MessageBox.Show("El nombre de usuario que has ingresado es inválido", 
                     "Nombre de usuario inválido", MessageBoxButton.OK);
                 cadenasInvalidas = true;
             }

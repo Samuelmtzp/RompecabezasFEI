@@ -1,5 +1,6 @@
 ﻿using Contratos;
 using Logica;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -33,6 +34,27 @@ namespace Servicios
                 estadoRegistro = false;
             }
             return estadoRegistro;
+        }
+
+        public bool ActualizarInformacion(CuentaJugador cuentaJugador)
+        {
+            Registro registro = new Registro();
+            bool estadoActualizar;
+            try
+            {
+                CuentaJugador cuentaJugadorRegistro = new CuentaJugador()
+                {
+                    IdJugador = cuentaJugador.IdJugador,
+                    NombreJugador = cuentaJugador.NombreJugador,
+                    NumeroAvatar = cuentaJugador.NumeroAvatar,
+                };
+                estadoActualizar = registro.ActualizarInformacion(cuentaJugadorRegistro);
+            }
+            catch(EntityException)
+            {
+                estadoActualizar = false;
+            }
+            return estadoActualizar;
         }
 
         public bool ExisteNombreJugador(string nombreJugador)
