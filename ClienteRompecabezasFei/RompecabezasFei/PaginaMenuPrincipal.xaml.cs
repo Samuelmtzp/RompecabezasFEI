@@ -59,14 +59,15 @@ namespace RompecabezasFei
 
         private void AccionMisAmigos(object remitente, MouseButtonEventArgs evento)
         {
-            MessageBox.Show("Click en opción mis amigos");
+
         }
 
         private void AccionCerrarSesion(object remitente, MouseButtonEventArgs evento)
         {
             MessageBoxResult resultado = MessageBox.Show(
-                "¿Estás seguro de que deseas cerrar sesión?", 
-                "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                Properties.Resources.ETIQUETA_CERRARSESION_MENSAJE, 
+                Properties.Resources.ETIQUETA_CERRARSESION_TITULO, 
+                MessageBoxButton.YesNo, MessageBoxImage.Question);
 
             if (resultado == MessageBoxResult.Yes)
             {
@@ -84,6 +85,5 @@ namespace RompecabezasFei
         {
             VentanaPrincipal.CambiarPaginaGuardandoAnterior(this, new PaginaAjustes());
         }
-
     }
 }

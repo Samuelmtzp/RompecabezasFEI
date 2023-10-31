@@ -77,6 +77,11 @@
     <Compile Include="PaginaAjustes.xaml.cs">
       <DependentUpon>PaginaAjustes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PaginaAmistades.xaml.cs">
+      <DependentUpon>PaginaAmistades.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PaginaGestionJugadoresPartida.xaml.cs">
+      <DependentUpon>PaginaGestionJugadoresPartida.xaml</DependentUpon>
     <Compile Include="PaginaCodigoRestablecimientoContrasena.xaml.cs">
       <DependentUpon>PaginaCodigoRestablecimientoContrasena.xaml</DependentUpon>
     </Compile>
@@ -89,12 +94,16 @@
     <Compile Include="PaginaMenuPrincipal.xaml.cs">
       <DependentUpon>PaginaMenuPrincipal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PaginaPartida.xaml.cs">
+      <DependentUpon>PaginaPartida.xaml</DependentUpon>
     <Compile Include="PaginaRecuperacionContrasena.xaml.cs">
       <DependentUpon>PaginaRecuperacionContrasena.xaml</DependentUpon>
     </Compile>
     <Compile Include="PaginaRegistroJugador.xaml.cs">
       <DependentUpon>PaginaRegistroJugador.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PaginaResultados.xaml.cs">
+      <DependentUpon>PaginaResultados.xaml</DependentUpon>
     <Compile Include="PaginaRestablecimientoContrasena.xaml.cs">
       <DependentUpon>PaginaRestablecimientoContrasena.xaml</DependentUpon>
     </Compile>
@@ -103,6 +112,9 @@
     </Compile>
     <Compile Include="PaginaSeleccionAvatar.xaml.cs">
       <DependentUpon>PaginaSeleccionAvatar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PaginaAjustesPartida.xaml.cs">
+      <DependentUpon>PaginaAjustesPartida.xaml</DependentUpon>
     </Compile>
     <Compile Include="PaginaUnirseSala.xaml.cs">
       <DependentUpon>PaginaUnirseSala.xaml</DependentUpon>
@@ -175,6 +187,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PaginaAmistades.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PaginaGestionJugadoresPartida.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PaginaCodigoRestablecimientoContrasena.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -191,11 +211,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PaginaPartida.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PaginaRecuperacionContrasena.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PaginaRegistroJugador.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PaginaResultados.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -208,6 +236,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PaginaSeleccionAvatar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PaginaAjustesPartida.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -305,11 +337,28 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Resource Include="Imagenes\Rompecabezas\1.png" />
+    <Resource Include="Imagenes\Rompecabezas\10.png" />
+    <Resource Include="Imagenes\Rompecabezas\11.png" />
+    <Resource Include="Imagenes\Rompecabezas\12.png" />
+    <Resource Include="Imagenes\Rompecabezas\13.png" />
+    <Resource Include="Imagenes\Rompecabezas\14.png" />
+    <Resource Include="Imagenes\Rompecabezas\15.png" />
+    <Resource Include="Imagenes\Rompecabezas\16.png" />
+    <Resource Include="Imagenes\Rompecabezas\2.png" />
+    <Resource Include="Imagenes\Rompecabezas\3.png" />
+    <Resource Include="Imagenes\Rompecabezas\4.png" />
+    <Resource Include="Imagenes\Rompecabezas\5.png" />
+    <Resource Include="Imagenes\Rompecabezas\6.png" />
+    <Resource Include="Imagenes\Rompecabezas\7.png" />
+    <Resource Include="Imagenes\Rompecabezas\8.png" />
+    <Resource Include="Imagenes\Rompecabezas\9.png" />
     <Content Include="Sonidos\ClicSonido.wav" />
     <Content Include="Sonidos\MusicaRompecabezasFei.wav" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ServicioRompecabezasFei\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

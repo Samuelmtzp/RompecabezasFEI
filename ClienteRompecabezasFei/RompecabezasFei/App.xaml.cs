@@ -3,6 +3,7 @@ using System.Media;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace RompecabezasFei
 {
@@ -11,15 +12,17 @@ namespace RompecabezasFei
         private List<string> idiomasDisponibles = new List<string>() { "es-MX", "en-US" };
         private string idiomaActual;
         private bool musicaActiva;
+
+        public System.IO.Stream str = RompecabezasFei.Properties.ResourceSonidos.MusicaRompecabezasFei;
         System.IO.Stream pistaAudio = RompecabezasFei.Properties.
              ResourceSonidos.MusicaRompecabezasFei;
         SoundPlayer reproductorMusica;
 
         public string IdiomaActual
         {
-            get
-            {
-                return idiomaActual;
+            get 
+            { 
+                return idiomaActual; 
             }
             private set
             {

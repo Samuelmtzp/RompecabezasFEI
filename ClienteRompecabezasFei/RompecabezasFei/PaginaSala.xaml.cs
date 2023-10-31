@@ -16,7 +16,6 @@ namespace RompecabezasFei
         private bool esAnfitrion;
         private bool hayConexionEstablecida;
         private ServicioJuegoClient clienteServicioJuego;
-        private CuentaJugador[] listaCuentasJugador;
         #endregion
 
         #region Propiedades
@@ -43,9 +42,9 @@ namespace RompecabezasFei
             VentanaPrincipal.CambiarPagina(this, new PaginaMenuPrincipal());
         }
 
-        private void AccionOpcionesSala(object remitente, RoutedEventArgs evento)
+        private void EventoOpcionesSala(object remitente, RoutedEventArgs evento)
         {
-
+            VentanaPrincipal.CambiarPagina(this, new PaginaAjustesPartida());
         }
 
         private void AccionCopiarCodigoSala(object remitente, RoutedEventArgs evento)
@@ -63,9 +62,9 @@ namespace RompecabezasFei
             }
         }
 
-        private void AccionIniciarPartida(object remitente, RoutedEventArgs evento)
+        private void EventoClickNuevaPartida(object remitente, RoutedEventArgs evento)
         {
-            
+            VentanaPrincipal.CambiarPagina(this, new PaginaPartida());
         }
 
         public bool CrearNuevaSala(bool esNuevaSala)
@@ -108,7 +107,7 @@ namespace RompecabezasFei
                 clienteServicioJuego = new ServicioJuegoClient(new InstanceContext(this));
                 if (esNuevaSala)
                 {
-                    esAnfitrion = true;                    
+                    esAnfitrion = true;
                     idSala = clienteServicioJuego.GenerarCodigoParaNuevaSala();
                     clienteServicioJuego.NuevaSala(Dominio.CuentaJugador.
                         CuentaJugadorActual.NombreJugador, idSala);
