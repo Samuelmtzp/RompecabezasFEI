@@ -9,7 +9,6 @@
       d:DesignHeight="720" d:DesignWidth="1280">
 
     <Grid>
-        <Image Name="ImagenFlechaRegreso" Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="42,36,1157,604" Height="81" Width="81" MouseDown="AccionRegresar"/>
         <Image Name="ImagenAvatarActual" HorizontalAlignment="Left" Height="200" Margin="540,55,0,0" VerticalAlignment="Top" Width="200"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="254,0,0,0" VerticalAlignment="Center" Width="100" Source="\Imagenes/Avatares/1.png" Tag="1" MouseDown="AccionSeleccionAvatar"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="422,0,0,0" VerticalAlignment="Center" Width="100" Source="\Imagenes/Avatares/2.png" Tag="2" MouseDown="AccionSeleccionAvatar"/>

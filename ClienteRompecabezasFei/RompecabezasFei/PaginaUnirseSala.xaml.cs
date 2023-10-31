@@ -21,14 +21,14 @@ namespace RompecabezasFei
                 if (paginaSala.CrearNuevaSala(false))
                 {
                     paginaSala.EtiquetaCodigoSala.Content = CuadroTextoCodigoSala.Text;
-                    VentanaPrincipal.CambiarPagina(this, paginaSala);
+                    VentanaPrincipal.CambiarPagina(paginaSala);
                 }
             }
         }
 
         private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
         {
-            VentanaPrincipal.CambiarPagina(this, new PaginaMenuPrincipal());
+            VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
         }
     }
 }

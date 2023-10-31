@@ -39,12 +39,12 @@ namespace RompecabezasFei
         private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
         {
             FinalizarConexionConSala();
-            VentanaPrincipal.CambiarPagina(this, new PaginaMenuPrincipal());
+            VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
         }
 
         private void EventoOpcionesSala(object remitente, RoutedEventArgs evento)
         {
-            VentanaPrincipal.CambiarPagina(this, new PaginaAjustesPartida());
+            VentanaPrincipal.CambiarPaginaGuardandoAnterior(new PaginaAjustesPartida());
         }
 
         private void AccionCopiarCodigoSala(object remitente, RoutedEventArgs evento)
@@ -64,7 +64,7 @@ namespace RompecabezasFei
 
         private void EventoClickNuevaPartida(object remitente, RoutedEventArgs evento)
         {
-            VentanaPrincipal.CambiarPagina(this, new PaginaPartida());
+            VentanaPrincipal.CambiarPagina(new PaginaPartida());
         }
 
         public bool CrearNuevaSala(bool esNuevaSala)

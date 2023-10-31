@@ -24,7 +24,7 @@ namespace RompecabezasFei
 
         private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
         {
-            VentanaPrincipal.CambiarPagina(this, new PaginaInicioSesion());
+            VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
         }
 
         private void AccionSeleccionarAvatar(object remitente, RoutedEventArgs evento)
@@ -33,7 +33,7 @@ namespace RompecabezasFei
             paginaSeleccionAvatar.ImagenAvatarActual.Source = ImagenAvatarActual.Source;
             GuardarDatosEdicion();
             paginaSeleccionAvatar.JugadorRegistro = jugadorRegistro;
-            VentanaPrincipal.CambiarPaginaGuardandoAnterior(this, paginaSeleccionAvatar);
+            VentanaPrincipal.CambiarPaginaGuardandoAnterior(paginaSeleccionAvatar);
         }
 
         public void CargarDatosEdicion()
@@ -72,7 +72,7 @@ namespace RompecabezasFei
                 {
                     PaginaVerificacionCorreo paginaVerificacionCorreo = 
                         new PaginaVerificacionCorreo(jugadorRegistro);
-                    VentanaPrincipal.CambiarPagina(this, paginaVerificacionCorreo);
+                    VentanaPrincipal.CambiarPagina(paginaVerificacionCorreo);
                 }
             }
         }

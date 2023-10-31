@@ -28,24 +28,24 @@ namespace RompecabezasFei
                 EsInvitado = true
             };
 
-            VentanaPrincipal.CambiarPagina(this, new PaginaMenuPrincipal());
+            VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
         }
 
         private void AccionRecuperarContrasena(object remitente, 
             MouseButtonEventArgs evento)
         {
-            VentanaPrincipal.CambiarPagina(this, new PaginaRecuperacionContrasena());
+            VentanaPrincipal.CambiarPagina(new PaginaRecuperacionContrasena());
         }
 
         private void AccionRegistro(object remitente, MouseButtonEventArgs evento)
         {
-            VentanaPrincipal.CambiarPagina(this, new PaginaRegistroJugador());
+            VentanaPrincipal.CambiarPagina(new PaginaRegistroJugador());
         }
 
         
         private void AccionAjustes(object remitente, MouseButtonEventArgs evento)
         {
-            VentanaPrincipal.CambiarPaginaGuardandoAnterior(this, new PaginaAjustes());
+            VentanaPrincipal.CambiarPaginaGuardandoAnterior(new PaginaAjustes());
         }
 
         private void AccionInicioSesion(object remitente, RoutedEventArgs evento)
@@ -117,7 +117,7 @@ namespace RompecabezasFei
                     NumeroAvatar = cuentaJugadorAutenticada.NumeroAvatar,
                     EsInvitado = false
                 };
-                VentanaPrincipal.CambiarPagina(this, new PaginaMenuPrincipal());
+                VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
             }
             else
             {

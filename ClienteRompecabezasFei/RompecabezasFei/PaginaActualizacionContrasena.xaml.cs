@@ -28,7 +28,7 @@ namespace RompecabezasFei
 
         private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
         {
-            VentanaPrincipal.CambiarPagina(this, new PaginaInformacionJugador());
+            VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
         }
 
         private void AccionGuardarCambios(object remitente, RoutedEventArgs evento)
@@ -56,7 +56,7 @@ namespace RompecabezasFei
                             MessageBox.Show("La actualización de la contraseña se ha realizado correctamente",
                                    "Actualización realizada correctamente", MessageBoxButton.OK);
                             cliente.Abort();
-                            VentanaPrincipal.CambiarPagina(this, new PaginaInformacionJugador());
+                            VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
                         }
                         else
                         {

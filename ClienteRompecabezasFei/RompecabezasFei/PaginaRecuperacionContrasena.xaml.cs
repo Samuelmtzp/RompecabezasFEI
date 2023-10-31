@@ -26,7 +26,7 @@ namespace RompecabezasFei
                 {
                     PaginaCodigoRestablecimientoContrasena paginaCodigoRestablecimientoContrasena =
                         new PaginaCodigoRestablecimientoContrasena(correo);
-                    VentanaPrincipal.CambiarPagina(this, paginaCodigoRestablecimientoContrasena);
+                    VentanaPrincipal.CambiarPagina(paginaCodigoRestablecimientoContrasena);
                 }
                 else
                 {
@@ -37,7 +37,7 @@ namespace RompecabezasFei
 
         private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
         {
-            VentanaPrincipal.CambiarPagina(this, new PaginaInicioSesion());
+            VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
         }
 
         private bool ExistenCaracteresInvalidosParaCorreo(String textoValido)

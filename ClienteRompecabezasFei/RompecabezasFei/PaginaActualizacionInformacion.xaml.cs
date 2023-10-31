@@ -35,7 +35,7 @@ namespace RompecabezasFei
             paginaSeleccionAvatar.ImagenAvatarActual.Source = ImagenAvatarActual.Source;
             GuardarDatosEdicion();
             paginaSeleccionAvatar.JugadorRegistro = jugadorRegistro;
-            VentanaPrincipal.CambiarPaginaGuardandoAnterior(this, paginaSeleccionAvatar);
+            VentanaPrincipal.CambiarPaginaGuardandoAnterior(paginaSeleccionAvatar);
         }
 
         private void CargarImagenJugador()
@@ -75,7 +75,7 @@ namespace RompecabezasFei
             if (jugadorRegistro.NumeroAvatar == 0 && jugadorRegistro.NombreJugador.Equals(nombre))
             {
                 mismosDatos = true;
-                VentanaPrincipal.CambiarPagina(this, new PaginaInformacionJugador());
+                VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
             }
             else
             {
@@ -114,7 +114,7 @@ namespace RompecabezasFei
                             PaginaInformacionJugador paginaInformacionJugador = new PaginaInformacionJugador();
                             paginaInformacionJugador.InitializeComponent();
                             paginaInformacionJugador.CargarDatosJugador();
-                            VentanaPrincipal.CambiarPagina(this, paginaInformacionJugador);
+                            VentanaPrincipal.CambiarPagina(paginaInformacionJugador);
                         }
                         else
                         {
@@ -134,7 +134,7 @@ namespace RompecabezasFei
                                 cliente.Abort();
                                 Dominio.CuentaJugador.CuentaJugadorActual.NumeroAvatar = datosJugador.NumeroAvatar;
                                 Dominio.CuentaJugador.CuentaJugadorActual.NombreJugador = datosJugador.NombreJugador;
-                                VentanaPrincipal.CambiarPagina(this, new PaginaInformacionJugador());
+                                VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
                             }
                             else
                             {
@@ -149,7 +149,7 @@ namespace RompecabezasFei
                
         private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
         {
-            VentanaPrincipal.CambiarPagina(this, new PaginaInformacionJugador());
+            VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
         }
 
         #region Validaciones

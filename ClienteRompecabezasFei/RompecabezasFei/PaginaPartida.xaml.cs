@@ -32,7 +32,7 @@ namespace RompecabezasFei
                 Celdas = new List<Celda>(),
                 TotalFilas = 6,
                 TotalColumnas = 10,
-                NumeroImagenRompecabezas = 3
+                NumeroImagenRompecabezas = 1
             };
         }
         #endregion
@@ -247,6 +247,12 @@ namespace RompecabezasFei
                 }
             }
         }
+        
+        private void RemoverEventoVentanaDesactivada()
+        {
+            VentanaPrincipal ventanaPrincipal = (VentanaPrincipal)Window.GetWindow(this);
+            ventanaPrincipal.Deactivated -= EventoVentanaDesactivada;
+        }
         #endregion
 
         #region Eventos
@@ -255,12 +261,6 @@ namespace RompecabezasFei
             VentanaPrincipal ventanaPrincipal = (VentanaPrincipal)Window.GetWindow(this);
             ventanaPrincipal.Deactivated += EventoVentanaDesactivada;
             CrearTablero();
-        }
-
-        private void EventoPaginaOcultada(object remitente, RoutedEventArgs evento)
-        {
-            VentanaPrincipal ventanaPrincipal = (VentanaPrincipal)Window.GetWindow(this);
-            ventanaPrincipal.Deactivated -= EventoVentanaDesactivada;
         }
 
         private void EventoVentanaDesactivada(object remitente, EventArgs evento)
@@ -337,6 +337,8 @@ namespace RompecabezasFei
                 if (tablero.EsRompecabezasCompletado())
                 {
                     MessageBox.Show("Fin del juego");
+                    RemoverEventoVentanaDesactivada();
+                    VentanaPrincipal.CambiarPagina(new PaginaResultados());
                 }
             }
         }

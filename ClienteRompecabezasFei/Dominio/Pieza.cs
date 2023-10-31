@@ -98,7 +98,7 @@ namespace Dominio
 
         public void EstablecerEstiloPiezaSinSeleccionar()
         {
-            borde.BorderBrush = Brushes.Lime;
+            borde.BorderBrush = Brushes.White;
             borde.BorderThickness = new Thickness(2);
         }
 
