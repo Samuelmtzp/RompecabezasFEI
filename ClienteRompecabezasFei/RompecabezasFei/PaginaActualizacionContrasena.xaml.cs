@@ -88,7 +88,7 @@ namespace RompecabezasFei
             if (CuadroContrasenaActual.Password.Equals(CuadroNuevaContrasena.Password))
             {
                 mismaContrasena = true;
-                VentanaPrincipal.CambiarPagina(this, new PaginaInformacionJugador());
+                MessageBox.Show("La contraseña nueva es la misma que ya existe", "Misma contraseña", MessageBoxButton.OK);
             }
             return mismaContrasena; 
         }

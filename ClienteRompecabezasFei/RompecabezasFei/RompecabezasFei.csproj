@@ -77,6 +77,9 @@
     <Compile Include="PaginaAjustes.xaml.cs">
       <DependentUpon>PaginaAjustes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PaginaCodigoRestablecimientoContrasena.xaml.cs">
+      <DependentUpon>PaginaCodigoRestablecimientoContrasena.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PaginaInformacionJugador.xaml.cs">
       <DependentUpon>PaginaInformacionJugador.xaml</DependentUpon>
     </Compile>
@@ -86,8 +89,14 @@
     <Compile Include="PaginaMenuPrincipal.xaml.cs">
       <DependentUpon>PaginaMenuPrincipal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PaginaRecuperacionContrasena.xaml.cs">
+      <DependentUpon>PaginaRecuperacionContrasena.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PaginaRegistroJugador.xaml.cs">
       <DependentUpon>PaginaRegistroJugador.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PaginaRestablecimientoContrasena.xaml.cs">
+      <DependentUpon>PaginaRestablecimientoContrasena.xaml</DependentUpon>
     </Compile>
     <Compile Include="PaginaSala.xaml.cs">
       <DependentUpon>PaginaSala.xaml</DependentUpon>
@@ -166,6 +175,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PaginaCodigoRestablecimientoContrasena.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PaginaInformacionJugador.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -178,7 +191,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PaginaRecuperacionContrasena.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PaginaRegistroJugador.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PaginaRestablecimientoContrasena.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

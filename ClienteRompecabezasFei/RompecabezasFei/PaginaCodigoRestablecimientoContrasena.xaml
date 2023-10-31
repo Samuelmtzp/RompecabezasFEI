@@ -1,0 +1,21 @@
+﻿<Page x:Class="RompecabezasFei.PaginaCodigoRestablecimientoContrasena"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RompecabezasFei"
+      xmlns:p="clr-namespace:RompecabezasFei.Properties"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1280"
+      Title="PaginaCodigoRestablecimientoContrasena">
+
+    <Grid>
+        <Label Content="{x:Static p:Resources.ETIQUETA_RECUPERACION_INTRODUCECODIGO}" HorizontalAlignment="Center" Margin="0,52,0,0" VerticalAlignment="Top" Height="88" Width="472" Foreground="White" FontWeight="Bold" FontSize="50"/>
+        <TextBox Name="CuadroTextoCodigoRestablecimiento" HorizontalAlignment="Center" Margin="0,438,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="440" Height="56" FontSize="26" TextChanged="AceptarSoloCaracteresNumericos"/>
+        <Label Content="{x:Static p:Resources.ETIQUETA_CODIGO_CODIGORESTABLECIMIENTO}" HorizontalAlignment="Center" Margin="0,360,0,0" VerticalAlignment="Top" Height="47" Width="576" Foreground="White" FontSize="28" FontWeight="Bold"/>
+        <Button Content="{x:Static p:Resources.ETIQUETA_GENERAL_SIGUIENTE}" HorizontalAlignment="Left" Margin="968,583,0,0" VerticalAlignment="Top" Height="65" Width="272" Background="#FF03A64A" Foreground="White" FontWeight="Bold" FontSize="24" Click="Siguiente"/>
+        <TextBlock HorizontalAlignment="Left" Margin="318,214,0,0" TextWrapping="Wrap" Text="{x:Static p:Resources.ETIQUETA_CODIGO_INSTRUCCIONCODIGO}" VerticalAlignment="Top" Height="83" Width="691" FontSize="28" Foreground="White"/>
+        <Button Content="{x:Static p:Resources.ETIQUETA_GENERAL_CANCELAR}" HorizontalAlignment="Left" Margin="656,583,0,0" VerticalAlignment="Top" Height="65" Width="272" Background="#FFA60303" Foreground="White" FontWeight="Bold" FontSize="24" Click="Cancelar"/>
+
+    </Grid>
+</Page>

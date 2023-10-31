@@ -198,6 +198,9 @@
   <data name="BOTON_PARTIDA_ABANDONOPARTIDA" xml:space="preserve">
     <value>Abandon game</value>
   </data>
+  <data name="BOTON_RESTABLECIMIENTOCONTRASENA_ACTUALIZARCONTRASENA" xml:space="preserve">
+    <value>Update password</value>
+  </data>
   <data name="BOTON_SALA_ENVIARMENSAJE" xml:space="preserve">
     <value>Send</value>
   </data>
@@ -345,6 +348,9 @@
   <data name="ETIQUETA_GENERAL_AMIGOS" xml:space="preserve">
     <value>My friends</value>
   </data>
+  <data name="ETIQUETA_GENERAL_CANCELAR" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
   <data name="ETIQUETA_GENERAL_CODIGOSALA" xml:space="preserve">
     <value>Room code</value>
   </data>
@@ -467,6 +473,12 @@
   </data>
   <data name="ETIQUETA_RECUPERACION_INSTRUCCIONRECUPERACION" xml:space="preserve">
     <value>Enter the email with which you registered, we will send you a code so you can reset your password</value>
+  </data>
+  <data name="ETIQUETA_RECUPERACION_INTRODUCECODIGO" xml:space="preserve">
+    <value>Enter the code</value>
+  </data>
+  <data name="ETIQUETA_RECUPERACION_MENSAJE" xml:space="preserve">
+    <value>Your reset code is:</value>
   </data>
   <data name="ETIQUETA_RECUPERACION_RECUPERACIONCONTRASENA" xml:space="preserve">
     <value>Password recovery</value>

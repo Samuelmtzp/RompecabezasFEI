@@ -27,5 +27,7 @@ namespace Contratos
         bool ActualizarInformacion(CuentaJugador cuentaJugador);
         [OperationContract]
         bool ActualizarContrasena(CuentaJugador cuentaJugador);
+        [OperationContract]
+        bool RestablecerContrasena(string correo, string contrasena);
     }
 }

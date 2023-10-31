@@ -195,6 +195,12 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionJugador/ActualizarContrasena", ReplyAction="http://tempuri.org/IServicioGestionJugador/ActualizarContrasenaResponse")]
         System.Threading.Tasks.Task<bool> ActualizarContrasenaAsync(RompecabezasFei.ServicioRompecabezasFei.CuentaJugador cuentaJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionJugador/RestablecerContrasena", ReplyAction="http://tempuri.org/IServicioGestionJugador/RestablecerContrasenaResponse")]
+        bool RestablecerContrasena(string correo, string contrasena);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionJugador/RestablecerContrasena", ReplyAction="http://tempuri.org/IServicioGestionJugador/RestablecerContrasenaResponse")]
+        System.Threading.Tasks.Task<bool> RestablecerContrasenaAsync(string correo, string contrasena);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -294,6 +300,14 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         
         public System.Threading.Tasks.Task<bool> ActualizarContrasenaAsync(RompecabezasFei.ServicioRompecabezasFei.CuentaJugador cuentaJugador) {
             return base.Channel.ActualizarContrasenaAsync(cuentaJugador);
+        }
+        
+        public bool RestablecerContrasena(string correo, string contrasena) {
+            return base.Channel.RestablecerContrasena(correo, contrasena);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RestablecerContrasenaAsync(string correo, string contrasena) {
+            return base.Channel.RestablecerContrasenaAsync(correo, contrasena);
         }
     }
     

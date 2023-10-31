@@ -106,7 +106,6 @@ namespace RompecabezasFei
                 CuadroTextoCodigoVerificacion.CaretIndex = CuadroTextoCodigoVerificacion.Text.Length;
                 CuadroTextoCodigoVerificacion.Text = texto;
             }
-
         }
 
         private void ActualizarTiempo(object remitente, EventArgs evento)
