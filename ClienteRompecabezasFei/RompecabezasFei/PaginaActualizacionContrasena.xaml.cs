@@ -17,44 +17,45 @@ namespace RompecabezasFei
             set { jugadorRegistro = value; }
         }
 
-        bool esCorrecta, mismaContrasena;
-        string contrasena;
-       
         public PaginaActualizacionContrasena()
         {
             InitializeComponent();
             jugadorRegistro = new Dominio.CuentaJugador();
         }
 
-        private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
+        #region Eventos
+        private void EventoClickRegresar(object controlOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
         }
 
-        private void AccionGuardarCambios(object remitente, RoutedEventArgs evento)
+        private void EventoClickGuardarCambios(object controlOrigen, RoutedEventArgs evento)
         {
-            jugadorRegistro.Contrasena = CuadroNuevaContrasena.Password;
+            jugadorRegistro.Contrasena = cuadroNuevaContrasena.Password;
             string contrasenaCifrada = EncriptadorContrasena.
-                       CalcularHashSha512(jugadorRegistro.Contrasena);
+                CalcularHashSha512(jugadorRegistro.Contrasena);
             CuentaJugador datosJugador = new CuentaJugador
             {
                 IdCuenta = Dominio.CuentaJugador.CuentaJugadorActual.IdCuenta,
                 Contrasena = jugadorRegistro.Contrasena,
             };
 
-            if(!MismaContraseña())
+            if (!EsNuevaContrasenaLaMismaContrasenaActual())
             {
-                if (VerificarContraseña())
+                if (EsContrasenaActualCorrecta())
                 {
                     if (!ExistenCamposInvalidos())
                     {
                         ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
                         datosJugador.Contrasena = contrasenaCifrada;
                         bool resultadoActualizacion = cliente.ActualizarContrasena(datosJugador);
+
                         if (resultadoActualizacion)
                         {
-                            MessageBox.Show("La actualización de la contraseña se ha realizado correctamente",
-                                   "Actualización realizada correctamente", MessageBoxButton.OK);
+                            MessageBox.Show("La actualización de la contraseña " +
+                                "se ha realizado correctamente",
+                                "Actualización realizada correctamente",
+                                MessageBoxButton.OK);
                             cliente.Abort();
                             VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
                         }
@@ -67,95 +68,111 @@ namespace RompecabezasFei
                 }
                 else
                 {
-                    MessageBox.Show("La contraseña es incorrecta", "Contraseña incorrecta", MessageBoxButton.OK);
+                    MessageBox.Show("La contraseña es incorrecta",
+                        "Contraseña incorrecta", MessageBoxButton.OK);
                 }
             }
         }
+        #endregion
 
-        private bool VerificarContraseña()
+        #region Validaciones        
+        private bool EsContrasenaActualCorrecta()
         {
-            contrasena = CuadroContrasenaActual.Password.ToString();
+            string contrasena = cuadroContrasenaActual.Password.ToString();
             contrasena = EncriptadorContrasena.CalcularHashSha512(contrasena);
+            bool resultado = false;
+
             if (Dominio.CuentaJugador.CuentaJugadorActual.Contrasena.Equals(contrasena))
             {
-                esCorrecta = true;
+                resultado = true;
             }
-            return esCorrecta;
+
+            return resultado;
         }
 
-        private bool MismaContraseña()
+        private bool EsNuevaContrasenaLaMismaContrasenaActual()
         {
-            if (CuadroContrasenaActual.Password.Equals(CuadroNuevaContrasena.Password))
-            {
-                mismaContrasena = true;
-                MessageBox.Show("La contraseña nueva es la misma que ya existe", "Misma contraseña", MessageBoxButton.OK);
-            }
-            return mismaContrasena; 
-        }
+            bool resultado = false;
 
-        #region Validaciones
+            if (cuadroContrasenaActual.Password.Equals(cuadroNuevaContrasena.Password))
+            {
+                resultado = true;
+                MessageBox.Show("La contraseña nueva es la misma que ya existe", 
+                    "Misma contraseña", MessageBoxButton.OK);
+            }
+
+            return resultado; 
+        }
 
         private bool ExistenCamposInvalidos()
         {
-            bool camposInvalidos = false;
-            if (ExistenCamposVacios() || ContrasenaNuevaConfirmada() ||
+            bool resultado = false;
+
+            if (ExistenCamposVacios() || NoExisteCoincidenciaEnConfirmacionDeContrasena() ||
                 ExisteContrasenaInvalida() || ExistenLongitudesExcedidas())
             {
-                camposInvalidos = true;
+                resultado = true;
             }
-            return camposInvalidos;
+
+            return resultado;
         }
 
         private bool ExistenCamposVacios()
         {
-            bool camposVacios = false;
+            bool resultado = false;
+            
             if (String.IsNullOrWhiteSpace(jugadorRegistro.Contrasena))
             {
-                camposVacios = true;
+                resultado = true;
                 MessageBox.Show("No puedes dejar campos vacíos",
                     "Campos vacíos", MessageBoxButton.OK);
             }
-            return camposVacios;
+            
+            return resultado;
         }
 
         private bool ExisteContrasenaInvalida()
         {
-            bool contrasenaInvalida = false;
+            bool resultado = false;
+            
             if (Regex.IsMatch(jugadorRegistro.Contrasena,
-                "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$")
-                == false)
+                "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$") == false)
             {
+                resultado = true; 
                 MessageBox.Show("La contraseña que has ingresado es inválida",
-                    "Contraseña inválida", MessageBoxButton.OK);
-                contrasenaInvalida = true;
+                    "Contraseña inválida", MessageBoxButton.OK);                
             }
-            return contrasenaInvalida;
+
+            return resultado;
         }
 
         private bool ExistenLongitudesExcedidas()
         {
-            var camposExcedidos = false;
+            bool resultado = false;
+            
             if (jugadorRegistro.Contrasena.Length > 45)
             {
-                camposExcedidos = true;
+                resultado = true;
                 MessageBox.Show("Longitud excedida",
                    "La contraseña ingresada excede la longitud máxima", MessageBoxButton.OK);
             }
-            return camposExcedidos;
+
+            return resultado;
         }
 
-        private bool ContrasenaNuevaConfirmada()
+        private bool NoExisteCoincidenciaEnConfirmacionDeContrasena()
         {
-            var NoSonIguales=false;
-            if (!CuadroNuevaContrasena.Password.Equals
-                (CuadroConfirmacionContrasena.Password))
+            bool resultado = false;
+
+            if (!cuadroNuevaContrasena.Password.Equals
+                (cuadroConfirmacionContrasena.Password))
             {
-                NoSonIguales = true;
+                resultado = true;
                 MessageBox.Show("La contraseña no coincide",
                     "Contraseña incorrecta", MessageBoxButton.OK);
             }
-            return NoSonIguales;
+            return resultado;
         }
-        #endregion  
+        #endregion
     }
 }

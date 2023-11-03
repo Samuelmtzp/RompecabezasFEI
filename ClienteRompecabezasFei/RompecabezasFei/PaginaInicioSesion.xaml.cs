@@ -1,5 +1,4 @@
 ﻿using RompecabezasFei.ServicioRompecabezasFei;
-using Dominio;
 using Security;
 using System;
 using System.ServiceModel;
@@ -7,8 +6,6 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace RompecabezasFei
 {
@@ -19,7 +16,37 @@ namespace RompecabezasFei
             InitializeComponent();
         }
 
-        private void AccionModoInvitado(object remitente, RoutedEventArgs evento)
+        #region Métodos privados
+        private void IniciarSesion(string nombreJugador, string contrasena)
+        {
+            ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
+            ServicioRompecabezasFei.CuentaJugador cuentaJugadorAutenticada =
+                cliente.IniciarSesion(nombreJugador, contrasena);
+
+            if (cuentaJugadorAutenticada.IdJugador != 0)
+            {
+                Dominio.CuentaJugador.CuentaJugadorActual = new Dominio.CuentaJugador
+                {
+                    Contrasena = cuentaJugadorAutenticada.Contrasena,
+                    Correo = cuentaJugadorAutenticada.Correo,
+                    IdJugador = cuentaJugadorAutenticada.IdJugador,
+                    IdCuenta = cuentaJugadorAutenticada.IdCuenta,
+                    NombreJugador = cuentaJugadorAutenticada.NombreJugador,
+                    NumeroAvatar = cuentaJugadorAutenticada.NumeroAvatar,
+                    EsInvitado = false
+                };
+                VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
+            }
+            else
+            {
+                MessageBox.Show("No se pudo iniciar sesión", "Inicio de sesión cancelado",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        #endregion
+
+        #region Eventos
+        private void EventoClickModoInvitado(object controlOrigen, RoutedEventArgs evento)
         {
             int numeroAleatorio = new Random().Next();
             Dominio.CuentaJugador.CuentaJugadorActual = new Dominio.CuentaJugador()
@@ -31,43 +58,43 @@ namespace RompecabezasFei
             VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
         }
 
-        private void AccionRecuperarContrasena(object remitente, 
+        private void EventoClickRecuperacionContrasena(object controlOrigen,
             MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaRecuperacionContrasena());
         }
 
-        private void AccionRegistro(object remitente, MouseButtonEventArgs evento)
+        private void EventoClickRegistrar(object controlOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaRegistroJugador());
         }
 
-        
-        private void AccionAjustes(object remitente, MouseButtonEventArgs evento)
+        private void EventoClickAjustes(object controlOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPaginaGuardandoAnterior(new PaginaAjustes());
         }
 
-        private void AccionInicioSesion(object remitente, RoutedEventArgs evento)
+        private void EventoClickIniciarSesion(object controlOrigen, RoutedEventArgs evento)
         {
-            var nombreUsuario = CuadroTextoNombreUsuario.Text.Trim();
-            var contrasena = CuadroContrasena.Password;
-            if (!String.IsNullOrWhiteSpace(nombreUsuario) && 
+            var nombreUsuario = cuadroTextoNombreUsuario.Text.Trim();
+            var contrasena = cuadroContrasena.Password;
+
+            if (!String.IsNullOrWhiteSpace(nombreUsuario) &&
                 !String.IsNullOrWhiteSpace(contrasena))
             {
-                if (ExistenCadenasValidas(nombreUsuario, contrasena) && 
+                if (ExistenCadenasValidas(nombreUsuario, contrasena) &&
                     !ExistenLongitudesExcedidas(nombreUsuario, contrasena))
                 {
                     try
                     {
-                        IniciarSesion(nombreUsuario, 
+                        IniciarSesion(nombreUsuario,
                             EncriptadorContrasena.CalcularHashSha512(contrasena));
                     }
                     catch (EndpointNotFoundException)
                     {
                         MessageBox.Show(Properties.Resources.
                             ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                            ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO, 
+                            ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
                             MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                     catch (CommunicationObjectFaultedException)
@@ -87,7 +114,7 @@ namespace RompecabezasFei
                 }
                 else
                 {
-                    MessageBox.Show("Alguno de los campos es inválido", 
+                    MessageBox.Show("Alguno de los campos es inválido",
                         "Campos inválidos", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
@@ -97,54 +124,33 @@ namespace RompecabezasFei
                             MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        #endregion
 
-
-        private void IniciarSesion(string nombreJugador, string contrasena)
-        {
-            ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
-            ServicioRompecabezasFei.CuentaJugador cuentaJugadorAutenticada = 
-                cliente.IniciarSesion(nombreJugador, contrasena);
-
-            if (cuentaJugadorAutenticada.IdJugador != 0)
-            {
-                Dominio.CuentaJugador.CuentaJugadorActual = new Dominio.CuentaJugador
-                {
-                    Contrasena = cuentaJugadorAutenticada.Contrasena,
-                    Correo = cuentaJugadorAutenticada.Correo,
-                    IdJugador = cuentaJugadorAutenticada.IdJugador,
-                    IdCuenta = cuentaJugadorAutenticada.IdCuenta,
-                    NombreJugador = cuentaJugadorAutenticada.NombreJugador,
-                    NumeroAvatar = cuentaJugadorAutenticada.NumeroAvatar,
-                    EsInvitado = false
-                };
-                VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
-            }
-            else
-            {
-                MessageBox.Show("No se pudo iniciar sesión", "Inicio de sesión cancelado", 
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
+        #region Validaciones
         private bool ExistenCadenasValidas(string nombreJugador, string contrasena)
         {
-            var esValido = false;
-            if (Regex.IsMatch(nombreJugador, @"^[a-zA-Z0-9]+(?:\s[a-zA-Z0-9]+)?$") && Regex.IsMatch(contrasena,
-                "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$")) //"^[a-zA-Z0-9]*$" - @"^[a-zA-Z0-9]+(?:\s[a-zA-Z0-9]+)?$"
+            bool resultado = false;
+
+            if (Regex.IsMatch(nombreJugador, @"^[a-zA-Z0-9]+(?:\s[a-zA-Z0-9]+)?$") && 
+                Regex.IsMatch(contrasena, "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$"))
             {
-                esValido = true;
+                resultado = true;
             }
-            return esValido;
+
+            return resultado;
         }
 
         private bool ExistenLongitudesExcedidas(string nombreJugador, string contrasena)
         {
-            var camposExcedidos = false;
+            bool resultado = false;
+            
             if (nombreJugador.Length > 15 || contrasena.Length > 45)
             {
-                camposExcedidos = true;
+                resultado = true;
             }
-            return camposExcedidos;
+
+            return resultado;
         }
+        #endregion
     }
 }

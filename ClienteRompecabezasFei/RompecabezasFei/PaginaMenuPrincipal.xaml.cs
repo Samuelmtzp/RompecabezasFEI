@@ -19,6 +19,7 @@ namespace RompecabezasFei
             }
         }
 
+        #region Métodos privados
         private void CargarOpcionesJugador()
         {
             MostrarOpcionesJugadorRegistrado();
@@ -27,10 +28,10 @@ namespace RompecabezasFei
 
         private void MostrarOpcionesJugadorRegistrado()
         {
-            EtiquetaMisAmigos.Visibility = Visibility.Visible;
-            EtiquetaMiPerfil.Visibility = Visibility.Visible;
-            ImagenAvatarUsuario.Visibility = Visibility.Visible;
-            ImagenMisAmigos.Visibility = Visibility.Visible;
+            etiquetaMisAmigos.Visibility = Visibility.Visible;
+            etiquetaMiPerfil.Visibility = Visibility.Visible;
+            imagenAvatarUsuario.Visibility = Visibility.Visible;
+            imagenMisAmigos.Visibility = Visibility.Visible;
         }
 
         private void CargarImagenJugador()
@@ -42,27 +43,29 @@ namespace RompecabezasFei
 
             ImagenUsuarioMapaBits.UriSource = new Uri(rutaImagen, UriKind.RelativeOrAbsolute);
             ImagenUsuarioMapaBits.EndInit();
-            ImagenAvatarUsuario.Source = ImagenUsuarioMapaBits;
+            imagenAvatarUsuario.Source = ImagenUsuarioMapaBits;
         }
+        #endregion
 
-        private void AccionCrearSala(object remitente, RoutedEventArgs evento)
+        #region Eventos
+        private void EventoClickCrearSala(object controlOrigen, RoutedEventArgs evento)
         {
             PaginaSala paginaSala = new PaginaSala();
             paginaSala.CrearNuevaSala(true);
             VentanaPrincipal.CambiarPagina(paginaSala);
         }
 
-        private void AccionUnirseASala(object remintente, RoutedEventArgs evento)
+        private void EventoClickUnirseASala(object controlOrigen, RoutedEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaUnirseSala());
         }
 
-        private void AccionMisAmigos(object remitente, MouseButtonEventArgs evento)
+        private void EventoClickMisAmigos(object controlOrigen, MouseButtonEventArgs evento)
         {
-
+            VentanaPrincipal.CambiarPagina(new PaginaAmistades());
         }
 
-        private void AccionCerrarSesion(object remitente, MouseButtonEventArgs evento)
+        private void EventoClickCerrarSesion(object controlOrigen, MouseButtonEventArgs evento)
         {
             MessageBoxResult resultado = MessageBox.Show(
                 Properties.Resources.ETIQUETA_CERRARSESION_MENSAJE, 
@@ -76,14 +79,15 @@ namespace RompecabezasFei
             }
         }
 
-        private void AccionMiPerfil(object remitente, MouseButtonEventArgs evento)
+        private void EventoClickMiPerfil(object controlOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
         }
 
-        private void AccionAjustes(object remitente, MouseButtonEventArgs evento)
+        private void EventoClickAjustes(object controlOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPaginaGuardandoAnterior(new PaginaAjustes());
         }
+        #endregion
     }
 }

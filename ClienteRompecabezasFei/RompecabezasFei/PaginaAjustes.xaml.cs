@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Media;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -10,52 +7,59 @@ namespace RompecabezasFei
 {
     public partial class PaginaAjustes : Page
     {
-        string idioma;
-        bool esNuevaVentana;
+        private string idioma;
+        private bool hayMusicaDesactivadaInicialmente;
      
         public PaginaAjustes()
         {
             InitializeComponent();
-            InicializarSeleccionIdioma();
-            esNuevaVentana = true;
-            InicializarSeleccionMusica();
         }
 
+        #region Métodos privados
         private void InicializarSeleccionIdioma()
         {
             if (App.Current.IdiomaActual == "en-US")
-                CajaOpcionesIdioma.SelectedIndex = 0;
+                cajaOpcionesIdioma.SelectedIndex = 0;
             else
-                CajaOpcionesIdioma.SelectedIndex = 1;
+                cajaOpcionesIdioma.SelectedIndex = 1;
         }
 
         private void InicializarSeleccionMusica()
         {
             if (App.Current.MusicaActiva)
             {
-                BotonCambioMusica.IsChecked = true;
+                hayMusicaDesactivadaInicialmente = true;
+                botonCambioMusica.IsChecked = true;
             }
             else
             {
-                BotonCambioMusica.IsChecked = false;
-                esNuevaVentana = false;
+                hayMusicaDesactivadaInicialmente = false;
+                botonCambioMusica.IsChecked = false;                
             }
-        }
-
-        private void AccionSeleccionIdioma(object remitente, SelectionChangedEventArgs evento)
-        {
-            if (CajaOpcionesIdioma.SelectedIndex == 0)
-                idioma = "en-US";
-            else
-                idioma = "es-MX";
         }
 
         private void RefrescarPaginaActual()
         {
             VentanaPrincipal.CambiarPagina(new PaginaAjustes());
         }
+        #endregion
 
-        private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
+        #region Eventos
+        private void EventoPaginaAjustesCargada(object controlOrigen, RoutedEventArgs evento)
+        {
+            InicializarSeleccionIdioma();
+            InicializarSeleccionMusica();
+        }
+
+        private void EventoCambioIdioma(object controlOrigen, SelectionChangedEventArgs evento)
+        {
+            if (cajaOpcionesIdioma.SelectedIndex == 0)
+                idioma = "en-US";
+            else
+                idioma = "es-MX";
+        }
+        
+        private void EventoClickRegresar(object controlOrigen, MouseButtonEventArgs evento)
         {
             if (typeof(PaginaInicioSesion).IsInstanceOfType(VentanaPrincipal.PaginaAnterior))
             {
@@ -67,28 +71,25 @@ namespace RompecabezasFei
             }
         }
 
-        private void AccionOpcionesIdiomaCerrado(object remitente, EventArgs evento)
+        private void EventoCajaOpcionesIdiomaCerrada(object controlOrigen, EventArgs evento)
         {
             App.Current.CambiarIdioma(idioma);
             RefrescarPaginaActual();
         }
 
-        private void BotonCambioMusica_Checked(object remitente, RoutedEventArgs evento)
+        private void EventoBotonCambioMusicaActivado(object controlOrigen, RoutedEventArgs evento)
         {
-            if (!esNuevaVentana)
+            if (!hayMusicaDesactivadaInicialmente)
             {
                 App.Current.EstadoMusica(true);
-            }
-            else
-            {
-                esNuevaVentana = false;
-            }
+            }            
         }
 
-        private void BotonCambioMusica_Unchecked(object sender, RoutedEventArgs e)
-        {
-              
+        private void EventoBotonCambioMusicaDesactivado(object controlOrigen, 
+            RoutedEventArgs evento)
+        {              
             App.Current.EstadoMusica(false);
         }
+        #endregion
     }
 }

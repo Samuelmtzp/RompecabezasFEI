@@ -10,26 +10,26 @@
     <Grid>
         <Image Margin="142,107,874,357" Source="/Imagenes/Logos/RompecabezasFEI.png" Stretch="Fill"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_ROMPECABEZASFEI}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="126,370,0,0" VerticalAlignment="Top" FontSize="32" FontWeight="Bold" Foreground="White" Width="305"/>
-        <Button Name="BotonCrearSala" HorizontalAlignment="Left" Margin="595,107,0,0" VerticalAlignment="Top" FontSize="36" Height="110" Width="549" Background="#FF03A64A" Click="AccionCrearSala">
+        <Button HorizontalAlignment="Left" Margin="595,107,0,0" VerticalAlignment="Top" FontSize="36" Height="110" Width="549" Background="#FF03A64A" Click="EventoClickCrearSala">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/Imagenes/Indicadores/CrearSala.png" Height="93" Width="93" HorizontalAlignment="Left"/>
                 <Label Content="{x:Static p:Resources.BOTON_MENUPRINCIPAL_CREACIONSALA}" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="32" FontWeight="Bold" Foreground="White"/>
             </StackPanel>
         </Button>
-        <Button Name="BotonUnirseASala" HorizontalAlignment="Left" Margin="595,265,0,0" VerticalAlignment="Top" FontSize="36" Height="110" Width="549" Background="#FF048ABF" Click="AccionUnirseASala">
+        <Button HorizontalAlignment="Left" Margin="595,265,0,0" VerticalAlignment="Top" FontSize="36" Height="110" Width="549" Background="#FF048ABF" Click="EventoClickUnirseASala">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/Imagenes/Indicadores/UnirseASala.png" Height="93" Width="93"/>
                 <Label Content="{x:Static p:Resources.BOTON_MENUPRINCIPAL_UNIRSESALA}" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="32" FontWeight="Bold" Foreground="White"/>
             </StackPanel>
         </Button>
 
-        <Image Source="/Imagenes/Indicadores/CerrarSesion.png" HorizontalAlignment="Left" Height="82" Margin="79,520,0,0" VerticalAlignment="Top" Width="82" MouseDown="AccionCerrarSesion"/>
+        <Image Source="/Imagenes/Indicadores/CerrarSesion.png" HorizontalAlignment="Left" Height="82" Margin="79,520,0,0" VerticalAlignment="Top" Width="82" MouseDown="EventoClickCerrarSesion"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_MENUPRINCIPAL_CERRARSESION}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="45,602,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Width="148"/>
-        <Image Name="ImagenMisAmigos" Source="/Imagenes/Indicadores/Amigos.png" HorizontalAlignment="Left" Height="82" Margin="732,520,0,0" VerticalAlignment="Top" Width="82" MouseDown="AccionMisAmigos" Visibility="Hidden"/>
-        <Label Name="EtiquetaMisAmigos" Content="{x:Static p:Resources.ETIQUETA_GENERAL_AMIGOS}" HorizontalAlignment="Left" Margin="712,602,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Visibility="Hidden"/>
-        <Image Name="ImagenAvatarUsuario" HorizontalAlignment="Left" Height="82" Margin="898,520,0,0" VerticalAlignment="Top" Width="82" MouseDown="AccionMiPerfil" Visibility="Hidden"/>
-        <Label Name="EtiquetaMiPerfil" Content="{x:Static p:Resources.ETIQUETA_MENUPRINCIPAL_PERFIL}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="870,602,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Width="136" Visibility="Hidden"/>
-        <Image Source="/Imagenes/Indicadores/Ajustes.png" HorizontalAlignment="Left" Height="82" Margin="1050,520,0,0" VerticalAlignment="Top" Width="82" MouseDown="AccionAjustes"/>
+        <Image Name="imagenMisAmigos" Source="/Imagenes/Indicadores/Amigos.png" HorizontalAlignment="Left" Height="82" Margin="732,520,0,0" VerticalAlignment="Top" Width="82" MouseDown="EventoClickMisAmigos" Visibility="Hidden"/>
+        <Label Name="etiquetaMisAmigos" Content="{x:Static p:Resources.ETIQUETA_GENERAL_AMIGOS}" HorizontalAlignment="Left" Margin="712,602,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Visibility="Hidden"/>
+        <Image Name="imagenAvatarUsuario" HorizontalAlignment="Left" Height="82" Margin="898,520,0,0" VerticalAlignment="Top" Width="82" MouseDown="EventoClickMiPerfil" Visibility="Hidden"/>
+        <Label Name="etiquetaMiPerfil" Content="{x:Static p:Resources.ETIQUETA_MENUPRINCIPAL_PERFIL}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="870,602,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Width="136" Visibility="Hidden"/>
+        <Image Source="/Imagenes/Indicadores/Ajustes.png" HorizontalAlignment="Left" Height="82" Margin="1050,520,0,0" VerticalAlignment="Top" Width="82" MouseDown="EventoClickAjustes"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_AJUSTES}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="1038,602,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Width="106"/>
     </Grid>
 </Page>

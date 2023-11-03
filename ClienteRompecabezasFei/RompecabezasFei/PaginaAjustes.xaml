@@ -6,14 +6,15 @@
       xmlns:local="clr-namespace:RompecabezasFei"
       xmlns:p="clr-namespace:RompecabezasFei.Properties"
       mc:Ignorable="d" 
-      d:DesignHeight="720" d:DesignWidth="1280">
+      d:DesignHeight="720" d:DesignWidth="1280"
+      Loaded="EventoPaginaAjustesCargada">
 
     <Grid>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_AJUSTES}" HorizontalAlignment="Center" Margin="0,26,0,0" VerticalAlignment="Top" Foreground="White" FontSize="48" FontWeight="Bold"/>
-        <Image Name="ImagenFlechaRegreso" Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="42,36,1157,604" Height="81" Width="81" MouseDown="AccionRegresar"/>
+        <Image Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="42,36,1157,604" Height="81" Width="81" MouseDown="EventoClickRegresar"/>
         <Image HorizontalAlignment="Left" Height="106" Margin="254,204,0,0" VerticalAlignment="Top" Width="106" Source="\Imagenes/Indicadores/Musica.png"/>
         <Image HorizontalAlignment="Left" Height="106" Margin="254,382,0,0" VerticalAlignment="Top" Width="106" Source="\Imagenes/Indicadores/Idioma.png"/>
-        <ToggleButton x:Name="BotonCambioMusica" HorizontalAlignment="Left" Margin="664,231,0,0" VerticalAlignment="Top" Height="72" Width="414" FontSize="36" FontWeight="Bold" Checked="BotonCambioMusica_Checked" Unchecked="BotonCambioMusica_Unchecked">
+        <ToggleButton x:Name="botonCambioMusica" HorizontalAlignment="Left" Margin="664,231,0,0" VerticalAlignment="Top" Height="72" Width="414" FontSize="36" FontWeight="Bold" Checked="EventoBotonCambioMusicaActivado" Unchecked="EventoBotonCambioMusicaDesactivado">
             <ToggleButton.Style>
                 <Style TargetType="{x:Type ToggleButton}">
                     <Style.Triggers>
@@ -29,7 +30,7 @@
         </ToggleButton>
         <Label Content="{x:Static p:Resources.ETIQUETA_AJUSTES_MUSICA}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="397,232,0,0" VerticalAlignment="Top" Height="50" Width="209" FontSize="36" Foreground="White" FontWeight="Bold"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_AJUSTES_IDIOMA}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="397,405,0,0" VerticalAlignment="Top" Height="68" Width="209" FontSize="36" Foreground="White" FontWeight="Bold"/>
-        <ComboBox Name="CajaOpcionesIdioma" HorizontalAlignment="Left" Margin="664,405,0,0" VerticalAlignment="Top" FontSize="10" Width="138" Height="21" SelectionChanged="AccionSeleccionIdioma" DropDownClosed="AccionOpcionesIdiomaCerrado">
+        <ComboBox Name="cajaOpcionesIdioma" HorizontalAlignment="Left" Margin="664,405,0,0" VerticalAlignment="Top" FontSize="10" Width="138" Height="21" SelectionChanged="EventoCambioIdioma" DropDownClosed="EventoCajaOpcionesIdiomaCerrada">
             <ComboBox.LayoutTransform>
                 <ScaleTransform ScaleX="3" ScaleY="3"/>
             </ComboBox.LayoutTransform>

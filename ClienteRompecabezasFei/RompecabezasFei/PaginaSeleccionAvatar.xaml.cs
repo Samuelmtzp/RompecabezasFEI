@@ -47,8 +47,8 @@ namespace RompecabezasFei
                 if (typeof(PaginaActualizacionInformacion).IsInstanceOfType(VentanaPrincipal.PaginaAnterior))
                 {
                     PaginaActualizacionInformacion paginaActualizacionInformacion = new PaginaActualizacionInformacion();
-                    paginaActualizacionInformacion.ImagenAvatarActual.Source = ImagenAvatarActual.Source;
-                    paginaActualizacionInformacion.ImagenAvatarActual.Tag = ImagenAvatarActual.Tag;
+                    paginaActualizacionInformacion.imagenAvatarActual.Source = ImagenAvatarActual.Source;
+                    paginaActualizacionInformacion.imagenAvatarActual.Tag = ImagenAvatarActual.Tag;
                     paginaActualizacionInformacion.JugadorRegistro = jugadorRegistro;
                     paginaActualizacionInformacion.CargarDatosEdicion();
                     VentanaPrincipal.CambiarPagina(paginaActualizacionInformacion);
