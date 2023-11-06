@@ -316,10 +316,10 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
     public interface IServicioJuego {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJuego/NuevaSala", ReplyAction="http://tempuri.org/IServicioJuego/NuevaSalaResponse")]
-        bool NuevaSala(string nombreAnfitrion, string idSala);
+        void NuevaSala(string nombreAnfitrion, string idSala);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJuego/NuevaSala", ReplyAction="http://tempuri.org/IServicioJuego/NuevaSalaResponse")]
-        System.Threading.Tasks.Task<bool> NuevaSalaAsync(string nombreAnfitrion, string idSala);
+        System.Threading.Tasks.Task NuevaSalaAsync(string nombreAnfitrion, string idSala);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJuego/ConectarCuentaJugadorASala", ReplyAction="http://tempuri.org/IServicioJuego/ConectarCuentaJugadorASalaResponse")]
         void ConectarCuentaJugadorASala(string nombreJugador, string idSala, string mensajeBienvenida);
@@ -387,11 +387,11 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
-        public bool NuevaSala(string nombreAnfitrion, string idSala) {
-            return base.Channel.NuevaSala(nombreAnfitrion, idSala);
+        public void NuevaSala(string nombreAnfitrion, string idSala) {
+            base.Channel.NuevaSala(nombreAnfitrion, idSala);
         }
         
-        public System.Threading.Tasks.Task<bool> NuevaSalaAsync(string nombreAnfitrion, string idSala) {
+        public System.Threading.Tasks.Task NuevaSalaAsync(string nombreAnfitrion, string idSala) {
             return base.Channel.NuevaSalaAsync(nombreAnfitrion, idSala);
         }
         
@@ -433,6 +433,157 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         
         public System.Threading.Tasks.Task<bool> ExisteSalaDisponibleAsync(string idSala) {
             return base.Channel.ExisteSalaDisponibleAsync(idSala);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioRompecabezasFei.IServicioAmistades")]
+    public interface IServicioAmistades {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/EnviarSolicitudDeAmistad", ReplyAction="http://tempuri.org/IServicioAmistades/EnviarSolicitudDeAmistadResponse")]
+        bool EnviarSolicitudDeAmistad(string nombreJugadorOrigen, string nombreJugadorDestino);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/EnviarSolicitudDeAmistad", ReplyAction="http://tempuri.org/IServicioAmistades/EnviarSolicitudDeAmistadResponse")]
+        System.Threading.Tasks.Task<bool> EnviarSolicitudDeAmistadAsync(string nombreJugadorOrigen, string nombreJugadorDestino);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/ObtenerJugadoresConSolicitudDeAmistadSinAce" +
+            "ptar", ReplyAction="http://tempuri.org/IServicioAmistades/ObtenerJugadoresConSolicitudDeAmistadSinAce" +
+            "ptarResponse")]
+        RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[] ObtenerJugadoresConSolicitudDeAmistadSinAceptar(string nombreJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/ObtenerJugadoresConSolicitudDeAmistadSinAce" +
+            "ptar", ReplyAction="http://tempuri.org/IServicioAmistades/ObtenerJugadoresConSolicitudDeAmistadSinAce" +
+            "ptarResponse")]
+        System.Threading.Tasks.Task<RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[]> ObtenerJugadoresConSolicitudDeAmistadSinAceptarAsync(string nombreJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/ObtenerAmigosDeJugador", ReplyAction="http://tempuri.org/IServicioAmistades/ObtenerAmigosDeJugadorResponse")]
+        RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[] ObtenerAmigosDeJugador(string nombreJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/ObtenerAmigosDeJugador", ReplyAction="http://tempuri.org/IServicioAmistades/ObtenerAmigosDeJugadorResponse")]
+        System.Threading.Tasks.Task<RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[]> ObtenerAmigosDeJugadorAsync(string nombreJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/AceptarSolicitudDeAmistad", ReplyAction="http://tempuri.org/IServicioAmistades/AceptarSolicitudDeAmistadResponse")]
+        bool AceptarSolicitudDeAmistad(string nombreJugadorOrigen, string nombreJugadorDestino);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/AceptarSolicitudDeAmistad", ReplyAction="http://tempuri.org/IServicioAmistades/AceptarSolicitudDeAmistadResponse")]
+        System.Threading.Tasks.Task<bool> AceptarSolicitudDeAmistadAsync(string nombreJugadorOrigen, string nombreJugadorDestino);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/RechazarSolicitudDeAmistad", ReplyAction="http://tempuri.org/IServicioAmistades/RechazarSolicitudDeAmistadResponse")]
+        bool RechazarSolicitudDeAmistad(string nombreJugadorOrigen, string nombreJugadorDestino);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/RechazarSolicitudDeAmistad", ReplyAction="http://tempuri.org/IServicioAmistades/RechazarSolicitudDeAmistadResponse")]
+        System.Threading.Tasks.Task<bool> RechazarSolicitudDeAmistadAsync(string nombreJugadorOrigen, string nombreJugadorDestino);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/ExisteSolicitudDeAmistadSinAceptar", ReplyAction="http://tempuri.org/IServicioAmistades/ExisteSolicitudDeAmistadSinAceptarResponse")]
+        bool ExisteSolicitudDeAmistadSinAceptar(string nombreJugadorOrigen, string nombreJugadorDestino);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/ExisteSolicitudDeAmistadSinAceptar", ReplyAction="http://tempuri.org/IServicioAmistades/ExisteSolicitudDeAmistadSinAceptarResponse")]
+        System.Threading.Tasks.Task<bool> ExisteSolicitudDeAmistadSinAceptarAsync(string nombreJugadorOrigen, string nombreJugadorDestino);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/ExisteAmistadConJugador", ReplyAction="http://tempuri.org/IServicioAmistades/ExisteAmistadConJugadorResponse")]
+        bool ExisteAmistadConJugador(string nombreJugador1, string nombreJugador2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/ExisteAmistadConJugador", ReplyAction="http://tempuri.org/IServicioAmistades/ExisteAmistadConJugadorResponse")]
+        System.Threading.Tasks.Task<bool> ExisteAmistadConJugadorAsync(string nombreJugador1, string nombreJugador2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/RegistrarNuevaAmistadEntreJugadores", ReplyAction="http://tempuri.org/IServicioAmistades/RegistrarNuevaAmistadEntreJugadoresResponse" +
+            "")]
+        bool RegistrarNuevaAmistadEntreJugadores(string nombreJugador1, string nombreJugador2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/RegistrarNuevaAmistadEntreJugadores", ReplyAction="http://tempuri.org/IServicioAmistades/RegistrarNuevaAmistadEntreJugadoresResponse" +
+            "")]
+        System.Threading.Tasks.Task<bool> RegistrarNuevaAmistadEntreJugadoresAsync(string nombreJugador1, string nombreJugador2);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IServicioAmistadesChannel : RompecabezasFei.ServicioRompecabezasFei.IServicioAmistades, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ServicioAmistadesClient : System.ServiceModel.ClientBase<RompecabezasFei.ServicioRompecabezasFei.IServicioAmistades>, RompecabezasFei.ServicioRompecabezasFei.IServicioAmistades {
+        
+        public ServicioAmistadesClient() {
+        }
+        
+        public ServicioAmistadesClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public ServicioAmistadesClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ServicioAmistadesClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ServicioAmistadesClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public bool EnviarSolicitudDeAmistad(string nombreJugadorOrigen, string nombreJugadorDestino) {
+            return base.Channel.EnviarSolicitudDeAmistad(nombreJugadorOrigen, nombreJugadorDestino);
+        }
+        
+        public System.Threading.Tasks.Task<bool> EnviarSolicitudDeAmistadAsync(string nombreJugadorOrigen, string nombreJugadorDestino) {
+            return base.Channel.EnviarSolicitudDeAmistadAsync(nombreJugadorOrigen, nombreJugadorDestino);
+        }
+        
+        public RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[] ObtenerJugadoresConSolicitudDeAmistadSinAceptar(string nombreJugador) {
+            return base.Channel.ObtenerJugadoresConSolicitudDeAmistadSinAceptar(nombreJugador);
+        }
+        
+        public System.Threading.Tasks.Task<RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[]> ObtenerJugadoresConSolicitudDeAmistadSinAceptarAsync(string nombreJugador) {
+            return base.Channel.ObtenerJugadoresConSolicitudDeAmistadSinAceptarAsync(nombreJugador);
+        }
+        
+        public RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[] ObtenerAmigosDeJugador(string nombreJugador) {
+            return base.Channel.ObtenerAmigosDeJugador(nombreJugador);
+        }
+        
+        public System.Threading.Tasks.Task<RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[]> ObtenerAmigosDeJugadorAsync(string nombreJugador) {
+            return base.Channel.ObtenerAmigosDeJugadorAsync(nombreJugador);
+        }
+        
+        public bool AceptarSolicitudDeAmistad(string nombreJugadorOrigen, string nombreJugadorDestino) {
+            return base.Channel.AceptarSolicitudDeAmistad(nombreJugadorOrigen, nombreJugadorDestino);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AceptarSolicitudDeAmistadAsync(string nombreJugadorOrigen, string nombreJugadorDestino) {
+            return base.Channel.AceptarSolicitudDeAmistadAsync(nombreJugadorOrigen, nombreJugadorDestino);
+        }
+        
+        public bool RechazarSolicitudDeAmistad(string nombreJugadorOrigen, string nombreJugadorDestino) {
+            return base.Channel.RechazarSolicitudDeAmistad(nombreJugadorOrigen, nombreJugadorDestino);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RechazarSolicitudDeAmistadAsync(string nombreJugadorOrigen, string nombreJugadorDestino) {
+            return base.Channel.RechazarSolicitudDeAmistadAsync(nombreJugadorOrigen, nombreJugadorDestino);
+        }
+        
+        public bool ExisteSolicitudDeAmistadSinAceptar(string nombreJugadorOrigen, string nombreJugadorDestino) {
+            return base.Channel.ExisteSolicitudDeAmistadSinAceptar(nombreJugadorOrigen, nombreJugadorDestino);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ExisteSolicitudDeAmistadSinAceptarAsync(string nombreJugadorOrigen, string nombreJugadorDestino) {
+            return base.Channel.ExisteSolicitudDeAmistadSinAceptarAsync(nombreJugadorOrigen, nombreJugadorDestino);
+        }
+        
+        public bool ExisteAmistadConJugador(string nombreJugador1, string nombreJugador2) {
+            return base.Channel.ExisteAmistadConJugador(nombreJugador1, nombreJugador2);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ExisteAmistadConJugadorAsync(string nombreJugador1, string nombreJugador2) {
+            return base.Channel.ExisteAmistadConJugadorAsync(nombreJugador1, nombreJugador2);
+        }
+        
+        public bool RegistrarNuevaAmistadEntreJugadores(string nombreJugador1, string nombreJugador2) {
+            return base.Channel.RegistrarNuevaAmistadEntreJugadores(nombreJugador1, nombreJugador2);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RegistrarNuevaAmistadEntreJugadoresAsync(string nombreJugador1, string nombreJugador2) {
+            return base.Channel.RegistrarNuevaAmistadEntreJugadoresAsync(nombreJugador1, nombreJugador2);
         }
     }
 }

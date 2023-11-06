@@ -31,7 +31,7 @@ namespace RompecabezasFei
         #endregion
 
         #region Eventos
-        private void EventoClickCancelar(object objetoOrigen, RoutedEventArgs evento)
+        private void EventoClickCancelar(object controlOrigen, RoutedEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
         }

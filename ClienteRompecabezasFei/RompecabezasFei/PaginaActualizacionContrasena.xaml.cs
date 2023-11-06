@@ -68,8 +68,8 @@ namespace RompecabezasFei
                 }
                 else
                 {
-                    MessageBox.Show("La contraseña es incorrecta",
-                        "Contraseña incorrecta", MessageBoxButton.OK);
+                    MessageBox.Show("La contraseña actual es incorrecta",
+                        "Contraseña actual incorrecta", MessageBoxButton.OK);
                 }
             }
         }
@@ -153,8 +153,8 @@ namespace RompecabezasFei
             if (jugadorRegistro.Contrasena.Length > 45)
             {
                 resultado = true;
-                MessageBox.Show("Longitud excedida",
-                   "La contraseña ingresada excede la longitud máxima", MessageBoxButton.OK);
+                MessageBox.Show("La contraseña ingresada excede la longitud máxima", 
+                    "Longitud excedida", MessageBoxButton.OK);
             }
 
             return resultado;

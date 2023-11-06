@@ -17,7 +17,7 @@ namespace RompecabezasFei
             CargarImagenes();
             DataContext = this;
         }
-
+        #region Métodos privados
         private void CargarImagenes()
         {
             for (int indiceImagen = 1; indiceImagen <= 16;  indiceImagen++)
@@ -28,19 +28,21 @@ namespace RompecabezasFei
                 });
             }            
         }
+        #endregion
 
-        private void EventoCursorSobreImagen(object remitente, MouseEventArgs evento)
+        #region Eventos 
+        private void EventoCursorSobreImagen(object controlOrigen, MouseEventArgs evento)
         {
-            Border borde = remitente as Border;
+            Border borde = controlOrigen as Border;
             if (borde != bordeSeleccionado)
             {
                 borde.BorderBrush = new SolidColorBrush(Colors.Red);
             }
         }
 
-        private void EventoCursorFueraDeImagen(object remitente, MouseEventArgs evento)
+        private void EventoCursorFueraDeImagen(object controlOrigen, MouseEventArgs evento)
         {
-            Border borde = remitente as Border;
+            Border borde = controlOrigen as Border;
             if (borde != bordeSeleccionado)
             {
                 ImagenRompecabezas imagen = borde.DataContext as ImagenRompecabezas;
@@ -48,9 +50,9 @@ namespace RompecabezasFei
             }
         }
 
-        private void EventoClickEnImagen(object remitente, MouseButtonEventArgs evento)
+        private void EventoClickEnImagen(object controlOrigen, MouseButtonEventArgs evento)
         {
-            Border borde = remitente as Border;
+            Border borde = controlOrigen as Border;
             if (bordeSeleccionado != null)
             {
                 ImagenRompecabezas imagen = borde.DataContext as ImagenRompecabezas;
@@ -60,20 +62,21 @@ namespace RompecabezasFei
             borde.BorderBrush = new SolidColorBrush(Colors.Green);
         }
 
-        private void EventoClickRegresar(object sender, MouseButtonEventArgs e)
+        private void EventoClickRegresar(object controlOrigen, MouseButtonEventArgs e)
         {
             VentanaPrincipal.CambiarPagina(new PaginaSala());
         }
 
-        private void EventoClickGestionarJugadores(object sender, System.Windows.RoutedEventArgs e)
+        private void EventoClickGestionarJugadores(object controlOrigen, System.Windows.RoutedEventArgs e)
         {
 
         }
 
-        private void EventoSeleccionDificultad(object sender, SelectionChangedEventArgs e)
+        private void EventoSeleccionDificultad(object controlOrigen, SelectionChangedEventArgs e)
         {
 
-        }
+        }        
+        #endregion Eventos
     }
 
     public class ImagenRompecabezas

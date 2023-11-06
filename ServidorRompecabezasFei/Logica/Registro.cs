@@ -1,16 +1,14 @@
 ﻿using Datos;
-using System;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace Logica
 {
     public class Registro
     {
-        int idCuenta;
         public bool Registrar(CuentaJugador cuentaJugadorRegistro)
         {
-            bool estadoRegistro = false;
+            bool resultado = false;
+
             using (var contexto = new EntidadesRompecabezasFei())
             {
                 Cuenta nuevaCuenta = new Cuenta()
@@ -23,46 +21,73 @@ namespace Logica
                     NombreJugador = cuentaJugadorRegistro.NombreJugador,
                     NumeroAvatar = cuentaJugadorRegistro.NumeroAvatar,
                 };
-
                 contexto.Jugador.Add(nuevoJugador);
                 contexto.Cuenta.Add(nuevaCuenta);
                 nuevoJugador.Cuenta = nuevaCuenta;
                 nuevaCuenta.Jugador = nuevoJugador;
-                estadoRegistro = contexto.SaveChanges() > 0;
+                resultado = contexto.SaveChanges() > 0;
             }
-            return estadoRegistro;
+
+            return resultado;
         }
 
-        public bool ActualizarInformacion(CuentaJugador cuentaJugadorRegistro)
+        public bool ActualizarInformacion(CuentaJugador cuentaJugadorModificacion)
         {
-            bool informacionActualizada = false;
+            bool resultado = false;
+
             using (var contexto = new EntidadesRompecabezasFei())
             {
-                var Jugador = contexto.Jugador.Where(x => x.IdJugador ==
-                        cuentaJugadorRegistro.IdJugador).ToList();
-                Jugador[(cuentaJugadorRegistro.IdJugador) - 1].NombreJugador = cuentaJugadorRegistro.NombreJugador;
-                Jugador[(cuentaJugadorRegistro.IdJugador) - 1].NumeroAvatar = cuentaJugadorRegistro.NumeroAvatar;
-                informacionActualizada = contexto.SaveChanges() > 0;
+                var jugadoresObtenidos = from jugador in contexto.Jugador
+                                       where jugador.IdJugador ==
+                                       cuentaJugadorModificacion.IdJugador
+                                       select jugador;
+
+                if (jugadoresObtenidos.Any())
+                {
+                    jugadoresObtenidos.First().NombreJugador = cuentaJugadorModificacion.NombreJugador;
+                    jugadoresObtenidos.First().NumeroAvatar = cuentaJugadorModificacion.NumeroAvatar;
+                }
+
+                //var Jugador = contexto.Jugador.Where(x => x.IdJugador == 
+                //    cuentaJugadorModificacion.IdJugador).ToList();
+                //Jugador[cuentaJugadorModificacion.IdJugador - 1].NombreJugador = 
+                //    cuentaJugadorModificacion.NombreJugador;
+                //Jugador[cuentaJugadorModificacion.IdJugador - 1].NumeroAvatar = 
+                //    cuentaJugadorModificacion.NumeroAvatar;
+                resultado = contexto.SaveChanges() > 0;
             }
-            return informacionActualizada;
+
+            return resultado;
         }
 
-        public bool ActualizarContrasena(CuentaJugador cuentaJugadorRegistro)
+        public bool ActualizarContrasena(CuentaJugador cuentaJugadorModificacion)
         {
-            bool informacionActualizada = false;
+            bool resultado = false;
+
             using (var contexto = new EntidadesRompecabezasFei())
             {
-                var Cuenta = contexto.Cuenta.Where(x => x.IdCuenta ==
-                        cuentaJugadorRegistro.IdCuenta).ToList();
-                Cuenta[(cuentaJugadorRegistro.IdCuenta) - 1].Contrasena = cuentaJugadorRegistro.Contrasena;
-                informacionActualizada = contexto.SaveChanges() > 0;
+                var cuentasObtenidas = from cuenta in contexto.Cuenta
+                                       where cuenta.Jugador.IdJugador == 
+                                       cuentaJugadorModificacion.IdJugador
+                                       select cuenta;
+                
+                if (cuentasObtenidas.Any())
+                {
+                    cuentasObtenidas.First().Contrasena = cuentaJugadorModificacion.Contrasena;
+                }
+
+                //var Cuenta = contexto.Cuenta.Where(x => x.IdCuenta == cuentaJugadorModificacion.IdCuenta).ToList();
+                //Cuenta[(cuentaJugadorModificacion.IdCuenta) - 1].Contrasena = cuentaJugadorModificacion.Contrasena;
+                resultado = contexto.SaveChanges() > 0;
             }
-            return informacionActualizada;
+
+            return resultado;
         }
 
         public bool RestablecerContrasena(string correo, string contrasena)
         {
-            bool informacionActualizada = false;
+            bool resultado = false;
+
             using (var contexto = new EntidadesRompecabezasFei())
             {
                 var cuenta = contexto.Cuenta.SingleOrDefault(x => x.Correo == correo);
@@ -70,12 +95,11 @@ namespace Logica
                 if (cuenta != null)
                 {
                     cuenta.Contrasena = contrasena;
-                    contexto.SaveChanges();
-                    informacionActualizada = true;
+                    resultado = contexto.SaveChanges() > 0;
                 }
             }
-            return informacionActualizada;
-        }
 
+            return resultado;
+        }
     }
 }

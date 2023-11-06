@@ -1,5 +1,6 @@
 ﻿using RompecabezasFei.ServicioRompecabezasFei;
 using System;
+using System.ServiceModel;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -67,13 +68,20 @@ namespace RompecabezasFei
 
             if (!ExistenCamposInvalidos())
             {     
-                if (!(cliente.ExisteNombreJugador(jugadorRegistro.NombreJugador)) &&
-                    !(cliente.ExisteCorreoElectronico(jugadorRegistro.Correo)))
+                try
                 {
-                    PaginaVerificacionCorreo paginaVerificacionCorreo = 
-                        new PaginaVerificacionCorreo(jugadorRegistro);
-                    VentanaPrincipal.CambiarPagina(paginaVerificacionCorreo);
+                    if (!(cliente.ExisteNombreJugador(jugadorRegistro.NombreJugador)) &&
+                    !(cliente.ExisteCorreoElectronico(jugadorRegistro.Correo)))
+                    {
+                        PaginaVerificacionCorreo paginaVerificacionCorreo =
+                            new PaginaVerificacionCorreo(jugadorRegistro);
+                        VentanaPrincipal.CambiarPagina(paginaVerificacionCorreo);
+                    }
                 }
+                catch (EndpointNotFoundException)
+                {
+                    // [...] Log
+                }                
             }
         }
 

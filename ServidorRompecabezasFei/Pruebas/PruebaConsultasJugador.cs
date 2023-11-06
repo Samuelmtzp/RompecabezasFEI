@@ -99,7 +99,7 @@ namespace Pruebas
             string nombreJugador = "Sam";
             ConsultasJugador consultasJugador = new ConsultasJugador();
             int numeroPartidasJugadas = consultasJugador.
-                 ObtenerNumeroPartidasJugadas(nombreJugador);
+                 ObtenerNumeroPartidasJugadasDeJugador(nombreJugador);
             Assert.AreEqual(0, numeroPartidasJugadas, "Se ha obtenido el número de partidas");
         }
 
@@ -109,7 +109,7 @@ namespace Pruebas
             string nombreJugador = "";
             ConsultasJugador consultasJugador = new ConsultasJugador();
             int numeroPartidasJugadas = consultasJugador.
-                 ObtenerNumeroPartidasJugadas(nombreJugador);
+                 ObtenerNumeroPartidasJugadasDeJugador(nombreJugador);
             Assert.AreNotEqual(10, numeroPartidasJugadas, "No se ha obtenido el número de partidas");
         }
     }

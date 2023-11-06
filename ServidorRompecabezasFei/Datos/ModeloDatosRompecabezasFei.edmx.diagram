@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2df0e1b18c25419b80d0eecc56876867" Name="Diagram1" ZoomLevel="101" >
+      <Diagram DiagramId="2df0e1b18c25419b80d0eecc56876867" Name="Diagram1" ZoomLevel="132" >
         <EntityTypeShape EntityType="ModeloRompecabezasFei.SolicitudAmistad" Width="1.875" PointX="4.375" PointY="0.5" />
         <EntityTypeShape EntityType="ModeloRompecabezasFei.Cuenta" Width="1.5" PointX="2.25" PointY="3.625" />
         <EntityTypeShape EntityType="ModeloRompecabezasFei.Jugador" Width="1.5" PointX="4.5" PointY="3.625" />

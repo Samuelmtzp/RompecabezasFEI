@@ -1,4 +1,6 @@
-﻿using System.ServiceModel;
+﻿using Logica;
+using System.Collections.Generic;
+using System.ServiceModel;
 
 namespace Contratos
 {
@@ -6,7 +8,7 @@ namespace Contratos
     public interface IServicioJuego
     {
         [OperationContract]
-        bool NuevaSala(string nombreAnfitrion, string idSala);
+        void NuevaSala(string nombreAnfitrion, string idSala);
 
         [OperationContract]
         void ConectarCuentaJugadorASala(string nombreJugador, string idSala, 
@@ -21,8 +23,9 @@ namespace Contratos
 
         [OperationContract]
         string GenerarCodigoParaNuevaSala();
+        
         [OperationContract]
-        bool ExisteSalaDisponible(string idSala);
+        bool ExisteSalaDisponible(string idSala);               
     }
 
     [ServiceContract]

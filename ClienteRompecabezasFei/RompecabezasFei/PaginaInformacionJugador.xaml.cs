@@ -15,11 +15,13 @@ namespace RompecabezasFei
             CargarDatosJugador();
         }
 
+        #region Métodos Públicos
         public void CargarDatosJugador()
         {
             etiquetaNombreJugador.Content = Dominio.CuentaJugador.
                 CuentaJugadorActual.NombreJugador;
-            CargarImagenJugador();
+            imagenAvatarJugador.Source = Dominio.CuentaJugador.
+                CuentaJugadorActual.FuenteImagenAvatar;
             ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
             cuadroTextoPartidasJugadas.Text = Convert.ToString(cliente.
                 ObtenerNumeroPartidasJugadas(Dominio.CuentaJugador.
@@ -29,18 +31,9 @@ namespace RompecabezasFei
                 CuentaJugadorActual.NombreJugador));
             cliente.Abort();
         }
+        #endregion
 
-        private void CargarImagenJugador()
-        {
-            string rutaImagen = "/Imagenes/Avatares/";
-            BitmapImage ImagenUsuarioMapaBits = new BitmapImage();
-            ImagenUsuarioMapaBits.BeginInit();
-            rutaImagen += Dominio.CuentaJugador.CuentaJugadorActual.NumeroAvatar + ".png";
-            ImagenUsuarioMapaBits.UriSource = new Uri(rutaImagen, UriKind.RelativeOrAbsolute);
-            ImagenUsuarioMapaBits.EndInit();
-            imagenAvatarJugador.Source = ImagenUsuarioMapaBits;
-        }
-
+        #region Eventos
         private void EventoClickCambiarContrasena(object controlOrigen, 
             RoutedEventArgs evento)
         {
@@ -57,5 +50,6 @@ namespace RompecabezasFei
         {
             VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
         }
+        #endregion
     }
 }

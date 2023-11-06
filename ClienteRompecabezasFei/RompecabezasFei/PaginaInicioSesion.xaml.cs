@@ -6,6 +6,8 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace RompecabezasFei
 {
@@ -33,7 +35,10 @@ namespace RompecabezasFei
                     IdCuenta = cuentaJugadorAutenticada.IdCuenta,
                     NombreJugador = cuentaJugadorAutenticada.NombreJugador,
                     NumeroAvatar = cuentaJugadorAutenticada.NumeroAvatar,
-                    EsInvitado = false
+                    EsInvitado = false,
+                    ColorEstadoConectividad = Brushes.Green,
+                    FuenteImagenAvatar = GenerarFuenteImagenDeNumeroDeAvatar(
+                        cuentaJugadorAutenticada.NumeroAvatar)
                 };
                 VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
             }
@@ -42,6 +47,18 @@ namespace RompecabezasFei
                 MessageBox.Show("No se pudo iniciar sesión", "Inicio de sesión cancelado",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private BitmapImage GenerarFuenteImagenDeNumeroDeAvatar(int numeroAvatar)
+        {
+            string rutaImagen = "/Imagenes/Avatares/";
+            BitmapImage fuenteImagenAvatar = new BitmapImage();
+            fuenteImagenAvatar.BeginInit();
+            rutaImagen += numeroAvatar + ".png";
+            fuenteImagenAvatar.UriSource = new Uri(rutaImagen, UriKind.RelativeOrAbsolute);
+            fuenteImagenAvatar.EndInit();
+
+            return fuenteImagenAvatar;
         }
         #endregion
 
@@ -52,7 +69,8 @@ namespace RompecabezasFei
             Dominio.CuentaJugador.CuentaJugadorActual = new Dominio.CuentaJugador()
             {
                 NombreJugador = Properties.Resources.ETIQUETA_GENERAL_INVITADO + numeroAleatorio,
-                EsInvitado = true
+                EsInvitado = true,
+                ColorEstadoConectividad = Brushes.Green
             };
 
             VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());

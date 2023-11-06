@@ -15,7 +15,6 @@ namespace RompecabezasFei
             if (!CuentaJugador.CuentaJugadorActual.EsInvitado)
             {
                 CargarOpcionesJugador();
-                CargarImagenJugador();
             }
         }
 
@@ -23,7 +22,6 @@ namespace RompecabezasFei
         private void CargarOpcionesJugador()
         {
             MostrarOpcionesJugadorRegistrado();
-            CargarImagenJugador();
         }
 
         private void MostrarOpcionesJugadorRegistrado()
@@ -32,18 +30,7 @@ namespace RompecabezasFei
             etiquetaMiPerfil.Visibility = Visibility.Visible;
             imagenAvatarUsuario.Visibility = Visibility.Visible;
             imagenMisAmigos.Visibility = Visibility.Visible;
-        }
-
-        private void CargarImagenJugador()
-        {
-            string rutaImagen = "/Imagenes/Avatares/";
-            BitmapImage ImagenUsuarioMapaBits = new BitmapImage();
-            ImagenUsuarioMapaBits.BeginInit();
-            rutaImagen += CuentaJugador.CuentaJugadorActual.NumeroAvatar + ".png";
-
-            ImagenUsuarioMapaBits.UriSource = new Uri(rutaImagen, UriKind.RelativeOrAbsolute);
-            ImagenUsuarioMapaBits.EndInit();
-            imagenAvatarUsuario.Source = ImagenUsuarioMapaBits;
+            imagenAvatarUsuario.Source = CuentaJugador.CuentaJugadorActual.FuenteImagenAvatar;
         }
         #endregion
 

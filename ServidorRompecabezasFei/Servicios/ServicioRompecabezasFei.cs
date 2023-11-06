@@ -1,6 +1,5 @@
 ﻿using Contratos;
 using Logica;
-using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -132,6 +131,7 @@ namespace Servicios
             }
             catch (EntityException)
             {
+
             }
             return cuentaJugador;
         }
@@ -140,15 +140,18 @@ namespace Servicios
             string asunto, string mensaje)
         {
             GeneradorMensajesCorreo generadorMensajesCorreo = new GeneradorMensajesCorreo();
-            bool estado = generadorMensajesCorreo.EnviarMensaje(encabezado, correoDestino, asunto, mensaje);
-            return estado;
+            bool resultado = generadorMensajesCorreo.EnviarMensaje(
+                encabezado, correoDestino, asunto, mensaje);
+            
+            return resultado;
         }
 
         public int ObtenerNumeroPartidasJugadas(string nombreJugador)
         {
             ConsultasJugador consultasJugador = new ConsultasJugador();
             int numeroPartidasJugadas = consultasJugador.
-                ObtenerNumeroPartidasJugadas(nombreJugador);
+                ObtenerNumeroPartidasJugadasDeJugador(nombreJugador);
+            
             return numeroPartidasJugadas;
         }
 
@@ -157,6 +160,7 @@ namespace Servicios
             ConsultasJugador consultasJugador = new ConsultasJugador();
             int numeroPartidasGanadas = consultasJugador.
                 ObtenerNumeroPartidasGanadas(nombreJugador);
+            
             return numeroPartidasGanadas;
         }        
     }
@@ -165,11 +169,11 @@ namespace Servicios
     #region IServicioJuego
     public partial class ServicioRompecabezasFei : IServicioJuego
     {
-        private List<Logica.Sala> salasActivas = new List<Logica.Sala>();        
+        private List<Sala> salasActivas = new List<Sala>();        
 
-        public bool NuevaSala(string nombreAnfitrion, string idSala)
+        public void NuevaSala(string nombreAnfitrion, string idSala)
         {
-            Logica.Sala nuevaSala = new Logica.Sala()
+            Sala nuevaSala = new Sala()
             {
                 IdSala = idSala,
                 NombreAnfitrion = nombreAnfitrion,
@@ -177,22 +181,23 @@ namespace Servicios
                 Jugadores = new List<CuentaJugador>()
             };
             salasActivas.Add(nuevaSala);
-            return true;
         }
 
         public bool ExisteSalaDisponible(string idSala)
         {
-            bool disponibilidadSala = false;
-            Logica.Sala salaEncontrada = salasActivas.
-                FirstOrDefault(sala => sala.IdSala.Equals(idSala));
+            bool resultado = false;
+            Sala salaEncontrada = salasActivas.FirstOrDefault(
+                sala => sala.IdSala.Equals(idSala));
+            
             if (salaEncontrada != null)
             {
-                if (salaEncontrada.ContadorJugadoresActuales < 4)
+                if (salaEncontrada.ExisteCupoJugadores())
                 {
-                    disponibilidadSala = true;
+                    resultado = true;
                 }
             }
-            return disponibilidadSala;
+
+            return resultado;
         }
 
         public void ConectarCuentaJugadorASala(string nombreJugador, string idSala, 
@@ -204,13 +209,14 @@ namespace Servicios
                 ContextoOperacion = OperationContext.Current,
             };
 
-            Logica.Sala salaEncontrada = salasActivas.FirstOrDefault(sala => 
-                sala.IdSala.Equals(idSala));
+            Sala salaEncontrada = salasActivas.FirstOrDefault(
+                sala => sala.IdSala.Equals(idSala));
             
             if (salaEncontrada.ExisteCupoJugadores())
             {
                 EnviarMensajeDeSala(nombreJugador, idSala, mensajeBienvenida);
             }
+
             salaEncontrada.Jugadores.Add(cuentaJugador);
             salaEncontrada.ContadorJugadoresActuales++;
         }
@@ -219,8 +225,8 @@ namespace Servicios
             string mensajeDespedida)
         {
             CuentaJugador cuentaJugadorEncontrada = null;
-            Logica.Sala salaEncontrada = salasActivas.FirstOrDefault(sala => 
-                sala.IdSala.Equals(idSala));
+            Sala salaEncontrada = salasActivas.FirstOrDefault(
+                sala => sala.IdSala.Equals(idSala));
 
             if (salaEncontrada != null)
             {
@@ -233,6 +239,7 @@ namespace Servicios
             {
                 salaEncontrada.Jugadores.Remove(cuentaJugadorEncontrada);
                 salaEncontrada.ContadorJugadoresActuales--;
+                
                 if (salaEncontrada.EstaVacia())
                 {
                     salasActivas.Remove(salaEncontrada);
@@ -246,8 +253,9 @@ namespace Servicios
 
         public void EnviarMensajeDeSala(string nombreJugador, string idSala, string mensaje)
         {
-            Logica.Sala salaEncontrada = salasActivas.FirstOrDefault(sala => 
-                sala.IdSala.Equals(idSala));
+            Sala salaEncontrada = salasActivas.FirstOrDefault(
+                sala => sala.IdSala.Equals(idSala));
+            
             foreach (CuentaJugador cuentaJugador in salaEncontrada.Jugadores)
             {
                 string horaActual = DateTime.Now.ToShortTimeString();
@@ -260,6 +268,84 @@ namespace Servicios
         public string GenerarCodigoParaNuevaSala()
         {
             return Guid.NewGuid().ToString();
+        }        
+    }
+    #endregion
+
+    #region IServicioAmistades
+    public partial class ServicioRompecabezasFei : IServicioAmistades
+    {
+        public List<CuentaJugador> ObtenerAmigosDeJugador(string nombreJugador)
+        {
+            GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
+            List<CuentaJugador> cuentasJugador = gestionAmigosJugador.ObtenerAmigosDeJugador(
+                nombreJugador);
+
+            return cuentasJugador;
+        }
+
+        public List<CuentaJugador> ObtenerJugadoresConSolicitudDeAmistadSinAceptar(
+            string nombreJugador)
+        {
+            GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
+            List<CuentaJugador> cuentasJugador = gestionAmigosJugador.
+                ObtenerJugadoresConSolicitudDeAmistadSinAceptar(nombreJugador);
+
+            return cuentasJugador;
+        }
+
+        public bool EnviarSolicitudDeAmistad(string nombreJugadorOrigen, string nombreJugadorDestino)
+        {
+            GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
+            bool resultado = gestionAmigosJugador.EnviarSolicitudDeAmistad(
+                nombreJugadorOrigen, nombreJugadorDestino);
+
+            return resultado;
+        }
+
+        public bool AceptarSolicitudDeAmistad(string nombreJugadorOrigen, string nombreJugadorDestino)
+        {
+            GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
+            bool resultado = gestionAmigosJugador.AceptarSolicitudDeAmistad(
+                nombreJugadorOrigen, nombreJugadorDestino);
+
+            return resultado;
+        }
+
+        public bool RechazarSolicitudDeAmistad(string nombreJugadorOrigen, string nombreJugadorDestino)
+        {
+            GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
+            bool resultado = gestionAmigosJugador.RechazarSolicitudDeAmistad(
+                nombreJugadorOrigen, nombreJugadorDestino);
+
+            return resultado;
+        }
+
+        public bool ExisteSolicitudDeAmistadSinAceptar(string nombreJugadorOrigen, string nombreJugadorDestino)
+        {
+            GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
+            bool resultado = gestionAmigosJugador.ExisteSolicitudDeAmistadSinAceptar(
+                nombreJugadorOrigen, nombreJugadorDestino);
+
+            return resultado;
+        }
+
+        public bool ExisteAmistadConJugador(string nombreJugador1, string nombreJugador2)
+        {
+            GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
+            bool resultado = gestionAmigosJugador.ExisteAmistadConJugador(
+                nombreJugador1, nombreJugador2);
+
+            return resultado;
+        }
+
+        public bool RegistrarNuevaAmistadEntreJugadores(string nombreJugador1, string nombreJugador2)
+        {
+            GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
+            bool resultado = gestionAmigosJugador.RegistrarNuevaAmistadEntreJugadores(
+                nombreJugador1, nombreJugador2);
+
+            return resultado;
         }
     }
     #endregion

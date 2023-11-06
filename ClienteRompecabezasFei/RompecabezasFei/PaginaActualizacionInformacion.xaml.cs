@@ -12,8 +12,6 @@ namespace RompecabezasFei
     {
         private Dominio.CuentaJugador jugadorRegistro;
         private readonly string nombreActual;
-        private bool mismoNombre;
-        private bool sonLosMismosDatos;
 
         public Dominio.CuentaJugador JugadorRegistro
         {
@@ -29,23 +27,6 @@ namespace RompecabezasFei
         }
 
         #region Métodos privados
-        private void CargarImagenJugador()
-        {
-            string rutaImagen = "/Imagenes/Avatares/";
-            BitmapImage ImagenUsuarioMapaBits = new BitmapImage();
-            ImagenUsuarioMapaBits.BeginInit();
-            rutaImagen += Dominio.CuentaJugador.CuentaJugadorActual.NumeroAvatar + ".png";
-            ImagenUsuarioMapaBits.UriSource = new Uri(rutaImagen, UriKind.RelativeOrAbsolute);
-            ImagenUsuarioMapaBits.EndInit();
-            imagenAvatarActual.Source = ImagenUsuarioMapaBits;
-        }
-
-        private void CargarNombreJugador()
-        {
-            cuadroTextoNombreUsuario.Text = Dominio.CuentaJugador.
-                CuentaJugadorActual.NombreJugador;
-        }
-
         public void CargarDatosEdicion()
         {
             cuadroTextoNombreUsuario.Text = jugadorRegistro.NombreJugador;
@@ -58,14 +39,77 @@ namespace RompecabezasFei
                 NombreJugador = cuadroTextoNombreUsuario.Text
             };
         }
+
+        private void ActualizarInformacion()
+        {
+            ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient(); 
+            CuentaJugador datosJugador = new CuentaJugador
+            {
+                IdJugador = Dominio.CuentaJugador.CuentaJugadorActual.IdJugador,
+                NombreJugador = jugadorRegistro.NombreJugador,
+                NumeroAvatar = jugadorRegistro.NumeroAvatar,
+            };            
+            bool esNombreDisponible = !cliente.ExisteNombreJugador(
+                jugadorRegistro.NombreJugador);
+
+            if (esNombreDisponible)
+            {
+                bool registroRealizado = cliente.ActualizarInformacion(datosJugador);
+
+                if (registroRealizado)
+                {
+                    MessageBox.Show("La actualización de la información se ha " +
+                        "realizado correctamente",
+                        "Actualización realizada correctamente",
+                        MessageBoxButton.OK);
+                    cliente.Abort();
+                    Dominio.CuentaJugador.CuentaJugadorActual.NumeroAvatar =
+                        datosJugador.NumeroAvatar;
+                    Dominio.CuentaJugador.CuentaJugadorActual.NombreJugador =
+                        datosJugador.NombreJugador;
+                    Dominio.CuentaJugador.CuentaJugadorActual.FuenteImagenAvatar = 
+                        GenerarFuenteImagenDeNumeroDeAvatar(datosJugador.NumeroAvatar);
+
+                    PaginaInformacionJugador paginaInformacionJugador =
+                        new PaginaInformacionJugador();
+                    VentanaPrincipal.CambiarPagina(paginaInformacionJugador);
+                }
+                else
+                {
+                    MessageBox.Show("La actualización de la información " +
+                        "no se ha realizado",
+                        "Error al actualizar información",
+                        MessageBoxButton.OK);
+                }
+            }
+            else
+            {
+                MessageBox.Show("El nombre no se encuentra disponible",
+                    "Error al actualizar información", MessageBoxButton.OK);
+            }
+        }
+
+        private BitmapImage GenerarFuenteImagenDeNumeroDeAvatar(int numeroAvatar)
+        {
+            string rutaImagen = "/Imagenes/Avatares/";
+            BitmapImage fuenteImagenAvatar = new BitmapImage();
+            fuenteImagenAvatar.BeginInit();
+            rutaImagen += numeroAvatar + ".png";
+            fuenteImagenAvatar.UriSource = new Uri(rutaImagen, UriKind.RelativeOrAbsolute);
+            fuenteImagenAvatar.EndInit();
+
+            return fuenteImagenAvatar;
+        }
         #endregion
 
         #region Eventos
         private void EventoPaginaActualizacionInformacionCargada(object controlOrigen,
             RoutedEventArgs evento)
         {
-            CargarImagenJugador();
-            CargarNombreJugador();
+            imagenAvatarActual.Source = Dominio.CuentaJugador.
+                CuentaJugadorActual.FuenteImagenAvatar;
+            cuadroTextoNombreUsuario.Text = Dominio.CuentaJugador.
+                CuentaJugadorActual.NombreJugador;
         }
         
         private void EventoClickRegresar(object controlOrigen, MouseButtonEventArgs evento)
@@ -77,96 +121,33 @@ namespace RompecabezasFei
         {
             jugadorRegistro.NombreJugador = cuadroTextoNombreUsuario.Text.Trim();
             jugadorRegistro.NumeroAvatar = Convert.ToInt16(imagenAvatarActual.Tag);
+            bool esNombreDiferente = false;
+            bool esAvatarDiferente = false;
 
-            if (jugadorRegistro.NumeroAvatar == 0 &&
-                jugadorRegistro.NombreJugador.Equals(nombreActual))
+            if (!ExistenModificacionesEnNombre() &&
+                !ExistenModificacionesEnAvatar())
             {
-                sonLosMismosDatos = true;
                 VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
             }
             else
             {
-                if (jugadorRegistro.NumeroAvatar == 0)
+                if (ExistenModificacionesEnAvatar())
                 {
                     jugadorRegistro.NumeroAvatar = Dominio.CuentaJugador.
                         CuentaJugadorActual.NumeroAvatar;
+                    esAvatarDiferente = true; 
                 }
-                if (jugadorRegistro.NombreJugador.Equals(nombreActual))
+                if (ExistenModificacionesEnNombre())
                 {
-                    mismoNombre = true;
+                    esNombreDiferente = true;
                 }
             }
 
-            CuentaJugador datosJugador = new CuentaJugador
+            if (esNombreDiferente || esAvatarDiferente)
             {
-                IdJugador = Dominio.CuentaJugador.CuentaJugadorActual.IdJugador,
-                NombreJugador = jugadorRegistro.NombreJugador,
-                NumeroAvatar = jugadorRegistro.NumeroAvatar,
-            };
-
-            if (!sonLosMismosDatos)
-            {
-                ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
-
                 if (!ExistenCamposInvalidos())
                 {
-                    if (mismoNombre)
-                    {
-                        bool resultadoRegistro = cliente.ActualizarInformacion(datosJugador);
-
-                        if (resultadoRegistro)
-                        {
-                            MessageBox.Show("La actualización de la información se ha " +
-                                "realizado correctamente",
-                                "Actualización realizada correctamente",
-                                MessageBoxButton.OK);
-                            cliente.Abort();
-                            Dominio.CuentaJugador.CuentaJugadorActual.NumeroAvatar =
-                                datosJugador.NumeroAvatar;
-                            Dominio.CuentaJugador.CuentaJugadorActual.NombreJugador =
-                                datosJugador.NombreJugador;
-                            PaginaInformacionJugador paginaInformacionJugador =
-                                new PaginaInformacionJugador();
-                            paginaInformacionJugador.InitializeComponent();
-                            paginaInformacionJugador.CargarDatosJugador();
-                            VentanaPrincipal.CambiarPagina(paginaInformacionJugador);
-                        }
-                        else
-                        {
-                            MessageBox.Show("La actualización de la información " +
-                                "no se ha realizado",
-                                "Error al actualizar información",
-                                MessageBoxButton.OK);
-                        }
-                    }
-                    else
-                    {
-                        if (!cliente.ExisteNombreJugador(jugadorRegistro.NombreJugador))
-                        {
-                            bool resultadoRegistro = cliente.ActualizarInformacion(datosJugador);
-
-                            if (resultadoRegistro)
-                            {
-                                MessageBox.Show("La actualización de la información " +
-                                    "se ha realizado correctamente",
-                                    "Actualización realizada correctamente",
-                                    MessageBoxButton.OK);
-                                cliente.Abort();
-                                Dominio.CuentaJugador.CuentaJugadorActual.NumeroAvatar =
-                                    datosJugador.NumeroAvatar;
-                                Dominio.CuentaJugador.CuentaJugadorActual.NombreJugador =
-                                    datosJugador.NombreJugador;
-                                VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
-                            }
-                            else
-                            {
-                                MessageBox.Show("La actualización de la información " +
-                                    "no se ha realizado",
-                                    "Error al actualizar información",
-                                    MessageBoxButton.OK);
-                            }
-                        }
-                    }
+                    ActualizarInformacion();
                 }
             }
         }
@@ -182,6 +163,29 @@ namespace RompecabezasFei
         #endregion
 
         #region Validaciones
+        private bool ExistenModificacionesEnAvatar()
+        {
+            bool resultado = true;
+
+            if (jugadorRegistro.NumeroAvatar == 0)
+            {
+                resultado = false;
+            }
+
+            return resultado;
+        }
+
+        private bool ExistenModificacionesEnNombre()
+        {
+            bool resultado = true;
+
+            if (jugadorRegistro.NombreJugador.Equals(nombreActual))
+            {
+                resultado = false;
+            }
+
+            return resultado;
+        }
 
         private bool ExistenCamposInvalidos()
         {

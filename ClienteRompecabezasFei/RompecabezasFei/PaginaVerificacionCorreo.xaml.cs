@@ -12,6 +12,7 @@ namespace RompecabezasFei
     public partial class PaginaVerificacionCorreo : Page
     {
         string codigoGenerado;
+        private const int DuracionContadorSegundos = 60;
         private int segundosRestantes;
         private DispatcherTimer temporizador;
         private Dominio.CuentaJugador jugadorRegistro;
@@ -21,12 +22,11 @@ namespace RompecabezasFei
             InitializeComponent();
             this.jugadorRegistro = jugadorRegistro;
             EnviarCodigo();
-            InicializarTemporizador();
         }
 
         private void InicializarTemporizador()
         {
-            segundosRestantes = 60;
+            segundosRestantes = DuracionContadorSegundos;
             temporizador = new DispatcherTimer();
             temporizador.Interval = TimeSpan.FromSeconds(1);
             temporizador.Tick += ActualizarTiempo;
@@ -62,6 +62,7 @@ namespace RompecabezasFei
             if (!string.IsNullOrEmpty(codigoGenerado))
             {
                 bool codigoVerificacionCoincide = codigoVerificacion.Equals(codigoGenerado);
+
                 if (codigoVerificacionCoincide)
                 {
                     string contrasenaCifrada = EncriptadorContrasena.
@@ -107,20 +108,21 @@ namespace RompecabezasFei
             if (remitente is TextBox CuadroTextoCodigoVerificacion)
             {
                 string texto = 
-                  CuadroTextoCodigoVerificacion.Text = new string(CuadroTextoCodigoVerificacion.Text.Where(char.IsDigit).ToArray());
-                CuadroTextoCodigoVerificacion.CaretIndex = CuadroTextoCodigoVerificacion.Text.Length;
+                  CuadroTextoCodigoVerificacion.Text = new string(
+                  CuadroTextoCodigoVerificacion.Text.Where(char.IsDigit).ToArray());
+                CuadroTextoCodigoVerificacion.CaretIndex = 
+                    CuadroTextoCodigoVerificacion.Text.Length;
                 CuadroTextoCodigoVerificacion.Text = texto;
             }
         }
 
         private void ActualizarTiempo(object remitente, EventArgs evento)
-        {
-            segundosRestantes--;
+        {            
             if (segundosRestantes > 0)
             {
-                TimeSpan tiempoRestante = TimeSpan.FromSeconds(segundosRestantes);
-                EtiquetaTiempoRestante.Content = 
-                    $"{tiempoRestante.Minutes:00}:{tiempoRestante.Seconds:00}";
+                segundosRestantes--;
+                TimeSpan time = TimeSpan.FromSeconds(segundosRestantes);
+                EtiquetaTiempoRestante.Content = $"{time.Minutes:00}:{time.Seconds:00}";
             }
             else
             {

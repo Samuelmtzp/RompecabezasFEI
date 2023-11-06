@@ -8,7 +8,7 @@ namespace RompecabezasFei
     public partial class PaginaAjustes : Page
     {
         private string idioma;
-        private bool hayMusicaDesactivadaInicialmente;
+        private bool hayMusicaActivadaInicialmente;
      
         public PaginaAjustes()
         {
@@ -28,12 +28,12 @@ namespace RompecabezasFei
         {
             if (App.Current.MusicaActiva)
             {
-                hayMusicaDesactivadaInicialmente = true;
+                hayMusicaActivadaInicialmente = true;
                 botonCambioMusica.IsChecked = true;
             }
             else
             {
-                hayMusicaDesactivadaInicialmente = false;
+                hayMusicaActivadaInicialmente = false;
                 botonCambioMusica.IsChecked = false;                
             }
         }
@@ -79,7 +79,7 @@ namespace RompecabezasFei
 
         private void EventoBotonCambioMusicaActivado(object controlOrigen, RoutedEventArgs evento)
         {
-            if (!hayMusicaDesactivadaInicialmente)
+            if (!hayMusicaActivadaInicialmente)
             {
                 App.Current.EstadoMusica(true);
             }            
