@@ -1,6 +1,7 @@
 ﻿using RompecabezasFei.ServicioRompecabezasFei;
 using System;
 using System.Linq;
+using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -24,9 +25,26 @@ namespace RompecabezasFei
             ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
             Random generadorNumeroAleatorio = new Random();
             codigoGenerado = generadorNumeroAleatorio.Next(100000, 1000000).ToString();
-            cliente.EnviarMensajeCorreo(Properties.Resources.ETIQUETA_GENERAL_ROMPECABEZASFEI,
-                correo, Properties.Resources.ETIQUETA_CODIGO_CODIGORESTABLECIMIENTO,
-                Properties.Resources.ETIQUETA_RECUPERACION_MENSAJE + $" {codigoGenerado}");
+            bool codigoEnviado = false;
+            
+            try
+            {
+                codigoEnviado = cliente.EnviarMensajeCorreo(Properties.Resources.
+                    ETIQUETA_GENERAL_ROMPECABEZASFEI, correo, Properties.Resources.
+                    ETIQUETA_CODIGO_CODIGORESTABLECIMIENTO, Properties.Resources.
+                    ETIQUETA_RECUPERACION_MENSAJE + $" {codigoGenerado}");
+                cliente.Close();
+            }
+            catch (EndpointNotFoundException)
+            {
+                cliente.Abort();
+            }
+
+            if (!codigoEnviado)
+            {
+                MessageBox.Show("El código de confirmación no pudo enviarse", "Codigo no enviado",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         #endregion
 
@@ -61,7 +79,8 @@ namespace RompecabezasFei
         {
             if (controlOrigen is TextBox cuadroTextoCodigoRestablecimiento)
             {
-                string texto = cuadroTextoCodigoRestablecimiento.Text = new string(cuadroTextoCodigoRestablecimiento.Text.Where(char.IsDigit).ToArray());
+                string texto = cuadroTextoCodigoRestablecimiento.Text = new string(
+                    cuadroTextoCodigoRestablecimiento.Text.Where(char.IsDigit).ToArray());
                 cuadroTextoCodigoRestablecimiento.CaretIndex = 
                     cuadroTextoCodigoRestablecimiento.Text.Length;
                 cuadroTextoCodigoRestablecimiento.Text = texto;

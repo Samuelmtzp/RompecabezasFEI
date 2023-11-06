@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Media;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace RompecabezasFei
 {
@@ -12,10 +10,10 @@ namespace RompecabezasFei
         private List<string> idiomasDisponibles = new List<string>() { "es-MX", "en-US" };
         private string idiomaActual;
         private bool musicaActiva;
-
-        public System.IO.Stream str = RompecabezasFei.Properties.ResourceSonidos.MusicaRompecabezasFei;
-        System.IO.Stream pistaAudio = RompecabezasFei.Properties.
-             ResourceSonidos.MusicaRompecabezasFei;
+        public System.IO.Stream str = RompecabezasFei.Properties.
+            ResourceSonidos.MusicaRompecabezasFei;
+        private readonly System.IO.Stream pistaAudio = RompecabezasFei.Properties.
+            ResourceSonidos.MusicaRompecabezasFei;
         SoundPlayer reproductorMusica;
 
         public string IdiomaActual
@@ -26,7 +24,7 @@ namespace RompecabezasFei
             }
             private set
             {
-                System.Threading.Thread.CurrentThread.CurrentUICulture = 
+                Thread.CurrentThread.CurrentUICulture = 
                     new System.Globalization.CultureInfo(value);
                 idiomaActual = value;
             }
@@ -67,20 +65,19 @@ namespace RompecabezasFei
             if (musicaReproduciendose)
             {
                 reproductorMusica.PlayLooping();    
-                this.musicaActiva = true;
+                musicaActiva = true;
             }
             else
             {
                 reproductorMusica.Stop();
-                this.musicaActiva = false;
+                musicaActiva = false;
             }
         }
 
         protected override void OnStartup(StartupEventArgs e)
         {
             reproductorMusica = new SoundPlayer(pistaAudio);
-            EstadoMusica(false);  //pendiente cambio    
+            EstadoMusica(false);
         }
-
     }
 }

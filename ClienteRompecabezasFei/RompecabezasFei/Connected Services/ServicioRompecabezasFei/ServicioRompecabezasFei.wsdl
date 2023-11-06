@@ -175,6 +175,12 @@
   <wsdl:message name="IServicioAmistades_RegistrarNuevaAmistadEntreJugadores_OutputMessage">
     <wsdl:part name="parameters" element="tns:RegistrarNuevaAmistadEntreJugadoresResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioAmistades_EliminarAmistadEntreJugadores_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarAmistadEntreJugadores" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAmistades_EliminarAmistadEntreJugadores_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarAmistadEntreJugadoresResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServicioGestionJugador">
     <wsdl:operation name="Registrar">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/Registrar" message="tns:IServicioGestionJugador_Registrar_InputMessage" />
@@ -277,6 +283,10 @@
     <wsdl:operation name="RegistrarNuevaAmistadEntreJugadores">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/RegistrarNuevaAmistadEntreJugadores" message="tns:IServicioAmistades_RegistrarNuevaAmistadEntreJugadores_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/RegistrarNuevaAmistadEntreJugadoresResponse" message="tns:IServicioAmistades_RegistrarNuevaAmistadEntreJugadores_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarAmistadEntreJugadores">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/EliminarAmistadEntreJugadores" message="tns:IServicioAmistades_EliminarAmistadEntreJugadores_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/EliminarAmistadEntreJugadoresResponse" message="tns:IServicioAmistades_EliminarAmistadEntreJugadores_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IServicioGestionJugador" type="tns:IServicioGestionJugador">
@@ -502,6 +512,15 @@
     </wsdl:operation>
     <wsdl:operation name="RegistrarNuevaAmistadEntreJugadores">
       <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/RegistrarNuevaAmistadEntreJugadores" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarAmistadEntreJugadores">
+      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/EliminarAmistadEntreJugadores" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

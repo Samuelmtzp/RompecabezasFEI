@@ -493,6 +493,12 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/RegistrarNuevaAmistadEntreJugadores", ReplyAction="http://tempuri.org/IServicioAmistades/RegistrarNuevaAmistadEntreJugadoresResponse" +
             "")]
         System.Threading.Tasks.Task<bool> RegistrarNuevaAmistadEntreJugadoresAsync(string nombreJugador1, string nombreJugador2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/EliminarAmistadEntreJugadores", ReplyAction="http://tempuri.org/IServicioAmistades/EliminarAmistadEntreJugadoresResponse")]
+        bool EliminarAmistadEntreJugadores(string nombreJugador1, string nombreJugador2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/EliminarAmistadEntreJugadores", ReplyAction="http://tempuri.org/IServicioAmistades/EliminarAmistadEntreJugadoresResponse")]
+        System.Threading.Tasks.Task<bool> EliminarAmistadEntreJugadoresAsync(string nombreJugador1, string nombreJugador2);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -584,6 +590,14 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         
         public System.Threading.Tasks.Task<bool> RegistrarNuevaAmistadEntreJugadoresAsync(string nombreJugador1, string nombreJugador2) {
             return base.Channel.RegistrarNuevaAmistadEntreJugadoresAsync(nombreJugador1, nombreJugador2);
+        }
+        
+        public bool EliminarAmistadEntreJugadores(string nombreJugador1, string nombreJugador2) {
+            return base.Channel.EliminarAmistadEntreJugadores(nombreJugador1, nombreJugador2);
+        }
+        
+        public System.Threading.Tasks.Task<bool> EliminarAmistadEntreJugadoresAsync(string nombreJugador1, string nombreJugador2) {
+            return base.Channel.EliminarAmistadEntreJugadoresAsync(nombreJugador1, nombreJugador2);
         }
     }
 }

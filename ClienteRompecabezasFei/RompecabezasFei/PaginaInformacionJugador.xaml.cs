@@ -1,9 +1,9 @@
 ﻿using RompecabezasFei.ServicioRompecabezasFei;
 using System;
+using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media.Imaging;
 
 namespace RompecabezasFei
 {
@@ -15,21 +15,51 @@ namespace RompecabezasFei
             CargarDatosJugador();
         }
 
-        #region Métodos Públicos
+        #region Métodos públicos
         public void CargarDatosJugador()
         {
             etiquetaNombreJugador.Content = Dominio.CuentaJugador.
                 CuentaJugadorActual.NombreJugador;
             imagenAvatarJugador.Source = Dominio.CuentaJugador.
                 CuentaJugadorActual.FuenteImagenAvatar;
+            CargarPartidasJugadas();
+            CargarPartidasGanadas();
+        }
+        #endregion
+
+        #region Métodos privados
+        private void CargarPartidasJugadas()
+        {
             ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
-            cuadroTextoPartidasJugadas.Text = Convert.ToString(cliente.
-                ObtenerNumeroPartidasJugadas(Dominio.CuentaJugador.
-                CuentaJugadorActual.NombreJugador));
-            cuadroTextoPartidasGanadas.Text = Convert.ToString(cliente.
-                ObtenerNumeroPartidasGanadas(Dominio.CuentaJugador.
-                CuentaJugadorActual.NombreJugador));
-            cliente.Abort();
+
+            try
+            {
+                cuadroTextoPartidasJugadas.Text = Convert.ToString(cliente.
+                    ObtenerNumeroPartidasJugadas(Dominio.CuentaJugador.
+                    CuentaJugadorActual.NombreJugador));
+                cliente.Close();
+            }
+            catch (EndpointNotFoundException)
+            {
+                cliente.Abort();
+            }            
+        }
+
+        private void CargarPartidasGanadas()
+        {
+            ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
+
+            try
+            {
+                cuadroTextoPartidasGanadas.Text = Convert.ToString(cliente.
+                    ObtenerNumeroPartidasGanadas(Dominio.CuentaJugador.
+                    CuentaJugadorActual.NombreJugador));
+                cliente.Close();
+            }
+            catch (EndpointNotFoundException)
+            {
+                cliente.Abort();
+            }
         }
         #endregion
 

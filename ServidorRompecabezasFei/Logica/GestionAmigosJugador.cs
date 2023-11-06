@@ -159,6 +159,33 @@ namespace Logica
             return resultado;
         }
 
+        public bool EliminarAmistadEntreJugadores(string nombreJugador1, string nombreJugador2)
+        {
+            bool resultado = false;
+
+            using (var contexto = new EntidadesRompecabezasFei())
+            {
+                var amistadesObtenidas = from amistad in contexto.Amigo
+                                         where amistad.Jugador1.NombreJugador ==
+                                         nombreJugador1 &&
+                                         amistad.Jugador2.NombreJugador ==
+                                         nombreJugador2 ||
+                                         amistad.Jugador1.NombreJugador ==
+                                         nombreJugador2 &&
+                                         amistad.Jugador2.NombreJugador ==
+                                         nombreJugador1
+                                         select amistad;
+
+                if (amistadesObtenidas.Any())
+                {
+                    contexto.Amigo.Remove(amistadesObtenidas.First());
+                    resultado = contexto.SaveChanges() > 0;
+                }
+            }
+
+            return resultado;
+        }
+
         public bool RechazarSolicitudDeAmistad(string nombreJugadorOrigen, 
             string nombreJugadorDestino)
         {
@@ -196,7 +223,7 @@ namespace Logica
                                                nombreJugadorOrigen &&
                                                solicitud.JugadorDestino.NombreJugador ==
                                                nombreJugadorDestino &&
-                                               solicitud.Estado == (int)EstadosSolicitudAmistad.Aceptada
+                                               solicitud.Estado == (int)EstadosSolicitudAmistad.SinAceptar
                                                select solicitud).Count();
 
                 if (numeroCoincidencias > 0)
