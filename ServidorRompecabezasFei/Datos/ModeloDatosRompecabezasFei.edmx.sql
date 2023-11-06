@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 10/16/2023 14:08:46
+-- Date Created: 11/05/2023 11:56:32
 -- Generated from EDMX file: C:\Users\samue\OneDrive - Universidad Veracruzana\UV\Semestre 5\Tecnologías\RompecabezasFei\ServidorRompecabezasFei\Datos\ModeloDatosRompecabezasFei.edmx
 -- --------------------------------------------------
 
@@ -80,7 +80,8 @@ CREATE TABLE [dbo].[SolicitudAmistad] (
     [Estado] int  NOT NULL,
     [FechaEnvioSolicitud] nvarchar(max)  NOT NULL,
     [IdJugadorOrigen] int  NOT NULL,
-    [IdJugadorDestino] int  NOT NULL
+    [IdJugadorDestino] int  NOT NULL,
+    [IdSolicitudAmistad] int IDENTITY(1,1) NOT NULL
 );
 GO
 
@@ -139,10 +140,10 @@ GO
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
 
--- Creating primary key on [IdJugadorOrigen], [IdJugadorDestino] in table 'SolicitudAmistad'
+-- Creating primary key on [IdSolicitudAmistad] in table 'SolicitudAmistad'
 ALTER TABLE [dbo].[SolicitudAmistad]
 ADD CONSTRAINT [PK_SolicitudAmistad]
-    PRIMARY KEY CLUSTERED ([IdJugadorOrigen], [IdJugadorDestino] ASC);
+    PRIMARY KEY CLUSTERED ([IdSolicitudAmistad] ASC);
 GO
 
 -- Creating primary key on [IdCuenta] in table 'Cuenta'
@@ -207,6 +208,12 @@ ADD CONSTRAINT [FK_JugadorOrigen_SolicitudAmistad]
     REFERENCES [dbo].[Jugador]
         ([IdJugador])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_JugadorOrigen_SolicitudAmistad'
+CREATE INDEX [IX_FK_JugadorOrigen_SolicitudAmistad]
+ON [dbo].[SolicitudAmistad]
+    ([IdJugadorOrigen]);
 GO
 
 -- Creating foreign key on [IdJugadorDestino] in table 'SolicitudAmistad'

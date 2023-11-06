@@ -60,6 +60,7 @@ namespace Logica
         }
         #endregion
 
+        #region Métodos
         public override string ToString()
         {
             return $"NombreJugador = {nombreJugador}\n" +
@@ -67,5 +68,6 @@ namespace Logica
                 $"Correo = {correo}\n" +
                 $"Contrasena = {contrasena}";
         }
+        #endregion
     }
 }

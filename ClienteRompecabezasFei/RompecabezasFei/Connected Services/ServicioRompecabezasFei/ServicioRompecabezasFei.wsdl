@@ -16,6 +16,14 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IServicioAmistades_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8088/?xsd=xsd0" namespace="http://tempuri.org/" />
@@ -119,6 +127,54 @@
   <wsdl:message name="IServicioJuego_MensajeDeSalaCallBack_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:MensajeDeSalaCallBack" />
   </wsdl:message>
+  <wsdl:message name="IServicioAmistades_EnviarSolicitudDeAmistad_InputMessage">
+    <wsdl:part name="parameters" element="tns:EnviarSolicitudDeAmistad" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAmistades_EnviarSolicitudDeAmistad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EnviarSolicitudDeAmistadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAmistades_ObtenerJugadoresConSolicitudDeAmistadSinAceptar_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerJugadoresConSolicitudDeAmistadSinAceptar" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAmistades_ObtenerJugadoresConSolicitudDeAmistadSinAceptar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerJugadoresConSolicitudDeAmistadSinAceptarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAmistades_ObtenerAmigosDeJugador_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerAmigosDeJugador" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAmistades_ObtenerAmigosDeJugador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerAmigosDeJugadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAmistades_AceptarSolicitudDeAmistad_InputMessage">
+    <wsdl:part name="parameters" element="tns:AceptarSolicitudDeAmistad" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAmistades_AceptarSolicitudDeAmistad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AceptarSolicitudDeAmistadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAmistades_RechazarSolicitudDeAmistad_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechazarSolicitudDeAmistad" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAmistades_RechazarSolicitudDeAmistad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechazarSolicitudDeAmistadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAmistades_ExisteSolicitudDeAmistadSinAceptar_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteSolicitudDeAmistadSinAceptar" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAmistades_ExisteSolicitudDeAmistadSinAceptar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteSolicitudDeAmistadSinAceptarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAmistades_ExisteAmistadConJugador_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteAmistadConJugador" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAmistades_ExisteAmistadConJugador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteAmistadConJugadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAmistades_RegistrarNuevaAmistadEntreJugadores_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarNuevaAmistadEntreJugadores" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAmistades_RegistrarNuevaAmistadEntreJugadores_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarNuevaAmistadEntreJugadoresResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServicioGestionJugador">
     <wsdl:operation name="Registrar">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/Registrar" message="tns:IServicioGestionJugador_Registrar_InputMessage" />
@@ -187,6 +243,40 @@
     </wsdl:operation>
     <wsdl:operation name="MensajeDeSalaCallBack">
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioJuego/MensajeDeSalaCallBack" message="tns:IServicioJuego_MensajeDeSalaCallBack_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IServicioAmistades">
+    <wsdl:operation name="EnviarSolicitudDeAmistad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/EnviarSolicitudDeAmistad" message="tns:IServicioAmistades_EnviarSolicitudDeAmistad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/EnviarSolicitudDeAmistadResponse" message="tns:IServicioAmistades_EnviarSolicitudDeAmistad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerJugadoresConSolicitudDeAmistadSinAceptar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/ObtenerJugadoresConSolicitudDeAmistadSinAceptar" message="tns:IServicioAmistades_ObtenerJugadoresConSolicitudDeAmistadSinAceptar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/ObtenerJugadoresConSolicitudDeAmistadSinAceptarResponse" message="tns:IServicioAmistades_ObtenerJugadoresConSolicitudDeAmistadSinAceptar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAmigosDeJugador">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/ObtenerAmigosDeJugador" message="tns:IServicioAmistades_ObtenerAmigosDeJugador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/ObtenerAmigosDeJugadorResponse" message="tns:IServicioAmistades_ObtenerAmigosDeJugador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AceptarSolicitudDeAmistad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/AceptarSolicitudDeAmistad" message="tns:IServicioAmistades_AceptarSolicitudDeAmistad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/AceptarSolicitudDeAmistadResponse" message="tns:IServicioAmistades_AceptarSolicitudDeAmistad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechazarSolicitudDeAmistad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/RechazarSolicitudDeAmistad" message="tns:IServicioAmistades_RechazarSolicitudDeAmistad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/RechazarSolicitudDeAmistadResponse" message="tns:IServicioAmistades_RechazarSolicitudDeAmistad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExisteSolicitudDeAmistadSinAceptar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/ExisteSolicitudDeAmistadSinAceptar" message="tns:IServicioAmistades_ExisteSolicitudDeAmistadSinAceptar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/ExisteSolicitudDeAmistadSinAceptarResponse" message="tns:IServicioAmistades_ExisteSolicitudDeAmistadSinAceptar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExisteAmistadConJugador">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/ExisteAmistadConJugador" message="tns:IServicioAmistades_ExisteAmistadConJugador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/ExisteAmistadConJugadorResponse" message="tns:IServicioAmistades_ExisteAmistadConJugador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarNuevaAmistadEntreJugadores">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/RegistrarNuevaAmistadEntreJugadores" message="tns:IServicioAmistades_RegistrarNuevaAmistadEntreJugadores_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/RegistrarNuevaAmistadEntreJugadoresResponse" message="tns:IServicioAmistades_RegistrarNuevaAmistadEntreJugadores_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IServicioGestionJugador" type="tns:IServicioGestionJugador">
@@ -344,6 +434,82 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IServicioAmistades" type="tns:IServicioAmistades">
+    <wsp:PolicyReference URI="#NetTcpBinding_IServicioAmistades_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="EnviarSolicitudDeAmistad">
+      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/EnviarSolicitudDeAmistad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerJugadoresConSolicitudDeAmistadSinAceptar">
+      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/ObtenerJugadoresConSolicitudDeAmistadSinAceptar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAmigosDeJugador">
+      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/ObtenerAmigosDeJugador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AceptarSolicitudDeAmistad">
+      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/AceptarSolicitudDeAmistad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechazarSolicitudDeAmistad">
+      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/RechazarSolicitudDeAmistad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExisteSolicitudDeAmistadSinAceptar">
+      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/ExisteSolicitudDeAmistadSinAceptar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExisteAmistadConJugador">
+      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/ExisteAmistadConJugador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarNuevaAmistadEntreJugadores">
+      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/RegistrarNuevaAmistadEntreJugadores" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="ServicioRompecabezasFei">
     <wsdl:port name="NetTcpBinding_IServicioGestionJugador" binding="tns:NetTcpBinding_IServicioGestionJugador">
       <soap12:address location="net.tcp://localhost:9000/Contratos" />
@@ -355,6 +521,15 @@
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IServicioJuego" binding="tns:NetTcpBinding_IServicioJuego">
+      <soap12:address location="net.tcp://localhost:9000/Contratos" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:9000/Contratos</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IServicioAmistades" binding="tns:NetTcpBinding_IServicioAmistades">
       <soap12:address location="net.tcp://localhost:9000/Contratos" />
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:9000/Contratos</wsa10:Address>

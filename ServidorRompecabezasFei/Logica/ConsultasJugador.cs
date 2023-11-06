@@ -7,23 +7,26 @@ namespace Logica
     {
         public bool ExisteNombreJugador(string nombreJugador)
         {
-            bool existeNombreJugador = false;
+            bool resultado = false;
+
             using (var contexto = new EntidadesRompecabezasFei())
             {
                 var cantidadJugadoresEncontrados = (from jugadores in contexto.Jugador 
-                                                    where jugadores.NombreJugador == nombreJugador 
+                                                    where jugadores.NombreJugador == nombreJugador
                                                     select jugadores).Count();
                 if (cantidadJugadoresEncontrados > 0)
                 {
-                    existeNombreJugador = true;
+                    resultado = true;
                 }
             }
-            return existeNombreJugador;
+
+            return resultado;
         }
 
         public bool ExisteCorreoElectronico(string correoElectronico)
         {
-            bool existeCorreoElectronico = false;
+            bool resultado = false;
+            
             using (var contexto = new EntidadesRompecabezasFei())
             {
                 var cantidadCorreosEncontrados = (from cuentas in contexto.Cuenta 
@@ -31,45 +34,51 @@ namespace Logica
                                                   select cuentas).Count();
                 if (cantidadCorreosEncontrados > 0)
                 {
-                    existeCorreoElectronico = true;
+                    resultado = true;
                 }
             }
-            return existeCorreoElectronico;
+
+            return resultado;
         }
 
-        public int ObtenerNumeroPartidasJugadas(string nombreJugador)
+        public int ObtenerNumeroPartidasJugadasDeJugador(string nombreJugador)
         {
-            int numeroPartidasJugadas;
+            int partidasJugadas;
+            
             using (var contexto = new EntidadesRompecabezasFei())
             {
-                numeroPartidasJugadas = (from jugador in contexto.Jugador 
-                                         from partidasJugadas in contexto.Jugador_Partida 
-                                         where jugador == partidasJugadas.Jugador &&
-                                         jugador.NombreJugador == nombreJugador 
-                                         select jugador).Count();
+                partidasJugadas = (from jugador in contexto.Jugador 
+                                   from partidaJugada in contexto.Jugador_Partida 
+                                   where jugador == partidaJugada.Jugador &&
+                                   jugador.NombreJugador == nombreJugador 
+                                   select jugador).Count();
             }
-            return numeroPartidasJugadas;
+
+            return partidasJugadas;
         }
 
         public int ObtenerNumeroPartidasGanadas(string nombreJugador)
         {
-            int numeroPartidasGanadas;
+            int partidasGanadas;
+
             using (var contexto = new EntidadesRompecabezasFei())
             {
-                numeroPartidasGanadas = contexto.Jugador_Partida.GroupBy(jugadorEnPartida => 
-                    jugadorEnPartida.Jugador.NombreJugador).Select(jugadoresPartida => new
+                partidasGanadas = contexto.Jugador_Partida.
+                    GroupBy(jugadorEnPartida => 
+                    jugadorEnPartida.Jugador.NombreJugador).
+                    Select(jugadoresPartida => new
                     {
                         NombreJugador = jugadoresPartida.Key,
-                        PuntajeMaximo = jugadoresPartida.Max(jugadorEnPartida => 
-                        jugadorEnPartida.Puntaje)
+                        PuntajeMaximo = jugadoresPartida.
+                            Max(jugadorEnPartida => jugadorEnPartida.Puntaje)
                     }).
                     Where(jugadoresPartida => jugadoresPartida.PuntajeMaximo == 
-                        contexto.Jugador_Partida.Where(jugadorEnPartida => 
-                        jugadoresPartida.NombreJugador == nombreJugador).Max(jugadorEnPartida => 
-                        jugadorEnPartida.Puntaje)).Count();
+                    contexto.Jugador_Partida.
+                    Where(jugadorEnPartida => jugadoresPartida.NombreJugador == nombreJugador).
+                    Max(jugadorEnPartida => jugadorEnPartida.Puntaje)).Count();
             }
-            return numeroPartidasGanadas;
-        }
 
+            return partidasGanadas;
+        }        
     }
 }

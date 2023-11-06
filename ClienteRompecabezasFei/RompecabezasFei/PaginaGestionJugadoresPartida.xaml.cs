@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace RompecabezasFei
 {
-    /// <summary>
-    /// Interaction logic for PaginaGestionJugadoresPartida.xaml
-    /// </summary>
     public partial class PaginaGestionJugadoresPartida : Page
     {
         public PaginaGestionJugadoresPartida()

@@ -52,13 +52,13 @@
   </EntityContainer>
   <EntityType Name="SolicitudAmistad">
     <Key>
-      <PropertyRef Name="IdJugadorOrigen" />
-      <PropertyRef Name="IdJugadorDestino" />
+      <PropertyRef Name="IdSolicitudAmistad" />
     </Key>
     <Property Name="Estado" Type="int" Nullable="false" />
     <Property Name="FechaEnvioSolicitud" Type="nvarchar(max)" Nullable="false" />
     <Property Name="IdJugadorOrigen" Type="int" Nullable="false" />
     <Property Name="IdJugadorDestino" Type="int" Nullable="false" />
+    <Property Name="IdSolicitudAmistad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
   <EntityType Name="Cuenta">
     <Key>
@@ -271,8 +271,7 @@
         </EntityContainer>
         <EntityType Name="SolicitudAmistad" >
           <Key>
-            <PropertyRef Name="IdJugadorOrigen" />
-            <PropertyRef Name="IdJugadorDestino" />
+            <PropertyRef Name="IdSolicitudAmistad" />
           </Key>
           <Property Name="Estado" Type="Int32" Nullable="false" />
           <Property Name="FechaEnvioSolicitud" Type="String" Nullable="false" />
@@ -280,6 +279,7 @@
           <Property Name="IdJugadorOrigen" Type="Int32" Nullable="false" />
           <NavigationProperty Name="JugadorDestino" Relationship="ModeloRompecabezasFei.JugadorDestino_SolicitudAmistad" FromRole="SolicitudAmistad" ToRole="Jugador" />
           <Property Name="IdJugadorDestino" Type="Int32" Nullable="false" />
+          <Property Name="IdSolicitudAmistad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="Cuenta">
           <Key>
@@ -449,10 +449,11 @@
     <EntitySetMapping Name="SolicitudAmistad">
       <EntityTypeMapping TypeName="IsTypeOf(ModeloRompecabezasFei.SolicitudAmistad)">
         <MappingFragment StoreEntitySet="SolicitudAmistad">
-          <ScalarProperty Name="IdJugadorOrigen" ColumnName="IdJugadorOrigen" />
-          <ScalarProperty Name="IdJugadorDestino" ColumnName="IdJugadorDestino" />
+          <ScalarProperty Name="IdSolicitudAmistad" ColumnName="IdSolicitudAmistad" />
           <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="FechaEnvioSolicitud" ColumnName="FechaEnvioSolicitud" />
+          <ScalarProperty Name="IdJugadorOrigen" ColumnName="IdJugadorOrigen" />
+          <ScalarProperty Name="IdJugadorDestino" ColumnName="IdJugadorDestino" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

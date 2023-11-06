@@ -15,45 +15,41 @@ namespace RompecabezasFei
             CargarDatosJugador();
         }
 
+        #region Métodos Públicos
         public void CargarDatosJugador()
         {
-            EtiquetaNombreJugador.Content = Dominio.CuentaJugador.
+            etiquetaNombreJugador.Content = Dominio.CuentaJugador.
                 CuentaJugadorActual.NombreJugador;
-            CargarImagenJugador();
+            imagenAvatarJugador.Source = Dominio.CuentaJugador.
+                CuentaJugadorActual.FuenteImagenAvatar;
             ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
-            CuadroTextoPartidasJugadas.Text = Convert.ToString(cliente.
+            cuadroTextoPartidasJugadas.Text = Convert.ToString(cliente.
                 ObtenerNumeroPartidasJugadas(Dominio.CuentaJugador.
                 CuentaJugadorActual.NombreJugador));
-            CuadroTextoPartidasGanadas.Text = Convert.ToString(cliente.
+            cuadroTextoPartidasGanadas.Text = Convert.ToString(cliente.
                 ObtenerNumeroPartidasGanadas(Dominio.CuentaJugador.
                 CuentaJugadorActual.NombreJugador));
             cliente.Abort();
         }
+        #endregion
 
-        private void CargarImagenJugador()
-        {
-            string rutaImagen = "/Imagenes/Avatares/";
-            BitmapImage ImagenUsuarioMapaBits = new BitmapImage();
-            ImagenUsuarioMapaBits.BeginInit();
-            rutaImagen += Dominio.CuentaJugador.CuentaJugadorActual.NumeroAvatar + ".png";
-            ImagenUsuarioMapaBits.UriSource = new Uri(rutaImagen, UriKind.RelativeOrAbsolute);
-            ImagenUsuarioMapaBits.EndInit();
-            ImagenAvatarJugador.Source = ImagenUsuarioMapaBits;
-        }
-
-        private void AccionCambiarContrasena(object remitente, RoutedEventArgs evento)
+        #region Eventos
+        private void EventoClickCambiarContrasena(object controlOrigen, 
+            RoutedEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaActualizacionContrasena());
         }
 
-        private void AccionActualizarInformacion(object remitente, RoutedEventArgs evento)
+        private void EventoClickActualizarInformacion(object controlOrigen, 
+            RoutedEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaActualizacionInformacion());
         }
 
-        private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
+        private void EventoClickRegresar(object controlOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
         }
+        #endregion
     }
 }

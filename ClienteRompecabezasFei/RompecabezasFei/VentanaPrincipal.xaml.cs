@@ -7,6 +7,7 @@ namespace RompecabezasFei
     {
         private static Page paginaActual;
         private static Page paginaAnterior;        
+
         public static Page PaginaAnterior
         {
             get { return paginaAnterior; }
@@ -34,8 +35,8 @@ namespace RompecabezasFei
 
         public static void CambiarPaginaGuardandoAnterior(Page nuevaPagina)
         {
+            PaginaAnterior = paginaActual; 
             CambiarPagina(nuevaPagina);
-            PaginaAnterior = paginaActual;
         }
     }
 }
