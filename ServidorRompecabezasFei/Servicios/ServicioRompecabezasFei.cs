@@ -16,7 +16,8 @@ namespace Servicios
         public bool Registrar(CuentaJugador cuentaJugador)
         {
             Registro registro = new Registro();
-            bool estadoRegistro;
+            bool resultado;
+
             try
             {
                 CuentaJugador cuentaJugadorRegistro = new CuentaJugador()
@@ -26,19 +27,21 @@ namespace Servicios
                     Contrasena = cuentaJugador.Contrasena,
                     Correo = cuentaJugador.Correo,
                 };
-                estadoRegistro = registro.Registrar(cuentaJugadorRegistro);
+                resultado = registro.Registrar(cuentaJugadorRegistro);
             }
             catch (EntityException)
             {
-                estadoRegistro = false;
+                resultado = false;
             }
-            return estadoRegistro;
+
+            return resultado;
         }
 
         public bool ActualizarInformacion(CuentaJugador cuentaJugador)
         {
             Registro registro = new Registro();
-            bool estadoActualizar;
+            bool resultado;
+
             try
             {
                 CuentaJugador cuentaJugadorRegistro = new CuentaJugador()
@@ -47,19 +50,21 @@ namespace Servicios
                     NombreJugador = cuentaJugador.NombreJugador,
                     NumeroAvatar = cuentaJugador.NumeroAvatar,
                 };
-                estadoActualizar = registro.ActualizarInformacion(cuentaJugadorRegistro);
+                resultado = registro.ActualizarInformacion(cuentaJugadorRegistro);
             }
             catch(EntityException)
             {
-                estadoActualizar = false;
+                resultado = false;
             }
-            return estadoActualizar;
+            
+            return resultado;
         }
 
         public bool ActualizarContrasena(CuentaJugador cuentaJugador)
         {
             Registro registro = new Registro();
-            bool estadoActualizar;
+            bool resultado;
+            
             try
             {
                 CuentaJugador cuentaJugadorRegistro = new CuentaJugador()
@@ -67,63 +72,71 @@ namespace Servicios
                     IdCuenta = cuentaJugador.IdCuenta,
                     Contrasena = cuentaJugador.Contrasena,
                 };
-                estadoActualizar = registro.ActualizarContrasena(cuentaJugadorRegistro);
+                resultado = registro.ActualizarContrasena(cuentaJugadorRegistro);
             }
             catch (EntityException)
             {
-                estadoActualizar = false;
+                resultado = false;
             }
-            return estadoActualizar;
+
+            return resultado;
         }
 
         public bool RestablecerContrasena(string correo, string contrasena)
         {
             Registro registro = new Registro();
-            bool estadoActualizar;
+            bool resultado;
+            
             try
             {
-                estadoActualizar = registro.RestablecerContrasena(correo, contrasena);
+                resultado = registro.RestablecerContrasena(correo, contrasena);
             }
             catch (EntityException)
             {
-                estadoActualizar = false;
+                resultado = false;
             }
-            return estadoActualizar;
+
+            return resultado;
         }
 
         public bool ExisteNombreJugador(string nombreJugador)
         {
             ConsultasJugador consultasJugador = new ConsultasJugador();
-            bool existeNombreJugador;
+            bool resultado;
+            
             try
             {
-                existeNombreJugador = consultasJugador.ExisteNombreJugador(nombreJugador);
+                resultado = consultasJugador.ExisteNombreJugador(nombreJugador);
             }
             catch (EntityException)
             {
-                existeNombreJugador = false;
+                resultado = false;
             }
-            return existeNombreJugador;
+
+            return resultado;
         }     
         
         public bool ExisteCorreoElectronico(string correoElectronico)
         {
             ConsultasJugador consultasJugador = new ConsultasJugador();
-            bool existeCorreo;
+            bool resultado;
+            
             try
             {
-                existeCorreo = consultasJugador.ExisteCorreoElectronico(correoElectronico);
+                resultado = consultasJugador.ExisteCorreoElectronico(correoElectronico);
             }
             catch (EntityException)
             {
-                existeCorreo = false;
+                resultado = false;
             }
-            return existeCorreo;
+
+            return resultado;
         }
 
         public CuentaJugador IniciarSesion(string nombreUsuario, string contrasena)
         {
             CuentaJugador cuentaJugador = new CuentaJugador();
+            
             try
             {
                 Autenticacion autenticacion = new Autenticacion();
@@ -133,6 +146,7 @@ namespace Servicios
             {
 
             }
+
             return cuentaJugador;
         }
 
@@ -140,8 +154,17 @@ namespace Servicios
             string asunto, string mensaje)
         {
             GeneradorMensajesCorreo generadorMensajesCorreo = new GeneradorMensajesCorreo();
-            bool resultado = generadorMensajesCorreo.EnviarMensaje(
-                encabezado, correoDestino, asunto, mensaje);
+            bool resultado;
+            
+            try
+            {
+                resultado = generadorMensajesCorreo.EnviarMensaje(
+                    encabezado, correoDestino, asunto, mensaje);
+            }
+            catch (EntityException)
+            {
+                resultado = false;
+            }
             
             return resultado;
         }
@@ -149,8 +172,17 @@ namespace Servicios
         public int ObtenerNumeroPartidasJugadas(string nombreJugador)
         {
             ConsultasJugador consultasJugador = new ConsultasJugador();
-            int numeroPartidasJugadas = consultasJugador.
-                ObtenerNumeroPartidasJugadasDeJugador(nombreJugador);
+            int numeroPartidasJugadas;
+
+            try
+            {
+                numeroPartidasJugadas = consultasJugador.
+                    ObtenerNumeroPartidasJugadasDeJugador(nombreJugador);
+            }
+            catch (EntityException)
+            {
+                numeroPartidasJugadas = 0;
+            }
             
             return numeroPartidasJugadas;
         }
@@ -158,8 +190,17 @@ namespace Servicios
         public int ObtenerNumeroPartidasGanadas(string nombreJugador)
         {
             ConsultasJugador consultasJugador = new ConsultasJugador();
-            int numeroPartidasGanadas = consultasJugador.
-                ObtenerNumeroPartidasGanadas(nombreJugador);
+            int numeroPartidasGanadas;
+
+            try
+            {
+                numeroPartidasGanadas = consultasJugador.
+                    ObtenerNumeroPartidasGanadas(nombreJugador);
+            }
+            catch (EntityException)
+            {
+                numeroPartidasGanadas = 0;
+            }
             
             return numeroPartidasGanadas;
         }        
@@ -278,8 +319,17 @@ namespace Servicios
         public List<CuentaJugador> ObtenerAmigosDeJugador(string nombreJugador)
         {
             GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
-            List<CuentaJugador> cuentasJugador = gestionAmigosJugador.ObtenerAmigosDeJugador(
-                nombreJugador);
+            List<CuentaJugador> cuentasJugador;
+
+            try
+            {
+                cuentasJugador = gestionAmigosJugador.
+                    ObtenerAmigosDeJugador(nombreJugador);
+            }
+            catch (EntityException)
+            {
+                cuentasJugador = null;
+            }
 
             return cuentasJugador;
         }
@@ -288,44 +338,93 @@ namespace Servicios
             string nombreJugador)
         {
             GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
-            List<CuentaJugador> cuentasJugador = gestionAmigosJugador.
-                ObtenerJugadoresConSolicitudDeAmistadSinAceptar(nombreJugador);
+            List<CuentaJugador> cuentasJugador;
+
+            try
+            {
+                cuentasJugador = gestionAmigosJugador.
+                    ObtenerJugadoresConSolicitudDeAmistadSinAceptar(nombreJugador);
+            }
+            catch (EntityException)
+            {
+                cuentasJugador = null;
+            }
 
             return cuentasJugador;
         }
 
-        public bool EnviarSolicitudDeAmistad(string nombreJugadorOrigen, string nombreJugadorDestino)
+        public bool EnviarSolicitudDeAmistad(string nombreJugadorOrigen, 
+            string nombreJugadorDestino)
         {
             GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
-            bool resultado = gestionAmigosJugador.EnviarSolicitudDeAmistad(
+            bool resultado;
+
+            try
+            {
+                resultado = gestionAmigosJugador.EnviarSolicitudDeAmistad(
                 nombreJugadorOrigen, nombreJugadorDestino);
+            }
+            catch (EntityException)
+            {
+                resultado = false;
+            }
 
             return resultado;
         }
 
-        public bool AceptarSolicitudDeAmistad(string nombreJugadorOrigen, string nombreJugadorDestino)
+        public bool AceptarSolicitudDeAmistad(string nombreJugadorOrigen, 
+            string nombreJugadorDestino)
         {
             GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
-            bool resultado = gestionAmigosJugador.AceptarSolicitudDeAmistad(
-                nombreJugadorOrigen, nombreJugadorDestino);
+            bool resultado;
+
+            try
+            {
+                resultado = gestionAmigosJugador.AceptarSolicitudDeAmistad(
+                    nombreJugadorOrigen, nombreJugadorDestino);
+            }
+            catch (EntityException)
+            {
+                resultado = false;
+            }
 
             return resultado;
         }
 
-        public bool RechazarSolicitudDeAmistad(string nombreJugadorOrigen, string nombreJugadorDestino)
+        public bool RechazarSolicitudDeAmistad(string nombreJugadorOrigen, 
+            string nombreJugadorDestino)
         {
             GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
-            bool resultado = gestionAmigosJugador.RechazarSolicitudDeAmistad(
-                nombreJugadorOrigen, nombreJugadorDestino);
+            bool resultado;
+
+            try
+            {
+                resultado = gestionAmigosJugador.RechazarSolicitudDeAmistad(
+                    nombreJugadorOrigen, nombreJugadorDestino);
+            }
+            catch (EntityException)
+            {
+                resultado = false;
+            }
 
             return resultado;
         }
 
-        public bool ExisteSolicitudDeAmistadSinAceptar(string nombreJugadorOrigen, string nombreJugadorDestino)
+        public bool ExisteSolicitudDeAmistadSinAceptar(string nombreJugadorOrigen, 
+            string nombreJugadorDestino)
         {
             GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
-            bool resultado = gestionAmigosJugador.ExisteSolicitudDeAmistadSinAceptar(
-                nombreJugadorOrigen, nombreJugadorDestino);
+            bool resultado;
+
+            try
+            {
+                resultado = gestionAmigosJugador.ExisteSolicitudDeAmistadSinAceptar(
+                    nombreJugadorOrigen, nombreJugadorDestino);
+            }
+            catch (EntityException)
+            {
+                resultado = false;
+            }
 
             return resultado;
         }
@@ -333,17 +432,55 @@ namespace Servicios
         public bool ExisteAmistadConJugador(string nombreJugador1, string nombreJugador2)
         {
             GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
-            bool resultado = gestionAmigosJugador.ExisteAmistadConJugador(
-                nombreJugador1, nombreJugador2);
+            bool resultado;
+
+            try
+            {
+                resultado = gestionAmigosJugador.ExisteAmistadConJugador(
+                    nombreJugador1, nombreJugador2);
+            }
+            catch (EntityException)
+            {
+                resultado = false;
+            }
 
             return resultado;
         }
 
-        public bool RegistrarNuevaAmistadEntreJugadores(string nombreJugador1, string nombreJugador2)
+        public bool RegistrarNuevaAmistadEntreJugadores(string nombreJugador1, 
+            string nombreJugador2)
         {
             GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
-            bool resultado = gestionAmigosJugador.RegistrarNuevaAmistadEntreJugadores(
-                nombreJugador1, nombreJugador2);
+            bool resultado;
+
+            try
+            {
+                resultado = gestionAmigosJugador.RegistrarNuevaAmistadEntreJugadores(
+                    nombreJugador1, nombreJugador2);
+            }
+            catch (EntityException)
+            {
+                resultado = false;
+            }
+
+            return resultado;
+        }
+
+        public bool EliminarAmistadEntreJugadores(string nombreJugador1, 
+            string nombreJugador2)
+        {
+            GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
+            bool resultado;
+
+            try
+            {
+                resultado = gestionAmigosJugador.EliminarAmistadEntreJugadores(
+                    nombreJugador1, nombreJugador2);
+            }
+            catch (EntityException)
+            {
+                resultado = false;
+            }
 
             return resultado;
         }

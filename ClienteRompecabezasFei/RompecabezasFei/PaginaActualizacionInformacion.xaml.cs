@@ -1,5 +1,6 @@
 ﻿using RompecabezasFei.ServicioRompecabezasFei;
 using System;
+using System.ServiceModel;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -48,28 +49,45 @@ namespace RompecabezasFei
                 IdJugador = Dominio.CuentaJugador.CuentaJugadorActual.IdJugador,
                 NombreJugador = jugadorRegistro.NombreJugador,
                 NumeroAvatar = jugadorRegistro.NumeroAvatar,
-            };            
-            bool esNombreDisponible = !cliente.ExisteNombreJugador(
-                jugadorRegistro.NombreJugador);
+            };
+            bool esNombreDisponible = false;
+
+            try
+            {
+                esNombreDisponible = !cliente.ExisteNombreJugador(
+                    jugadorRegistro.NombreJugador);
+            }
+            catch (EndpointNotFoundException)
+            {
+                cliente.Abort();
+            }
 
             if (esNombreDisponible)
             {
-                bool registroRealizado = cliente.ActualizarInformacion(datosJugador);
+                bool registroRealizado = false;
+
+                try
+                {
+                    registroRealizado = cliente.ActualizarInformacion(datosJugador);
+                    cliente.Close();
+                }
+                catch(EndpointNotFoundException)
+                {
+                    cliente.Abort();
+                }
 
                 if (registroRealizado)
                 {
                     MessageBox.Show("La actualización de la información se ha " +
                         "realizado correctamente",
                         "Actualización realizada correctamente",
-                        MessageBoxButton.OK);
-                    cliente.Abort();
+                        MessageBoxButton.OK);                    
                     Dominio.CuentaJugador.CuentaJugadorActual.NumeroAvatar =
                         datosJugador.NumeroAvatar;
                     Dominio.CuentaJugador.CuentaJugadorActual.NombreJugador =
                         datosJugador.NombreJugador;
                     Dominio.CuentaJugador.CuentaJugadorActual.FuenteImagenAvatar = 
                         GenerarFuenteImagenDeNumeroDeAvatar(datosJugador.NumeroAvatar);
-
                     PaginaInformacionJugador paginaInformacionJugador =
                         new PaginaInformacionJugador();
                     VentanaPrincipal.CambiarPagina(paginaInformacionJugador);
@@ -204,7 +222,7 @@ namespace RompecabezasFei
         {
             bool resultado = false;
             
-            if (String.IsNullOrWhiteSpace(jugadorRegistro.NombreJugador))
+            if (string.IsNullOrWhiteSpace(jugadorRegistro.NombreJugador))
             {
                 resultado = true;
                 MessageBox.Show("No puedes dejar campos vacíos",

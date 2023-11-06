@@ -14,11 +14,6 @@ namespace RompecabezasFei
             set { paginaAnterior = value; }
         }
 
-        public Window GetVentana()
-        {
-            return this;
-        }
-
         public VentanaPrincipal()
         {
             InitializeComponent();

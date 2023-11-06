@@ -22,10 +22,19 @@ namespace RompecabezasFei
         private void IniciarSesion(string nombreJugador, string contrasena)
         {
             ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
-            ServicioRompecabezasFei.CuentaJugador cuentaJugadorAutenticada =
-                cliente.IniciarSesion(nombreJugador, contrasena);
+            CuentaJugador cuentaJugadorAutenticada = null;
 
-            if (cuentaJugadorAutenticada.IdJugador != 0)
+            try
+            {
+                cuentaJugadorAutenticada = cliente.IniciarSesion(nombreJugador, contrasena);
+                cliente.Close();
+            }
+            catch (EndpointNotFoundException)
+            {
+                cliente.Abort();
+            }
+
+            if (cuentaJugadorAutenticada != null && cuentaJugadorAutenticada.IdJugador != 0)
             {
                 Dominio.CuentaJugador.CuentaJugadorActual = new Dominio.CuentaJugador
                 {
@@ -97,8 +106,8 @@ namespace RompecabezasFei
             var nombreUsuario = cuadroTextoNombreUsuario.Text.Trim();
             var contrasena = cuadroContrasena.Password;
 
-            if (!String.IsNullOrWhiteSpace(nombreUsuario) &&
-                !String.IsNullOrWhiteSpace(contrasena))
+            if (!string.IsNullOrWhiteSpace(nombreUsuario) &&
+                !string.IsNullOrWhiteSpace(contrasena))
             {
                 if (ExistenCadenasValidas(nombreUsuario, contrasena) &&
                     !ExistenLongitudesExcedidas(nombreUsuario, contrasena))

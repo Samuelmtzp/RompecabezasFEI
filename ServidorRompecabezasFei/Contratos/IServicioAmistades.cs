@@ -31,5 +31,8 @@ namespace Contratos
 
         [OperationContract]
         bool RegistrarNuevaAmistadEntreJugadores(string nombreJugador1, string nombreJugador2);
+
+        [OperationContract]
+        bool EliminarAmistadEntreJugadores(string nombreJugador1, string nombreJugador2);
     }
 }

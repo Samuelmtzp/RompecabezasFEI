@@ -1,6 +1,7 @@
 ﻿using RompecabezasFei.ServicioRompecabezasFei;
 using Security;
 using System;
+using System.ServiceModel;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -48,15 +49,24 @@ namespace RompecabezasFei
                     {
                         ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
                         datosJugador.Contrasena = contrasenaCifrada;
-                        bool resultadoActualizacion = cliente.ActualizarContrasena(datosJugador);
+                        bool actualizacionRealizada = false;
 
-                        if (resultadoActualizacion)
+                        try
+                        {
+                            actualizacionRealizada = cliente.ActualizarContrasena(datosJugador);
+                            cliente.Close();
+                        }
+                        catch (EndpointNotFoundException)
+                        {
+                            cliente.Abort();
+                        }
+
+                        if (actualizacionRealizada)
                         {
                             MessageBox.Show("La actualización de la contraseña " +
                                 "se ha realizado correctamente",
                                 "Actualización realizada correctamente",
                                 MessageBoxButton.OK);
-                            cliente.Abort();
                             VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
                         }
                         else
@@ -121,7 +131,7 @@ namespace RompecabezasFei
         {
             bool resultado = false;
             
-            if (String.IsNullOrWhiteSpace(jugadorRegistro.Contrasena))
+            if (string.IsNullOrWhiteSpace(jugadorRegistro.Contrasena))
             {
                 resultado = true;
                 MessageBox.Show("No puedes dejar campos vacíos",
@@ -171,6 +181,7 @@ namespace RompecabezasFei
                 MessageBox.Show("La contraseña no coincide",
                     "Contraseña incorrecta", MessageBoxButton.OK);
             }
+
             return resultado;
         }
         #endregion
