@@ -10,17 +10,28 @@ namespace RompecabezasFei
 {
     public partial class PaginaRegistroJugador : Page
     {
-        private Dominio.CuentaJugador jugadorRegistro;
-        public Dominio.CuentaJugador JugadorRegistro
-        {
-            get { return jugadorRegistro; }
-            set { jugadorRegistro = value; }
-        }
-
         public PaginaRegistroJugador()
         {
             InitializeComponent();
-            jugadorRegistro = new Dominio.CuentaJugador();
+        }
+
+        public PaginaRegistroJugador(int numeroAvatar, string nombreJugador,
+            string correo, string contrasena, string confirmacionContrasena)
+        {
+            InitializeComponent();
+            CargarDatosEdicion(numeroAvatar, nombreJugador, correo, 
+                contrasena, confirmacionContrasena);
+        }
+
+        private void CargarDatosEdicion(int numeroAvatar, string nombreJugador,
+            string correo, string contrasena, string confirmacionContrasena)
+        {
+            CuadroTextoNombreJugador.Text = nombreJugador;
+            CuadroTextoCorreoElectronico.Text = correo;
+            CuadroContrasena.Password = contrasena;
+            CuadroConfirmacionContrasena.Password = confirmacionContrasena;
+            ImagenAvatarActual.Source = Utilidades.GeneradorImagenes.
+                GenerarFuenteImagenAvatar(numeroAvatar);
         }
 
         private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
@@ -30,39 +41,18 @@ namespace RompecabezasFei
 
         private void AccionSeleccionarAvatar(object remitente, RoutedEventArgs evento)
         {
-            PaginaSeleccionAvatar paginaSeleccionAvatar = new PaginaSeleccionAvatar();
-            paginaSeleccionAvatar.ImagenAvatarActual.Source = ImagenAvatarActual.Source;
-            GuardarDatosEdicion();
-            paginaSeleccionAvatar.JugadorRegistro = jugadorRegistro;
-            VentanaPrincipal.CambiarPaginaGuardandoAnterior(paginaSeleccionAvatar);
-        }
-
-        public void CargarDatosEdicion()
-        {
-            CuadroTextoNombreUsuario.Text = jugadorRegistro.NombreJugador;
-            CuadroTextoCorreoElectronico.Text = jugadorRegistro.Correo;
-            CuadroContrasena.Password = jugadorRegistro.Contrasena;
-            CuadroConfirmacionContrasena.Password = jugadorRegistro.ConfirmacionContrasena;
-        }
-
-        private void GuardarDatosEdicion()
-        {
-            jugadorRegistro = new Dominio.CuentaJugador()
-            {
-                NombreJugador = CuadroTextoNombreUsuario.Text,
-                Correo = CuadroTextoCorreoElectronico.Text,
-                Contrasena = CuadroContrasena.Password,
-                ConfirmacionContrasena = CuadroConfirmacionContrasena.Password
-            };
+            VentanaPrincipal.CambiarPaginaGuardandoAnterior(new PaginaSeleccionAvatar(
+                (int)ImagenAvatarActual.Tag, CuadroTextoNombreJugador.Text,
+                CuadroTextoCorreoElectronico.Text, CuadroContrasena.Password,
+                CuadroConfirmacionContrasena.Password));
         }
 
         private void AccionSiguiente(object remitente, RoutedEventArgs evento)
         {
-            jugadorRegistro.NombreJugador = CuadroTextoNombreUsuario.Text;
-            jugadorRegistro.Correo = CuadroTextoCorreoElectronico.Text;
-            jugadorRegistro.Contrasena = CuadroContrasena.Password;
-            jugadorRegistro.ConfirmacionContrasena = CuadroConfirmacionContrasena.Password;
-            jugadorRegistro.NumeroAvatar = Convert.ToInt16(ImagenAvatarActual.Tag); 
+            string nombreJugador = CuadroTextoNombreJugador.Text;
+            string correo = CuadroTextoCorreoElectronico.Text;
+            string contrasena = CuadroContrasena.Password;
+            int numeroAvatar = (int)ImagenAvatarActual.Tag; 
 
             ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
 
@@ -70,9 +60,16 @@ namespace RompecabezasFei
             {     
                 try
                 {
-                    if (!(cliente.ExisteNombreJugador(jugadorRegistro.NombreJugador)) &&
-                    !(cliente.ExisteCorreoElectronico(jugadorRegistro.Correo)))
+                    if (!cliente.ExisteNombreJugador(nombreJugador) &&
+                    !cliente.ExisteCorreoElectronico(correo))
                     {
+                        Dominio.CuentaJugador jugadorRegistro = new Dominio.CuentaJugador
+                        {
+                            NombreJugador = nombreJugador,
+                            Correo = correo,
+                            Contrasena = contrasena,
+                            NumeroAvatar = numeroAvatar,
+                        };
                         PaginaVerificacionCorreo paginaVerificacionCorreo =
                             new PaginaVerificacionCorreo(jugadorRegistro);
                         VentanaPrincipal.CambiarPagina(paginaVerificacionCorreo);
@@ -80,7 +77,7 @@ namespace RompecabezasFei
                 }
                 catch (EndpointNotFoundException)
                 {
-                    // [...] Log
+                    // log
                 }                
             }
         }
@@ -88,110 +85,127 @@ namespace RompecabezasFei
         #region Validaciones
         private bool ExistenCamposInvalidos()
         {
-            bool camposInvalidos = false;
+            bool resultado = false;
+
             if (ExistenCamposVacios() || ExistenCadenasInvalidas() || ExistenLongitudesExcedidas()
-                || ExisteContrasenaInvalida() || ExisteContrasenaIncorrecta())
+                || ExisteContrasenaInvalida() || HayCoincidenciasEnContrasenas())
             {
-                camposInvalidos = true;
+                resultado = true;
             }
-            return camposInvalidos;
+
+            return resultado;
         }
 
         private bool ExistenCamposVacios()
         {
-            bool camposVacios = false;
-            if (String.IsNullOrWhiteSpace(jugadorRegistro.NombreJugador) 
-                || String.IsNullOrWhiteSpace(jugadorRegistro.Correo) 
-                || String.IsNullOrWhiteSpace(jugadorRegistro.Contrasena) 
-                || String.IsNullOrWhiteSpace(jugadorRegistro.ConfirmacionContrasena))
+            bool resultado = false;
+
+            if (String.IsNullOrWhiteSpace(CuadroTextoNombreJugador.Text) 
+                || String.IsNullOrWhiteSpace(CuadroTextoCorreoElectronico.Text) 
+                || String.IsNullOrWhiteSpace(CuadroContrasena.Password) 
+                || String.IsNullOrWhiteSpace(CuadroConfirmacionContrasena.Password))
             {
-                camposVacios = true;
+                resultado = true;
                 MessageBox.Show("No puedes dejar campos vacíos", 
                     "Campos vacíos", MessageBoxButton.OK);
             }
-            return camposVacios;
+
+            return resultado;
         }
 
         private bool ExistenLongitudesExcedidas()
         {
-            bool camposExcedidos = false;
-            if (jugadorRegistro.NombreJugador.Length > 15 || jugadorRegistro.Correo.Length > 65 
-                || jugadorRegistro.Contrasena.Length > 45)
+            bool resultado = false;
+
+            if (CuadroTextoNombreJugador.Text.Length > 15 || 
+                CuadroTextoCorreoElectronico.Text.Length > 65 || 
+                CuadroContrasena.Password.Length > 45)
             {
-                camposExcedidos = true;
+                resultado = true;
                 MessageBox.Show("Corrige los campos excedidos", 
                     "Campos excedidos", MessageBoxButton.OK);
             }
-            return camposExcedidos;
+
+            return resultado;
         }
 
         private bool ExistenCadenasInvalidas()
         {
-            bool cadenasInvalidas = false;
-            if (ExistenCaracteresInvalidos(CuadroTextoNombreUsuario.Text))
+            bool resultado = false;
+
+            if (ExistenCaracteresInvalidos(CuadroTextoNombreJugador.Text))
             {
                 MessageBox.Show("El nombre de usuario que has ingresado es inválido", 
                     "Nombre de usuario inválido", MessageBoxButton.OK);
-                cadenasInvalidas = true;
+                resultado = true;
             }
 
             if (ExistenCaracteresInvalidosParaCorreo(CuadroTextoCorreoElectronico.Text))
             {
                 MessageBox.Show("El correo electrónico que has ingresado es inválido", 
                     "Correo electrónico inválido", MessageBoxButton.OK);
-                cadenasInvalidas = true;
+                resultado = true;
             }
-            return cadenasInvalidas;
+
+            return resultado;
         }
 
         private bool ExisteContrasenaInvalida()
         {
-            bool contrasenaInvalida = false;
-            if (Regex.IsMatch(jugadorRegistro.Contrasena, 
+            bool resultado = false;
+            
+            if (Regex.IsMatch(CuadroContrasena.Password, 
                 "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$") 
                 == false)
             {
                 MessageBox.Show("La contraseña que has ingresado es inválida", 
                     "Contraseña inválida", MessageBoxButton.OK);
-                contrasenaInvalida = true;
+                resultado = true;
             }
-            return contrasenaInvalida;
+
+            return resultado;
         }
 
-        private bool ExistenCaracteresInvalidosParaCorreo(String textoValido)
+        private bool ExistenCaracteresInvalidosParaCorreo(string correo)
         {
-            bool caracteresInvalidos = false;
-            if (Regex.IsMatch(textoValido, @"^[^@\s]+@[^@\s]+\.[^@\s]+$") == false)
+            bool resultado = false;
+
+            if (Regex.IsMatch(correo, @"^[^@\s]+@[^@\s]+\.[^@\s]+$") == false)
             {
-                caracteresInvalidos = true;
+                resultado = true;
             }
-            return caracteresInvalidos;
+
+            return resultado;
         }
 
-        private bool ExistenCaracteresInvalidos(String textoValido)
+        private bool ExistenCaracteresInvalidos(string texto)
         {
-            bool caracteresInvalidos = false;
-            if (Regex.IsMatch(textoValido, @"^[A-Za-zÁÉÍÓÚáéíóúñÑ]+(?:\s[A-Za-zÁÉÍÓÚáéíóúñÑ]+)?$") == false)
+            bool resultado = false;
+
+            if (Regex.IsMatch(texto, 
+                @"^[A-Za-zÁÉÍÓÚáéíóúñÑ]+(?:\s[A-Za-zÁÉÍÓÚáéíóúñÑ]+)?$") == false)
             {
-                caracteresInvalidos = true;
+                resultado = true;
             }
-            return caracteresInvalidos;
+
+            return resultado;
         }
 
-        private bool ExisteContrasenaIncorrecta()
+        private bool HayCoincidenciasEnContrasenas()
         {
-            bool contrasenaInvalida;
-            if (jugadorRegistro.Contrasena == jugadorRegistro.ConfirmacionContrasena)
+            bool resultado = false;
+            
+            if (CuadroContrasena.Password == CuadroConfirmacionContrasena.Password)
             {
-                contrasenaInvalida = false;
+                resultado = true;
             }
             else
             {
                 MessageBox.Show("Las contraseñas no coinciden", 
                     "Contraseñas diferentes", MessageBoxButton.OK);
-                contrasenaInvalida = true;
             }
-            return contrasenaInvalida;
+
+            return resultado;
         }
         #endregion 
     }

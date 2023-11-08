@@ -12,7 +12,7 @@ namespace RompecabezasFei
         public PaginaMenuPrincipal()
         {
             InitializeComponent();
-            if (!CuentaJugador.CuentaJugadorActual.EsInvitado)
+            if (!CuentaJugador.Actual.EsInvitado)
             {
                 CargarOpcionesJugador();
             }
@@ -30,7 +30,7 @@ namespace RompecabezasFei
             etiquetaMiPerfil.Visibility = Visibility.Visible;
             imagenAvatarUsuario.Visibility = Visibility.Visible;
             imagenMisAmigos.Visibility = Visibility.Visible;
-            imagenAvatarUsuario.Source = CuentaJugador.CuentaJugadorActual.FuenteImagenAvatar;
+            imagenAvatarUsuario.Source = CuentaJugador.Actual.FuenteImagenAvatar;
         }
         #endregion
 
@@ -61,7 +61,7 @@ namespace RompecabezasFei
 
             if (resultado == MessageBoxResult.Yes)
             {
-                CuentaJugador.CuentaJugadorActual = null;
+                CuentaJugador.Actual = null;
                 VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
             }
         }

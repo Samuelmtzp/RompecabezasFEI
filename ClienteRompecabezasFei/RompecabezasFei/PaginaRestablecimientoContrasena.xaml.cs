@@ -26,7 +26,7 @@ namespace RompecabezasFei
                     contraseñaCifrada = EncriptadorContrasena.
                             CalcularHashSha512(contraseña);
                     ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
-                    bool resultadoActualizacion = cliente.RestablecerContrasena(correo, contraseñaCifrada);
+                    bool resultadoActualizacion = cliente.ActualizarContrasena(correo, contraseñaCifrada);
                     if (resultadoActualizacion)
                     {
                         MessageBox.Show("Su nueva contraseña ha sido actualizada correctamente",

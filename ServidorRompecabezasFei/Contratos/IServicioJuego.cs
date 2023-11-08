@@ -8,24 +8,24 @@ namespace Contratos
     public interface IServicioJuego
     {
         [OperationContract]
-        void NuevaSala(string nombreAnfitrion, string idSala);
+        void NuevaSala(string nombreAnfitrion, string codigoSala);
 
         [OperationContract]
-        void ConectarCuentaJugadorASala(string nombreJugador, string idSala, 
+        void ConectarCuentaJugadorASala(string nombreJugador, string codigoSala, 
             string mensajeBienvenida);
 
         [OperationContract]
-        void DesconectarCuentaJugadorDeSala(string nombreJugador, string idSala, 
+        void DesconectarCuentaJugadorDeSala(string nombreJugador, string codigoSala, 
             string mensajeDespedida);
 
         [OperationContract(IsOneWay = true)]
-        void EnviarMensajeDeSala(string nombreJugador, string idSala, string mensaje);
+        void EnviarMensajeDeSala(string nombreJugador, string codigoSala, string mensaje);
 
         [OperationContract]
         string GenerarCodigoParaNuevaSala();
         
         [OperationContract]
-        bool ExisteSalaDisponible(string idSala);               
+        bool ExisteSalaDisponible(string codigoSala);               
     }
 
     [ServiceContract]

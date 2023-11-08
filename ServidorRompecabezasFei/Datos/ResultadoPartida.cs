@@ -12,20 +12,21 @@ namespace Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class Sala
+    public partial class ResultadoPartida
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Sala()
+        public ResultadoPartida()
         {
-            this.MaximoJugadores = 4;
-            this.MinimoJugadores = 2;
+            this.Puntaje = 0;
         }
     
-        public string Codigo { get; set; }
-        public int MaximoJugadores { get; set; }
-        public int MinimoJugadores { get; set; }
-        public string NombreAnfitrion { get; set; }
+        public string NombreJugador { get; set; }
+        public int Puntaje { get; set; }
+        public bool EsGanador { get; set; }
+        public int NumeroPartida { get; set; }
+        public string CodigoSala { get; set; }
     
-        public virtual Jugador Anfitrion { get; set; }
+        public virtual Jugador Jugador { get; set; }
+        public virtual Partida Partida { get; set; }
     }
 }

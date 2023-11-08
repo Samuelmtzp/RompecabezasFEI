@@ -6,13 +6,10 @@ namespace Dominio
     public class CuentaJugador
     {
         #region Atributos
-        private int idJugador;
         private string nombreJugador;
-        private short numeroAvatar;
-        private int idCuenta;
+        private int numeroAvatar;
         private string correo;
         private string contrasena;
-        private string confirmacionContrasena;
         private bool esInvitado;
         private SolidColorBrush colorEstadoConectividad;
         private BitmapImage fuenteImagenAvatar;
@@ -20,11 +17,6 @@ namespace Dominio
         #endregion
 
         #region Propiedades
-        public int IdJugador 
-        { 
-            get { return idJugador; } 
-            set { idJugador = value; } 
-        }
 
         public string NombreJugador 
         { 
@@ -32,16 +24,10 @@ namespace Dominio
             set { nombreJugador = value; } 
         }
         
-        public short NumeroAvatar
+        public int NumeroAvatar
         {
             get { return numeroAvatar; }
             set { numeroAvatar = value; }
-        }
-        
-        public int IdCuenta
-        {
-            get { return idCuenta; }
-            set { idCuenta = value; }
         }
         
         public string Correo
@@ -54,12 +40,6 @@ namespace Dominio
         {
             get { return contrasena; }
             set { contrasena = value; }
-        }
-        
-        public string ConfirmacionContrasena
-        {
-            get { return confirmacionContrasena; }
-            set { confirmacionContrasena = value; }
         }
         
         public bool EsInvitado
@@ -80,7 +60,7 @@ namespace Dominio
             set { fuenteImagenAvatar = value; }
         }
 
-        public static CuentaJugador CuentaJugadorActual
+        public static CuentaJugador Actual
         {
             get { return cuentaJugadorActual; }
             set { cuentaJugadorActual = value; }

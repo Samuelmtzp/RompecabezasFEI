@@ -25,7 +25,7 @@
                         </StackPanel>
                     </TabItem.Header>
                     <Grid>
-                        <ListView Name="listaAmigos" VerticalAlignment="Top" Background="#D9D9D9" ItemsSource="{Binding AmigosJugador}" HorizontalContentAlignment="Center" SelectionMode="Single">
+                        <ListView Name="listaAmigos" VerticalAlignment="Top" Background="#D9D9D9" ItemsSource="{Binding CuentasAmigo}" HorizontalContentAlignment="Center" SelectionMode="Single">
                             <ListView.View>
                                 <GridView>
                                     <GridView.ColumnHeaderContainerStyle>
@@ -74,7 +74,7 @@
                         </StackPanel>
                     </TabItem.Header>
                     <Grid>
-                        <ListView Name="listaSolicitudes" VerticalAlignment="Top" Background="#D9D9D9" ItemsSource="{Binding JugadoresConSolicitudEnviada}" HorizontalContentAlignment="Center" SelectionMode="Single">
+                        <ListView Name="listaSolicitudes" VerticalAlignment="Top" Background="#D9D9D9" ItemsSource="{Binding CuentasSolicitud}" HorizontalContentAlignment="Center" SelectionMode="Single">
                             <ListView.View>
                                 <GridView>
                                     <GridView.ColumnHeaderContainerStyle>

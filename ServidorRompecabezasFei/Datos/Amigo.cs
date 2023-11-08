@@ -14,11 +14,10 @@ namespace Datos
     
     public partial class Amigo
     {
-        public int IdAmigo { get; set; }
-        public int IdJugador1 { get; set; }
-        public int IdJugador2 { get; set; }
+        public string NombreJugadorA { get; set; }
+        public string NombreJugadorB { get; set; }
     
-        public virtual Jugador Jugador1 { get; set; }
-        public virtual Jugador Jugador2 { get; set; }
+        public virtual Jugador JugadorA { get; set; }
+        public virtual Jugador JugadorB { get; set; }
     }
 }

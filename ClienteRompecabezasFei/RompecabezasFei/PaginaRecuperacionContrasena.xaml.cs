@@ -30,7 +30,8 @@ namespace RompecabezasFei
                 }
                 else
                 {
-                    MessageBox.Show("El correo ingresado no existe", "Correo inexistente", MessageBoxButton.OK);
+                    MessageBox.Show("El correo ingresado no existe", 
+                        "Correo inexistente", MessageBoxButton.OK);
                 }
             }
         }
@@ -40,13 +41,14 @@ namespace RompecabezasFei
             VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
         }
 
-        private bool ExistenCaracteresInvalidosParaCorreo(String textoValido)
+        private bool ExistenCaracteresInvalidosParaCorreo(string textoValido)
         {
             bool caracteresInvalidos = false;
             if (Regex.IsMatch(textoValido, @"^[^@\s]+@[^@\s]+\.[^@\s]+$") == false)
             {
                 caracteresInvalidos = true;
-                MessageBox.Show("El correo ingresado no es válido", "Correo inválido", MessageBoxButton.OK);
+                MessageBox.Show("El correo ingresado no es válido", 
+                    "Correo inválido", MessageBoxButton.OK);
             }
             return caracteresInvalidos;
         }
