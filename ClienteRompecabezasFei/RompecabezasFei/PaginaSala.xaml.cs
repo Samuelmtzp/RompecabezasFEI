@@ -11,7 +11,7 @@ namespace RompecabezasFei
     public partial class PaginaSala : Page, IServicioJuegoCallback
     {
         #region Atributos
-        private string idSala;
+        private string codigoSala;
         private bool esNuevaSala;
         private bool esAnfitrion;
         private bool hayConexionEstablecida;
@@ -19,10 +19,10 @@ namespace RompecabezasFei
         #endregion
 
         #region Propiedades
-        public string IdSala 
+        public string CodigoSala 
         {
-            get { return idSala; }
-            set { idSala = value; }
+            get { return codigoSala; }
+            set { codigoSala = value; }
         }
         public bool EsNuevaSala
         {
@@ -49,7 +49,7 @@ namespace RompecabezasFei
 
         private void AccionCopiarCodigoSala(object remitente, RoutedEventArgs evento)
         {
-            Clipboard.SetText(idSala);
+            Clipboard.SetText(codigoSala);
         }
 
         private void AccionEnviarMensaje(object remitente, RoutedEventArgs evento)
@@ -57,7 +57,7 @@ namespace RompecabezasFei
             if (!String.IsNullOrEmpty(CuadroTextoMensajeUsuario.Text))
             {
                 clienteServicioJuego.EnviarMensajeDeSala(Dominio.CuentaJugador.
-                    CuentaJugadorActual.NombreJugador, idSala, CuadroTextoMensajeUsuario.Text);
+                    Actual.NombreJugador, codigoSala, CuadroTextoMensajeUsuario.Text);
                 CuadroTextoMensajeUsuario.Clear();
             }
         }
@@ -108,17 +108,17 @@ namespace RompecabezasFei
                 if (esNuevaSala)
                 {
                     esAnfitrion = true;
-                    idSala = clienteServicioJuego.GenerarCodigoParaNuevaSala();
+                    codigoSala = clienteServicioJuego.GenerarCodigoParaNuevaSala();
                     clienteServicioJuego.NuevaSala(Dominio.CuentaJugador.
-                        CuentaJugadorActual.NombreJugador, idSala);
+                        Actual.NombreJugador, codigoSala);
                 }
                 else
                 {
                     esAnfitrion = false;
                 }
-                EtiquetaCodigoSala.Content = idSala;
+                EtiquetaCodigoSala.Content = codigoSala;
                 clienteServicioJuego.ConectarCuentaJugadorASala(Dominio.CuentaJugador.
-                    CuentaJugadorActual.NombreJugador, idSala, 
+                    Actual.NombreJugador, codigoSala, 
                     Properties.Resources.ETIQUETA_MENSAJESALA_BIENVENIDA);
                 hayConexionEstablecida = true;
             }
@@ -129,7 +129,7 @@ namespace RompecabezasFei
             if (hayConexionEstablecida)
             {
                 clienteServicioJuego.DesconectarCuentaJugadorDeSala(Dominio.CuentaJugador.
-                        CuentaJugadorActual.NombreJugador, idSala, 
+                        Actual.NombreJugador, codigoSala, 
                         Properties.Resources.ETIQUETA_MENSAJESALA_DESPEDIDA);
                 clienteServicioJuego.Abort();
                 clienteServicioJuego = null;

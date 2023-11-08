@@ -7,16 +7,28 @@ namespace RompecabezasFei
 {
     public partial class PaginaSeleccionAvatar : Page
     {
-        private CuentaJugador jugadorRegistro;
-        public CuentaJugador JugadorRegistro
-        {
-            get { return jugadorRegistro; }
-            set { jugadorRegistro = value; }
-        }
+        private readonly string nombreJugador;
+        private readonly string correo;
+        private readonly string contrasena;
+        private readonly string confirmacionContrasena;
+        private readonly int numeroAvatar;
 
-        public PaginaSeleccionAvatar()
+        public PaginaSeleccionAvatar(int numeroAvatar, string nombreJugador)
         {
             InitializeComponent();
+            this.nombreJugador = nombreJugador;
+            this.numeroAvatar = numeroAvatar;
+        }
+
+        public PaginaSeleccionAvatar(int numeroAvatar, string nombreJugador,
+            string correo, string contrasena, string confirmacionContrasena)
+        {
+            InitializeComponent();
+            this.nombreJugador = nombreJugador;
+            this.correo = correo;
+            this.contrasena = contrasena;
+            this.numeroAvatar = numeroAvatar;
+            this.confirmacionContrasena = confirmacionContrasena;
         }
 
         private void AccionSeleccionAvatar(object remitente, MouseButtonEventArgs evento)
@@ -28,37 +40,18 @@ namespace RompecabezasFei
 
         private void AccionAceptar(object remitente, RoutedEventArgs evento)
         {
-            Regresar();
-        }
-
-        private void Regresar()
-        {
             if (typeof(PaginaRegistroJugador).IsInstanceOfType(VentanaPrincipal.PaginaAnterior))
             {
-                PaginaRegistroJugador paginaRegistroUsuario = new PaginaRegistroJugador();
-                paginaRegistroUsuario.ImagenAvatarActual.Source = ImagenAvatarActual.Source;
-                paginaRegistroUsuario.ImagenAvatarActual.Tag = ImagenAvatarActual.Tag;
-                paginaRegistroUsuario.JugadorRegistro = jugadorRegistro;
-                paginaRegistroUsuario.CargarDatosEdicion();
+                PaginaRegistroJugador paginaRegistroUsuario = new PaginaRegistroJugador(
+                    numeroAvatar, nombreJugador, correo, contrasena, confirmacionContrasena);
                 VentanaPrincipal.CambiarPagina(paginaRegistroUsuario);
             }
             else
             {
-                if (typeof(PaginaActualizacionInformacion).IsInstanceOfType(VentanaPrincipal.PaginaAnterior))
-                {
-                    PaginaActualizacionInformacion paginaActualizacionInformacion = new PaginaActualizacionInformacion();
-                    paginaActualizacionInformacion.imagenAvatarActual.Source = ImagenAvatarActual.Source;
-                    paginaActualizacionInformacion.imagenAvatarActual.Tag = ImagenAvatarActual.Tag;
-                    paginaActualizacionInformacion.JugadorRegistro = jugadorRegistro;
-                    paginaActualizacionInformacion.CargarDatosEdicion();
-                    VentanaPrincipal.CambiarPagina(paginaActualizacionInformacion);
-                }
-                else
-                {
-                    VentanaPrincipal.CambiarPagina(new PaginaActualizacionInformacion());
-                }
+                PaginaActualizacionInformacion paginaActualizacionInformacion =
+                        new PaginaActualizacionInformacion(nombreJugador, numeroAvatar);
+                VentanaPrincipal.CambiarPagina(paginaActualizacionInformacion);
             }
-            
         }
     }
 }

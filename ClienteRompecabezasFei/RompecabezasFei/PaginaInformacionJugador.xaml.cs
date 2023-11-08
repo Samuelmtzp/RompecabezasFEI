@@ -18,25 +18,22 @@ namespace RompecabezasFei
         #region Métodos públicos
         public void CargarDatosJugador()
         {
-            etiquetaNombreJugador.Content = Dominio.CuentaJugador.
-                CuentaJugadorActual.NombreJugador;
-            imagenAvatarJugador.Source = Dominio.CuentaJugador.
-                CuentaJugadorActual.FuenteImagenAvatar;
-            CargarPartidasJugadas();
-            CargarPartidasGanadas();
+            etiquetaNombreJugador.Content = Dominio.CuentaJugador.Actual.NombreJugador;
+            imagenAvatarJugador.Source = Dominio.CuentaJugador.Actual.FuenteImagenAvatar;
+            MostrarPartidasJugadas();
+            MostrarPartidasGanadas();
         }
         #endregion
 
         #region Métodos privados
-        private void CargarPartidasJugadas()
+        private void MostrarPartidasJugadas()
         {
             ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
 
             try
             {
                 cuadroTextoPartidasJugadas.Text = Convert.ToString(cliente.
-                    ObtenerNumeroPartidasJugadas(Dominio.CuentaJugador.
-                    CuentaJugadorActual.NombreJugador));
+                    ObtenerNumeroPartidasJugadas(Dominio.CuentaJugador.Actual.NombreJugador));
                 cliente.Close();
             }
             catch (EndpointNotFoundException)
@@ -45,15 +42,14 @@ namespace RompecabezasFei
             }            
         }
 
-        private void CargarPartidasGanadas()
+        private void MostrarPartidasGanadas()
         {
             ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
 
             try
             {
                 cuadroTextoPartidasGanadas.Text = Convert.ToString(cliente.
-                    ObtenerNumeroPartidasGanadas(Dominio.CuentaJugador.
-                    CuentaJugadorActual.NombreJugador));
+                    ObtenerNumeroPartidasGanadas(Dominio.CuentaJugador.Actual.NombreJugador));
                 cliente.Close();
             }
             catch (EndpointNotFoundException)
@@ -73,7 +69,9 @@ namespace RompecabezasFei
         private void EventoClickActualizarInformacion(object controlOrigen, 
             RoutedEventArgs evento)
         {
-            VentanaPrincipal.CambiarPagina(new PaginaActualizacionInformacion());
+            VentanaPrincipal.CambiarPagina(new PaginaActualizacionInformacion(
+                Dominio.CuentaJugador.Actual.NombreJugador, 
+                Dominio.CuentaJugador.Actual.NumeroAvatar));
         }
 
         private void EventoClickRegresar(object controlOrigen, MouseButtonEventArgs evento)

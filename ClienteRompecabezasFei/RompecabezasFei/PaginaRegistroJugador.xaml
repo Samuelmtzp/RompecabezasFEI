@@ -12,7 +12,7 @@
         <Image Name="ImagenFlechaRegreso" Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="30,30,1145,598" Height="81" Width="81" MouseDown="AccionRegresar"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_REGISTRO_REGISTROJUGADOR}" HorizontalAlignment="Center" Margin="0,26,0,0" VerticalAlignment="Top" Foreground="White" FontSize="48" FontWeight="Bold"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_NOMBREJUGADOR}" HorizontalAlignment="Left" Margin="77,320,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32"/>
-        <TextBox Name="CuadroTextoNombreUsuario" HorizontalAlignment="Left" Margin="77,373,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="508" Height="42" FontSize="24"/>
+        <TextBox Name="CuadroTextoNombreJugador" HorizontalAlignment="Left" Margin="77,373,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="508" Height="42" FontSize="24"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_CORREO}" HorizontalAlignment="Left" Margin="654,320,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32"/>
         <TextBox Name="CuadroTextoCorreoElectronico" HorizontalAlignment="Left" Margin="654,373,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="554" Height="42" FontSize="24"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_CONTRASENA}" HorizontalAlignment="Left" Margin="77,462,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32"/>

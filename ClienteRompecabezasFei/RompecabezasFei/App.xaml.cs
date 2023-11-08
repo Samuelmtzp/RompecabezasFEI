@@ -7,25 +7,18 @@ namespace RompecabezasFei
 {
     public partial class App : Application
     {
-        private List<string> idiomasDisponibles = new List<string>() { "es-MX", "en-US" };
+        private readonly List<string> idiomasDisponibles;
         private string idiomaActual;
         private bool musicaActiva;
-        public System.IO.Stream str = RompecabezasFei.Properties.
-            ResourceSonidos.MusicaRompecabezasFei;
-        private readonly System.IO.Stream pistaAudio = RompecabezasFei.Properties.
-            ResourceSonidos.MusicaRompecabezasFei;
         SoundPlayer reproductorMusica;
 
         public string IdiomaActual
         {
-            get 
-            { 
-                return idiomaActual; 
-            }
+            get { return idiomaActual; }
             private set
             {
-                Thread.CurrentThread.CurrentUICulture = 
-                    new System.Globalization.CultureInfo(value);
+                Thread.CurrentThread.CurrentUICulture = new System.
+                    Globalization.CultureInfo(value);
                 idiomaActual = value;
             }
         }
@@ -52,6 +45,11 @@ namespace RompecabezasFei
 
         App()
         {
+            idiomasDisponibles = new List<string>() 
+            { 
+                "es-MX", 
+                "en-US" 
+            };
             IdiomaActual = idiomasDisponibles[0];
         }
 
@@ -60,9 +58,9 @@ namespace RompecabezasFei
             IdiomaActual = nuevoIdioma;
         }
 
-        public void EstadoMusica(bool musicaReproduciendose)
+        public void EstadoMusica(bool musicaActivada)
         {
-            if (musicaReproduciendose)
+            if (musicaActivada)
             {
                 reproductorMusica.PlayLooping();    
                 musicaActiva = true;
@@ -74,9 +72,10 @@ namespace RompecabezasFei
             }
         }
 
-        protected override void OnStartup(StartupEventArgs e)
+        protected override void OnStartup(StartupEventArgs evento)
         {
-            reproductorMusica = new SoundPlayer(pistaAudio);
+            reproductorMusica = new SoundPlayer(RompecabezasFei.Properties.
+                ResourceSonidos.MusicaRompecabezasFei);
             EstadoMusica(false);
         }
     }

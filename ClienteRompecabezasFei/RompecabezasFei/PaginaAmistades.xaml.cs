@@ -7,25 +7,25 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 
 namespace RompecabezasFei
 {
     public partial class PaginaAmistades : Page
     {
-        private ObservableCollection<Dominio.CuentaJugador> amigosJugador;
-        private ObservableCollection<Dominio.CuentaJugador> jugadoresConSolicitudEnviada;
+        private CuentaJugador cuentaJugadorSeleccion; 
+        private ObservableCollection<Dominio.CuentaJugador> cuentasAmigo;
+        private ObservableCollection<Dominio.CuentaJugador> cuentasSolicitud;
         
-        public ObservableCollection<Dominio.CuentaJugador> AmigosJugador
+        public ObservableCollection<Dominio.CuentaJugador> CuentasAmigo
         {
-            get { return amigosJugador; } 
-            set { amigosJugador = value; } 
+            get { return cuentasAmigo; } 
+            set { cuentasAmigo = value; } 
         }
         
-        public ObservableCollection<Dominio.CuentaJugador> JugadoresConSolicitudEnviada
+        public ObservableCollection<Dominio.CuentaJugador> CuentasSolicitud
         {
-            get { return jugadoresConSolicitudEnviada; }
-            set { jugadoresConSolicitudEnviada = value; }
+            get { return cuentasSolicitud; }
+            set { cuentasSolicitud = value; }
         }
 
         public PaginaAmistades()
@@ -46,7 +46,7 @@ namespace RompecabezasFei
             try
             {
                 amigosObtenidos = cliente.ObtenerAmigosDeJugador(Dominio.CuentaJugador.
-                    CuentaJugadorActual.NombreJugador);
+                    Actual.NombreJugador);
                 cliente.Close();
             }
             catch (EndpointNotFoundException)
@@ -56,18 +56,18 @@ namespace RompecabezasFei
 
             if (amigosObtenidos != null && amigosObtenidos.Count() > 0)
             {
-                amigosJugador = new ObservableCollection<Dominio.CuentaJugador>();
+                cuentasAmigo = new ObservableCollection<Dominio.CuentaJugador>();
                 etiquetaSinAmigos.Visibility = Visibility.Hidden;
 
                 foreach (CuentaJugador amigo in amigosObtenidos)
                 {
-                    amigosJugador.Add(new Dominio.CuentaJugador
+                    cuentasAmigo.Add(new Dominio.CuentaJugador
                     {
                         NombreJugador = amigo.NombreJugador,
                         NumeroAvatar = amigo.NumeroAvatar,
-                        FuenteImagenAvatar = GenerarFuenteImagenDeNumeroDeAvatar(
-                            amigo.NumeroAvatar),
-                        ColorEstadoConectividad = Brushes.Green,
+                        FuenteImagenAvatar = Utilidades.GeneradorImagenes.
+                            GenerarFuenteImagenAvatar(amigo.NumeroAvatar),
+                        ColorEstadoConectividad = Brushes.Gray,
                     });
                 }
             }
@@ -85,7 +85,7 @@ namespace RompecabezasFei
             try
             {
                 jugadoresObtenidos = cliente.ObtenerJugadoresConSolicitudDeAmistadSinAceptar(
-                    Dominio.CuentaJugador.CuentaJugadorActual.NombreJugador);
+                    Dominio.CuentaJugador.Actual.NombreJugador);
                 cliente.Close();
             }
             catch (EndpointNotFoundException)
@@ -95,17 +95,17 @@ namespace RompecabezasFei
 
             if (jugadoresObtenidos != null && jugadoresObtenidos.Count() > 0)
             {
-                jugadoresConSolicitudEnviada = new ObservableCollection<Dominio.CuentaJugador>();
+                cuentasSolicitud = new ObservableCollection<Dominio.CuentaJugador>();
                 etiquetaSinSolicitudesAmistad.Visibility = Visibility.Hidden;
 
                 foreach (CuentaJugador jugador in jugadoresObtenidos)
                 {
-                    jugadoresConSolicitudEnviada.Add(new Dominio.CuentaJugador
+                    cuentasSolicitud.Add(new Dominio.CuentaJugador
                     {
                         NombreJugador = jugador.NombreJugador,
                         NumeroAvatar = jugador.NumeroAvatar,
-                        FuenteImagenAvatar = GenerarFuenteImagenDeNumeroDeAvatar(
-                            jugador.NumeroAvatar),
+                        FuenteImagenAvatar = Utilidades.GeneradorImagenes.
+                            GenerarFuenteImagenAvatar(jugador.NumeroAvatar),
                     });
                 }
             } 
@@ -115,29 +115,17 @@ namespace RompecabezasFei
             }
         }
 
-        private BitmapImage GenerarFuenteImagenDeNumeroDeAvatar(int numeroAvatar)
-        {
-            string rutaImagen = "/Imagenes/Avatares/";
-            BitmapImage fuenteImagenAvatar = new BitmapImage();
-            fuenteImagenAvatar.BeginInit();
-            rutaImagen += numeroAvatar + ".png";
-            fuenteImagenAvatar.UriSource = new Uri(rutaImagen, UriKind.RelativeOrAbsolute);
-            fuenteImagenAvatar.EndInit();
-
-            return fuenteImagenAvatar;
-        }
-
         private bool EnviarSolicitudDeAmistad()
         {
             ServicioAmistadesClient cliente = new ServicioAmistadesClient();
-            string nombreJugadorOrigen = Dominio.CuentaJugador.CuentaJugadorActual.NombreJugador;
+            string nombreJugadorOrigen = Dominio.CuentaJugador.Actual.NombreJugador;
             string nombreJugadorDestino = cuadroTextoNombreUsuarioInvitacion.Text;
             bool resultado = false;
 
             try 
             {
-                resultado = cliente.EnviarSolicitudDeAmistad(
-                    nombreJugadorOrigen, nombreJugadorDestino);
+                resultado = cliente.EnviarSolicitudDeAmistad(nombreJugadorOrigen, 
+                    nombreJugadorDestino);
                 cliente.Close();
             }
             catch (EndpointNotFoundException)
@@ -153,15 +141,13 @@ namespace RompecabezasFei
             Dominio.CuentaJugador jugadorSeleccionado = (Dominio.CuentaJugador)
                 listaAmigos.SelectedItem;
             ServicioAmistadesClient cliente = new ServicioAmistadesClient();
-            string nombreJugador1 = jugadorSeleccionado.NombreJugador;
-            string nombreJugador2 = Dominio.CuentaJugador.
-                CuentaJugadorActual.NombreJugador;            
+            string nombreJugadorA = jugadorSeleccionado.NombreJugador;
+            string nombreJugadorB = Dominio.CuentaJugador.Actual.NombreJugador;            
             bool resultado = false;
 
             try
             {
-                resultado = cliente.EliminarAmistadEntreJugadores(
-                    nombreJugador1, nombreJugador2);
+                resultado = cliente.EliminarAmistadEntreJugadores(nombreJugadorA, nombreJugadorB);
                 cliente.Close();
             }
             catch (EndpointNotFoundException)
@@ -182,13 +168,12 @@ namespace RompecabezasFei
             {
                 ServicioAmistadesClient cliente = new ServicioAmistadesClient();
                 string nombreJugadorOrigen = jugadorSeleccionado.NombreJugador;
-                string nombreJugadorDestino = Dominio.CuentaJugador.
-                    CuentaJugadorActual.NombreJugador;
+                string nombreJugadorDestino = Dominio.CuentaJugador.Actual.NombreJugador;
                 
                 try
                 {
-                    resultado = cliente.AceptarSolicitudDeAmistad(
-                        nombreJugadorOrigen, nombreJugadorDestino);
+                    resultado = cliente.AceptarSolicitudDeAmistad(nombreJugadorOrigen, 
+                        nombreJugadorDestino);
                     cliente.Close();
                 }
                 catch (EndpointNotFoundException)
@@ -206,14 +191,13 @@ namespace RompecabezasFei
                 listaSolicitudes.SelectedItem;
             ServicioAmistadesClient cliente = new ServicioAmistadesClient();
             string nombreJugadorOrigen = jugadorSeleccionado.NombreJugador;
-            string nombreJugadorDestino = Dominio.CuentaJugador.
-                CuentaJugadorActual.NombreJugador;
+            string nombreJugadorDestino = Dominio.CuentaJugador.Actual.NombreJugador;
             bool resultado = false;
 
             try
             {
-                resultado = cliente.RegistrarNuevaAmistadEntreJugadores(
-                    nombreJugadorOrigen, nombreJugadorDestino);
+                resultado = cliente.RegistrarNuevaAmistadEntreJugadores(nombreJugadorOrigen, 
+                    nombreJugadorDestino);
                 cliente.Close();
             }
             catch (EndpointNotFoundException)
@@ -231,7 +215,7 @@ namespace RompecabezasFei
             ServicioAmistadesClient cliente = new ServicioAmistadesClient();
             string nombreJugadorOrigen = jugadorSeleccionado.NombreJugador;
             string nombreJugadorDestino = Dominio.CuentaJugador.
-                CuentaJugadorActual.NombreJugador;
+                Actual.NombreJugador;
             bool resultado = false;
             
             try
@@ -281,7 +265,7 @@ namespace RompecabezasFei
             bool resultado = false;
             string nombreJugadorDestino = cuadroTextoNombreUsuarioInvitacion.Text;
 
-            if (Dominio.CuentaJugador.CuentaJugadorActual.NombreJugador.
+            if (Dominio.CuentaJugador.Actual.NombreJugador.
                 Equals(nombreJugadorDestino))
             {
                 resultado = true;
@@ -296,7 +280,7 @@ namespace RompecabezasFei
 
         private bool ExisteSolicitudDeAmistadSinAceptar()
         {            
-            string nombreJugadorOrigen = Dominio.CuentaJugador.CuentaJugadorActual.NombreJugador; 
+            string nombreJugadorOrigen = Dominio.CuentaJugador.Actual.NombreJugador; 
             string nombreJugadorDestino = cuadroTextoNombreUsuarioInvitacion.Text;            
             ServicioAmistadesClient cliente = new ServicioAmistadesClient();
             bool existeSolicitudSinAceptar = false;
@@ -325,7 +309,7 @@ namespace RompecabezasFei
 
         private bool ExisteAmistadConJugador()
         {            
-            string nombreJugadorOrigen = Dominio.CuentaJugador.CuentaJugadorActual.NombreJugador;
+            string nombreJugadorOrigen = Dominio.CuentaJugador.Actual.NombreJugador;
             string nombreJugadorDestino = cuadroTextoNombreUsuarioInvitacion.Text;
             ServicioAmistadesClient cliente = new ServicioAmistadesClient();
             bool existeAmistad = false;
@@ -415,7 +399,7 @@ namespace RompecabezasFei
 
                 if (AgregarAmistadEntreJugadores())
                 {
-                    CargarAmigosJugador();
+                    // Agregar al jugador a la lista de amigos
                 }
                 else
                 {
@@ -443,7 +427,8 @@ namespace RompecabezasFei
 
             if (RechazarSolicitudDeAmistad())
             {
-                CargarJugadoresConSolicitudEnviada();
+                //// CargarJugadoresConSolicitudEnviada();
+                //amigosJugador.Remove();
                 MessageBox.Show("La solicitud de amistad ha sido rechazada",
                         "Solicitud de amistad rechazada",
                         MessageBoxButton.OK, MessageBoxImage.Information);

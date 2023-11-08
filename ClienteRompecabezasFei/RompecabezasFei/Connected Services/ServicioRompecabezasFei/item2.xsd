@@ -78,7 +78,7 @@
   <xs:element name="ObtenerNumeroPartidasJugadas">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="nombreUsuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -92,7 +92,7 @@
   <xs:element name="ObtenerNumeroPartidasGanadas">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="nombreUsuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -106,7 +106,9 @@
   <xs:element name="ActualizarInformacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="cuentaJugador" nillable="true" type="q3:CuentaJugador" />
+        <xs:element minOccurs="0" name="nombreAnterior" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nuevoNombre" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nuevoNumeroAvatar" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -120,7 +122,8 @@
   <xs:element name="ActualizarContrasena">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="cuentaJugador" nillable="true" type="q4:CuentaJugador" />
+        <xs:element minOccurs="0" name="correo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="contrasena" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -131,26 +134,11 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="RestablecerContrasena">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="correo" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="contrasena" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RestablecerContrasenaResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="RestablecerContrasenaResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="NuevaSala">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="nombreAnfitrion" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="idSala" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codigoSala" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -163,7 +151,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="idSala" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codigoSala" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="mensajeBienvenida" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -177,7 +165,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="idSala" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codigoSala" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="mensajeDespedida" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -191,7 +179,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="idSala" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codigoSala" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="mensaje" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -211,7 +199,7 @@
   <xs:element name="ExisteSalaDisponible">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="idSala" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codigoSala" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -254,7 +242,7 @@
   <xs:element name="ObtenerJugadoresConSolicitudDeAmistadSinAceptarResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="ObtenerJugadoresConSolicitudDeAmistadSinAceptarResult" nillable="true" type="q5:ArrayOfCuentaJugador" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="ObtenerJugadoresConSolicitudDeAmistadSinAceptarResult" nillable="true" type="q3:ArrayOfCuentaJugador" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -268,7 +256,7 @@
   <xs:element name="ObtenerAmigosDeJugadorResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="ObtenerAmigosDeJugadorResult" nillable="true" type="q6:ArrayOfCuentaJugador" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="ObtenerAmigosDeJugadorResult" nillable="true" type="q4:ArrayOfCuentaJugador" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -320,8 +308,8 @@
   <xs:element name="ExisteAmistadConJugador">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="nombreJugador1" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="nombreJugador2" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nombreJugadorA" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nombreJugadorB" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -335,8 +323,8 @@
   <xs:element name="RegistrarNuevaAmistadEntreJugadores">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="nombreJugador1" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="nombreJugador2" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nombreJugadorA" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nombreJugadorB" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -350,8 +338,8 @@
   <xs:element name="EliminarAmistadEntreJugadores">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="nombreJugador1" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="nombreJugador2" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nombreJugadorA" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nombreJugadorB" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

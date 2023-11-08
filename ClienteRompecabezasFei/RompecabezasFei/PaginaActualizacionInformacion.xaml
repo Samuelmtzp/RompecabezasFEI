@@ -6,8 +6,7 @@
       xmlns:local="clr-namespace:RompecabezasFei"
       xmlns:p="clr-namespace:RompecabezasFei.Properties"
       mc:Ignorable="d" 
-      d:DesignHeight="720" d:DesignWidth="1280"
-      Loaded="EventoPaginaActualizacionInformacionCargada">
+      d:DesignHeight="720" d:DesignWidth="1280">
 
     <Grid>
         <Image Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="30,30,1145,598" Height="81" Width="81" MouseDown="EventoClickRegresar"/>

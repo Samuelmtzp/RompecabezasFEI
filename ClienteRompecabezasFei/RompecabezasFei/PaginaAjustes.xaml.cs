@@ -77,7 +77,8 @@ namespace RompecabezasFei
             RefrescarPaginaActual();
         }
 
-        private void EventoBotonCambioMusicaActivado(object controlOrigen, RoutedEventArgs evento)
+        private void EventoBotonCambioMusicaActivado(object controlOrigen, 
+            RoutedEventArgs evento)
         {
             if (!hayMusicaActivadaInicialmente)
             {

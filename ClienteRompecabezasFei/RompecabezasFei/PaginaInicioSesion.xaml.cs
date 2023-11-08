@@ -34,14 +34,12 @@ namespace RompecabezasFei
                 cliente.Abort();
             }
 
-            if (cuentaJugadorAutenticada != null && cuentaJugadorAutenticada.IdJugador != 0)
+            if (cuentaJugadorAutenticada != null)
             {
-                Dominio.CuentaJugador.CuentaJugadorActual = new Dominio.CuentaJugador
+                Dominio.CuentaJugador.Actual = new Dominio.CuentaJugador
                 {
                     Contrasena = cuentaJugadorAutenticada.Contrasena,
                     Correo = cuentaJugadorAutenticada.Correo,
-                    IdJugador = cuentaJugadorAutenticada.IdJugador,
-                    IdCuenta = cuentaJugadorAutenticada.IdCuenta,
                     NombreJugador = cuentaJugadorAutenticada.NombreJugador,
                     NumeroAvatar = cuentaJugadorAutenticada.NumeroAvatar,
                     EsInvitado = false,
@@ -75,7 +73,7 @@ namespace RompecabezasFei
         private void EventoClickModoInvitado(object controlOrigen, RoutedEventArgs evento)
         {
             int numeroAleatorio = new Random().Next();
-            Dominio.CuentaJugador.CuentaJugadorActual = new Dominio.CuentaJugador()
+            Dominio.CuentaJugador.Actual = new Dominio.CuentaJugador()
             {
                 NombreJugador = Properties.Resources.ETIQUETA_GENERAL_INVITADO + numeroAleatorio,
                 EsInvitado = true,
@@ -103,7 +101,7 @@ namespace RompecabezasFei
 
         private void EventoClickIniciarSesion(object controlOrigen, RoutedEventArgs evento)
         {
-            var nombreUsuario = cuadroTextoNombreUsuario.Text.Trim();
+            var nombreUsuario = cuadroTextoNombreUsuario.Text;
             var contrasena = cuadroContrasena.Password;
 
             if (!string.IsNullOrWhiteSpace(nombreUsuario) &&

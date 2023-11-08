@@ -8,7 +8,8 @@ namespace Servidor
     {
         public static void Main(string[] args)
         {
-            using (ServiceHost servidorRompecabezasFei = new ServiceHost(typeof(ServicioRompecabezasFei)))
+            using (ServiceHost servidorRompecabezasFei = 
+                new ServiceHost(typeof(ServicioRompecabezasFei)))
             {
                 try
                 {

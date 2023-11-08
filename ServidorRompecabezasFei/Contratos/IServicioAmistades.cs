@@ -27,12 +27,12 @@ namespace Contratos
             string nombreJugadorDestino);
 
         [OperationContract]
-        bool ExisteAmistadConJugador(string nombreJugador1, string nombreJugador2);
+        bool ExisteAmistadConJugador(string nombreJugadorA, string nombreJugadorB);
 
         [OperationContract]
-        bool RegistrarNuevaAmistadEntreJugadores(string nombreJugador1, string nombreJugador2);
+        bool RegistrarNuevaAmistadEntreJugadores(string nombreJugadorA, string nombreJugadorB);
 
         [OperationContract]
-        bool EliminarAmistadEntreJugadores(string nombreJugador1, string nombreJugador2);
+        bool EliminarAmistadEntreJugadores(string nombreJugadorA, string nombreJugadorB);
     }
 }

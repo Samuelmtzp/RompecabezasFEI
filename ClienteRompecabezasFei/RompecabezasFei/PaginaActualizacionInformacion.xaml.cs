@@ -11,51 +11,29 @@ namespace RompecabezasFei
 {
     public partial class PaginaActualizacionInformacion : Page
     {
-        private Dominio.CuentaJugador jugadorRegistro;
-        private readonly string nombreActual;
-
-        public Dominio.CuentaJugador JugadorRegistro
-        {
-            get { return jugadorRegistro; }
-            set { jugadorRegistro = value; }
-        }
-
-        public PaginaActualizacionInformacion()
+        public PaginaActualizacionInformacion(string nombreJugador, int numeroAvatar)
         {
             InitializeComponent();
-            nombreActual = Dominio.CuentaJugador.CuentaJugadorActual.NombreJugador;
-            jugadorRegistro = new Dominio.CuentaJugador();
+            MostrarDatosEdicion(nombreJugador, numeroAvatar);
         }
 
         #region Métodos privados
-        public void CargarDatosEdicion()
+        private void MostrarDatosEdicion(string nombreJugador, int numeroAvatar)
         {
-            cuadroTextoNombreUsuario.Text = jugadorRegistro.NombreJugador;
+            cuadroTextoNombreUsuario.Text = nombreJugador;
+            imagenAvatarActual.Tag = numeroAvatar; 
+            imagenAvatarActual.Source = Utilidades.GeneradorImagenes.
+                GenerarFuenteImagenAvatar(numeroAvatar);            
         }
 
-        private void GuardarDatosEdicion()
+        private void ActualizarInformacion(string nuevoNombre, int nuevoNumeroAvatar)
         {
-            jugadorRegistro = new Dominio.CuentaJugador()
-            {
-                NombreJugador = cuadroTextoNombreUsuario.Text
-            };
-        }
-
-        private void ActualizarInformacion()
-        {
-            ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient(); 
-            CuentaJugador datosJugador = new CuentaJugador
-            {
-                IdJugador = Dominio.CuentaJugador.CuentaJugadorActual.IdJugador,
-                NombreJugador = jugadorRegistro.NombreJugador,
-                NumeroAvatar = jugadorRegistro.NumeroAvatar,
-            };
+            ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
             bool esNombreDisponible = false;
 
             try
             {
-                esNombreDisponible = !cliente.ExisteNombreJugador(
-                    jugadorRegistro.NombreJugador);
+                esNombreDisponible = !cliente.ExisteNombreJugador(nuevoNombre);
             }
             catch (EndpointNotFoundException)
             {
@@ -64,11 +42,13 @@ namespace RompecabezasFei
 
             if (esNombreDisponible)
             {
-                bool registroRealizado = false;
+                bool actualizacionRealizada = false;
+                string nombreAnterior = Dominio.CuentaJugador.Actual.NombreJugador;
 
                 try
                 {
-                    registroRealizado = cliente.ActualizarInformacion(datosJugador);
+                    actualizacionRealizada = cliente.ActualizarInformacion(nombreAnterior, 
+                        nuevoNombre, nuevoNumeroAvatar);
                     cliente.Close();
                 }
                 catch(EndpointNotFoundException)
@@ -76,21 +56,17 @@ namespace RompecabezasFei
                     cliente.Abort();
                 }
 
-                if (registroRealizado)
+                if (actualizacionRealizada)
                 {
                     MessageBox.Show("La actualización de la información se ha " +
                         "realizado correctamente",
                         "Actualización realizada correctamente",
-                        MessageBoxButton.OK);                    
-                    Dominio.CuentaJugador.CuentaJugadorActual.NumeroAvatar =
-                        datosJugador.NumeroAvatar;
-                    Dominio.CuentaJugador.CuentaJugadorActual.NombreJugador =
-                        datosJugador.NombreJugador;
-                    Dominio.CuentaJugador.CuentaJugadorActual.FuenteImagenAvatar = 
-                        GenerarFuenteImagenDeNumeroDeAvatar(datosJugador.NumeroAvatar);
-                    PaginaInformacionJugador paginaInformacionJugador =
-                        new PaginaInformacionJugador();
-                    VentanaPrincipal.CambiarPagina(paginaInformacionJugador);
+                        MessageBoxButton.OK);
+                    Dominio.CuentaJugador.Actual.NumeroAvatar = nuevoNumeroAvatar;
+                    Dominio.CuentaJugador.Actual.NombreJugador = nuevoNombre;
+                    Dominio.CuentaJugador.Actual.FuenteImagenAvatar = Utilidades.
+                        GeneradorImagenes.GenerarFuenteImagenAvatar(nuevoNumeroAvatar);                    
+                    VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
                 }
                 else
                 {
@@ -105,31 +81,10 @@ namespace RompecabezasFei
                 MessageBox.Show("El nombre no se encuentra disponible",
                     "Error al actualizar información", MessageBoxButton.OK);
             }
-        }
-
-        private BitmapImage GenerarFuenteImagenDeNumeroDeAvatar(int numeroAvatar)
-        {
-            string rutaImagen = "/Imagenes/Avatares/";
-            BitmapImage fuenteImagenAvatar = new BitmapImage();
-            fuenteImagenAvatar.BeginInit();
-            rutaImagen += numeroAvatar + ".png";
-            fuenteImagenAvatar.UriSource = new Uri(rutaImagen, UriKind.RelativeOrAbsolute);
-            fuenteImagenAvatar.EndInit();
-
-            return fuenteImagenAvatar;
-        }
+        }        
         #endregion
 
-        #region Eventos
-        private void EventoPaginaActualizacionInformacionCargada(object controlOrigen,
-            RoutedEventArgs evento)
-        {
-            imagenAvatarActual.Source = Dominio.CuentaJugador.
-                CuentaJugadorActual.FuenteImagenAvatar;
-            cuadroTextoNombreUsuario.Text = Dominio.CuentaJugador.
-                CuentaJugadorActual.NombreJugador;
-        }
-        
+        #region Eventos        
         private void EventoClickRegresar(object controlOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
@@ -137,25 +92,23 @@ namespace RompecabezasFei
 
         private void EventoClickGuardarCambios(object controlOrigen, RoutedEventArgs evento)
         {
-            jugadorRegistro.NombreJugador = cuadroTextoNombreUsuario.Text.Trim();
-            jugadorRegistro.NumeroAvatar = Convert.ToInt16(imagenAvatarActual.Tag);
+            string nuevoNombre = cuadroTextoNombreUsuario.Text.Trim();
+            int nuevoNumeroAvatar = (int)imagenAvatarActual.Tag;
             bool esNombreDiferente = false;
             bool esAvatarDiferente = false;
 
-            if (!ExistenModificacionesEnNombre() &&
-                !ExistenModificacionesEnAvatar())
+            if (!ExistenModificacionesEnNombre(nuevoNombre) &&
+                !ExistenModificacionesEnAvatar(nuevoNumeroAvatar))
             {
                 VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
             }
             else
             {
-                if (ExistenModificacionesEnAvatar())
+                if (ExistenModificacionesEnAvatar(nuevoNumeroAvatar))
                 {
-                    jugadorRegistro.NumeroAvatar = Dominio.CuentaJugador.
-                        CuentaJugadorActual.NumeroAvatar;
                     esAvatarDiferente = true; 
                 }
-                if (ExistenModificacionesEnNombre())
+                if (ExistenModificacionesEnNombre(nuevoNombre))
                 {
                     esNombreDiferente = true;
                 }
@@ -165,27 +118,25 @@ namespace RompecabezasFei
             {
                 if (!ExistenCamposInvalidos())
                 {
-                    ActualizarInformacion();
+                    ActualizarInformacion(nuevoNombre, nuevoNumeroAvatar);
                 }
             }
         }
 
         private void EventoClickCambiarAvatar(object controlOrigen, RoutedEventArgs evento)
         {
-            PaginaSeleccionAvatar paginaSeleccionAvatar = new PaginaSeleccionAvatar();
-            paginaSeleccionAvatar.ImagenAvatarActual.Source = imagenAvatarActual.Source;
-            GuardarDatosEdicion();
-            paginaSeleccionAvatar.JugadorRegistro = jugadorRegistro;
+            PaginaSeleccionAvatar paginaSeleccionAvatar = new PaginaSeleccionAvatar(
+                (int)imagenAvatarActual.Tag, cuadroTextoNombreUsuario.Text);
             VentanaPrincipal.CambiarPaginaGuardandoAnterior(paginaSeleccionAvatar);
         }
         #endregion
 
         #region Validaciones
-        private bool ExistenModificacionesEnAvatar()
+        private bool ExistenModificacionesEnAvatar(int nuevoNumeroAvatar)
         {
             bool resultado = true;
 
-            if (jugadorRegistro.NumeroAvatar == 0)
+            if (Dominio.CuentaJugador.Actual.NumeroAvatar.Equals(nuevoNumeroAvatar))
             {
                 resultado = false;
             }
@@ -193,11 +144,11 @@ namespace RompecabezasFei
             return resultado;
         }
 
-        private bool ExistenModificacionesEnNombre()
+        private bool ExistenModificacionesEnNombre(string nuevoNombre)
         {
             bool resultado = true;
 
-            if (jugadorRegistro.NombreJugador.Equals(nombreActual))
+            if (Dominio.CuentaJugador.Actual.NombreJugador.Equals(nuevoNombre))
             {
                 resultado = false;
             }
@@ -222,7 +173,7 @@ namespace RompecabezasFei
         {
             bool resultado = false;
             
-            if (string.IsNullOrWhiteSpace(jugadorRegistro.NombreJugador))
+            if (string.IsNullOrWhiteSpace(cuadroTextoNombreUsuario.Text))
             {
                 resultado = true;
                 MessageBox.Show("No puedes dejar campos vacíos",
@@ -236,7 +187,7 @@ namespace RompecabezasFei
         {
             bool resultado = false;
             
-            if (jugadorRegistro.NombreJugador.Length > 15)
+            if (cuadroTextoNombreUsuario.Text.Length > 15)
             {
                 resultado = true;
                 MessageBox.Show("Corrige los campos excedidos",

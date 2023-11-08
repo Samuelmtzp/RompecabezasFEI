@@ -7,35 +7,36 @@ namespace Logica
     public class Sala
     {
         #region Atributos
-        private string idSala;
+        private string codigoSala;
         private string nombreAnfitrion;
         private int contadorJugadoresActuales = 0;
         private List<CuentaJugador> jugadores;
-        [DataMember]
         public const int MaximoJugadores = 4;
-        [DataMember]
         public const int MinimoJugadores = 2;
         #endregion
 
         #region Propiedades
         [DataMember]
-        public string IdSala 
+        public string CodigoSala 
         { 
-            get { return idSala; } 
-            set { idSala = value; } 
+            get { return codigoSala; } 
+            set { codigoSala = value; } 
         }
+
         [DataMember]
         public string NombreAnfitrion
         { 
             get { return nombreAnfitrion; } 
             set { nombreAnfitrion = value; } 
         }
+        
         [DataMember]
         public int ContadorJugadoresActuales 
         { 
             get { return contadorJugadoresActuales; } 
             set { contadorJugadoresActuales = value; } 
         }
+        
         [DataMember]
         public List<CuentaJugador> Jugadores 
         { 
@@ -49,6 +50,7 @@ namespace Logica
         {
             return contadorJugadoresActuales < MaximoJugadores;
         }
+
         public bool EstaVacia()
         {
             return contadorJugadoresActuales == 0;

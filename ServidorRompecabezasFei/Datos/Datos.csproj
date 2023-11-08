@@ -51,51 +51,57 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Amigo.cs">
-      <DependentUpon>ModeloDatosRompecabezasFei.tt</DependentUpon>
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
     <Compile Include="Cuenta.cs">
-      <DependentUpon>ModeloDatosRompecabezasFei.tt</DependentUpon>
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DificultadPartida.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EstadoSolicitudAmistad.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
     <Compile Include="Jugador.cs">
-      <DependentUpon>ModeloDatosRompecabezasFei.tt</DependentUpon>
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
-    <Compile Include="Jugador_Partida.cs">
-      <DependentUpon>ModeloDatosRompecabezasFei.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDatosRompecabezasFei.Context.cs">
+    <Compile Include="ModeloDatos.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModeloDatosRompecabezasFei.Context.tt</DependentUpon>
+      <DependentUpon>ModeloDatos.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDatosRompecabezasFei.cs">
+    <Compile Include="ModeloDatos.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModeloDatosRompecabezasFei.tt</DependentUpon>
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDatosRompecabezasFei.Designer.cs">
+    <Compile Include="ModeloDatos.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModeloDatosRompecabezasFei.edmx</DependentUpon>
+      <DependentUpon>ModeloDatos.edmx</DependentUpon>
     </Compile>
     <Compile Include="Partida.cs">
-      <DependentUpon>ModeloDatosRompecabezasFei.tt</DependentUpon>
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultadoPartida.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
     <Compile Include="Sala.cs">
-      <DependentUpon>ModeloDatosRompecabezasFei.tt</DependentUpon>
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
     <Compile Include="SolicitudAmistad.cs">
-      <DependentUpon>ModeloDatosRompecabezasFei.tt</DependentUpon>
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="ModeloDatosRompecabezasFei.edmx">
+    <EntityDeploy Include="ModeloDatos.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModeloDatosRompecabezasFei.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModeloDatos.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ModeloDatosRompecabezasFei.edmx.diagram">
-      <DependentUpon>ModeloDatosRompecabezasFei.edmx</DependentUpon>
+    <None Include="ModeloDatos.edmx.diagram">
+      <DependentUpon>ModeloDatos.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -103,16 +109,16 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ModeloDatosRompecabezasFei.Context.tt">
+    <Content Include="ModeloDatos.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModeloDatosRompecabezasFei.edmx</DependentUpon>
-      <LastGenOutput>ModeloDatosRompecabezasFei.Context.cs</LastGenOutput>
+      <DependentUpon>ModeloDatos.edmx</DependentUpon>
+      <LastGenOutput>ModeloDatos.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="ModeloDatosRompecabezasFei.edmx.sql" />
-    <Content Include="ModeloDatosRompecabezasFei.tt">
+    <Content Include="ModeloDatos.edmx.sql" />
+    <Content Include="ModeloDatos.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModeloDatosRompecabezasFei.edmx</DependentUpon>
-      <LastGenOutput>ModeloDatosRompecabezasFei.cs</LastGenOutput>
+      <DependentUpon>ModeloDatos.edmx</DependentUpon>
+      <LastGenOutput>ModeloDatos.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

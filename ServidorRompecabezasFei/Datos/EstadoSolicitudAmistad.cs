@@ -10,16 +10,11 @@
 namespace Datos
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class SolicitudAmistad
+    public enum EstadoSolicitudAmistad : int
     {
-        public string NombreJugadorOrigen { get; set; }
-        public string NombreJugadorDestino { get; set; }
-        public EstadoSolicitudAmistad Estado { get; set; }
-        public System.DateTime FechaEnvioSolicitud { get; set; }
-    
-        public virtual Jugador JugadorOrigen { get; set; }
-        public virtual Jugador JugadorDestino { get; set; }
+        SinAceptar = 0,
+        Aceptada = 1,
+        Rechazada = 2
     }
 }
