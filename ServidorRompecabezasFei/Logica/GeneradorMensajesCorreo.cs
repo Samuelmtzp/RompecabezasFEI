@@ -2,11 +2,16 @@
 using System.Net.Mail;
 using System.Net;
 using System.Text;
+using log4net;
+using Registros;
+
 
 namespace Logica
 {
     public class GeneradorMensajesCorreo
     {
+        private static readonly ILog Log = Registros.Registrador.GetLogger();
+
         public bool EnviarMensaje(string encabezado, string correoDestino, 
             string asunto, string mensaje)
         {
@@ -29,12 +34,14 @@ namespace Logica
                 clienteSmtp.EnableSsl = true;
                 clienteSmtp.Send(mensajeCorreo);                
             }
-            catch (ArgumentException)
+            catch (ArgumentException ex)
             {
+                Log.Error($"{ex.Message}");
                 resultado = false;
             }
-            catch (SmtpException)
+            catch (SmtpException ex)
             {
+                Log.Error($"{ex.Message}");
                 resultado = false;
             }
             finally

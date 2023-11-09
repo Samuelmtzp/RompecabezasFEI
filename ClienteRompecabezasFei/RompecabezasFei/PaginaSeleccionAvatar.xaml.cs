@@ -53,12 +53,7 @@ namespace RompecabezasFei
                     paginaActualizacionInformacion.CargarDatosEdicion();
                     VentanaPrincipal.CambiarPagina(paginaActualizacionInformacion);
                 }
-                else
-                {
-                    VentanaPrincipal.CambiarPagina(new PaginaActualizacionInformacion());
-                }
             }
-            
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using RompecabezasFei.ServicioRompecabezasFei;
+﻿using log4net;
+using RompecabezasFei.ServicioRompecabezasFei;
 using Security;
 using System;
 using System.ServiceModel;
@@ -8,11 +9,14 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using Registros;
 
 namespace RompecabezasFei
 {
     public partial class PaginaInicioSesion : Page
     {
+        private static readonly ILog Log = Registros.Registros.GetLogger();
+
         public PaginaInicioSesion()
         {
             InitializeComponent();
@@ -108,22 +112,26 @@ namespace RompecabezasFei
                         IniciarSesion(nombreUsuario,
                             EncriptadorContrasena.CalcularHashSha512(contrasena));
                     }
-                    catch (EndpointNotFoundException)
+                    catch (EndpointNotFoundException ex)
                     {
+                        Registros.Registros.escribirRegistro(ex.Message);
+                        //Log.Error($"{ex.Message}");
                         MessageBox.Show(Properties.Resources.
                             ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                             ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
                             MessageBoxButton.OK, MessageBoxImage.Error);
                     }
-                    catch (CommunicationObjectFaultedException)
+                    catch (CommunicationObjectFaultedException ex)
                     {
+                        Log.Error($"{ex.Message}");
                         MessageBox.Show(Properties.Resources.
                             ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                             ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
                             MessageBoxButton.OK, MessageBoxImage.Error);
                     }
-                    catch (TimeoutException)
+                    catch (TimeoutException ex)
                     {
+                        Log.Error($"{ex.Message}");
                         MessageBox.Show(Properties.Resources.
                             ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                             ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
