@@ -11,10 +11,11 @@ namespace Logica
 
             using (var contexto = new EntidadesRompecabezasFei())
             {
-                var cantidadJugadoresEncontrados = (from jugadores in contexto.Jugador 
-                                                    where jugadores.NombreJugador == nombreJugador
-                                                    select jugadores).Count();
-                if (cantidadJugadoresEncontrados > 0)
+                int coincidencias = (from jugador in contexto.Jugador 
+                                    where jugador.NombreJugador.Equals(nombreJugador)
+                                    select jugador).Count();
+
+                if (coincidencias > 0)
                 {
                     resultado = true;
                 }
@@ -29,10 +30,11 @@ namespace Logica
             
             using (var contexto = new EntidadesRompecabezasFei())
             {
-                var cantidadCorreosEncontrados = (from cuentas in contexto.Cuenta 
-                                                  where cuentas.Correo == correoElectronico 
-                                                  select cuentas).Count();
-                if (cantidadCorreosEncontrados > 0)
+                var coincidencias = (from cuenta in contexto.Cuenta 
+                                    where cuenta.Correo.Equals(correoElectronico) 
+                                    select cuenta).Count();
+
+                if (coincidencias > 0)
                 {
                     resultado = true;
                 }
@@ -48,9 +50,9 @@ namespace Logica
             using (var contexto = new EntidadesRompecabezasFei())
             {
                 partidasJugadas = (from jugador in contexto.Jugador 
-                                   from partidaJugada in contexto.Jugador_Partida 
-                                   where jugador == partidaJugada.Jugador &&
-                                   jugador.NombreJugador == nombreJugador 
+                                   from partidaJugada in contexto.ResultadoPartida 
+                                   where partidaJugada.Jugador.Equals(jugador) &&
+                                   jugador.NombreJugador.Equals(nombreJugador) 
                                    select jugador).Count();
             }
 
@@ -63,19 +65,10 @@ namespace Logica
 
             using (var contexto = new EntidadesRompecabezasFei())
             {
-                partidasGanadas = contexto.Jugador_Partida.
-                    GroupBy(jugadorEnPartida => 
-                    jugadorEnPartida.Jugador.NombreJugador).
-                    Select(jugadoresPartida => new
-                    {
-                        NombreJugador = jugadoresPartida.Key,
-                        PuntajeMaximo = jugadoresPartida.
-                            Max(jugadorEnPartida => jugadorEnPartida.Puntaje)
-                    }).
-                    Where(jugadoresPartida => jugadoresPartida.PuntajeMaximo == 
-                    contexto.Jugador_Partida.
-                    Where(jugadorEnPartida => jugadoresPartida.NombreJugador == nombreJugador).
-                    Max(jugadorEnPartida => jugadorEnPartida.Puntaje)).Count();
+                partidasGanadas = (from partidaJugada in contexto.ResultadoPartida
+                                   where partidaJugada.Jugador.NombreJugador.
+                                   Equals(nombreJugador) && partidaJugada.EsGanador
+                                   select partidaJugada).Count();
             }
 
             return partidasGanadas;

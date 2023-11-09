@@ -26,17 +26,24 @@ namespace RompecabezasFei
         private void IniciarSesion(string nombreJugador, string contrasena)
         {
             ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
-            ServicioRompecabezasFei.CuentaJugador cuentaJugadorAutenticada =
-                cliente.IniciarSesion(nombreJugador, contrasena);
+            CuentaJugador cuentaJugadorAutenticada = null;
 
-            if (cuentaJugadorAutenticada.IdJugador != 0)
+            try
             {
-                Dominio.CuentaJugador.CuentaJugadorActual = new Dominio.CuentaJugador
+                cuentaJugadorAutenticada = cliente.IniciarSesion(nombreJugador, contrasena);
+                cliente.Close();
+            }
+            catch (EndpointNotFoundException)
+            {
+                cliente.Abort();
+            }
+
+            if (cuentaJugadorAutenticada != null)
+            {
+                Dominio.CuentaJugador.Actual = new Dominio.CuentaJugador
                 {
                     Contrasena = cuentaJugadorAutenticada.Contrasena,
                     Correo = cuentaJugadorAutenticada.Correo,
-                    IdJugador = cuentaJugadorAutenticada.IdJugador,
-                    IdCuenta = cuentaJugadorAutenticada.IdCuenta,
                     NombreJugador = cuentaJugadorAutenticada.NombreJugador,
                     NumeroAvatar = cuentaJugadorAutenticada.NumeroAvatar,
                     EsInvitado = false,
@@ -70,7 +77,7 @@ namespace RompecabezasFei
         private void EventoClickModoInvitado(object controlOrigen, RoutedEventArgs evento)
         {
             int numeroAleatorio = new Random().Next();
-            Dominio.CuentaJugador.CuentaJugadorActual = new Dominio.CuentaJugador()
+            Dominio.CuentaJugador.Actual = new Dominio.CuentaJugador()
             {
                 NombreJugador = Properties.Resources.ETIQUETA_GENERAL_INVITADO + numeroAleatorio,
                 EsInvitado = true,
@@ -98,11 +105,11 @@ namespace RompecabezasFei
 
         private void EventoClickIniciarSesion(object controlOrigen, RoutedEventArgs evento)
         {
-            var nombreUsuario = cuadroTextoNombreUsuario.Text.Trim();
+            var nombreUsuario = cuadroTextoNombreUsuario.Text;
             var contrasena = cuadroContrasena.Password;
 
-            if (!String.IsNullOrWhiteSpace(nombreUsuario) &&
-                !String.IsNullOrWhiteSpace(contrasena))
+            if (!string.IsNullOrWhiteSpace(nombreUsuario) &&
+                !string.IsNullOrWhiteSpace(contrasena))
             {
                 if (ExistenCadenasValidas(nombreUsuario, contrasena) &&
                     !ExistenLongitudesExcedidas(nombreUsuario, contrasena))

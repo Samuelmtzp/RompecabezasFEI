@@ -23,18 +23,16 @@ namespace Contratos
             string asunto, string mensaje);
         
         [OperationContract]
-        int ObtenerNumeroPartidasJugadas(string nombreUsuario);
+        int ObtenerNumeroPartidasJugadas(string nombreJugador);
         
         [OperationContract]
-        int ObtenerNumeroPartidasGanadas(string nombreUsuario);
+        int ObtenerNumeroPartidasGanadas(string nombreJugador);
         
         [OperationContract]
-        bool ActualizarInformacion(CuentaJugador cuentaJugador);
+        bool ActualizarInformacion(string nombreAnterior, string nuevoNombre, 
+            int nuevoNumeroAvatar);
         
         [OperationContract]
-        bool ActualizarContrasena(CuentaJugador cuentaJugador);
-        
-        [OperationContract]
-        bool RestablecerContrasena(string correo, string contrasena);
+        bool ActualizarContrasena(string correo, string contrasena);
     }
 }

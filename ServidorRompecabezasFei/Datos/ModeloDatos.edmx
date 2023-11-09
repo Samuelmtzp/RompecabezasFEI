@@ -6,32 +6,36 @@
     <edmx:StorageModels>
     <Schema Namespace="ModeloRompecabezasFei.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="ModeloRompecabezasFeiStoreContainer">
-    <EntitySet Name="SolicitudAmistad" EntityType="ModeloRompecabezasFei.Store.SolicitudAmistad" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Cuenta" EntityType="ModeloRompecabezasFei.Store.Cuenta" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Jugador" EntityType="ModeloRompecabezasFei.Store.Jugador" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SolicitudAmistad" EntityType="ModeloRompecabezasFei.Store.SolicitudAmistad" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Amigo" EntityType="ModeloRompecabezasFei.Store.Amigo" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Sala" EntityType="ModeloRompecabezasFei.Store.Sala" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Partida" EntityType="ModeloRompecabezasFei.Store.Partida" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Jugador_Partida" EntityType="ModeloRompecabezasFei.Store.Jugador_Partida" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ResultadoPartida" EntityType="ModeloRompecabezasFei.Store.ResultadoPartida" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="CuentaJugador" Association="ModeloRompecabezasFei.Store.CuentaJugador">
       <End Role="Cuenta" EntitySet="Cuenta" />
       <End Role="Jugador" EntitySet="Jugador" />
     </AssociationSet>
-    <AssociationSet Name="JugadorOrigen_SolicitudAmistad" Association="ModeloRompecabezasFei.Store.JugadorOrigen_SolicitudAmistad">
+    <AssociationSet Name="JugadorSolicitudAmistad" Association="ModeloRompecabezasFei.Store.JugadorSolicitudAmistad">
       <End Role="Jugador" EntitySet="Jugador" />
       <End Role="SolicitudAmistad" EntitySet="SolicitudAmistad" />
     </AssociationSet>
-    <AssociationSet Name="JugadorDestino_SolicitudAmistad" Association="ModeloRompecabezasFei.Store.JugadorDestino_SolicitudAmistad">
+    <AssociationSet Name="JugadorSolicitudAmistad1" Association="ModeloRompecabezasFei.Store.JugadorSolicitudAmistad1">
       <End Role="Jugador" EntitySet="Jugador" />
       <End Role="SolicitudAmistad" EntitySet="SolicitudAmistad" />
     </AssociationSet>
-    <AssociationSet Name="Jugador1Amigo" Association="ModeloRompecabezasFei.Store.Jugador1Amigo">
+    <AssociationSet Name="JugadorAmigo" Association="ModeloRompecabezasFei.Store.JugadorAmigo">
       <End Role="Jugador" EntitySet="Jugador" />
       <End Role="Amigo" EntitySet="Amigo" />
     </AssociationSet>
-    <AssociationSet Name="Jugador2Amigo" Association="ModeloRompecabezasFei.Store.Jugador2Amigo">
+    <AssociationSet Name="JugadorAmigo1" Association="ModeloRompecabezasFei.Store.JugadorAmigo1">
       <End Role="Jugador" EntitySet="Jugador" />
       <End Role="Amigo" EntitySet="Amigo" />
+    </AssociationSet>
+    <AssociationSet Name="JugadorResultadoPartida" Association="ModeloRompecabezasFei.Store.JugadorResultadoPartida">
+      <End Role="Jugador" EntitySet="Jugador" />
+      <End Role="ResultadoPartida" EntitySet="ResultadoPartida" />
     </AssociationSet>
     <AssociationSet Name="JugadorSala" Association="ModeloRompecabezasFei.Store.JugadorSala">
       <End Role="Jugador" EntitySet="Jugador" />
@@ -41,146 +45,155 @@
       <End Role="Sala" EntitySet="Sala" />
       <End Role="Partida" EntitySet="Partida" />
     </AssociationSet>
-    <AssociationSet Name="JugadorJugador_Partida" Association="ModeloRompecabezasFei.Store.JugadorJugador_Partida">
-      <End Role="Jugador" EntitySet="Jugador" />
-      <End Role="Jugador_Partida" EntitySet="Jugador_Partida" />
-    </AssociationSet>
-    <AssociationSet Name="PartidaJugador_Partida" Association="ModeloRompecabezasFei.Store.PartidaJugador_Partida">
+    <AssociationSet Name="PartidaResultadoPartida" Association="ModeloRompecabezasFei.Store.PartidaResultadoPartida">
       <End Role="Partida" EntitySet="Partida" />
-      <End Role="Jugador_Partida" EntitySet="Jugador_Partida" />
+      <End Role="ResultadoPartida" EntitySet="ResultadoPartida" />
     </AssociationSet>
   </EntityContainer>
-  <EntityType Name="SolicitudAmistad">
-    <Key>
-      <PropertyRef Name="IdSolicitudAmistad" />
-    </Key>
-    <Property Name="Estado" Type="int" Nullable="false" />
-    <Property Name="FechaEnvioSolicitud" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="IdJugadorOrigen" Type="int" Nullable="false" />
-    <Property Name="IdJugadorDestino" Type="int" Nullable="false" />
-    <Property Name="IdSolicitudAmistad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-  </EntityType>
   <EntityType Name="Cuenta">
     <Key>
-      <PropertyRef Name="IdCuenta" />
+      <PropertyRef Name="Correo" />
     </Key>
-    <Property Name="IdCuenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Correo" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Contrasena" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Jugador_IdJugador" Type="int" Nullable="false" />
+    <Property Name="Correo" Type="nvarchar" Nullable="false" MaxLength="65" />
+    <Property Name="Contrasena" Type="nvarchar" Nullable="false" MaxLength="45" />
+    <Property Name="Jugador_NombreJugador" Type="nvarchar" MaxLength="15" Nullable="false" />
   </EntityType>
   <EntityType Name="Jugador">
     <Key>
-      <PropertyRef Name="IdJugador" />
+      <PropertyRef Name="NombreJugador" />
     </Key>
-    <Property Name="IdJugador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="NombreJugador" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="NumeroAvatar" Type="smallint" Nullable="false" />
+    <Property Name="NombreJugador" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="NumeroAvatar" Type="int" Nullable="false" DefaultValue="1" />
+  </EntityType>
+  <EntityType Name="SolicitudAmistad">
+    <Key>
+      <PropertyRef Name="NombreJugadorOrigen" />
+      <PropertyRef Name="NombreJugadorDestino" />
+    </Key>
+    <Property Name="NombreJugadorOrigen" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="NombreJugadorDestino" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+    <Property Name="FechaEnvioSolicitud" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Amigo">
     <Key>
-      <PropertyRef Name="IdAmigo" />
+      <PropertyRef Name="NombreJugadorA" />
+      <PropertyRef Name="NombreJugadorB" />
     </Key>
-    <Property Name="IdAmigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdJugador1" Type="int" Nullable="false" />
-    <Property Name="IdJugador2" Type="int" Nullable="false" />
+    <Property Name="NombreJugadorA" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="NombreJugadorB" Type="nvarchar" Nullable="false" MaxLength="15" />
   </EntityType>
   <EntityType Name="Sala">
     <Key>
-      <PropertyRef Name="IdSala" />
+      <PropertyRef Name="Codigo" />
     </Key>
-    <Property Name="IdSala" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Codigo" Type="int" Nullable="false" />
-    <Property Name="MaximoJugadores" Type="int" Nullable="false" />
-    <Property Name="MinimoJugadores" Type="int" Nullable="false" />
-    <Property Name="IdAnfitrion" Type="int" Nullable="false" />
+    <Property Name="Codigo" Type="nchar" Nullable="false" MaxLength="36" />
+    <Property Name="MaximoJugadores" Type="int" Nullable="false" DefaultValue="4" />
+    <Property Name="MinimoJugadores" Type="int" Nullable="false" DefaultValue="2" />
+    <Property Name="NombreAnfitrion" Type="nvarchar" Nullable="true" MaxLength="15" />
   </EntityType>
   <EntityType Name="Partida">
     <Key>
-      <PropertyRef Name="IdPartida" />
+      <PropertyRef Name="NumeroPartida" />
+      <PropertyRef Name="CodigoSala" />
     </Key>
-    <Property Name="IdPartida" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NumeroPartida" Type="int" Nullable="false" />
+    <Property Name="CodigoSala" Type="nchar" Nullable="false" MaxLength="36" />
     <Property Name="Dificultad" Type="int" Nullable="false" />
-    <Property Name="IdSala" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Jugador_Partida">
+  <EntityType Name="ResultadoPartida">
     <Key>
-      <PropertyRef Name="IdPartida" />
-      <PropertyRef Name="IdJugador" />
+      <PropertyRef Name="NombreJugador" />
+      <PropertyRef Name="NumeroPartida" />
+      <PropertyRef Name="CodigoSala" />
     </Key>
-    <Property Name="Puntaje" Type="int" Nullable="false" />
-    <Property Name="IdJugador" Type="int" Nullable="false" />
-    <Property Name="IdPartida" Type="int" Nullable="false" />
+    <Property Name="NombreJugador" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="Puntaje" Type="int" Nullable="false" DefaultValue="0" />
+    <Property Name="EsGanador" Type="bit" Nullable="false" />
+    <Property Name="NumeroPartida" Type="int" Nullable="false" />
+    <Property Name="CodigoSala" Type="nchar" Nullable="false" MaxLength="36" />
   </EntityType>
   <Association Name="CuentaJugador">
     <End Role="Cuenta" Type="ModeloRompecabezasFei.Store.Cuenta" Multiplicity="*" />
     <End Role="Jugador" Type="ModeloRompecabezasFei.Store.Jugador" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="Jugador">
-        <PropertyRef Name="IdJugador" />
+        <PropertyRef Name="NombreJugador" />
       </Principal>
       <Dependent Role="Cuenta">
-        <PropertyRef Name="Jugador_IdJugador" />
+        <PropertyRef Name="Jugador_NombreJugador" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="JugadorOrigen_SolicitudAmistad">
+  <Association Name="JugadorSolicitudAmistad">
     <End Role="Jugador" Type="ModeloRompecabezasFei.Store.Jugador" Multiplicity="1" />
     <End Role="SolicitudAmistad" Type="ModeloRompecabezasFei.Store.SolicitudAmistad" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Jugador">
-        <PropertyRef Name="IdJugador" />
+        <PropertyRef Name="NombreJugador" />
       </Principal>
       <Dependent Role="SolicitudAmistad">
-        <PropertyRef Name="IdJugadorOrigen" />
+        <PropertyRef Name="NombreJugadorOrigen" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="JugadorDestino_SolicitudAmistad">
+  <Association Name="JugadorSolicitudAmistad1">
     <End Role="Jugador" Type="ModeloRompecabezasFei.Store.Jugador" Multiplicity="1" />
     <End Role="SolicitudAmistad" Type="ModeloRompecabezasFei.Store.SolicitudAmistad" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Jugador">
-        <PropertyRef Name="IdJugador" />
+        <PropertyRef Name="NombreJugador" />
       </Principal>
       <Dependent Role="SolicitudAmistad">
-        <PropertyRef Name="IdJugadorDestino" />
+        <PropertyRef Name="NombreJugadorDestino" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="Jugador1Amigo">
+  <Association Name="JugadorAmigo">
     <End Role="Jugador" Type="ModeloRompecabezasFei.Store.Jugador" Multiplicity="1" />
     <End Role="Amigo" Type="ModeloRompecabezasFei.Store.Amigo" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Jugador">
-        <PropertyRef Name="IdJugador" />
+        <PropertyRef Name="NombreJugador" />
       </Principal>
       <Dependent Role="Amigo">
-        <PropertyRef Name="IdJugador1" />
+        <PropertyRef Name="NombreJugadorA" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="Jugador2Amigo">
+  <Association Name="JugadorAmigo1">
     <End Role="Jugador" Type="ModeloRompecabezasFei.Store.Jugador" Multiplicity="1" />
     <End Role="Amigo" Type="ModeloRompecabezasFei.Store.Amigo" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Jugador">
-        <PropertyRef Name="IdJugador" />
+        <PropertyRef Name="NombreJugador" />
       </Principal>
       <Dependent Role="Amigo">
-        <PropertyRef Name="IdJugador2" />
+        <PropertyRef Name="NombreJugadorB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JugadorResultadoPartida">
+    <End Role="Jugador" Type="ModeloRompecabezasFei.Store.Jugador" Multiplicity="1" />
+    <End Role="ResultadoPartida" Type="ModeloRompecabezasFei.Store.ResultadoPartida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jugador">
+        <PropertyRef Name="NombreJugador" />
+      </Principal>
+      <Dependent Role="ResultadoPartida">
+        <PropertyRef Name="NombreJugador" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="JugadorSala">
-    <End Role="Jugador" Type="ModeloRompecabezasFei.Store.Jugador" Multiplicity="1" />
+    <End Role="Jugador" Type="ModeloRompecabezasFei.Store.Jugador" Multiplicity="0..1" />
     <End Role="Sala" Type="ModeloRompecabezasFei.Store.Sala" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Jugador">
-        <PropertyRef Name="IdJugador" />
+        <PropertyRef Name="NombreJugador" />
       </Principal>
       <Dependent Role="Sala">
-        <PropertyRef Name="IdAnfitrion" />
+        <PropertyRef Name="NombreAnfitrion" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -189,34 +202,24 @@
     <End Role="Partida" Type="ModeloRompecabezasFei.Store.Partida" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Sala">
-        <PropertyRef Name="IdSala" />
+        <PropertyRef Name="Codigo" />
       </Principal>
       <Dependent Role="Partida">
-        <PropertyRef Name="IdSala" />
+        <PropertyRef Name="CodigoSala" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="JugadorJugador_Partida">
-    <End Role="Jugador" Type="ModeloRompecabezasFei.Store.Jugador" Multiplicity="1" />
-    <End Role="Jugador_Partida" Type="ModeloRompecabezasFei.Store.Jugador_Partida" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Jugador">
-        <PropertyRef Name="IdJugador" />
-      </Principal>
-      <Dependent Role="Jugador_Partida">
-        <PropertyRef Name="IdJugador" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="PartidaJugador_Partida">
+  <Association Name="PartidaResultadoPartida">
     <End Role="Partida" Type="ModeloRompecabezasFei.Store.Partida" Multiplicity="1" />
-    <End Role="Jugador_Partida" Type="ModeloRompecabezasFei.Store.Jugador_Partida" Multiplicity="*" />
+    <End Role="ResultadoPartida" Type="ModeloRompecabezasFei.Store.ResultadoPartida" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Partida">
-        <PropertyRef Name="IdPartida" />
+        <PropertyRef Name="NumeroPartida" />
+        <PropertyRef Name="CodigoSala" />
       </Principal>
-      <Dependent Role="Jugador_Partida">
-        <PropertyRef Name="IdPartida" />
+      <Dependent Role="ResultadoPartida">
+        <PropertyRef Name="NumeroPartida" />
+        <PropertyRef Name="CodigoSala" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -225,33 +228,37 @@
     <edmx:ConceptualModels>
       <Schema Namespace="ModeloRompecabezasFei" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="EntidadesRompecabezasFei" annotation:LazyLoadingEnabled="true" >
-          <EntitySet Name="SolicitudAmistad" EntityType="ModeloRompecabezasFei.SolicitudAmistad" />
           <EntitySet Name="Cuenta" EntityType="ModeloRompecabezasFei.Cuenta" />
           <EntitySet Name="Jugador" EntityType="ModeloRompecabezasFei.Jugador" />
           <AssociationSet Name="CuentaJugador" Association="ModeloRompecabezasFei.CuentaJugador">
             <End Role="Cuenta" EntitySet="Cuenta" />
             <End Role="Jugador" EntitySet="Jugador" />
           </AssociationSet>
-          <AssociationSet Name="JugadorOrigen_SolicitudAmistad" Association="ModeloRompecabezasFei.JugadorOrigen_SolicitudAmistad">
+          <EntitySet Name="SolicitudAmistad" EntityType="ModeloRompecabezasFei.SolicitudAmistad" />
+          <AssociationSet Name="JugadorSolicitudAmistad" Association="ModeloRompecabezasFei.JugadorSolicitudAmistad">
             <End Role="Jugador" EntitySet="Jugador" />
             <End Role="SolicitudAmistad" EntitySet="SolicitudAmistad" />
           </AssociationSet>
-          <AssociationSet Name="JugadorDestino_SolicitudAmistad" Association="ModeloRompecabezasFei.JugadorDestino_SolicitudAmistad">
+          <AssociationSet Name="JugadorSolicitudAmistad1" Association="ModeloRompecabezasFei.JugadorSolicitudAmistad1">
             <End Role="Jugador" EntitySet="Jugador" />
             <End Role="SolicitudAmistad" EntitySet="SolicitudAmistad" />
           </AssociationSet>
           <EntitySet Name="Amigo" EntityType="ModeloRompecabezasFei.Amigo" />
-          <AssociationSet Name="Jugador1Amigo" Association="ModeloRompecabezasFei.Jugador1Amigo">
+          <AssociationSet Name="JugadorAmigo" Association="ModeloRompecabezasFei.JugadorAmigo">
             <End Role="Jugador" EntitySet="Jugador" />
             <End Role="Amigo" EntitySet="Amigo" />
           </AssociationSet>
-          <AssociationSet Name="Jugador2Amigo" Association="ModeloRompecabezasFei.Jugador2Amigo">
+          <AssociationSet Name="JugadorAmigo1" Association="ModeloRompecabezasFei.JugadorAmigo1">
             <End Role="Jugador" EntitySet="Jugador" />
             <End Role="Amigo" EntitySet="Amigo" />
           </AssociationSet>
           <EntitySet Name="Sala" EntityType="ModeloRompecabezasFei.Sala" />
           <EntitySet Name="Partida" EntityType="ModeloRompecabezasFei.Partida" />
-          <EntitySet Name="Jugador_Partida" EntityType="ModeloRompecabezasFei.Jugador_Partida" />
+          <EntitySet Name="ResultadoPartida" EntityType="ModeloRompecabezasFei.ResultadoPartida" />
+          <AssociationSet Name="JugadorResultadoPartida" Association="ModeloRompecabezasFei.JugadorResultadoPartida">
+            <End Role="Jugador" EntitySet="Jugador" />
+            <End Role="ResultadoPartida" EntitySet="ResultadoPartida" />
+          </AssociationSet>
           <AssociationSet Name="JugadorSala" Association="ModeloRompecabezasFei.JugadorSala">
             <End Role="Jugador" EntitySet="Jugador" />
             <End Role="Sala" EntitySet="Sala" />
@@ -260,183 +267,192 @@
             <End Role="Sala" EntitySet="Sala" />
             <End Role="Partida" EntitySet="Partida" />
           </AssociationSet>
-          <AssociationSet Name="JugadorJugador_Partida" Association="ModeloRompecabezasFei.JugadorJugador_Partida">
-            <End Role="Jugador" EntitySet="Jugador" />
-            <End Role="Jugador_Partida" EntitySet="Jugador_Partida" />
-          </AssociationSet>
-          <AssociationSet Name="PartidaJugador_Partida" Association="ModeloRompecabezasFei.PartidaJugador_Partida">
+          <AssociationSet Name="PartidaResultadoPartida" Association="ModeloRompecabezasFei.PartidaResultadoPartida">
             <End Role="Partida" EntitySet="Partida" />
-            <End Role="Jugador_Partida" EntitySet="Jugador_Partida" />
+            <End Role="ResultadoPartida" EntitySet="ResultadoPartida" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="SolicitudAmistad" >
-          <Key>
-            <PropertyRef Name="IdSolicitudAmistad" />
-          </Key>
-          <Property Name="Estado" Type="Int32" Nullable="false" />
-          <Property Name="FechaEnvioSolicitud" Type="String" Nullable="false" />
-          <NavigationProperty Name="JugadorOrigen" Relationship="ModeloRompecabezasFei.JugadorOrigen_SolicitudAmistad" FromRole="SolicitudAmistad" ToRole="Jugador" />
-          <Property Name="IdJugadorOrigen" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="JugadorDestino" Relationship="ModeloRompecabezasFei.JugadorDestino_SolicitudAmistad" FromRole="SolicitudAmistad" ToRole="Jugador" />
-          <Property Name="IdJugadorDestino" Type="Int32" Nullable="false" />
-          <Property Name="IdSolicitudAmistad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-        </EntityType>
         <EntityType Name="Cuenta">
           <Key>
-            <PropertyRef Name="IdCuenta" />
+            <PropertyRef Name="Correo" />
           </Key>
-          <Property Name="IdCuenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Correo" Type="String" Nullable="false" />
-          <Property Name="Contrasena" Type="String" Nullable="false" />
+          <Property Name="Correo" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="65" />
+          <Property Name="Contrasena" Type="String" Nullable="false" MaxLength="45" />
           <NavigationProperty Name="Jugador" Relationship="ModeloRompecabezasFei.CuentaJugador" FromRole="Cuenta" ToRole="Jugador" />
         </EntityType>
         <EntityType Name="Jugador">
           <Key>
-            <PropertyRef Name="IdJugador" />
+            <PropertyRef Name="NombreJugador" />
           </Key>
-          <Property Name="IdJugador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NombreJugador" Type="String" Nullable="false" />
-          <Property Name="NumeroAvatar" Type="Int16" Nullable="false" />
+          <Property Name="NombreJugador" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="15" />
+          <Property Name="NumeroAvatar" Type="Int32" Nullable="false" DefaultValue="1" />
           <NavigationProperty Name="Cuenta" Relationship="ModeloRompecabezasFei.CuentaJugador" FromRole="Jugador" ToRole="Cuenta" />
         </EntityType>
         <Association Name="CuentaJugador">
           <End Type="ModeloRompecabezasFei.Cuenta" Role="Cuenta" Multiplicity="1" />
           <End Type="ModeloRompecabezasFei.Jugador" Role="Jugador" Multiplicity="1" />
         </Association>
-        <Association Name="JugadorOrigen_SolicitudAmistad">
-          <End Type="ModeloRompecabezasFei.Jugador" Role="Jugador" Multiplicity="1" />
-          <End Type="ModeloRompecabezasFei.SolicitudAmistad" Role="SolicitudAmistad" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Jugador">
-              <PropertyRef Name="IdJugador" />
-            </Principal>
-            <Dependent Role="SolicitudAmistad">
-              <PropertyRef Name="IdJugadorOrigen" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="JugadorDestino_SolicitudAmistad">
-          <End Type="ModeloRompecabezasFei.Jugador" Role="Jugador" Multiplicity="1" />
-          <End Type="ModeloRompecabezasFei.SolicitudAmistad" Role="SolicitudAmistad" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Jugador">
-              <PropertyRef Name="IdJugador" />
-            </Principal>
-            <Dependent Role="SolicitudAmistad">
-              <PropertyRef Name="IdJugadorDestino" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Amigo">
+        <EntityType Name="SolicitudAmistad" >
           <Key>
-            <PropertyRef Name="IdAmigo" />
+            <PropertyRef Name="NombreJugadorOrigen" />
+            <PropertyRef Name="NombreJugadorDestino" />
           </Key>
-          <Property Name="IdAmigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="Jugador1" Relationship="ModeloRompecabezasFei.Jugador1Amigo" FromRole="Amigo" ToRole="Jugador" />
-          <Property Name="IdJugador1" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Jugador2" Relationship="ModeloRompecabezasFei.Jugador2Amigo" FromRole="Amigo" ToRole="Jugador" />
-          <Property Name="IdJugador2" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="JugadorOrigen" Relationship="ModeloRompecabezasFei.JugadorSolicitudAmistad" FromRole="SolicitudAmistad" ToRole="Jugador" />
+          <Property Name="NombreJugadorOrigen" Type="String" Nullable="false" MaxLength="15" />
+          <NavigationProperty Name="JugadorDestino" Relationship="ModeloRompecabezasFei.JugadorSolicitudAmistad1" FromRole="SolicitudAmistad" ToRole="Jugador" />
+          <Property Name="NombreJugadorDestino" Type="String" Nullable="false" MaxLength="15" />
+          <Property Name="Estado" Type="ModeloRompecabezasFei.EstadoSolicitudAmistad" Nullable="false" />
+          <Property Name="FechaEnvioSolicitud" Type="DateTime" Nullable="false" />
         </EntityType>
-        <Association Name="Jugador1Amigo">
+        <Association Name="JugadorSolicitudAmistad">
           <End Type="ModeloRompecabezasFei.Jugador" Role="Jugador" Multiplicity="1" />
-          <End Type="ModeloRompecabezasFei.Amigo" Role="Amigo" Multiplicity="*" />
+          <End Type="ModeloRompecabezasFei.SolicitudAmistad" Role="SolicitudAmistad" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Jugador">
-              <PropertyRef Name="IdJugador" />
+              <PropertyRef Name="NombreJugador" />
             </Principal>
-            <Dependent Role="Amigo">
-              <PropertyRef Name="IdJugador1" />
+            <Dependent Role="SolicitudAmistad">
+              <PropertyRef Name="NombreJugadorOrigen" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Jugador2Amigo">
+        <Association Name="JugadorSolicitudAmistad1">
+          <End Type="ModeloRompecabezasFei.Jugador" Role="Jugador" Multiplicity="1" />
+          <End Type="ModeloRompecabezasFei.SolicitudAmistad" Role="SolicitudAmistad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jugador">
+              <PropertyRef Name="NombreJugador" />
+            </Principal>
+            <Dependent Role="SolicitudAmistad">
+              <PropertyRef Name="NombreJugadorDestino" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Amigo" >
+          <Key>
+            <PropertyRef Name="NombreJugadorA" />
+            <PropertyRef Name="NombreJugadorB" />
+          </Key>
+          <NavigationProperty Name="JugadorA" Relationship="ModeloRompecabezasFei.JugadorAmigo" FromRole="Amigo" ToRole="Jugador" />
+          <Property Name="NombreJugadorA" Type="String" Nullable="false" MaxLength="15" />
+          <NavigationProperty Name="JugadorB" Relationship="ModeloRompecabezasFei.JugadorAmigo1" FromRole="Amigo" ToRole="Jugador" />
+          <Property Name="NombreJugadorB" Type="String" Nullable="false" MaxLength="15" />
+        </EntityType>
+        <Association Name="JugadorAmigo">
           <End Type="ModeloRompecabezasFei.Jugador" Role="Jugador" Multiplicity="1" />
           <End Type="ModeloRompecabezasFei.Amigo" Role="Amigo" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Jugador">
-              <PropertyRef Name="IdJugador" />
+              <PropertyRef Name="NombreJugador" />
             </Principal>
             <Dependent Role="Amigo">
-              <PropertyRef Name="IdJugador2" />
+              <PropertyRef Name="NombreJugadorA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="JugadorAmigo1">
+          <End Type="ModeloRompecabezasFei.Jugador" Role="Jugador" Multiplicity="1" />
+          <End Type="ModeloRompecabezasFei.Amigo" Role="Amigo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jugador">
+              <PropertyRef Name="NombreJugador" />
+            </Principal>
+            <Dependent Role="Amigo">
+              <PropertyRef Name="NombreJugadorB" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityType Name="Sala">
           <Key>
-            <PropertyRef Name="IdSala" />
+            <PropertyRef Name="Codigo" />
           </Key>
-          <Property Name="IdSala" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Codigo" Type="Int32" Nullable="false" />
-          <Property Name="MaximoJugadores" Type="Int32" Nullable="false" />
-          <Property Name="MinimoJugadores" Type="Int32" Nullable="false" />
+          <Property Name="Codigo" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="36" FixedLength="true" />
+          <Property Name="MaximoJugadores" Type="Int32" Nullable="false" DefaultValue="4" />
+          <Property Name="MinimoJugadores" Type="Int32" Nullable="false" DefaultValue="2" />
           <NavigationProperty Name="Anfitrion" Relationship="ModeloRompecabezasFei.JugadorSala" FromRole="Sala" ToRole="Jugador" />
-          <Property Name="IdAnfitrion" Type="Int32" Nullable="false" />
+          <Property Name="NombreAnfitrion" Type="String" Nullable="true" MaxLength="15" />
         </EntityType>
         <EntityType Name="Partida">
           <Key>
-            <PropertyRef Name="IdPartida" />
+            <PropertyRef Name="NumeroPartida" />
+            <PropertyRef Name="CodigoSala" />
           </Key>
-          <Property Name="IdPartida" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Dificultad" Type="Int32" Nullable="false" />
+          <Property Name="NumeroPartida" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <NavigationProperty Name="Sala" Relationship="ModeloRompecabezasFei.SalaPartida" FromRole="Partida" ToRole="Sala" />
-          <Property Name="IdSala" Type="Int32" Nullable="false" />
+          <Property Name="CodigoSala" Type="String" Nullable="false" MaxLength="36" FixedLength="true" />
+          <Property Name="Dificultad" Type="ModeloRompecabezasFei.DificultadPartida" Nullable="false" />
         </EntityType>
-        <EntityType Name="Jugador_Partida" >
+        <EntityType Name="ResultadoPartida" >
           <Key>
-            <PropertyRef Name="IdPartida" />
-            <PropertyRef Name="IdJugador" />
+            <PropertyRef Name="NombreJugador" />
+            <PropertyRef Name="NumeroPartida" />
+            <PropertyRef Name="CodigoSala" />
           </Key>
-          <Property Name="Puntaje" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Jugador" Relationship="ModeloRompecabezasFei.JugadorJugador_Partida" FromRole="Jugador_Partida" ToRole="Jugador" />
-          <Property Name="IdJugador" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Partida" Relationship="ModeloRompecabezasFei.PartidaJugador_Partida" FromRole="Jugador_Partida" ToRole="Partida" />
-          <Property Name="IdPartida" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Jugador" Relationship="ModeloRompecabezasFei.JugadorResultadoPartida" FromRole="ResultadoPartida" ToRole="Jugador" />
+          <Property Name="NombreJugador" Type="String" Nullable="false" MaxLength="15" />
+          <Property Name="Puntaje" Type="Int32" Nullable="false" DefaultValue="0" />
+          <Property Name="EsGanador" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Partida" Relationship="ModeloRompecabezasFei.PartidaResultadoPartida" FromRole="ResultadoPartida" ToRole="Partida" />
+          <Property Name="NumeroPartida" Type="Int32" Nullable="false" />
+          <Property Name="CodigoSala" Type="String" Nullable="false" MaxLength="36" FixedLength="true" />
         </EntityType>
-        <Association Name="JugadorSala">
+        <Association Name="JugadorResultadoPartida">
           <End Type="ModeloRompecabezasFei.Jugador" Role="Jugador" Multiplicity="1" />
-          <End Type="ModeloRompecabezasFei.Sala" Role="Sala" Multiplicity="*" />
+          <End Type="ModeloRompecabezasFei.ResultadoPartida" Role="ResultadoPartida" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Jugador">
-              <PropertyRef Name="IdJugador" />
+              <PropertyRef Name="NombreJugador" />
             </Principal>
-            <Dependent Role="Sala">
-              <PropertyRef Name="IdAnfitrion" />
+            <Dependent Role="ResultadoPartida">
+              <PropertyRef Name="NombreJugador" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EnumType Name="EstadoSolicitudAmistad">
+          <Member Name="SinAceptar" Value="0" />
+          <Member Name="Aceptada" Value="1" />
+          <Member Name="Rechazada" Value="2" />
+        </EnumType>
+        <Association Name="JugadorSala">
+          <End Type="ModeloRompecabezasFei.Jugador" Role="Jugador" Multiplicity="0..1" />
+          <End Type="ModeloRompecabezasFei.Sala" Role="Sala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jugador">
+              <PropertyRef Name="NombreJugador" />
+            </Principal>
+            <Dependent Role="Sala">
+              <PropertyRef Name="NombreAnfitrion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EnumType Name="DificultadPartida">
+          <Member Name="Facil" Value="0" />
+          <Member Name="Media" Value="1" />
+          <Member Name="Dificil" Value="2" />
+        </EnumType>
         <Association Name="SalaPartida">
           <End Type="ModeloRompecabezasFei.Sala" Role="Sala" Multiplicity="1" />
           <End Type="ModeloRompecabezasFei.Partida" Role="Partida" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Sala">
-              <PropertyRef Name="IdSala" />
+              <PropertyRef Name="Codigo" />
             </Principal>
             <Dependent Role="Partida">
-              <PropertyRef Name="IdSala" />
+              <PropertyRef Name="CodigoSala" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="JugadorJugador_Partida">
-          <End Type="ModeloRompecabezasFei.Jugador" Role="Jugador" Multiplicity="1" />
-          <End Type="ModeloRompecabezasFei.Jugador_Partida" Role="Jugador_Partida" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Jugador">
-              <PropertyRef Name="IdJugador" />
-            </Principal>
-            <Dependent Role="Jugador_Partida">
-              <PropertyRef Name="IdJugador" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="PartidaJugador_Partida">
+        <Association Name="PartidaResultadoPartida">
           <End Type="ModeloRompecabezasFei.Partida" Role="Partida" Multiplicity="1" />
-          <End Type="ModeloRompecabezasFei.Jugador_Partida" Role="Jugador_Partida" Multiplicity="*" />
+          <End Type="ModeloRompecabezasFei.ResultadoPartida" Role="ResultadoPartida" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Partida">
-              <PropertyRef Name="IdPartida" />
+              <PropertyRef Name="NumeroPartida" />
+              <PropertyRef Name="CodigoSala" />
             </Principal>
-            <Dependent Role="Jugador_Partida">
-              <PropertyRef Name="IdPartida" />
+            <Dependent Role="ResultadoPartida">
+              <PropertyRef Name="NumeroPartida" />
+              <PropertyRef Name="CodigoSala" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -446,21 +462,9 @@
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ModeloRompecabezasFeiStoreContainer" CdmEntityContainer="EntidadesRompecabezasFei">
-    <EntitySetMapping Name="SolicitudAmistad">
-      <EntityTypeMapping TypeName="IsTypeOf(ModeloRompecabezasFei.SolicitudAmistad)">
-        <MappingFragment StoreEntitySet="SolicitudAmistad">
-          <ScalarProperty Name="IdSolicitudAmistad" ColumnName="IdSolicitudAmistad" />
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
-          <ScalarProperty Name="FechaEnvioSolicitud" ColumnName="FechaEnvioSolicitud" />
-          <ScalarProperty Name="IdJugadorOrigen" ColumnName="IdJugadorOrigen" />
-          <ScalarProperty Name="IdJugadorDestino" ColumnName="IdJugadorDestino" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Cuenta">
       <EntityTypeMapping TypeName="IsTypeOf(ModeloRompecabezasFei.Cuenta)">
         <MappingFragment StoreEntitySet="Cuenta">
-          <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
           <ScalarProperty Name="Correo" ColumnName="Correo" />
           <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
         </MappingFragment>
@@ -469,56 +473,65 @@
     <EntitySetMapping Name="Jugador">
       <EntityTypeMapping TypeName="IsTypeOf(ModeloRompecabezasFei.Jugador)">
         <MappingFragment StoreEntitySet="Jugador">
-          <ScalarProperty Name="IdJugador" ColumnName="IdJugador" />
           <ScalarProperty Name="NombreJugador" ColumnName="NombreJugador" />
           <ScalarProperty Name="NumeroAvatar" ColumnName="NumeroAvatar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SolicitudAmistad">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloRompecabezasFei.SolicitudAmistad)">
+        <MappingFragment StoreEntitySet="SolicitudAmistad">
+          <ScalarProperty Name="NombreJugadorOrigen" ColumnName="NombreJugadorOrigen" />
+          <ScalarProperty Name="NombreJugadorDestino" ColumnName="NombreJugadorDestino" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="FechaEnvioSolicitud" ColumnName="FechaEnvioSolicitud" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Amigo">
       <EntityTypeMapping TypeName="IsTypeOf(ModeloRompecabezasFei.Amigo)">
         <MappingFragment StoreEntitySet="Amigo">
-          <ScalarProperty Name="IdAmigo" ColumnName="IdAmigo" />
-          <ScalarProperty Name="IdJugador1" ColumnName="IdJugador1" />
-          <ScalarProperty Name="IdJugador2" ColumnName="IdJugador2" />
+          <ScalarProperty Name="NombreJugadorA" ColumnName="NombreJugadorA" />
+          <ScalarProperty Name="NombreJugadorB" ColumnName="NombreJugadorB" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Sala">
       <EntityTypeMapping TypeName="IsTypeOf(ModeloRompecabezasFei.Sala)">
         <MappingFragment StoreEntitySet="Sala">
-          <ScalarProperty Name="IdSala" ColumnName="IdSala" />
           <ScalarProperty Name="Codigo" ColumnName="Codigo" />
           <ScalarProperty Name="MaximoJugadores" ColumnName="MaximoJugadores" />
           <ScalarProperty Name="MinimoJugadores" ColumnName="MinimoJugadores" />
-          <ScalarProperty Name="IdAnfitrion" ColumnName="IdAnfitrion" />
+          <ScalarProperty Name="NombreAnfitrion" ColumnName="NombreAnfitrion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Partida">
       <EntityTypeMapping TypeName="IsTypeOf(ModeloRompecabezasFei.Partida)">
         <MappingFragment StoreEntitySet="Partida">
-          <ScalarProperty Name="IdPartida" ColumnName="IdPartida" />
+          <ScalarProperty Name="NumeroPartida" ColumnName="NumeroPartida" />
+          <ScalarProperty Name="CodigoSala" ColumnName="CodigoSala" />
           <ScalarProperty Name="Dificultad" ColumnName="Dificultad" />
-          <ScalarProperty Name="IdSala" ColumnName="IdSala" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Jugador_Partida">
-      <EntityTypeMapping TypeName="IsTypeOf(ModeloRompecabezasFei.Jugador_Partida)">
-        <MappingFragment StoreEntitySet="Jugador_Partida">
-          <ScalarProperty Name="IdPartida" ColumnName="IdPartida" />
-          <ScalarProperty Name="IdJugador" ColumnName="IdJugador" />
+    <EntitySetMapping Name="ResultadoPartida">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloRompecabezasFei.ResultadoPartida)">
+        <MappingFragment StoreEntitySet="ResultadoPartida">
+          <ScalarProperty Name="NombreJugador" ColumnName="NombreJugador" />
+          <ScalarProperty Name="NumeroPartida" ColumnName="NumeroPartida" />
+          <ScalarProperty Name="CodigoSala" ColumnName="CodigoSala" />
           <ScalarProperty Name="Puntaje" ColumnName="Puntaje" />
+          <ScalarProperty Name="EsGanador" ColumnName="EsGanador" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <AssociationSetMapping Name="CuentaJugador" TypeName="ModeloRompecabezasFei.CuentaJugador" StoreEntitySet="Cuenta">
       <EndProperty Name="Jugador">
-        <ScalarProperty Name="IdJugador" ColumnName="Jugador_IdJugador" />
+        <ScalarProperty Name="NombreJugador" ColumnName="Jugador_NombreJugador" />
       </EndProperty>
       <EndProperty Name="Cuenta">
-        <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
+        <ScalarProperty Name="Correo" ColumnName="Correo" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

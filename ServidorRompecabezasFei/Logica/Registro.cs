@@ -31,72 +31,43 @@ namespace Logica
             return resultado;
         }
 
-        public bool ActualizarInformacion(CuentaJugador cuentaJugadorModificacion)
+        public bool ActualizarInformacion(string nombreAnterior, 
+            string nuevoNombre, int nuevoNumeroAvatar)
         {
             bool resultado = false;
 
             using (var contexto = new EntidadesRompecabezasFei())
             {
-                var jugadoresObtenidos = from jugador in contexto.Jugador
-                                       where jugador.IdJugador ==
-                                       cuentaJugadorModificacion.IdJugador
-                                       select jugador;
+                var jugadorObtenido = contexto.Jugador.FirstOrDefault(jugador =>
+                    jugador.NombreJugador == nombreAnterior);
 
-                if (jugadoresObtenidos.Any())
+                if (jugadorObtenido != null)
                 {
-                    jugadoresObtenidos.First().NombreJugador = cuentaJugadorModificacion.NombreJugador;
-                    jugadoresObtenidos.First().NumeroAvatar = cuentaJugadorModificacion.NumeroAvatar;
+                    jugadorObtenido.NombreJugador = nuevoNombre;
+                    jugadorObtenido.NumeroAvatar = nuevoNumeroAvatar;
                 }
-
-                //var Jugador = contexto.Jugador.Where(x => x.IdJugador == 
-                //    cuentaJugadorModificacion.IdJugador).ToList();
-                //Jugador[cuentaJugadorModificacion.IdJugador - 1].NombreJugador = 
-                //    cuentaJugadorModificacion.NombreJugador;
-                //Jugador[cuentaJugadorModificacion.IdJugador - 1].NumeroAvatar = 
-                //    cuentaJugadorModificacion.NumeroAvatar;
-                resultado = contexto.SaveChanges() > 0;
-            }
-
-            return resultado;
-        }
-
-        public bool ActualizarContrasena(CuentaJugador cuentaJugadorModificacion)
-        {
-            bool resultado = false;
-
-            using (var contexto = new EntidadesRompecabezasFei())
-            {
-                var cuentasObtenidas = from cuenta in contexto.Cuenta
-                                       where cuenta.Jugador.IdJugador == 
-                                       cuentaJugadorModificacion.IdJugador
-                                       select cuenta;
                 
-                if (cuentasObtenidas.Any())
-                {
-                    cuentasObtenidas.First().Contrasena = cuentaJugadorModificacion.Contrasena;
-                }
-
-                //var Cuenta = contexto.Cuenta.Where(x => x.IdCuenta == cuentaJugadorModificacion.IdCuenta).ToList();
-                //Cuenta[(cuentaJugadorModificacion.IdCuenta) - 1].Contrasena = cuentaJugadorModificacion.Contrasena;
                 resultado = contexto.SaveChanges() > 0;
             }
 
             return resultado;
         }
 
-        public bool RestablecerContrasena(string correo, string contrasena)
+        public bool ActualizarContrasena(string correo, string contrasena)
         {
             bool resultado = false;
 
             using (var contexto = new EntidadesRompecabezasFei())
             {
-                var cuenta = contexto.Cuenta.SingleOrDefault(x => x.Correo == correo);
+                var cuentaObtenida = contexto.Cuenta.FirstOrDefault(cuenta => 
+                    cuenta.Correo.Equals(correo));
 
-                if (cuenta != null)
+                if (cuentaObtenida != null)
                 {
-                    cuenta.Contrasena = contrasena;
-                    resultado = contexto.SaveChanges() > 0;
+                    cuentaObtenida.Contrasena = contrasena;
                 }
+
+                resultado = contexto.SaveChanges() > 0;
             }
 
             return resultado;

@@ -10,15 +10,11 @@
 namespace Datos
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Jugador_Partida
+    public enum DificultadPartida : int
     {
-        public int Puntaje { get; set; }
-        public int IdJugador { get; set; }
-        public int IdPartida { get; set; }
-    
-        public virtual Jugador Jugador { get; set; }
-        public virtual Partida Partida { get; set; }
+        Facil = 0,
+        Media = 1,
+        Dificil = 2
     }
 }
