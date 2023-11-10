@@ -1,4 +1,5 @@
 ﻿using Dominio;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -11,13 +12,14 @@ namespace RompecabezasFei
         private readonly string correo;
         private readonly string contrasena;
         private readonly string confirmacionContrasena;
-        private readonly int numeroAvatar;
+        private int numeroAvatar;
 
         public PaginaSeleccionAvatar(int numeroAvatar, string nombreJugador)
         {
             InitializeComponent();
             this.nombreJugador = nombreJugador;
             this.numeroAvatar = numeroAvatar;
+            MostrarAvatar();
         }
 
         public PaginaSeleccionAvatar(int numeroAvatar, string nombreJugador,
@@ -29,6 +31,13 @@ namespace RompecabezasFei
             this.contrasena = contrasena;
             this.numeroAvatar = numeroAvatar;
             this.confirmacionContrasena = confirmacionContrasena;
+            MostrarAvatar();
+        }
+
+        private void MostrarAvatar()
+        {
+            ImagenAvatarActual.Source = Utilidades.GeneradorImagenes.
+                GenerarFuenteImagenAvatar(numeroAvatar);
         }
 
         private void AccionSeleccionAvatar(object remitente, MouseButtonEventArgs evento)
@@ -36,6 +45,7 @@ namespace RompecabezasFei
             Image imagenSeleccionada = remitente as Image;
             ImagenAvatarActual.Source = imagenSeleccionada.Source;
             ImagenAvatarActual.Tag = imagenSeleccionada.Tag;
+            numeroAvatar = Convert.ToInt32(imagenSeleccionada.Tag);
         }
 
         private void AccionAceptar(object remitente, RoutedEventArgs evento)

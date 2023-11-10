@@ -14,8 +14,8 @@ namespace Datos
     
     public partial class Partida
     {
-        public int NumeroPartida { get; set; }
-        public string CodigoSala { get; set; }
+        public int IdPartida { get; set; }
+        public int IdSala { get; set; }
         public DificultadPartida Dificultad { get; set; }
     
         public virtual Sala Sala { get; set; }

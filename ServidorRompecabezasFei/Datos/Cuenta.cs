@@ -14,6 +14,7 @@ namespace Datos
     
     public partial class Cuenta
     {
+        public int IdCuenta { get; set; }
         public string Correo { get; set; }
         public string Contrasena { get; set; }
     

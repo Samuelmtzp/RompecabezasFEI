@@ -14,7 +14,7 @@ namespace Datos
     public enum DificultadPartida : int
     {
         Facil = 0,
-        Media = 1,
+        Medio = 1,
         Dificil = 2
     }
 }
