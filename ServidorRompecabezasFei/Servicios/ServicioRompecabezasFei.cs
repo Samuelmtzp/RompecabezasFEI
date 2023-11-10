@@ -19,15 +19,8 @@ namespace Servicios
             bool resultado;
 
             try
-            {
-                CuentaJugador cuentaJugadorRegistro = new CuentaJugador()
-                {
-                    NombreJugador = cuentaJugador.NombreJugador,
-                    NumeroAvatar = cuentaJugador.NumeroAvatar,
-                    Contrasena = cuentaJugador.Contrasena,
-                    Correo = cuentaJugador.Correo,
-                };
-                resultado = registro.Registrar(cuentaJugadorRegistro);
+            {                
+                resultado = registro.Registrar(cuentaJugador);
             }
             catch (EntityException)
             {

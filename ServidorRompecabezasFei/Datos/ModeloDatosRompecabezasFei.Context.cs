@@ -28,9 +28,9 @@ namespace Datos
         public virtual DbSet<Cuenta> Cuenta { get; set; }
         public virtual DbSet<Jugador> Jugador { get; set; }
         public virtual DbSet<SolicitudAmistad> SolicitudAmistad { get; set; }
-        public virtual DbSet<Amigo> Amigo { get; set; }
+        public virtual DbSet<Amistad> Amistad { get; set; }
         public virtual DbSet<Sala> Sala { get; set; }
-        public virtual DbSet<Partida> Partida { get; set; }
         public virtual DbSet<ResultadoPartida> ResultadoPartida { get; set; }
+        public virtual DbSet<Partida> Partida { get; set; }
     }
 }

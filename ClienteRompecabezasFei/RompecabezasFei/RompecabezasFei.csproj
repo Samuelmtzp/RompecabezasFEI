@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
@@ -271,9 +272,6 @@
     <Resource Include="Imagenes\Avatares\10.png" />
     <Resource Include="Imagenes\Avatares\2.png" />
     <Resource Include="Imagenes\Avatares\3.png" />
-    <Resource Include="Imagenes\Avatares\4.png" />
-    <Resource Include="Imagenes\Avatares\5.png" />
-    <Resource Include="Imagenes\Avatares\6.png" />
     <Resource Include="Imagenes\Avatares\7.png" />
     <Resource Include="Imagenes\Avatares\8.png" />
     <Resource Include="Imagenes\Avatares\9.png" />
@@ -367,6 +365,9 @@
     <Resource Include="Imagenes\Rompecabezas\7.png" />
     <Resource Include="Imagenes\Rompecabezas\8.png" />
     <Resource Include="Imagenes\Rompecabezas\9.png" />
+    <Resource Include="Imagenes\Avatares\6.png" />
+    <Resource Include="Imagenes\Avatares\4.png" />
+    <Resource Include="Imagenes\Avatares\5.png" />
     <Content Include="Sonidos\ClicSonido.wav" />
     <Content Include="Sonidos\MusicaRompecabezasFei.wav" />
   </ItemGroup>

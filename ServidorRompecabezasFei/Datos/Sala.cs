@@ -17,14 +17,14 @@ namespace Datos
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Sala()
         {
-            this.MaximoJugadores = 4;
-            this.MinimoJugadores = 2;
+            this.MinimoJugadores = "2";
         }
     
+        public int IdSala { get; set; }
         public string Codigo { get; set; }
         public int MaximoJugadores { get; set; }
-        public int MinimoJugadores { get; set; }
-        public string NombreAnfitrion { get; set; }
+        public string MinimoJugadores { get; set; }
+        public Nullable<int> IdAnfitrion { get; set; }
     
         public virtual Jugador Anfitrion { get; set; }
     }

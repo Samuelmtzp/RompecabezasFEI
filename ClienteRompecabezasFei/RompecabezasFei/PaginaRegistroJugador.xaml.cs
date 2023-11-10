@@ -32,6 +32,7 @@ namespace RompecabezasFei
             CuadroConfirmacionContrasena.Password = confirmacionContrasena;
             ImagenAvatarActual.Source = Utilidades.GeneradorImagenes.
                 GenerarFuenteImagenAvatar(numeroAvatar);
+            ImagenAvatarActual.Tag = Convert.ToInt16(numeroAvatar);
         }
 
         private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
@@ -42,7 +43,7 @@ namespace RompecabezasFei
         private void AccionSeleccionarAvatar(object remitente, RoutedEventArgs evento)
         {
             VentanaPrincipal.CambiarPaginaGuardandoAnterior(new PaginaSeleccionAvatar(
-                (int)ImagenAvatarActual.Tag, CuadroTextoNombreJugador.Text,
+                Convert.ToInt32(ImagenAvatarActual.Tag), CuadroTextoNombreJugador.Text,
                 CuadroTextoCorreoElectronico.Text, CuadroContrasena.Password,
                 CuadroConfirmacionContrasena.Password));
         }
@@ -52,7 +53,7 @@ namespace RompecabezasFei
             string nombreJugador = CuadroTextoNombreJugador.Text;
             string correo = CuadroTextoCorreoElectronico.Text;
             string contrasena = CuadroContrasena.Password;
-            int numeroAvatar = (int)ImagenAvatarActual.Tag; 
+            int numeroAvatar = Convert.ToInt32(ImagenAvatarActual.Tag); 
 
             ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
 
@@ -88,9 +89,10 @@ namespace RompecabezasFei
             bool resultado = false;
 
             if (ExistenCamposVacios() || ExistenCadenasInvalidas() || ExistenLongitudesExcedidas()
-                || ExisteContrasenaInvalida() || HayCoincidenciasEnContrasenas())
+                || ExisteContrasenaInvalida() || !HayCoincidenciasEnContrasenas())
             {
                 resultado = true;
+                MessageBox.Show("Existen campos inválidos");
             }
 
             return resultado;
@@ -100,10 +102,10 @@ namespace RompecabezasFei
         {
             bool resultado = false;
 
-            if (String.IsNullOrWhiteSpace(CuadroTextoNombreJugador.Text) 
-                || String.IsNullOrWhiteSpace(CuadroTextoCorreoElectronico.Text) 
-                || String.IsNullOrWhiteSpace(CuadroContrasena.Password) 
-                || String.IsNullOrWhiteSpace(CuadroConfirmacionContrasena.Password))
+            if (string.IsNullOrWhiteSpace(CuadroTextoNombreJugador.Text) 
+                || string.IsNullOrWhiteSpace(CuadroTextoCorreoElectronico.Text) 
+                || string.IsNullOrWhiteSpace(CuadroContrasena.Password) 
+                || string.IsNullOrWhiteSpace(CuadroConfirmacionContrasena.Password))
             {
                 resultado = true;
                 MessageBox.Show("No puedes dejar campos vacíos", 

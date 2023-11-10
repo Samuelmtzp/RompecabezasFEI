@@ -12,10 +12,10 @@ namespace Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class Amigo
+    public partial class Amistad
     {
-        public string NombreJugadorA { get; set; }
-        public string NombreJugadorB { get; set; }
+        public int IdJugadorA { get; set; }
+        public int IdJugadorB { get; set; }
     
         public virtual Jugador JugadorA { get; set; }
         public virtual Jugador JugadorB { get; set; }

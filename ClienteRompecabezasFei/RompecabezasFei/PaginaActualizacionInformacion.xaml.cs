@@ -5,7 +5,6 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media.Imaging;
 
 namespace RompecabezasFei
 {
@@ -21,7 +20,7 @@ namespace RompecabezasFei
         private void MostrarDatosEdicion(string nombreJugador, int numeroAvatar)
         {
             cuadroTextoNombreUsuario.Text = nombreJugador;
-            imagenAvatarActual.Tag = numeroAvatar; 
+            imagenAvatarActual.Tag = Convert.ToInt16(numeroAvatar);
             imagenAvatarActual.Source = Utilidades.GeneradorImagenes.
                 GenerarFuenteImagenAvatar(numeroAvatar);            
         }
@@ -93,7 +92,7 @@ namespace RompecabezasFei
         private void EventoClickGuardarCambios(object controlOrigen, RoutedEventArgs evento)
         {
             string nuevoNombre = cuadroTextoNombreUsuario.Text.Trim();
-            int nuevoNumeroAvatar = (int)imagenAvatarActual.Tag;
+            int nuevoNumeroAvatar = Convert.ToInt32(imagenAvatarActual.Tag);
             bool esNombreDiferente = false;
             bool esAvatarDiferente = false;
 
@@ -126,7 +125,7 @@ namespace RompecabezasFei
         private void EventoClickCambiarAvatar(object controlOrigen, RoutedEventArgs evento)
         {
             PaginaSeleccionAvatar paginaSeleccionAvatar = new PaginaSeleccionAvatar(
-                (int)imagenAvatarActual.Tag, cuadroTextoNombreUsuario.Text);
+                Convert.ToInt32(imagenAvatarActual.Tag), cuadroTextoNombreUsuario.Text);
             VentanaPrincipal.CambiarPaginaGuardandoAnterior(paginaSeleccionAvatar);
         }
         #endregion

@@ -13,7 +13,7 @@ namespace Datos
     
     public enum EstadoSolicitudAmistad : int
     {
-        SinAceptar = 0,
+        Pendiente = 0,
         Aceptada = 1,
         Rechazada = 2
     }

@@ -14,12 +14,7 @@ namespace Datos
     
     public partial class Jugador
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Jugador()
-        {
-            this.NumeroAvatar = 1;
-        }
-    
+        public int IdJugador { get; set; }
         public string NombreJugador { get; set; }
         public int NumeroAvatar { get; set; }
     

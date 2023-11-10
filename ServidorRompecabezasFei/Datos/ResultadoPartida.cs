@@ -18,13 +18,13 @@ namespace Datos
         public ResultadoPartida()
         {
             this.Puntaje = 0;
+            this.EsGanador = false;
         }
     
-        public string NombreJugador { get; set; }
+        public int IdJugador { get; set; }
+        public int IdPartida { get; set; }
         public int Puntaje { get; set; }
         public bool EsGanador { get; set; }
-        public int NumeroPartida { get; set; }
-        public string CodigoSala { get; set; }
     
         public virtual Jugador Jugador { get; set; }
         public virtual Partida Partida { get; set; }

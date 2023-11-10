@@ -1,4 +1,6 @@
 ﻿using Datos;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace Logica
@@ -38,16 +40,15 @@ namespace Logica
 
             using (var contexto = new EntidadesRompecabezasFei())
             {
-                var jugadorObtenido = contexto.Jugador.FirstOrDefault(jugador =>
-                    jugador.NombreJugador == nombreAnterior);
-
-                if (jugadorObtenido != null)
-                {
-                    jugadorObtenido.NombreJugador = nuevoNombre;
-                    jugadorObtenido.NumeroAvatar = nuevoNumeroAvatar;
-                }
+                var jugadorActual = contexto.Jugador.Where(jugador =>
+                    jugador.NombreJugador == nombreAnterior).FirstOrDefault();
                 
-                resultado = contexto.SaveChanges() > 0;
+                if (jugadorActual != null)
+                {
+                    jugadorActual.NombreJugador = nuevoNombre;
+                    jugadorActual.NumeroAvatar = nuevoNumeroAvatar;
+                    resultado = contexto.SaveChanges() > 0;
+                }
             }
 
             return resultado;

@@ -67,16 +67,13 @@ namespace RompecabezasFei
                 {
                     string contrasenaCifrada = EncriptadorContrasena.
                         CalcularHashSha512(jugadorRegistro.Contrasena);
-                    
                     CuentaJugador nuevoJugador = new CuentaJugador
                     {
                         NombreJugador = jugadorRegistro.NombreJugador,
                         NumeroAvatar = jugadorRegistro.NumeroAvatar,
-                        Contrasena = jugadorRegistro.Contrasena,
+                        Contrasena = contrasenaCifrada,
                         Correo = jugadorRegistro.Correo
                     };
-
-                    nuevoJugador.Contrasena = contrasenaCifrada;
                     ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
                     bool resultadoRegistro = cliente.Registrar(nuevoJugador);
 
