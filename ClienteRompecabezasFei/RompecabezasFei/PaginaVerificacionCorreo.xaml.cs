@@ -33,7 +33,7 @@ namespace RompecabezasFei
             temporizador.Start();
         }
 
-        public void AccionEnviarCodigo(object remitente, RoutedEventArgs evento)
+        public void EventoAccionEnviarCodigo(object controlOrigen, RoutedEventArgs evento)
         {
             EnviarCodigo();
         }
@@ -55,7 +55,7 @@ namespace RompecabezasFei
             return generadorNumeroAleatorio.Next(100000, 1000000).ToString();
         }
 
-        private void AccionRegistrar(object remitente, RoutedEventArgs evento)
+        private void EventoAccionRegistrar(object controlOrigen, RoutedEventArgs evento)
         {
             string codigoVerificacion = CuadroTextoCodigoVerificacion.Text;
 
@@ -80,29 +80,35 @@ namespace RompecabezasFei
                     if (resultadoRegistro)
                     {
                         temporizador.Stop();
-                        MessageBox.Show("El registro de usuario se ha realizado correctamente",
-                            "Registro realizado correctamente", MessageBoxButton.OK);
+                        MessageBox.Show(
+                         Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJEUSUARIOREGISTRADO,
+                         Properties.Resources.ETIQUETA_VERIFICACIONCORREO_REGISTROREALIZADO, 
+                         MessageBoxButton.OK);
                         cliente.Abort();
                         VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
                     }
                     else
                     {
-                        MessageBox.Show("El registro de usuario no se ha realizado",
-                            "Error al realizar registro", MessageBoxButton.OK);
+                        MessageBox.Show(
+                       Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJEREGISTRONOREALIZADO,
+                       Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ERRORREGISTRO, 
+                       MessageBoxButton.OK);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Código incorrecto", 
-                        "El código de verificacion es incorrecto" , MessageBoxButton.OK);
+                    MessageBox.Show(
+                        Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJECODIGOINCORRECTO,
+                        Properties.Resources.ETIQUETA_VERIFICACIONCORREO_CODIGOINCORRECTO, 
+                        MessageBoxButton.OK);
                 }
             }
         }
 
-        private void AceptarSoloCaracteresNumericos(object remitente, 
+        private void EventoAceptarSoloCaracteresNumericos(object controlOrigen, 
             TextChangedEventArgs evento)
         {
-            if (remitente is TextBox CuadroTextoCodigoVerificacion)
+            if (controlOrigen is TextBox CuadroTextoCodigoVerificacion)
             {
                 string texto = 
                   CuadroTextoCodigoVerificacion.Text = new string(
@@ -113,7 +119,7 @@ namespace RompecabezasFei
             }
         }
 
-        private void ActualizarTiempo(object remitente, EventArgs evento)
+        private void ActualizarTiempo(object controlOrigen, EventArgs evento)
         {            
             if (segundosRestantes > 0)
             {

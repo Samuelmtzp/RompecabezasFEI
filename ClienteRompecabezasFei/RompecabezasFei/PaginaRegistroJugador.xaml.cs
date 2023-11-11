@@ -92,7 +92,7 @@ namespace RompecabezasFei
                 || ExisteContrasenaInvalida() || !HayCoincidenciasEnContrasenas())
             {
                 resultado = true;
-                MessageBox.Show("Existen campos inválidos");
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSINVALIDOS);
             }
 
             return resultado;
@@ -108,8 +108,8 @@ namespace RompecabezasFei
                 || string.IsNullOrWhiteSpace(CuadroConfirmacionContrasena.Password))
             {
                 resultado = true;
-                MessageBox.Show("No puedes dejar campos vacíos", 
-                    "Campos vacíos", MessageBoxButton.OK);
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS, 
+                    Properties.Resources.ETIQUETA_VALIDACION_CAMPOSVACIOS, MessageBoxButton.OK);
             }
 
             return resultado;
@@ -124,8 +124,8 @@ namespace RompecabezasFei
                 CuadroContrasena.Password.Length > 45)
             {
                 resultado = true;
-                MessageBox.Show("Corrige los campos excedidos", 
-                    "Campos excedidos", MessageBoxButton.OK);
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSEXCEDIDOS,
+                   Properties.Resources.ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS, MessageBoxButton.OK);
             }
 
             return resultado;
@@ -137,15 +137,15 @@ namespace RompecabezasFei
 
             if (ExistenCaracteresInvalidos(CuadroTextoNombreJugador.Text))
             {
-                MessageBox.Show("El nombre de usuario que has ingresado es inválido", 
-                    "Nombre de usuario inválido", MessageBoxButton.OK);
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJENOMBREUSUARIOINVALIDO,
+                     Properties.Resources.ETIQUETA_VALIDACION_NOMBREUSUARIOINVALIDO, MessageBoxButton.OK);
                 resultado = true;
             }
 
             if (ExistenCaracteresInvalidosParaCorreo(CuadroTextoCorreoElectronico.Text))
             {
-                MessageBox.Show("El correo electrónico que has ingresado es inválido", 
-                    "Correo electrónico inválido", MessageBoxButton.OK);
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECORREOINVALIDO,
+                   Properties.Resources.ETIQUETA_VALIDACION_CORREOINVALIDO, MessageBoxButton.OK);
                 resultado = true;
             }
 
@@ -160,8 +160,8 @@ namespace RompecabezasFei
                 "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$") 
                 == false)
             {
-                MessageBox.Show("La contraseña que has ingresado es inválida", 
-                    "Contraseña inválida", MessageBoxButton.OK);
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECONTRASENAINVALIDA, 
+                    Properties.Resources.ETIQUETA_VALIDACION_CONTRASENAINVALIDA, MessageBoxButton.OK);
                 resultado = true;
             }
 
@@ -203,8 +203,10 @@ namespace RompecabezasFei
             }
             else
             {
-                MessageBox.Show("Las contraseñas no coinciden", 
-                    "Contraseñas diferentes", MessageBoxButton.OK);
+                MessageBox.Show(
+                    Properties.Resources.ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE, 
+                Properties.Resources.ETIQUETA_VALIDACION_CONTRASENADIFERENTE, 
+                MessageBoxButton.OK);
             }
 
             return resultado;

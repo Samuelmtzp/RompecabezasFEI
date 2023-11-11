@@ -10,11 +10,11 @@
       Title="PaginaRecuperacionContrasena">
 
     <Grid>
-        <Image Name="ImagenFlechaRegreso" HorizontalAlignment="Left" Height="100" Margin="30,32,0,0" VerticalAlignment="Top" Width="100" Source="/Imagenes/Indicadores/Regresar.png" MouseDown="AccionRegresar"/>
+        <Image Name="ImagenFlechaRegreso" HorizontalAlignment="Left" Height="100" Margin="30,32,0,0" VerticalAlignment="Top" Width="100" Source="/Imagenes/Indicadores/Regresar.png" MouseDown="EventoClickAccionRegresar"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_RECUPERACION_RECUPERACIONCONTRASENA}" HorizontalAlignment="Center" Margin="0,57,0,0" VerticalAlignment="Top" Height="75" Width="666" FontWeight="Bold" Foreground="White" FontSize="50"/>
         <TextBox  Name="CuadroCorreo" HorizontalAlignment="Left" Margin="224,424,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="848" Height="54" FontSize="26"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_CORREO}" HorizontalAlignment="Left" Margin="224,360,0,0" VerticalAlignment="Top" Height="59" Width="579" FontWeight="Bold" Foreground="White" FontSize="36"/>
-        <Button Content="{x:Static p:Resources.ETIQUETA_GENERAL_SIGUIENTE}" HorizontalAlignment="Center" Margin="0,578,0,0" VerticalAlignment="Top" Height="68" Width="375" Background="#FF03A64A" Foreground="White" FontWeight="Bold" FontSize="24" Click="Siguiente"/>
+        <Button Content="{x:Static p:Resources.ETIQUETA_GENERAL_SIGUIENTE}" HorizontalAlignment="Center" Margin="0,578,0,0" VerticalAlignment="Top" Height="68" Width="375" Background="#FF03A64A" Foreground="White" FontWeight="Bold" FontSize="24" Click="EventoClickSiguiente"/>
         <TextBlock HorizontalAlignment="Left" Margin="224,214,0,0" TextWrapping="Wrap" Text="{x:Static p:Resources.ETIQUETA_RECUPERACION_INSTRUCCIONRECUPERACION}" VerticalAlignment="Top" Height="105" Width="930" Foreground="White" FontSize="28"/>
 
     </Grid>

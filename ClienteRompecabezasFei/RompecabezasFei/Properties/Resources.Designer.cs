@@ -421,6 +421,51 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a La actualización de la información no se ha realizado.
+        /// </summary>
+        public static string ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONNOREALIZADA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONNOREALIZADA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La actualización de la información se ha realizado correctamente.
+        /// </summary>
+        public static string ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONREALIZADA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONREALIZADA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error al actualizar información.
+        /// </summary>
+        public static string ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACION {
+            get {
+                return ResourceManager.GetString("ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Actualización realizada correctamente.
+        /// </summary>
+        public static string ETIQUETA_ACTUALIZACIONINFORMACION_MENSAJEACTUALIZACION {
+            get {
+                return ResourceManager.GetString("ETIQUETA_ACTUALIZACIONINFORMACION_MENSAJEACTUALIZACION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El nombre no se encuentra disponible.
+        /// </summary>
+        public static string ETIQUETA_ACTUALIZACIONINFORMACION_NOMBRENODISPONIBLE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_ACTUALIZACIONINFORMACION_NOMBRENODISPONIBLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Idioma.
         /// </summary>
         public static string ETIQUETA_AJUSTES_IDIOMA {
@@ -547,6 +592,15 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Codigo no coincide.
+        /// </summary>
+        public static string ETIQUETA_CODIGO_CODIGONOCOINCIDE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_CODIGO_CODIGONOCOINCIDE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Código de restablecimiento de contraseña.
         /// </summary>
         public static string ETIQUETA_CODIGO_CODIGORESTABLECIMIENTO {
@@ -570,6 +624,15 @@ namespace RompecabezasFei.Properties {
         public static string ETIQUETA_CODIGO_INTRODUCECODIGO {
             get {
                 return ResourceManager.GetString("ETIQUETA_CODIGO_INTRODUCECODIGO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El codigo ingresado no coincide.
+        /// </summary>
+        public static string ETIQUETA_CODIGO_MENSAJECODIGONOCOINCIDE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_CODIGO_MENSAJECODIGONOCOINCIDE", resourceCulture);
             }
         }
         
@@ -799,15 +862,6 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Contraseña inválida.
-        /// </summary>
-        public static string ETIQUETA_GENERAL_CONTRASENAINVALIDA {
-            get {
-                return ResourceManager.GetString("ETIQUETA_GENERAL_CONTRASENAINVALIDA", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a Correo electrónico.
         /// </summary>
         public static string ETIQUETA_GENERAL_CORREO {
@@ -849,6 +903,15 @@ namespace RompecabezasFei.Properties {
         public static string ETIQUETA_GENERAL_JUGADORES {
             get {
                 return ResourceManager.GetString("ETIQUETA_GENERAL_JUGADORES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Alguno de los campos está vacío.
+        /// </summary>
+        public static string ETIQUETA_GENERAL_MENSAJECAMPOSVACIOS {
+            get {
+                return ResourceManager.GetString("ETIQUETA_GENERAL_MENSAJECAMPOSVACIOS", resourceCulture);
             }
         }
         
@@ -948,6 +1011,24 @@ namespace RompecabezasFei.Properties {
         public static string ETIQUETA_INICIOSESION_CONTRASENAINCORRECTA {
             get {
                 return ResourceManager.GetString("ETIQUETA_INICIOSESION_CONTRASENAINCORRECTA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Inicio de sesión cancelado.
+        /// </summary>
+        public static string ETIQUETA_INICIOSESION_INICIOSESIONCANCELADO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_INICIOSESION_INICIOSESIONCANCELADO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se pudo iniciar sesión.
+        /// </summary>
+        public static string ETIQUETA_INICIOSESION_MENSAJEINICIOSESIONERROR {
+            get {
+                return ResourceManager.GetString("ETIQUETA_INICIOSESION_MENSAJEINICIOSESIONERROR", resourceCulture);
             }
         }
         
@@ -1087,6 +1168,15 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Fin del juego.
+        /// </summary>
+        public static string ETIQUETA_PARTIDA_JUEGOFINALIZADO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_PARTIDA_JUEGOFINALIZADO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Tiempo restante.
         /// </summary>
         public static string ETIQUETA_PARTIDA_TIEMPORESTANTE {
@@ -1159,20 +1249,29 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Correo inexistente.
+        /// </summary>
+        public static string ETIQUETA_RECUPERACIONCONTRASENA_CORREOINEXISTENTE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_RECUPERACIONCONTRASENA_CORREOINEXISTENTE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El correo ingresado no existe.
+        /// </summary>
+        public static string ETIQUETA_RECUPERACIONCONTRASENA_MENSAJECORREOINEXISTENE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_RECUPERACIONCONTRASENA_MENSAJECORREOINEXISTENE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Confirmar contraseña.
         /// </summary>
         public static string ETIQUETA_REGISTRO_CONFIRMACIONCONTRASENA {
             get {
                 return ResourceManager.GetString("ETIQUETA_REGISTRO_CONFIRMACIONCONTRASENA", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Contraseña inválida.
-        /// </summary>
-        public static string ETIQUETA_REGISTRO_CONTRASENAINVALIDA {
-            get {
-                return ResourceManager.GetString("ETIQUETA_REGISTRO_CONTRASENAINVALIDA", resourceCulture);
             }
         }
         
@@ -1222,11 +1321,38 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Contraseña inválida.
+        ///   Busca una cadena traducida similar a Contraseña no restablecida.
         /// </summary>
-        public static string ETIQUETA_RESTABLECIMIENTO_CONTRASENAINVALIDA {
+        public static string ETIQUETA_RESTABLECIMIENTO_CONTRASENANORESTABLECIDA {
             get {
-                return ResourceManager.GetString("ETIQUETA_RESTABLECIMIENTO_CONTRASENAINVALIDA", resourceCulture);
+                return ResourceManager.GetString("ETIQUETA_RESTABLECIMIENTO_CONTRASENANORESTABLECIDA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Contraseña restablecida.
+        /// </summary>
+        public static string ETIQUETA_RESTABLECIMIENTO_CONTRASENARESTABLECIDA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_RESTABLECIMIENTO_CONTRASENARESTABLECIDA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Su nueva contraseña ha sido actualizado correctamente.
+        /// </summary>
+        public static string ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENAACTUALIZADA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENAACTUALIZADA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Su contraseña no se pudo restablecer.
+        /// </summary>
+        public static string ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENANORESTABLECIDA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENANORESTABLECIDA", resourceCulture);
             }
         }
         
@@ -1348,6 +1474,168 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Campos excedidos.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Campos inválidos.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_CAMPOSINVALIDOS {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_CAMPOSINVALIDOS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Campos vacíos.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_CAMPOSVACIOS {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_CAMPOSVACIOS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Contraseñas diferentes.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_CONTRASENADIFERENTE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_CONTRASENADIFERENTE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La contraseña ingresada excede la longitud máxima.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_CONTRASENAEXCEDIDA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_CONTRASENAEXCEDIDA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Contraseña inválida.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_CONTRASENAINVALIDA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_CONTRASENAINVALIDA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Correo electrónico inválido.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_CORREOINVALIDO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_CORREOINVALIDO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Longitud excedida.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_LONGITUDEXCEDIDA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_LONGITUDEXCEDIDA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Corrige los campos excedidos.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_MENSAJECAMPOSEXCEDIDOS {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_MENSAJECAMPOSEXCEDIDOS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Existen campos inválidos.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_MENSAJECAMPOSINVALIDOS {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_MENSAJECAMPOSINVALIDOS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No puedes dejar campos vacíos.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Las contraseñas no coinciden.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La contraseña que has ingresado es inválida.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_MENSAJECONTRASENAINVALIDA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_MENSAJECONTRASENAINVALIDA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La nueva contraseña que has ingresado es inválida.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_MENSAJECONTRASENANUEVA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_MENSAJECONTRASENANUEVA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El correo electrónico que has ingresado es inválido.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_MENSAJECORREOINVALIDO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_MENSAJECORREOINVALIDO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Corrige los campos excedidos.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_MENSAJELONGITUDEXCEDIDA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_MENSAJELONGITUDEXCEDIDA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El nombre de usuario que has ingresado es inválido.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_MENSAJENOMBREUSUARIOINVALIDO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_MENSAJENOMBREUSUARIOINVALIDO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre de usuario inválido.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_NOMBREUSUARIOINVALIDO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_NOMBREUSUARIOINVALIDO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Código de verificación para concluir registro.
         /// </summary>
         public static string ETIQUETA_VERIFICACIONCORREO_ASUNTO {
@@ -1357,11 +1645,65 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Código incorrecto.
+        /// </summary>
+        public static string ETIQUETA_VERIFICACIONCORREO_CODIGOINCORRECTO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VERIFICACIONCORREO_CODIGOINCORRECTO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error al realizar registro.
+        /// </summary>
+        public static string ETIQUETA_VERIFICACIONCORREO_ERRORREGISTRO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VERIFICACIONCORREO_ERRORREGISTRO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Tu código de verificación es:.
         /// </summary>
         public static string ETIQUETA_VERIFICACIONCORREO_MENSAJE {
             get {
                 return ResourceManager.GetString("ETIQUETA_VERIFICACIONCORREO_MENSAJE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El código de verificacion es incorrecto.
+        /// </summary>
+        public static string ETIQUETA_VERIFICACIONCORREO_MENSAJECODIGOINCORRECTO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VERIFICACIONCORREO_MENSAJECODIGOINCORRECTO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El registro de usuario no se ha realizado.
+        /// </summary>
+        public static string ETIQUETA_VERIFICACIONCORREO_MENSAJEREGISTRONOREALIZADO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VERIFICACIONCORREO_MENSAJEREGISTRONOREALIZADO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El registro de usuario se ha realizado correctamente.
+        /// </summary>
+        public static string ETIQUETA_VERIFICACIONCORREO_MENSAJEUSUARIOREGISTRADO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VERIFICACIONCORREO_MENSAJEUSUARIOREGISTRADO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Registro realizado correctamente.
+        /// </summary>
+        public static string ETIQUETA_VERIFICACIONCORREO_REGISTROREALIZADO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VERIFICACIONCORREO_REGISTROREALIZADO", resourceCulture);
             }
         }
     }
