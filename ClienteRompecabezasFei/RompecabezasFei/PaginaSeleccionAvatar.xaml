@@ -20,7 +20,7 @@
         <Image HorizontalAlignment="Left" Height="100" Margin="592,448,0,0" VerticalAlignment="Top" Width="100" Source="\Imagenes/Avatares/8.png" Tag="8" MouseDown="AccionSeleccionAvatar"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="760,448,0,0" VerticalAlignment="Top" Width="100" Source="\Imagenes/Avatares/9.png" Tag="9" MouseDown="AccionSeleccionAvatar"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="928,448,0,0" VerticalAlignment="Top" Width="100" Source="\Imagenes/Avatares/10.png" Tag="10" MouseDown="AccionSeleccionAvatar"/>
-        <Button x:Name="BotonAceptar" Content="{x:Static p:Resources.ETIQUETA_GENERAL_ACEPTAR}" HorizontalAlignment="Center" Margin="0,595,0,0" VerticalAlignment="Top" Height="72" Width="268" FontSize="36" Background="#FF03A64A" Foreground="White" FontWeight="Bold" Click="AccionAceptar">
+        <Button x:Name="BotonAceptar" Content="{x:Static p:Resources.ETIQUETA_GENERAL_ACEPTAR}" HorizontalAlignment="Center" Margin="0,595,0,0" VerticalAlignment="Top" Height="72" Width="268" FontSize="36" Background="#FF03A64A" Foreground="White" FontWeight="Bold" Click="AccionClickAceptar">
         </Button>
 
     </Grid>

@@ -16,7 +16,7 @@ namespace RompecabezasFei
             this.correo = correo;   
         }
 
-        private void ActualizarContraseña(object sender, RoutedEventArgs e)
+        private void EventoActualizarContraseña(object controlOrigen, RoutedEventArgs evento)
         {
             contraseña = CuadroContrasenaNueva.Password.ToString();
             if (!ExistenCamposInvalidos())
@@ -29,20 +29,20 @@ namespace RompecabezasFei
                     bool resultadoActualizacion = cliente.ActualizarContrasena(correo, contraseñaCifrada);
                     if (resultadoActualizacion)
                     {
-                        MessageBox.Show("Su nueva contraseña ha sido actualizada correctamente",
-                                        "Contraseña restablecida", MessageBoxButton.OK);
+                        MessageBox.Show(Properties.Resources.ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENAACTUALIZADA,
+                                        Properties.Resources.ETIQUETA_RESTABLECIMIENTO_CONTRASENARESTABLECIDA, MessageBoxButton.OK);
                         VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
                     }
                     else
                     {
-                        MessageBox.Show("Su contraseña no se pudo restablecer",
-                                       "Contraseña no restablecida", MessageBoxButton.OK);
+                        MessageBox.Show(Properties.Resources.ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENANORESTABLECIDA,
+                                      Properties.Resources.ETIQUETA_RESTABLECIMIENTO_CONTRASENANORESTABLECIDA, MessageBoxButton.OK);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Las contraseñas no coinciden",
-                                       "Contraseñas diferentes", MessageBoxButton.OK);
+                    MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE,
+                                       Properties.Resources.ETIQUETA_VALIDACION_CONTRASENADIFERENTE, MessageBoxButton.OK);
                 }
             }
         }
@@ -66,8 +66,8 @@ namespace RompecabezasFei
                 "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$")
                 == false)
             {
-                MessageBox.Show("La contraseña que has ingresado es inválida",
-                    "Contraseña inválida", MessageBoxButton.OK);
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECONTRASENAINVALIDA,
+                    Properties.Resources.ETIQUETA_VALIDACION_CONTRASENAINVALIDA, MessageBoxButton.OK);
                 contrasenaInvalida = true;
             }
             return contrasenaInvalida;
@@ -79,8 +79,8 @@ namespace RompecabezasFei
             if (contraseña.Length > 45)
             {
                 camposExcedidos = true;
-                MessageBox.Show("Corrige los campos excedidos",
-                    "Campos excedidos", MessageBoxButton.OK);
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJELONGITUDEXCEDIDA,
+                    Properties.Resources.ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS, MessageBoxButton.OK);
             }
             return camposExcedidos;
         }

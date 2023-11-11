@@ -55,7 +55,8 @@ namespace RompecabezasFei
             }
             else
             {
-                MessageBox.Show("No se pudo iniciar sesión", "Inicio de sesión cancelado",
+                MessageBox.Show(Properties.Resources.ETIQUETA_INICIOSESION_MENSAJEINICIOSESIONERROR, 
+                    Properties.Resources.ETIQUETA_INICIOSESION_INICIOSESIONCANCELADO,
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
@@ -147,13 +148,15 @@ namespace RompecabezasFei
                 }
                 else
                 {
-                    MessageBox.Show("Alguno de los campos es inválido",
-                        "Campos inválidos", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSINVALIDOS,
+                        Properties.Resources.ETIQUETA_VALIDACION_CAMPOSINVALIDOS, 
+                            MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Alguno de los campos está vacío", "Campos vacíos",
+                MessageBox.Show(Properties.Resources.ETIQUETA_GENERAL_MENSAJECAMPOSVACIOS,
+                                    Properties.Resources.ETIQUETA_VALIDACION_CAMPOSVACIOS,
                             MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
@@ -176,10 +179,12 @@ namespace RompecabezasFei
         private bool ExistenLongitudesExcedidas(string nombreJugador, string contrasena)
         {
             bool resultado = false;
-            
+
             if (nombreJugador.Length > 15 || contrasena.Length > 45)
             {
                 resultado = true;
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJELONGITUDEXCEDIDA,
+                   Properties.Resources.ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS, MessageBoxButton.OK);
             }
 
             return resultado;

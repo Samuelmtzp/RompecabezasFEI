@@ -336,7 +336,7 @@ namespace RompecabezasFei
                 PosicionarPiezaEnTableroSegunPosicion(posicionActual);
                 if (tablero.EsRompecabezasCompletado())
                 {
-                    MessageBox.Show("Fin del juego");
+                    MessageBox.Show(Properties.Resources.ETIQUETA_PARTIDA_JUEGOFINALIZADO);
                     RemoverEventoVentanaDesactivada();
                     VentanaPrincipal.CambiarPagina(new PaginaResultados());
                 }
