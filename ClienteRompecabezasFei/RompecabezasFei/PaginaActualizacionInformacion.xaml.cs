@@ -1,5 +1,4 @@
-﻿using RompecabezasFei.ServicioRompecabezasFei;
-using System;
+﻿using System;
 using System.ServiceModel;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -26,17 +25,17 @@ namespace RompecabezasFei
         }
 
         private void ActualizarInformacion(string nuevoNombre, int nuevoNumeroAvatar)
-        {
-            ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
+        {            
             bool esNombreDisponible = false;
 
             try
             {
-                esNombreDisponible = !cliente.ExisteNombreJugador(nuevoNombre);
+                esNombreDisponible = !VentanaPrincipal.ClienteServicioGestionJugador.
+                    ExisteNombreJugador(nuevoNombre);
             }
             catch (EndpointNotFoundException)
             {
-                cliente.Abort();
+                VentanaPrincipal.ClienteServicioGestionJugador.Abort();
             }
 
             if (esNombreDisponible)
@@ -46,13 +45,12 @@ namespace RompecabezasFei
 
                 try
                 {
-                    actualizacionRealizada = cliente.ActualizarInformacion(nombreAnterior, 
-                        nuevoNombre, nuevoNumeroAvatar);
-                    cliente.Close();
+                    actualizacionRealizada = VentanaPrincipal.ClienteServicioGestionJugador.
+                        ActualizarInformacion(nombreAnterior, nuevoNombre, nuevoNumeroAvatar);
                 }
                 catch(EndpointNotFoundException)
                 {
-                    cliente.Abort();
+                    
                 }
 
                 if (actualizacionRealizada)

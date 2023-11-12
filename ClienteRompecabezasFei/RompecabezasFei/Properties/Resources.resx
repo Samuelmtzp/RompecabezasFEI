@@ -295,7 +295,7 @@
     <value>Confirmación de correo electrónico</value>
   </data>
   <data name="ETIQUETA_CONFIRMACIONCORREO_INSTRUCCIONCORREO" xml:space="preserve">
-    <value>Para completar tu registro, te enviamos un código a tu correo electrónico para que puedas restablecer tu contraseña, ingresalo a continuación</value>
+    <value>Para completar tu registro, te enviamos un código a tu correo electrónico, ingresalo a continuación</value>
   </data>
   <data name="ETIQUETA_CONFIRMACIONCORREO_TERMINAR" xml:space="preserve">
     <value>Terminar</value>
@@ -346,7 +346,7 @@
     <value>Ajustes</value>
   </data>
   <data name="ETIQUETA_GENERAL_AMIGOS" xml:space="preserve">
-    <value>Mis amigos</value>
+    <value>Amigos</value>
   </data>
   <data name="ETIQUETA_GENERAL_CANCELAR" xml:space="preserve">
     <value>Cancelar</value>

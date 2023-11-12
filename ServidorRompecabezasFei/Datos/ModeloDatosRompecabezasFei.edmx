@@ -74,7 +74,6 @@
     </Key>
     <Property Name="IdJugadorOrigen" Type="int" Nullable="false" />
     <Property Name="IdJugadorDestino" Type="int" Nullable="false" />
-    <Property Name="EstadoSolicitud" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Amistad">
     <Key>
@@ -300,7 +299,6 @@
           <Property Name="IdJugadorOrigen" Type="Int32" Nullable="false" />
           <NavigationProperty Name="JugadorDestino" Relationship="ModeloRompecabezasFei.JugadorSolicitudAmistad1" FromRole="SolicitudAmistad" ToRole="Jugador" />
           <Property Name="IdJugadorDestino" Type="Int32" Nullable="false" />
-          <Property Name="EstadoSolicitud" Type="ModeloRompecabezasFei.EstadoSolicitudAmistad" Nullable="false" annotation:StoreGeneratedPattern="None" />
         </EntityType>
         <Association Name="JugadorSolicitudAmistad">
           <End Type="ModeloRompecabezasFei.Jugador" Role="Jugador" Multiplicity="1" />
@@ -479,7 +477,6 @@
         <MappingFragment StoreEntitySet="SolicitudAmistad">
           <ScalarProperty Name="IdJugadorOrigen" ColumnName="IdJugadorOrigen" />
           <ScalarProperty Name="IdJugadorDestino" ColumnName="IdJugadorDestino" />
-          <ScalarProperty Name="EstadoSolicitud" ColumnName="EstadoSolicitud" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

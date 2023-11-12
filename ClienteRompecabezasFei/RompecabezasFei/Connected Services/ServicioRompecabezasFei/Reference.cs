@@ -29,6 +29,9 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         private string CorreoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RompecabezasFei.ServicioRompecabezasFei.EstadoConectividadJugador EstadoConectividadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NombreJugadorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -71,6 +74,19 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public RompecabezasFei.ServicioRompecabezasFei.EstadoConectividadJugador EstadoConectividad {
+            get {
+                return this.EstadoConectividadField;
+            }
+            set {
+                if ((this.EstadoConectividadField.Equals(value) != true)) {
+                    this.EstadoConectividadField = value;
+                    this.RaisePropertyChanged("EstadoConectividad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string NombreJugador {
             get {
                 return this.NombreJugadorField;
@@ -106,8 +122,22 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         }
     }
     
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EstadoConectividadJugador", Namespace="http://schemas.datacontract.org/2004/07/Logica")]
+    public enum EstadoConectividadJugador : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Desconectado = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Conectado = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        EnPartida = 2,
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioRompecabezasFei.IServicioGestionJugador")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioRompecabezasFei.IServicioGestionJugador", CallbackContract=typeof(RompecabezasFei.ServicioRompecabezasFei.IServicioGestionJugadorCallback))]
     public interface IServicioGestionJugador {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionJugador/Registrar", ReplyAction="http://tempuri.org/IServicioGestionJugador/RegistrarResponse")]
@@ -133,6 +163,12 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionJugador/IniciarSesion", ReplyAction="http://tempuri.org/IServicioGestionJugador/IniciarSesionResponse")]
         System.Threading.Tasks.Task<RompecabezasFei.ServicioRompecabezasFei.CuentaJugador> IniciarSesionAsync(string nombreJugador, string contrasena);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionJugador/CerrarSesion", ReplyAction="http://tempuri.org/IServicioGestionJugador/CerrarSesionResponse")]
+        bool CerrarSesion(string nombreUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionJugador/CerrarSesion", ReplyAction="http://tempuri.org/IServicioGestionJugador/CerrarSesionResponse")]
+        System.Threading.Tasks.Task<bool> CerrarSesionAsync(string nombreUsuario);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionJugador/EnviarMensajeCorreo", ReplyAction="http://tempuri.org/IServicioGestionJugador/EnviarMensajeCorreoResponse")]
         bool EnviarMensajeCorreo(string encabezado, string correoDestino, string asunto, string mensaje);
@@ -166,30 +202,38 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IServicioGestionJugadorCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioGestionJugador/NotificarEstadoConectividadDeJugador")]
+        void NotificarEstadoConectividadDeJugador(string nombreJugador, RompecabezasFei.ServicioRompecabezasFei.EstadoConectividadJugador estado);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IServicioGestionJugadorChannel : RompecabezasFei.ServicioRompecabezasFei.IServicioGestionJugador, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServicioGestionJugadorClient : System.ServiceModel.ClientBase<RompecabezasFei.ServicioRompecabezasFei.IServicioGestionJugador>, RompecabezasFei.ServicioRompecabezasFei.IServicioGestionJugador {
+    public partial class ServicioGestionJugadorClient : System.ServiceModel.DuplexClientBase<RompecabezasFei.ServicioRompecabezasFei.IServicioGestionJugador>, RompecabezasFei.ServicioRompecabezasFei.IServicioGestionJugador {
         
-        public ServicioGestionJugadorClient() {
+        public ServicioGestionJugadorClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
         }
         
-        public ServicioGestionJugadorClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
+        public ServicioGestionJugadorClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
         }
         
-        public ServicioGestionJugadorClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public ServicioGestionJugadorClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public ServicioGestionJugadorClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public ServicioGestionJugadorClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public ServicioGestionJugadorClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress) {
+        public ServicioGestionJugadorClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
         }
         
         public bool Registrar(RompecabezasFei.ServicioRompecabezasFei.CuentaJugador cuentaJugador) {
@@ -222,6 +266,14 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         
         public System.Threading.Tasks.Task<RompecabezasFei.ServicioRompecabezasFei.CuentaJugador> IniciarSesionAsync(string nombreJugador, string contrasena) {
             return base.Channel.IniciarSesionAsync(nombreJugador, contrasena);
+        }
+        
+        public bool CerrarSesion(string nombreUsuario) {
+            return base.Channel.CerrarSesion(nombreUsuario);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CerrarSesionAsync(string nombreUsuario) {
+            return base.Channel.CerrarSesionAsync(nombreUsuario);
         }
         
         public bool EnviarMensajeCorreo(string encabezado, string correoDestino, string asunto, string mensaje) {
@@ -269,11 +321,11 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioRompecabezasFei.IServicioJuego", CallbackContract=typeof(RompecabezasFei.ServicioRompecabezasFei.IServicioJuegoCallback))]
     public interface IServicioJuego {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJuego/NuevaSala", ReplyAction="http://tempuri.org/IServicioJuego/NuevaSalaResponse")]
-        void NuevaSala(string nombreAnfitrion, string codigoSala);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJuego/CrearNuevaSala", ReplyAction="http://tempuri.org/IServicioJuego/CrearNuevaSalaResponse")]
+        void CrearNuevaSala(string nombreAnfitrion, string codigoSala);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJuego/NuevaSala", ReplyAction="http://tempuri.org/IServicioJuego/NuevaSalaResponse")]
-        System.Threading.Tasks.Task NuevaSalaAsync(string nombreAnfitrion, string codigoSala);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJuego/CrearNuevaSala", ReplyAction="http://tempuri.org/IServicioJuego/CrearNuevaSalaResponse")]
+        System.Threading.Tasks.Task CrearNuevaSalaAsync(string nombreAnfitrion, string codigoSala);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJuego/ConectarCuentaJugadorASala", ReplyAction="http://tempuri.org/IServicioJuego/ConectarCuentaJugadorASalaResponse")]
         void ConectarCuentaJugadorASala(string nombreJugador, string codigoSala, string mensajeBienvenida);
@@ -309,8 +361,8 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IServicioJuegoCallback {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioJuego/MensajeDeSalaCallBack")]
-        void MensajeDeSalaCallBack(string mensaje);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioJuego/MostrarMensajeDeSala")]
+        void MostrarMensajeDeSala(string mensaje);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -341,12 +393,12 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
-        public void NuevaSala(string nombreAnfitrion, string codigoSala) {
-            base.Channel.NuevaSala(nombreAnfitrion, codigoSala);
+        public void CrearNuevaSala(string nombreAnfitrion, string codigoSala) {
+            base.Channel.CrearNuevaSala(nombreAnfitrion, codigoSala);
         }
         
-        public System.Threading.Tasks.Task NuevaSalaAsync(string nombreAnfitrion, string codigoSala) {
-            return base.Channel.NuevaSalaAsync(nombreAnfitrion, codigoSala);
+        public System.Threading.Tasks.Task CrearNuevaSalaAsync(string nombreAnfitrion, string codigoSala) {
+            return base.Channel.CrearNuevaSalaAsync(nombreAnfitrion, codigoSala);
         }
         
         public void ConectarCuentaJugadorASala(string nombreJugador, string codigoSala, string mensajeBienvenida) {
@@ -391,30 +443,28 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioRompecabezasFei.IServicioAmistades")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioRompecabezasFei.IServicioAmistades", CallbackContract=typeof(RompecabezasFei.ServicioRompecabezasFei.IServicioAmistadesCallback))]
     public interface IServicioAmistades {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/EnviarSolicitudDeAmistad", ReplyAction="http://tempuri.org/IServicioAmistades/EnviarSolicitudDeAmistadResponse")]
-        bool EnviarSolicitudDeAmistad(string nombreJugadorOrigen, string nombreJugadorDestino);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/ObtenerJugadoresConSolicitudPendiente", ReplyAction="http://tempuri.org/IServicioAmistades/ObtenerJugadoresConSolicitudPendienteRespon" +
+            "se")]
+        RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[] ObtenerJugadoresConSolicitudPendiente(string nombreJugador);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/EnviarSolicitudDeAmistad", ReplyAction="http://tempuri.org/IServicioAmistades/EnviarSolicitudDeAmistadResponse")]
-        System.Threading.Tasks.Task<bool> EnviarSolicitudDeAmistadAsync(string nombreJugadorOrigen, string nombreJugadorDestino);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/ObtenerJugadoresConSolicitudDeAmistadSinAce" +
-            "ptar", ReplyAction="http://tempuri.org/IServicioAmistades/ObtenerJugadoresConSolicitudDeAmistadSinAce" +
-            "ptarResponse")]
-        RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[] ObtenerJugadoresConSolicitudDeAmistadSinAceptar(string nombreJugador);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/ObtenerJugadoresConSolicitudDeAmistadSinAce" +
-            "ptar", ReplyAction="http://tempuri.org/IServicioAmistades/ObtenerJugadoresConSolicitudDeAmistadSinAce" +
-            "ptarResponse")]
-        System.Threading.Tasks.Task<RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[]> ObtenerJugadoresConSolicitudDeAmistadSinAceptarAsync(string nombreJugador);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/ObtenerJugadoresConSolicitudPendiente", ReplyAction="http://tempuri.org/IServicioAmistades/ObtenerJugadoresConSolicitudPendienteRespon" +
+            "se")]
+        System.Threading.Tasks.Task<RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[]> ObtenerJugadoresConSolicitudPendienteAsync(string nombreJugador);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/ObtenerAmigosDeJugador", ReplyAction="http://tempuri.org/IServicioAmistades/ObtenerAmigosDeJugadorResponse")]
         RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[] ObtenerAmigosDeJugador(string nombreJugador);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/ObtenerAmigosDeJugador", ReplyAction="http://tempuri.org/IServicioAmistades/ObtenerAmigosDeJugadorResponse")]
         System.Threading.Tasks.Task<RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[]> ObtenerAmigosDeJugadorAsync(string nombreJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/EnviarSolicitudDeAmistad", ReplyAction="http://tempuri.org/IServicioAmistades/EnviarSolicitudDeAmistadResponse")]
+        bool EnviarSolicitudDeAmistad(string nombreJugadorOrigen, string nombreJugadorDestino);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/EnviarSolicitudDeAmistad", ReplyAction="http://tempuri.org/IServicioAmistades/EnviarSolicitudDeAmistadResponse")]
+        System.Threading.Tasks.Task<bool> EnviarSolicitudDeAmistadAsync(string nombreJugadorOrigen, string nombreJugadorDestino);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/AceptarSolicitudDeAmistad", ReplyAction="http://tempuri.org/IServicioAmistades/AceptarSolicitudDeAmistadResponse")]
         bool AceptarSolicitudDeAmistad(string nombreJugadorOrigen, string nombreJugadorDestino);
@@ -428,11 +478,11 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/RechazarSolicitudDeAmistad", ReplyAction="http://tempuri.org/IServicioAmistades/RechazarSolicitudDeAmistadResponse")]
         System.Threading.Tasks.Task<bool> RechazarSolicitudDeAmistadAsync(string nombreJugadorOrigen, string nombreJugadorDestino);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/ExisteSolicitudDeAmistadSinAceptar", ReplyAction="http://tempuri.org/IServicioAmistades/ExisteSolicitudDeAmistadSinAceptarResponse")]
-        bool ExisteSolicitudDeAmistadSinAceptar(string nombreJugadorOrigen, string nombreJugadorDestino);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/ExisteSolicitudDeAmistad", ReplyAction="http://tempuri.org/IServicioAmistades/ExisteSolicitudDeAmistadResponse")]
+        bool ExisteSolicitudDeAmistad(string nombreJugadorOrigen, string nombreJugadorDestino);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/ExisteSolicitudDeAmistadSinAceptar", ReplyAction="http://tempuri.org/IServicioAmistades/ExisteSolicitudDeAmistadSinAceptarResponse")]
-        System.Threading.Tasks.Task<bool> ExisteSolicitudDeAmistadSinAceptarAsync(string nombreJugadorOrigen, string nombreJugadorDestino);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/ExisteSolicitudDeAmistad", ReplyAction="http://tempuri.org/IServicioAmistades/ExisteSolicitudDeAmistadResponse")]
+        System.Threading.Tasks.Task<bool> ExisteSolicitudDeAmistadAsync(string nombreJugadorOrigen, string nombreJugadorDestino);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/ExisteAmistadConJugador", ReplyAction="http://tempuri.org/IServicioAmistades/ExisteAmistadConJugadorResponse")]
         bool ExisteAmistadConJugador(string nombreJugadorA, string nombreJugadorB);
@@ -440,19 +490,52 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/ExisteAmistadConJugador", ReplyAction="http://tempuri.org/IServicioAmistades/ExisteAmistadConJugadorResponse")]
         System.Threading.Tasks.Task<bool> ExisteAmistadConJugadorAsync(string nombreJugadorA, string nombreJugadorB);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/RegistrarNuevaAmistadEntreJugadores", ReplyAction="http://tempuri.org/IServicioAmistades/RegistrarNuevaAmistadEntreJugadoresResponse" +
-            "")]
-        bool RegistrarNuevaAmistadEntreJugadores(string nombreJugadorA, string nombreJugadorB);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/RegistrarNuevaAmistadEntreJugadores", ReplyAction="http://tempuri.org/IServicioAmistades/RegistrarNuevaAmistadEntreJugadoresResponse" +
-            "")]
-        System.Threading.Tasks.Task<bool> RegistrarNuevaAmistadEntreJugadoresAsync(string nombreJugadorA, string nombreJugadorB);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/EliminarAmistadEntreJugadores", ReplyAction="http://tempuri.org/IServicioAmistades/EliminarAmistadEntreJugadoresResponse")]
         bool EliminarAmistadEntreJugadores(string nombreJugadorA, string nombreJugadorB);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/EliminarAmistadEntreJugadores", ReplyAction="http://tempuri.org/IServicioAmistades/EliminarAmistadEntreJugadoresResponse")]
         System.Threading.Tasks.Task<bool> EliminarAmistadEntreJugadoresAsync(string nombreJugadorA, string nombreJugadorB);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/SuscribirJugadorANotificacionesAmistades", ReplyAction="http://tempuri.org/IServicioAmistades/SuscribirJugadorANotificacionesAmistadesRes" +
+            "ponse")]
+        bool SuscribirJugadorANotificacionesAmistades(string nombreJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/SuscribirJugadorANotificacionesAmistades", ReplyAction="http://tempuri.org/IServicioAmistades/SuscribirJugadorANotificacionesAmistadesRes" +
+            "ponse")]
+        System.Threading.Tasks.Task<bool> SuscribirJugadorANotificacionesAmistadesAsync(string nombreJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/DesuscribirJugadorDeNotificacionesAmistades" +
+            "", ReplyAction="http://tempuri.org/IServicioAmistades/DesuscribirJugadorDeNotificacionesAmistades" +
+            "Response")]
+        bool DesuscribirJugadorDeNotificacionesAmistades(string nombreJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/DesuscribirJugadorDeNotificacionesAmistades" +
+            "", ReplyAction="http://tempuri.org/IServicioAmistades/DesuscribirJugadorDeNotificacionesAmistades" +
+            "Response")]
+        System.Threading.Tasks.Task<bool> DesuscribirJugadorDeNotificacionesAmistadesAsync(string nombreJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/EsJugadorSuscritoANotififacionesDeAmistades" +
+            "", ReplyAction="http://tempuri.org/IServicioAmistades/EsJugadorSuscritoANotififacionesDeAmistades" +
+            "Response")]
+        bool EsJugadorSuscritoANotififacionesDeAmistades(string nombreJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/EsJugadorSuscritoANotififacionesDeAmistades" +
+            "", ReplyAction="http://tempuri.org/IServicioAmistades/EsJugadorSuscritoANotififacionesDeAmistades" +
+            "Response")]
+        System.Threading.Tasks.Task<bool> EsJugadorSuscritoANotififacionesDeAmistadesAsync(string nombreJugador);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IServicioAmistadesCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioAmistades/NotificarSolicitudAmistadEnviada")]
+        void NotificarSolicitudAmistadEnviada(RompecabezasFei.ServicioRompecabezasFei.CuentaJugador cuentaNuevaSolicitud);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioAmistades/NotificarSolicitudAmistadAceptada")]
+        void NotificarSolicitudAmistadAceptada(RompecabezasFei.ServicioRompecabezasFei.CuentaJugador cuentaNuevoAmigo);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioAmistades/NotificarAmistadEliminada")]
+        void NotificarAmistadEliminada(string nombreAmigoEliminacion);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -461,41 +544,34 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServicioAmistadesClient : System.ServiceModel.ClientBase<RompecabezasFei.ServicioRompecabezasFei.IServicioAmistades>, RompecabezasFei.ServicioRompecabezasFei.IServicioAmistades {
+    public partial class ServicioAmistadesClient : System.ServiceModel.DuplexClientBase<RompecabezasFei.ServicioRompecabezasFei.IServicioAmistades>, RompecabezasFei.ServicioRompecabezasFei.IServicioAmistades {
         
-        public ServicioAmistadesClient() {
+        public ServicioAmistadesClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
         }
         
-        public ServicioAmistadesClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
+        public ServicioAmistadesClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
         }
         
-        public ServicioAmistadesClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public ServicioAmistadesClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public ServicioAmistadesClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public ServicioAmistadesClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public ServicioAmistadesClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress) {
+        public ServicioAmistadesClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
         }
         
-        public bool EnviarSolicitudDeAmistad(string nombreJugadorOrigen, string nombreJugadorDestino) {
-            return base.Channel.EnviarSolicitudDeAmistad(nombreJugadorOrigen, nombreJugadorDestino);
+        public RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[] ObtenerJugadoresConSolicitudPendiente(string nombreJugador) {
+            return base.Channel.ObtenerJugadoresConSolicitudPendiente(nombreJugador);
         }
         
-        public System.Threading.Tasks.Task<bool> EnviarSolicitudDeAmistadAsync(string nombreJugadorOrigen, string nombreJugadorDestino) {
-            return base.Channel.EnviarSolicitudDeAmistadAsync(nombreJugadorOrigen, nombreJugadorDestino);
-        }
-        
-        public RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[] ObtenerJugadoresConSolicitudDeAmistadSinAceptar(string nombreJugador) {
-            return base.Channel.ObtenerJugadoresConSolicitudDeAmistadSinAceptar(nombreJugador);
-        }
-        
-        public System.Threading.Tasks.Task<RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[]> ObtenerJugadoresConSolicitudDeAmistadSinAceptarAsync(string nombreJugador) {
-            return base.Channel.ObtenerJugadoresConSolicitudDeAmistadSinAceptarAsync(nombreJugador);
+        public System.Threading.Tasks.Task<RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[]> ObtenerJugadoresConSolicitudPendienteAsync(string nombreJugador) {
+            return base.Channel.ObtenerJugadoresConSolicitudPendienteAsync(nombreJugador);
         }
         
         public RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[] ObtenerAmigosDeJugador(string nombreJugador) {
@@ -504,6 +580,14 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         
         public System.Threading.Tasks.Task<RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[]> ObtenerAmigosDeJugadorAsync(string nombreJugador) {
             return base.Channel.ObtenerAmigosDeJugadorAsync(nombreJugador);
+        }
+        
+        public bool EnviarSolicitudDeAmistad(string nombreJugadorOrigen, string nombreJugadorDestino) {
+            return base.Channel.EnviarSolicitudDeAmistad(nombreJugadorOrigen, nombreJugadorDestino);
+        }
+        
+        public System.Threading.Tasks.Task<bool> EnviarSolicitudDeAmistadAsync(string nombreJugadorOrigen, string nombreJugadorDestino) {
+            return base.Channel.EnviarSolicitudDeAmistadAsync(nombreJugadorOrigen, nombreJugadorDestino);
         }
         
         public bool AceptarSolicitudDeAmistad(string nombreJugadorOrigen, string nombreJugadorDestino) {
@@ -522,12 +606,12 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
             return base.Channel.RechazarSolicitudDeAmistadAsync(nombreJugadorOrigen, nombreJugadorDestino);
         }
         
-        public bool ExisteSolicitudDeAmistadSinAceptar(string nombreJugadorOrigen, string nombreJugadorDestino) {
-            return base.Channel.ExisteSolicitudDeAmistadSinAceptar(nombreJugadorOrigen, nombreJugadorDestino);
+        public bool ExisteSolicitudDeAmistad(string nombreJugadorOrigen, string nombreJugadorDestino) {
+            return base.Channel.ExisteSolicitudDeAmistad(nombreJugadorOrigen, nombreJugadorDestino);
         }
         
-        public System.Threading.Tasks.Task<bool> ExisteSolicitudDeAmistadSinAceptarAsync(string nombreJugadorOrigen, string nombreJugadorDestino) {
-            return base.Channel.ExisteSolicitudDeAmistadSinAceptarAsync(nombreJugadorOrigen, nombreJugadorDestino);
+        public System.Threading.Tasks.Task<bool> ExisteSolicitudDeAmistadAsync(string nombreJugadorOrigen, string nombreJugadorDestino) {
+            return base.Channel.ExisteSolicitudDeAmistadAsync(nombreJugadorOrigen, nombreJugadorDestino);
         }
         
         public bool ExisteAmistadConJugador(string nombreJugadorA, string nombreJugadorB) {
@@ -538,20 +622,36 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
             return base.Channel.ExisteAmistadConJugadorAsync(nombreJugadorA, nombreJugadorB);
         }
         
-        public bool RegistrarNuevaAmistadEntreJugadores(string nombreJugadorA, string nombreJugadorB) {
-            return base.Channel.RegistrarNuevaAmistadEntreJugadores(nombreJugadorA, nombreJugadorB);
-        }
-        
-        public System.Threading.Tasks.Task<bool> RegistrarNuevaAmistadEntreJugadoresAsync(string nombreJugadorA, string nombreJugadorB) {
-            return base.Channel.RegistrarNuevaAmistadEntreJugadoresAsync(nombreJugadorA, nombreJugadorB);
-        }
-        
         public bool EliminarAmistadEntreJugadores(string nombreJugadorA, string nombreJugadorB) {
             return base.Channel.EliminarAmistadEntreJugadores(nombreJugadorA, nombreJugadorB);
         }
         
         public System.Threading.Tasks.Task<bool> EliminarAmistadEntreJugadoresAsync(string nombreJugadorA, string nombreJugadorB) {
             return base.Channel.EliminarAmistadEntreJugadoresAsync(nombreJugadorA, nombreJugadorB);
+        }
+        
+        public bool SuscribirJugadorANotificacionesAmistades(string nombreJugador) {
+            return base.Channel.SuscribirJugadorANotificacionesAmistades(nombreJugador);
+        }
+        
+        public System.Threading.Tasks.Task<bool> SuscribirJugadorANotificacionesAmistadesAsync(string nombreJugador) {
+            return base.Channel.SuscribirJugadorANotificacionesAmistadesAsync(nombreJugador);
+        }
+        
+        public bool DesuscribirJugadorDeNotificacionesAmistades(string nombreJugador) {
+            return base.Channel.DesuscribirJugadorDeNotificacionesAmistades(nombreJugador);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DesuscribirJugadorDeNotificacionesAmistadesAsync(string nombreJugador) {
+            return base.Channel.DesuscribirJugadorDeNotificacionesAmistadesAsync(nombreJugador);
+        }
+        
+        public bool EsJugadorSuscritoANotififacionesDeAmistades(string nombreJugador) {
+            return base.Channel.EsJugadorSuscritoANotififacionesDeAmistades(nombreJugador);
+        }
+        
+        public System.Threading.Tasks.Task<bool> EsJugadorSuscritoANotififacionesDeAmistadesAsync(string nombreJugador) {
+            return base.Channel.EsJugadorSuscritoANotififacionesDeAmistadesAsync(nombreJugador);
         }
     }
 }

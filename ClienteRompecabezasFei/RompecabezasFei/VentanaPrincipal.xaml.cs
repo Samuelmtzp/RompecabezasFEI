@@ -1,4 +1,8 @@
-﻿using System.Windows;
+﻿using RompecabezasFei.ServicioRompecabezasFei;
+using System;
+using System.ComponentModel;
+using System.ServiceModel;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace RompecabezasFei
@@ -6,7 +10,8 @@ namespace RompecabezasFei
     public partial class VentanaPrincipal : Window
     {
         private static Page paginaActual;
-        private static Page paginaAnterior;        
+        private static Page paginaAnterior;
+        private static ServicioGestionJugadorClient clienteServicioGestionJugador;
 
         public static Page PaginaAnterior
         {
@@ -14,9 +19,16 @@ namespace RompecabezasFei
             set { paginaAnterior = value; }
         }
 
+        public static ServicioGestionJugadorClient ClienteServicioGestionJugador
+        {
+            get { return clienteServicioGestionJugador; }
+            set { clienteServicioGestionJugador = value; }
+        }
+
         public VentanaPrincipal()
         {
             InitializeComponent();
+            Closing += AlCerrarVentana;
             paginaActual = new PaginaInicioSesion();
             MarcoPaginaActual.Navigate(paginaActual);
         }
@@ -32,6 +44,32 @@ namespace RompecabezasFei
         {
             PaginaAnterior = paginaActual; 
             CambiarPagina(nuevaPagina);
+        }
+
+        private void AlCerrarVentana(object objetoOrigen, CancelEventArgs evento)
+        {
+            if (Dominio.CuentaJugador.Actual != null)
+            {
+                try
+                {
+                    DesconectarUsuarioDeServidor();
+                }
+                catch (CommunicationException)
+                {
+                    
+                }
+                catch (TimeoutException)
+                {
+                    
+                }
+            }
+        }
+
+        private void DesconectarUsuarioDeServidor()
+        {
+            clienteServicioGestionJugador.CerrarSesion(Dominio.CuentaJugador.
+                Actual.NombreJugador);
+            clienteServicioGestionJugador.Abort();
         }
     }
 }

@@ -51,18 +51,16 @@ namespace RompecabezasFei
         private void AccionSiguiente(object remitente, RoutedEventArgs evento)
         {
             string nombreJugador = CuadroTextoNombreJugador.Text;
-            string correo = CuadroTextoCorreoElectronico.Text;
+            string correo = CuadroTextoCorreoElectronico.Text.ToLower();
             string contrasena = CuadroContrasena.Password;
             int numeroAvatar = Convert.ToInt32(ImagenAvatarActual.Tag); 
-
-            ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
 
             if (!ExistenCamposInvalidos())
             {     
                 try
                 {
-                    if (!cliente.ExisteNombreJugador(nombreJugador) &&
-                    !cliente.ExisteCorreoElectronico(correo))
+                    if (!VentanaPrincipal.ClienteServicioGestionJugador.ExisteNombreJugador(nombreJugador) &&
+                    !VentanaPrincipal.ClienteServicioGestionJugador.ExisteCorreoElectronico(correo))
                     {
                         Dominio.CuentaJugador jugadorRegistro = new Dominio.CuentaJugador
                         {
@@ -92,7 +90,6 @@ namespace RompecabezasFei
                 || ExisteContrasenaInvalida() || !HayCoincidenciasEnContrasenas())
             {
                 resultado = true;
-                MessageBox.Show("Existen campos inválidos");
             }
 
             return resultado;
@@ -184,8 +181,8 @@ namespace RompecabezasFei
         {
             bool resultado = false;
 
-            if (Regex.IsMatch(texto, 
-                @"^[A-Za-zÁÉÍÓÚáéíóúñÑ]+(?:\s[A-Za-zÁÉÍÓÚáéíóúñÑ]+)?$") == false)
+            if (Regex.IsMatch(texto,
+                @"^[a-zA-Z0-9]+(?:\s[a-zA-Z0-9]+)?$") == false)
             {
                 resultado = true;
             }

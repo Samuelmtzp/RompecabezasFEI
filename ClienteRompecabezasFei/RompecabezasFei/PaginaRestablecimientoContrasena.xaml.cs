@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ServiceModel;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,14 +20,16 @@ namespace RompecabezasFei
         private void ActualizarContraseña(object sender, RoutedEventArgs e)
         {
             contraseña = CuadroContrasenaNueva.Password.ToString();
+
             if (!ExistenCamposInvalidos())
             {
                 if (CuadroContrasenaNueva.Password.Equals(CuadroConfirmarNuevaContrasena.Password))
                 {
                     contraseñaCifrada = EncriptadorContrasena.
-                            CalcularHashSha512(contraseña);
-                    ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
-                    bool resultadoActualizacion = cliente.ActualizarContrasena(correo, contraseñaCifrada);
+                            CalcularHashSha512(contraseña);                    
+                    bool resultadoActualizacion = VentanaPrincipal.ClienteServicioGestionJugador.ActualizarContrasena(correo, 
+                        contraseñaCifrada);
+
                     if (resultadoActualizacion)
                     {
                         MessageBox.Show("Su nueva contraseña ha sido actualizada correctamente",

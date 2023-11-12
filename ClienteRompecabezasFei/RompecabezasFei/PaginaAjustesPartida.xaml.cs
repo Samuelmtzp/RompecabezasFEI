@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -67,7 +68,7 @@ namespace RompecabezasFei
             VentanaPrincipal.CambiarPagina(new PaginaSala());
         }
 
-        private void EventoClickGestionarJugadores(object controlOrigen, System.Windows.RoutedEventArgs e)
+        private void EventoClickGestionarJugadores(object controlOrigen, RoutedEventArgs e)
         {
 
         }

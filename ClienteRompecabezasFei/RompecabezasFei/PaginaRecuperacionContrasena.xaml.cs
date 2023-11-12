@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ServiceModel;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,10 +20,11 @@ namespace RompecabezasFei
         private void Siguiente(object sender, RoutedEventArgs e)
         {
             correo = CuadroCorreo.Text;
-            ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
+            
             if (!ExistenCaracteresInvalidosParaCorreo(correo))
             {
-                if (cliente.ExisteCorreoElectronico(correo))
+                if (VentanaPrincipal.ClienteServicioGestionJugador.
+                    ExisteCorreoElectronico(correo))
                 {
                     PaginaCodigoRestablecimientoContrasena paginaCodigoRestablecimientoContrasena =
                         new PaginaCodigoRestablecimientoContrasena(correo);
@@ -30,8 +32,8 @@ namespace RompecabezasFei
                 }
                 else
                 {
-                    MessageBox.Show("El correo ingresado no existe", 
-                        "Correo inexistente", MessageBoxButton.OK);
+                    MessageBox.Show("El correo ingresado no existe", "Correo inexistente", 
+                        MessageBoxButton.OK);
                 }
             }
         }
@@ -44,6 +46,7 @@ namespace RompecabezasFei
         private bool ExistenCaracteresInvalidosParaCorreo(string textoValido)
         {
             bool caracteresInvalidos = false;
+
             if (Regex.IsMatch(textoValido, @"^[^@\s]+@[^@\s]+\.[^@\s]+$") == false)
             {
                 caracteresInvalidos = true;

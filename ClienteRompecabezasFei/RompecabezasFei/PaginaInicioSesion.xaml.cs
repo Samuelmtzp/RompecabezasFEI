@@ -6,8 +6,6 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 
 namespace RompecabezasFei
 {
@@ -21,18 +19,10 @@ namespace RompecabezasFei
         #region Métodos privados
         private void IniciarSesion(string nombreJugador, string contrasena)
         {
-            ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
-            CuentaJugador cuentaJugadorAutenticada = null;
-
-            try
-            {
-                cuentaJugadorAutenticada = cliente.IniciarSesion(nombreJugador, contrasena);
-                cliente.Close();
-            }
-            catch (EndpointNotFoundException)
-            {
-                cliente.Abort();
-            }
+            VentanaPrincipal.ClienteServicioGestionJugador = new ServicioGestionJugadorClient(
+                new InstanceContext(ServicioGestionJugadorCallback.Actual));
+            CuentaJugador cuentaJugadorAutenticada = VentanaPrincipal.
+                ClienteServicioGestionJugador.IniciarSesion(nombreJugador, contrasena);
 
             if (cuentaJugadorAutenticada != null)
             {
@@ -43,9 +33,8 @@ namespace RompecabezasFei
                     NombreJugador = cuentaJugadorAutenticada.NombreJugador,
                     NumeroAvatar = cuentaJugadorAutenticada.NumeroAvatar,
                     EsInvitado = false,
-                    ColorEstadoConectividad = Brushes.Green,
-                    FuenteImagenAvatar = GenerarFuenteImagenDeNumeroDeAvatar(
-                        cuentaJugadorAutenticada.NumeroAvatar)
+                    FuenteImagenAvatar = Utilidades.GeneradorImagenes.
+                        GenerarFuenteImagenAvatar(cuentaJugadorAutenticada.NumeroAvatar)
                 };
                 VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
             }
@@ -54,18 +43,6 @@ namespace RompecabezasFei
                 MessageBox.Show("No se pudo iniciar sesión", "Inicio de sesión cancelado",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
-
-        private BitmapImage GenerarFuenteImagenDeNumeroDeAvatar(int numeroAvatar)
-        {
-            string rutaImagen = "/Imagenes/Avatares/";
-            BitmapImage fuenteImagenAvatar = new BitmapImage();
-            fuenteImagenAvatar.BeginInit();
-            rutaImagen += numeroAvatar + ".png";
-            fuenteImagenAvatar.UriSource = new Uri(rutaImagen, UriKind.RelativeOrAbsolute);
-            fuenteImagenAvatar.EndInit();
-
-            return fuenteImagenAvatar;
         }
         #endregion
 
@@ -77,7 +54,6 @@ namespace RompecabezasFei
             {
                 NombreJugador = Properties.Resources.ETIQUETA_GENERAL_INVITADO + numeroAleatorio,
                 EsInvitado = true,
-                ColorEstadoConectividad = Brushes.Green
             };
 
             VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
@@ -115,14 +91,7 @@ namespace RompecabezasFei
                         IniciarSesion(nombreUsuario,
                             EncriptadorContrasena.CalcularHashSha512(contrasena));
                     }
-                    catch (EndpointNotFoundException)
-                    {
-                        MessageBox.Show(Properties.Resources.
-                            ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                            ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                            MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                    catch (CommunicationObjectFaultedException)
+                    catch (CommunicationException)
                     {
                         MessageBox.Show(Properties.Resources.
                             ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.

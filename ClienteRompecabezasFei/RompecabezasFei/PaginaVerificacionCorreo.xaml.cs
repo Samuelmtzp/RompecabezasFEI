@@ -39,11 +39,11 @@ namespace RompecabezasFei
         }
 
         private void EnviarCodigo()
-        {
-            ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
+        {            
             codigoGenerado = GenerarCodigo();
-            cliente.EnviarMensajeCorreo(Properties.Resources.ETIQUETA_GENERAL_ROMPECABEZASFEI, 
-                jugadorRegistro.Correo, Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ASUNTO, 
+            VentanaPrincipal.ClienteServicioGestionJugador.EnviarMensajeCorreo(Properties.Resources.
+                ETIQUETA_GENERAL_ROMPECABEZASFEI, jugadorRegistro.Correo, 
+                Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ASUNTO, 
                 Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJE + " " + codigoGenerado);
             DeshabilitarBotonEnvioCodigo();
             InicializarTemporizador();
@@ -73,16 +73,14 @@ namespace RompecabezasFei
                         NumeroAvatar = jugadorRegistro.NumeroAvatar,
                         Contrasena = contrasenaCifrada,
                         Correo = jugadorRegistro.Correo
-                    };
-                    ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
-                    bool resultadoRegistro = cliente.Registrar(nuevoJugador);
+                    };                    
+                    bool resultadoRegistro = VentanaPrincipal.ClienteServicioGestionJugador.Registrar(nuevoJugador);
 
                     if (resultadoRegistro)
                     {
                         temporizador.Stop();
                         MessageBox.Show("El registro de usuario se ha realizado correctamente",
                             "Registro realizado correctamente", MessageBoxButton.OK);
-                        cliente.Abort();
                         VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
                     }
                     else

@@ -4,17 +4,17 @@ using System.ServiceModel;
 
 namespace Contratos
 {
-    [ServiceContract]
+    [ServiceContract(CallbackContract = typeof(IServicioAmistadesCallback))]
     public interface IServicioAmistades
-    {
+    {        
         [OperationContract]
-        bool EnviarSolicitudDeAmistad(string nombreJugadorOrigen, string nombreJugadorDestino);
-
-        [OperationContract]
-        List<CuentaJugador> ObtenerJugadoresConSolicitudDeAmistadSinAceptar(string nombreJugador);
+        List<CuentaJugador> ObtenerJugadoresConSolicitudPendiente(string nombreJugador);
 
         [OperationContract]
         List<CuentaJugador> ObtenerAmigosDeJugador(string nombreJugador);
+
+        [OperationContract]
+        bool EnviarSolicitudDeAmistad(string nombreJugadorOrigen, string nombreJugadorDestino);
 
         [OperationContract]
         bool AceptarSolicitudDeAmistad(string nombreJugadorOrigen, string nombreJugadorDestino);
@@ -23,16 +23,35 @@ namespace Contratos
         bool RechazarSolicitudDeAmistad(string nombreJugadorOrigen, string nombreJugadorDestino);
 
         [OperationContract]
-        bool ExisteSolicitudDeAmistadSinAceptar(string nombreJugadorOrigen, 
+        bool ExisteSolicitudDeAmistad(string nombreJugadorOrigen, 
             string nombreJugadorDestino);
 
         [OperationContract]
         bool ExisteAmistadConJugador(string nombreJugadorA, string nombreJugadorB);
 
         [OperationContract]
-        bool RegistrarNuevaAmistadEntreJugadores(string nombreJugadorA, string nombreJugadorB);
+        bool EliminarAmistadEntreJugadores(string nombreJugadorA, string nombreJugadorB);
 
         [OperationContract]
-        bool EliminarAmistadEntreJugadores(string nombreJugadorA, string nombreJugadorB);
+        bool SuscribirJugadorANotificacionesAmistades(string nombreJugador);
+
+        [OperationContract]
+        bool DesuscribirJugadorDeNotificacionesAmistades(string nombreJugador);
+
+        [OperationContract]
+        bool EsJugadorSuscritoANotififacionesDeAmistades(string nombreJugador);
+    }
+
+    [ServiceContract]
+    public interface IServicioAmistadesCallback
+    {
+        [OperationContract(IsOneWay = true)]
+        void NotificarSolicitudAmistadEnviada(CuentaJugador cuentaNuevaSolicitud);
+
+        [OperationContract(IsOneWay = true)]
+        void NotificarSolicitudAmistadAceptada(CuentaJugador cuentaNuevoAmigo);
+
+        [OperationContract(IsOneWay = true)]
+        void NotificarAmistadEliminada(string nombreAmigoEliminacion);
     }
 }

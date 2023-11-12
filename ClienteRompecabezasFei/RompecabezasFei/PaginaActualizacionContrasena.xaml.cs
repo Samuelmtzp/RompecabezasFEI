@@ -34,41 +34,52 @@ namespace RompecabezasFei
                 if (!EsLaMismaContrasena(contrasenaAnterior, nuevaContrasena))
                 {
                     if (!ExistenDatosInvalidos(nuevaContrasena, confirmacionContrasena))
-                    {
-                        ServicioGestionJugadorClient cliente = 
-                            new ServicioGestionJugadorClient();
+                    {                        
                         string correoJugador = Dominio.CuentaJugador.Actual.Correo;
                         string nuevaContrasenaCifrada = EncriptadorContrasena.
                             CalcularHashSha512(nuevaContrasena);
-                        bool actualizacionRealizada = false;
 
                         try
                         {
-                            actualizacionRealizada = cliente.ActualizarContrasena(correoJugador, 
-                                nuevaContrasenaCifrada);
-                            cliente.Close();
+                            ActualizarContrasena(correoJugador, nuevaContrasenaCifrada);
                         }
-                        catch (EndpointNotFoundException)
+                        catch (CommunicationException)
                         {
-                            cliente.Abort();
+                            MessageBox.Show(Properties.Resources.
+                                ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                                ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                                MessageBoxButton.OK, MessageBoxImage.Error);
                         }
-
-                        if (actualizacionRealizada)
+                        catch (TimeoutException)
                         {
-                            MessageBox.Show("La actualización de la contraseña " +
-                                "se ha realizado correctamente",
-                                "Actualización realizada correctamente",
-                                MessageBoxButton.OK);
-                            Dominio.CuentaJugador.Actual.Contrasena = nuevaContrasenaCifrada;
-                            VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
-                        }
-                        else
-                        {
-                            MessageBox.Show("La actualización de la contraseña no se ha realizado",
-                                   "Error al actualizar información", MessageBoxButton.OK);
+                            MessageBox.Show(Properties.Resources.
+                                ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                                ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                                MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }
                 }
+            }
+        }
+
+        private void ActualizarContrasena(string correo, string nuevaContrasena)
+        {            
+            bool resultado = VentanaPrincipal.ClienteServicioGestionJugador.
+                ActualizarContrasena(correo, nuevaContrasena);
+            
+            if (resultado)
+            {
+                MessageBox.Show("La actualización de la contraseña " +
+                    "se ha realizado correctamente",
+                    "Actualización realizada correctamente",
+                    MessageBoxButton.OK);
+                Dominio.CuentaJugador.Actual.Contrasena = nuevaContrasena;
+                VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
+            }
+            else
+            {
+                MessageBox.Show("La actualización de la contraseña no se ha realizado",
+                       "Error al actualizar información", MessageBoxButton.OK);
             }
         }
         #endregion
@@ -93,7 +104,7 @@ namespace RompecabezasFei
 
             if (!EsLaMismaContrasena(nuevaContrasena, confirmacionContrasena))
             {
-                if (ExistenCamposVacios() || ExisteNuevaContrasenaInvalida(nuevaContrasena) || 
+                if (ExistenCamposVacios() || ExisteNuevaContrasenaInvalida(nuevaContrasena) ||
                     ExistenLongitudesExcedidasEnNuevaContrasena())
                 {
                     resultado = true;
