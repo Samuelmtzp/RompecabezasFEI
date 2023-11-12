@@ -19,7 +19,7 @@ namespace RompecabezasFei
             string correo, string contrasena, string confirmacionContrasena)
         {
             InitializeComponent();
-            CargarDatosEdicion(numeroAvatar, nombreJugador, correo, 
+            CargarDatosEdicion(numeroAvatar, nombreJugador, correo,
                 contrasena, confirmacionContrasena);
         }
 
@@ -53,10 +53,10 @@ namespace RompecabezasFei
             string nombreJugador = CuadroTextoNombreJugador.Text;
             string correo = CuadroTextoCorreoElectronico.Text.ToLower();
             string contrasena = CuadroContrasena.Password;
-            int numeroAvatar = Convert.ToInt32(ImagenAvatarActual.Tag); 
+            int numeroAvatar = Convert.ToInt32(ImagenAvatarActual.Tag);
 
             if (!ExistenCamposInvalidos())
-            {     
+            {
                 try
                 {
                     if (!VentanaPrincipal.ClienteServicioGestionJugador.ExisteNombreJugador(nombreJugador) &&
@@ -77,7 +77,7 @@ namespace RompecabezasFei
                 catch (EndpointNotFoundException)
                 {
                     // log
-                }                
+                }
             }
         }
 
@@ -90,6 +90,7 @@ namespace RompecabezasFei
                 || ExisteContrasenaInvalida() || !HayCoincidenciasEnContrasenas())
             {
                 resultado = true;
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSINVALIDOS);
             }
 
             return resultado;
@@ -99,14 +100,14 @@ namespace RompecabezasFei
         {
             bool resultado = false;
 
-            if (string.IsNullOrWhiteSpace(CuadroTextoNombreJugador.Text) 
-                || string.IsNullOrWhiteSpace(CuadroTextoCorreoElectronico.Text) 
-                || string.IsNullOrWhiteSpace(CuadroContrasena.Password) 
+            if (string.IsNullOrWhiteSpace(CuadroTextoNombreJugador.Text)
+                || string.IsNullOrWhiteSpace(CuadroTextoCorreoElectronico.Text)
+                || string.IsNullOrWhiteSpace(CuadroContrasena.Password)
                 || string.IsNullOrWhiteSpace(CuadroConfirmacionContrasena.Password))
             {
                 resultado = true;
-                MessageBox.Show("No puedes dejar campos vacíos", 
-                    "Campos vacíos", MessageBoxButton.OK);
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS,
+                    Properties.Resources.ETIQUETA_VALIDACION_CAMPOSVACIOS, MessageBoxButton.OK);
             }
 
             return resultado;
@@ -116,13 +117,13 @@ namespace RompecabezasFei
         {
             bool resultado = false;
 
-            if (CuadroTextoNombreJugador.Text.Length > 15 || 
-                CuadroTextoCorreoElectronico.Text.Length > 65 || 
+            if (CuadroTextoNombreJugador.Text.Length > 15 ||
+                CuadroTextoCorreoElectronico.Text.Length > 65 ||
                 CuadroContrasena.Password.Length > 45)
             {
                 resultado = true;
-                MessageBox.Show("Corrige los campos excedidos", 
-                    "Campos excedidos", MessageBoxButton.OK);
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSEXCEDIDOS,
+                   Properties.Resources.ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS, MessageBoxButton.OK);
             }
 
             return resultado;
@@ -134,15 +135,15 @@ namespace RompecabezasFei
 
             if (ExistenCaracteresInvalidos(CuadroTextoNombreJugador.Text))
             {
-                MessageBox.Show("El nombre de usuario que has ingresado es inválido", 
-                    "Nombre de usuario inválido", MessageBoxButton.OK);
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJENOMBREUSUARIOINVALIDO,
+                     Properties.Resources.ETIQUETA_VALIDACION_NOMBREUSUARIOINVALIDO, MessageBoxButton.OK);
                 resultado = true;
             }
 
             if (ExistenCaracteresInvalidosParaCorreo(CuadroTextoCorreoElectronico.Text))
             {
-                MessageBox.Show("El correo electrónico que has ingresado es inválido", 
-                    "Correo electrónico inválido", MessageBoxButton.OK);
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECORREOINVALIDO,
+                   Properties.Resources.ETIQUETA_VALIDACION_CORREOINVALIDO, MessageBoxButton.OK);
                 resultado = true;
             }
 
@@ -152,13 +153,13 @@ namespace RompecabezasFei
         private bool ExisteContrasenaInvalida()
         {
             bool resultado = false;
-            
-            if (Regex.IsMatch(CuadroContrasena.Password, 
-                "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$") 
+
+            if (Regex.IsMatch(CuadroContrasena.Password,
+                "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$")
                 == false)
             {
-                MessageBox.Show("La contraseña que has ingresado es inválida", 
-                    "Contraseña inválida", MessageBoxButton.OK);
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECONTRASENAINVALIDA,
+                    Properties.Resources.ETIQUETA_VALIDACION_CONTRASENAINVALIDA, MessageBoxButton.OK);
                 resultado = true;
             }
 
@@ -193,19 +194,21 @@ namespace RompecabezasFei
         private bool HayCoincidenciasEnContrasenas()
         {
             bool resultado = false;
-            
+
             if (CuadroContrasena.Password == CuadroConfirmacionContrasena.Password)
             {
                 resultado = true;
             }
             else
             {
-                MessageBox.Show("Las contraseñas no coinciden", 
-                    "Contraseñas diferentes", MessageBoxButton.OK);
+                MessageBox.Show(
+                    Properties.Resources.ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE,
+                Properties.Resources.ETIQUETA_VALIDACION_CONTRASENADIFERENTE,
+                MessageBoxButton.OK);
             }
 
             return resultado;
         }
-        #endregion 
+        #endregion
     }
 }

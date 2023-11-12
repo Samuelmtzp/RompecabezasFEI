@@ -55,9 +55,9 @@ namespace RompecabezasFei
 
                 if (actualizacionRealizada)
                 {
-                    MessageBox.Show("La actualización de la información se ha " +
-                        "realizado correctamente",
-                        "Actualización realizada correctamente",
+                    MessageBox.Show(
+                      Properties.Resources.ETIQUETA_ACTUALIZACIONINFORMACION_MENSAJEACTUALIZACION,
+                     Properties.Resources.ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONREALIZADA,
                         MessageBoxButton.OK);
                     Dominio.CuentaJugador.Actual.NumeroAvatar = nuevoNumeroAvatar;
                     Dominio.CuentaJugador.Actual.NombreJugador = nuevoNombre;
@@ -67,16 +67,18 @@ namespace RompecabezasFei
                 }
                 else
                 {
-                    MessageBox.Show("La actualización de la información " +
-                        "no se ha realizado",
-                        "Error al actualizar información",
+                    MessageBox.Show(
+                   Properties.Resources.ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONNOREALIZADA,
+                        Properties.Resources.ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACION,
                         MessageBoxButton.OK);
                 }
             }
             else
             {
-                MessageBox.Show("El nombre no se encuentra disponible",
-                    "Error al actualizar información", MessageBoxButton.OK);
+                MessageBox.Show(
+                    Properties.Resources.ETIQUETA_ACTUALIZACIONINFORMACION_NOMBRENODISPONIBLE,
+                    Properties.Resources.ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACION, 
+                    MessageBoxButton.OK);
             }
         }        
         #endregion
@@ -173,8 +175,9 @@ namespace RompecabezasFei
             if (string.IsNullOrWhiteSpace(cuadroTextoNombreUsuario.Text))
             {
                 resultado = true;
-                MessageBox.Show("No puedes dejar campos vacíos",
-                    "Campos vacíos", MessageBoxButton.OK);
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS,
+                    Properties.Resources.ETIQUETA_VALIDACION_CAMPOSVACIOS, 
+                    MessageBoxButton.OK);
             }
 
             return resultado;
@@ -187,8 +190,9 @@ namespace RompecabezasFei
             if (cuadroTextoNombreUsuario.Text.Length > 15)
             {
                 resultado = true;
-                MessageBox.Show("Corrige los campos excedidos",
-                    "Campos excedidos", MessageBoxButton.OK);
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSEXCEDIDOS,
+                    Properties.Resources.ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS, 
+                    MessageBoxButton.OK);
             }
 
             return resultado;
@@ -201,8 +205,10 @@ namespace RompecabezasFei
             if (ExistenCaracteresInvalidos(cuadroTextoNombreUsuario.Text))
             {
                 resultado = true; 
-                MessageBox.Show("El nombre de usuario que has ingresado es inválido",
-                    "Nombre de usuario inválido", MessageBoxButton.OK);                
+                MessageBox.Show(
+                    Properties.Resources.ETIQUETA_VALIDACION_MENSAJENOMBREUSUARIOINVALIDO,
+                    Properties.Resources.ETIQUETA_VALIDACION_NOMBREUSUARIOINVALIDO, 
+                    MessageBoxButton.OK);                
             }
 
             return resultado;

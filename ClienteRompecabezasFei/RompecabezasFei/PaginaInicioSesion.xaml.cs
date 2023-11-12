@@ -1,4 +1,5 @@
-﻿using RompecabezasFei.ServicioRompecabezasFei;
+﻿using log4net;
+using RompecabezasFei.ServicioRompecabezasFei;
 using Security;
 using System;
 using System.ServiceModel;
@@ -6,11 +7,16 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using Registros;
 
 namespace RompecabezasFei
 {
     public partial class PaginaInicioSesion : Page
     {
+        private static readonly ILog Log = Registros.Registros.GetLogger();
+
         public PaginaInicioSesion()
         {
             InitializeComponent();
@@ -40,7 +46,8 @@ namespace RompecabezasFei
             }
             else
             {
-                MessageBox.Show("No se pudo iniciar sesión", "Inicio de sesión cancelado",
+                MessageBox.Show(Properties.Resources.ETIQUETA_INICIOSESION_MENSAJEINICIOSESIONERROR,
+                    Properties.Resources.ETIQUETA_INICIOSESION_INICIOSESIONCANCELADO,
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
@@ -91,15 +98,26 @@ namespace RompecabezasFei
                         IniciarSesion(nombreUsuario,
                             EncriptadorContrasena.CalcularHashSha512(contrasena));
                     }
-                    catch (CommunicationException)
+                    catch (EndpointNotFoundException ex)
                     {
+                        Registros.Registros.escribirRegistro(ex.Message);
+                        //Log.Error($"{ex.Message}");
                         MessageBox.Show(Properties.Resources.
                             ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                             ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
                             MessageBoxButton.OK, MessageBoxImage.Error);
                     }
-                    catch (TimeoutException)
+                    catch (CommunicationObjectFaultedException ex)
                     {
+                        Log.Error($"{ex.Message}");
+                        MessageBox.Show(Properties.Resources.
+                            ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                            ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    catch (TimeoutException ex)
+                    {
+                        Log.Error($"{ex.Message}");
                         MessageBox.Show(Properties.Resources.
                             ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                             ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
@@ -108,13 +126,15 @@ namespace RompecabezasFei
                 }
                 else
                 {
-                    MessageBox.Show("Alguno de los campos es inválido",
-                        "Campos inválidos", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSINVALIDOS,
+                        Properties.Resources.ETIQUETA_VALIDACION_CAMPOSINVALIDOS,
+                            MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Alguno de los campos está vacío", "Campos vacíos",
+                MessageBox.Show(Properties.Resources.ETIQUETA_GENERAL_MENSAJECAMPOSVACIOS,
+                                    Properties.Resources.ETIQUETA_VALIDACION_CAMPOSVACIOS,
                             MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
@@ -125,7 +145,7 @@ namespace RompecabezasFei
         {
             bool resultado = false;
 
-            if (Regex.IsMatch(nombreJugador, @"^[a-zA-Z0-9]+(?:\s[a-zA-Z0-9]+)?$") && 
+            if (Regex.IsMatch(nombreJugador, @"^[a-zA-Z0-9]+(?:\s[a-zA-Z0-9]+)?$") &&
                 Regex.IsMatch(contrasena, "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$"))
             {
                 resultado = true;
@@ -137,10 +157,12 @@ namespace RompecabezasFei
         private bool ExistenLongitudesExcedidas(string nombreJugador, string contrasena)
         {
             bool resultado = false;
-            
+
             if (nombreJugador.Length > 15 || contrasena.Length > 45)
             {
                 resultado = true;
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJELONGITUDEXCEDIDA,
+                   Properties.Resources.ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS, MessageBoxButton.OK);
             }
 
             return resultado;

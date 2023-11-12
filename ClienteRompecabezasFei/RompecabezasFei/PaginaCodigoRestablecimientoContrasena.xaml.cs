@@ -66,7 +66,8 @@ namespace RompecabezasFei
                 }
                 else
                 {
-                    MessageBox.Show("El codigo ingresado no coincide", "Codigo no coincide",
+                    MessageBox.Show(Properties.Resources.ETIQUETA_CODIGO_MENSAJECODIGONOCOINCIDE, 
+                        Properties.Resources.ETIQUETA_CODIGO_CODIGONOCOINCIDE,
                         MessageBoxButton.OK);
                 }
             }

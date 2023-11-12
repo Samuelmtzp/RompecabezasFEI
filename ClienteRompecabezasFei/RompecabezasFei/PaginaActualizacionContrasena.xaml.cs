@@ -123,8 +123,9 @@ namespace RompecabezasFei
                 string.IsNullOrWhiteSpace(cuadroConfirmacionContrasena.Password))
             {
                 resultado = true;
-                MessageBox.Show("No puedes dejar campos vacíos",
-                    "Campos vacíos", MessageBoxButton.OK);
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS,
+                    Properties.Resources.ETIQUETA_VALIDACION_CAMPOSVACIOS, 
+                    MessageBoxButton.OK);
             }
             
             return resultado;
@@ -138,8 +139,9 @@ namespace RompecabezasFei
                 "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$") == false)
             {
                 resultado = true; 
-                MessageBox.Show("La nueva contraseña que has ingresado es inválida",
-                    "Contraseña inválida", MessageBoxButton.OK);                
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECONTRASENANUEVA,
+                    Properties.Resources.ETIQUETA_VALIDACION_CONTRASENAINVALIDA, 
+                    MessageBoxButton.OK);                
             }
 
             return resultado;
@@ -152,8 +154,9 @@ namespace RompecabezasFei
             if (cuadroNuevaContrasena.Password.Length > 45)
             {
                 resultado = true;
-                MessageBox.Show("La contraseña ingresada excede la longitud máxima", 
-                    "Longitud excedida", MessageBoxButton.OK);
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_CONTRASENAEXCEDIDA,
+                     Properties.Resources.ETIQUETA_VALIDACION_LONGITUDEXCEDIDA, 
+                     MessageBoxButton.OK);
             }
 
             return resultado;

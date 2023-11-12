@@ -10,8 +10,8 @@
 
 namespace RompecabezasFei.Properties {
     using System;
-    
-    
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -23,15 +23,15 @@ namespace RompecabezasFei.Properties {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
-        
+
         private static global::System.Resources.ResourceManager resourceMan;
-        
+
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
+
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-        
+
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
@@ -45,7 +45,7 @@ namespace RompecabezasFei.Properties {
                 return resourceMan;
             }
         }
-        
+
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
@@ -59,7 +59,7 @@ namespace RompecabezasFei.Properties {
                 resourceCulture = value;
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Cambiar avatar.
         /// </summary>
@@ -68,7 +68,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_ACTUALIZACIONINFORMACION_CAMBIARAVATAR", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Activada.
         /// </summary>
@@ -77,7 +77,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_AJUSTES_ACTIVADA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Desactivada.
         /// </summary>
@@ -86,7 +86,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_AJUSTES_DESACTIVADA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Agregar.
         /// </summary>
@@ -95,7 +95,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_AMIGOS_AGREGAR", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Enviar solicitud.
         /// </summary>
@@ -104,7 +104,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_AMIGOS_ENVIARSOLICITUD", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Rechazar.
         /// </summary>
@@ -113,7 +113,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_AMIGOS_RECHAZAR", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Remover.
         /// </summary>
@@ -122,7 +122,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_AMIGOS_REMOVER", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Solicitudes.
         /// </summary>
@@ -131,7 +131,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_AMIGOS_SOLICITUDES", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Código de restablecimiento inválido.
         /// </summary>
@@ -140,7 +140,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_CODIGO_INVALIDO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Reenviar código.
         /// </summary>
@@ -149,7 +149,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_CONFIRMACIONCORREO_REENVIARCODIGO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Actualizar información.
         /// </summary>
@@ -158,7 +158,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_INFORMACIONJUGADOR_ACTUALIZARINFORMACION", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Cambiar contraseña.
         /// </summary>
@@ -167,7 +167,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_INFORMACIONJUGADOR_CAMBIARCONTRASENA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Iniciar sesión.
         /// </summary>
@@ -176,7 +176,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_INICIOSESION_INICIARSESION", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Modo invitado.
         /// </summary>
@@ -185,7 +185,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_INICIOSESION_INVITADO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Crear nueva sala.
         /// </summary>
@@ -194,7 +194,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_MENUPRINCIPAL_CREACIONSALA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Unirse a sala.
         /// </summary>
@@ -203,7 +203,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_MENUPRINCIPAL_UNIRSESALA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Ajustes de partida.
         /// </summary>
@@ -212,7 +212,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_OPCIONESSALA_AJUSTESPARTIDA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Convertir en anfitrión.
         /// </summary>
@@ -221,7 +221,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_OPCIONESSALA_CONVERTIRANFITRION", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Difícil.
         /// </summary>
@@ -230,7 +230,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_OPCIONESSALA_DIFICIL", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Expulsar.
         /// </summary>
@@ -239,7 +239,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_OPCIONESSALA_EXPULSAR", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Fácil.
         /// </summary>
@@ -248,7 +248,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_OPCIONESSALA_FACIL", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Invitar amigo.
         /// </summary>
@@ -257,7 +257,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_OPCIONESSALA_INVITACIONAMIGO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Invitar por correo.
         /// </summary>
@@ -266,7 +266,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_OPCIONESSALA_INVITACIONCORREO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Invitar a sala.
         /// </summary>
@@ -275,7 +275,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_OPCIONESSALA_INVITACIONSALA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Media.
         /// </summary>
@@ -284,7 +284,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_OPCIONESSALA_MEDIA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Minutos.
         /// </summary>
@@ -293,7 +293,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_OPCIONESSALA_MINUTOS", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Abandonar partida.
         /// </summary>
@@ -302,7 +302,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_PARTIDA_ABANDONOPARTIDA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Actualizar contraseña.
         /// </summary>
@@ -311,7 +311,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_RESTABLECIMIENTOCONTRASENA_ACTUALIZARCONTRASENA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Enviar.
         /// </summary>
@@ -320,7 +320,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_SALA_ENVIARMENSAJE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Iniciar partida.
         /// </summary>
@@ -329,7 +329,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_SALA_INICIARPARTIDA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Opciones sala.
         /// </summary>
@@ -338,7 +338,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_SALA_OPCIONESSALA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Unirse.
         /// </summary>
@@ -347,7 +347,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("BOTON_UNIRSESALA_UNIRSE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Español.
         /// </summary>
@@ -356,7 +356,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("COLUMNA_AJUSTES_IDIOMAESPANOL", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Inglés.
         /// </summary>
@@ -365,7 +365,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("COLUMNA_AJUSTES_IDIOMAINGLES", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to ¿Estás seguro de que quieres abandonar la partida?.
         /// </summary>
@@ -374,7 +374,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_ABANDONOPARTIDA_MENSAJE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Confirmación de abandono de partida.
         /// </summary>
@@ -383,7 +383,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_ABANDONOPARTIDA_TITULO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to ¿Estás seguro de que quieres abandonar la sala?.
         /// </summary>
@@ -392,7 +392,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_ABANDONOSALA_MENSAJE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Confirmación de abandono de sala.
         /// </summary>
@@ -401,7 +401,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_ABANDONOSALA_TITULO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Contraseña actual.
         /// </summary>
@@ -410,7 +410,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_ACTUALIZACIONCONTRASENA_CONTRASENAACTUAL", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Actualizar información.
         /// </summary>
@@ -419,16 +419,61 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONINFORMACION", resourceCulture);
             }
         }
-        
+
         /// <summary>
-        ///   Looks up a localized string similar to Idioma.
+        ///   Busca una cadena traducida similar a La actualización de la información no se ha realizado.
+        /// </summary>
+        public static string ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONNOREALIZADA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONNOREALIZADA", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a La actualización de la información se ha realizado correctamente.
+        /// </summary>
+        public static string ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONREALIZADA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONREALIZADA", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error al actualizar información.
+        /// </summary>
+        public static string ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACION {
+            get {
+                return ResourceManager.GetString("ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACION", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Actualización realizada correctamente.
+        /// </summary>
+        public static string ETIQUETA_ACTUALIZACIONINFORMACION_MENSAJEACTUALIZACION {
+            get {
+                return ResourceManager.GetString("ETIQUETA_ACTUALIZACIONINFORMACION_MENSAJEACTUALIZACION", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a El nombre no se encuentra disponible.
+        /// </summary>
+        public static string ETIQUETA_ACTUALIZACIONINFORMACION_NOMBRENODISPONIBLE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_ACTUALIZACIONINFORMACION_NOMBRENODISPONIBLE", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Idioma.
         /// </summary>
         public static string ETIQUETA_AJUSTES_IDIOMA {
             get {
                 return ResourceManager.GetString("ETIQUETA_AJUSTES_IDIOMA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Música.
         /// </summary>
@@ -437,7 +482,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_AJUSTES_MUSICA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Desconectado.
         /// </summary>
@@ -446,7 +491,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_AMIGOS_DESCONECTADO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to En partida.
         /// </summary>
@@ -455,7 +500,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_AMIGOS_ENPARTIDA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Para mandar una solicitud de amistad a un jugador, debes de ingresar su nombre de usuario.
         /// </summary>
@@ -464,7 +509,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_AMIGOS_INSTRUCCIONSOLICITUDAMISTAD", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Usuario no encontrado.
         /// </summary>
@@ -473,7 +518,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_AMIGOS_USUARIONOENCONTRADO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Si regresas, el proceso de actualización de información se cancelará ¿Estás seguro de que deseas regresar?.
         /// </summary>
@@ -482,7 +527,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_CANCELACIONACTUALIZACIONINFO_MENSAJE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Confirmación cancelación actualización de información.
         /// </summary>
@@ -491,7 +536,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_CANCELACIONACTUALIZACIONINFO_TITULO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to ¿Estás seguro de que desea cancelar el proceso de registro? La información ingresada se descartará.
         /// </summary>
@@ -500,7 +545,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_CANCELACIONREGISTRO_MENSAJE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Confirmación cancelación registro de jugador.
         /// </summary>
@@ -509,7 +554,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_CANCELACIONREGISTRO_TITULO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Si regresas, el proceso de restablecimiento de contraseña se cancelará ¿Estás seguro de que desea regresar?.
         /// </summary>
@@ -518,7 +563,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_CANCELACIONRESTABLECIMIENTO_MENSAJE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Confirmación cancelación restablecimiento contraseña.
         /// </summary>
@@ -527,7 +572,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_CANCELACIONRESTABLECIMIENTO_TITULO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to ¿Estás seguro de que quieres cerrar la sesión?.
         /// </summary>
@@ -536,7 +581,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_CERRARSESION_MENSAJE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Confirmación de cerrar sesión.
         /// </summary>
@@ -545,16 +590,25 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_CERRARSESION_TITULO", resourceCulture);
             }
         }
-        
+
         /// <summary>
-        ///   Looks up a localized string similar to Código de restablecimiento de contraseña.
+        ///   Busca una cadena traducida similar a Codigo no coincide.
+        /// </summary>
+        public static string ETIQUETA_CODIGO_CODIGONOCOINCIDE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_CODIGO_CODIGONOCOINCIDE", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Código de restablecimiento de contraseña.
         /// </summary>
         public static string ETIQUETA_CODIGO_CODIGORESTABLECIMIENTO {
             get {
                 return ResourceManager.GetString("ETIQUETA_CODIGO_CODIGORESTABLECIMIENTO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Revisa tu bandeja de entrada e introduce el código de restablecimiento de contraseña que te hemos enviado.
         /// </summary>
@@ -563,7 +617,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_CODIGO_INSTRUCCIONCODIGO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Introduce el código.
         /// </summary>
@@ -572,16 +626,25 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_CODIGO_INTRODUCECODIGO", resourceCulture);
             }
         }
-        
+
         /// <summary>
-        ///   Looks up a localized string similar to Código de confirmación.
+        ///   Busca una cadena traducida similar a El codigo ingresado no coincide.
+        /// </summary>
+        public static string ETIQUETA_CODIGO_MENSAJECODIGONOCOINCIDE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_CODIGO_MENSAJECODIGONOCOINCIDE", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Código de confirmación.
         /// </summary>
         public static string ETIQUETA_CONFIRMACIONCORREO_CODIGOCONFIRMACION {
             get {
                 return ResourceManager.GetString("ETIQUETA_CONFIRMACIONCORREO_CODIGOCONFIRMACION", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Confirmación de correo electrónico.
         /// </summary>
@@ -590,7 +653,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_CONFIRMACIONCORREO_CONFIRMACIONCORREO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Para completar tu registro, te enviamos un código a tu correo electrónico, ingresalo a continuación.
         /// </summary>
@@ -599,7 +662,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_CONFIRMACIONCORREO_INSTRUCCIONCORREO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Terminar.
         /// </summary>
@@ -608,7 +671,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_CONFIRMACIONCORREO_TERMINAR", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to La contraseña se ha actualizado correctamente.
         /// </summary>
@@ -617,7 +680,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_CONTRASENAACTUALIZADA_MENSAJE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Contraseña actualizada.
         /// </summary>
@@ -626,7 +689,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_CONTRASENAACTUALIZADA_TITULO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to ¿Estás seguro de que quieres convertir al jugador en anfitrión?.
         /// </summary>
@@ -635,7 +698,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_CONVERTIRANFITRION_MENSAJE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Confirmación de convertir jugador en anfitrión.
         /// </summary>
@@ -644,7 +707,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_CONVERTIRANFITRION_TITULO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to ¿Está seguro de que quieres eliminar al jugador de tu lista de amigos?.
         /// </summary>
@@ -653,7 +716,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_ELIMINACIONAMIGO_MENSAJE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Confirmación eliminación amigo.
         /// </summary>
@@ -662,7 +725,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_ELIMINACIONAMIGO_TITULO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to No se pudo establecer una conexión con la base de datos. Por favor, inténtelo más tarde..
         /// </summary>
@@ -671,7 +734,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_ERRORCONEXIONBASEDEDATOS_MENSAJE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Error de conexión base de datos.
         /// </summary>
@@ -680,7 +743,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_ERRORCONEXIONBASEDEDATOS_TITULO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to No se pudo establecer una conexión con el servidor. Por favor, inténtelo más tarde..
         /// </summary>
@@ -689,7 +752,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Error de conexión con el servidor.
         /// </summary>
@@ -698,7 +761,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to ¿Estás seguro de que quieres expulsar al jugador?.
         /// </summary>
@@ -707,7 +770,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_EXPULSIONJUGADOR_MENSAJE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Confirmación expulsión de jugador.
         /// </summary>
@@ -716,7 +779,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_EXPULSIONJUGADOR_TITULO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Aceptar.
         /// </summary>
@@ -725,7 +788,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_GENERAL_ACEPTAR", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Actualizar contraseña.
         /// </summary>
@@ -734,7 +797,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_GENERAL_ACTUALIZACIONCONTRASENA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Ajustes.
         /// </summary>
@@ -743,7 +806,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_GENERAL_AJUSTES", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Amigos.
         /// </summary>
@@ -752,7 +815,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_GENERAL_AMIGOS", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Cancelar.
         /// </summary>
@@ -761,7 +824,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_GENERAL_CANCELAR", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Código de sala.
         /// </summary>
@@ -770,7 +833,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_GENERAL_CODIGOSALA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Confirmar nueva contraseña.
         /// </summary>
@@ -779,7 +842,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_GENERAL_CONFIRMACIONCONTRASENA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Confirmar.
         /// </summary>
@@ -788,7 +851,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_GENERAL_CONFIRMAR", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Contraseña.
         /// </summary>
@@ -797,7 +860,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_GENERAL_CONTRASENA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Contraseña inválida.
         /// </summary>
@@ -806,7 +869,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_GENERAL_CONTRASENAINVALIDA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Correo electrónico.
         /// </summary>
@@ -815,7 +878,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_GENERAL_CORREO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to En línea.
         /// </summary>
@@ -824,7 +887,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_GENERAL_ENLINEA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Guardar cambios.
         /// </summary>
@@ -833,7 +896,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_GENERAL_GUARDARCAMBIOS", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Invitado.
         /// </summary>
@@ -842,7 +905,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_GENERAL_INVITADO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Jugadores.
         /// </summary>
@@ -851,16 +914,25 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_GENERAL_JUGADORES", resourceCulture);
             }
         }
-        
+
         /// <summary>
-        ///   Looks up a localized string similar to Nombre de jugador.
+        ///   Busca una cadena traducida similar a Alguno de los campos está vacío.
+        /// </summary>
+        public static string ETIQUETA_GENERAL_MENSAJECAMPOSVACIOS {
+            get {
+                return ResourceManager.GetString("ETIQUETA_GENERAL_MENSAJECAMPOSVACIOS", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre de jugador.
         /// </summary>
         public static string ETIQUETA_GENERAL_NOMBREJUGADOR {
             get {
                 return ResourceManager.GetString("ETIQUETA_GENERAL_NOMBREJUGADOR", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Nueva contraseña.
         /// </summary>
@@ -869,7 +941,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_GENERAL_NUEVACONTRASENA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to La contraseña debe ser de al menos 8 caracteres, debes incluir letras mayúsculas, minúsculas y números.
         /// </summary>
@@ -878,7 +950,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_GENERAL_REQUISITOSCONTRASENA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Rompecabezas FEI.
         /// </summary>
@@ -887,7 +959,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_GENERAL_ROMPECABEZASFEI", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Siguiente.
         /// </summary>
@@ -896,7 +968,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_GENERAL_SIGUIENTE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Usuario existente.
         /// </summary>
@@ -905,7 +977,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_GENERAL_USUARIOEXISTENTE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to La información se ha actualizado correctamente.
         /// </summary>
@@ -914,7 +986,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_INFORMACIONACTUALIZADA_MENSAJE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Información actualizada.
         /// </summary>
@@ -923,7 +995,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_INFORMACIONACTUALIZADA_TITULO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Partidas ganadas.
         /// </summary>
@@ -932,7 +1004,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_INFORMACIONJUGADOR_PARTIDASGANADAS", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Partidas jugadas.
         /// </summary>
@@ -941,7 +1013,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_INFORMACIONJUGADOR_PARTIDASJUGADAS", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Contraseña incorrecta.
         /// </summary>
@@ -950,16 +1022,34 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_INICIOSESION_CONTRASENAINCORRECTA", resourceCulture);
             }
         }
-        
+
         /// <summary>
-        ///   Looks up a localized string similar to ¿Olvidaste tu contraseña?.
+        ///   Busca una cadena traducida similar a Inicio de sesión cancelado.
+        /// </summary>
+        public static string ETIQUETA_INICIOSESION_INICIOSESIONCANCELADO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_INICIOSESION_INICIOSESIONCANCELADO", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se pudo iniciar sesión.
+        /// </summary>
+        public static string ETIQUETA_INICIOSESION_MENSAJEINICIOSESIONERROR {
+            get {
+                return ResourceManager.GetString("ETIQUETA_INICIOSESION_MENSAJEINICIOSESIONERROR", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¿Olvidaste tu contraseña?.
         /// </summary>
         public static string ETIQUETA_INICIOSESION_RECUPERACIONCONTRASENA {
             get {
                 return ResourceManager.GetString("ETIQUETA_INICIOSESION_RECUPERACIONCONTRASENA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to ¿No tienes una cuenta? Registrate aquí.
         /// </summary>
@@ -968,7 +1058,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_INICIOSESION_REGISTRO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Usuario incorrecto.
         /// </summary>
@@ -977,7 +1067,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_INICIOSESION_USUARIOINCORRECTO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to te ha invitado a su sala. ¿Deseas unirte?.
         /// </summary>
@@ -986,7 +1076,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_INVITACIONSALA_MENSAJE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Invitación a sala.
         /// </summary>
@@ -995,7 +1085,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_INVITACIONSALA_TITULO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to La invitación de sala se ha enviado correctamente.
         /// </summary>
@@ -1004,7 +1094,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_INVITACIONSALAENVIADA_MENSAJE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Invitación a sala enviada.
         /// </summary>
@@ -1013,7 +1103,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_INVITACIONSALAENVIADA_TITULO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to se ha unido a la sala!.
         /// </summary>
@@ -1022,7 +1112,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_MENSAJESALA_BIENVENIDA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to ha abandonado la sala!.
         /// </summary>
@@ -1031,7 +1121,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_MENSAJESALA_DESPEDIDA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Cerrar sesión.
         /// </summary>
@@ -1040,7 +1130,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_MENUPRINCIPAL_CERRARSESION", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Mi perfil.
         /// </summary>
@@ -1049,7 +1139,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_MENUPRINCIPAL_PERFIL", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Correo electrónico inválido.
         /// </summary>
@@ -1058,7 +1148,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_OPCIONESSALA_CORREOINVALIDO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Dificultad.
         /// </summary>
@@ -1067,7 +1157,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_OPCIONESSALA_DIFICULTAD", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Duración.
         /// </summary>
@@ -1076,7 +1166,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_OPCIONESSALA_DURACION", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Para invitar a un jugador que no esta en tu lista de amigos, es necesario que ingreses su correo electrónico para que le podamos enviar el código de sala.
         /// </summary>
@@ -1085,16 +1175,25 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_OPCIONESSALA_INSTRUCCIONINVITACIONCORREO", resourceCulture);
             }
         }
-        
+
         /// <summary>
-        ///   Looks up a localized string similar to Tiempo restante.
+        ///   Busca una cadena traducida similar a Fin del juego.
+        /// </summary>
+        public static string ETIQUETA_PARTIDA_JUEGOFINALIZADO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_PARTIDA_JUEGOFINALIZADO", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tiempo restante.
         /// </summary>
         public static string ETIQUETA_PARTIDA_TIEMPORESTANTE {
             get {
                 return ResourceManager.GetString("ETIQUETA_PARTIDA_TIEMPORESTANTE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to No es posible unirse a la sala debido a que hay una partida en progreso. Por favor, inténtelo más tarde..
         /// </summary>
@@ -1103,7 +1202,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_PARTIDAENCURSO_MENSAJE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Partida en transcurso.
         /// </summary>
@@ -1112,7 +1211,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_PARTIDAENCURSO_TITULO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Correo electrónico no registrado.
         /// </summary>
@@ -1121,7 +1220,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_RECUPERACION_CORREONOENCONTRADO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Ingresa el correo electrónico con el cual te registraste, te enviaremos un código para que puedas restablecer tu contraseña.
         /// </summary>
@@ -1130,7 +1229,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_RECUPERACION_INSTRUCCIONRECUPERACION", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Introduce el código.
         /// </summary>
@@ -1139,7 +1238,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_RECUPERACION_INTRODUCECODIGO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Tu código de restablecimiento es:.
         /// </summary>
@@ -1148,7 +1247,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_RECUPERACION_MENSAJE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Recuperación de contraseña.
         /// </summary>
@@ -1157,16 +1256,34 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_RECUPERACION_RECUPERACIONCONTRASENA", resourceCulture);
             }
         }
-        
+
         /// <summary>
-        ///   Looks up a localized string similar to Confirmar contraseña.
+        ///   Busca una cadena traducida similar a Correo inexistente.
+        /// </summary>
+        public static string ETIQUETA_RECUPERACIONCONTRASENA_CORREOINEXISTENTE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_RECUPERACIONCONTRASENA_CORREOINEXISTENTE", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a El correo ingresado no existe.
+        /// </summary>
+        public static string ETIQUETA_RECUPERACIONCONTRASENA_MENSAJECORREOINEXISTENE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_RECUPERACIONCONTRASENA_MENSAJECORREOINEXISTENE", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Confirmar contraseña.
         /// </summary>
         public static string ETIQUETA_REGISTRO_CONFIRMACIONCONTRASENA {
             get {
                 return ResourceManager.GetString("ETIQUETA_REGISTRO_CONFIRMACIONCONTRASENA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Contraseña inválida.
         /// </summary>
@@ -1175,7 +1292,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_REGISTRO_CONTRASENAINVALIDA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Correo electrónico no disponible.
         /// </summary>
@@ -1184,7 +1301,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_REGISTRO_CORREONODISPONIBLE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Registro de jugador.
         /// </summary>
@@ -1193,7 +1310,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_REGISTRO_REGISTROJUGADOR", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Seleccionar avatar.
         /// </summary>
@@ -1202,7 +1319,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_REGISTRO_SELECCIONAVATAR", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Se ha realizado el registro correctamente. Ya puedes iniciar sesión en tu cuenta..
         /// </summary>
@@ -1211,7 +1328,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_REGISTROREALIZADO_MENSAJE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Registro de jugador realizado.
         /// </summary>
@@ -1220,16 +1337,43 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_REGISTROREALIZADO_TITULO", resourceCulture);
             }
         }
-        
+
         /// <summary>
-        ///   Looks up a localized string similar to Contraseña inválida.
+        ///   Busca una cadena traducida similar a Contraseña no restablecida.
         /// </summary>
-        public static string ETIQUETA_RESTABLECIMIENTO_CONTRASENAINVALIDA {
+        public static string ETIQUETA_RESTABLECIMIENTO_CONTRASENANORESTABLECIDA {
             get {
-                return ResourceManager.GetString("ETIQUETA_RESTABLECIMIENTO_CONTRASENAINVALIDA", resourceCulture);
+                return ResourceManager.GetString("ETIQUETA_RESTABLECIMIENTO_CONTRASENANORESTABLECIDA", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Contraseña restablecida.
+        /// </summary>
+        public static string ETIQUETA_RESTABLECIMIENTO_CONTRASENARESTABLECIDA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_RESTABLECIMIENTO_CONTRASENARESTABLECIDA", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Su nueva contraseña ha sido actualizado correctamente.
+        /// </summary>
+        public static string ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENAACTUALIZADA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENAACTUALIZADA", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Su contraseña no se pudo restablecer.
+        /// </summary>
+        public static string ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENANORESTABLECIDA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENANORESTABLECIDA", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Restablecer contraseña.
         /// </summary>
@@ -1238,7 +1382,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_RESTABLECIMIENTO_RESTABLECIMIENTOCONTRASENA", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to ha ganado la partida.
         /// </summary>
@@ -1247,7 +1391,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_RESULTADOS_MENSAJEGANADOR", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Resultados.
         /// </summary>
@@ -1256,7 +1400,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_RESULTADOS_RESULTADOS", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Anfitrión.
         /// </summary>
@@ -1265,7 +1409,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_SALA_ANFITRION", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Copiar.
         /// </summary>
@@ -1274,7 +1418,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_SALA_COPIAR", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Mensajes.
         /// </summary>
@@ -1283,7 +1427,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_SALA_MENSAJES", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to No es posible unirse a la sala debido a que se encuentra llena. Por favor, inténtelo más tarde..
         /// </summary>
@@ -1292,7 +1436,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_SALALLENA_MENSAJE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Sala llena.
         /// </summary>
@@ -1301,7 +1445,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_SALALLENA_TITULO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to La solicitud de amistad se ha enviado correctamente.
         /// </summary>
@@ -1310,7 +1454,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_SOLICITUDAMISTADENVIADA_MENSAJE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Solicitud de amistad enviada.
         /// </summary>
@@ -1319,7 +1463,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_SOLICITUDAMISTADENVIADA_TITULO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Código de sala inválido.
         /// </summary>
@@ -1328,7 +1472,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_UNIRSESALA_CODIGOSALAINVALIDO", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Si cuentas con un código de acceso a una sala, puedes ingresarlo a continuación para poder unirte.
         /// </summary>
@@ -1337,7 +1481,7 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_UNIRSESALA_INSTRUCCIONUNIRSE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Unirse a sala.
         /// </summary>
@@ -1346,22 +1490,238 @@ namespace RompecabezasFei.Properties {
                 return ResourceManager.GetString("ETIQUETA_UNIRSESALA_UNIRSESALA", resourceCulture);
             }
         }
-        
+
         /// <summary>
-        ///   Looks up a localized string similar to Código de verificación para concluir registro.
+        ///   Busca una cadena traducida similar a Campos excedidos.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Campos inválidos.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_CAMPOSINVALIDOS {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_CAMPOSINVALIDOS", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Campos vacíos.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_CAMPOSVACIOS {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_CAMPOSVACIOS", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Contraseñas diferentes.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_CONTRASENADIFERENTE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_CONTRASENADIFERENTE", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a La contraseña ingresada excede la longitud máxima.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_CONTRASENAEXCEDIDA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_CONTRASENAEXCEDIDA", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Contraseña inválida.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_CONTRASENAINVALIDA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_CONTRASENAINVALIDA", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Correo electrónico inválido.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_CORREOINVALIDO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_CORREOINVALIDO", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Longitud excedida.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_LONGITUDEXCEDIDA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_LONGITUDEXCEDIDA", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Corrige los campos excedidos.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_MENSAJECAMPOSEXCEDIDOS {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_MENSAJECAMPOSEXCEDIDOS", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Existen campos inválidos.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_MENSAJECAMPOSINVALIDOS {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_MENSAJECAMPOSINVALIDOS", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a No puedes dejar campos vacíos.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Las contraseñas no coinciden.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a La contraseña que has ingresado es inválida.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_MENSAJECONTRASENAINVALIDA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_MENSAJECONTRASENAINVALIDA", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a La nueva contraseña que has ingresado es inválida.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_MENSAJECONTRASENANUEVA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_MENSAJECONTRASENANUEVA", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a El correo electrónico que has ingresado es inválido.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_MENSAJECORREOINVALIDO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_MENSAJECORREOINVALIDO", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Corrige los campos excedidos.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_MENSAJELONGITUDEXCEDIDA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_MENSAJELONGITUDEXCEDIDA", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a El nombre de usuario que has ingresado es inválido.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_MENSAJENOMBREUSUARIOINVALIDO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_MENSAJENOMBREUSUARIOINVALIDO", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre de usuario inválido.
+        /// </summary>
+        public static string ETIQUETA_VALIDACION_NOMBREUSUARIOINVALIDO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VALIDACION_NOMBREUSUARIOINVALIDO", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Código de verificación para concluir registro.
         /// </summary>
         public static string ETIQUETA_VERIFICACIONCORREO_ASUNTO {
             get {
                 return ResourceManager.GetString("ETIQUETA_VERIFICACIONCORREO_ASUNTO", resourceCulture);
             }
         }
-        
+
         /// <summary>
-        ///   Looks up a localized string similar to Tu código de verificación es:.
+        ///   Busca una cadena traducida similar a Código incorrecto.
+        /// </summary>
+        public static string ETIQUETA_VERIFICACIONCORREO_CODIGOINCORRECTO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VERIFICACIONCORREO_CODIGOINCORRECTO", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error al realizar registro.
+        /// </summary>
+        public static string ETIQUETA_VERIFICACIONCORREO_ERRORREGISTRO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VERIFICACIONCORREO_ERRORREGISTRO", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tu código de verificación es:.
         /// </summary>
         public static string ETIQUETA_VERIFICACIONCORREO_MENSAJE {
             get {
                 return ResourceManager.GetString("ETIQUETA_VERIFICACIONCORREO_MENSAJE", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a El código de verificacion es incorrecto.
+        /// </summary>
+        public static string ETIQUETA_VERIFICACIONCORREO_MENSAJECODIGOINCORRECTO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VERIFICACIONCORREO_MENSAJECODIGOINCORRECTO", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a El registro de usuario no se ha realizado.
+        /// </summary>
+        public static string ETIQUETA_VERIFICACIONCORREO_MENSAJEREGISTRONOREALIZADO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VERIFICACIONCORREO_MENSAJEREGISTRONOREALIZADO", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a El registro de usuario se ha realizado correctamente.
+        /// </summary>
+        public static string ETIQUETA_VERIFICACIONCORREO_MENSAJEUSUARIOREGISTRADO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VERIFICACIONCORREO_MENSAJEUSUARIOREGISTRADO", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Registro realizado correctamente.
+        /// </summary>
+        public static string ETIQUETA_VERIFICACIONCORREO_REGISTROREALIZADO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_VERIFICACIONCORREO_REGISTROREALIZADO", resourceCulture);
             }
         }
     }

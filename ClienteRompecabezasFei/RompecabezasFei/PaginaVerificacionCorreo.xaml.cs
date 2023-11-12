@@ -33,17 +33,17 @@ namespace RompecabezasFei
             temporizador.Start();
         }
 
-        public void AccionEnviarCodigo(object remitente, RoutedEventArgs evento)
+        public void EventoAccionEnviarCodigo(object controlOrigen, RoutedEventArgs evento)
         {
             EnviarCodigo();
         }
 
         private void EnviarCodigo()
-        {            
+        {
             codigoGenerado = GenerarCodigo();
             VentanaPrincipal.ClienteServicioGestionJugador.EnviarMensajeCorreo(Properties.Resources.
-                ETIQUETA_GENERAL_ROMPECABEZASFEI, jugadorRegistro.Correo, 
-                Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ASUNTO, 
+                ETIQUETA_GENERAL_ROMPECABEZASFEI, jugadorRegistro.Correo,
+                Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ASUNTO,
                 Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJE + " " + codigoGenerado);
             DeshabilitarBotonEnvioCodigo();
             InicializarTemporizador();
@@ -55,7 +55,7 @@ namespace RompecabezasFei
             return generadorNumeroAleatorio.Next(100000, 1000000).ToString();
         }
 
-        private void AccionRegistrar(object remitente, RoutedEventArgs evento)
+        private void EventoAccionRegistrar(object controlOrigen, RoutedEventArgs evento)
         {
             string codigoVerificacion = CuadroTextoCodigoVerificacion.Text;
 
@@ -73,46 +73,53 @@ namespace RompecabezasFei
                         NumeroAvatar = jugadorRegistro.NumeroAvatar,
                         Contrasena = contrasenaCifrada,
                         Correo = jugadorRegistro.Correo
-                    };                    
+                    };
                     bool resultadoRegistro = VentanaPrincipal.ClienteServicioGestionJugador.Registrar(nuevoJugador);
 
                     if (resultadoRegistro)
                     {
                         temporizador.Stop();
-                        MessageBox.Show("El registro de usuario se ha realizado correctamente",
-                            "Registro realizado correctamente", MessageBoxButton.OK);
+                        MessageBox.Show(
+                            Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJEUSUARIOREGISTRADO,
+                            Properties.Resources.ETIQUETA_VERIFICACIONCORREO_REGISTROREALIZADO,
+                            MessageBoxButton.OK);
+                        cliente.Abort();
                         VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
                     }
                     else
                     {
-                        MessageBox.Show("El registro de usuario no se ha realizado",
-                            "Error al realizar registro", MessageBoxButton.OK);
+                        MessageBox.Show(
+                            Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJEREGISTRONOREALIZADO,
+                            Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ERRORREGISTRO,
+                            MessageBoxButton.OK);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Código incorrecto", 
-                        "El código de verificacion es incorrecto" , MessageBoxButton.OK);
+                    MessageBox.Show(
+                        Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJECODIGOINCORRECTO,
+                        Properties.Resources.ETIQUETA_VERIFICACIONCORREO_CODIGOINCORRECTO,
+                        MessageBoxButton.OK);
                 }
             }
         }
 
-        private void AceptarSoloCaracteresNumericos(object remitente, 
+        private void EventoAceptarSoloCaracteresNumericos(object controlOrigen,
             TextChangedEventArgs evento)
         {
-            if (remitente is TextBox CuadroTextoCodigoVerificacion)
+            if (controlOrigen is TextBox CuadroTextoCodigoVerificacion)
             {
-                string texto = 
+                string texto =
                   CuadroTextoCodigoVerificacion.Text = new string(
                   CuadroTextoCodigoVerificacion.Text.Where(char.IsDigit).ToArray());
-                CuadroTextoCodigoVerificacion.CaretIndex = 
+                CuadroTextoCodigoVerificacion.CaretIndex =
                     CuadroTextoCodigoVerificacion.Text.Length;
                 CuadroTextoCodigoVerificacion.Text = texto;
             }
         }
 
-        private void ActualizarTiempo(object remitente, EventArgs evento)
-        {            
+        private void ActualizarTiempo(object controlOrigen, EventArgs evento)
+        {
             if (segundosRestantes > 0)
             {
                 segundosRestantes--;

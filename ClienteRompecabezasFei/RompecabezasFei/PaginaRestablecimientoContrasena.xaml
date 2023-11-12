@@ -15,7 +15,7 @@
         <PasswordBox Name="CuadroConfirmarNuevaContrasena" HorizontalAlignment="Center" VerticalAlignment="Top" Width="532" Height="56" Margin="0,424,0,0" FontSize="28"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_NUEVACONTRASENA}" HorizontalAlignment="Center" Margin="0,172,0,0" VerticalAlignment="Top" Foreground="White" Height="64" Width="530" FontWeight="Bold" FontSize="36"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_CONFIRMACIONCONTRASENA}" HorizontalAlignment="Center" Margin="0,355,0,0" VerticalAlignment="Top" Foreground="White" Height="64" Width="530" FontWeight="Bold" FontSize="36"/>
-        <Button Content="{x:Static p:Resources.BOTON_RESTABLECIMIENTOCONTRASENA_ACTUALIZARCONTRASENA}" HorizontalAlignment="Center" Margin="0,578,0,0" VerticalAlignment="Top" Height="64" Width="532" Background="#FF03A64A" Foreground="White" FontWeight="Bold" FontSize="30" Click="ActualizarContraseña"/>
+        <Button Content="{x:Static p:Resources.BOTON_RESTABLECIMIENTOCONTRASENA_ACTUALIZARCONTRASENA}" HorizontalAlignment="Center" Margin="0,578,0,0" VerticalAlignment="Top" Height="64" Width="532" Background="#FF03A64A" Foreground="White" FontWeight="Bold" FontSize="30" Click="EventoActualizarContraseña"/>
 
     </Grid>
 </Page>

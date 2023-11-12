@@ -17,10 +17,10 @@ namespace RompecabezasFei
             InitializeComponent();
         }
 
-        private void Siguiente(object sender, RoutedEventArgs e)
+        private void EventoClickSiguiente(object controlOrigen, RoutedEventArgs evento)
         {
             correo = CuadroCorreo.Text;
-            
+
             if (!ExistenCaracteresInvalidosParaCorreo(correo))
             {
                 if (VentanaPrincipal.ClienteServicioGestionJugador.
@@ -32,13 +32,13 @@ namespace RompecabezasFei
                 }
                 else
                 {
-                    MessageBox.Show("El correo ingresado no existe", "Correo inexistente", 
-                        MessageBoxButton.OK);
+                    MessageBox.Show(Properties.Resources.ETIQUETA_RECUPERACIONCONTRASENA_MENSAJECORREOINEXISTENE,
+                        Properties.Resources.ETIQUETA_RECUPERACIONCONTRASENA_CORREOINEXISTENTE, MessageBoxButton.OK);
                 }
             }
         }
 
-        private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
+        private void EventoClickAccionRegresar(object controlOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
         }
@@ -50,8 +50,8 @@ namespace RompecabezasFei
             if (Regex.IsMatch(textoValido, @"^[^@\s]+@[^@\s]+\.[^@\s]+$") == false)
             {
                 caracteresInvalidos = true;
-                MessageBox.Show("El correo ingresado no es válido", 
-                    "Correo inválido", MessageBoxButton.OK);
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECORREOINVALIDO,
+                    Properties.Resources.ETIQUETA_VALIDACION_CORREOINVALIDO, MessageBoxButton.OK);
             }
             return caracteresInvalidos;
         }

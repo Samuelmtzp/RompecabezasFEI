@@ -237,6 +237,21 @@
   <data name="ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONINFORMACION" xml:space="preserve">
     <value>Actualizar información</value>
   </data>
+  <data name="ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONNOREALIZADA" xml:space="preserve">
+    <value>La actualización de la información no se ha realizado</value>
+  </data>
+  <data name="ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONREALIZADA" xml:space="preserve">
+    <value>La actualización de la información se ha realizado correctamente</value>
+  </data>
+  <data name="ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACION" xml:space="preserve">
+    <value>Error al actualizar información</value>
+  </data>
+  <data name="ETIQUETA_ACTUALIZACIONINFORMACION_MENSAJEACTUALIZACION" xml:space="preserve">
+    <value>Actualización realizada correctamente</value>
+  </data>
+  <data name="ETIQUETA_ACTUALIZACIONINFORMACION_NOMBRENODISPONIBLE" xml:space="preserve">
+    <value>El nombre no se encuentra disponible</value>
+  </data>
   <data name="ETIQUETA_AJUSTES_IDIOMA" xml:space="preserve">
     <value>Idioma</value>
   </data>
@@ -279,6 +294,9 @@
   <data name="ETIQUETA_CERRARSESION_TITULO" xml:space="preserve">
     <value>Confirmación de cerrar sesión</value>
   </data>
+  <data name="ETIQUETA_CODIGO_CODIGONOCOINCIDE" xml:space="preserve">
+    <value>Codigo no coincide</value>
+  </data>
   <data name="ETIQUETA_CODIGO_CODIGORESTABLECIMIENTO" xml:space="preserve">
     <value>Código de restablecimiento de contraseña</value>
   </data>
@@ -287,6 +305,9 @@
   </data>
   <data name="ETIQUETA_CODIGO_INTRODUCECODIGO" xml:space="preserve">
     <value>Introduce el código</value>
+  </data>
+  <data name="ETIQUETA_CODIGO_MENSAJECODIGONOCOINCIDE" xml:space="preserve">
+    <value>El codigo ingresado no coincide</value>
   </data>
   <data name="ETIQUETA_CONFIRMACIONCORREO_CODIGOCONFIRMACION" xml:space="preserve">
     <value>Código de confirmación</value>
@@ -348,6 +369,12 @@
   <data name="ETIQUETA_GENERAL_AMIGOS" xml:space="preserve">
     <value>Amigos</value>
   </data>
+  <data name="ETIQUETA_GENERAL_CAMPOSEXCEDIDOS" xml:space="preserve">
+    <value>Campos excedidos</value>
+  </data>
+  <data name="ETIQUETA_GENERAL_CAMPOSVACIOS" xml:space="preserve">
+    <value>Campos vacíos</value>
+  </data>
   <data name="ETIQUETA_GENERAL_CANCELAR" xml:space="preserve">
     <value>Cancelar</value>
   </data>
@@ -363,8 +390,8 @@
   <data name="ETIQUETA_GENERAL_CONTRASENA" xml:space="preserve">
     <value>Contraseña</value>
   </data>
-  <data name="ETIQUETA_GENERAL_CONTRASENAINVALIDA" xml:space="preserve">
-    <value>Contraseña inválida</value>
+  <data name="ETIQUETA_GENERAL_CONTRASENARESTABLECIDA" xml:space="preserve">
+    <value>Contraseña restablecida</value>
   </data>
   <data name="ETIQUETA_GENERAL_CORREO" xml:space="preserve">
     <value>Correo electrónico</value>
@@ -380,6 +407,9 @@
   </data>
   <data name="ETIQUETA_GENERAL_JUGADORES" xml:space="preserve">
     <value>Jugadores</value>
+  </data>
+  <data name="ETIQUETA_GENERAL_MENSAJECAMPOSVACIOS" xml:space="preserve">
+    <value>Alguno de los campos está vacío</value>
   </data>
   <data name="ETIQUETA_GENERAL_NOMBREJUGADOR" xml:space="preserve">
     <value>Nombre de jugador</value>
@@ -413,6 +443,12 @@
   </data>
   <data name="ETIQUETA_INICIOSESION_CONTRASENAINCORRECTA" xml:space="preserve">
     <value>Contraseña incorrecta</value>
+  </data>
+  <data name="ETIQUETA_INICIOSESION_INICIOSESIONCANCELADO" xml:space="preserve">
+    <value>Inicio de sesión cancelado</value>
+  </data>
+  <data name="ETIQUETA_INICIOSESION_MENSAJEINICIOSESIONERROR" xml:space="preserve">
+    <value>No se pudo iniciar sesión</value>
   </data>
   <data name="ETIQUETA_INICIOSESION_RECUPERACIONCONTRASENA" xml:space="preserve">
     <value>¿Olvidaste tu contraseña?</value>
@@ -465,8 +501,17 @@
   <data name="ETIQUETA_PARTIDAENCURSO_TITULO" xml:space="preserve">
     <value>Partida en transcurso</value>
   </data>
+  <data name="ETIQUETA_PARTIDA_JUEGOFINALIZADO" xml:space="preserve">
+    <value>Fin del juego</value>
+  </data>
   <data name="ETIQUETA_PARTIDA_TIEMPORESTANTE" xml:space="preserve">
     <value>Tiempo restante</value>
+  </data>
+  <data name="ETIQUETA_RECUPERACIONCONTRASENA_CORREOINEXISTENTE" xml:space="preserve">
+    <value>Correo inexistente</value>
+  </data>
+  <data name="ETIQUETA_RECUPERACIONCONTRASENA_MENSAJECORREOINEXISTENE" xml:space="preserve">
+    <value>El correo ingresado no existe</value>
   </data>
   <data name="ETIQUETA_RECUPERACION_CORREONOENCONTRADO" xml:space="preserve">
     <value>Correo electrónico no registrado</value>
@@ -492,9 +537,6 @@
   <data name="ETIQUETA_REGISTRO_CONFIRMACIONCONTRASENA" xml:space="preserve">
     <value>Confirmar contraseña</value>
   </data>
-  <data name="ETIQUETA_REGISTRO_CONTRASENAINVALIDA" xml:space="preserve">
-    <value>Contraseña inválida</value>
-  </data>
   <data name="ETIQUETA_REGISTRO_CORREONODISPONIBLE" xml:space="preserve">
     <value>Correo electrónico no disponible</value>
   </data>
@@ -504,8 +546,14 @@
   <data name="ETIQUETA_REGISTRO_SELECCIONAVATAR" xml:space="preserve">
     <value>Seleccionar avatar</value>
   </data>
-  <data name="ETIQUETA_RESTABLECIMIENTO_CONTRASENAINVALIDA" xml:space="preserve">
-    <value>Contraseña inválida</value>
+  <data name="ETIQUETA_RESTABLECIMIENTO_CONTRASENANORESTABLECIDA" xml:space="preserve">
+    <value>Contraseña no restablecida</value>
+  </data>
+  <data name="ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENAACTUALIZADA" xml:space="preserve">
+    <value>Su nueva contraseña ha sido actualizado correctamente</value>
+  </data>
+  <data name="ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENANORESTABLECIDA" xml:space="preserve">
+    <value>Su contraseña no se pudo restablecer</value>
   </data>
   <data name="ETIQUETA_RESTABLECIMIENTO_RESTABLECIMIENTOCONTRASENA" xml:space="preserve">
     <value>Restablecer contraseña</value>
@@ -546,10 +594,76 @@
   <data name="ETIQUETA_UNIRSESALA_UNIRSESALA" xml:space="preserve">
     <value>Unirse a sala</value>
   </data>
+  <data name="ETIQUETA_VALIDACION_CAMPOSINVALIDOS" xml:space="preserve">
+    <value>Campos inválidos</value>
+  </data>
+  <data name="ETIQUETA_VALIDACION_CONTRASENADIFERENTE" xml:space="preserve">
+    <value>Contraseñas diferentes</value>
+  </data>
+  <data name="ETIQUETA_VALIDACION_CONTRASENAEXCEDIDA" xml:space="preserve">
+    <value>La contraseña ingresada excede la longitud máxima</value>
+  </data>
+  <data name="ETIQUETA_VALIDACION_CONTRASENAINVALIDA" xml:space="preserve">
+    <value>Contraseña inválida</value>
+  </data>
+  <data name="ETIQUETA_VALIDACION_CORREOINVALIDO" xml:space="preserve">
+    <value>Correo electrónico inválido</value>
+  </data>
+  <data name="ETIQUETA_VALIDACION_LONGITUDEXCEDIDA" xml:space="preserve">
+    <value>Longitud excedida</value>
+  </data>
+  <data name="ETIQUETA_VALIDACION_MENSAJECAMPOSEXCEDIDOS" xml:space="preserve">
+    <value>Corrige los campos excedidos</value>
+  </data>
+  <data name="ETIQUETA_VALIDACION_MENSAJECAMPOSINVALIDOS" xml:space="preserve">
+    <value>Existen campos inválidos</value>
+  </data>
+  <data name="ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS" xml:space="preserve">
+    <value>No puedes dejar campos vacíos</value>
+  </data>
+  <data name="ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE" xml:space="preserve">
+    <value>Las contraseñas no coinciden</value>
+  </data>
+  <data name="ETIQUETA_VALIDACION_MENSAJECONTRASENAINVALIDA" xml:space="preserve">
+    <value>La contraseña que has ingresado es inválida</value>
+  </data>
+  <data name="ETIQUETA_VALIDACION_MENSAJECONTRASENANUEVA" xml:space="preserve">
+    <value>La nueva contraseña que has ingresado es inválida</value>
+  </data>
+  <data name="ETIQUETA_VALIDACION_MENSAJECORREOINVALIDO" xml:space="preserve">
+    <value>El correo electrónico que has ingresado es inválido</value>
+  </data>
+  <data name="ETIQUETA_VALIDACION_MENSAJELONGITUDEXCEDIDA" xml:space="preserve">
+    <value>Corrige los campos excedidos</value>
+  </data>
+  <data name="ETIQUETA_VALIDACION_MENSAJENOMBREUSUARIOINVALIDO" xml:space="preserve">
+    <value>El nombre de usuario que has ingresado es inválido</value>
+  </data>
+  <data name="ETIQUETA_VALIDACION_NOMBREUSUARIOINVALIDO" xml:space="preserve">
+    <value>Nombre de usuario inválido</value>
+  </data>
   <data name="ETIQUETA_VERIFICACIONCORREO_ASUNTO" xml:space="preserve">
     <value>Código de verificación para concluir registro</value>
   </data>
+  <data name="ETIQUETA_VERIFICACIONCORREO_CODIGOINCORRECTO" xml:space="preserve">
+    <value>Código incorrecto</value>
+  </data>
+  <data name="ETIQUETA_VERIFICACIONCORREO_ERRORREGISTRO" xml:space="preserve">
+    <value>Error al realizar registro</value>
+  </data>
   <data name="ETIQUETA_VERIFICACIONCORREO_MENSAJE" xml:space="preserve">
     <value>Tu código de verificación es:</value>
+  </data>
+  <data name="ETIQUETA_VERIFICACIONCORREO_MENSAJECODIGOINCORRECTO" xml:space="preserve">
+    <value>El código de verificacion es incorrecto</value>
+  </data>
+  <data name="ETIQUETA_VERIFICACIONCORREO_MENSAJEREGISTRONOREALIZADO" xml:space="preserve">
+    <value>El registro de usuario no se ha realizado</value>
+  </data>
+  <data name="ETIQUETA_VERIFICACIONCORREO_MENSAJEUSUARIOREGISTRADO" xml:space="preserve">
+    <value>El registro de usuario se ha realizado correctamente</value>
+  </data>
+  <data name="ETIQUETA_VERIFICACIONCORREO_REGISTROREALIZADO" xml:space="preserve">
+    <value>Registrado realizado correctamente</value>
   </data>
 </root>
