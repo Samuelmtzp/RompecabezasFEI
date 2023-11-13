@@ -19,7 +19,7 @@ namespace RompecabezasFei
             string correo, string contrasena, string confirmacionContrasena)
         {
             InitializeComponent();
-            CargarDatosEdicion(numeroAvatar, nombreJugador, correo, 
+            CargarDatosEdicion(numeroAvatar, nombreJugador, correo,
                 contrasena, confirmacionContrasena);
         }
 
@@ -51,18 +51,16 @@ namespace RompecabezasFei
         private void AccionSiguiente(object remitente, RoutedEventArgs evento)
         {
             string nombreJugador = CuadroTextoNombreJugador.Text;
-            string correo = CuadroTextoCorreoElectronico.Text;
+            string correo = CuadroTextoCorreoElectronico.Text.ToLower();
             string contrasena = CuadroContrasena.Password;
-            int numeroAvatar = Convert.ToInt32(ImagenAvatarActual.Tag); 
-
-            ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
+            int numeroAvatar = Convert.ToInt32(ImagenAvatarActual.Tag);
 
             if (!ExistenCamposInvalidos())
-            {     
+            {
                 try
                 {
-                    if (!cliente.ExisteNombreJugador(nombreJugador) &&
-                    !cliente.ExisteCorreoElectronico(correo))
+                    if (!VentanaPrincipal.ClienteServicioGestionJugador.ExisteNombreJugador(nombreJugador) &&
+                    !VentanaPrincipal.ClienteServicioGestionJugador.ExisteCorreoElectronico(correo))
                     {
                         Dominio.CuentaJugador jugadorRegistro = new Dominio.CuentaJugador
                         {
@@ -79,7 +77,7 @@ namespace RompecabezasFei
                 catch (EndpointNotFoundException)
                 {
                     // log
-                }                
+                }
             }
         }
 
@@ -102,13 +100,13 @@ namespace RompecabezasFei
         {
             bool resultado = false;
 
-            if (string.IsNullOrWhiteSpace(CuadroTextoNombreJugador.Text) 
-                || string.IsNullOrWhiteSpace(CuadroTextoCorreoElectronico.Text) 
-                || string.IsNullOrWhiteSpace(CuadroContrasena.Password) 
+            if (string.IsNullOrWhiteSpace(CuadroTextoNombreJugador.Text)
+                || string.IsNullOrWhiteSpace(CuadroTextoCorreoElectronico.Text)
+                || string.IsNullOrWhiteSpace(CuadroContrasena.Password)
                 || string.IsNullOrWhiteSpace(CuadroConfirmacionContrasena.Password))
             {
                 resultado = true;
-                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS, 
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS,
                     Properties.Resources.ETIQUETA_VALIDACION_CAMPOSVACIOS, MessageBoxButton.OK);
             }
 
@@ -119,8 +117,8 @@ namespace RompecabezasFei
         {
             bool resultado = false;
 
-            if (CuadroTextoNombreJugador.Text.Length > 15 || 
-                CuadroTextoCorreoElectronico.Text.Length > 65 || 
+            if (CuadroTextoNombreJugador.Text.Length > 15 ||
+                CuadroTextoCorreoElectronico.Text.Length > 65 ||
                 CuadroContrasena.Password.Length > 45)
             {
                 resultado = true;
@@ -155,12 +153,12 @@ namespace RompecabezasFei
         private bool ExisteContrasenaInvalida()
         {
             bool resultado = false;
-            
-            if (Regex.IsMatch(CuadroContrasena.Password, 
-                "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$") 
+
+            if (Regex.IsMatch(CuadroContrasena.Password,
+                "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$")
                 == false)
             {
-                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECONTRASENAINVALIDA, 
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECONTRASENAINVALIDA,
                     Properties.Resources.ETIQUETA_VALIDACION_CONTRASENAINVALIDA, MessageBoxButton.OK);
                 resultado = true;
             }
@@ -184,8 +182,8 @@ namespace RompecabezasFei
         {
             bool resultado = false;
 
-            if (Regex.IsMatch(texto, 
-                @"^[A-Za-zÁÉÍÓÚáéíóúñÑ]+(?:\s[A-Za-zÁÉÍÓÚáéíóúñÑ]+)?$") == false)
+            if (Regex.IsMatch(texto,
+                @"^[a-zA-Z0-9]+(?:\s[a-zA-Z0-9]+)?$") == false)
             {
                 resultado = true;
             }
@@ -196,7 +194,7 @@ namespace RompecabezasFei
         private bool HayCoincidenciasEnContrasenas()
         {
             bool resultado = false;
-            
+
             if (CuadroContrasena.Password == CuadroConfirmacionContrasena.Password)
             {
                 resultado = true;
@@ -204,13 +202,13 @@ namespace RompecabezasFei
             else
             {
                 MessageBox.Show(
-                    Properties.Resources.ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE, 
-                Properties.Resources.ETIQUETA_VALIDACION_CONTRASENADIFERENTE, 
+                    Properties.Resources.ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE,
+                Properties.Resources.ETIQUETA_VALIDACION_CONTRASENADIFERENTE,
                 MessageBoxButton.OK);
             }
 
             return resultado;
         }
-        #endregion 
+        #endregion
     }
 }

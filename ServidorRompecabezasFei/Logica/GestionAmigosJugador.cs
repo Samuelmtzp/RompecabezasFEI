@@ -1,5 +1,4 @@
 ﻿using Datos;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -31,7 +30,7 @@ namespace Logica
                     amigos.Add(new CuentaJugador
                     {
                         NombreJugador = amigo.NombreJugador,
-                        NumeroAvatar = amigo.NumeroAvatar
+                        NumeroAvatar = amigo.NumeroAvatar,
                     });
                 }
             }
@@ -39,22 +38,21 @@ namespace Logica
             return amigos;
         }
 
-        public List<CuentaJugador> ObtenerJugadoresConSolicitudDeAmistadSinAceptar(
+        public List<CuentaJugador> ObtenerJugadoresConSolicitudPendiente(
             string nombreJugador)
         {
-            List<CuentaJugador> jugadoresOrigenSolicitud = new List<CuentaJugador>();
+            List<CuentaJugador> jugadoresConSolicitudPendiente = new List<CuentaJugador>();
 
             using (var contexto = new EntidadesRompecabezasFei())
             {
                 var jugadores = (from solicitud in contexto.SolicitudAmistad
                                  where solicitud.JugadorDestino.NombreJugador.
-                                 Equals(nombreJugador) &&
-                                 solicitud.EstadoSolicitud == EstadoSolicitudAmistad.Pendiente
+                                 Equals(nombreJugador)
                                  select solicitud.JugadorOrigen).ToList();
 
                 foreach (Jugador jugador in jugadores)
                 {
-                    jugadoresOrigenSolicitud.Add(new CuentaJugador
+                    jugadoresConSolicitudPendiente.Add(new CuentaJugador
                     {
                         NombreJugador = jugador.NombreJugador,
                         NumeroAvatar = jugador.NumeroAvatar
@@ -62,7 +60,7 @@ namespace Logica
                 }
             }
 
-            return jugadoresOrigenSolicitud;
+            return jugadoresConSolicitudPendiente;
         }
 
         public bool EnviarSolicitudDeAmistad(string nombreJugadorOrigen, 
@@ -84,7 +82,6 @@ namespace Logica
                     {
                         IdJugadorOrigen = jugadorOrigen.IdJugador,
                         IdJugadorDestino = jugadorDestino.IdJugador,
-                        EstadoSolicitud = EstadoSolicitudAmistad.Pendiente
                     };
                     contexto.SolicitudAmistad.Add(solicitud);
                     resultado = contexto.SaveChanges() > 0;
@@ -98,32 +95,17 @@ namespace Logica
             string nombreJugadorDestino)
         {
             bool resultado = false;
-
-            using (var contexto = new EntidadesRompecabezasFei())
+            
+            if (!ExisteAmistadConJugador(nombreJugadorOrigen, nombreJugadorDestino))
             {
-                var solicitudAmistadObtenida = contexto.SolicitudAmistad.
-                    FirstOrDefault(solicitud => 
-                    solicitud.JugadorOrigen.NombreJugador.Equals(nombreJugadorOrigen) &&
-                    solicitud.JugadorDestino.NombreJugador.Equals(nombreJugadorDestino) &&
-                    solicitud.EstadoSolicitud == EstadoSolicitudAmistad.Pendiente);
-
-                if (solicitudAmistadObtenida != null)
-                {
-                    solicitudAmistadObtenida.EstadoSolicitud = EstadoSolicitudAmistad.Aceptada;
-                    resultado = contexto.SaveChanges() > 0;
-
-                    if (ExisteSolicitudDeAmistadSinAceptar(nombreJugadorDestino, 
-                        nombreJugadorOrigen))
-                    {
-                        AceptarSolicitudDeAmistad(nombreJugadorDestino, nombreJugadorOrigen);
-                    }
-                }
+                resultado = RegistrarNuevaAmistadEntreJugadores(nombreJugadorOrigen,
+                nombreJugadorDestino);
             }
 
             return resultado;
-        }
+        }        
 
-        public bool RegistrarNuevaAmistadEntreJugadores(string nombreJugadorA, 
+        private bool RegistrarNuevaAmistadEntreJugadores(string nombreJugadorA, 
             string nombreJugadorB)
         {
             bool resultado = false;
@@ -143,7 +125,6 @@ namespace Logica
                         IdJugadorA = jugadorA.IdJugador,
                         IdJugadorB = jugadorB.IdJugador
                     };
-
                     contexto.Amistad.Add(amistad);
                     resultado = contexto.SaveChanges() > 0;
                 }
@@ -174,7 +155,7 @@ namespace Logica
             return resultado;
         }
 
-        public bool RechazarSolicitudDeAmistad(string nombreJugadorOrigen, 
+        public bool EliminarSolicitudDeAmistad(string nombreJugadorOrigen, 
             string nombreJugadorDestino)
         {
             bool resultado = false;
@@ -188,16 +169,15 @@ namespace Logica
 
                 if (solicitudAmistadObtenida != null)
                 {
-                    solicitudAmistadObtenida.EstadoSolicitud = EstadoSolicitudAmistad.Rechazada;                    
+                    contexto.SolicitudAmistad.Remove(solicitudAmistadObtenida);
+                    resultado = contexto.SaveChanges() > 0;
                 }
-
-                resultado = contexto.SaveChanges() > 0;
             }
 
             return resultado;
         }
 
-        public bool ExisteSolicitudDeAmistadSinAceptar(string nombreJugadorOrigen,
+        public bool ExisteSolicitudDeAmistad(string nombreJugadorOrigen,
             string nombreJugadorDestino)
         {
             bool resultado = false;
@@ -205,13 +185,11 @@ namespace Logica
             using (var contexto = new EntidadesRompecabezasFei())
             {
                 int coincidencias = (from solicitud in contexto.SolicitudAmistad
-                                    where solicitud.JugadorOrigen.NombreJugador.
-                                    Equals(nombreJugadorOrigen) &&
-                                    solicitud.JugadorDestino.NombreJugador.
-                                    Equals(nombreJugadorDestino) &&
-                                    solicitud.EstadoSolicitud == 
-                                    EstadoSolicitudAmistad.Pendiente
-                                    select solicitud).Count();
+                                     where solicitud.JugadorOrigen.NombreJugador.
+                                     Equals(nombreJugadorOrigen) &&
+                                     solicitud.JugadorDestino.NombreJugador.
+                                     Equals(nombreJugadorDestino)
+                                     select solicitud).Count();
 
                 if (coincidencias > 0)
                 {

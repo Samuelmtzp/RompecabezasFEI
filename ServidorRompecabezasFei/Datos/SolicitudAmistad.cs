@@ -16,7 +16,6 @@ namespace Datos
     {
         public int IdJugadorOrigen { get; set; }
         public int IdJugadorDestino { get; set; }
-        public EstadoSolicitudAmistad EstadoSolicitud { get; set; }
     
         public virtual Jugador JugadorOrigen { get; set; }
         public virtual Jugador JugadorDestino { get; set; }

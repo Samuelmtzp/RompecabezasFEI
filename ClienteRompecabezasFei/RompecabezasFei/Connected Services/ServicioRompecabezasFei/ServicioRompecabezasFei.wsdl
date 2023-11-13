@@ -55,6 +55,12 @@
   <wsdl:message name="IServicioGestionJugador_IniciarSesion_OutputMessage">
     <wsdl:part name="parameters" element="tns:IniciarSesionResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_CerrarSesion_InputMessage">
+    <wsdl:part name="parameters" element="tns:CerrarSesion" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionJugador_CerrarSesion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CerrarSesionResponse" />
+  </wsdl:message>
   <wsdl:message name="IServicioGestionJugador_EnviarMensajeCorreo_InputMessage">
     <wsdl:part name="parameters" element="tns:EnviarMensajeCorreo" />
   </wsdl:message>
@@ -85,11 +91,14 @@
   <wsdl:message name="IServicioGestionJugador_ActualizarContrasena_OutputMessage">
     <wsdl:part name="parameters" element="tns:ActualizarContrasenaResponse" />
   </wsdl:message>
-  <wsdl:message name="IServicioJuego_NuevaSala_InputMessage">
-    <wsdl:part name="parameters" element="tns:NuevaSala" />
+  <wsdl:message name="IServicioGestionJugador_NotificarEstadoConectividadDeJugador_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotificarEstadoConectividadDeJugador" />
   </wsdl:message>
-  <wsdl:message name="IServicioJuego_NuevaSala_OutputMessage">
-    <wsdl:part name="parameters" element="tns:NuevaSalaResponse" />
+  <wsdl:message name="IServicioJuego_CrearNuevaSala_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearNuevaSala" />
+  </wsdl:message>
+  <wsdl:message name="IServicioJuego_CrearNuevaSala_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearNuevaSalaResponse" />
   </wsdl:message>
   <wsdl:message name="IServicioJuego_ConectarCuentaJugadorASala_InputMessage">
     <wsdl:part name="parameters" element="tns:ConectarCuentaJugadorASala" />
@@ -118,26 +127,26 @@
   <wsdl:message name="IServicioJuego_ExisteSalaDisponible_OutputMessage">
     <wsdl:part name="parameters" element="tns:ExisteSalaDisponibleResponse" />
   </wsdl:message>
-  <wsdl:message name="IServicioJuego_MensajeDeSalaCallBack_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:MensajeDeSalaCallBack" />
+  <wsdl:message name="IServicioJuego_MostrarMensajeDeSala_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:MostrarMensajeDeSala" />
   </wsdl:message>
-  <wsdl:message name="IServicioAmistades_EnviarSolicitudDeAmistad_InputMessage">
-    <wsdl:part name="parameters" element="tns:EnviarSolicitudDeAmistad" />
+  <wsdl:message name="IServicioAmistades_ObtenerJugadoresConSolicitudPendiente_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerJugadoresConSolicitudPendiente" />
   </wsdl:message>
-  <wsdl:message name="IServicioAmistades_EnviarSolicitudDeAmistad_OutputMessage">
-    <wsdl:part name="parameters" element="tns:EnviarSolicitudDeAmistadResponse" />
-  </wsdl:message>
-  <wsdl:message name="IServicioAmistades_ObtenerJugadoresConSolicitudDeAmistadSinAceptar_InputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerJugadoresConSolicitudDeAmistadSinAceptar" />
-  </wsdl:message>
-  <wsdl:message name="IServicioAmistades_ObtenerJugadoresConSolicitudDeAmistadSinAceptar_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerJugadoresConSolicitudDeAmistadSinAceptarResponse" />
+  <wsdl:message name="IServicioAmistades_ObtenerJugadoresConSolicitudPendiente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerJugadoresConSolicitudPendienteResponse" />
   </wsdl:message>
   <wsdl:message name="IServicioAmistades_ObtenerAmigosDeJugador_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerAmigosDeJugador" />
   </wsdl:message>
   <wsdl:message name="IServicioAmistades_ObtenerAmigosDeJugador_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerAmigosDeJugadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAmistades_EnviarSolicitudDeAmistad_InputMessage">
+    <wsdl:part name="parameters" element="tns:EnviarSolicitudDeAmistad" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAmistades_EnviarSolicitudDeAmistad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EnviarSolicitudDeAmistadResponse" />
   </wsdl:message>
   <wsdl:message name="IServicioAmistades_AceptarSolicitudDeAmistad_InputMessage">
     <wsdl:part name="parameters" element="tns:AceptarSolicitudDeAmistad" />
@@ -151,11 +160,11 @@
   <wsdl:message name="IServicioAmistades_RechazarSolicitudDeAmistad_OutputMessage">
     <wsdl:part name="parameters" element="tns:RechazarSolicitudDeAmistadResponse" />
   </wsdl:message>
-  <wsdl:message name="IServicioAmistades_ExisteSolicitudDeAmistadSinAceptar_InputMessage">
-    <wsdl:part name="parameters" element="tns:ExisteSolicitudDeAmistadSinAceptar" />
+  <wsdl:message name="IServicioAmistades_ExisteSolicitudDeAmistad_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteSolicitudDeAmistad" />
   </wsdl:message>
-  <wsdl:message name="IServicioAmistades_ExisteSolicitudDeAmistadSinAceptar_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ExisteSolicitudDeAmistadSinAceptarResponse" />
+  <wsdl:message name="IServicioAmistades_ExisteSolicitudDeAmistad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteSolicitudDeAmistadResponse" />
   </wsdl:message>
   <wsdl:message name="IServicioAmistades_ExisteAmistadConJugador_InputMessage">
     <wsdl:part name="parameters" element="tns:ExisteAmistadConJugador" />
@@ -163,17 +172,38 @@
   <wsdl:message name="IServicioAmistades_ExisteAmistadConJugador_OutputMessage">
     <wsdl:part name="parameters" element="tns:ExisteAmistadConJugadorResponse" />
   </wsdl:message>
-  <wsdl:message name="IServicioAmistades_RegistrarNuevaAmistadEntreJugadores_InputMessage">
-    <wsdl:part name="parameters" element="tns:RegistrarNuevaAmistadEntreJugadores" />
-  </wsdl:message>
-  <wsdl:message name="IServicioAmistades_RegistrarNuevaAmistadEntreJugadores_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RegistrarNuevaAmistadEntreJugadoresResponse" />
-  </wsdl:message>
   <wsdl:message name="IServicioAmistades_EliminarAmistadEntreJugadores_InputMessage">
     <wsdl:part name="parameters" element="tns:EliminarAmistadEntreJugadores" />
   </wsdl:message>
   <wsdl:message name="IServicioAmistades_EliminarAmistadEntreJugadores_OutputMessage">
     <wsdl:part name="parameters" element="tns:EliminarAmistadEntreJugadoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAmistades_SuscribirJugadorANotificacionesAmistades_InputMessage">
+    <wsdl:part name="parameters" element="tns:SuscribirJugadorANotificacionesAmistades" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAmistades_SuscribirJugadorANotificacionesAmistades_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SuscribirJugadorANotificacionesAmistadesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAmistades_DesuscribirJugadorDeNotificacionesAmistades_InputMessage">
+    <wsdl:part name="parameters" element="tns:DesuscribirJugadorDeNotificacionesAmistades" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAmistades_DesuscribirJugadorDeNotificacionesAmistades_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DesuscribirJugadorDeNotificacionesAmistadesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAmistades_EsJugadorSuscritoANotififacionesDeAmistades_InputMessage">
+    <wsdl:part name="parameters" element="tns:EsJugadorSuscritoANotififacionesDeAmistades" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAmistades_EsJugadorSuscritoANotififacionesDeAmistades_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EsJugadorSuscritoANotififacionesDeAmistadesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAmistades_NotificarSolicitudAmistadEnviada_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotificarSolicitudAmistadEnviada" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAmistades_NotificarSolicitudAmistadAceptada_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotificarSolicitudAmistadAceptada" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAmistades_NotificarAmistadEliminada_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotificarAmistadEliminada" />
   </wsdl:message>
   <wsdl:portType name="IServicioGestionJugador">
     <wsdl:operation name="Registrar">
@@ -191,6 +221,10 @@
     <wsdl:operation name="IniciarSesion">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/IniciarSesion" message="tns:IServicioGestionJugador_IniciarSesion_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionJugador/IniciarSesionResponse" message="tns:IServicioGestionJugador_IniciarSesion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CerrarSesion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/CerrarSesion" message="tns:IServicioGestionJugador_CerrarSesion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionJugador/CerrarSesionResponse" message="tns:IServicioGestionJugador_CerrarSesion_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="EnviarMensajeCorreo">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/EnviarMensajeCorreo" message="tns:IServicioGestionJugador_EnviarMensajeCorreo_InputMessage" />
@@ -212,11 +246,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionJugador/ActualizarContrasena" message="tns:IServicioGestionJugador_ActualizarContrasena_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionJugador/ActualizarContrasenaResponse" message="tns:IServicioGestionJugador_ActualizarContrasena_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="NotificarEstadoConectividadDeJugador">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionJugador/NotificarEstadoConectividadDeJugador" message="tns:IServicioGestionJugador_NotificarEstadoConectividadDeJugador_OutputCallbackMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IServicioJuego">
-    <wsdl:operation name="NuevaSala">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioJuego/NuevaSala" message="tns:IServicioJuego_NuevaSala_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioJuego/NuevaSalaResponse" message="tns:IServicioJuego_NuevaSala_OutputMessage" />
+    <wsdl:operation name="CrearNuevaSala">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioJuego/CrearNuevaSala" message="tns:IServicioJuego_CrearNuevaSala_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioJuego/CrearNuevaSalaResponse" message="tns:IServicioJuego_CrearNuevaSala_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ConectarCuentaJugadorASala">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioJuego/ConectarCuentaJugadorASala" message="tns:IServicioJuego_ConectarCuentaJugadorASala_InputMessage" />
@@ -237,22 +274,22 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioJuego/ExisteSalaDisponible" message="tns:IServicioJuego_ExisteSalaDisponible_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioJuego/ExisteSalaDisponibleResponse" message="tns:IServicioJuego_ExisteSalaDisponible_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="MensajeDeSalaCallBack">
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioJuego/MensajeDeSalaCallBack" message="tns:IServicioJuego_MensajeDeSalaCallBack_OutputCallbackMessage" />
+    <wsdl:operation name="MostrarMensajeDeSala">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioJuego/MostrarMensajeDeSala" message="tns:IServicioJuego_MostrarMensajeDeSala_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IServicioAmistades">
-    <wsdl:operation name="EnviarSolicitudDeAmistad">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/EnviarSolicitudDeAmistad" message="tns:IServicioAmistades_EnviarSolicitudDeAmistad_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/EnviarSolicitudDeAmistadResponse" message="tns:IServicioAmistades_EnviarSolicitudDeAmistad_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ObtenerJugadoresConSolicitudDeAmistadSinAceptar">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/ObtenerJugadoresConSolicitudDeAmistadSinAceptar" message="tns:IServicioAmistades_ObtenerJugadoresConSolicitudDeAmistadSinAceptar_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/ObtenerJugadoresConSolicitudDeAmistadSinAceptarResponse" message="tns:IServicioAmistades_ObtenerJugadoresConSolicitudDeAmistadSinAceptar_OutputMessage" />
+    <wsdl:operation name="ObtenerJugadoresConSolicitudPendiente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/ObtenerJugadoresConSolicitudPendiente" message="tns:IServicioAmistades_ObtenerJugadoresConSolicitudPendiente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/ObtenerJugadoresConSolicitudPendienteResponse" message="tns:IServicioAmistades_ObtenerJugadoresConSolicitudPendiente_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ObtenerAmigosDeJugador">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/ObtenerAmigosDeJugador" message="tns:IServicioAmistades_ObtenerAmigosDeJugador_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/ObtenerAmigosDeJugadorResponse" message="tns:IServicioAmistades_ObtenerAmigosDeJugador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EnviarSolicitudDeAmistad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/EnviarSolicitudDeAmistad" message="tns:IServicioAmistades_EnviarSolicitudDeAmistad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/EnviarSolicitudDeAmistadResponse" message="tns:IServicioAmistades_EnviarSolicitudDeAmistad_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AceptarSolicitudDeAmistad">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/AceptarSolicitudDeAmistad" message="tns:IServicioAmistades_AceptarSolicitudDeAmistad_InputMessage" />
@@ -262,21 +299,38 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/RechazarSolicitudDeAmistad" message="tns:IServicioAmistades_RechazarSolicitudDeAmistad_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/RechazarSolicitudDeAmistadResponse" message="tns:IServicioAmistades_RechazarSolicitudDeAmistad_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ExisteSolicitudDeAmistadSinAceptar">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/ExisteSolicitudDeAmistadSinAceptar" message="tns:IServicioAmistades_ExisteSolicitudDeAmistadSinAceptar_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/ExisteSolicitudDeAmistadSinAceptarResponse" message="tns:IServicioAmistades_ExisteSolicitudDeAmistadSinAceptar_OutputMessage" />
+    <wsdl:operation name="ExisteSolicitudDeAmistad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/ExisteSolicitudDeAmistad" message="tns:IServicioAmistades_ExisteSolicitudDeAmistad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/ExisteSolicitudDeAmistadResponse" message="tns:IServicioAmistades_ExisteSolicitudDeAmistad_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ExisteAmistadConJugador">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/ExisteAmistadConJugador" message="tns:IServicioAmistades_ExisteAmistadConJugador_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/ExisteAmistadConJugadorResponse" message="tns:IServicioAmistades_ExisteAmistadConJugador_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="RegistrarNuevaAmistadEntreJugadores">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/RegistrarNuevaAmistadEntreJugadores" message="tns:IServicioAmistades_RegistrarNuevaAmistadEntreJugadores_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/RegistrarNuevaAmistadEntreJugadoresResponse" message="tns:IServicioAmistades_RegistrarNuevaAmistadEntreJugadores_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="EliminarAmistadEntreJugadores">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/EliminarAmistadEntreJugadores" message="tns:IServicioAmistades_EliminarAmistadEntreJugadores_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/EliminarAmistadEntreJugadoresResponse" message="tns:IServicioAmistades_EliminarAmistadEntreJugadores_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SuscribirJugadorANotificacionesAmistades">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/SuscribirJugadorANotificacionesAmistades" message="tns:IServicioAmistades_SuscribirJugadorANotificacionesAmistades_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/SuscribirJugadorANotificacionesAmistadesResponse" message="tns:IServicioAmistades_SuscribirJugadorANotificacionesAmistades_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DesuscribirJugadorDeNotificacionesAmistades">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/DesuscribirJugadorDeNotificacionesAmistades" message="tns:IServicioAmistades_DesuscribirJugadorDeNotificacionesAmistades_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/DesuscribirJugadorDeNotificacionesAmistadesResponse" message="tns:IServicioAmistades_DesuscribirJugadorDeNotificacionesAmistades_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EsJugadorSuscritoANotififacionesDeAmistades">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/EsJugadorSuscritoANotififacionesDeAmistades" message="tns:IServicioAmistades_EsJugadorSuscritoANotififacionesDeAmistades_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/EsJugadorSuscritoANotififacionesDeAmistadesResponse" message="tns:IServicioAmistades_EsJugadorSuscritoANotififacionesDeAmistades_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotificarSolicitudAmistadEnviada">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/NotificarSolicitudAmistadEnviada" message="tns:IServicioAmistades_NotificarSolicitudAmistadEnviada_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotificarSolicitudAmistadAceptada">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/NotificarSolicitudAmistadAceptada" message="tns:IServicioAmistades_NotificarSolicitudAmistadAceptada_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotificarAmistadEliminada">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/NotificarAmistadEliminada" message="tns:IServicioAmistades_NotificarAmistadEliminada_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IServicioGestionJugador" type="tns:IServicioGestionJugador">
@@ -311,6 +365,15 @@
     </wsdl:operation>
     <wsdl:operation name="IniciarSesion">
       <soap12:operation soapAction="http://tempuri.org/IServicioGestionJugador/IniciarSesion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CerrarSesion">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionJugador/CerrarSesion" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -363,12 +426,18 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="NotificarEstadoConectividadDeJugador">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionJugador/NotificarEstadoConectividadDeJugador" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="NetTcpBinding_IServicioJuego" type="tns:IServicioJuego">
     <wsp:PolicyReference URI="#NetTcpBinding_IServicioJuego_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
-    <wsdl:operation name="NuevaSala">
-      <soap12:operation soapAction="http://tempuri.org/IServicioJuego/NuevaSala" style="document" />
+    <wsdl:operation name="CrearNuevaSala">
+      <soap12:operation soapAction="http://tempuri.org/IServicioJuego/CrearNuevaSala" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -418,8 +487,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="MensajeDeSalaCallBack">
-      <soap12:operation soapAction="http://tempuri.org/IServicioJuego/MensajeDeSalaCallBack" style="document" />
+    <wsdl:operation name="MostrarMensajeDeSala">
+      <soap12:operation soapAction="http://tempuri.org/IServicioJuego/MostrarMensajeDeSala" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
@@ -428,17 +497,8 @@
   <wsdl:binding name="NetTcpBinding_IServicioAmistades" type="tns:IServicioAmistades">
     <wsp:PolicyReference URI="#NetTcpBinding_IServicioAmistades_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
-    <wsdl:operation name="EnviarSolicitudDeAmistad">
-      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/EnviarSolicitudDeAmistad" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ObtenerJugadoresConSolicitudDeAmistadSinAceptar">
-      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/ObtenerJugadoresConSolicitudDeAmistadSinAceptar" style="document" />
+    <wsdl:operation name="ObtenerJugadoresConSolicitudPendiente">
+      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/ObtenerJugadoresConSolicitudPendiente" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -448,6 +508,15 @@
     </wsdl:operation>
     <wsdl:operation name="ObtenerAmigosDeJugador">
       <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/ObtenerAmigosDeJugador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnviarSolicitudDeAmistad">
+      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/EnviarSolicitudDeAmistad" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -473,8 +542,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ExisteSolicitudDeAmistadSinAceptar">
-      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/ExisteSolicitudDeAmistadSinAceptar" style="document" />
+    <wsdl:operation name="ExisteSolicitudDeAmistad">
+      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/ExisteSolicitudDeAmistad" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -491,8 +560,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="RegistrarNuevaAmistadEntreJugadores">
-      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/RegistrarNuevaAmistadEntreJugadores" style="document" />
+    <wsdl:operation name="EliminarAmistadEntreJugadores">
+      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/EliminarAmistadEntreJugadores" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -500,11 +569,47 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="EliminarAmistadEntreJugadores">
-      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/EliminarAmistadEntreJugadores" style="document" />
+    <wsdl:operation name="SuscribirJugadorANotificacionesAmistades">
+      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/SuscribirJugadorANotificacionesAmistades" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DesuscribirJugadorDeNotificacionesAmistades">
+      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/DesuscribirJugadorDeNotificacionesAmistades" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EsJugadorSuscritoANotififacionesDeAmistades">
+      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/EsJugadorSuscritoANotififacionesDeAmistades" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotificarSolicitudAmistadEnviada">
+      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/NotificarSolicitudAmistadEnviada" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotificarSolicitudAmistadAceptada">
+      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/NotificarSolicitudAmistadAceptada" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotificarAmistadEliminada">
+      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/NotificarAmistadEliminada" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

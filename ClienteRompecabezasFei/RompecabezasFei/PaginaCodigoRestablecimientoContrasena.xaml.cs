@@ -21,23 +21,21 @@ namespace RompecabezasFei
 
         #region Métodos privados
         private void EnviarCodigo()
-        {
-            ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
+        {            
             Random generadorNumeroAleatorio = new Random();
             codigoGenerado = generadorNumeroAleatorio.Next(100000, 1000000).ToString();
             bool codigoEnviado = false;
             
             try
             {
-                codigoEnviado = cliente.EnviarMensajeCorreo(Properties.Resources.
-                    ETIQUETA_GENERAL_ROMPECABEZASFEI, correo, Properties.Resources.
-                    ETIQUETA_CODIGO_CODIGORESTABLECIMIENTO, Properties.Resources.
-                    ETIQUETA_RECUPERACION_MENSAJE + $" {codigoGenerado}");
-                cliente.Close();
+                codigoEnviado = VentanaPrincipal.ClienteServicioGestionJugador.
+                    EnviarMensajeCorreo(Properties.Resources.ETIQUETA_GENERAL_ROMPECABEZASFEI, 
+                    correo, Properties.Resources.ETIQUETA_CODIGO_CODIGORESTABLECIMIENTO, 
+                    Properties.Resources.ETIQUETA_RECUPERACION_MENSAJE + $" {codigoGenerado}");
             }
             catch (EndpointNotFoundException)
             {
-                cliente.Abort();
+                
             }
 
             if (!codigoEnviado)

@@ -54,7 +54,7 @@ namespace RompecabezasFei
 
         private void AccionEnviarMensaje(object remitente, RoutedEventArgs evento)
         {
-            if (!String.IsNullOrEmpty(CuadroTextoMensajeUsuario.Text))
+            if (!string.IsNullOrEmpty(CuadroTextoMensajeUsuario.Text))
             {
                 clienteServicioJuego.EnviarMensajeDeSala(Dominio.CuentaJugador.
                     Actual.NombreJugador, codigoSala, CuadroTextoMensajeUsuario.Text);
@@ -85,18 +85,23 @@ namespace RompecabezasFei
             {
                 IniciarConexionConSala();
             }
-            catch (EndpointNotFoundException)
+            catch (CommunicationException)
             {
-                estadoCreacionSala = false;                
-            }
-            catch (CommunicationObjectFaultedException)
-            {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
                 estadoCreacionSala = false;
             }
             catch (TimeoutException)
             {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
                 estadoCreacionSala = false;
             }
+
             return estadoCreacionSala;
         }
 
@@ -105,11 +110,12 @@ namespace RompecabezasFei
             if (!hayConexionEstablecida)
             {
                 clienteServicioJuego = new ServicioJuegoClient(new InstanceContext(this));
+
                 if (esNuevaSala)
                 {
                     esAnfitrion = true;
                     codigoSala = clienteServicioJuego.GenerarCodigoParaNuevaSala();
-                    clienteServicioJuego.NuevaSala(Dominio.CuentaJugador.
+                    clienteServicioJuego.CrearNuevaSala(Dominio.CuentaJugador.
                         Actual.NombreJugador, codigoSala);
                 }
                 else
@@ -128,9 +134,9 @@ namespace RompecabezasFei
         {
             if (hayConexionEstablecida)
             {
-                clienteServicioJuego.DesconectarCuentaJugadorDeSala(Dominio.CuentaJugador.
-                        Actual.NombreJugador, codigoSala, 
-                        Properties.Resources.ETIQUETA_MENSAJESALA_DESPEDIDA);
+                clienteServicioJuego.DesconectarCuentaJugadorDeSala(Dominio.
+                    CuentaJugador.Actual.NombreJugador, codigoSala, 
+                    Properties.Resources.ETIQUETA_MENSAJESALA_DESPEDIDA);
                 clienteServicioJuego.Abort();
                 clienteServicioJuego = null;
                 hayConexionEstablecida = false;
@@ -139,26 +145,19 @@ namespace RompecabezasFei
 
         public bool VerificarDisponibilidadSala(string idSala)
         {
-            clienteServicioJuego = new ServicioJuegoClient(new InstanceContext(this));
             bool disponibilidadSala = false;
 
             try
             {
                 disponibilidadSala = clienteServicioJuego.ExisteSalaDisponible(idSala);
             }
-            catch (EndpointNotFoundException)
+            catch (CommunicationException)
             {
                 MessageBox.Show(Properties.Resources.
                     ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                     ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
                     MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            catch (CommunicationObjectFaultedException)
-            {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                clienteServicioJuego.Abort();
             }
             catch (TimeoutException)
             {
@@ -166,9 +165,6 @@ namespace RompecabezasFei
                     ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                     ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
                     MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            finally
-            {
                 clienteServicioJuego.Abort();
             }
 
@@ -176,7 +172,7 @@ namespace RompecabezasFei
         }
 
         #region Callbacks
-        public void MensajeDeSalaCallBack(string mensaje)
+        public void MostrarMensajeDeSala(string mensaje)
         {
             CuadroTextoMensajes.AppendText(mensaje + "\n");
         }

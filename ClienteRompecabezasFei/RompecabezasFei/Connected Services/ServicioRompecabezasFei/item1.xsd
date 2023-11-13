@@ -4,11 +4,20 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Contrasena" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Correo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EstadoConectividad" type="tns:EstadoConectividadJugador" />
       <xs:element minOccurs="0" name="NombreJugador" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="NumeroAvatar" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CuentaJugador" nillable="true" type="tns:CuentaJugador" />
+  <xs:simpleType name="EstadoConectividadJugador">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Desconectado" />
+      <xs:enumeration value="Conectado" />
+      <xs:enumeration value="EnPartida" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EstadoConectividadJugador" nillable="true" type="tns:EstadoConectividadJugador" />
   <xs:complexType name="ArrayOfCuentaJugador">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="CuentaJugador" nillable="true" type="tns:CuentaJugador" />

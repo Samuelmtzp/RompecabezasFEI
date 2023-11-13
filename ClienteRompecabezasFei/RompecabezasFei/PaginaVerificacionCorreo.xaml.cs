@@ -40,10 +40,10 @@ namespace RompecabezasFei
 
         private void EnviarCodigo()
         {
-            ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
             codigoGenerado = GenerarCodigo();
-            cliente.EnviarMensajeCorreo(Properties.Resources.ETIQUETA_GENERAL_ROMPECABEZASFEI, 
-                jugadorRegistro.Correo, Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ASUNTO, 
+            VentanaPrincipal.ClienteServicioGestionJugador.EnviarMensajeCorreo(Properties.Resources.
+                ETIQUETA_GENERAL_ROMPECABEZASFEI, jugadorRegistro.Correo,
+                Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ASUNTO,
                 Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJE + " " + codigoGenerado);
             DeshabilitarBotonEnvioCodigo();
             InicializarTemporizador();
@@ -74,53 +74,54 @@ namespace RompecabezasFei
                         Contrasena = contrasenaCifrada,
                         Correo = jugadorRegistro.Correo
                     };
-                    ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
-                    bool resultadoRegistro = cliente.Registrar(nuevoJugador);
+                    bool resultadoRegistro = VentanaPrincipal.
+                        ClienteServicioGestionJugador.Registrar(nuevoJugador);
 
                     if (resultadoRegistro)
                     {
                         temporizador.Stop();
                         MessageBox.Show(
-                         Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJEUSUARIOREGISTRADO,
-                         Properties.Resources.ETIQUETA_VERIFICACIONCORREO_REGISTROREALIZADO, 
-                         MessageBoxButton.OK);
-                        cliente.Abort();
+                            Properties.Resources.
+                            ETIQUETA_VERIFICACIONCORREO_MENSAJEUSUARIOREGISTRADO,
+                            Properties.Resources.ETIQUETA_VERIFICACIONCORREO_REGISTROREALIZADO,
+                            MessageBoxButton.OK);
                         VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
                     }
                     else
                     {
                         MessageBox.Show(
-                       Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJEREGISTRONOREALIZADO,
-                       Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ERRORREGISTRO, 
-                       MessageBoxButton.OK);
+                            Properties.Resources.
+                            ETIQUETA_VERIFICACIONCORREO_MENSAJEREGISTRONOREALIZADO,
+                            Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ERRORREGISTRO,
+                            MessageBoxButton.OK);
                     }
                 }
                 else
                 {
                     MessageBox.Show(
                         Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJECODIGOINCORRECTO,
-                        Properties.Resources.ETIQUETA_VERIFICACIONCORREO_CODIGOINCORRECTO, 
+                        Properties.Resources.ETIQUETA_VERIFICACIONCORREO_CODIGOINCORRECTO,
                         MessageBoxButton.OK);
                 }
             }
         }
 
-        private void EventoAceptarSoloCaracteresNumericos(object controlOrigen, 
+        private void EventoAceptarSoloCaracteresNumericos(object controlOrigen,
             TextChangedEventArgs evento)
         {
             if (controlOrigen is TextBox CuadroTextoCodigoVerificacion)
             {
-                string texto = 
+                string texto =
                   CuadroTextoCodigoVerificacion.Text = new string(
                   CuadroTextoCodigoVerificacion.Text.Where(char.IsDigit).ToArray());
-                CuadroTextoCodigoVerificacion.CaretIndex = 
+                CuadroTextoCodigoVerificacion.CaretIndex =
                     CuadroTextoCodigoVerificacion.Text.Length;
                 CuadroTextoCodigoVerificacion.Text = texto;
             }
         }
 
         private void ActualizarTiempo(object controlOrigen, EventArgs evento)
-        {            
+        {
             if (segundosRestantes > 0)
             {
                 segundosRestantes--;

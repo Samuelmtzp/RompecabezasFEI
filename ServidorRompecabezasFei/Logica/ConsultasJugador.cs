@@ -1,4 +1,5 @@
 ﻿using Datos;
+using System;
 using System.Linq;
 
 namespace Logica
@@ -12,7 +13,7 @@ namespace Logica
             using (var contexto = new EntidadesRompecabezasFei())
             {
                 int coincidencias = (from jugador in contexto.Jugador 
-                                    where jugador.NombreJugador.Equals(nombreJugador)
+                                    where jugador.NombreJugador == nombreJugador 
                                     select jugador).Count();
 
                 if (coincidencias > 0)

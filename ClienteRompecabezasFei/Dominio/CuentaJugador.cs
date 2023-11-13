@@ -13,7 +13,7 @@ namespace Dominio
         private bool esInvitado;
         private SolidColorBrush colorEstadoConectividad;
         private BitmapImage fuenteImagenAvatar;
-        private static CuentaJugador cuentaJugadorActual; 
+        private static CuentaJugador cuentaJugadorActual;
         #endregion
 
         #region Propiedades

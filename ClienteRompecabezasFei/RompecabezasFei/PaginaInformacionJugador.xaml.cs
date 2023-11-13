@@ -27,34 +27,56 @@ namespace RompecabezasFei
 
         #region Métodos privados
         private void MostrarPartidasJugadas()
-        {
-            ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
-
+        {           
             try
             {
-                cuadroTextoPartidasJugadas.Text = Convert.ToString(cliente.
-                    ObtenerNumeroPartidasJugadas(Dominio.CuentaJugador.Actual.NombreJugador));
-                cliente.Close();
+                cuadroTextoPartidasJugadas.Text = Convert.ToString(
+                    VentanaPrincipal.ClienteServicioGestionJugador.
+                    ObtenerNumeroPartidasJugadas(Dominio.CuentaJugador.
+                    Actual.NombreJugador));                
             }
-            catch (EndpointNotFoundException)
+            catch (CommunicationException)
             {
-                cliente.Abort();
-            }            
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                VentanaPrincipal.ClienteServicioGestionJugador.Abort();
+            }
+            catch (TimeoutException)
+            {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                VentanaPrincipal.ClienteServicioGestionJugador.Abort();
+            }
         }
 
         private void MostrarPartidasGanadas()
-        {
-            ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
-
+        {            
             try
             {
-                cuadroTextoPartidasGanadas.Text = Convert.ToString(cliente.
-                    ObtenerNumeroPartidasGanadas(Dominio.CuentaJugador.Actual.NombreJugador));
-                cliente.Close();
+                cuadroTextoPartidasGanadas.Text = Convert.ToString(
+                    VentanaPrincipal.ClienteServicioGestionJugador.
+                    ObtenerNumeroPartidasGanadas(Dominio.CuentaJugador.
+                    Actual.NombreJugador));
             }
-            catch (EndpointNotFoundException)
+            catch (CommunicationException)
             {
-                cliente.Abort();
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                VentanaPrincipal.ClienteServicioGestionJugador.Abort();
+            }
+            catch (TimeoutException)
+            {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                VentanaPrincipal.ClienteServicioGestionJugador.Abort();
             }
         }
         #endregion

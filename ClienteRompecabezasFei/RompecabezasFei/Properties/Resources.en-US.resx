@@ -316,7 +316,7 @@
     <value>Email confirmation</value>
   </data>
   <data name="ETIQUETA_CONFIRMACIONCORREO_INSTRUCCIONCORREO" xml:space="preserve">
-    <value>To complete your registration, we send you a code to your email so you can reset your password, enter it below</value>
+    <value>To complete your registration, we send you a code to your email, enter it below</value>
   </data>
   <data name="ETIQUETA_CONFIRMACIONCORREO_TERMINAR" xml:space="preserve">
     <value>Finish</value>
@@ -367,7 +367,7 @@
     <value>Settings</value>
   </data>
   <data name="ETIQUETA_GENERAL_AMIGOS" xml:space="preserve">
-    <value>My friends</value>
+    <value>Friends</value>
   </data>
   <data name="ETIQUETA_GENERAL_CAMPOSEXCEDIDOS" xml:space="preserve">
     <value>Exceeded fields</value>
