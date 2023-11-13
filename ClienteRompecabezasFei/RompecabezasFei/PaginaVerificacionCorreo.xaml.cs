@@ -74,22 +74,24 @@ namespace RompecabezasFei
                         Contrasena = contrasenaCifrada,
                         Correo = jugadorRegistro.Correo
                     };
-                    bool resultadoRegistro = VentanaPrincipal.ClienteServicioGestionJugador.Registrar(nuevoJugador);
+                    bool resultadoRegistro = VentanaPrincipal.
+                        ClienteServicioGestionJugador.Registrar(nuevoJugador);
 
                     if (resultadoRegistro)
                     {
                         temporizador.Stop();
                         MessageBox.Show(
-                            Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJEUSUARIOREGISTRADO,
+                            Properties.Resources.
+                            ETIQUETA_VERIFICACIONCORREO_MENSAJEUSUARIOREGISTRADO,
                             Properties.Resources.ETIQUETA_VERIFICACIONCORREO_REGISTROREALIZADO,
                             MessageBoxButton.OK);
-                        cliente.Abort();
                         VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
                     }
                     else
                     {
                         MessageBox.Show(
-                            Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJEREGISTRONOREALIZADO,
+                            Properties.Resources.
+                            ETIQUETA_VERIFICACIONCORREO_MENSAJEREGISTRONOREALIZADO,
                             Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ERRORREGISTRO,
                             MessageBoxButton.OK);
                     }
