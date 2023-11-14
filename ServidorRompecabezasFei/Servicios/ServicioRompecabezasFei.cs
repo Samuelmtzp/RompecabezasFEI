@@ -11,7 +11,7 @@ namespace Servicios
     #region IServicioGestionJugador
     [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Multiple, 
         InstanceContextMode = InstanceContextMode.Single)]
-    public partial class ServicioRompecabezasFei : IServicioGestionJugador
+    public partial class ServicioRompecabezasFei : IServicioJugador
     {
         public bool Registrar(CuentaJugador cuentaJugador)
         {
@@ -114,18 +114,15 @@ namespace Servicios
         {
             CuentaJugador cuentaAutenticacion = null;
             
-            if (ExisteNombreJugador(nombreJugador) && !jugadoresConectados.ContainsKey(nombreJugador))
+            if (ExisteNombreJugador(nombreJugador) && 
+                !jugadoresConectados.ContainsKey(nombreJugador))
             {
                 try
                 {
                     Autenticacion autenticacion = new Autenticacion();
                     cuentaAutenticacion = autenticacion.IniciarSesion(nombreJugador, contrasena);
                     cuentaAutenticacion.EstadoConectividad = EstadoConectividadJugador.Conectado;
-                    cuentaAutenticacion.OperacionesContexto = new GestionContexto();
-                    cuentaAutenticacion.OperacionesContexto.ContextoIServicioGestionJugador = 
-                        OperationContext.Current;
-                    NotificarConexionJugadorAOtrosJugadores(cuentaAutenticacion.NombreJugador,
-                        cuentaAutenticacion.EstadoConectividad);
+                    cuentaAutenticacion.OperacionesContexto = new GestionContexto();                    
                     CuentaJugador nuevaCuentaJugador = new CuentaJugador
                     {
                         NombreJugador = cuentaAutenticacion.NombreJugador,
@@ -134,6 +131,8 @@ namespace Servicios
                         OperacionesContexto = cuentaAutenticacion.OperacionesContexto,
                     };
                     jugadoresConectados[cuentaAutenticacion.NombreJugador] = nuevaCuentaJugador;
+                    NotificarConexionJugadorAOtrosJugadores(cuentaAutenticacion.NombreJugador,
+                        cuentaAutenticacion.EstadoConectividad);
                 }
                 catch (EntityException)
                 {
@@ -151,8 +150,8 @@ namespace Servicios
             if (jugadoresConectados.ContainsKey(nombreJugador))
             {
                 resultado = jugadoresConectados.Remove(nombreJugador); 
-                NotificarConexionJugadorAOtrosJugadores(nombreJugador,
-                    EstadoConectividadJugador.Desconectado);                
+                NotificarConexionJugadorAOtrosJugadores(
+                    nombreJugador, EstadoConectividadJugador.Desconectado);                
             }
 
             return resultado;
@@ -212,22 +211,7 @@ namespace Servicios
             }
             
             return numeroPartidasGanadas;
-        }
-
-        private void NotificarConexionJugadorAOtrosJugadores(string nombreJugador,
-            EstadoConectividadJugador estado)
-        {
-            foreach (CuentaJugador cuenta in jugadoresConectados.Values)
-            {
-                if (ExisteAmistadConJugador(nombreJugador, cuenta.NombreJugador) && 
-                    cuenta.OperacionesContexto.ContextoIServicioGestionJugador != null)
-                {
-                    cuenta.OperacionesContexto.ContextoIServicioGestionJugador.
-                        GetCallbackChannel<IServicioGestionJugadorCallback>().
-                        NotificarEstadoConectividadDeJugador(nombreJugador, estado);
-                }
-            }
-        }
+        }        
     }
     #endregion
 
@@ -347,6 +331,21 @@ namespace Servicios
         private readonly Dictionary<string, CuentaJugador> jugadoresConectados =
             new Dictionary<string, CuentaJugador>();
 
+        private void NotificarConexionJugadorAOtrosJugadores(string nombreJugador,
+            EstadoConectividadJugador estado)
+        {
+            foreach (CuentaJugador cuenta in jugadoresConectados.Values)
+            {
+                if (ExisteAmistadConJugador(nombreJugador, cuenta.NombreJugador) &&
+                    EsJugadorSuscritoANotififacionesDeAmistades(cuenta.NombreJugador))
+                {
+                    cuenta.OperacionesContexto.ContextoIServicioAmistades.
+                        GetCallbackChannel<IServicioAmistadesCallback>().
+                        NotificarEstadoConectividadDeJugador(nombreJugador, estado);
+                }
+            }
+        }
+
         public List<CuentaJugador> ObtenerAmigosDeJugador(string nombreJugador)
         {
             GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
@@ -392,8 +391,7 @@ namespace Servicios
             return cuentasConEstadoConectividad;
         }
 
-        public List<CuentaJugador> ObtenerJugadoresConSolicitudPendiente(
-            string nombreJugador)
+        public List<CuentaJugador> ObtenerJugadoresConSolicitudPendiente(string nombreJugador)
         {
             GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
             List<CuentaJugador> cuentasJugador = null;
@@ -583,9 +581,16 @@ namespace Servicios
 
         public bool EsJugadorSuscritoANotififacionesDeAmistades(string nombreJugador)
         {
-            return jugadoresConectados.ContainsKey(nombreJugador) &&
+            bool resultado = false;
+
+            if (jugadoresConectados.ContainsKey(nombreJugador) &&
                 jugadoresConectados[nombreJugador].OperacionesContexto.
-                ContextoIServicioAmistades != null;
+                ContextoIServicioAmistades != null)
+            {
+                resultado = true;
+            }
+
+            return resultado;
         }
     }
     #endregion

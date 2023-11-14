@@ -28,12 +28,12 @@ namespace RompecabezasFei
         #region Métodos privados
         private void MostrarPartidasJugadas()
         {           
+            ServicioJugadorClient cliente = new ServicioJugadorClient();
+
             try
             {
-                cuadroTextoPartidasJugadas.Text = Convert.ToString(
-                    VentanaPrincipal.ClienteServicioGestionJugador.
-                    ObtenerNumeroPartidasJugadas(Dominio.CuentaJugador.
-                    Actual.NombreJugador));                
+                cuadroTextoPartidasJugadas.Text = Convert.ToString(cliente.
+                    ObtenerNumeroPartidasJugadas(Dominio.CuentaJugador.Actual.NombreJugador));                
             }
             catch (CommunicationException)
             {
@@ -41,7 +41,6 @@ namespace RompecabezasFei
                     ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                     ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
                     MessageBoxButton.OK, MessageBoxImage.Error);
-                VentanaPrincipal.ClienteServicioGestionJugador.Abort();
             }
             catch (TimeoutException)
             {
@@ -49,18 +48,21 @@ namespace RompecabezasFei
                     ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                     ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
                     MessageBoxButton.OK, MessageBoxImage.Error);
-                VentanaPrincipal.ClienteServicioGestionJugador.Abort();
+            }
+            finally
+            {
+                cliente.Abort();
             }
         }
 
         private void MostrarPartidasGanadas()
-        {            
+        {
+            ServicioJugadorClient cliente = new ServicioJugadorClient();
+
             try
             {
-                cuadroTextoPartidasGanadas.Text = Convert.ToString(
-                    VentanaPrincipal.ClienteServicioGestionJugador.
-                    ObtenerNumeroPartidasGanadas(Dominio.CuentaJugador.
-                    Actual.NombreJugador));
+                cuadroTextoPartidasGanadas.Text = Convert.ToString(cliente.
+                    ObtenerNumeroPartidasGanadas(Dominio.CuentaJugador.Actual.NombreJugador));
             }
             catch (CommunicationException)
             {
@@ -68,7 +70,6 @@ namespace RompecabezasFei
                     ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                     ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
                     MessageBoxButton.OK, MessageBoxImage.Error);
-                VentanaPrincipal.ClienteServicioGestionJugador.Abort();
             }
             catch (TimeoutException)
             {
@@ -76,7 +77,6 @@ namespace RompecabezasFei
                     ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                     ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
                     MessageBoxButton.OK, MessageBoxImage.Error);
-                VentanaPrincipal.ClienteServicioGestionJugador.Abort();
             }
         }
         #endregion

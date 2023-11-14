@@ -53,5 +53,9 @@ namespace Contratos
 
         [OperationContract(IsOneWay = true)]
         void NotificarAmistadEliminada(string nombreAmigoEliminacion);
+
+        [OperationContract(IsOneWay = true)]
+        void NotificarEstadoConectividadDeJugador(string nombreJugador,
+            EstadoConectividadJugador estado);
     }
 }

@@ -17,28 +17,30 @@ namespace RompecabezasFei
             InitializeComponent();
         }
 
-        private void EventoClickSiguiente(object controlOrigen, RoutedEventArgs evento)
+        private void EventoClickSiguiente(object objetoOrigen, RoutedEventArgs evento)
         {
             correo = CuadroCorreo.Text;
 
             if (!ExistenCaracteresInvalidosParaCorreo(correo))
             {
-                if (VentanaPrincipal.ClienteServicioGestionJugador.
-                    ExisteCorreoElectronico(correo))
+                if (ExisteCorreoElectronico(correo))
                 {
-                    PaginaCodigoRestablecimientoContrasena paginaCodigoRestablecimientoContrasena =
-                        new PaginaCodigoRestablecimientoContrasena(correo);
+                    PaginaCodigoRestablecimientoContrasena 
+                        paginaCodigoRestablecimientoContrasena = new 
+                        PaginaCodigoRestablecimientoContrasena(correo);
                     VentanaPrincipal.CambiarPagina(paginaCodigoRestablecimientoContrasena);
                 }
                 else
                 {
-                    MessageBox.Show(Properties.Resources.ETIQUETA_RECUPERACIONCONTRASENA_MENSAJECORREOINEXISTENE,
-                        Properties.Resources.ETIQUETA_RECUPERACIONCONTRASENA_CORREOINEXISTENTE, MessageBoxButton.OK);
+                    MessageBox.Show(Properties.Resources.
+                        ETIQUETA_RECUPERACIONCONTRASENA_MENSAJECORREOINEXISTENE, Properties.
+                        Resources.ETIQUETA_RECUPERACIONCONTRASENA_CORREOINEXISTENTE, 
+                        MessageBoxButton.OK);
                 }
             }
         }
 
-        private void EventoClickAccionRegresar(object controlOrigen, MouseButtonEventArgs evento)
+        private void EventoClickAccionRegresar(object objetoOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
         }
@@ -54,6 +56,37 @@ namespace RompecabezasFei
                     Properties.Resources.ETIQUETA_VALIDACION_CORREOINVALIDO, MessageBoxButton.OK);
             }
             return caracteresInvalidos;
+        }
+
+        private bool ExisteCorreoElectronico(string correoElectronico)
+        {
+            ServicioJugadorClient cliente = new ServicioJugadorClient();
+            bool resultado = false;
+
+            try
+            {
+                resultado = cliente.ExisteCorreoElectronico(correoElectronico);
+            }
+            catch (CommunicationException)
+            {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (TimeoutException)
+            {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                cliente.Abort();
+            }
+
+            return resultado;
         }
     }
 }

@@ -1,30 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace RompecabezasFei
 {
     public partial class PaginaResultados : Page
     {
-        public PaginaResultados()
+        bool esAnfitrion;
+        string codigoSala;
+
+        public PaginaResultados(bool esAnfitrion, string codigoSala)
         {
             InitializeComponent();
+            this.esAnfitrion = esAnfitrion;
+            this.codigoSala = codigoSala;
         }
 
-        private void EventoClickAceptar(object controlOrigen, RoutedEventArgs evento)
+        private void EventoClickAceptar(object objetoOrigen, RoutedEventArgs evento)
         {
-            VentanaPrincipal.CambiarPagina(new PaginaSala());
+            PaginaSala paginaSala = new PaginaSala();
+            VentanaPrincipal.CambiarPagina(paginaSala);
+            paginaSala.CargarDatosSala(esAnfitrion, codigoSala);
         }
     }
 }

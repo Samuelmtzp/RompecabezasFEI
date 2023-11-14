@@ -11,18 +11,11 @@ namespace RompecabezasFei
     {
         private static Page paginaActual;
         private static Page paginaAnterior;
-        private static ServicioGestionJugadorClient clienteServicioGestionJugador;
 
         public static Page PaginaAnterior
         {
             get { return paginaAnterior; }
             set { paginaAnterior = value; }
-        }
-
-        public static ServicioGestionJugadorClient ClienteServicioGestionJugador
-        {
-            get { return clienteServicioGestionJugador; }
-            set { clienteServicioGestionJugador = value; }
         }
 
         public VentanaPrincipal()
@@ -56,20 +49,26 @@ namespace RompecabezasFei
                 }
                 catch (CommunicationException)
                 {
-                    
+                    MessageBox.Show(Properties.Resources.
+                        ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                        ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                        MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 catch (TimeoutException)
                 {
-                    
+                    MessageBox.Show(Properties.Resources.
+                        ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                        ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                        MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
 
         private void DesconectarUsuarioDeServidor()
         {
-            clienteServicioGestionJugador.CerrarSesion(Dominio.CuentaJugador.
-                Actual.NombreJugador);
-            clienteServicioGestionJugador.Abort();
+            ServicioJugadorClient cliente = new ServicioJugadorClient();
+            cliente.CerrarSesion(Dominio.CuentaJugador.Actual.NombreJugador);
+            cliente.Abort();
         }
     }
 }

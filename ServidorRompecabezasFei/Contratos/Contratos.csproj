@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IServicioAmistades.cs" />
-    <Compile Include="IServicioGestionJugador.cs" />
+    <Compile Include="IServicioJugador.cs" />
     <Compile Include="IServicioJuego.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
