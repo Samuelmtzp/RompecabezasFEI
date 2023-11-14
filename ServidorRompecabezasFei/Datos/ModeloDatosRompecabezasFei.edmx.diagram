@@ -8,7 +8,7 @@
         <EntityTypeShape EntityType="ModeloRompecabezasFei.Cuenta" Width="1.5" PointX="4.125" PointY="3.625" />
         <EntityTypeShape EntityType="ModeloRompecabezasFei.Jugador" Width="1.5" PointX="6.75" PointY="3.625" />
         <AssociationConnector Association="ModeloRompecabezasFei.CuentaJugador" />
-        <EntityTypeShape EntityType="ModeloRompecabezasFei.SolicitudAmistad" Width="1.5" PointX="6.75" PointY="0.5" />
+        <EntityTypeShape EntityType="ModeloRompecabezasFei.SolicitudAmistad" Width="1.75" PointX="6.625" PointY="0.5" />
         <AssociationConnector Association="ModeloRompecabezasFei.JugadorSolicitudAmistad" />
         <AssociationConnector Association="ModeloRompecabezasFei.JugadorSolicitudAmistad1" />
         <EntityTypeShape EntityType="ModeloRompecabezasFei.Amistad" Width="1.5" PointX="9.625" PointY="4.375" />

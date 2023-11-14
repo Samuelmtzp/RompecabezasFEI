@@ -1,9 +1,8 @@
-﻿using Dominio;
-using System;
+﻿using System;
+using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media.Imaging;
 
 namespace RompecabezasFei
 {
@@ -12,7 +11,8 @@ namespace RompecabezasFei
         public PaginaMenuPrincipal()
         {
             InitializeComponent();
-            if (!CuentaJugador.Actual.EsInvitado)
+
+            if (!Dominio.CuentaJugador.Actual.EsInvitado)
             {
                 CargarOpcionesJugador();
             }
@@ -30,7 +30,7 @@ namespace RompecabezasFei
             etiquetaMiPerfil.Visibility = Visibility.Visible;
             imagenAvatarUsuario.Visibility = Visibility.Visible;
             imagenMisAmigos.Visibility = Visibility.Visible;
-            imagenAvatarUsuario.Source = CuentaJugador.Actual.FuenteImagenAvatar;
+            imagenAvatarUsuario.Source = Dominio.CuentaJugador.Actual.FuenteImagenAvatar;
         }
         #endregion
 
@@ -54,14 +54,38 @@ namespace RompecabezasFei
 
         private void EventoClickCerrarSesion(object controlOrigen, MouseButtonEventArgs evento)
         {
-            MessageBoxResult resultado = MessageBox.Show(
+            MessageBoxResult resultadoOpcionCerrarSesion = MessageBox.Show(
                 Properties.Resources.ETIQUETA_CERRARSESION_MENSAJE, 
                 Properties.Resources.ETIQUETA_CERRARSESION_TITULO, 
                 MessageBoxButton.YesNo, MessageBoxImage.Question);
 
-            if (resultado == MessageBoxResult.Yes)
+            if (resultadoOpcionCerrarSesion == MessageBoxResult.Yes)
             {
-                CuentaJugador.Actual = null;
+                try
+                {
+                    VentanaPrincipal.ClienteServicioGestionJugador.CerrarSesion(
+                        Dominio.CuentaJugador.Actual.NombreJugador);
+                }                
+                catch (CommunicationException)
+                {
+                    MessageBox.Show(Properties.Resources.
+                        ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                        ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                catch (TimeoutException)
+                {
+                    MessageBox.Show(Properties.Resources.
+                        ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                        ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                        MessageBoxButton.OK, MessageBoxImage.Error);                    
+                }
+                finally
+                {
+                    VentanaPrincipal.ClienteServicioGestionJugador.Abort();
+                }
+
+                Dominio.CuentaJugador.Actual = null;
                 VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
             }
         }

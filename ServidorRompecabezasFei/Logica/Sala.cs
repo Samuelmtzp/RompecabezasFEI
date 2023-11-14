@@ -9,10 +9,10 @@ namespace Logica
         #region Atributos
         private string codigoSala;
         private string nombreAnfitrion;
-        private int contadorJugadoresActuales = 0;
-        private List<CuentaJugador> jugadores;
+        private int contadorJugadoresActuales = 0;        
         public const int MaximoJugadores = 4;
         public const int MinimoJugadores = 2;
+        private List<CuentaJugador> jugadores;
         #endregion
 
         #region Propiedades

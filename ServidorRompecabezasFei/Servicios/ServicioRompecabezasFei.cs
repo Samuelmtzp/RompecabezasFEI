@@ -110,21 +110,52 @@ namespace Servicios
             return resultado;
         }
 
-        public CuentaJugador IniciarSesion(string nombreUsuario, string contrasena)
+        public CuentaJugador IniciarSesion(string nombreJugador, string contrasena)
         {
-            CuentaJugador cuentaJugador = null;
+            CuentaJugador cuentaAutenticacion = null;
             
-            try
+            if (ExisteNombreJugador(nombreJugador) && !jugadoresConectados.ContainsKey(nombreJugador))
             {
-                Autenticacion autenticacion = new Autenticacion();
-                cuentaJugador = autenticacion.IniciarSesion(nombreUsuario, contrasena);
-            }
-            catch (EntityException)
-            {
-                // log
+                try
+                {
+                    Autenticacion autenticacion = new Autenticacion();
+                    cuentaAutenticacion = autenticacion.IniciarSesion(nombreJugador, contrasena);
+                    cuentaAutenticacion.EstadoConectividad = EstadoConectividadJugador.Conectado;
+                    cuentaAutenticacion.OperacionesContexto = new GestionContexto();
+                    cuentaAutenticacion.OperacionesContexto.ContextoIServicioGestionJugador = 
+                        OperationContext.Current;
+                    NotificarConexionJugadorAOtrosJugadores(cuentaAutenticacion.NombreJugador,
+                        cuentaAutenticacion.EstadoConectividad);
+                    CuentaJugador nuevaCuentaJugador = new CuentaJugador
+                    {
+                        NombreJugador = cuentaAutenticacion.NombreJugador,
+                        NumeroAvatar = cuentaAutenticacion.NumeroAvatar,
+                        EstadoConectividad = cuentaAutenticacion.EstadoConectividad,
+                        OperacionesContexto = cuentaAutenticacion.OperacionesContexto,
+                    };
+                    jugadoresConectados[cuentaAutenticacion.NombreJugador] = nuevaCuentaJugador;
+                }
+                catch (EntityException)
+                {
+                    // log
+                }
             }
 
-            return cuentaJugador;
+            return cuentaAutenticacion;
+        }
+
+        public bool CerrarSesion(string nombreJugador)
+        {
+            bool resultado = false;
+
+            if (jugadoresConectados.ContainsKey(nombreJugador))
+            {
+                resultado = jugadoresConectados.Remove(nombreJugador); 
+                NotificarConexionJugadorAOtrosJugadores(nombreJugador,
+                    EstadoConectividadJugador.Desconectado);                
+            }
+
+            return resultado;
         }
 
         public bool EnviarMensajeCorreo(string encabezado, string correoDestino, 
@@ -181,18 +212,33 @@ namespace Servicios
             }
             
             return numeroPartidasGanadas;
-        }        
+        }
+
+        private void NotificarConexionJugadorAOtrosJugadores(string nombreJugador,
+            EstadoConectividadJugador estado)
+        {
+            foreach (CuentaJugador cuenta in jugadoresConectados.Values)
+            {
+                if (ExisteAmistadConJugador(nombreJugador, cuenta.NombreJugador) && 
+                    cuenta.OperacionesContexto.ContextoIServicioGestionJugador != null)
+                {
+                    cuenta.OperacionesContexto.ContextoIServicioGestionJugador.
+                        GetCallbackChannel<IServicioGestionJugadorCallback>().
+                        NotificarEstadoConectividadDeJugador(nombreJugador, estado);
+                }
+            }
+        }
     }
     #endregion
 
     #region IServicioJuego
     public partial class ServicioRompecabezasFei : IServicioJuego
     {
-        private readonly List<Sala> salasActivas = new List<Sala>();        
+        private readonly List<Logica.Sala> salasActivas = new List<Logica.Sala>();
 
-        public void NuevaSala(string nombreAnfitrion, string codigoSala)
+        public void CrearNuevaSala(string nombreAnfitrion, string codigoSala)
         {
-            Sala nuevaSala = new Sala()
+            Logica.Sala nuevaSala = new Logica.Sala()
             {
                 CodigoSala = codigoSala,
                 NombreAnfitrion = nombreAnfitrion,
@@ -205,7 +251,7 @@ namespace Servicios
         public bool ExisteSalaDisponible(string codigoSala)
         {
             bool resultado = false;
-            Sala salaEncontrada = salasActivas.FirstOrDefault(
+            Logica.Sala salaEncontrada = salasActivas.FirstOrDefault(
                 sala => sala.CodigoSala.Equals(codigoSala));
             
             if (salaEncontrada != null && salaEncontrada.ExisteCupoJugadores())
@@ -219,34 +265,36 @@ namespace Servicios
         public void ConectarCuentaJugadorASala(string nombreJugador, string codigoSala, 
             string mensajeBienvenida)
         {
-            CuentaJugador cuentaJugador = new CuentaJugador()
-            {
-                NombreJugador = nombreJugador,
-                ContextoOperacion = OperationContext.Current,
-            };
+            bool existeJugador = jugadoresConectados.ContainsKey(nombreJugador);
 
-            Sala salaEncontrada = salasActivas.FirstOrDefault(
+            if (existeJugador)
+            {
+                jugadoresConectados[nombreJugador].OperacionesContexto.
+                    ContextoIServicioJuego = OperationContext.Current;
+                Logica.Sala salaEncontrada = salasActivas.FirstOrDefault(
                 sala => sala.CodigoSala.Equals(codigoSala));
-            
-            if (salaEncontrada.ExisteCupoJugadores())
-            {
-                EnviarMensajeDeSala(nombreJugador, codigoSala, mensajeBienvenida);
-            }
 
-            salaEncontrada.Jugadores.Add(cuentaJugador);
-            salaEncontrada.ContadorJugadoresActuales++;
+                if (salaEncontrada.ExisteCupoJugadores())
+                {
+                    EnviarMensajeDeSala(nombreJugador, codigoSala, mensajeBienvenida);
+                }
+
+                salaEncontrada.Jugadores.Add(jugadoresConectados[nombreJugador]);
+                salaEncontrada.ContadorJugadoresActuales++;
+            }
         }
 
-        public void DesconectarCuentaJugadorDeSala(string nombreJugador, string codigoSala, 
-            string mensajeDespedida)
+        public void DesconectarCuentaJugadorDeSala(string nombreJugador, 
+            string codigoSala, string mensajeDespedida)
         {
             CuentaJugador cuentaJugadorEncontrada = null;
-            Sala salaEncontrada = salasActivas.FirstOrDefault(sala => 
+            Logica.Sala salaEncontrada = salasActivas.FirstOrDefault(sala => 
                 sala.CodigoSala.Equals(codigoSala));
 
             if (salaEncontrada != null)
             {
-                cuentaJugadorEncontrada = salaEncontrada.Jugadores.FirstOrDefault(cuentaJugador =>
+                cuentaJugadorEncontrada = salaEncontrada.Jugadores.
+                    FirstOrDefault(cuentaJugador =>
                     cuentaJugador.NombreJugador == nombreJugador);
             }
 
@@ -266,30 +314,39 @@ namespace Servicios
             }
         }
 
-        public void EnviarMensajeDeSala(string nombreJugador, string codigoSala, string mensaje)
+        public void EnviarMensajeDeSala(string nombreJugador, string codigoSala, 
+            string mensaje)
         {
-            Sala salaEncontrada = salasActivas.FirstOrDefault(sala => 
+            Logica.Sala salaEncontrada = salasActivas.FirstOrDefault(sala => 
                 sala.CodigoSala.Equals(codigoSala));
             
             foreach (CuentaJugador cuentaJugador in salaEncontrada.Jugadores)
             {
                 string horaActual = DateTime.Now.ToShortTimeString();
                 string mensajeFinal = horaActual + $" {nombreJugador}: {mensaje}";
-                cuentaJugador.ContextoOperacion.GetCallbackChannel<IServicioJuegoCallback>().
-                    MensajeDeSalaCallBack(mensajeFinal);
+                
+                if (cuentaJugador.OperacionesContexto.ContextoIServicioJuego != null)
+                {
+                    cuentaJugador.OperacionesContexto.ContextoIServicioJuego.
+                    GetCallbackChannel<IServicioJuegoCallback>().
+                    MostrarMensajeDeSala(mensajeFinal);
+                }                
             }
         }
 
         public string GenerarCodigoParaNuevaSala()
         {
             return Guid.NewGuid().ToString();
-        }        
+        }
     }
     #endregion
 
     #region IServicioAmistades
     public partial class ServicioRompecabezasFei : IServicioAmistades
     {
+        private readonly Dictionary<string, CuentaJugador> jugadoresConectados =
+            new Dictionary<string, CuentaJugador>();
+
         public List<CuentaJugador> ObtenerAmigosDeJugador(string nombreJugador)
         {
             GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
@@ -304,10 +361,38 @@ namespace Servicios
                 // log
             }
 
+            if (cuentasJugador != null)
+            {
+                cuentasJugador = AgregarEstadoConectividadACuentasDeJugador(cuentasJugador);
+            }
+
             return cuentasJugador;
         }
 
-        public List<CuentaJugador> ObtenerJugadoresConSolicitudDeAmistadSinAceptar(
+        private List<CuentaJugador> AgregarEstadoConectividadACuentasDeJugador(
+            List<CuentaJugador> cuentasJugador)
+        {
+            List<CuentaJugador> cuentasConEstadoConectividad = new List<CuentaJugador>();
+
+            foreach (CuentaJugador cuenta in cuentasJugador)
+            {
+                if (jugadoresConectados.ContainsKey(cuenta.NombreJugador))
+                {
+                    cuenta.EstadoConectividad = jugadoresConectados[cuenta.NombreJugador].
+                        EstadoConectividad;
+                }
+                else
+                {
+                    cuenta.EstadoConectividad = EstadoConectividadJugador.Desconectado;
+                }
+
+                cuentasConEstadoConectividad.Add(cuenta);
+            }
+
+            return cuentasConEstadoConectividad;
+        }
+
+        public List<CuentaJugador> ObtenerJugadoresConSolicitudPendiente(
             string nombreJugador)
         {
             GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
@@ -316,11 +401,16 @@ namespace Servicios
             try
             {
                 cuentasJugador = gestionAmigosJugador.
-                    ObtenerJugadoresConSolicitudDeAmistadSinAceptar(nombreJugador);
+                    ObtenerJugadoresConSolicitudPendiente(nombreJugador);
             }
             catch (EntityException)
             {
                 // log
+            }
+
+            if (cuentasJugador != null)
+            {
+                cuentasJugador = AgregarEstadoConectividadACuentasDeJugador(cuentasJugador);
             }
 
             return cuentasJugador;
@@ -329,31 +419,12 @@ namespace Servicios
         public bool EnviarSolicitudDeAmistad(string nombreJugadorOrigen, 
             string nombreJugadorDestino)
         {
+            bool esSolicitudEnviada = false; 
             GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
-            bool resultado = false;
 
             try
             {
-                resultado = gestionAmigosJugador.EnviarSolicitudDeAmistad(
-                nombreJugadorOrigen, nombreJugadorDestino);
-            }
-            catch (EntityException)
-            {
-                // log
-            }
-
-            return resultado;
-        }
-
-        public bool AceptarSolicitudDeAmistad(string nombreJugadorOrigen, 
-            string nombreJugadorDestino)
-        {
-            GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
-            bool resultado = false;
-
-            try
-            {
-                resultado = gestionAmigosJugador.AceptarSolicitudDeAmistad(
+                esSolicitudEnviada = gestionAmigosJugador.EnviarSolicitudDeAmistad(
                     nombreJugadorOrigen, nombreJugadorDestino);
             }
             catch (EntityException)
@@ -361,7 +432,69 @@ namespace Servicios
                 // log
             }
 
-            return resultado;
+            if (esSolicitudEnviada && EsJugadorSuscritoANotififacionesDeAmistades(
+                nombreJugadorDestino))
+            {
+                jugadoresConectados[nombreJugadorDestino].OperacionesContexto.
+                    ContextoIServicioAmistades.GetCallbackChannel<IServicioAmistadesCallback>().
+                    NotificarSolicitudAmistadEnviada(jugadoresConectados[nombreJugadorOrigen]);
+            }
+
+            return esSolicitudEnviada;
+        }
+
+        public bool AceptarSolicitudDeAmistad(string nombreJugadorOrigen, 
+            string nombreJugadorDestino)
+        {
+            bool esSolicitudAceptada = false;
+            GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
+                
+            try
+            {
+                esSolicitudAceptada = gestionAmigosJugador.AceptarSolicitudDeAmistad(
+                    nombreJugadorOrigen, nombreJugadorDestino);
+            }
+            catch (EntityException)
+            {
+                // log
+            }
+
+            if (esSolicitudAceptada && EsJugadorSuscritoANotififacionesDeAmistades(
+                nombreJugadorOrigen))
+            {
+                jugadoresConectados[nombreJugadorOrigen].OperacionesContexto.
+                    ContextoIServicioAmistades.GetCallbackChannel<IServicioAmistadesCallback>().
+                    NotificarSolicitudAmistadAceptada(jugadoresConectados[nombreJugadorDestino]);
+            }
+
+            return esSolicitudAceptada;
+        }
+
+        public bool EliminarAmistadEntreJugadores(string nombreJugadorA,
+            string nombreJugadorB)
+        {
+            bool esAmistadEliminada = false;
+            GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
+
+            try
+            {
+                esAmistadEliminada = gestionAmigosJugador.EliminarAmistadEntreJugadores(
+                    nombreJugadorA, nombreJugadorB);
+            }
+            catch (EntityException)
+            {
+                // log
+            }
+
+            if (esAmistadEliminada && EsJugadorSuscritoANotififacionesDeAmistades(
+                nombreJugadorB))
+            {
+                jugadoresConectados[nombreJugadorB].OperacionesContexto.
+                    ContextoIServicioAmistades.GetCallbackChannel<IServicioAmistadesCallback>().
+                    NotificarAmistadEliminada(nombreJugadorA);
+            }
+
+            return esAmistadEliminada;
         }
 
         public bool RechazarSolicitudDeAmistad(string nombreJugadorOrigen, 
@@ -372,7 +505,7 @@ namespace Servicios
 
             try
             {
-                resultado = gestionAmigosJugador.RechazarSolicitudDeAmistad(
+                resultado = gestionAmigosJugador.EliminarSolicitudDeAmistad(
                     nombreJugadorOrigen, nombreJugadorDestino);
             }
             catch (EntityException)
@@ -383,7 +516,7 @@ namespace Servicios
             return resultado;
         }
 
-        public bool ExisteSolicitudDeAmistadSinAceptar(string nombreJugadorOrigen, 
+        public bool ExisteSolicitudDeAmistad(string nombreJugadorOrigen, 
             string nombreJugadorDestino)
         {
             GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
@@ -391,7 +524,7 @@ namespace Servicios
 
             try
             {
-                resultado = gestionAmigosJugador.ExisteSolicitudDeAmistadSinAceptar(
+                resultado = gestionAmigosJugador.ExisteSolicitudDeAmistad(
                     nombreJugadorOrigen, nombreJugadorDestino);
             }
             catch (EntityException)
@@ -420,42 +553,39 @@ namespace Servicios
             return resultado;
         }
 
-        public bool RegistrarNuevaAmistadEntreJugadores(string nombreJugadorA, 
-            string nombreJugadorB)
+        public bool SuscribirJugadorANotificacionesAmistades(string nombreJugador)
         {
-            GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
             bool resultado = false;
 
-            try
+            if (!EsJugadorSuscritoANotififacionesDeAmistades(nombreJugador))
             {
-                resultado = gestionAmigosJugador.RegistrarNuevaAmistadEntreJugadores(
-                    nombreJugadorA, nombreJugadorB);
+                jugadoresConectados[nombreJugador].OperacionesContexto.
+                    ContextoIServicioAmistades = OperationContext.Current;
+                resultado = true;
             }
-            catch (EntityException)
+
+            return resultado;
+        }        
+
+        public bool DesuscribirJugadorDeNotificacionesAmistades(string nombreJugador)
+        {
+            bool resultado = false;
+
+            if (EsJugadorSuscritoANotififacionesDeAmistades(nombreJugador))
             {
-                // log
+                jugadoresConectados[nombreJugador].OperacionesContexto.
+                    ContextoIServicioAmistades = null;
+                resultado = true;
             }
 
             return resultado;
         }
 
-        public bool EliminarAmistadEntreJugadores(string nombreJugadorA, 
-            string nombreJugadorB)
+        public bool EsJugadorSuscritoANotififacionesDeAmistades(string nombreJugador)
         {
-            GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
-            bool resultado = false;
-
-            try
-            {
-                resultado = gestionAmigosJugador.EliminarAmistadEntreJugadores(
-                    nombreJugadorA, nombreJugadorB);
-            }
-            catch (EntityException)
-            {
-                // log
-            }
-
-            return resultado;
+            return jugadoresConectados.ContainsKey(nombreJugador) &&
+                jugadoresConectados[nombreJugador].OperacionesContexto.
+                ContextoIServicioAmistades != null;
         }
     }
     #endregion

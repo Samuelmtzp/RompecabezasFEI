@@ -1,5 +1,4 @@
 ﻿using System.Runtime.Serialization;
-using System.ServiceModel;
 
 namespace Logica
 {
@@ -11,7 +10,8 @@ namespace Logica
         private int numeroAvatar;
         private string correo;
         private string contrasena;
-        private OperationContext contextoOperacion;
+        private EstadoConectividadJugador estadoConectividad;
+        private GestionContexto operacionesContexto;
         #endregion
 
         #region Propiedades
@@ -42,11 +42,19 @@ namespace Logica
             get { return contrasena; }
             set { contrasena = value; }
         }
-        
-        public OperationContext ContextoOperacion
+
+        [DataMember]
+        public EstadoConectividadJugador EstadoConectividad
         {
-            get { return contextoOperacion; }
-            set { contextoOperacion = value; }
+            get { return estadoConectividad; }
+            set { estadoConectividad = value; }
+        }
+
+        // Operaciones de contexto para interfaces de callbacks
+        public GestionContexto OperacionesContexto
+        {
+            get { return operacionesContexto; }
+            set { operacionesContexto = value; }
         }
         #endregion
 

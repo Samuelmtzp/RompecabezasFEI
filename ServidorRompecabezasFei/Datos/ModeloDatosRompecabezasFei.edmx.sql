@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/09/2023 19:12:00
+-- Date Created: 11/12/2023 10:07:18
 -- Generated from EDMX file: C:\Users\samue\OneDrive - Universidad Veracruzana\UV\Semestre 5\Tecnologías\RompecabezasFei\ServidorRompecabezasFei\Datos\ModeloDatosRompecabezasFei.edmx
 -- --------------------------------------------------
 
@@ -95,8 +95,7 @@ GO
 -- Creating table 'SolicitudAmistad'
 CREATE TABLE [dbo].[SolicitudAmistad] (
     [IdJugadorOrigen] int  NOT NULL,
-    [IdJugadorDestino] int  NOT NULL,
-    [EstadoSolicitud] int  NOT NULL
+    [IdJugadorDestino] int  NOT NULL
 );
 GO
 

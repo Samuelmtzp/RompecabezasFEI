@@ -3,7 +3,7 @@ using Logica;
 
 namespace Contratos
 {
-    [ServiceContract]
+    [ServiceContract(CallbackContract = typeof(IServicioGestionJugadorCallback))]
     public interface IServicioGestionJugador
     {
         [OperationContract]
@@ -17,7 +17,10 @@ namespace Contratos
         
         [OperationContract]
         CuentaJugador IniciarSesion(string nombreJugador, string contrasena);
-        
+
+        [OperationContract]
+        bool CerrarSesion(string nombreUsuario);
+
         [OperationContract]
         bool EnviarMensajeCorreo(string encabezado, string correoDestino, 
             string asunto, string mensaje);
@@ -34,5 +37,13 @@ namespace Contratos
         
         [OperationContract]
         bool ActualizarContrasena(string correo, string contrasena);
+    }
+
+    [ServiceContract]
+    public interface IServicioGestionJugadorCallback
+    {
+        [OperationContract(IsOneWay = true)]
+        void NotificarEstadoConectividadDeJugador(string nombreJugador,
+            EstadoConectividadJugador estado);
     }
 }
