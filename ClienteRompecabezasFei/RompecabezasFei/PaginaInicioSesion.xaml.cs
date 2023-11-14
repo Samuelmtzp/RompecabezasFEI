@@ -33,8 +33,9 @@ namespace RompecabezasFei
                 cuentaJugadorAutenticada = cliente.IniciarSesion(nombreJugador, contrasena);
                 cliente.Close();
             }
-            catch (EndpointNotFoundException)
+            catch (EndpointNotFoundException ex)
             {
+                Registros.Registros.escribirRegistro(ex.Message);
                 cliente.Abort();
             }
 
@@ -55,7 +56,8 @@ namespace RompecabezasFei
             }
             else
             {
-                MessageBox.Show(Properties.Resources.ETIQUETA_INICIOSESION_MENSAJEINICIOSESIONERROR, 
+                MessageBox.Show(
+                    Properties.Resources.ETIQUETA_INICIOSESION_MENSAJEINICIOSESIONERROR, 
                     Properties.Resources.ETIQUETA_INICIOSESION_INICIOSESIONCANCELADO,
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -122,8 +124,8 @@ namespace RompecabezasFei
                     }
                     catch (EndpointNotFoundException ex)
                     {
-                        Registros.Registros.escribirRegistro(ex.Message);
-                        //Log.Error($"{ex.Message}");
+                        //Registros.Registros.escribirRegistro(ex.Message);
+                        Log.Error($"{ex.Message}");
                         MessageBox.Show(Properties.Resources.
                             ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                             ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,

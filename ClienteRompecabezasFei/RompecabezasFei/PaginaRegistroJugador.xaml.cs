@@ -137,8 +137,10 @@ namespace RompecabezasFei
 
             if (ExistenCaracteresInvalidos(CuadroTextoNombreJugador.Text))
             {
-                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJENOMBREUSUARIOINVALIDO,
-                     Properties.Resources.ETIQUETA_VALIDACION_NOMBREUSUARIOINVALIDO, MessageBoxButton.OK);
+                MessageBox.Show(
+                    Properties.Resources.ETIQUETA_VALIDACION_MENSAJENOMBREUSUARIOINVALIDO,
+                     Properties.Resources.ETIQUETA_VALIDACION_NOMBREUSUARIOINVALIDO, 
+                     MessageBoxButton.OK);
                 resultado = true;
             }
 
@@ -161,7 +163,8 @@ namespace RompecabezasFei
                 == false)
             {
                 MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECONTRASENAINVALIDA, 
-                    Properties.Resources.ETIQUETA_VALIDACION_CONTRASENAINVALIDA, MessageBoxButton.OK);
+                    Properties.Resources.ETIQUETA_VALIDACION_CONTRASENAINVALIDA, 
+                    MessageBoxButton.OK);
                 resultado = true;
             }
 
@@ -205,8 +208,8 @@ namespace RompecabezasFei
             {
                 MessageBox.Show(
                     Properties.Resources.ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE, 
-                Properties.Resources.ETIQUETA_VALIDACION_CONTRASENADIFERENTE, 
-                MessageBoxButton.OK);
+                    Properties.Resources.ETIQUETA_VALIDACION_CONTRASENADIFERENTE, 
+                    MessageBoxButton.OK);
             }
 
             return resultado;

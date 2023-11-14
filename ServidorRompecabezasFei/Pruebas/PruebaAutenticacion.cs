@@ -33,7 +33,8 @@ namespace Pruebas
             {
                 NombreJugador = "Sam",
                 Correo = "zs21013902@estudiantes.uv.mx",
-                Contrasena = "537c35589388e5c4eff4a2568b5f27bf9937fc83bbdd168bcbd26b7bbd4fe" + "244c2ef82546217b4cbc1d54c3947654c8f04e70cc96b472d9d69fbc6250ee353dc",
+                Contrasena = "537c35589388e5c4eff4a2568b5f27bf9937fc83bbdd168bcbd26b7bbd4fe" + 
+                "244c2ef82546217b4cbc1d54c3947654c8f04e70cc96b472d9d69fbc6250ee353dc",
                 NumeroAvatar = 3,
             };
             CuentaJugador cuentaJugadorResultado = autenticacion.IniciarSesion(nombreUsuario,
