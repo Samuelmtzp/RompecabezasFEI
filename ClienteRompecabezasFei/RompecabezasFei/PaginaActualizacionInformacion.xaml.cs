@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RompecabezasFei.ServicioRompecabezasFei;
+using System;
 using System.ServiceModel;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -28,30 +29,15 @@ namespace RompecabezasFei
         {            
             bool esNombreDisponible = false;
 
-            try
-            {
-                esNombreDisponible = !VentanaPrincipal.ClienteServicioGestionJugador.
-                    ExisteNombreJugador(nuevoNombre);
-            }
-            catch (EndpointNotFoundException)
-            {
-                VentanaPrincipal.ClienteServicioGestionJugador.Abort();
-            }
+            esNombreDisponible = EsNombreDisponible(nuevoNombre);
 
             if (esNombreDisponible)
             {
-                bool actualizacionRealizada = false;
                 string nombreAnterior = Dominio.CuentaJugador.Actual.NombreJugador;
-
-                try
-                {
-                    actualizacionRealizada = VentanaPrincipal.ClienteServicioGestionJugador.
-                        ActualizarInformacion(nombreAnterior, nuevoNombre, nuevoNumeroAvatar);
-                }
-                catch(EndpointNotFoundException)
-                {
-                    
-                }
+                ServicioJugadorClient cliente = new ServicioJugadorClient();
+                bool actualizacionRealizada = cliente.ActualizarInformacion(
+                    nombreAnterior, nuevoNombre, nuevoNumeroAvatar);
+                cliente.Abort();
 
                 if (actualizacionRealizada)
                 {
@@ -117,7 +103,24 @@ namespace RompecabezasFei
             {
                 if (!ExistenCamposInvalidos())
                 {
-                    ActualizarInformacion(nuevoNombre, nuevoNumeroAvatar);
+                    try
+                    {
+                        ActualizarInformacion(nuevoNombre, nuevoNumeroAvatar);
+                    }
+                    catch (CommunicationException)
+                    {
+                        MessageBox.Show(Properties.Resources.
+                            ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                            ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    catch (TimeoutException)
+                    {
+                        MessageBox.Show(Properties.Resources.
+                            ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                            ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
             }
         }
@@ -131,6 +134,38 @@ namespace RompecabezasFei
         #endregion
 
         #region Validaciones
+
+        private bool EsNombreDisponible(string nombre)
+        {
+            bool resultado = false;
+            ServicioJugadorClient cliente = new ServicioJugadorClient();
+
+            try
+            {
+                resultado = !cliente.ExisteNombreJugador(nombre);
+            }
+            catch (CommunicationException)
+            {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (TimeoutException)
+            {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                cliente.Abort();
+            }
+
+            return resultado;
+        }
+
         private bool ExistenModificacionesEnAvatar(int nuevoNumeroAvatar)
         {
             bool resultado = true;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RompecabezasFei.ServicioRompecabezasFei;
+using System;
 using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -38,7 +39,7 @@ namespace RompecabezasFei
         private void EventoClickCrearSala(object controlOrigen, RoutedEventArgs evento)
         {
             PaginaSala paginaSala = new PaginaSala();
-            paginaSala.CrearNuevaSala(true);
+            paginaSala.IniciarConexionConSala(true);
             VentanaPrincipal.CambiarPagina(paginaSala);
         }
 
@@ -61,10 +62,11 @@ namespace RompecabezasFei
 
             if (resultadoOpcionCerrarSesion == MessageBoxResult.Yes)
             {
+                ServicioJugadorClient cliente = new ServicioJugadorClient();
+
                 try
                 {
-                    VentanaPrincipal.ClienteServicioGestionJugador.CerrarSesion(
-                        Dominio.CuentaJugador.Actual.NombreJugador);
+                    cliente.CerrarSesion(Dominio.CuentaJugador.Actual.NombreJugador);
                 }                
                 catch (CommunicationException)
                 {
@@ -82,7 +84,7 @@ namespace RompecabezasFei
                 }
                 finally
                 {
-                    VentanaPrincipal.ClienteServicioGestionJugador.Abort();
+                    cliente.Abort();
                 }
 
                 Dominio.CuentaJugador.Actual = null;

@@ -94,12 +94,7 @@ namespace RompecabezasFei
                     tablero.Celdas.Add(celda);
                 }
             }
-        }
-
-        private BitmapImage GenerarFuenteImagenRompecabezas(string rutaImagen)
-        {
-            return new BitmapImage(new Uri(rutaImagen, UriKind.Relative));
-        }
+        }        
 
         private void RecortarImagenEnPiezas(BitmapImage fuenteImagenOriginal)
         {
@@ -253,17 +248,22 @@ namespace RompecabezasFei
             VentanaPrincipal ventanaPrincipal = (VentanaPrincipal)Window.GetWindow(this);
             ventanaPrincipal.Deactivated -= EventoVentanaDesactivada;
         }
+
+        private BitmapImage GenerarFuenteImagenRompecabezas(string rutaImagen)
+        {
+            return new BitmapImage(new Uri(rutaImagen, UriKind.Relative));
+        }
         #endregion
 
         #region Eventos
-        private void EventoPaginaCargada(object remitente, RoutedEventArgs evento)
+        private void EventoPaginaCargada(object objetoOrigen, RoutedEventArgs evento)
         {            
             VentanaPrincipal ventanaPrincipal = (VentanaPrincipal)Window.GetWindow(this);
             ventanaPrincipal.Deactivated += EventoVentanaDesactivada;
             CrearTablero();
         }
 
-        private void EventoVentanaDesactivada(object remitente, EventArgs evento)
+        private void EventoVentanaDesactivada(object objetoOrigen, EventArgs evento)
         {
             cursorSostienePieza = false;
             if (piezaActual != null && !piezaActual.EstaDentroDeCelda)
@@ -272,12 +272,12 @@ namespace RompecabezasFei
             }
         }
 
-        private void EventoClickAjustes(object remitente, MouseButtonEventArgs evento)
+        private void EventoClickAjustes(object objetoOrigen, MouseButtonEventArgs evento)
         {
 
         }
 
-        private void EventoClickIniciar(object remitente, RoutedEventArgs evento)
+        private void EventoClickIniciar(object objetoOrigen, RoutedEventArgs evento)
         {
             botonIniciar.IsEnabled = false;
             string rutaAbsolutaImagen = ObtenerRutaAbsolutaImagen(
@@ -287,9 +287,9 @@ namespace RompecabezasFei
             MostrarPiezasAleatoriamente();
         }
 
-        private void EventoPresionarPieza(object remitente, MouseButtonEventArgs evento)
+        private void EventoPresionarPieza(object objetoOrigen, MouseButtonEventArgs evento)
         {
-            piezaActual = BuscarPiezaDeBorde((Border)remitente);
+            piezaActual = BuscarPiezaDeBorde((Border)objetoOrigen);
             if (!piezaActual.EstaDentroDeCelda)
             {
                 tableroRompecabezas.Children.Remove(piezaActual.Borde);
@@ -301,11 +301,11 @@ namespace RompecabezasFei
             }
         }
 
-        private void EventoCursorMoviendoseSobrePieza(object remitente, MouseEventArgs evento)
+        private void EventoCursorMoviendoseSobrePieza(object objetoOrigen, MouseEventArgs evento)
         {
             if (cursorSostienePieza)
             {
-                piezaActual = BuscarPiezaDeBorde((Border)remitente);
+                piezaActual = BuscarPiezaDeBorde((Border)objetoOrigen);
                 Point posicionActualCursor = evento.GetPosition(tableroRompecabezas);
                 double diferenciaPosicionX = posicionActualCursor.X - posicionInicialCursor.X;
                 double diferenciaPosicionY = posicionActualCursor.Y - posicionInicialCursor.Y;
@@ -323,13 +323,13 @@ namespace RompecabezasFei
             }
         }
 
-        private void EventoSoltarPieza(object remitente, MouseButtonEventArgs evento)
+        private void EventoSoltarPieza(object objetoOrigen, MouseButtonEventArgs evento)
         {
             if (cursorSostienePieza)
             {
                 piezaActual.Borde.ReleaseMouseCapture();
                 cursorSostienePieza = false;
-                piezaActual = BuscarPiezaDeBorde((Border)remitente);
+                piezaActual = BuscarPiezaDeBorde((Border)objetoOrigen);
                 piezaActual.Borde.BorderBrush = Brushes.Transparent;
                 Point posicionActual = evento.GetPosition(tableroRompecabezas);
                 piezaActual.EstablecerEstiloPiezaSinSeleccionar();
@@ -338,12 +338,10 @@ namespace RompecabezasFei
                 {
                     MessageBox.Show(Properties.Resources.ETIQUETA_PARTIDA_JUEGOFINALIZADO);
                     RemoverEventoVentanaDesactivada();
-                    VentanaPrincipal.CambiarPagina(new PaginaResultados());
+                    VentanaPrincipal.CambiarPagina(new PaginaResultados(false, ""));
                 }
             }
         }
         #endregion
-
-        
     }
 }

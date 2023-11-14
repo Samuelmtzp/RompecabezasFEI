@@ -7,9 +7,6 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using Registros;
 
 namespace RompecabezasFei
 {
@@ -25,10 +22,9 @@ namespace RompecabezasFei
         #region Métodos privados
         private void IniciarSesion(string nombreJugador, string contrasena)
         {
-            VentanaPrincipal.ClienteServicioGestionJugador = new ServicioGestionJugadorClient(
-                new InstanceContext(ServicioGestionJugadorCallback.Actual));
-            CuentaJugador cuentaJugadorAutenticada = VentanaPrincipal.
-                ClienteServicioGestionJugador.IniciarSesion(nombreJugador, contrasena);
+            ServicioJugadorClient cliente = new ServicioJugadorClient();
+            CuentaJugador cuentaJugadorAutenticada = cliente.
+                IniciarSesion(nombreJugador, contrasena);
 
             if (cuentaJugadorAutenticada != null)
             {
@@ -46,7 +42,8 @@ namespace RompecabezasFei
             }
             else
             {
-                MessageBox.Show(Properties.Resources.ETIQUETA_INICIOSESION_MENSAJEINICIOSESIONERROR,
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_INICIOSESION_MENSAJEINICIOSESIONERROR,
                     Properties.Resources.ETIQUETA_INICIOSESION_INICIOSESIONCANCELADO,
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }

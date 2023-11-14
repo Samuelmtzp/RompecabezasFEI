@@ -33,8 +33,8 @@ namespace RompecabezasFei
 
         public PaginaSala()
         {
-            InitializeComponent();
-        }
+            InitializeComponent();            
+        }        
 
         private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
         {
@@ -67,61 +67,26 @@ namespace RompecabezasFei
             VentanaPrincipal.CambiarPagina(new PaginaPartida());
         }
 
-        public bool CrearNuevaSala(bool esNuevaSala)
+        public void IniciarConexionConSala(bool esNuevaSala)
         {
-            bool estadoCreacionSala = true;
             this.esNuevaSala = esNuevaSala;
 
-            if (esNuevaSala)
-            {
-                BotonIniciarPartida.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                BotonIniciarPartida.Visibility = Visibility.Hidden;
-            }
-
-            try
-            {
-                IniciarConexionConSala();
-            }
-            catch (CommunicationException)
-            {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-                estadoCreacionSala = false;
-            }
-            catch (TimeoutException)
-            {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-                estadoCreacionSala = false;
-            }
-
-            return estadoCreacionSala;
-        }
-
-        private void IniciarConexionConSala()
-        {
             if (!hayConexionEstablecida)
             {
                 clienteServicioJuego = new ServicioJuegoClient(new InstanceContext(this));
 
                 if (esNuevaSala)
                 {
-                    esAnfitrion = true;
-                    codigoSala = clienteServicioJuego.GenerarCodigoParaNuevaSala();
-                    clienteServicioJuego.CrearNuevaSala(Dominio.CuentaJugador.
-                        Actual.NombreJugador, codigoSala);
+                    esAnfitrion = true; 
+                    BotonIniciarPartida.Visibility = Visibility.Visible;
+                    CrearNuevaSala();
                 }
                 else
                 {
                     esAnfitrion = false;
+                    BotonIniciarPartida.Visibility = Visibility.Hidden;
                 }
+
                 EtiquetaCodigoSala.Content = codigoSala;
                 clienteServicioJuego.ConectarCuentaJugadorASala(Dominio.CuentaJugador.
                     Actual.NombreJugador, codigoSala, 
@@ -130,14 +95,67 @@ namespace RompecabezasFei
             }
         }
 
+        public void CargarDatosSala(bool esAnfitrion, string codigoSala)
+        {
+            this.esAnfitrion = esAnfitrion;
+            EtiquetaCodigoSala.Content = codigoSala;
+        }
+
+        private void CrearNuevaSala()
+        {
+            try
+            {
+                codigoSala = clienteServicioJuego.GenerarCodigoParaNuevaSala();
+                clienteServicioJuego.CrearNuevaSala(Dominio.CuentaJugador.
+                    Actual.NombreJugador, codigoSala);
+            }
+            catch (CommunicationException)
+            {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                clienteServicioJuego.Abort();
+            }
+            catch (TimeoutException)
+            {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                clienteServicioJuego.Abort();
+            }
+        }
+
         private void FinalizarConexionConSala()
         {
             if (hayConexionEstablecida)
             {
-                clienteServicioJuego.DesconectarCuentaJugadorDeSala(Dominio.
-                    CuentaJugador.Actual.NombreJugador, codigoSala, 
-                    Properties.Resources.ETIQUETA_MENSAJESALA_DESPEDIDA);
-                clienteServicioJuego.Abort();
+                try
+                {
+                    clienteServicioJuego.DesconectarCuentaJugadorDeSala(Dominio.
+                        CuentaJugador.Actual.NombreJugador, codigoSala,
+                        Properties.Resources.ETIQUETA_MENSAJESALA_DESPEDIDA);
+                }
+                catch (CommunicationException)
+                {
+                    MessageBox.Show(Properties.Resources.
+                        ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                        ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                catch (TimeoutException)
+                {
+                    MessageBox.Show(Properties.Resources.
+                        ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                        ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                finally
+                {
+                    clienteServicioJuego.Abort();                    
+                }
+
                 clienteServicioJuego = null;
                 hayConexionEstablecida = false;
             }

@@ -10,7 +10,7 @@ namespace RompecabezasFei
     public partial class PaginaCodigoRestablecimientoContrasena : Page
     {
         private readonly string correo;
-        private string codigoGenerado;
+        private string codigoGenerado;        
 
         public PaginaCodigoRestablecimientoContrasena(string correo)
         {
@@ -23,19 +23,36 @@ namespace RompecabezasFei
         private void EnviarCodigo()
         {            
             Random generadorNumeroAleatorio = new Random();
-            codigoGenerado = generadorNumeroAleatorio.Next(100000, 1000000).ToString();
-            bool codigoEnviado = false;
-            
+            const int valorMinimoCodigo = 100000;
+            const int valorMaximoCodigo = 1000000;
+            codigoGenerado = generadorNumeroAleatorio.Next(valorMinimoCodigo, valorMaximoCodigo).ToString();
+            ServicioJugadorClient cliente = new ServicioJugadorClient();
+            bool codigoEnviado = false;            
+
             try
             {
-                codigoEnviado = VentanaPrincipal.ClienteServicioGestionJugador.
-                    EnviarMensajeCorreo(Properties.Resources.ETIQUETA_GENERAL_ROMPECABEZASFEI, 
-                    correo, Properties.Resources.ETIQUETA_CODIGO_CODIGORESTABLECIMIENTO, 
-                    Properties.Resources.ETIQUETA_RECUPERACION_MENSAJE + $" {codigoGenerado}");
+                codigoEnviado = cliente.EnviarMensajeCorreo(Properties.Resources.
+                    ETIQUETA_GENERAL_ROMPECABEZASFEI, correo, Properties.Resources.
+                    ETIQUETA_CODIGO_CODIGORESTABLECIMIENTO, Properties.Resources.
+                    ETIQUETA_RECUPERACION_MENSAJE + $" {codigoGenerado}");
             }
-            catch (EndpointNotFoundException)
+            catch (CommunicationException)
             {
-                
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (TimeoutException)
+            {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                cliente.Abort();
             }
 
             if (!codigoEnviado)
