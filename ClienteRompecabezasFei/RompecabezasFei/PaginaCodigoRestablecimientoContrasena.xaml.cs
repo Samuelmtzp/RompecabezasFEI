@@ -57,8 +57,10 @@ namespace RompecabezasFei
 
             if (!codigoEnviado)
             {
-                MessageBox.Show("El código de confirmación no pudo enviarse", "Codigo no enviado",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(Properties.Resources.
+                            ETIQUETA_CODIGO_MENSAJENOENVIADO, Properties.Resources.
+                            ETIQUETA_CODIGO_CODIGONOENVIADO,
+                            MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         #endregion

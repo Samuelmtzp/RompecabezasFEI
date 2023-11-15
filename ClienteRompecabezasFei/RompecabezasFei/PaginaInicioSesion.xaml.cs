@@ -7,6 +7,11 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using Registros;
+using System.Diagnostics;
+using System.IO;
 
 namespace RompecabezasFei
 {
@@ -97,7 +102,7 @@ namespace RompecabezasFei
                     }
                     catch (EndpointNotFoundException ex)
                     {
-                        Registros.Registros.escribirRegistro(ex.Message);
+                        Registros.Registros.escribirRegistro(ex);
                         //Log.Error($"{ex.Message}");
                         MessageBox.Show(Properties.Resources.
                             ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
@@ -106,7 +111,8 @@ namespace RompecabezasFei
                     }
                     catch (CommunicationObjectFaultedException ex)
                     {
-                        Log.Error($"{ex.Message}");
+                        Registros.Registros.escribirRegistro(ex);
+                        //Log.Error($"{ex.Message}");
                         MessageBox.Show(Properties.Resources.
                             ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                             ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
@@ -114,7 +120,8 @@ namespace RompecabezasFei
                     }
                     catch (TimeoutException ex)
                     {
-                        Log.Error($"{ex.Message}");
+                        Registros.Registros.escribirRegistro(ex);
+                        //Log.Error($"{ex.Message}");
                         MessageBox.Show(Properties.Resources.
                             ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                             ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
@@ -123,7 +130,7 @@ namespace RompecabezasFei
                 }
                 else
                 {
-                    MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSINVALIDOS,
+                   MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSINVALIDOS,
                         Properties.Resources.ETIQUETA_VALIDACION_CAMPOSINVALIDOS,
                             MessageBoxButton.OK, MessageBoxImage.Error);
                 }
