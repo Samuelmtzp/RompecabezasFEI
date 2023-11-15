@@ -43,15 +43,17 @@ namespace RompecabezasFei
                         {
                             ActualizarContrasena(correoJugador, nuevaContrasenaCifrada);
                         }
-                        catch (CommunicationException)
+                        catch (CommunicationException ex)
                         {
+                            Registros.Registros.escribirRegistro(ex);
                             MessageBox.Show(Properties.Resources.
                                 ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                                 ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
                                 MessageBoxButton.OK, MessageBoxImage.Error);
                         }
-                        catch (TimeoutException)
+                        catch (TimeoutException ex)
                         {
+                            Registros.Registros.escribirRegistro(ex);
                             MessageBox.Show(Properties.Resources.
                                 ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                                 ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
@@ -69,17 +71,19 @@ namespace RompecabezasFei
             
             if (resultado)
             {
-                MessageBox.Show("La actualización de la contraseña " +
-                    "se ha realizado correctamente",
-                    "Actualización realizada correctamente",
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENAACTUALIZADA,Properties.Resources.
+                    ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENAACTUALIZADA,
                     MessageBoxButton.OK);
                 Dominio.CuentaJugador.Actual.Contrasena = nuevaContrasena;
                 VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
             }
             else
             {
-                MessageBox.Show("La actualización de la contraseña no se ha realizado",
-                       "Error al actualizar información", MessageBoxButton.OK);
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ACTUALIZARCONTRASENA_CONTRASENANOACTUALIZADA,Properties.Resources.
+                    ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACION, 
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         #endregion

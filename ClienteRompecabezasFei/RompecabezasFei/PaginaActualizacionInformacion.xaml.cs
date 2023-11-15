@@ -48,9 +48,13 @@ namespace RompecabezasFei
                     actualizacionRealizada = VentanaPrincipal.ClienteServicioGestionJugador.
                         ActualizarInformacion(nombreAnterior, nuevoNombre, nuevoNumeroAvatar);
                 }
-                catch(EndpointNotFoundException)
+                catch(EndpointNotFoundException ex)
                 {
-                    
+                    Registros.Registros.escribirRegistro(ex);
+                    MessageBox.Show(Properties.Resources.
+                            ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                            ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                            MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
                 if (actualizacionRealizada)
@@ -229,9 +233,9 @@ namespace RompecabezasFei
         #endregion
 
         #region Método prueba
-        public void PruebaParaActualizarInformacion(string nuevoNombre, int nuevoNumeroAvatar)
+        /*public void PruebaParaActualizarInformacion(string nuevoNombre, int nuevoNumeroAvatar)
         {
-            ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
+            //ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
             bool esNombreDisponible = false;
 
             try
@@ -286,7 +290,7 @@ namespace RompecabezasFei
                     Properties.Resources.ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACION,
                     MessageBoxButton.OK);
             }
-        }
+        }*/
         #endregion
     }
 }

@@ -35,16 +35,18 @@ namespace RompecabezasFei
                     ObtenerNumeroPartidasJugadas(Dominio.CuentaJugador.
                     Actual.NombreJugador));                
             }
-            catch (CommunicationException)
+            catch (CommunicationException ex)
             {
+                Registros.Registros.escribirRegistro(ex);
                 MessageBox.Show(Properties.Resources.
                     ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                     ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
                     MessageBoxButton.OK, MessageBoxImage.Error);
                 VentanaPrincipal.ClienteServicioGestionJugador.Abort();
             }
-            catch (TimeoutException)
+            catch (TimeoutException ex)
             {
+                Registros.Registros.escribirRegistro(ex);
                 MessageBox.Show(Properties.Resources.
                     ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                     ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
@@ -62,16 +64,18 @@ namespace RompecabezasFei
                     ObtenerNumeroPartidasGanadas(Dominio.CuentaJugador.
                     Actual.NombreJugador));
             }
-            catch (CommunicationException)
+            catch (CommunicationException ex)
             {
+                Registros.Registros.escribirRegistro(ex);
                 MessageBox.Show(Properties.Resources.
                     ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                     ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
                     MessageBoxButton.OK, MessageBoxImage.Error);
                 VentanaPrincipal.ClienteServicioGestionJugador.Abort();
             }
-            catch (TimeoutException)
+            catch (TimeoutException ex)
             {
+                Registros.Registros.escribirRegistro(ex);
                 MessageBox.Show(Properties.Resources.
                     ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                     ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,

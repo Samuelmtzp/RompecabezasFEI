@@ -33,15 +33,21 @@ namespace RompecabezasFei
                     correo, Properties.Resources.ETIQUETA_CODIGO_CODIGORESTABLECIMIENTO, 
                     Properties.Resources.ETIQUETA_RECUPERACION_MENSAJE + $" {codigoGenerado}");
             }
-            catch (EndpointNotFoundException)
+            catch (EndpointNotFoundException ex)
             {
-                
+                Registros.Registros.escribirRegistro(ex);
+                MessageBox.Show(Properties.Resources.
+                            ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                            ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                            MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
             if (!codigoEnviado)
             {
-                MessageBox.Show("El código de confirmación no pudo enviarse", "Codigo no enviado",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(Properties.Resources.
+                            ETIQUETA_CODIGO_MENSAJENOENVIADO, Properties.Resources.
+                            ETIQUETA_CODIGO_CODIGONOENVIADO,
+                            MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         #endregion
