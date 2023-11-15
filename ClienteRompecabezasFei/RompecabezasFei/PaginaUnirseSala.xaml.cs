@@ -11,23 +11,20 @@ namespace RompecabezasFei
             InitializeComponent();
         }
 
-        private void AccionUnirse(object remitente, RoutedEventArgs evento)
+        private void AccionUnirse(object objetoOrigen, RoutedEventArgs evento)
         {
             PaginaSala paginaSala = new PaginaSala();
 
             if (paginaSala.VerificarDisponibilidadSala(CuadroTextoCodigoSala.Text))
             {
                 paginaSala.CodigoSala = CuadroTextoCodigoSala.Text;
-                
-                if (paginaSala.CrearNuevaSala(false))
-                {
-                    paginaSala.EtiquetaCodigoSala.Content = CuadroTextoCodigoSala.Text;
-                    VentanaPrincipal.CambiarPagina(paginaSala);
-                }
+                paginaSala.IniciarConexionConSala(false);
+                paginaSala.EtiquetaCodigoSala.Content = CuadroTextoCodigoSala.Text;
+                VentanaPrincipal.CambiarPagina(paginaSala);
             }
         }
 
-        private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
+        private void AccionRegresar(object objetoOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
         }

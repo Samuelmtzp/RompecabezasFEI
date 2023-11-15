@@ -35,12 +35,12 @@ namespace RompecabezasFei
             ImagenAvatarActual.Tag = Convert.ToInt16(numeroAvatar);
         }
 
-        private void AccionRegresar(object remitente, MouseButtonEventArgs evento)
+        private void AccionRegresar(object objetoOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
         }
 
-        private void AccionSeleccionarAvatar(object remitente, RoutedEventArgs evento)
+        private void AccionSeleccionarAvatar(object objetoOrigen, RoutedEventArgs evento)
         {
             VentanaPrincipal.CambiarPaginaGuardandoAnterior(new PaginaSeleccionAvatar(
                 Convert.ToInt32(ImagenAvatarActual.Tag), CuadroTextoNombreJugador.Text,
@@ -48,7 +48,7 @@ namespace RompecabezasFei
                 CuadroConfirmacionContrasena.Password));
         }
 
-        private void AccionSiguiente(object remitente, RoutedEventArgs evento)
+        private void AccionSiguiente(object objetoOrigen, RoutedEventArgs evento)
         {
             string nombreJugador = CuadroTextoNombreJugador.Text;
             string correo = CuadroTextoCorreoElectronico.Text.ToLower();
@@ -57,37 +57,93 @@ namespace RompecabezasFei
 
             if (!ExistenCamposInvalidos())
             {
-                try
+                if (!ExisteNombreJugador(nombreJugador) &&
+                    !ExisteCorreoElectronico(correo))
                 {
-                    if (!VentanaPrincipal.ClienteServicioGestionJugador.ExisteNombreJugador(nombreJugador) &&
-                    !VentanaPrincipal.ClienteServicioGestionJugador.ExisteCorreoElectronico(correo))
+                    Dominio.CuentaJugador jugadorRegistro = new Dominio.CuentaJugador
                     {
-                        Dominio.CuentaJugador jugadorRegistro = new Dominio.CuentaJugador
-                        {
-                            NombreJugador = nombreJugador,
-                            Correo = correo,
-                            Contrasena = contrasena,
-                            NumeroAvatar = numeroAvatar,
-                        };
-                        PaginaVerificacionCorreo paginaVerificacionCorreo =
-                            new PaginaVerificacionCorreo(jugadorRegistro);
-                        VentanaPrincipal.CambiarPagina(paginaVerificacionCorreo);
-                    }
-                }
-                catch (EndpointNotFoundException)
-                {
-                    // log
+                        NombreJugador = nombreJugador,
+                        Correo = correo,
+                        Contrasena = contrasena,
+                        NumeroAvatar = numeroAvatar,
+                    };
+                    PaginaVerificacionCorreo paginaVerificacionCorreo =
+                        new PaginaVerificacionCorreo(jugadorRegistro);
+                    VentanaPrincipal.CambiarPagina(paginaVerificacionCorreo);
                 }
             }
         }
 
         #region Validaciones
+        private bool ExisteNombreJugador(string nombreJugador)
+        {
+            ServicioJugadorClient cliente = new ServicioJugadorClient();
+            bool resultado = false;
+
+            try 
+            {
+                resultado = cliente.ExisteNombreJugador(nombreJugador);
+            }
+            catch (CommunicationException)
+            {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (TimeoutException)
+            {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                cliente.Abort();
+            }
+
+            return resultado;
+        }
+
+        private bool ExisteCorreoElectronico(string correoElectronico)
+        {
+            ServicioJugadorClient cliente = new ServicioJugadorClient();
+            bool resultado = false;
+
+            try
+            {
+                resultado = cliente.ExisteCorreoElectronico(correoElectronico);
+            }
+            catch (CommunicationException)
+            {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (TimeoutException)
+            {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                cliente.Abort();
+            }
+
+            return resultado;
+        }
+
         private bool ExistenCamposInvalidos()
         {
             bool resultado = false;
 
-            if (ExistenCamposVacios() || ExistenCadenasInvalidas() || ExistenLongitudesExcedidas()
-                || ExisteContrasenaInvalida() || !HayCoincidenciasEnContrasenas())
+            if (ExistenCamposVacios() || ExistenCadenasInvalidas() || 
+                ExistenLongitudesExcedidas() || ExisteContrasenaInvalida() || 
+                !HayCoincidenciasEnContrasenas())
             {
                 resultado = true;
                 MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSINVALIDOS);
@@ -106,8 +162,9 @@ namespace RompecabezasFei
                 || string.IsNullOrWhiteSpace(CuadroConfirmacionContrasena.Password))
             {
                 resultado = true;
-                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS,
-                    Properties.Resources.ETIQUETA_VALIDACION_CAMPOSVACIOS, MessageBoxButton.OK);
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS, Properties.Resources.
+                    ETIQUETA_VALIDACION_CAMPOSVACIOS, MessageBoxButton.OK);
             }
 
             return resultado;
@@ -122,8 +179,9 @@ namespace RompecabezasFei
                 CuadroContrasena.Password.Length > 45)
             {
                 resultado = true;
-                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSEXCEDIDOS,
-                   Properties.Resources.ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS, MessageBoxButton.OK);
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_VALIDACION_MENSAJECAMPOSEXCEDIDOS, Properties.Resources.
+                    ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS, MessageBoxButton.OK);
             }
 
             return resultado;
@@ -135,17 +193,17 @@ namespace RompecabezasFei
 
             if (ExistenCaracteresInvalidos(CuadroTextoNombreJugador.Text))
             {
-                MessageBox.Show(
-                    Properties.Resources.ETIQUETA_VALIDACION_MENSAJENOMBREUSUARIOINVALIDO,
-                     Properties.Resources.ETIQUETA_VALIDACION_NOMBREUSUARIOINVALIDO, 
-                     MessageBoxButton.OK);
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_VALIDACION_MENSAJENOMBREUSUARIOINVALIDO, Properties.Resources.
+                    ETIQUETA_VALIDACION_NOMBREUSUARIOINVALIDO, MessageBoxButton.OK);
                 resultado = true;
             }
 
             if (ExistenCaracteresInvalidosParaCorreo(CuadroTextoCorreoElectronico.Text))
             {
-                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECORREOINVALIDO,
-                   Properties.Resources.ETIQUETA_VALIDACION_CORREOINVALIDO, MessageBoxButton.OK);
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_VALIDACION_MENSAJECORREOINVALIDO, Properties.Resources.
+                    ETIQUETA_VALIDACION_CORREOINVALIDO, MessageBoxButton.OK);
                 resultado = true;
             }
 
@@ -160,9 +218,9 @@ namespace RompecabezasFei
                 "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$")
                 == false)
             {
-                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECONTRASENAINVALIDA,
-                    Properties.Resources.ETIQUETA_VALIDACION_CONTRASENAINVALIDA, 
-                    MessageBoxButton.OK);
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_VALIDACION_MENSAJECONTRASENAINVALIDA, Properties.Resources.
+                    ETIQUETA_VALIDACION_CONTRASENAINVALIDA, MessageBoxButton.OK);
                 resultado = true;
             }
 
@@ -204,10 +262,9 @@ namespace RompecabezasFei
             }
             else
             {
-                MessageBox.Show(
-                    Properties.Resources.ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE, 
-                    Properties.Resources.ETIQUETA_VALIDACION_CONTRASENADIFERENTE, 
-                    MessageBoxButton.OK);
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE, Properties.Resources.
+                    ETIQUETA_VALIDACION_CONTRASENADIFERENTE, MessageBoxButton.OK);
             }
 
             return resultado;

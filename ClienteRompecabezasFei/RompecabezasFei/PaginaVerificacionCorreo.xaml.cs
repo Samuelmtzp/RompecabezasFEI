@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -35,17 +36,43 @@ namespace RompecabezasFei
 
         public void EventoAccionEnviarCodigo(object controlOrigen, RoutedEventArgs evento)
         {
-            EnviarCodigo();
+            EnviarCodigo();            
         }
 
         private void EnviarCodigo()
         {
             codigoGenerado = GenerarCodigo();
-            VentanaPrincipal.ClienteServicioGestionJugador.EnviarMensajeCorreo(Properties.Resources.
-                ETIQUETA_GENERAL_ROMPECABEZASFEI, jugadorRegistro.Correo,
-                Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ASUNTO,
-                Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJE + " " + codigoGenerado);
-            DeshabilitarBotonEnvioCodigo();
+            DeshabilitarBotonEnvioCodigo(); 
+            ServicioJugadorClient cliente = new ServicioJugadorClient();
+            
+            try
+            {
+                cliente.EnviarMensajeCorreo(Properties.Resources.
+                    ETIQUETA_GENERAL_ROMPECABEZASFEI, jugadorRegistro.Correo,
+                    Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ASUNTO,
+                    Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJE + " " + 
+                    codigoGenerado);
+                EnviarCodigo();
+            }
+            catch(CommunicationException)
+            {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (TimeoutException)
+            {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                cliente.Abort();
+            }
+            
             InicializarTemporizador();
         }
 
@@ -74,8 +101,7 @@ namespace RompecabezasFei
                         Contrasena = contrasenaCifrada,
                         Correo = jugadorRegistro.Correo
                     };
-                    bool resultadoRegistro = VentanaPrincipal.
-                        ClienteServicioGestionJugador.Registrar(nuevoJugador);
+                    bool resultadoRegistro = Registrar(nuevoJugador);
 
                     if (resultadoRegistro)
                     {
@@ -106,13 +132,39 @@ namespace RompecabezasFei
             }
         }
 
-        private void EventoAceptarSoloCaracteresNumericos(object controlOrigen,
+        private bool Registrar(CuentaJugador nuevoJugador)
+        {
+            ServicioJugadorClient cliente = new ServicioJugadorClient();
+            bool resultado = false;
+
+            try
+            {
+                resultado = cliente.Registrar(nuevoJugador);
+            }
+            catch (CommunicationException)
+            {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (TimeoutException)
+            {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            return resultado;
+        }
+
+        private void EventoAceptarSoloCaracteresNumericos(object objetoOrigen,
             TextChangedEventArgs evento)
         {
-            if (controlOrigen is TextBox CuadroTextoCodigoVerificacion)
+            if (objetoOrigen is TextBox CuadroTextoCodigoVerificacion)
             {
-                string texto =
-                  CuadroTextoCodigoVerificacion.Text = new string(
+                string texto = CuadroTextoCodigoVerificacion.Text = new string(
                   CuadroTextoCodigoVerificacion.Text.Where(char.IsDigit).ToArray());
                 CuadroTextoCodigoVerificacion.CaretIndex =
                     CuadroTextoCodigoVerificacion.Text.Length;
@@ -120,7 +172,7 @@ namespace RompecabezasFei
             }
         }
 
-        private void ActualizarTiempo(object controlOrigen, EventArgs evento)
+        private void ActualizarTiempo(object objetoOrigen, EventArgs evento)
         {
             if (segundosRestantes > 0)
             {

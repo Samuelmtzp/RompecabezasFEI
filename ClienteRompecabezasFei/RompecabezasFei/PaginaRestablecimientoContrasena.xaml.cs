@@ -10,44 +10,84 @@ namespace RompecabezasFei
 {
     public partial class PaginaRestablecimientoContrasena : Page
     {
-        string correo, contraseña, contraseñaCifrada;
+        string correo;
+        string contrasena; 
+        string contrasenaCifrada;
+
         public PaginaRestablecimientoContrasena(string correo)
         {
             InitializeComponent();
             this.correo = correo;   
         }
 
-        private void EventoActualizarContraseña(object controlOrigen, RoutedEventArgs evento)
+        private void EventoActualizarContraseña(object objetoOrigen, RoutedEventArgs evento)
         {
-            contraseña = CuadroContrasenaNueva.Password.ToString();
+            contrasena = CuadroContrasenaNueva.Password.ToString();
 
             if (!ExistenCamposInvalidos())
             {
-                if (CuadroContrasenaNueva.Password.Equals(CuadroConfirmarNuevaContrasena.Password))
+                if (CuadroContrasenaNueva.Password.Equals(
+                    CuadroConfirmarNuevaContrasena.Password))
                 {
-                    contraseñaCifrada = EncriptadorContrasena.
-                            CalcularHashSha512(contraseña);                    
-                    bool resultadoActualizacion = VentanaPrincipal.ClienteServicioGestionJugador.ActualizarContrasena(correo, 
-                        contraseñaCifrada);
+                    contrasenaCifrada = EncriptadorContrasena.
+                            CalcularHashSha512(contrasena);
+                    bool resultadoActualizacion = ActualizarContrasena(contrasenaCifrada);
 
                     if (resultadoActualizacion)
                     {
-                        MessageBox.Show(Properties.Resources.ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENAACTUALIZADA,
-                                        Properties.Resources.ETIQUETA_RESTABLECIMIENTO_CONTRASENARESTABLECIDA, MessageBoxButton.OK);
+                        MessageBox.Show(Properties.Resources.
+                            ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENAACTUALIZADA,
+                            Properties.Resources.ETIQUETA_RESTABLECIMIENTO_CONTRASENARESTABLECIDA,
+                            MessageBoxButton.OK);
                         VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
                     }
                     else
                     {
-                        MessageBox.Show(Properties.Resources.ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENANORESTABLECIDA,
-                                      Properties.Resources.ETIQUETA_RESTABLECIMIENTO_CONTRASENANORESTABLECIDA, MessageBoxButton.OK);
+                        MessageBox.Show(Properties.Resources.
+                            ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENANORESTABLECIDA, Properties.
+                            Resources.ETIQUETA_RESTABLECIMIENTO_CONTRASENANORESTABLECIDA, 
+                            MessageBoxButton.OK);
                     }
                 }
                 else
                 {
-                    MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE,
-                                       Properties.Resources.ETIQUETA_VALIDACION_CONTRASENADIFERENTE, MessageBoxButton.OK);
+                    MessageBox.Show(Properties.Resources.
+                        ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE,
+                        Properties.Resources.ETIQUETA_VALIDACION_CONTRASENADIFERENTE, 
+                        MessageBoxButton.OK);
                 }
             }
+        }
+
+        private bool ActualizarContrasena(string nuevaContrasena)
+        {
+            bool resultado = false;
+            ServicioJugadorClient cliente = new ServicioJugadorClient();
+
+            try
+            {
+                resultado = cliente.ActualizarContrasena(correo, nuevaContrasena);
+            }
+            catch (CommunicationException)
+            {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (TimeoutException)
+            {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                cliente.Abort();
+            }
+
+            return resultado;
         }
 
         #region Validaciones
@@ -55,39 +95,46 @@ namespace RompecabezasFei
         private bool ExistenCamposInvalidos()
         {
             bool camposInvalidos = false;
+
             if (ExistenLongitudesExcedidas() || ExisteContrasenaInvalida())
             {
                 camposInvalidos = true;
             }
+
             return camposInvalidos;
         }
 
         private bool ExisteContrasenaInvalida()
         {
             bool contrasenaInvalida = false;
-            if (Regex.IsMatch(contraseña,
+            
+            if (Regex.IsMatch(contrasena,
                 "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$")
                 == false)
             {
-                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECONTRASENAINVALIDA,
-                    Properties.Resources.ETIQUETA_VALIDACION_CONTRASENAINVALIDA, MessageBoxButton.OK);
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_VALIDACION_MENSAJECONTRASENAINVALIDA, Properties.Resources.
+                    ETIQUETA_VALIDACION_CONTRASENAINVALIDA, MessageBoxButton.OK);
                 contrasenaInvalida = true;
             }
+
             return contrasenaInvalida;
         }
 
         private bool ExistenLongitudesExcedidas()
         {
             bool camposExcedidos = false;
-            if (contraseña.Length > 45)
+            
+            if (contrasena.Length > 45)
             {
                 camposExcedidos = true;
-                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJELONGITUDEXCEDIDA,
-                    Properties.Resources.ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS, MessageBoxButton.OK);
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_VALIDACION_MENSAJELONGITUDEXCEDIDA, Properties.Resources.
+                    ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS, MessageBoxButton.OK);
             }
+
             return camposExcedidos;
         }
-
         #endregion
     }
 }

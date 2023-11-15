@@ -65,10 +65,11 @@ namespace RompecabezasFei
         }
 
         private void ActualizarContrasena(string correo, string nuevaContrasena)
-        {            
-            bool resultado = VentanaPrincipal.ClienteServicioGestionJugador.
-                ActualizarContrasena(correo, nuevaContrasena);
-            
+        {
+            ServicioJugadorClient cliente = new ServicioJugadorClient();
+            bool resultado = cliente.ActualizarContrasena(correo, nuevaContrasena);
+            cliente.Abort();
+
             if (resultado)
             {
                 MessageBox.Show(Properties.Resources.

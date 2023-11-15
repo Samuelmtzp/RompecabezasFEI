@@ -40,15 +40,15 @@ namespace RompecabezasFei
                 GenerarFuenteImagenAvatar(numeroAvatar);
         }
 
-        private void AccionSeleccionAvatar(object controlOrigen, MouseButtonEventArgs evento)
+        private void AccionSeleccionAvatar(object objetoOrigen, MouseButtonEventArgs evento)
         {
-            Image imagenSeleccionada = controlOrigen as Image;
+            Image imagenSeleccionada = objetoOrigen as Image;
             ImagenAvatarActual.Source = imagenSeleccionada.Source;
             ImagenAvatarActual.Tag = imagenSeleccionada.Tag;
             numeroAvatar = Convert.ToInt32(imagenSeleccionada.Tag);
         }
 
-        private void AccionClickAceptar(object controlOrigen, RoutedEventArgs evento)
+        private void AccionClickAceptar(object objetoOrigen, RoutedEventArgs evento)
         {
             if (typeof(PaginaRegistroJugador).IsInstanceOfType(VentanaPrincipal.PaginaAnterior))
             {
