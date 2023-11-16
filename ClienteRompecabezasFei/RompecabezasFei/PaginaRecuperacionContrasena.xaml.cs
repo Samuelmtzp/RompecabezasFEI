@@ -19,7 +19,7 @@ namespace RompecabezasFei
 
         private void EventoClickSiguiente(object objetoOrigen, RoutedEventArgs evento)
         {
-            correo = CuadroCorreo.Text;
+            correo = CuadroCorreo.Text.Trim();
 
             if (!ExistenCaracteresInvalidosParaCorreo(correo))
             {

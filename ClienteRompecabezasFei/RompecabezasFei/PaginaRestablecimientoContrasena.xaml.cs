@@ -20,45 +20,7 @@ namespace RompecabezasFei
             this.correo = correo;   
         }
 
-        private void EventoActualizarContraseña(object objetoOrigen, RoutedEventArgs evento)
-        {
-            contrasena = CuadroContrasenaNueva.Password.ToString();
-
-            if (!ExistenCamposInvalidos())
-            {
-                if (CuadroContrasenaNueva.Password.Equals(
-                    CuadroConfirmarNuevaContrasena.Password))
-                {
-                    contrasenaCifrada = EncriptadorContrasena.
-                            CalcularHashSha512(contrasena);
-                    bool resultadoActualizacion = ActualizarContrasena(contrasenaCifrada);
-
-                    if (resultadoActualizacion)
-                    {
-                        MessageBox.Show(Properties.Resources.
-                            ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENAACTUALIZADA,
-                            Properties.Resources.ETIQUETA_RESTABLECIMIENTO_CONTRASENARESTABLECIDA,
-                            MessageBoxButton.OK);
-                        VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
-                    }
-                    else
-                    {
-                        MessageBox.Show(Properties.Resources.
-                            ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENANORESTABLECIDA, Properties.
-                            Resources.ETIQUETA_RESTABLECIMIENTO_CONTRASENANORESTABLECIDA, 
-                            MessageBoxButton.OK);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show(Properties.Resources.
-                        ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE,
-                        Properties.Resources.ETIQUETA_VALIDACION_CONTRASENADIFERENTE, 
-                        MessageBoxButton.OK);
-                }
-            }
-        }
-
+        #region Métodos privados
         private bool ActualizarContrasena(string nuevaContrasena)
         {
             bool resultado = false;
@@ -89,6 +51,48 @@ namespace RompecabezasFei
 
             return resultado;
         }
+        #endregion
+
+        #region Eventos
+        private void EventoActualizarContraseña(object objetoOrigen, RoutedEventArgs evento)
+        {
+            contrasena = CuadroContrasenaNueva.Password.ToString();
+
+            if (!ExistenCamposInvalidos())
+            {
+                if (CuadroContrasenaNueva.Password.Equals(
+                    CuadroConfirmarNuevaContrasena.Password))
+                {
+                    contrasenaCifrada = EncriptadorContrasena.
+                            CalcularHashSha512(contrasena);
+                    bool resultadoActualizacion = ActualizarContrasena(contrasenaCifrada);
+
+                    if (resultadoActualizacion)
+                    {
+                        MessageBox.Show(Properties.Resources.
+                            ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENAACTUALIZADA,
+                            Properties.Resources.ETIQUETA_RESTABLECIMIENTO_CONTRASENARESTABLECIDA,
+                            MessageBoxButton.OK);
+                        VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
+                    }
+                    else
+                    {
+                        MessageBox.Show(Properties.Resources.
+                            ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENANORESTABLECIDA, Properties.
+                            Resources.ETIQUETA_RESTABLECIMIENTO_CONTRASENANORESTABLECIDA,
+                            MessageBoxButton.OK);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(Properties.Resources.
+                        ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE,
+                        Properties.Resources.ETIQUETA_VALIDACION_CONTRASENADIFERENTE,
+                        MessageBoxButton.OK);
+                }
+            }
+        }
+        #endregion
 
         #region Validaciones
 

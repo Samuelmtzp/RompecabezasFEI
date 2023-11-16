@@ -1312,6 +1312,15 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a El correo eléctronico ingresado no está disponible. Ingrese uno diferente. .
+        /// </summary>
+        public static string ETIQUETA_REGISTRO_MENSAJECORREONODISPONIBLE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_REGISTRO_MENSAJECORREONODISPONIBLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Registro de jugador.
         /// </summary>
         public static string ETIQUETA_REGISTRO_REGISTROJUGADOR {

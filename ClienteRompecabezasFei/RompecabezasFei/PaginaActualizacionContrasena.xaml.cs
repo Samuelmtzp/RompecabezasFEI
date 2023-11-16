@@ -29,36 +29,33 @@ namespace RompecabezasFei
             string nuevaContrasena = cuadroNuevaContrasena.Password;
             string confirmacionContrasena = cuadroConfirmacionContrasena.Password;
 
-            if (EsLaMismaContrasena(contrasenaAnterior, contrasenaActual))
+            if (!EsLaMismaContrasena(contrasenaAnterior, contrasenaActual))
             {
-                if (!EsLaMismaContrasena(contrasenaAnterior, nuevaContrasena))
+                if (!ExistenDatosInvalidos(nuevaContrasena, confirmacionContrasena))
                 {
-                    if (!ExistenDatosInvalidos(nuevaContrasena, confirmacionContrasena))
-                    {                        
-                        string correoJugador = Dominio.CuentaJugador.Actual.Correo;
-                        string nuevaContrasenaCifrada = EncriptadorContrasena.
-                            CalcularHashSha512(nuevaContrasena);
+                    string correoJugador = Dominio.CuentaJugador.Actual.Correo;
+                    string nuevaContrasenaCifrada = EncriptadorContrasena.
+                        CalcularHashSha512(nuevaContrasena);
 
-                        try
-                        {
-                            ActualizarContrasena(correoJugador, nuevaContrasenaCifrada);
-                        }
-                        catch (CommunicationException ex)
-                        {
-                            Registros.Registros.escribirRegistro(ex);
-                            MessageBox.Show(Properties.Resources.
-                                ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                                ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                                MessageBoxButton.OK, MessageBoxImage.Error);
-                        }
-                        catch (TimeoutException ex)
-                        {
-                            Registros.Registros.escribirRegistro(ex);
-                            MessageBox.Show(Properties.Resources.
-                                ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                                ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                                MessageBoxButton.OK, MessageBoxImage.Error);
-                        }
+                    try
+                    {
+                        ActualizarContrasena(correoJugador, nuevaContrasenaCifrada);
+                    }
+                    catch (CommunicationException ex)
+                    {
+                        Registros.Registros.escribirRegistro(ex);
+                        MessageBox.Show(Properties.Resources.
+                            ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                            ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    catch (TimeoutException ex)
+                    {
+                        Registros.Registros.escribirRegistro(ex);
+                        MessageBox.Show(Properties.Resources.
+                            ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                            ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                            MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             }

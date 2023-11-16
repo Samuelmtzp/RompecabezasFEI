@@ -59,7 +59,7 @@ namespace Logica
             using (var contexto = new EntidadesRompecabezasFei())
             {
                 var cuentaObtenida = contexto.Cuenta.FirstOrDefault(cuenta => 
-                    cuenta.Correo.Equals(correo));
+                    cuenta.Correo == correo);
 
                 if (cuentaObtenida != null)
                 {

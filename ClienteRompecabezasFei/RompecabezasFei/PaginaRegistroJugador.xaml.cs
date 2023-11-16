@@ -134,6 +134,14 @@ namespace RompecabezasFei
                 cliente.Abort();
             }
 
+            if (resultado)
+            {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_REGISTRO_CORREONODISPONIBLE, Properties.Resources.
+                    ETIQUETA_REGISTRO_MENSAJECORREONODISPONIBLE,
+                    MessageBoxButton.OK);
+            }
+
             return resultado;
         }
 
