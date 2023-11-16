@@ -14,16 +14,10 @@ namespace Datos
     
     public partial class Sala
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Sala()
-        {
-            this.MinimoJugadores = "2";
-        }
-    
         public int IdSala { get; set; }
         public string Codigo { get; set; }
         public int MaximoJugadores { get; set; }
-        public string MinimoJugadores { get; set; }
+        public int MinimoJugadores { get; set; }
         public Nullable<int> IdAnfitrion { get; set; }
     
         public virtual Jugador Anfitrion { get; set; }

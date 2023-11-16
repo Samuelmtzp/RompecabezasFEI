@@ -1,12 +1,14 @@
-﻿using System.ServiceModel;
+﻿using Logica;
+using System.Collections.Generic;
+using System.ServiceModel;
 
 namespace Contratos
 {
     [ServiceContract(CallbackContract = typeof(IServicioJuegoCallback))]
-    public interface IServicioJuego
+    public interface IServicioSala
     {
         [OperationContract]
-        void CrearNuevaSala(string nombreAnfitrion, string codigoSala);
+        bool CrearNuevaSala(string nombreAnfitrion, string codigoSala);
 
         [OperationContract]
         void ConectarCuentaJugadorASala(string nombreJugador, string codigoSala, 
@@ -15,6 +17,9 @@ namespace Contratos
         [OperationContract]
         void DesconectarCuentaJugadorDeSala(string nombreJugador, string codigoSala, 
             string mensajeDespedida);
+
+        [OperationContract]
+        List<CuentaJugador> ObtenerJugadoresConectadosEnSala(string codigoSala);
 
         [OperationContract(IsOneWay = true)]
         void EnviarMensajeDeSala(string nombreJugador, string codigoSala, string mensaje);
@@ -31,5 +36,11 @@ namespace Contratos
     {
         [OperationContract(IsOneWay = true)]
         void MostrarMensajeDeSala(string mensaje);
+
+        [OperationContract(IsOneWay = true)]
+        void NotificarNuevoJugadorConectadoEnSala(CuentaJugador nuevoJugador);
+
+        [OperationContract(IsOneWay = true)]
+        void NotificarJugadorDesconectadoDeSala(string nombreJugador);
     }
 }

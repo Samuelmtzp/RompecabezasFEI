@@ -122,8 +122,8 @@
     <Compile Include="PaginaSeleccionAvatar.xaml.cs">
       <DependentUpon>PaginaSeleccionAvatar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PaginaAjustesPartida.xaml.cs">
-      <DependentUpon>PaginaAjustesPartida.xaml</DependentUpon>
+    <Compile Include="PaginaNuevaPartida.xaml.cs">
+      <DependentUpon>PaginaNuevaPartida.xaml</DependentUpon>
     </Compile>
     <Compile Include="PaginaUnirseSala.xaml.cs">
       <DependentUpon>PaginaUnirseSala.xaml</DependentUpon>
@@ -250,7 +250,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PaginaAjustesPartida.xaml">
+    <Page Include="PaginaNuevaPartida.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -368,6 +368,7 @@
     <Resource Include="Imagenes\Avatares\6.png" />
     <Resource Include="Imagenes\Avatares\4.png" />
     <Resource Include="Imagenes\Avatares\5.png" />
+    <Resource Include="Imagenes\Indicadores\ModificarJugadores.png" />
     <Content Include="Sonidos\ClicSonido.wav" />
     <Content Include="Sonidos\MusicaRompecabezasFei.wav" />
   </ItemGroup>
