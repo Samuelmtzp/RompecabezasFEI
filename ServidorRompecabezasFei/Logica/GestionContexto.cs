@@ -13,7 +13,7 @@ namespace Logica
             contextoIServicioAmistades = null;
         }
 
-        public OperationContext ContextoIServicioJuego
+        public OperationContext ContextoIServicioSala
         {
             get { return contextoIServicioJuego; }
             set { contextoIServicioJuego = value; }

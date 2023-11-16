@@ -4,12 +4,13 @@ using System.Linq;
 namespace Dominio
 {
     public class Tablero
-    {
+    {        
         private double anchoDeCelda;
         private double alturaDeCelda;
         private int totalFilas;
         private int totalColumnas;
         private int numeroImagenRompecabezas;
+        private Dificultad dificultad;
         private List<Pieza> piezas;
         private List<Celda> celdas;
 
@@ -42,6 +43,31 @@ namespace Dominio
             get { return numeroImagenRompecabezas; }
             set { numeroImagenRompecabezas = value; }
         }
+
+        public Dificultad Dificultad
+        {
+            get { return dificultad; }
+            set 
+            { 
+                dificultad = value;
+
+                switch (dificultad)
+                {
+                    case Dificultad.Facil:
+                        totalFilas = 6;
+                        totalColumnas = 10;
+                        break;
+                    case Dificultad.Medio:
+                        totalFilas = 8;
+                        totalColumnas = 13;
+                        break;
+                    case Dificultad.Dificil:
+                        totalFilas = 10;
+                        totalColumnas = 16;
+                        break;
+                }
+            }
+        } 
 
         public List<Pieza> Piezas
         {

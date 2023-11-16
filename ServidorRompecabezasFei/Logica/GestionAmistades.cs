@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Logica
 {
-    public class GestionAmigosJugador
+    public class GestionAmistades
     {
         public List<CuentaJugador> ObtenerAmigosDeJugador(string nombreJugador)
         {
@@ -95,11 +95,21 @@ namespace Logica
             string nombreJugadorDestino)
         {
             bool resultado = false;
-            
+
+            if (ExisteSolicitudDeAmistad(nombreJugadorOrigen, nombreJugadorDestino))
+            {
+                EliminarSolicitudDeAmistad(nombreJugadorOrigen, nombreJugadorDestino);
+            }
+
+            if (ExisteSolicitudDeAmistad(nombreJugadorDestino, nombreJugadorOrigen))
+            {
+                EliminarSolicitudDeAmistad(nombreJugadorDestino, nombreJugadorOrigen);
+            }
+
             if (!ExisteAmistadConJugador(nombreJugadorOrigen, nombreJugadorDestino))
             {
                 resultado = RegistrarNuevaAmistadEntreJugadores(nombreJugadorOrigen,
-                nombreJugadorDestino);
+                    nombreJugadorDestino);
             }
 
             return resultado;

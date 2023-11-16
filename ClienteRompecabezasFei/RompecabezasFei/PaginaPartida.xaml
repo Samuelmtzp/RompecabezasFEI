@@ -9,9 +9,47 @@
       d:DesignHeight="720" d:DesignWidth="1280"
       Loaded="EventoPaginaCargada">
     <Grid>
-        <Label Content="{x:Static p:Resources.ETIQUETA_PARTIDA_TIEMPORESTANTE}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="969,182,0,0" VerticalAlignment="Top" Height="58" Width="291" FontSize="32" Foreground="White" FontWeight="Bold"/>
-        <Label Name="etiquetaTiempoRestante" HorizontalAlignment="Left" Margin="1067,245,0,0" VerticalAlignment="Top" Width="94" Foreground="White" Content="00:00" FontWeight="Bold" FontSize="32" HorizontalContentAlignment="Center" Height="48"/>
         <Canvas Name="tableroRompecabezas" Margin="30,99,350,81" Width="900" Height="540"/>
+        <Grid Margin="979,243,31,214" ShowGridLines="True">
+            <ListView Name="listaJugadoresPartida" VerticalAlignment="Top" Foreground="White" Background="#FF4A4A4A" ItemsSource="{Binding JugadoresPartida}" HorizontalContentAlignment="Center" Width="264" Height="260" d:ItemsSource="{d:SampleData ItemCount=4}" >
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Margin" Value="0,30,0,0"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="#FF4A4A4A" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FF4A4A4A" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.View>
+                    <GridView>
+                        <GridView.ColumnHeaderContainerStyle>
+                            <Style TargetType="GridViewColumnHeader">
+                                <Setter Property="Visibility" Value="Visible" />
+                            </Style>
+                        </GridView.ColumnHeaderContainerStyle>
+                        <GridViewColumn Width="164" Header="Jugador">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Center" Foreground="White" Text="{Binding NombreJugador}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="90" Header="Puntaje">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock TextAlignment="Right" HorizontalAlignment="Right" Foreground="White" Text="{Binding Puntaje}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
         <Button Name="botonIniciar" Content="Iniciar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="270" Click="EventoClickIniciar" Margin="979,549,0,0" Background="#03A64A" Foreground="White" FontWeight="Bold" FontSize="32"/>
         <Image Source="/Imagenes/Indicadores/Ajustes.png" HorizontalAlignment="Left" Height="82" Margin="1155,15,0,0" VerticalAlignment="Top" Width="82" MouseDown="EventoClickAjustes"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_AJUSTES}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="1143,97,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Width="106"/>

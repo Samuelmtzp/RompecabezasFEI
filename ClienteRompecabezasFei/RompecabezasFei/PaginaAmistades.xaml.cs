@@ -582,6 +582,15 @@ namespace RompecabezasFei
         {
             if (cuentasAmigo != null)
             {
+                var solicitudAmistadResidual = cuentasSolicitud.Where(cuentaSolicitud =>
+                    cuentaSolicitud.NombreJugador == 
+                    cuentaNuevoAmigo.NombreJugador).FirstOrDefault();
+
+                if (solicitudAmistadResidual != null)
+                {
+                    cuentasSolicitud.Remove(solicitudAmistadResidual);
+                }
+
                 cuentasAmigo.Add(new Dominio.CuentaJugador
                 {
                     NombreJugador = cuentaNuevoAmigo.NombreJugador,

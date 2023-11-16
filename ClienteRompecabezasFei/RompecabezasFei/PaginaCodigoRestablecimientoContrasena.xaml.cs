@@ -25,7 +25,8 @@ namespace RompecabezasFei
             Random generadorNumeroAleatorio = new Random();
             const int valorMinimoCodigo = 100000;
             const int valorMaximoCodigo = 1000000;
-            codigoGenerado = generadorNumeroAleatorio.Next(valorMinimoCodigo, valorMaximoCodigo).ToString();
+            codigoGenerado = generadorNumeroAleatorio.Next(valorMinimoCodigo, 
+                valorMaximoCodigo).ToString();
             ServicioJugadorClient cliente = new ServicioJugadorClient();
             bool codigoEnviado = false;            
 

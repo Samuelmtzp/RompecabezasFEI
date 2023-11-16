@@ -19,6 +19,7 @@ namespace Logica
                                        cuenta.Contrasena == contrasena 
                                        select new CuentaJugador
                                        {
+                                           IdJugador = jugador.IdJugador,
                                            NumeroAvatar = jugador.NumeroAvatar,
                                            NombreJugador = jugador.NombreJugador, 
                                            Correo = cuenta.Correo,
