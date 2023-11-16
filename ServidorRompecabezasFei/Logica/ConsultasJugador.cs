@@ -1,5 +1,4 @@
 ﻿using Datos;
-using System;
 using System.Linq;
 
 namespace Logica

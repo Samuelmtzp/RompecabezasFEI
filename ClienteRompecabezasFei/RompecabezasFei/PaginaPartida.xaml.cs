@@ -1,6 +1,8 @@
 ﻿using Dominio;
+using RompecabezasFei.ServicioRompecabezasFei;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -19,23 +21,33 @@ namespace RompecabezasFei
         private readonly Tablero tablero;
         private Point posicionInicialCursor;
         private Pieza piezaActual;
-
+        private ObservableCollection<Dominio.CuentaJugador> jugadoresPartida;
         #endregion
 
-        #region Constructor
-        public PaginaPartida()
+        public ObservableCollection<Dominio.CuentaJugador> JugadoresPartida
+        {
+            get { return jugadoresPartida; }
+            set { jugadoresPartida = value; }
+        }
+
+        public PaginaPartida(Dificultad dificultad, int numeroImagenRompecabezas)
         {
             InitializeComponent();
             tablero = new Tablero
             {
+                Dificultad = dificultad,
                 Piezas = new List<Pieza>(),
                 Celdas = new List<Celda>(),
-                TotalFilas = 6,
-                TotalColumnas = 10,
-                NumeroImagenRompecabezas = 1
+                NumeroImagenRompecabezas = numeroImagenRompecabezas
             };
+            jugadoresPartida = new ObservableCollection<Dominio.CuentaJugador>();
+            listaJugadoresPartida.DataContext = this;
         }
-        #endregion
+
+        private void CargarJugadoresPartida()
+        {
+            
+        }
 
         #region Métodos privados
         private void CrearTablero()
@@ -141,8 +153,10 @@ namespace RompecabezasFei
             {
                 double anchoTablero = tableroRompecabezas.ActualWidth;
                 double alturaTablero = tableroRompecabezas.ActualHeight;
-                double posicionX = aleatorio.NextDouble() * (anchoTablero - pieza.Imagen.Width);
-                double posicionY = aleatorio.NextDouble() * (alturaTablero - pieza.Imagen.Height);
+                double posicionX = aleatorio.NextDouble() * 
+                    (anchoTablero - pieza.Imagen.Width);
+                double posicionY = aleatorio.NextDouble() * 
+                    (alturaTablero - pieza.Imagen.Height);
                 Canvas.SetLeft(pieza.Borde, posicionX);
                 Canvas.SetTop(pieza.Borde, posicionY);
                 tableroRompecabezas.Children.Add(pieza.Borde);
@@ -161,7 +175,8 @@ namespace RompecabezasFei
             }
         }
 
-        private bool EsPosicionValidaParaPiezaActual(double nuevaPosicionX, double nuevaPosicionY)
+        private bool EsPosicionValidaParaPiezaActual(double nuevaPosicionX, 
+            double nuevaPosicionY)
         {
             bool esPosicionValida = false;
 
@@ -257,7 +272,7 @@ namespace RompecabezasFei
 
         #region Eventos
         private void EventoPaginaCargada(object objetoOrigen, RoutedEventArgs evento)
-        {            
+        {
             VentanaPrincipal ventanaPrincipal = (VentanaPrincipal)Window.GetWindow(this);
             ventanaPrincipal.Deactivated += EventoVentanaDesactivada;
             CrearTablero();

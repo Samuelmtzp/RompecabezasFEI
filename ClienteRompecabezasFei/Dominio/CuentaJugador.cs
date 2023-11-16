@@ -13,6 +13,7 @@ namespace Dominio
         private bool esInvitado;
         private SolidColorBrush colorEstadoConectividad;
         private BitmapImage fuenteImagenAvatar;
+        private int puntaje;
         private static CuentaJugador cuentaJugadorActual;
         #endregion
 
@@ -46,6 +47,12 @@ namespace Dominio
         {
             get { return esInvitado; }
             set { esInvitado = value; }
+        }
+
+        public int Puntaje
+        {
+            get { return puntaje; }
+            set { puntaje = value; }
         }
 
         public SolidColorBrush ColorEstadoConectividad

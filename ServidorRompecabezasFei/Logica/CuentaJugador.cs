@@ -6,15 +6,24 @@ namespace Logica
     public class CuentaJugador
     {
         #region Atributos
+        private int idJugador;
         private string nombreJugador;
         private int numeroAvatar;
         private string correo;
         private string contrasena;
+        private int puntaje;
         private EstadoConectividadJugador estadoConectividad;
         private GestionContexto operacionesContexto;
         #endregion
 
         #region Propiedades
+        [DataMember]
+        public int IdJugador
+        {
+            get { return idJugador; }
+            set { idJugador = value; }
+        }
+
         [DataMember]
         public string NombreJugador
         {
@@ -41,6 +50,13 @@ namespace Logica
         {
             get { return contrasena; }
             set { contrasena = value; }
+        }
+
+        [DataMember]
+        public int Puntaje
+        {
+            get { return puntaje; }
+            set { puntaje = value; }
         }
 
         [DataMember]

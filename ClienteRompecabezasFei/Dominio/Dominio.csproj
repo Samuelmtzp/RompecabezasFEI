@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Celda.cs" />
     <Compile Include="CuentaJugador.cs" />
+    <Compile Include="Dificultad.cs" />
     <Compile Include="Pieza.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tablero.cs" />

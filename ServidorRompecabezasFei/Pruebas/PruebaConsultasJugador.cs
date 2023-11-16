@@ -11,20 +11,16 @@ namespace Pruebas
 
         public TestContext ContextoPrueba
         {
-            get
-            {
-                return instanciaContextoPrueba;
-            }
-            set
-            {
-                instanciaContextoPrueba = value;
-            }
+            get { return instanciaContextoPrueba; }
+            set { instanciaContextoPrueba = value; }
         }
 
         [TestMethod]
-        public void ExisteNombreJugadorExito()
+        [DataRow("Kendrick")]
+        [DataRow("Drake")]
+        public void ExisteNombreJugador_CuandoElNombreExiste_DebeIndicarExistencias(
+            string nombreJugador)
         {
-            string nombreJugador = "Sam";
             ConsultasJugador consultasJugador = new ConsultasJugador();
             bool existeNombreJugador;
 
@@ -36,7 +32,8 @@ namespace Pruebas
             {
                 existeNombreJugador = false;
             }
-            Assert.AreEqual(true, existeNombreJugador, "El nombre de jugador existe");
+
+            Assert.AreEqual(true, existeNombreJugador);
         }
 
         [TestMethod]

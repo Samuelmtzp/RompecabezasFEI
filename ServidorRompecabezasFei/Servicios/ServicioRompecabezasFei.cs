@@ -16,7 +16,7 @@ namespace Servicios
         public bool Registrar(CuentaJugador cuentaJugador)
         {
             Registro registro = new Registro();
-            bool resultado;
+            bool resultado = false;
 
             try
             {                
@@ -24,8 +24,7 @@ namespace Servicios
             }
             catch (EntityException)
             {
-                resultado = false;
-                // log
+
             }
 
             return resultado;
@@ -35,7 +34,7 @@ namespace Servicios
             string nuevoNombre, int nuevoNumeroAvatar)
         {
             Registro registro = new Registro();
-            bool resultado;
+            bool resultado = false;
 
             try
             {
@@ -44,8 +43,7 @@ namespace Servicios
             }
             catch(EntityException)
             {
-                resultado = false;
-                // log
+
             }
             
             return resultado;
@@ -54,7 +52,7 @@ namespace Servicios
         public bool ActualizarContrasena(string correo, string contrasena)
         {
             Registro registro = new Registro();
-            bool resultado;
+            bool resultado = false;
             
             try
             {
@@ -67,8 +65,7 @@ namespace Servicios
             }
             catch (EntityException)
             {
-                resultado = false;
-                // log
+
             }
 
             return resultado;
@@ -77,7 +74,7 @@ namespace Servicios
         public bool ExisteNombreJugador(string nombreJugador)
         {
             ConsultasJugador consultasJugador = new ConsultasJugador();
-            bool resultado;
+            bool resultado = false;
             
             try
             {
@@ -85,8 +82,7 @@ namespace Servicios
             }
             catch (EntityException)
             {
-                resultado = false;
-                // log
+
             }
 
             return resultado;
@@ -95,7 +91,7 @@ namespace Servicios
         public bool ExisteCorreoElectronico(string correoElectronico)
         {
             ConsultasJugador consultasJugador = new ConsultasJugador();
-            bool resultado;
+            bool resultado = false;
             
             try
             {
@@ -103,8 +99,7 @@ namespace Servicios
             }
             catch (EntityException)
             {
-                resultado = false;
-                // log
+
             }
 
             return resultado;
@@ -112,7 +107,7 @@ namespace Servicios
 
         public CuentaJugador IniciarSesion(string nombreJugador, string contrasena)
         {
-            CuentaJugador cuentaAutenticacion = null;
+            CuentaJugador cuentaRecuperada = null;
             
             if (ExisteNombreJugador(nombreJugador) && 
                 !jugadoresConectados.ContainsKey(nombreJugador))
@@ -120,27 +115,31 @@ namespace Servicios
                 try
                 {
                     Autenticacion autenticacion = new Autenticacion();
-                    cuentaAutenticacion = autenticacion.IniciarSesion(nombreJugador, contrasena);
-                    cuentaAutenticacion.EstadoConectividad = EstadoConectividadJugador.Conectado;
-                    cuentaAutenticacion.OperacionesContexto = new GestionContexto();                    
-                    CuentaJugador nuevaCuentaJugador = new CuentaJugador
+                    cuentaRecuperada = autenticacion.IniciarSesion(nombreJugador, contrasena);
+                    if (cuentaRecuperada != null)
                     {
-                        NombreJugador = cuentaAutenticacion.NombreJugador,
-                        NumeroAvatar = cuentaAutenticacion.NumeroAvatar,
-                        EstadoConectividad = cuentaAutenticacion.EstadoConectividad,
-                        OperacionesContexto = cuentaAutenticacion.OperacionesContexto,
-                    };
-                    jugadoresConectados[cuentaAutenticacion.NombreJugador] = nuevaCuentaJugador;
-                    NotificarConexionJugadorAOtrosJugadores(cuentaAutenticacion.NombreJugador,
-                        cuentaAutenticacion.EstadoConectividad);
+                        cuentaRecuperada.EstadoConectividad = EstadoConectividadJugador.Conectado;
+                        cuentaRecuperada.OperacionesContexto = new GestionContexto();
+                        CuentaJugador cuentaAutenticada = new CuentaJugador
+                        {
+                            IdJugador = cuentaRecuperada.IdJugador,
+                            NombreJugador = cuentaRecuperada.NombreJugador,
+                            NumeroAvatar = cuentaRecuperada.NumeroAvatar,
+                            EstadoConectividad = cuentaRecuperada.EstadoConectividad,
+                            OperacionesContexto = cuentaRecuperada.OperacionesContexto,
+                        };
+                        jugadoresConectados[cuentaRecuperada.NombreJugador] = cuentaAutenticada;
+                        NotificarConexionJugadorAOtrosJugadores(cuentaRecuperada.NombreJugador,
+                            cuentaRecuperada.EstadoConectividad);
+                    }                    
                 }
                 catch (EntityException)
                 {
-                    // log
+
                 }
             }
 
-            return cuentaAutenticacion;
+            return cuentaRecuperada;
         }
 
         public bool CerrarSesion(string nombreJugador)
@@ -150,7 +149,7 @@ namespace Servicios
             if (jugadoresConectados.ContainsKey(nombreJugador))
             {
                 resultado = jugadoresConectados.Remove(nombreJugador); 
-                NotificarConexionJugadorAOtrosJugadores(
+                    NotificarConexionJugadorAOtrosJugadores(
                     nombreJugador, EstadoConectividadJugador.Desconectado);                
             }
 
@@ -161,7 +160,7 @@ namespace Servicios
             string asunto, string mensaje)
         {
             GeneradorMensajesCorreo generadorMensajesCorreo = new GeneradorMensajesCorreo();
-            bool resultado;
+            bool resultado = false;
             
             try
             {
@@ -170,8 +169,7 @@ namespace Servicios
             }
             catch (EntityException)
             {
-                resultado = false;
-                // log
+
             }
             
             return resultado;
@@ -189,7 +187,7 @@ namespace Servicios
             }
             catch (EntityException)
             {
-                // log
+
             }
             
             return numeroPartidasJugadas;
@@ -207,7 +205,7 @@ namespace Servicios
             }
             catch (EntityException)
             {
-                // log
+
             }
             
             return numeroPartidasGanadas;
@@ -216,26 +214,44 @@ namespace Servicios
     #endregion
 
     #region IServicioJuego
-    public partial class ServicioRompecabezasFei : IServicioJuego
+    public partial class ServicioRompecabezasFei : IServicioSala
     {
-        private readonly List<Logica.Sala> salasActivas = new List<Logica.Sala>();
+        private readonly List<Sala> salasActivas = new List<Sala>();
 
-        public void CrearNuevaSala(string nombreAnfitrion, string codigoSala)
+        public bool CrearNuevaSala(string nombreAnfitrion, string codigoSala)
         {
-            Logica.Sala nuevaSala = new Logica.Sala()
+            GestionSala gestionSala = new GestionSala();
+            bool registroSalaRealizado = false;
+
+            try
             {
-                CodigoSala = codigoSala,
-                NombreAnfitrion = nombreAnfitrion,
-                ContadorJugadoresActuales = 0,
-                Jugadores = new List<CuentaJugador>()
-            };
-            salasActivas.Add(nuevaSala);
+                registroSalaRealizado = gestionSala.CrearNuevaSala(
+                    nombreAnfitrion, codigoSala);
+            }
+            catch (EntityException)
+            {
+
+            }
+
+            if (registroSalaRealizado)
+            {
+                Sala salaConectada = new Sala()
+                {
+                    CodigoSala = codigoSala,
+                    NombreAnfitrion = nombreAnfitrion,
+                    ContadorJugadoresActuales = 0,
+                    Jugadores = new List<CuentaJugador>()
+                };
+                salasActivas.Add(salaConectada);
+            }
+
+            return registroSalaRealizado;
         }
 
         public bool ExisteSalaDisponible(string codigoSala)
         {
             bool resultado = false;
-            Logica.Sala salaEncontrada = salasActivas.FirstOrDefault(
+            Sala salaEncontrada = salasActivas.FirstOrDefault(
                 sala => sala.CodigoSala.Equals(codigoSala));
             
             if (salaEncontrada != null && salaEncontrada.ExisteCupoJugadores())
@@ -249,18 +265,18 @@ namespace Servicios
         public void ConectarCuentaJugadorASala(string nombreJugador, string codigoSala, 
             string mensajeBienvenida)
         {
-            bool existeJugador = jugadoresConectados.ContainsKey(nombreJugador);
-
-            if (existeJugador)
+            if (jugadoresConectados.ContainsKey(nombreJugador))
             {
                 jugadoresConectados[nombreJugador].OperacionesContexto.
-                    ContextoIServicioJuego = OperationContext.Current;
-                Logica.Sala salaEncontrada = salasActivas.FirstOrDefault(
-                sala => sala.CodigoSala.Equals(codigoSala));
+                    ContextoIServicioSala = OperationContext.Current;
+                Sala salaEncontrada = salasActivas.FirstOrDefault(
+                    sala => sala.CodigoSala.Equals(codigoSala));
 
                 if (salaEncontrada.ExisteCupoJugadores())
                 {
                     EnviarMensajeDeSala(nombreJugador, codigoSala, mensajeBienvenida);
+                    NotificarNuevoJugadorConectadoASala(
+                        jugadoresConectados[nombreJugador], codigoSala);
                 }
 
                 salaEncontrada.Jugadores.Add(jugadoresConectados[nombreJugador]);
@@ -272,18 +288,24 @@ namespace Servicios
             string codigoSala, string mensajeDespedida)
         {
             CuentaJugador cuentaJugadorEncontrada = null;
-            Logica.Sala salaEncontrada = salasActivas.FirstOrDefault(sala => 
+            Sala salaEncontrada = salasActivas.FirstOrDefault(sala => 
                 sala.CodigoSala.Equals(codigoSala));
 
             if (salaEncontrada != null)
             {
                 cuentaJugadorEncontrada = salaEncontrada.Jugadores.
                     FirstOrDefault(cuentaJugador =>
-                    cuentaJugador.NombreJugador == nombreJugador);
+                    cuentaJugador.NombreJugador == nombreJugador);                
             }
 
             if (cuentaJugadorEncontrada != null)
             {
+                if (jugadoresConectados.ContainsKey(nombreJugador))
+                {
+                    jugadoresConectados[nombreJugador].OperacionesContexto.
+                        ContextoIServicioSala = null;
+                }
+
                 salaEncontrada.Jugadores.Remove(cuentaJugadorEncontrada);
                 salaEncontrada.ContadorJugadoresActuales--;
                 
@@ -294,6 +316,7 @@ namespace Servicios
                 else
                 {
                     EnviarMensajeDeSala(nombreJugador, codigoSala, mensajeDespedida);
+                    NotificarJugadorDesconectadoDeSala(nombreJugador, codigoSala);                    
                 }
             }
         }
@@ -301,7 +324,7 @@ namespace Servicios
         public void EnviarMensajeDeSala(string nombreJugador, string codigoSala, 
             string mensaje)
         {
-            Logica.Sala salaEncontrada = salasActivas.FirstOrDefault(sala => 
+            Sala salaEncontrada = salasActivas.FirstOrDefault(sala => 
                 sala.CodigoSala.Equals(codigoSala));
             
             foreach (CuentaJugador cuentaJugador in salaEncontrada.Jugadores)
@@ -309,18 +332,60 @@ namespace Servicios
                 string horaActual = DateTime.Now.ToShortTimeString();
                 string mensajeFinal = horaActual + $" {nombreJugador}: {mensaje}";
                 
-                if (cuentaJugador.OperacionesContexto.ContextoIServicioJuego != null)
+                if (cuentaJugador.OperacionesContexto.ContextoIServicioSala != null)
                 {
-                    cuentaJugador.OperacionesContexto.ContextoIServicioJuego.
-                    GetCallbackChannel<IServicioJuegoCallback>().
-                    MostrarMensajeDeSala(mensajeFinal);
-                }                
+                    cuentaJugador.OperacionesContexto.ContextoIServicioSala.
+                        GetCallbackChannel<IServicioJuegoCallback>().
+                        MostrarMensajeDeSala(mensajeFinal);
+                }
+            }
+        }
+
+        private void NotificarNuevoJugadorConectadoASala(CuentaJugador nuevoJugador, 
+            string codigoSala)
+        {
+            Sala salaEncontrada = salasActivas.FirstOrDefault(sala =>
+                sala.CodigoSala.Equals(codigoSala));
+
+            foreach (CuentaJugador jugador in salaEncontrada.Jugadores)
+            {
+                jugador.OperacionesContexto.ContextoIServicioSala.GetCallbackChannel<
+                    IServicioJuegoCallback>().NotificarNuevoJugadorConectadoEnSala(
+                    nuevoJugador);
+            }
+        }
+
+        private void NotificarJugadorDesconectadoDeSala(string nombreJugador, 
+            string codigoSala)
+        {
+            Sala salaEncontrada = salasActivas.FirstOrDefault(sala =>
+                sala.CodigoSala.Equals(codigoSala));
+
+            foreach (CuentaJugador jugador in salaEncontrada.Jugadores)
+            {
+                jugador.OperacionesContexto.ContextoIServicioSala.GetCallbackChannel<
+                    IServicioJuegoCallback>().NotificarJugadorDesconectadoDeSala(
+                    nombreJugador);
             }
         }
 
         public string GenerarCodigoParaNuevaSala()
         {
             return Guid.NewGuid().ToString();
+        }
+
+        public List<CuentaJugador> ObtenerJugadoresConectadosEnSala(string codigoSala)
+        {
+            List<CuentaJugador> jugadoresEnSala = new List<CuentaJugador>();
+            Sala salaEncontrada = salasActivas.FirstOrDefault(sala =>
+                sala.CodigoSala.Equals(codigoSala));
+
+            if (salaEncontrada != null)
+            {
+                jugadoresEnSala = salaEncontrada.Jugadores;
+            }
+
+            return jugadoresEnSala;
         }
     }
     #endregion
@@ -348,16 +413,16 @@ namespace Servicios
 
         public List<CuentaJugador> ObtenerAmigosDeJugador(string nombreJugador)
         {
-            GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
+            GestionAmistades gestionAmistades = new GestionAmistades();
             List<CuentaJugador> cuentasJugador = null;
 
             try
             {
-                cuentasJugador = gestionAmigosJugador.ObtenerAmigosDeJugador(nombreJugador);
+                cuentasJugador = gestionAmistades.ObtenerAmigosDeJugador(nombreJugador);
             }
             catch (EntityException)
             {
-                // log
+
             }
 
             if (cuentasJugador != null)
@@ -393,17 +458,17 @@ namespace Servicios
 
         public List<CuentaJugador> ObtenerJugadoresConSolicitudPendiente(string nombreJugador)
         {
-            GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
+            GestionAmistades gestionAmistades = new GestionAmistades();
             List<CuentaJugador> cuentasJugador = null;
 
             try
             {
-                cuentasJugador = gestionAmigosJugador.
+                cuentasJugador = gestionAmistades.
                     ObtenerJugadoresConSolicitudPendiente(nombreJugador);
             }
             catch (EntityException)
             {
-                // log
+
             }
 
             if (cuentasJugador != null)
@@ -418,16 +483,16 @@ namespace Servicios
             string nombreJugadorDestino)
         {
             bool esSolicitudEnviada = false; 
-            GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
+            GestionAmistades gestionAmistades = new GestionAmistades();
 
             try
             {
-                esSolicitudEnviada = gestionAmigosJugador.EnviarSolicitudDeAmistad(
+                esSolicitudEnviada = gestionAmistades.EnviarSolicitudDeAmistad(
                     nombreJugadorOrigen, nombreJugadorDestino);
             }
             catch (EntityException)
             {
-                // log
+
             }
 
             if (esSolicitudEnviada && EsJugadorSuscritoANotififacionesDeAmistades(
@@ -445,16 +510,16 @@ namespace Servicios
             string nombreJugadorDestino)
         {
             bool esSolicitudAceptada = false;
-            GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
+            GestionAmistades gestionAmistades = new GestionAmistades();
                 
             try
             {
-                esSolicitudAceptada = gestionAmigosJugador.AceptarSolicitudDeAmistad(
+                esSolicitudAceptada = gestionAmistades.AceptarSolicitudDeAmistad(
                     nombreJugadorOrigen, nombreJugadorDestino);
             }
             catch (EntityException)
             {
-                // log
+
             }
 
             if (esSolicitudAceptada && EsJugadorSuscritoANotififacionesDeAmistades(
@@ -472,16 +537,16 @@ namespace Servicios
             string nombreJugadorB)
         {
             bool esAmistadEliminada = false;
-            GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
+            GestionAmistades gestionAmistades = new GestionAmistades();
 
             try
             {
-                esAmistadEliminada = gestionAmigosJugador.EliminarAmistadEntreJugadores(
+                esAmistadEliminada = gestionAmistades.EliminarAmistadEntreJugadores(
                     nombreJugadorA, nombreJugadorB);
             }
             catch (EntityException)
             {
-                // log
+
             }
 
             if (esAmistadEliminada && EsJugadorSuscritoANotififacionesDeAmistades(
@@ -498,17 +563,17 @@ namespace Servicios
         public bool RechazarSolicitudDeAmistad(string nombreJugadorOrigen, 
             string nombreJugadorDestino)
         {
-            GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
+            GestionAmistades gestionAmistades = new GestionAmistades();
             bool resultado = false;
 
             try
             {
-                resultado = gestionAmigosJugador.EliminarSolicitudDeAmistad(
+                resultado = gestionAmistades.EliminarSolicitudDeAmistad(
                     nombreJugadorOrigen, nombreJugadorDestino);
             }
             catch (EntityException)
             {
-                // log
+
             }
 
             return resultado;
@@ -517,17 +582,17 @@ namespace Servicios
         public bool ExisteSolicitudDeAmistad(string nombreJugadorOrigen, 
             string nombreJugadorDestino)
         {
-            GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
+            GestionAmistades gestionAmistades = new GestionAmistades();
             bool resultado = false;
 
             try
             {
-                resultado = gestionAmigosJugador.ExisteSolicitudDeAmistad(
+                resultado = gestionAmistades.ExisteSolicitudDeAmistad(
                     nombreJugadorOrigen, nombreJugadorDestino);
             }
             catch (EntityException)
             {
-                // log
+
             }
 
             return resultado;
@@ -535,17 +600,17 @@ namespace Servicios
 
         public bool ExisteAmistadConJugador(string nombreJugadorA, string nombreJugadorB)
         {
-            GestionAmigosJugador gestionAmigosJugador = new GestionAmigosJugador();
+            GestionAmistades gestionAmistades = new GestionAmistades();
             bool resultado = false;
 
             try
             {
-                resultado = gestionAmigosJugador.ExisteAmistadConJugador(
+                resultado = gestionAmistades.ExisteAmistadConJugador(
                     nombreJugadorA, nombreJugadorB);
             }
             catch (EntityException)
             {
-                // log
+
             }
 
             return resultado;
@@ -591,6 +656,78 @@ namespace Servicios
             }
 
             return resultado;
+        }
+    }
+    #endregion
+
+    #region IServicioPartida
+    public partial class ServicioRompecabezasFei : IServicioPartida
+    {        
+        public bool CrearNuevaPartida(string codigoSala)
+        {
+            GestionPartida gestionPartida = new GestionPartida();
+            bool resultado = false;
+            
+            try
+            {
+                resultado = gestionPartida.CrearNuevaPartida(codigoSala);
+            }
+            catch (EntityException)
+            {
+
+            }
+
+            return resultado;
+        }        
+
+        public bool FinalizarPartida(string codigoSala, 
+            CuentaJugador cuentaJugador, bool esGanador)
+        {
+            GestionPartida gestionPartida = new GestionPartida();
+            bool resultado = false;
+
+            try
+            {
+                resultado = gestionPartida.FinalizarPartida(
+                    codigoSala, cuentaJugador, esGanador);
+            }
+            catch (EntityException)
+            {
+
+            }
+
+            return resultado;
+        }
+
+        public bool ExpulsarJugadorPartida(string codigoSala, string nombreJugador)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool GenerarTablero(string codigoSala)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IniciarPartida(string codigoSala)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void MoverPiezaPosicionX(double posicionX)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void MoverPiezaPosicionY(bool posicionY)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool NotificarJugadorPreparado(string codigoSala, 
+            string nombreJugador)
+        {
+            throw new NotImplementedException();
         }
     }
     #endregion

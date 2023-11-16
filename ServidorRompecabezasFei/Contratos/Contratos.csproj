@@ -43,9 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IServicioPartida.cs" />
     <Compile Include="IServicioAmistades.cs" />
     <Compile Include="IServicioJugador.cs" />
-    <Compile Include="IServicioJuego.cs" />
+    <Compile Include="IServicioSala.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
