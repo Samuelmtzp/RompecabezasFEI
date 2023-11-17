@@ -12,7 +12,7 @@ namespace RompecabezasFei
             InitializeComponent();
         }
 
-        private void IrPaginaRestablecimientoContrasena(object objetoOrigen,
+        private void IrAPaginaRestablecimientoContrasena(object objetoOrigen,
             RoutedEventArgs evento)
         {
             string correo = cuadroTextoCorreo.Text;
@@ -41,7 +41,7 @@ namespace RompecabezasFei
             }
         }
 
-        private void IrPaginaInicioSesion(object objetoOrigen, MouseButtonEventArgs evento)
+        private void IrAPaginaInicioSesion(object objetoOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
         }

@@ -13,7 +13,6 @@ namespace RompecabezasFei
             InitializeComponent();
         }
 
-        #region Eventos
         private void IrAPaginaInformacionJugador(object objetoOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
@@ -57,9 +56,7 @@ namespace RompecabezasFei
                 }
             }
         }
-        #endregion
 
-        #region Validaciones
         private bool ExistenDatosInvalidos(string nuevaContrasena,
             string confirmacionContrasena)
         {
@@ -114,6 +111,5 @@ namespace RompecabezasFei
 
             return resultado;
         }
-        #endregion
     }
 }

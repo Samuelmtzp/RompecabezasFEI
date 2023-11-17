@@ -15,7 +15,7 @@ namespace RompecabezasFei
             //this.codigoSala = codigoSala;
         }
 
-        private void RegresarASala(object objetoOrigen, RoutedEventArgs evento)
+        private void IrAPaginaSala(object objetoOrigen, RoutedEventArgs evento)
         {
             PaginaSala paginaSala = new PaginaSala();
             VentanaPrincipal.CambiarPagina(paginaSala);

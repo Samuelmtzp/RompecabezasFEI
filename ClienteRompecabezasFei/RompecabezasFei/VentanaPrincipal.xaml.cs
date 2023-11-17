@@ -20,14 +20,14 @@ namespace RompecabezasFei
             InitializeComponent();
             Closing += CerrarSesionActual;
             paginaActual = new PaginaInicioSesion();
-            MarcoPaginaActual.Navigate(paginaActual);
+            marcoPaginaActual.Navigate(paginaActual);
         }
 
         public static void CambiarPagina(Page nuevaPagina)
         {
             VentanaPrincipal ventanaPrincipal = (VentanaPrincipal)GetWindow(paginaActual);
             paginaActual = nuevaPagina;
-            ventanaPrincipal.MarcoPaginaActual.Navigate(nuevaPagina);
+            ventanaPrincipal.marcoPaginaActual.Navigate(nuevaPagina);
         }
 
         public static void CambiarPaginaGuardandoAnterior(Page nuevaPagina)

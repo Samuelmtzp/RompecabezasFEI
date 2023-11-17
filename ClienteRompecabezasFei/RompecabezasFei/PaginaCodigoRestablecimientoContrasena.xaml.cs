@@ -17,7 +17,6 @@ namespace RompecabezasFei
             EnviarCodigo();
         }
 
-        #region Métodos privados
         private void EnviarCodigo()
         {
             bool envioDeCodigoRealizado = GestionadorCodigoCorreo.
@@ -33,15 +32,13 @@ namespace RompecabezasFei
                             MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        #endregion
 
-        #region Eventos
-        private void IrPaginaInicioSesion(object objetoOrigen, RoutedEventArgs evento)
+        private void IrAPaginaInicioSesion(object objetoOrigen, RoutedEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
         }
 
-        private void IrPaginaRestablecimientoContrasena(object objetoOrigen,
+        private void IrAPaginaRestablecimientoContrasena(object objetoOrigen,
             RoutedEventArgs evento)
         {
             string codigoVerificacion = cuadroTextoCodigoRestablecimiento.Text;
@@ -77,6 +74,5 @@ namespace RompecabezasFei
                 cuadroTextoCodigoRestablecimiento.Text = texto;
             }
         }
-        #endregion
     }
 }

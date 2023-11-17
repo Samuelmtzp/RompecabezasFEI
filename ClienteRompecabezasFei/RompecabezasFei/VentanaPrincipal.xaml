@@ -12,7 +12,7 @@
         WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel Margin="0,0,0,0" Width="1280" Height="720">
-            <Frame Name="MarcoPaginaActual" Width="1280" Height="720" NavigationUIVisibility="Hidden"></Frame>
+            <Frame Name="marcoPaginaActual" Width="1280" Height="720" NavigationUIVisibility="Hidden"></Frame>
         </StackPanel>
     </Grid>
 

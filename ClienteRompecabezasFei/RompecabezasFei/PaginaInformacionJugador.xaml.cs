@@ -13,7 +13,6 @@ namespace RompecabezasFei
             CargarDatosJugador();
         }
 
-        #region Métodos públicos
         public void CargarDatosJugador()
         {
             etiquetaNombreJugador.Content = Dominio.CuentaJugador.Actual.NombreJugador;
@@ -21,9 +20,7 @@ namespace RompecabezasFei
             MostrarPartidasJugadas();
             MostrarPartidasGanadas();
         }
-        #endregion
 
-        #region Métodos privados
         private void MostrarPartidasJugadas()
         {
             cuadroTextoPartidasJugadas.Text = Convert.ToString(Servicios.ServicioPartida.
@@ -35,25 +32,22 @@ namespace RompecabezasFei
             cuadroTextoPartidasGanadas.Text = Convert.ToString(Servicios.ServicioPartida.
                 ObtenerNumeroPartidasGanadas(Dominio.CuentaJugador.Actual.NombreJugador));
         }
-        #endregion
 
-        #region Eventos
-        private void IrPaginaActualizacionContrasena(object objetoOrigen, RoutedEventArgs evento)
+        private void IrAPaginaActualizacionContrasena(object objetoOrigen, RoutedEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaActualizacionContrasena());
         }
 
-        private void IrPaginaActualizacionInformacion(object objetoOrigen, RoutedEventArgs evento)
+        private void IrAPaginaActualizacionInformacion(object objetoOrigen, RoutedEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaActualizacionInformacion(
                 Dominio.CuentaJugador.Actual.NombreJugador,
                 Dominio.CuentaJugador.Actual.NumeroAvatar));
         }
 
-        private void IrPaginaMenuPrincipal(object objetoOrigen, MouseButtonEventArgs evento)
+        private void IrAPaginaMenuPrincipal(object objetoOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
         }
-        #endregion
     }
 }

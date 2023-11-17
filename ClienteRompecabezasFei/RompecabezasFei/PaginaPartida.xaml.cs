@@ -52,7 +52,6 @@ namespace RompecabezasFei
             // Cargar los jugadores que estarán en la partida
         }
 
-        #region Métodos privados
         private void CrearTablero()
         {
             tablero.AnchoDeCelda = tableroRompecabezas.ActualWidth / tablero.TotalColumnas;
@@ -257,9 +256,7 @@ namespace RompecabezasFei
             VentanaPrincipal ventanaPrincipal = (VentanaPrincipal)Window.GetWindow(this);
             ventanaPrincipal.Deactivated -= SoltarPiezaAlDesactivarVentana;
         }        
-        #endregion
 
-        #region Eventos
         private void CargarDatosPartida(object objetoOrigen, RoutedEventArgs evento)
         {
             VentanaPrincipal ventanaPrincipal = (VentanaPrincipal)Window.GetWindow(this);
@@ -352,7 +349,5 @@ namespace RompecabezasFei
         {
             throw new NotImplementedException();
         }
-
-        #endregion
     }
 }

@@ -20,7 +20,6 @@ namespace RompecabezasFei
             InitializeComponent();
         }
 
-        #region Eventos
         private void IniciarSesionComoInvitado(object objetoOrigen, RoutedEventArgs evento)
         {
             int numeroAleatorio = new Random().Next();
@@ -35,18 +34,18 @@ namespace RompecabezasFei
 
         }
 
-        private void IrPaginaRecuperacionContrasena(object objetoOrigen,
+        private void IrAPaginaRecuperacionContrasena(object objetoOrigen,
             MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaRecuperacionContrasena());
         }
 
-        private void IrPaginaRegistroJugador(object objetoOrigen, MouseButtonEventArgs evento)
+        private void IrAPaginaRegistroJugador(object objetoOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaRegistroJugador());
         }
 
-        private void IrPaginaAjustes(object objetoOrigen, MouseButtonEventArgs evento)
+        private void IrAPaginaAjustes(object objetoOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPaginaGuardandoAnterior(new PaginaAjustes());
         }
@@ -102,9 +101,6 @@ namespace RompecabezasFei
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        #endregion
-
-        #region Validaciones
 
         private bool ExistenDatosInvalidos(string nombreJugador, string contrasena)
         {
@@ -147,6 +143,5 @@ namespace RompecabezasFei
 
             return resultado;
         }
-        #endregion
     }
 }

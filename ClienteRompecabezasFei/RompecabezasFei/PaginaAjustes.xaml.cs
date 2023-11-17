@@ -18,7 +18,6 @@ namespace RompecabezasFei
             InitializeComponent();
         }
 
-        #region Métodos privados
         private void InicializarSeleccionIdioma()
         {
             if (App.Current.IdiomaActual == IdiomaIngles)
@@ -49,9 +48,7 @@ namespace RompecabezasFei
         {
             VentanaPrincipal.CambiarPagina(new PaginaAjustes());
         }
-        #endregion
 
-        #region Eventos
         private void InicializarOpcionesDeAjustes(object objetoOrigen, RoutedEventArgs evento)
         {
             InicializarSeleccionIdioma();
@@ -70,7 +67,7 @@ namespace RompecabezasFei
             }
         }
 
-        private void RegresarAPaginaAnterior(object objetoOrigen, MouseButtonEventArgs evento)
+        private void IrAPaginaAnterior(object objetoOrigen, MouseButtonEventArgs evento)
         {
             if (typeof(PaginaInicioSesion).IsInstanceOfType(VentanaPrincipal.PaginaAnterior))
             {
@@ -88,8 +85,7 @@ namespace RompecabezasFei
             RefrescarPaginaActual();
         }
 
-        private void BotonCambioMusicaActivada(object objetoOrigen,
-            RoutedEventArgs evento)
+        private void ActivarMusica(object objetoOrigen, RoutedEventArgs evento)
         {
             if (!hayMusicaActivadaInicialmente)
             {
@@ -97,11 +93,9 @@ namespace RompecabezasFei
             }
         }
 
-        private void BotonCambioMusicaDesactivada(object objetoOrigen,
-            RoutedEventArgs evento)
+        private void DesactivarMusica(object objetoOrigen, RoutedEventArgs evento)
         {
             App.Current.EstadoMusica(false);
         }
-        #endregion
     }
 }

@@ -55,7 +55,6 @@ namespace RompecabezasFei
             }
         }
 
-        #region Validaciones
         private bool EsContrasenaInvalida(string contrasena)
         {
             bool camposInvalidos = false;
@@ -68,6 +67,5 @@ namespace RompecabezasFei
 
             return camposInvalidos;
         }
-        #endregion
     }
 }

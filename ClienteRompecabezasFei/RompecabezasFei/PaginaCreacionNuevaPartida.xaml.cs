@@ -87,7 +87,7 @@ namespace RompecabezasFei
             borde.BorderBrush = new SolidColorBrush(Colors.Green);
         }
 
-        private void IrPaginaSala(object objetoOrigen, MouseButtonEventArgs evento)
+        private void IrAPaginaSala(object objetoOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaSala());
             // Cargar datos que ya estaban en sala
@@ -102,7 +102,7 @@ namespace RompecabezasFei
             dificultad = (Dificultad)cuadroSeleccionDificultad.SelectedIndex;
         }
 
-        private void CrearNuevaPartida(object objetoOrigen, RoutedEventArgs evento)
+        private void IrAPaginaPartida(object objetoOrigen, RoutedEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaPartida(dificultad, numeroImagen));
         }

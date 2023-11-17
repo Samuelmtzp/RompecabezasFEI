@@ -81,7 +81,6 @@ namespace RompecabezasFei
             }
         }
 
-        #region Validaciones
         private bool ExistenCamposInvalidos()
         {
             bool hayCamposInvalidos = false;
@@ -172,6 +171,5 @@ namespace RompecabezasFei
 
             return resultado;
         }
-        #endregion
     }
 }

@@ -11,10 +11,10 @@
 
     <Grid>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_AJUSTES}" HorizontalAlignment="Center" Margin="0,26,0,0" VerticalAlignment="Top" Foreground="White" FontSize="48" FontWeight="Bold"/>
-        <Image Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="42,36,1157,604" Height="81" Width="81" MouseDown="RegresarAPaginaAnterior"/>
+        <Image Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="42,36,1157,604" Height="81" Width="81" MouseDown="IrAPaginaAnterior"/>
         <Image HorizontalAlignment="Left" Height="106" Margin="254,204,0,0" VerticalAlignment="Top" Width="106" Source="\Imagenes/Indicadores/Musica.png"/>
         <Image HorizontalAlignment="Left" Height="106" Margin="254,382,0,0" VerticalAlignment="Top" Width="106" Source="\Imagenes/Indicadores/Idioma.png"/>
-        <ToggleButton x:Name="botonCambioMusica" HorizontalAlignment="Left" Margin="664,231,0,0" VerticalAlignment="Top" Height="72" Width="414" FontSize="36" FontWeight="Bold" Checked="BotonCambioMusicaActivada" Unchecked="BotonCambioMusicaDesactivada">
+        <ToggleButton x:Name="botonCambioMusica" HorizontalAlignment="Left" Margin="664,231,0,0" VerticalAlignment="Top" Height="72" Width="414" FontSize="36" FontWeight="Bold" Checked="ActivarMusica" Unchecked="DesactivarMusica">
             <ToggleButton.Style>
                 <Style TargetType="{x:Type ToggleButton}">
                     <Style.Triggers>

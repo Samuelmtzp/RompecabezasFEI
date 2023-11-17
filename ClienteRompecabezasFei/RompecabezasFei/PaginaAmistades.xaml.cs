@@ -378,7 +378,7 @@ namespace RompecabezasFei
             }
         }
 
-        private void RechazarSolicitudDeAmistad(object controlOrigen, RoutedEventArgs evento)
+        private void RechazarSolicitudDeAmistad(object objetoOrigen, RoutedEventArgs evento)
         {
             var filaActual = (ListBoxItem)listaSolicitudes.ContainerFromElement(
                 (Button)objetoOrigen);

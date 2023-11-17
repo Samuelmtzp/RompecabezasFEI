@@ -39,7 +39,7 @@
                 </ScrollViewer>
             </Border>
         </Grid>
-        <Image Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="42,36,1157,603" Height="81" Width="81" MouseDown="IrPaginaSala"/>
+        <Image Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="42,36,1157,603" Height="81" Width="81" MouseDown="IrAPaginaSala"/>
         <Label Content="Nueva partida" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Foreground="White" FontSize="48" FontWeight="Bold"/>
         <Label Content="{x:Static Properties:Resources.ETIQUETA_OPCIONESSALA_DIFICULTAD}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="916,273,0,0" VerticalAlignment="Top" Height="56" Width="237" FontSize="32" Foreground="White" FontWeight="Bold"/>
         <ComboBox x:Name="cuadroSeleccionDificultad" HorizontalAlignment="Left" Margin="876,334,0,0" VerticalAlignment="Top" FontSize="10" Width="138" Height="21" SelectionChanged="SeleccionarDificultad">
@@ -50,7 +50,7 @@
             <ComboBoxItem Content="{x:Static Properties:Resources.BOTON_OPCIONESSALA_MEDIA}"/>
             <ComboBoxItem Content="{x:Static Properties:Resources.BOTON_OPCIONESSALA_DIFICIL}"/>
         </ComboBox>
-        <Button Content="Crear partida" HorizontalAlignment="Left" Margin="888,580,0,0" VerticalAlignment="Top" Height="58" Width="293" FontSize="26" Background="#FF03A64A" Foreground="White" FontWeight="Bold" Click="CrearNuevaPartida"/>
+        <Button Content="Crear partida" HorizontalAlignment="Left" Margin="888,580,0,0" VerticalAlignment="Top" Height="58" Width="293" FontSize="26" Background="#FF03A64A" Foreground="White" FontWeight="Bold" Click="IrAPaginaPartida"/>
         <Label Content="Selecciona una imagen" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="163,145,0,0" VerticalAlignment="Top" Height="58" Width="532" FontSize="32" Foreground="White" FontWeight="Bold"/>
     </Grid>
 </Page>

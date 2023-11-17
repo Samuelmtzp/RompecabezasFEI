@@ -24,8 +24,7 @@ namespace RompecabezasFei
                 GenerarFuenteImagenAvatar(numeroAvatar);
         }
 
-        #region Eventos
-        private void RegresarPaginaInformacionJugador(object controlOrigen,
+        private void IrAPaginaInformacionJugador(object controlOrigen,
             MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
@@ -95,9 +94,7 @@ namespace RompecabezasFei
                 Convert.ToInt32(imagenAvatarActual.Tag), cuadroTextoNombreUsuario.Text);
             VentanaPrincipal.CambiarPaginaGuardandoAnterior(paginaSeleccionAvatar);
         }
-        #endregion
 
-        #region Validaciones
         private bool ExistenModificacionesEnNumeroAvatar(int nuevoNumeroAvatar)
         {
             bool resultado = true;
@@ -155,7 +152,6 @@ namespace RompecabezasFei
 
             return datosInvalidos;
         }
-        #endregion
 
         #region Método prueba
         /*public void PruebaParaActualizarInformacion(string nuevoNombre, int nuevoNumeroAvatar)

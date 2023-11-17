@@ -48,7 +48,7 @@ namespace RompecabezasFei
             numeroAvatar = Convert.ToInt32(imagenSeleccionada.Tag);
         }
 
-        private void RegresarAPaginaAnterior(object objetoOrigen, RoutedEventArgs evento)
+        private void IrAPaginaAnterior(object objetoOrigen, RoutedEventArgs evento)
         {
             if (typeof(PaginaRegistroJugador).IsInstanceOfType(VentanaPrincipal.PaginaAnterior))
             {

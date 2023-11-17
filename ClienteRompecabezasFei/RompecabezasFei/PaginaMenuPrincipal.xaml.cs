@@ -25,7 +25,6 @@ namespace RompecabezasFei
             imagenAvatarUsuario.Source = Dominio.CuentaJugador.Actual.FuenteImagenAvatar;
         }
 
-        #region Eventos
         private void CrearNuevaSala(object objetoOrigen, RoutedEventArgs evento)
         {
             PaginaSala paginaSala = new PaginaSala
@@ -36,12 +35,12 @@ namespace RompecabezasFei
             VentanaPrincipal.CambiarPagina(paginaSala);
         }
 
-        private void IrPaginaUnirseSala(object objetoOrigen, RoutedEventArgs evento)
+        private void IrAPaginaUnirseSala(object objetoOrigen, RoutedEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaUnirseSala());
         }
 
-        private void IrPaginaAmistades(object objetoOrigen, MouseButtonEventArgs evento)
+        private void IrAPaginaAmistades(object objetoOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaAmistades(true));
         }
@@ -61,15 +60,14 @@ namespace RompecabezasFei
             }
         }
 
-        private void IrPaginaInformacionJugador(object objetoOrigen, MouseButtonEventArgs evento)
+        private void IrAPaginaInformacionJugador(object objetoOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
         }
 
-        private void IrPaginaAjustes(object objetoOrigen, MouseButtonEventArgs evento)
+        private void IrAPaginaAjustes(object objetoOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPaginaGuardandoAnterior(new PaginaAjustes());
         }
-        #endregion
     }
 }
