@@ -190,20 +190,6 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Registrar">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="cuentaJugador" nillable="true" type="q6:CuentaJugador" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RegistrarResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="RegistrarResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="ExisteCorreoElectronico">
     <xs:complexType>
       <xs:sequence>
@@ -215,6 +201,37 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="ExisteCorreoElectronicoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EnviarMensajeCorreo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="encabezado" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="correoDestino" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="asunto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="mensaje" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EnviarMensajeCorreoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EnviarMensajeCorreoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Registrar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="cuentaJugador" nillable="true" type="q6:CuentaJugador" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistrarResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RegistrarResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -258,51 +275,6 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="CerrarSesionResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="EnviarMensajeCorreo">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="encabezado" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="correoDestino" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="asunto" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="mensaje" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="EnviarMensajeCorreoResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="EnviarMensajeCorreoResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ObtenerNumeroPartidasJugadas">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ObtenerNumeroPartidasJugadasResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="ObtenerNumeroPartidasJugadasResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ObtenerNumeroPartidasGanadas">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ObtenerNumeroPartidasGanadasResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="ObtenerNumeroPartidasGanadasResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -449,17 +421,40 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="RefrescarMovimientoPieza">
+  <xs:element name="ObtenerNumeroPartidasJugadas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerNumeroPartidasJugadasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerNumeroPartidasJugadasResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerNumeroPartidasGanadas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerNumeroPartidasGanadasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerNumeroPartidasGanadasResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActualizarNuevaPosicionDePieza">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="posicionX" type="xs:double" />
         <xs:element minOccurs="0" name="posicionY" type="xs:double" />
       </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="PosicionarPiezaEnCelda">
-    <xs:complexType>
-      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="CrearNuevaSala">

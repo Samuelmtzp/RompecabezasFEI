@@ -7,7 +7,7 @@
       xmlns:p="clr-namespace:RompecabezasFei.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1280"
-      Unloaded="EventoPaginaCerrada">
+      Unloaded="DesuscribirJugadorDeNotificaciones">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -53,7 +53,7 @@
                         </StackPanel>
                     </TabItem.Header>
                     <Grid>
-                        <ListView Name="listaAmigos" VerticalAlignment="Top" Foreground="White" Background="#FF4A4A4A" ItemsSource="{Binding CuentasAmigo}" HorizontalContentAlignment="Center" SelectionMode="Single">
+                        <ListView Name="listaAmigos" VerticalAlignment="Top" Foreground="White" Background="#FF4A4A4A" ItemsSource="{Binding CuentasDeAmigos}" HorizontalContentAlignment="Center" SelectionMode="Single">
                             <ListView.ItemContainerStyle>
                                 <Style TargetType="ListViewItem">
                                     <Style.Triggers>
@@ -97,28 +97,13 @@
                                     <GridViewColumn Width="95" Header="Opciones">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
-                                                <Button Content="Eliminar" Width="80" Height="20" Background="Red" Foreground="White" Click="EventoClickEliminarAmigo"></Button>
+                                                <Button Content="Eliminar" Width="80" Height="20" Background="Red" Foreground="White" Click="EliminarAmigo"></Button>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
                                 </GridView>
                             </ListView.View>
                         </ListView>
-                        <Label Name="etiquetaSinAmigos" Foreground="White" Content="No tienes ningún amigo" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden" Width="412">
-                            <Label.Style>
-                                <Style TargetType="Label">
-                                    <Style.Triggers>
-                                        <MultiDataTrigger>
-                                            <MultiDataTrigger.Conditions>
-                                                <Condition Binding="{Binding IsLoaded, ElementName=listaAmigos}" Value="True"/>
-                                                <Condition Binding="{Binding Items.Count, ElementName=listaAmigos}" Value="0"/>
-                                            </MultiDataTrigger.Conditions>
-                                            <Setter Property="Visibility" Value="Visible"/>
-                                        </MultiDataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Label.Style>
-                        </Label>
                     </Grid>
                 </TabItem>
                 <TabItem Width="120" Foreground="White">
@@ -128,7 +113,7 @@
                         </StackPanel>
                     </TabItem.Header>
                     <Grid>
-                        <ListView Name="listaSolicitudes" VerticalAlignment="Top" Background="#FF4A4A4A" ItemsSource="{Binding CuentasSolicitud}" HorizontalContentAlignment="Center" SelectionMode="Single">
+                        <ListView Name="listaSolicitudes" VerticalAlignment="Top" Background="#FF4A4A4A" ItemsSource="{Binding CuentasDeSolicitudes}" HorizontalContentAlignment="Center" SelectionMode="Single">
                             <ListView.ItemContainerStyle>
                                 <Style TargetType="ListViewItem">
                                     <Style.Triggers>
@@ -165,31 +150,20 @@
                                     <GridViewColumn Width="95" Header="Opción aceptar">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
-                                                <Button Content="Aceptar" Width="80" Height="20" Background="Green" Foreground="White" Click="EventoClickAceptarSolicitudAmistad"></Button>
+                                                <Button Content="{x:Static p:Resources.ETIQUETA_GENERAL_ACEPTAR}" Width="80" Height="20" Background="Green" Foreground="White" Click="AceptarSolicitudDeAmistad"></Button>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
                                     <GridViewColumn Width="95" Header="Opción rechazar" >
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
-                                                <Button Content="Rechazar" Width="80" Height="20" Background="Red" Foreground="White" Click="EventoClickRechazarSolicitudAmistad"></Button>
+                                                <Button Content="{x:Static p:Resources.BOTON_AMIGOS_RECHAZAR}" Width="80" Height="20" Background="Red" Foreground="White" Click="RechazarSolicitudDeAmistad"></Button>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
                                 </GridView>
                             </ListView.View>
                         </ListView>
-                        <Label Name="etiquetaSinSolicitudesAmistad" Foreground="White" Content="No tienes ninguna solitud de amistad" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden" Width="457">
-                            <Label.Style>
-                                <Style TargetType="Label">
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding Items.Count, ElementName=listaSolicitudes}" Value="0">
-                                            <Setter Property="Visibility" Value="Visible"/>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Label.Style>
-                        </Label>
                     </Grid>
                 </TabItem>
                 <TabItem Width="120" Foreground="White">
@@ -202,12 +176,12 @@
                         <TextBlock TextWrapping="Wrap" Text="{x:Static p:Resources.ETIQUETA_AMIGOS_INSTRUCCIONSOLICITUDAMISTAD}" Margin="66,17,66,152" FontSize="14"/>
                         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_NOMBREJUGADOR}" Margin="66,71,210,116" FontWeight="Bold" FontSize="20" Foreground="White"/>
                         <TextBox Name="cuadroTextoNombreUsuarioInvitacion" HorizontalAlignment="Center" Margin="0,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="430" FontSize="16" Height="30"/>
-                        <Button Content="{x:Static p:Resources.BOTON_AMIGOS_ENVIARSOLICITUD}" HorizontalAlignment="Center" Margin="0,156,0,0" VerticalAlignment="Top" FontSize="20" Height="35" Width="197"  Background="#FF03A64A" Foreground="White" Click="EventoClickEnviarSolicitud" FontWeight="Bold"/>
+                        <Button Content="{x:Static p:Resources.BOTON_AMIGOS_ENVIARSOLICITUD}" HorizontalAlignment="Center" Margin="0,156,0,0" VerticalAlignment="Top" FontSize="20" Height="35" Width="197"  Background="#FF03A64A" Foreground="White" Click="EnviarSolicitudDeAmistad" FontWeight="Bold"/>
                     </Grid>
                 </TabItem>
             </TabControl>
         </Grid>
-        <Image Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="42,36,1157,280" Height="81" Width="81" MouseDown="EventoClickRegresar"/>
+        <Image Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="42,36,1157,280" Height="81" Width="81" MouseDown="IrAPaginaMenuPrincipal"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_AMIGOS}" HorizontalAlignment="Center" Margin="0,26,0,0" VerticalAlignment="Top" Foreground="White" FontSize="48" FontWeight="Bold"/>
     </Grid>
 </Page>

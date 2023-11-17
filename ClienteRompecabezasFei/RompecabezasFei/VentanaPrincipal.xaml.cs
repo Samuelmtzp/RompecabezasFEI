@@ -1,7 +1,4 @@
-﻿using RompecabezasFei.ServicioRompecabezasFei;
-using System;
-using System.ComponentModel;
-using System.ServiceModel;
+﻿using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -21,7 +18,7 @@ namespace RompecabezasFei
         public VentanaPrincipal()
         {
             InitializeComponent();
-            Closing += AlCerrarVentana;
+            Closing += CerrarSesionActual;
             paginaActual = new PaginaInicioSesion();
             MarcoPaginaActual.Navigate(paginaActual);
         }
@@ -35,40 +32,17 @@ namespace RompecabezasFei
 
         public static void CambiarPaginaGuardandoAnterior(Page nuevaPagina)
         {
-            PaginaAnterior = paginaActual; 
+            PaginaAnterior = paginaActual;
             CambiarPagina(nuevaPagina);
         }
 
-        private void AlCerrarVentana(object objetoOrigen, CancelEventArgs evento)
+        private void CerrarSesionActual(object objetoOrigen, CancelEventArgs evento)
         {
             if (Dominio.CuentaJugador.Actual != null)
             {
-                try
-                {
-                    DesconectarUsuarioDeServidor();
-                }
-                catch (CommunicationException)
-                {
-                    MessageBox.Show(Properties.Resources.
-                        ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                        ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                        MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                catch (TimeoutException)
-                {
-                    MessageBox.Show(Properties.Resources.
-                        ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                        ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                        MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+                Servicios.ServicioJugador.CerrarSesion(Dominio.CuentaJugador.
+                    Actual.NombreJugador);
             }
-        }
-
-        private void DesconectarUsuarioDeServidor()
-        {
-            ServicioJugadorClient cliente = new ServicioJugadorClient();
-            cliente.CerrarSesion(Dominio.CuentaJugador.Actual.NombreJugador);
-            cliente.Abort();
         }
     }
 }

@@ -7,7 +7,7 @@
       xmlns:p="clr-namespace:RompecabezasFei.Properties"
       mc:Ignorable="d"
       d:DesignHeight="720" d:DesignWidth="1280"
-      Loaded="EventoPaginaCargada">
+      Loaded="CargarDatosPartida">
     <Grid>
         <Canvas Name="tableroRompecabezas" Margin="30,99,350,81" Width="900" Height="540"/>
         <Grid Margin="979,243,31,214" ShowGridLines="True">
@@ -32,7 +32,7 @@
                                 <Setter Property="Visibility" Value="Visible" />
                             </Style>
                         </GridView.ColumnHeaderContainerStyle>
-                        <GridViewColumn Width="164" Header="Jugador">
+                        <GridViewColumn Width="164" Header="{x:Static p:Resources.ETIQUETA_GENERAL_JUGADORES}">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock HorizontalAlignment="Center" Foreground="White" Text="{Binding NombreJugador}" />
@@ -50,8 +50,8 @@
                 </ListView.View>
             </ListView>
         </Grid>
-        <Button Name="botonIniciar" Content="Iniciar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="270" Click="EventoClickIniciar" Margin="979,549,0,0" Background="#03A64A" Foreground="White" FontWeight="Bold" FontSize="32"/>
-        <Image Source="/Imagenes/Indicadores/Ajustes.png" HorizontalAlignment="Left" Height="82" Margin="1155,15,0,0" VerticalAlignment="Top" Width="82" MouseDown="EventoClickAjustes"/>
+        <Button Name="botonIniciar" Content="{x:Static p:Resources.BOTON_SALA_INICIARPARTIDA}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="270" Click="IniciarJuego" Margin="979,549,0,0" Background="#03A64A" Foreground="White" FontWeight="Bold" FontSize="32"/>
+        <Image Source="/Imagenes/Indicadores/Ajustes.png" HorizontalAlignment="Left" Height="82" Margin="1155,15,0,0" VerticalAlignment="Top" Width="82" MouseDown="IrPaginaAjustesPartida"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_AJUSTES}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="1143,97,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Width="106"/>
     </Grid>
 </Page>

@@ -5,21 +5,28 @@ namespace RompecabezasFei
 {
     public partial class PaginaResultados : Page
     {
-        bool esAnfitrion;
-        string codigoSala;
+        //private bool esAnfitrion;
+        //private string codigoSala;
 
-        public PaginaResultados(bool esAnfitrion, string codigoSala)
+        public PaginaResultados()
         {
             InitializeComponent();
-            this.esAnfitrion = esAnfitrion;
-            this.codigoSala = codigoSala;
+            //this.esAnfitrion = esAnfitrion;
+            //this.codigoSala = codigoSala;
         }
 
-        private void EventoClickAceptar(object objetoOrigen, RoutedEventArgs evento)
+        private void RegresarASala(object objetoOrigen, RoutedEventArgs evento)
         {
             PaginaSala paginaSala = new PaginaSala();
             VentanaPrincipal.CambiarPagina(paginaSala);
-            paginaSala.CargarDatosSala(esAnfitrion, codigoSala);
+            //Recargar los datos de la sala a la que pertenece el jugador
+            //Incluyendo:
+            //- Jugadores
+            //- EsAnfitrion
+            //- Deshabilitar funciones para jugadores normales o habilitar si es anfitrion
+            //- Mostrar qué jugadores van regresando de la página de resultados
+            //- Mantener al jugador en la sala hasta que este se salga de la misma,
+            //  en caso de que decida salirse decrementar el contador de jugadores conectados en sala
         }
     }
 }

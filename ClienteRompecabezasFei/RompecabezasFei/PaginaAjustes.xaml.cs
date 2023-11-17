@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dominio;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -9,7 +10,9 @@ namespace RompecabezasFei
     {
         private string idioma;
         private bool hayMusicaActivadaInicialmente;
-     
+        private const string IdiomaIngles = "en-US";
+        private const string IdiomaEspanol = "es-MX";
+
         public PaginaAjustes()
         {
             InitializeComponent();
@@ -18,10 +21,14 @@ namespace RompecabezasFei
         #region Métodos privados
         private void InicializarSeleccionIdioma()
         {
-            if (App.Current.IdiomaActual == "en-US")
-                cajaOpcionesIdioma.SelectedIndex = 0;
+            if (App.Current.IdiomaActual == IdiomaIngles)
+            {
+                cajaOpcionesIdioma.SelectedIndex = (int)Idioma.Ingles;
+            }                
             else
-                cajaOpcionesIdioma.SelectedIndex = 1;
+            {
+                cajaOpcionesIdioma.SelectedIndex = (int)Idioma.Espanol;
+            }
         }
 
         private void InicializarSeleccionMusica()
@@ -45,21 +52,25 @@ namespace RompecabezasFei
         #endregion
 
         #region Eventos
-        private void EventoPaginaAjustesCargada(object controlOrigen, RoutedEventArgs evento)
+        private void InicializarOpcionesDeAjustes(object objetoOrigen, RoutedEventArgs evento)
         {
             InicializarSeleccionIdioma();
             InicializarSeleccionMusica();
         }
 
-        private void EventoCambioIdioma(object controlOrigen, SelectionChangedEventArgs evento)
+        private void SeleccionarIdioma(object controlOrigen, SelectionChangedEventArgs evento)
         {
-            if (cajaOpcionesIdioma.SelectedIndex == 0)
-                idioma = "en-US";
+            if (cajaOpcionesIdioma.SelectedIndex == (int)Idioma.Ingles)
+            {
+                idioma = IdiomaIngles;
+            }
             else
-                idioma = "es-MX";
+            {
+                idioma = IdiomaEspanol;
+            }
         }
         
-        private void EventoClickRegresar(object controlOrigen, MouseButtonEventArgs evento)
+        private void RegresarAPaginaAnterior(object objetoOrigen, MouseButtonEventArgs evento)
         {
             if (typeof(PaginaInicioSesion).IsInstanceOfType(VentanaPrincipal.PaginaAnterior))
             {
@@ -71,7 +82,7 @@ namespace RompecabezasFei
             }
         }
 
-        private void EventoCajaOpcionesIdiomaCerrada(object controlOrigen, EventArgs evento)
+        private void CajaDeOpcionesDeIdiomaCerrada(object objetoOrigen, EventArgs evento)
         {
             App.Current.CambiarIdioma(idioma);
             RefrescarPaginaActual();

@@ -1,7 +1,5 @@
-﻿using RompecabezasFei.ServicioRompecabezasFei;
+﻿using Seguridad;
 using System;
-using System.ServiceModel;
-using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -26,145 +24,133 @@ namespace RompecabezasFei
         private void CargarDatosEdicion(int numeroAvatar, string nombreJugador,
             string correo, string contrasena, string confirmacionContrasena)
         {
-            CuadroTextoNombreJugador.Text = nombreJugador;
-            CuadroTextoCorreoElectronico.Text = correo;
-            CuadroContrasena.Password = contrasena;
-            CuadroConfirmacionContrasena.Password = confirmacionContrasena;
-            ImagenAvatarActual.Source = Utilidades.GeneradorImagenes.
+            cuadroTextoNombreJugador.Text = nombreJugador;
+            cuadroTextoCorreoElectronico.Text = correo;
+            cuadroContrasenaContrasena.Password = contrasena;
+            cuadroContrasenaConfirmacionContrasena.Password = confirmacionContrasena;
+            imagenAvatarActual.Source = Utilidades.GeneradorImagenes.
                 GenerarFuenteImagenAvatar(numeroAvatar);
-            ImagenAvatarActual.Tag = Convert.ToInt16(numeroAvatar);
+            imagenAvatarActual.Tag = Convert.ToInt16(numeroAvatar);
         }
 
-        private void AccionRegresar(object objetoOrigen, MouseButtonEventArgs evento)
+        private void IrAPaginaInicioSesion(object objetoOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
         }
 
-        private void AccionSeleccionarAvatar(object objetoOrigen, RoutedEventArgs evento)
+        private void IrAPaginaSeleccionAvatar(object objetoOrigen, RoutedEventArgs evento)
         {
             VentanaPrincipal.CambiarPaginaGuardandoAnterior(new PaginaSeleccionAvatar(
-                Convert.ToInt32(ImagenAvatarActual.Tag), CuadroTextoNombreJugador.Text,
-                CuadroTextoCorreoElectronico.Text, CuadroContrasena.Password,
-                CuadroConfirmacionContrasena.Password));
+                Convert.ToInt32(imagenAvatarActual.Tag), cuadroTextoNombreJugador.Text,
+                cuadroTextoCorreoElectronico.Text, cuadroContrasenaContrasena.Password,
+                cuadroContrasenaConfirmacionContrasena.Password));
         }
 
-        private void AccionSiguiente(object objetoOrigen, RoutedEventArgs evento)
+        private void IrAPaginaVerificacionCorreo(object objetoOrigen, RoutedEventArgs evento)
         {
-            string nombreJugador = CuadroTextoNombreJugador.Text;
-            string correo = CuadroTextoCorreoElectronico.Text.ToLower();
-            string contrasena = CuadroContrasena.Password;
-            int numeroAvatar = Convert.ToInt32(ImagenAvatarActual.Tag);
+            string nombreJugador = cuadroTextoNombreJugador.Text;
+            string correo = cuadroTextoCorreoElectronico.Text.ToLower();
+            string contrasena = cuadroContrasenaContrasena.Password;
+            int numeroAvatar = Convert.ToInt32(imagenAvatarActual.Tag);
 
             if (!ExistenCamposInvalidos())
             {
-                if (!ExisteNombreJugador(nombreJugador) &&
-                    !ExisteCorreoElectronico(correo))
+                if (!Servicios.ServicioJugador.ExisteNombreJugador(nombreJugador))
                 {
-                    Dominio.CuentaJugador jugadorRegistro = new Dominio.CuentaJugador
+                    if (!Servicios.ServicioCorreo.ExisteCorreoElectronico(correo))
                     {
-                        NombreJugador = nombreJugador,
-                        Correo = correo,
-                        Contrasena = contrasena,
-                        NumeroAvatar = numeroAvatar,
-                    };
-                    PaginaVerificacionCorreo paginaVerificacionCorreo =
-                        new PaginaVerificacionCorreo(jugadorRegistro);
-                    VentanaPrincipal.CambiarPagina(paginaVerificacionCorreo);
+                        Dominio.CuentaJugador jugadorRegistro = new Dominio.CuentaJugador
+                        {
+                            NombreJugador = nombreJugador,
+                            Correo = correo,
+                            Contrasena = contrasena,
+                            NumeroAvatar = numeroAvatar,
+                        };
+                        VentanaPrincipal.CambiarPagina(new PaginaVerificacionCorreo(
+                            jugadorRegistro));
+                    }
+                    else
+                    {
+
+                    }
+                }
+                else
+                {
+
                 }
             }
         }
 
-        #region Validaciones
-        private bool ExisteNombreJugador(string nombreJugador)
-        {
-            ServicioJugadorClient cliente = new ServicioJugadorClient();
-            bool resultado = false;
-
-            try 
-            {
-                resultado = cliente.ExisteNombreJugador(nombreJugador);
-            }
-            catch (CommunicationException)
-            {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            catch (TimeoutException)
-            {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            finally
-            {
-                cliente.Abort();
-            }
-
-            return resultado;
-        }
-
-        private bool ExisteCorreoElectronico(string correoElectronico)
-        {
-            ServicioJugadorClient cliente = new ServicioJugadorClient();
-            bool resultado = false;
-
-            try
-            {
-                resultado = cliente.ExisteCorreoElectronico(correoElectronico);
-            }
-            catch (CommunicationException)
-            {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            catch (TimeoutException)
-            {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            finally
-            {
-                cliente.Abort();
-            }
-
-            return resultado;
-        }
-
+        #region Validaciones        
         private bool ExistenCamposInvalidos()
         {
-            bool resultado = false;
+            bool hayCamposInvalidos = false;
 
-            if (ExistenCamposVacios() || ExistenCadenasInvalidas() || 
-                ExistenLongitudesExcedidas() || ExisteContrasenaInvalida() || 
-                !HayCoincidenciasEnContrasenas())
+            if (ExistenCamposVacios())
             {
-                resultado = true;
-                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSINVALIDOS);
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS, Properties.Resources.
+                    ETIQUETA_VALIDACION_CAMPOSVACIOS, MessageBoxButton.OK);
+                hayCamposInvalidos = true;                
             }
 
-            return resultado;
+            if (ValidadorDatos.ExistenCaracteresInvalidosParaNombreJugador(
+                cuadroTextoNombreJugador.Text))
+            {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_VALIDACION_MENSAJENOMBREUSUARIOINVALIDO, Properties.Resources.
+                    ETIQUETA_VALIDACION_NOMBREUSUARIOINVALIDO, MessageBoxButton.OK);
+                hayCamposInvalidos = true;
+            }
+
+            if (ValidadorDatos.ExistenCaracteresInvalidosParaCorreo(
+                cuadroTextoCorreoElectronico.Text))
+            {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_VALIDACION_MENSAJECORREOINVALIDO, Properties.Resources.
+                    ETIQUETA_VALIDACION_CORREOINVALIDO, MessageBoxButton.OK);
+                hayCamposInvalidos = true;
+            }
+
+            if (ValidadorDatos.ExistenCaracteresInvalidosParaContrasena(
+                cuadroContrasenaContrasena.Password))
+            {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_VALIDACION_MENSAJECONTRASENAINVALIDA, Properties.Resources.
+                    ETIQUETA_VALIDACION_CONTRASENAINVALIDA, MessageBoxButton.OK);
+                hayCamposInvalidos = true;
+            }
+            
+            if (ExistenLongitudesExcedidas())
+            {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_VALIDACION_MENSAJECAMPOSEXCEDIDOS, Properties.Resources.
+                    ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS, MessageBoxButton.OK); 
+                hayCamposInvalidos = true;                
+            }
+
+            if (!ValidadorDatos.ExisteCoincidenciaEnCadenas(cuadroContrasenaContrasena.Password,
+                cuadroContrasenaConfirmacionContrasena.Password))
+            {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE, Properties.Resources.
+                    ETIQUETA_VALIDACION_CONTRASENADIFERENTE, MessageBoxButton.OK);
+                hayCamposInvalidos = true;
+            }
+
+            return hayCamposInvalidos;
         }
 
         private bool ExistenCamposVacios()
         {
             bool resultado = false;
 
-            if (string.IsNullOrWhiteSpace(CuadroTextoNombreJugador.Text)
-                || string.IsNullOrWhiteSpace(CuadroTextoCorreoElectronico.Text)
-                || string.IsNullOrWhiteSpace(CuadroContrasena.Password)
-                || string.IsNullOrWhiteSpace(CuadroConfirmacionContrasena.Password))
+            if (ValidadorDatos.EsCadenaVacia(cuadroTextoNombreJugador.Text)
+                || ValidadorDatos.EsCadenaVacia(cuadroTextoCorreoElectronico.Text)
+                || ValidadorDatos.EsCadenaVacia(cuadroContrasenaContrasena.Password)
+                || ValidadorDatos.EsCadenaVacia(cuadroContrasenaConfirmacionContrasena.Password))
             {
                 resultado = true;
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS, Properties.Resources.
-                    ETIQUETA_VALIDACION_CAMPOSVACIOS, MessageBoxButton.OK);
             }
 
             return resultado;
@@ -174,97 +160,14 @@ namespace RompecabezasFei
         {
             bool resultado = false;
 
-            if (CuadroTextoNombreJugador.Text.Length > 15 ||
-                CuadroTextoCorreoElectronico.Text.Length > 65 ||
-                CuadroContrasena.Password.Length > 45)
+            if (ValidadorDatos.ExisteLongitudExcedidaEnNombreJugador(
+                cuadroTextoNombreJugador.Text) ||
+                ValidadorDatos.ExisteLongitudExcedidaEnCorreo(
+                cuadroTextoCorreoElectronico.Text) ||
+                ValidadorDatos.ExisteLongitudExcedidaEnContrasena(
+                cuadroContrasenaContrasena.Password))
             {
                 resultado = true;
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_VALIDACION_MENSAJECAMPOSEXCEDIDOS, Properties.Resources.
-                    ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS, MessageBoxButton.OK);
-            }
-
-            return resultado;
-        }
-
-        private bool ExistenCadenasInvalidas()
-        {
-            bool resultado = false;
-
-            if (ExistenCaracteresInvalidos(CuadroTextoNombreJugador.Text))
-            {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_VALIDACION_MENSAJENOMBREUSUARIOINVALIDO, Properties.Resources.
-                    ETIQUETA_VALIDACION_NOMBREUSUARIOINVALIDO, MessageBoxButton.OK);
-                resultado = true;
-            }
-
-            if (ExistenCaracteresInvalidosParaCorreo(CuadroTextoCorreoElectronico.Text))
-            {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_VALIDACION_MENSAJECORREOINVALIDO, Properties.Resources.
-                    ETIQUETA_VALIDACION_CORREOINVALIDO, MessageBoxButton.OK);
-                resultado = true;
-            }
-
-            return resultado;
-        }
-
-        private bool ExisteContrasenaInvalida()
-        {
-            bool resultado = false;
-
-            if (Regex.IsMatch(CuadroContrasena.Password,
-                "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$")
-                == false)
-            {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_VALIDACION_MENSAJECONTRASENAINVALIDA, Properties.Resources.
-                    ETIQUETA_VALIDACION_CONTRASENAINVALIDA, MessageBoxButton.OK);
-                resultado = true;
-            }
-
-            return resultado;
-        }
-
-        private bool ExistenCaracteresInvalidosParaCorreo(string correo)
-        {
-            bool resultado = false;
-
-            if (Regex.IsMatch(correo, @"^[^@\s]+@[^@\s]+\.[^@\s]+$") == false)
-            {
-                resultado = true;
-            }
-
-            return resultado;
-        }
-
-        private bool ExistenCaracteresInvalidos(string texto)
-        {
-            bool resultado = false;
-
-            if (Regex.IsMatch(texto,
-                @"^[a-zA-Z0-9]+(?:\s[a-zA-Z0-9]+)?$") == false)
-            {
-                resultado = true;
-            }
-
-            return resultado;
-        }
-
-        private bool HayCoincidenciasEnContrasenas()
-        {
-            bool resultado = false;
-
-            if (CuadroContrasena.Password == CuadroConfirmacionContrasena.Password)
-            {
-                resultado = true;
-            }
-            else
-            {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE, Properties.Resources.
-                    ETIQUETA_VALIDACION_CONTRASENADIFERENTE, MessageBoxButton.OK);
             }
 
             return resultado;

@@ -41,7 +41,7 @@ namespace Servicios
                 resultado = registro.ActualizarInformacion(nombreAnterior, 
                     nuevoNombre, nuevoNumeroAvatar);
             }
-            catch(EntityException)
+            catch (EntityException)
             {
 
             }
@@ -86,24 +86,7 @@ namespace Servicios
             }
 
             return resultado;
-        }     
-        
-        public bool ExisteCorreoElectronico(string correoElectronico)
-        {
-            ConsultasJugador consultasJugador = new ConsultasJugador();
-            bool resultado = false;
-            
-            try
-            {
-                resultado = consultasJugador.ExisteCorreoElectronico(correoElectronico);
-            }
-            catch (EntityException)
-            {
-
-            }
-
-            return resultado;
-        }
+        }               
 
         public CuentaJugador IniciarSesion(string nombreJugador, string contrasena)
         {
@@ -116,6 +99,7 @@ namespace Servicios
                 {
                     Autenticacion autenticacion = new Autenticacion();
                     cuentaRecuperada = autenticacion.IniciarSesion(nombreJugador, contrasena);
+
                     if (cuentaRecuperada != null)
                     {
                         cuentaRecuperada.EstadoConectividad = EstadoConectividadJugador.Conectado;
@@ -131,7 +115,7 @@ namespace Servicios
                         jugadoresConectados[cuentaRecuperada.NombreJugador] = cuentaAutenticada;
                         NotificarConexionJugadorAOtrosJugadores(cuentaRecuperada.NombreJugador,
                             cuentaRecuperada.EstadoConectividad);
-                    }                    
+                    }
                 }
                 catch (EntityException)
                 {
@@ -154,14 +138,35 @@ namespace Servicios
             }
 
             return resultado;
+        }                
+    }
+    #endregion
+
+    public partial class ServicioRompecabezasFei : IServicioCorreo
+    {
+        public bool ExisteCorreoElectronico(string correoElectronico)
+        {
+            ConsultasJugador consultasJugador = new ConsultasJugador();
+            bool resultado = false;
+
+            try
+            {
+                resultado = consultasJugador.ExisteCorreoElectronico(correoElectronico);
+            }
+            catch (EntityException)
+            {
+
+            }
+
+            return resultado;
         }
 
-        public bool EnviarMensajeCorreo(string encabezado, string correoDestino, 
+        public bool EnviarMensajeCorreo(string encabezado, string correoDestino,
             string asunto, string mensaje)
         {
             GeneradorMensajesCorreo generadorMensajesCorreo = new GeneradorMensajesCorreo();
             bool resultado = false;
-            
+
             try
             {
                 resultado = generadorMensajesCorreo.EnviarMensaje(
@@ -171,47 +176,11 @@ namespace Servicios
             {
 
             }
-            
+
             return resultado;
         }
-
-        public int ObtenerNumeroPartidasJugadas(string nombreJugador)
-        {
-            ConsultasJugador consultasJugador = new ConsultasJugador();
-            int numeroPartidasJugadas = 0;
-
-            try
-            {
-                numeroPartidasJugadas = consultasJugador.
-                    ObtenerNumeroPartidasJugadasDeJugador(nombreJugador);
-            }
-            catch (EntityException)
-            {
-
-            }
-            
-            return numeroPartidasJugadas;
-        }
-
-        public int ObtenerNumeroPartidasGanadas(string nombreJugador)
-        {
-            ConsultasJugador consultasJugador = new ConsultasJugador();
-            int numeroPartidasGanadas = 0;
-
-            try
-            {
-                numeroPartidasGanadas = consultasJugador.
-                    ObtenerNumeroPartidasGanadas(nombreJugador);
-            }
-            catch (EntityException)
-            {
-
-            }
-            
-            return numeroPartidasGanadas;
-        }        
     }
-    #endregion
+
 
     #region IServicioJuego
     public partial class ServicioRompecabezasFei : IServicioSala
@@ -728,6 +697,42 @@ namespace Servicios
             string nombreJugador)
         {
             throw new NotImplementedException();
+        }
+
+        public int ObtenerNumeroPartidasJugadas(string nombreJugador)
+        {
+            ConsultasJugador consultasJugador = new ConsultasJugador();
+            int numeroPartidasJugadas = 0;
+
+            try
+            {
+                numeroPartidasJugadas = consultasJugador.
+                    ObtenerNumeroPartidasJugadasDeJugador(nombreJugador);
+            }
+            catch (EntityException)
+            {
+
+            }
+
+            return numeroPartidasJugadas;
+        }
+
+        public int ObtenerNumeroPartidasGanadas(string nombreJugador)
+        {
+            ConsultasJugador consultasJugador = new ConsultasJugador();
+            int numeroPartidasGanadas = 0;
+
+            try
+            {
+                numeroPartidasGanadas = consultasJugador.
+                    ObtenerNumeroPartidasGanadas(nombreJugador);
+            }
+            catch (EntityException)
+            {
+
+            }
+
+            return numeroPartidasGanadas;
         }
     }
     #endregion

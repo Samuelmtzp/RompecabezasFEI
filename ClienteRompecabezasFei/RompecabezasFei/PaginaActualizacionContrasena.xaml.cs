@@ -1,8 +1,5 @@
-﻿using RompecabezasFei.ServicioRompecabezasFei;
-using Security;
-using System;
-using System.ServiceModel;
-using System.Text.RegularExpressions;
+﻿using Security;
+using Seguridad;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -17,151 +14,106 @@ namespace RompecabezasFei
         }
 
         #region Eventos
-        private void EventoClickRegresar(object controlOrigen, MouseButtonEventArgs evento)
+        private void IrAPaginaInformacionJugador(object objetoOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
         }
 
-        private void EventoClickGuardarCambios(object controlOrigen, RoutedEventArgs evento)
+        private void ActualizarContrasena(object objetoOrigen, RoutedEventArgs evento)
         {
             string contrasenaActual = Dominio.CuentaJugador.Actual.Contrasena;
             string contrasenaAnterior = cuadroContrasenaActual.Password;     
             string nuevaContrasena = cuadroNuevaContrasena.Password;
             string confirmacionContrasena = cuadroConfirmacionContrasena.Password;
 
-            if (EsLaMismaContrasena(contrasenaAnterior, contrasenaActual))
+            if (ValidadorDatos.ExisteCoincidenciaEnCadenas(contrasenaAnterior, contrasenaActual))
             {
-                if (!EsLaMismaContrasena(contrasenaAnterior, nuevaContrasena))
+                if (!ValidadorDatos.ExisteCoincidenciaEnCadenas(contrasenaAnterior, 
+                    nuevaContrasena))
                 {
                     if (!ExistenDatosInvalidos(nuevaContrasena, confirmacionContrasena))
                     {                        
                         string correoJugador = Dominio.CuentaJugador.Actual.Correo;
                         string nuevaContrasenaCifrada = EncriptadorContrasena.
                             CalcularHashSha512(nuevaContrasena);
-
-                        try
-                        {
+                        bool actualizacionRealizada = Servicios.ServicioJugador.
                             ActualizarContrasena(correoJugador, nuevaContrasenaCifrada);
-                        }
-                        catch (CommunicationException)
+
+                        if (actualizacionRealizada)
                         {
-                            MessageBox.Show(Properties.Resources.
-                                ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                                ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                                MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageBox.Show("La actualización de la contraseña " +
+                                "se ha realizado correctamente",
+                                "Actualización realizada correctamente",
+                                MessageBoxButton.OK);
+                            Dominio.CuentaJugador.Actual.Contrasena = nuevaContrasena;
+                            VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
                         }
-                        catch (TimeoutException)
+                        else
                         {
-                            MessageBox.Show(Properties.Resources.
-                                ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                                ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                                MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageBox.Show("La actualización de la contraseña no se ha realizado",
+                                "Error al actualizar información", MessageBoxButton.OK);
                         }
                     }
                 }
             }
         }
-
-        private void ActualizarContrasena(string correo, string nuevaContrasena)
-        {
-            ServicioJugadorClient cliente = new ServicioJugadorClient();
-            bool resultado = cliente.ActualizarContrasena(correo, nuevaContrasena);
-            cliente.Abort();
-
-            if (resultado)
-            {
-                MessageBox.Show("La actualización de la contraseña " +
-                    "se ha realizado correctamente",
-                    "Actualización realizada correctamente",
-                    MessageBoxButton.OK);
-                Dominio.CuentaJugador.Actual.Contrasena = nuevaContrasena;
-                VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
-            }
-            else
-            {
-                MessageBox.Show("La actualización de la contraseña no se ha realizado",
-                       "Error al actualizar información", MessageBoxButton.OK);
-            }
-        }
         #endregion
 
         #region Validaciones        
-        private bool EsLaMismaContrasena(string contrasenaA, string contrasenaB)
-        {
-            bool resultado = false;
-
-            if (contrasenaA.Equals(contrasenaB))
-            {
-                resultado = true;
-            }
-
-            return resultado;
-        }
-
         private bool ExistenDatosInvalidos(string nuevaContrasena, 
             string confirmacionContrasena)
         {
-            bool resultado = false;
+            bool hayDatosInvalidos = false;
 
-            if (!EsLaMismaContrasena(nuevaContrasena, confirmacionContrasena))
+            if (ValidadorDatos.ExistenCaracteresInvalidosParaContrasena(nuevaContrasena))
             {
-                if (ExistenCamposVacios() || ExisteNuevaContrasenaInvalida(nuevaContrasena) ||
-                    ExistenLongitudesExcedidasEnNuevaContrasena())
-                {
-                    resultado = true;
-                }
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECONTRASENANUEVA,
+                    Properties.Resources.ETIQUETA_VALIDACION_CONTRASENAINVALIDA,
+                    MessageBoxButton.OK);
+                hayDatosInvalidos = true;
             }
 
-            return resultado;
+            if (ValidadorDatos.ExisteLongitudExcedidaEnContrasena(
+                cuadroContrasenaActual.Password))
+            {
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_CONTRASENAEXCEDIDA,
+                     Properties.Resources.ETIQUETA_VALIDACION_LONGITUDEXCEDIDA,
+                     MessageBoxButton.OK);
+                hayDatosInvalidos = true;
+            }
+
+            if (ExistenCamposVacios())
+            {
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS,
+                   Properties.Resources.ETIQUETA_VALIDACION_CAMPOSVACIOS,
+                   MessageBoxButton.OK);
+                hayDatosInvalidos = true;
+            }
+
+            if (!ValidadorDatos.ExisteCoincidenciaEnCadenas(nuevaContrasena, 
+                confirmacionContrasena))
+            {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE, Properties.Resources.
+                    ETIQUETA_VALIDACION_CONTRASENADIFERENTE, MessageBoxButton.OK);
+            }
+
+            return hayDatosInvalidos;
         }
 
         private bool ExistenCamposVacios()
         {
             bool resultado = false;
             
-            if (string.IsNullOrWhiteSpace(cuadroContrasenaActual.Password) || 
-                string.IsNullOrWhiteSpace(cuadroNuevaContrasena.Password) || 
-                string.IsNullOrWhiteSpace(cuadroConfirmacionContrasena.Password))
+            if (ValidadorDatos.EsCadenaVacia(cuadroContrasenaActual.Password) ||
+                ValidadorDatos.EsCadenaVacia(cuadroNuevaContrasena.Password) ||
+                ValidadorDatos.EsCadenaVacia(cuadroConfirmacionContrasena.Password))
             {
-                resultado = true;
-                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS,
-                    Properties.Resources.ETIQUETA_VALIDACION_CAMPOSVACIOS, 
-                    MessageBoxButton.OK);
+                resultado = true;               
             }
             
             return resultado;
         }
-
-        private bool ExisteNuevaContrasenaInvalida(string contrasena)
-        {
-            bool resultado = false;
-            
-            if (Regex.IsMatch(contrasena,
-                "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$") == false)
-            {
-                resultado = true; 
-                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECONTRASENANUEVA,
-                    Properties.Resources.ETIQUETA_VALIDACION_CONTRASENAINVALIDA, 
-                    MessageBoxButton.OK);                
-            }
-
-            return resultado;
-        }
-
-        private bool ExistenLongitudesExcedidasEnNuevaContrasena()
-        {
-            bool resultado = false;
-            
-            if (cuadroNuevaContrasena.Password.Length > 45)
-            {
-                resultado = true;
-                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_CONTRASENAEXCEDIDA,
-                     Properties.Resources.ETIQUETA_VALIDACION_LONGITUDEXCEDIDA, 
-                     MessageBoxButton.OK);
-            }
-
-            return resultado;
-        }        
         #endregion
     }
 }

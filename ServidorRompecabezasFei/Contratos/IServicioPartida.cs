@@ -1,5 +1,4 @@
 ﻿using Logica;
-using System.Collections.Generic;
 using System.ServiceModel;
 
 namespace Contratos
@@ -33,15 +32,18 @@ namespace Contratos
         [OperationContract]
         bool ExpulsarJugadorPartida(string codigoSala, 
             string nombreJugador);
+
+        [OperationContract]
+        int ObtenerNumeroPartidasJugadas(string nombreJugador);
+
+        [OperationContract]
+        int ObtenerNumeroPartidasGanadas(string nombreJugador);
     }
 
     [ServiceContract]
     public interface IServicioPartidaCallback
     {
         [OperationContract(IsOneWay = true)]
-        void RefrescarMovimientoPieza(double posicionX, double posicionY);
-
-        [OperationContract(IsOneWay = true)]
-        void PosicionarPiezaEnCelda();
+        void ActualizarNuevaPosicionDePieza(double posicionX, double posicionY);
     }
 }

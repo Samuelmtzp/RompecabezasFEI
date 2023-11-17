@@ -19,7 +19,7 @@ namespace RompecabezasFei
             InitializeComponent();
             this.nombreJugador = nombreJugador;
             this.numeroAvatar = numeroAvatar;
-            MostrarAvatar();
+            MostrarImagenAvatarActual();
         }
 
         public PaginaSeleccionAvatar(int numeroAvatar, string nombreJugador,
@@ -31,24 +31,24 @@ namespace RompecabezasFei
             this.contrasena = contrasena;
             this.numeroAvatar = numeroAvatar;
             this.confirmacionContrasena = confirmacionContrasena;
-            MostrarAvatar();
+            MostrarImagenAvatarActual();
         }
 
-        private void MostrarAvatar()
+        private void MostrarImagenAvatarActual()
         {
-            ImagenAvatarActual.Source = Utilidades.GeneradorImagenes.
+            imagenAvatarActual.Source = Utilidades.GeneradorImagenes.
                 GenerarFuenteImagenAvatar(numeroAvatar);
         }
 
-        private void AccionSeleccionAvatar(object objetoOrigen, MouseButtonEventArgs evento)
+        private void SeleccionarNuevoAvatar(object objetoOrigen, MouseButtonEventArgs evento)
         {
             Image imagenSeleccionada = objetoOrigen as Image;
-            ImagenAvatarActual.Source = imagenSeleccionada.Source;
-            ImagenAvatarActual.Tag = imagenSeleccionada.Tag;
+            imagenAvatarActual.Source = imagenSeleccionada.Source;
+            imagenAvatarActual.Tag = imagenSeleccionada.Tag;
             numeroAvatar = Convert.ToInt32(imagenSeleccionada.Tag);
         }
 
-        private void AccionClickAceptar(object objetoOrigen, RoutedEventArgs evento)
+        private void RegresarAPaginaAnterior(object objetoOrigen, RoutedEventArgs evento)
         {
             if (typeof(PaginaRegistroJugador).IsInstanceOfType(VentanaPrincipal.PaginaAnterior))
             {

@@ -1,7 +1,4 @@
-﻿using RompecabezasFei.ServicioRompecabezasFei;
-using System;
-using System.ServiceModel;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -15,14 +12,8 @@ namespace RompecabezasFei
 
             if (!Dominio.CuentaJugador.Actual.EsInvitado)
             {
-                CargarOpcionesJugador();
+                MostrarOpcionesJugadorRegistrado();
             }
-        }
-
-        #region Métodos privados
-        private void CargarOpcionesJugador()
-        {
-            MostrarOpcionesJugadorRegistrado();
         }
 
         private void MostrarOpcionesJugadorRegistrado()
@@ -33,27 +24,29 @@ namespace RompecabezasFei
             imagenMisAmigos.Visibility = Visibility.Visible;
             imagenAvatarUsuario.Source = Dominio.CuentaJugador.Actual.FuenteImagenAvatar;
         }
-        #endregion
-
+            
         #region Eventos
-        private void EventoClickCrearSala(object controlOrigen, RoutedEventArgs evento)
+        private void CrearNuevaSala(object objetoOrigen, RoutedEventArgs evento)
         {
-            PaginaSala paginaSala = new PaginaSala();
-            paginaSala.IniciarConexionConSala(true);
+            PaginaSala paginaSala = new PaginaSala
+            {
+                EsAnfitrion = true
+            };
+            paginaSala.UnirseASala();
             VentanaPrincipal.CambiarPagina(paginaSala);
         }
 
-        private void EventoClickUnirseASala(object controlOrigen, RoutedEventArgs evento)
+        private void IrPaginaUnirseSala(object objetoOrigen, RoutedEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaUnirseSala());
         }
 
-        private void EventoClickMisAmigos(object controlOrigen, MouseButtonEventArgs evento)
+        private void IrPaginaAmistades(object objetoOrigen, MouseButtonEventArgs evento)
         {
-            VentanaPrincipal.CambiarPagina(new PaginaAmistades());
+            VentanaPrincipal.CambiarPagina(new PaginaAmistades(true));
         }
 
-        private void EventoClickCerrarSesion(object controlOrigen, MouseButtonEventArgs evento)
+        private void CerrarSesion(object objetoOrigen, MouseButtonEventArgs evento)
         {
             MessageBoxResult resultadoOpcionCerrarSesion = MessageBox.Show(
                 Properties.Resources.ETIQUETA_CERRARSESION_MENSAJE, 
@@ -62,42 +55,18 @@ namespace RompecabezasFei
 
             if (resultadoOpcionCerrarSesion == MessageBoxResult.Yes)
             {
-                ServicioJugadorClient cliente = new ServicioJugadorClient();
-
-                try
-                {
-                    cliente.CerrarSesion(Dominio.CuentaJugador.Actual.NombreJugador);
-                }                
-                catch (CommunicationException)
-                {
-                    MessageBox.Show(Properties.Resources.
-                        ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                        ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                        MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                catch (TimeoutException)
-                {
-                    MessageBox.Show(Properties.Resources.
-                        ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                        ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                        MessageBoxButton.OK, MessageBoxImage.Error);                    
-                }
-                finally
-                {
-                    cliente.Abort();
-                }
-
+                Servicios.ServicioJugador.CerrarSesion(Dominio.CuentaJugador.Actual.NombreJugador);
                 Dominio.CuentaJugador.Actual = null;
                 VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
             }
         }
 
-        private void EventoClickMiPerfil(object controlOrigen, MouseButtonEventArgs evento)
+        private void IrPaginaInformacionJugador(object objetoOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
         }
 
-        private void EventoClickAjustes(object controlOrigen, MouseButtonEventArgs evento)
+        private void IrPaginaAjustes(object objetoOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPaginaGuardandoAnterior(new PaginaAjustes());
         }

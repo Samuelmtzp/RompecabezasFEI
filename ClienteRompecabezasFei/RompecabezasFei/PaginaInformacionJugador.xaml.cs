@@ -1,6 +1,4 @@
-﻿using RompecabezasFei.ServicioRompecabezasFei;
-using System;
-using System.ServiceModel;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -27,76 +25,32 @@ namespace RompecabezasFei
 
         #region Métodos privados
         private void MostrarPartidasJugadas()
-        {           
-            ServicioJugadorClient cliente = new ServicioJugadorClient();
-
-            try
-            {
-                cuadroTextoPartidasJugadas.Text = Convert.ToString(cliente.
-                    ObtenerNumeroPartidasJugadas(Dominio.CuentaJugador.Actual.NombreJugador));                
-            }
-            catch (CommunicationException)
-            {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            catch (TimeoutException)
-            {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            finally
-            {
-                cliente.Abort();
-            }
+        {
+            cuadroTextoPartidasJugadas.Text = Convert.ToString(Servicios.ServicioPartida.
+                ObtenerNumeroPartidasJugadas(Dominio.CuentaJugador.Actual.NombreJugador));
         }
 
         private void MostrarPartidasGanadas()
         {
-            ServicioJugadorClient cliente = new ServicioJugadorClient();
-
-            try
-            {
-                cuadroTextoPartidasGanadas.Text = Convert.ToString(cliente.
-                    ObtenerNumeroPartidasGanadas(Dominio.CuentaJugador.Actual.NombreJugador));
-            }
-            catch (CommunicationException)
-            {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            catch (TimeoutException)
-            {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            cuadroTextoPartidasGanadas.Text = Convert.ToString(Servicios.ServicioPartida.
+                ObtenerNumeroPartidasGanadas(Dominio.CuentaJugador.Actual.NombreJugador));
         }
         #endregion
 
         #region Eventos
-        private void EventoClickCambiarContrasena(object controlOrigen, 
-            RoutedEventArgs evento)
+        private void IrPaginaActualizacionContrasena(object objetoOrigen, RoutedEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaActualizacionContrasena());
         }
 
-        private void EventoClickActualizarInformacion(object controlOrigen, 
-            RoutedEventArgs evento)
+        private void IrPaginaActualizacionInformacion(object objetoOrigen, RoutedEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaActualizacionInformacion(
                 Dominio.CuentaJugador.Actual.NombreJugador, 
                 Dominio.CuentaJugador.Actual.NumeroAvatar));
         }
 
-        private void EventoClickRegresar(object controlOrigen, MouseButtonEventArgs evento)
+        private void IrPaginaMenuPrincipal(object objetoOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
         }
