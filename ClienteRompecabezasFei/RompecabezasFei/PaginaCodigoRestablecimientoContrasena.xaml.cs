@@ -67,12 +67,13 @@ namespace RompecabezasFei
         #endregion
 
         #region Eventos
-        private void EventoClickCancelar(object controlOrigen, RoutedEventArgs evento)
+        private void ClickCancelar(object objetoOrigen, RoutedEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
         }
 
-        private void EventoClickBotonSiguiente(object controlOrigen, RoutedEventArgs evento)
+        private void SiguientePaginaRestablecimientoContrasena(object objetoOrigen, 
+            RoutedEventArgs evento)
         {
             string codigoVerificacion = cuadroTextoCodigoRestablecimiento.Text;
 
@@ -93,10 +94,10 @@ namespace RompecabezasFei
             }
         }
 
-        private void EventoAceptarSoloCaracteresNumericos(object controlOrigen,
+        private void AceptarSoloCaracteresNumericos(object objetoOrigen,
             TextChangedEventArgs evento)
         {
-            if (controlOrigen is TextBox cuadroTextoCodigoRestablecimiento)
+            if (objetoOrigen is TextBox cuadroTextoCodigoRestablecimiento)
             {
                 string texto = cuadroTextoCodigoRestablecimiento.Text = new string(
                     cuadroTextoCodigoRestablecimiento.Text.Where(char.IsDigit).ToArray());

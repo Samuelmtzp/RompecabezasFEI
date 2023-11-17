@@ -558,6 +558,9 @@
   <data name="ETIQUETA_REGISTRO_CORREONODISPONIBLE" xml:space="preserve">
     <value>Email not available</value>
   </data>
+  <data name="ETIQUETA_REGISTRO_MENSAJECORREONODISPONIBLE" xml:space="preserve">
+    <value>The email address entered is not available. Enter a different one.</value>
+  </data>
   <data name="ETIQUETA_REGISTRO_REGISTROUSUARIO" xml:space="preserve">
     <value>Player register</value>
   </data>

@@ -549,6 +549,9 @@
   <data name="ETIQUETA_REGISTRO_CORREONODISPONIBLE" xml:space="preserve">
     <value>Correo electrónico no disponible</value>
   </data>
+  <data name="ETIQUETA_REGISTRO_MENSAJECORREONODISPONIBLE" xml:space="preserve">
+    <value>El correo eléctronico ingresado no está disponible. Ingrese uno diferente.</value>
+  </data>
   <data name="ETIQUETA_REGISTRO_REGISTROJUGADOR" xml:space="preserve">
     <value>Registro de jugador</value>
   </data>
