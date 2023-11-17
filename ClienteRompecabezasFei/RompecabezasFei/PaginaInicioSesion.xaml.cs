@@ -17,7 +17,7 @@ namespace RompecabezasFei
 {
     public partial class PaginaInicioSesion : Page
     {
-        private static readonly ILog Log = Registros.Registros.GetLogger();
+        private static readonly ILog Log = Registros.Registrador.GetLogger();
 
         public PaginaInicioSesion()
         {
@@ -56,9 +56,10 @@ namespace RompecabezasFei
         #endregion
 
         #region Eventos
-        private void EventoClickModoInvitado(object controlOrigen, RoutedEventArgs evento)
+        private void ModoInvitado(object controlOrigen, RoutedEventArgs evento)
         {
             int numeroAleatorio = new Random().Next();
+
             Dominio.CuentaJugador.Actual = new Dominio.CuentaJugador()
             {
                 NombreJugador = Properties.Resources.ETIQUETA_GENERAL_INVITADO + numeroAleatorio,
@@ -66,25 +67,26 @@ namespace RompecabezasFei
             };
 
             VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
+
         }
 
-        private void EventoClickRecuperacionContrasena(object controlOrigen,
+        private void RecuperacionContrasena(object controlOrigen,
             MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaRecuperacionContrasena());
         }
 
-        private void EventoClickRegistrar(object controlOrigen, MouseButtonEventArgs evento)
+        private void RegistrarJugador(object controlOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaRegistroJugador());
         }
 
-        private void EventoClickAjustes(object controlOrigen, MouseButtonEventArgs evento)
+        private void IrPaginaAjustes(object controlOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPaginaGuardandoAnterior(new PaginaAjustes());
         }
 
-        private void EventoClickIniciarSesion(object controlOrigen, RoutedEventArgs evento)
+        private void IniciarSesion(object controlOrigen, RoutedEventArgs evento)
         {
             var nombreUsuario = cuadroTextoNombreUsuario.Text;
             var contrasena = cuadroContrasena.Password;
@@ -100,27 +102,27 @@ namespace RompecabezasFei
                         IniciarSesion(nombreUsuario,
                             EncriptadorContrasena.CalcularHashSha512(contrasena));
                     }
-                    catch (EndpointNotFoundException ex)
+                    catch (EndpointNotFoundException excepcion)
                     {
-                        Registros.Registros.escribirRegistro(ex);
+                        Registros.Registrador.EscribirRegistro(excepcion);
                         //Log.Error($"{ex.Message}");
                         MessageBox.Show(Properties.Resources.
                             ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                             ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
                             MessageBoxButton.OK, MessageBoxImage.Error);
                     }
-                    catch (CommunicationObjectFaultedException ex)
+                    catch (CommunicationObjectFaultedException excepcion)
                     {
-                        Registros.Registros.escribirRegistro(ex);
+                        Registros.Registrador.EscribirRegistro(excepcion);
                         //Log.Error($"{ex.Message}");
                         MessageBox.Show(Properties.Resources.
                             ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                             ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
                             MessageBoxButton.OK, MessageBoxImage.Error);
                     }
-                    catch (TimeoutException ex)
+                    catch (TimeoutException excepcion)
                     {
-                        Registros.Registros.escribirRegistro(ex);
+                        Registros.Registrador.EscribirRegistro(excepcion);
                         //Log.Error($"{ex.Message}");
                         MessageBox.Show(Properties.Resources.
                             ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
@@ -130,16 +132,18 @@ namespace RompecabezasFei
                 }
                 else
                 {
-                   MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSINVALIDOS,
-                        Properties.Resources.ETIQUETA_VALIDACION_CAMPOSINVALIDOS,
-                            MessageBoxButton.OK, MessageBoxImage.Error);
+                   MessageBox.Show(Properties.Resources.
+                       ETIQUETA_VALIDACION_MENSAJECAMPOSINVALIDOS,Properties.Resources.
+                       ETIQUETA_VALIDACION_CAMPOSINVALIDOS,
+                       MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else
             {
-                MessageBox.Show(Properties.Resources.ETIQUETA_GENERAL_MENSAJECAMPOSVACIOS,
-                                    Properties.Resources.ETIQUETA_VALIDACION_CAMPOSVACIOS,
-                            MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_GENERAL_MENSAJECAMPOSVACIOS,Properties.Resources.
+                    ETIQUETA_VALIDACION_CAMPOSVACIOS,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         #endregion

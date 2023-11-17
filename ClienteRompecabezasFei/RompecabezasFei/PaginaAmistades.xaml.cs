@@ -464,12 +464,12 @@ namespace RompecabezasFei
         #endregion
 
         #region Eventos
-        private void EventoClickRegresar(object controlOrigen, MouseButtonEventArgs evento)
+        private void RegresarPaginaMenuPrincipal(object objetoOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
         }
 
-        private void EventoClickEnviarSolicitud(object controlOrigen, RoutedEventArgs evento)
+        private void EnviarSolicitudAmistad(object objetoOrigen, RoutedEventArgs evento)
         {
             if (!EsElNombreDelJugadorActual() && ExisteNombreJugador() && 
                 !ExisteSolicitudDeAmistad() && !ExisteAmistadConJugador())
@@ -489,10 +489,10 @@ namespace RompecabezasFei
             }
         }
 
-        private void EventoClickEliminarAmigo(object controlOrigen, RoutedEventArgs evento)
+        private void EventoClickEliminarAmigo(object objetoOrigen, RoutedEventArgs evento)
         {
             var filaActual = (ListBoxItem)listaAmigos.ContainerFromElement(
-                (Button)controlOrigen);
+                (Button)objetoOrigen);
             filaActual.IsSelected = true;
 
             if (!EliminarAmigo())
@@ -503,11 +503,11 @@ namespace RompecabezasFei
             }
         }
 
-        private void EventoClickAceptarSolicitudAmistad(object controlOrigen,
+        private void EventoClickAceptarSolicitudAmistad(object objetoOrigen,
             RoutedEventArgs evento)
         {
             var filaActual = (ListBoxItem)listaSolicitudes.ContainerFromElement(
-                (Button)controlOrigen);
+                (Button)objetoOrigen);
             filaActual.IsSelected = true;
 
             if (!AceptarSolicitudDeAmistad())
@@ -518,11 +518,11 @@ namespace RompecabezasFei
             }
         }
 
-        private void EventoClickRechazarSolicitudAmistad(object controlOrigen,
+        private void EventoClickRechazarSolicitudAmistad(object objetoOrigen,
             RoutedEventArgs evento)
         {
             var filaActual = (ListBoxItem)listaSolicitudes.ContainerFromElement(
-                (Button)controlOrigen);
+                (Button)objetoOrigen);
             filaActual.IsSelected = true;
 
             if (!RechazarSolicitudDeAmistad())
@@ -617,7 +617,7 @@ namespace RompecabezasFei
             }
         }
 
-        private void EventoPaginaCerrada(object objetoOrigen, RoutedEventArgs evento)
+        private void PaginaCerrada(object objetoOrigen, RoutedEventArgs evento)
         {
             try
             {

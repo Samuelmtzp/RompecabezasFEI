@@ -45,21 +45,25 @@ namespace RompecabezasFei
         #endregion
 
         #region Eventos
-        private void EventoPaginaAjustesCargada(object controlOrigen, RoutedEventArgs evento)
+        private void PaginaAjustesCargada(object objetoOrigen, RoutedEventArgs evento)
         {
             InicializarSeleccionIdioma();
             InicializarSeleccionMusica();
         }
 
-        private void EventoCambioIdioma(object controlOrigen, SelectionChangedEventArgs evento)
+        private void CambiarIdioma(object objetoOrigen, SelectionChangedEventArgs evento)
         {
             if (cajaOpcionesIdioma.SelectedIndex == 0)
+            {
                 idioma = "en-US";
+            }
             else
+            {
                 idioma = "es-MX";
+            }
         }
         
-        private void EventoClickRegresar(object controlOrigen, MouseButtonEventArgs evento)
+        private void RegresarPaginaAnterior(object objetoOrigen, MouseButtonEventArgs evento)
         {
             if (typeof(PaginaInicioSesion).IsInstanceOfType(VentanaPrincipal.PaginaAnterior))
             {
@@ -71,13 +75,13 @@ namespace RompecabezasFei
             }
         }
 
-        private void EventoCajaOpcionesIdiomaCerrada(object controlOrigen, EventArgs evento)
+        private void CajaOpcionesIdiomaCerrada(object objetoOrigen, EventArgs evento)
         {
             App.Current.CambiarIdioma(idioma);
             RefrescarPaginaActual();
         }
 
-        private void EventoBotonCambioMusicaActivado(object controlOrigen, 
+        private void BotonCambioMusicaActivada(object objetoOrigen, 
             RoutedEventArgs evento)
         {
             if (!hayMusicaActivadaInicialmente)
@@ -86,7 +90,7 @@ namespace RompecabezasFei
             }            
         }
 
-        private void EventoBotonCambioMusicaDesactivado(object controlOrigen, 
+        private void BotonCambioMusicaDesactivada(object objetoOrigen, 
             RoutedEventArgs evento)
         {              
             App.Current.EstadoMusica(false);

@@ -42,7 +42,7 @@ namespace RompecabezasFei
         #endregion
 
         #region Eventos 
-        private void EventoCursorSobreImagen(object objetoOrigen, MouseEventArgs evento)
+        private void CursorSobreImagen(object objetoOrigen, MouseEventArgs evento)
         {
             Border borde = objetoOrigen as Border;
 
@@ -52,7 +52,7 @@ namespace RompecabezasFei
             }
         }
 
-        private void EventoCursorFueraDeImagen(object objetoOrigen, MouseEventArgs evento)
+        private void CursorFueraDeImagen(object objetoOrigen, MouseEventArgs evento)
         {
             Border borde = objetoOrigen as Border;
             
@@ -63,7 +63,7 @@ namespace RompecabezasFei
             }
         }
 
-        private void EventoClickEnImagen(object objetoOrigen, MouseButtonEventArgs evento)
+        private void ClickEnImagen(object objetoOrigen, MouseButtonEventArgs evento)
         {
             Border borde = objetoOrigen as Border;
 
@@ -78,19 +78,19 @@ namespace RompecabezasFei
             borde.BorderBrush = new SolidColorBrush(Colors.Green);
         }
 
-        private void EventoClickRegresar(object objetoOrigen, MouseButtonEventArgs evento)
+        private void RegresarPaginaSala(object objetoOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaSala());
         }
 
-        private void EventoSeleccionDificultad(object controlOrigen, 
+        private void SeleccionDificultad(object controlOrigen, 
             SelectionChangedEventArgs evento)
         {
             dificultad = (Dificultad) cuadroSeleccionDificultad.SelectedIndex;
         }
         #endregion Eventos
 
-        private void EventoClickCrearPartida(object objetoOrigen, RoutedEventArgs evento)
+        private void CrearPartida(object objetoOrigen, RoutedEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaPartida(dificultad, numeroImagen));
         }

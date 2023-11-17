@@ -9,7 +9,7 @@
       d:DesignHeight="720" d:DesignWidth="1280">
 
     <Grid>
-        <Image Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="30,30,1145,598" Height="81" Width="81" MouseDown="EventoClickRegresar"/>
+        <Image Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="30,30,1145,598" Height="81" Width="81" MouseDown="RegresarPaginaInformacionJugador"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_ACTUALIZACIONCONTRASENA}" HorizontalAlignment="Center" Margin="0,26,0,0" VerticalAlignment="Top" Foreground="White" FontSize="48" FontWeight="Bold"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_ACTUALIZACIONCONTRASENA_CONTRASENAACTUAL}" HorizontalAlignment="Left" Margin="82,219,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32"/>
         <PasswordBox Name="cuadroContrasenaActual" HorizontalAlignment="Left" Margin="82,272,0,0" VerticalAlignment="Top" Width="508" Height="42" FontSize="24"/>
@@ -18,7 +18,7 @@
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_CONFIRMACIONCONTRASENA}" HorizontalAlignment="Left" Margin="660,361,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32"/>
         <PasswordBox Name="cuadroConfirmacionContrasena" HorizontalAlignment="Left" Margin="660,419,0,0" VerticalAlignment="Top" Width="554" Height="42" FontSize="24"/>
 
-        <Button Name="botonGuardarCambios" Content="{x:Static p:Resources.ETIQUETA_GENERAL_GUARDARCAMBIOS}" HorizontalAlignment="Center" Margin="0,601,0,0" VerticalAlignment="Top" Height="73" Width="373" FontSize="36" Background="#FF03A64A" Foreground="White" FontWeight="Bold" Click="EventoClickGuardarCambios">
+        <Button Name="botonGuardarCambios" Content="{x:Static p:Resources.ETIQUETA_GENERAL_GUARDARCAMBIOS}" HorizontalAlignment="Center" Margin="0,601,0,0" VerticalAlignment="Top" Height="73" Width="373" FontSize="36" Background="#FF03A64A" Foreground="White" FontWeight="Bold" Click="GuardarCambiosDatosCuenta">
         </Button>
         <TextBlock TextWrapping="Wrap" VerticalAlignment="Top" Height="62" Width="508" Text="{x:Static p:Resources.ETIQUETA_GENERAL_REQUISITOSCONTRASENA}" HorizontalAlignment="Left" Margin="82,492,0,0" Foreground="White" FontSize="20"/>
     </Grid>

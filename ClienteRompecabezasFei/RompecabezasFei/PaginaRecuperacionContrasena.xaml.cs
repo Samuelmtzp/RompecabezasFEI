@@ -10,7 +10,7 @@ namespace RompecabezasFei
 {
     public partial class PaginaRecuperacionContrasena : Page
     {
-        string correo;
+        private string correo;
 
         public PaginaRecuperacionContrasena()
         {

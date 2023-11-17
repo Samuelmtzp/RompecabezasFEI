@@ -36,24 +36,24 @@ namespace RompecabezasFei
         #endregion
 
         #region Eventos
-        private void EventoClickCrearSala(object controlOrigen, RoutedEventArgs evento)
+        private void CrearSala(object objetoOrigen, RoutedEventArgs evento)
         {
             PaginaSala paginaSala = new PaginaSala();
             paginaSala.IniciarConexionConSala(true);
             VentanaPrincipal.CambiarPagina(paginaSala);
         }
 
-        private void EventoClickUnirseASala(object controlOrigen, RoutedEventArgs evento)
+        private void UnirseASala(object objetoOrigen, RoutedEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaUnirseSala());
         }
 
-        private void EventoClickMisAmigos(object controlOrigen, MouseButtonEventArgs evento)
+        private void IrPaginaAmistades(object objetoOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaAmistades());
         }
 
-        private void EventoClickCerrarSesion(object controlOrigen, MouseButtonEventArgs evento)
+        private void CerrarSesion(object objetoOrigen, MouseButtonEventArgs evento)
         {
             MessageBoxResult resultadoOpcionCerrarSesion = MessageBox.Show(
                 Properties.Resources.ETIQUETA_CERRARSESION_MENSAJE, 
@@ -92,12 +92,12 @@ namespace RompecabezasFei
             }
         }
 
-        private void EventoClickMiPerfil(object controlOrigen, MouseButtonEventArgs evento)
+        private void IrPaginaInformacionJugador(object objetoOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
         }
 
-        private void EventoClickAjustes(object controlOrigen, MouseButtonEventArgs evento)
+        private void IrPaginaAjustes(object objetoOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPaginaGuardandoAnterior(new PaginaAjustes());
         }

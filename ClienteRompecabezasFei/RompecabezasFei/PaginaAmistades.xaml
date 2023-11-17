@@ -7,7 +7,7 @@
       xmlns:p="clr-namespace:RompecabezasFei.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1280"
-      Unloaded="EventoPaginaCerrada">
+      Unloaded="PaginaCerrada">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -202,12 +202,12 @@
                         <TextBlock TextWrapping="Wrap" Text="{x:Static p:Resources.ETIQUETA_AMIGOS_INSTRUCCIONSOLICITUDAMISTAD}" Margin="66,17,66,152" FontSize="14"/>
                         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_NOMBREJUGADOR}" Margin="66,71,210,116" FontWeight="Bold" FontSize="20" Foreground="White"/>
                         <TextBox Name="cuadroTextoNombreUsuarioInvitacion" HorizontalAlignment="Center" Margin="0,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="430" FontSize="16" Height="30"/>
-                        <Button Content="{x:Static p:Resources.BOTON_AMIGOS_ENVIARSOLICITUD}" HorizontalAlignment="Center" Margin="0,156,0,0" VerticalAlignment="Top" FontSize="20" Height="35" Width="197"  Background="#FF03A64A" Foreground="White" Click="EventoClickEnviarSolicitud" FontWeight="Bold"/>
+                        <Button Content="{x:Static p:Resources.BOTON_AMIGOS_ENVIARSOLICITUD}" HorizontalAlignment="Center" Margin="0,156,0,0" VerticalAlignment="Top" FontSize="20" Height="35" Width="197"  Background="#FF03A64A" Foreground="White" Click="EnviarSolicitudAmistad" FontWeight="Bold"/>
                     </Grid>
                 </TabItem>
             </TabControl>
         </Grid>
-        <Image Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="42,36,1157,280" Height="81" Width="81" MouseDown="EventoClickRegresar"/>
+        <Image Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="42,36,1157,280" Height="81" Width="81" MouseDown="RegresarPaginaMenuPrincipal"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_AMIGOS}" HorizontalAlignment="Center" Margin="0,26,0,0" VerticalAlignment="Top" Foreground="White" FontSize="48" FontWeight="Bold"/>
     </Grid>
 </Page>

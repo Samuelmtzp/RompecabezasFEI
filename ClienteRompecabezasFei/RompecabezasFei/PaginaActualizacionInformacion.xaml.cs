@@ -10,7 +10,8 @@ namespace RompecabezasFei
 {
     public partial class PaginaActualizacionInformacion : Page
     {
-        bool nombreModificado;
+        private bool nombreModificado;
+
         public PaginaActualizacionInformacion(string nombreJugador, int numeroAvatar)
         {
             InitializeComponent();
@@ -26,7 +27,7 @@ namespace RompecabezasFei
                 GenerarFuenteImagenAvatar(numeroAvatar);            
         }
 
-        private void RealizarActualizacion(string nuevoNombre, int nuevoNumeroAvatar)
+        private void RealizarActualizacionDatosJugador(string nuevoNombre, int nuevoNumeroAvatar)
         {
             string nombreAnterior = Dominio.CuentaJugador.Actual.NombreJugador;
             ServicioJugadorClient cliente = new ServicioJugadorClient();
@@ -59,9 +60,10 @@ namespace RompecabezasFei
             if (nombreModificado)
             {
                 bool esNombreDisponible = EsNombreDisponible(nuevoNombre);
+
                 if (esNombreDisponible)
                 {
-                    RealizarActualizacion(nuevoNombre, nuevoNumeroAvatar);
+                    RealizarActualizacionDatosJugador(nuevoNombre, nuevoNumeroAvatar);
                 }
                 else
                 {
@@ -73,18 +75,19 @@ namespace RompecabezasFei
             }
             else
             {
-                RealizarActualizacion(nuevoNombre, nuevoNumeroAvatar);
+                RealizarActualizacionDatosJugador(nuevoNombre, nuevoNumeroAvatar);
             }
         }        
         #endregion
 
         #region Eventos        
-        private void EventoClickRegresar(object controlOrigen, MouseButtonEventArgs evento)
+        private void RegresarPaginaInformacionJugador(object controlOrigen, 
+            MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
         }
 
-        private void EventoClickGuardarCambios(object controlOrigen, RoutedEventArgs evento)
+        private void GuardarCambiosDatosJugador(object controlOrigen, RoutedEventArgs evento)
         {
             string nuevoNombre = cuadroTextoNombreUsuario.Text.Trim();
             int nuevoNumeroAvatar = Convert.ToInt32(imagenAvatarActual.Tag);

@@ -17,12 +17,13 @@ namespace RompecabezasFei
         }
 
         #region Eventos
-        private void EventoClickRegresar(object controlOrigen, MouseButtonEventArgs evento)
+        private void RegresarPaginaInformacionJugador(object objetoOrigen, 
+            MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
         }
 
-        private void EventoClickGuardarCambios(object controlOrigen, RoutedEventArgs evento)
+        private void GuardarCambiosDatosCuenta(object objetoOrigen, RoutedEventArgs evento)
         {
             string contrasenaActual = Dominio.CuentaJugador.Actual.Contrasena;
             string contrasenaAnterior = cuadroContrasenaActual.Password;     
@@ -41,17 +42,17 @@ namespace RompecabezasFei
                     {
                         ActualizarContrasena(correoJugador, nuevaContrasenaCifrada);
                     }
-                    catch (CommunicationException ex)
+                    catch (CommunicationException excepcion)
                     {
-                        Registros.Registros.escribirRegistro(ex);
+                        Registros.Registrador.EscribirRegistro(excepcion);
                         MessageBox.Show(Properties.Resources.
                             ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                             ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
                             MessageBoxButton.OK, MessageBoxImage.Error);
                     }
-                    catch (TimeoutException ex)
+                    catch (TimeoutException excepcion)
                     {
-                        Registros.Registros.escribirRegistro(ex);
+                        Registros.Registrador.EscribirRegistro(excepcion);
                         MessageBox.Show(Properties.Resources.
                             ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                             ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,

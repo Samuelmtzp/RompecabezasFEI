@@ -10,9 +10,10 @@ namespace RompecabezasFei
 {
     public partial class PaginaRestablecimientoContrasena : Page
     {
-        string correo;
-        string contrasena; 
-        string contrasenaCifrada;
+        private string correo;
+        private string contrasena; 
+        private string contrasenaCifrada;
+        private const int LongitudMaximaContrasena = 45;
 
         public PaginaRestablecimientoContrasena(string correo)
         {
@@ -21,7 +22,7 @@ namespace RompecabezasFei
         }
 
         #region Métodos privados
-        private bool ActualizarContrasena(string nuevaContrasena)
+        private bool ClienteActualizarContrasena(string nuevaContrasena)
         {
             bool resultado = false;
             ServicioJugadorClient cliente = new ServicioJugadorClient();
@@ -54,7 +55,7 @@ namespace RompecabezasFei
         #endregion
 
         #region Eventos
-        private void EventoActualizarContraseña(object objetoOrigen, RoutedEventArgs evento)
+        private void ActualizarContrasena(object objetoOrigen, RoutedEventArgs evento)
         {
             contrasena = CuadroContrasenaNueva.Password.ToString();
 
@@ -65,7 +66,7 @@ namespace RompecabezasFei
                 {
                     contrasenaCifrada = EncriptadorContrasena.
                             CalcularHashSha512(contrasena);
-                    bool resultadoActualizacion = ActualizarContrasena(contrasenaCifrada);
+                    bool resultadoActualizacion = ClienteActualizarContrasena(contrasenaCifrada);
 
                     if (resultadoActualizacion)
                     {
@@ -129,7 +130,7 @@ namespace RompecabezasFei
         {
             bool camposExcedidos = false;
             
-            if (contrasena.Length > 45)
+            if (contrasena.Length > LongitudMaximaContrasena)
             {
                 camposExcedidos = true;
                 MessageBox.Show(Properties.Resources.

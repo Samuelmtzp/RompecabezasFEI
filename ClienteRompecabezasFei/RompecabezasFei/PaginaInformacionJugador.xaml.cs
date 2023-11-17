@@ -35,17 +35,17 @@ namespace RompecabezasFei
                 cuadroTextoPartidasJugadas.Text = Convert.ToString(cliente.
                     ObtenerNumeroPartidasJugadas(Dominio.CuentaJugador.Actual.NombreJugador));                
             }
-            catch (CommunicationException ex)
+            catch (CommunicationException excepcion)
             {
-                Registros.Registros.escribirRegistro(ex);
+                Registros.Registrador.EscribirRegistro(excepcion);
                 MessageBox.Show(Properties.Resources.
                     ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                     ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            catch (TimeoutException ex)
+            catch (TimeoutException excepcion)
             {
-                Registros.Registros.escribirRegistro(ex);
+                Registros.Registrador.EscribirRegistro(excepcion);
                 MessageBox.Show(Properties.Resources.
                     ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                     ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
@@ -66,17 +66,17 @@ namespace RompecabezasFei
                 cuadroTextoPartidasGanadas.Text = Convert.ToString(cliente.
                     ObtenerNumeroPartidasGanadas(Dominio.CuentaJugador.Actual.NombreJugador));
             }
-            catch (CommunicationException ex)
+            catch (CommunicationException excepcion)
             {
-                Registros.Registros.escribirRegistro(ex);
+                Registros.Registrador.EscribirRegistro(excepcion);
                 MessageBox.Show(Properties.Resources.
                     ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                     ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            catch (TimeoutException ex)
+            catch (TimeoutException excepcion)
             {
-                Registros.Registros.escribirRegistro(ex);
+                Registros.Registrador.EscribirRegistro(excepcion);
                 MessageBox.Show(Properties.Resources.
                     ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                     ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
@@ -86,13 +86,13 @@ namespace RompecabezasFei
         #endregion
 
         #region Eventos
-        private void EventoClickCambiarContrasena(object controlOrigen, 
+        private void CambiarContrasena(object objetoOrigen, 
             RoutedEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaActualizacionContrasena());
         }
 
-        private void EventoClickActualizarInformacion(object controlOrigen, 
+        private void ActualizarInformacionJugador(object controlOrigen, 
             RoutedEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaActualizacionInformacion(
@@ -100,7 +100,7 @@ namespace RompecabezasFei
                 Dominio.CuentaJugador.Actual.NumeroAvatar));
         }
 
-        private void EventoClickRegresar(object controlOrigen, MouseButtonEventArgs evento)
+        private void RegresarPaginaMenuPrincipal(object controlOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
         }
