@@ -15,9 +15,9 @@ using System.Windows.Shapes;
 
 namespace RompecabezasFei
 {
-    public partial class PaginaGestionJugadoresPartida : Page
+    public partial class PaginaModificacionJugadoresSala : Page
     {
-        public PaginaGestionJugadoresPartida()
+        public PaginaModificacionJugadoresSala()
         {
             InitializeComponent();
         }

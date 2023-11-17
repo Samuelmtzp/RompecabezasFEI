@@ -7,26 +7,37 @@ using System.Windows.Media;
 
 namespace RompecabezasFei
 {
-    public partial class PaginaNuevaPartida : Page
+    public partial class PaginaCreacionNuevaPartida : Page
     {
-        public ObservableCollection<ImagenRompecabezas> imagenesRompecabezas { get; set; }
+        private ObservableCollection<ImagenRompecabezas> imagenesRompecabezas;
         private Border bordeImagenSeleccionada;
         private Dificultad dificultad;
         private int numeroImagen;
         private string codigoSala;
 
-        public PaginaNuevaPartida(string codigoSala)
+        public ObservableCollection<ImagenRompecabezas> ImagenesRompecabezas
+        {
+            get { return imagenesRompecabezas; }
+            set { imagenesRompecabezas = value; }
+        }
+
+        public string CodigoSala
+        {
+            get { return codigoSala; }
+            set { codigoSala = value; }
+        }
+
+        public PaginaCreacionNuevaPartida()
         {
             InitializeComponent();
-            CargarImagenes();
-            this.codigoSala = codigoSala;
+            MostrarImagenesDeRompecabezas();
             dificultad = Dificultad.Facil;
             cuadroSeleccionDificultad.SelectedIndex = (int)dificultad;
             numeroImagen = 1;
             galeriaImagenesRompecabezas.DataContext = this;
         }
-        #region Métodos privados
-        private void CargarImagenes()
+
+        private void MostrarImagenesDeRompecabezas()
         {
             imagenesRompecabezas = new ObservableCollection<ImagenRompecabezas>();
 
@@ -39,10 +50,8 @@ namespace RompecabezasFei
                 });
             }
         }
-        #endregion
 
-        #region Eventos 
-        private void CursorSobreImagen(object objetoOrigen, MouseEventArgs evento)
+        private void MostrarPreseleccionDeImagen(object objetoOrigen, MouseEventArgs evento)
         {
             Border borde = objetoOrigen as Border;
 
@@ -52,10 +61,10 @@ namespace RompecabezasFei
             }
         }
 
-        private void CursorFueraDeImagen(object objetoOrigen, MouseEventArgs evento)
+        private void OcultarPreseleccionDeImagen(object objetoOrigen, MouseEventArgs evento)
         {
             Border borde = objetoOrigen as Border;
-            
+
             if (borde != bordeImagenSeleccionada)
             {
                 ImagenRompecabezas imagen = borde.DataContext as ImagenRompecabezas;
@@ -63,7 +72,7 @@ namespace RompecabezasFei
             }
         }
 
-        private void ClickEnImagen(object objetoOrigen, MouseButtonEventArgs evento)
+        private void SeleccionarImagen(object objetoOrigen, MouseButtonEventArgs evento)
         {
             Border borde = objetoOrigen as Border;
 
@@ -78,46 +87,24 @@ namespace RompecabezasFei
             borde.BorderBrush = new SolidColorBrush(Colors.Green);
         }
 
-        private void RegresarPaginaSala(object objetoOrigen, MouseButtonEventArgs evento)
+        private void IrAPaginaSala(object objetoOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaSala());
+            // Cargar datos que ya estaban en sala
+            // - Lista de jugadores conectados
+            // - EsAnfitrion
+            // - boton iniciar partida
         }
 
-        private void SeleccionDificultad(object controlOrigen, 
+        private void SeleccionarDificultad(object controlOrigen,
             SelectionChangedEventArgs evento)
         {
-            dificultad = (Dificultad) cuadroSeleccionDificultad.SelectedIndex;
+            dificultad = (Dificultad)cuadroSeleccionDificultad.SelectedIndex;
         }
-        #endregion Eventos
 
-        private void CrearPartida(object objetoOrigen, RoutedEventArgs evento)
+        private void IrAPaginaPartida(object objetoOrigen, RoutedEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaPartida(dificultad, numeroImagen));
-        }
-    }
-
-    public class ImagenRompecabezas
-    {
-        private string ruta;
-        private Color colorDeBorde;
-        private int numeroImagen;
-
-        public string Ruta 
-        { 
-            get { return ruta; } 
-            set { ruta = value; }
-        }
-
-        public Color ColorDeBorde 
-        { 
-            get { return colorDeBorde; } 
-            set { colorDeBorde = value; }
-        }
-
-        public int NumeroImagen 
-        { 
-            get { return numeroImagen; }
-            set { numeroImagen = value; }
         }
     }
 }

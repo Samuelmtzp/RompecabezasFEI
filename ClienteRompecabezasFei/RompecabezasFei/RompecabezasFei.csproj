@@ -63,6 +63,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="PaginaAjustesPartida.xaml.cs">
+      <DependentUpon>PaginaAjustesPartida.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\ServicioAmistades.cs" />
+    <Compile Include="Servicios\ServicioCorreo.cs" />
+    <Compile Include="Servicios\ServicioJugador.cs" />
+    <Compile Include="Servicios\ServicioSala.cs" />
+    <Compile Include="Servicios\ServicioPartida.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -86,8 +94,8 @@
     <Compile Include="PaginaAmistades.xaml.cs">
       <DependentUpon>PaginaAmistades.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PaginaGestionJugadoresPartida.xaml.cs">
-      <DependentUpon>PaginaGestionJugadoresPartida.xaml</DependentUpon>
+    <Compile Include="PaginaModificacionJugadoresSala.xaml.cs">
+      <DependentUpon>PaginaModificacionJugadoresSala.xaml</DependentUpon>
     </Compile>
     <Compile Include="PaginaCodigoRestablecimientoContrasena.xaml.cs">
       <DependentUpon>PaginaCodigoRestablecimientoContrasena.xaml</DependentUpon>
@@ -122,8 +130,8 @@
     <Compile Include="PaginaSeleccionAvatar.xaml.cs">
       <DependentUpon>PaginaSeleccionAvatar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PaginaNuevaPartida.xaml.cs">
-      <DependentUpon>PaginaNuevaPartida.xaml</DependentUpon>
+    <Compile Include="PaginaCreacionNuevaPartida.xaml.cs">
+      <DependentUpon>PaginaCreacionNuevaPartida.xaml</DependentUpon>
     </Compile>
     <Compile Include="PaginaUnirseSala.xaml.cs">
       <DependentUpon>PaginaUnirseSala.xaml</DependentUpon>
@@ -152,6 +160,8 @@
       <DependentUpon>ResourceSonidos.resx</DependentUpon>
     </Compile>
     <Compile Include="Utilidades\GeneradorImagenes.cs" />
+    <Compile Include="Utilidades\Temporizador.cs" />
+    <Compile Include="Utilidades\GestionadorCodigoCorreo.cs" />
     <Compile Include="VentanaPrincipal.xaml.cs">
       <DependentUpon>VentanaPrincipal.xaml</DependentUpon>
     </Compile>
@@ -198,11 +208,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PaginaAjustesPartida.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PaginaAmistades.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PaginaGestionJugadoresPartida.xaml">
+    <Page Include="PaginaModificacionJugadoresSala.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -250,7 +264,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PaginaNuevaPartida.xaml">
+    <Page Include="PaginaCreacionNuevaPartida.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

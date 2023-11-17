@@ -11,29 +11,29 @@ namespace Logica
             
             using (var contexto = new EntidadesRompecabezasFei())
             {
-                var cuentasObtenidas = from jugador in contexto.Jugador 
-                                       join cuenta in contexto.Cuenta 
-                                       on jugador.Cuenta.Correo 
-                                       equals cuenta.Correo
-                                       where jugador.NombreJugador == nombreJugador && 
-                                       cuenta.Contrasena == contrasena 
-                                       select new CuentaJugador
-                                       {
-                                           IdJugador = jugador.IdJugador,
-                                           NumeroAvatar = jugador.NumeroAvatar,
-                                           NombreJugador = jugador.NombreJugador, 
-                                           Correo = cuenta.Correo,
-                                           Contrasena = cuenta.Contrasena
-                                       };
+                var cuentaJugadorRecuperada = (from jugador in contexto.Jugador 
+                                              join cuenta in contexto.Cuenta 
+                                              on jugador.Cuenta.Correo 
+                                              equals cuenta.Correo
+                                              where jugador.NombreJugador == nombreJugador && 
+                                              cuenta.Contrasena == contrasena 
+                                              select new CuentaJugador
+                                              {
+                                                  IdJugador = jugador.IdJugador,
+                                                  NumeroAvatar = jugador.NumeroAvatar,
+                                                  NombreJugador = jugador.NombreJugador,
+                                                  Correo = cuenta.Correo,
+                                                  Contrasena = cuenta.Contrasena
+                                              }).FirstOrDefault();
 
-                if (cuentasObtenidas.Any())
+                if (cuentaJugadorRecuperada != null)
                 {
                     cuentaJugador = new CuentaJugador
                     {
-                        NumeroAvatar = cuentasObtenidas.First().NumeroAvatar,
-                        NombreJugador = cuentasObtenidas.First().NombreJugador,
-                        Correo = cuentasObtenidas.First().Correo,
-                        Contrasena = cuentasObtenidas.First().Contrasena,
+                        NumeroAvatar = cuentaJugadorRecuperada.NumeroAvatar,
+                        NombreJugador = cuentaJugadorRecuperada.NombreJugador,
+                        Correo = cuentaJugadorRecuperada.Correo,
+                        Contrasena = cuentaJugadorRecuperada.Contrasena,
                     };
                 }
             }

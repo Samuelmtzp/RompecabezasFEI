@@ -1,21 +1,20 @@
 ﻿<Page x:Class="RompecabezasFei.PaginaRestablecimientoContrasena"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:RompecabezasFei"
       xmlns:p="clr-namespace:RompecabezasFei.Properties"
-      mc:Ignorable="d" 
-      d:DesignHeight="720" d:DesignWidth="1280"
-      Title="PaginaRestablecimientoContrasena">
+      mc:Ignorable="d"
+      d:DesignHeight="720" d:DesignWidth="1280">
 
     <Grid>
-        <Label Content="Restablecer contraseña" HorizontalAlignment="Center" Margin="0,38,0,0" VerticalAlignment="Top" FontSize="52" FontWeight="Bold" Foreground="White"/>
-        <PasswordBox Name="CuadroContrasenaNueva" HorizontalAlignment="Center" VerticalAlignment="Top" Width="532" Height="56" Margin="0,258,0,0" FontSize="28"/>
-        <PasswordBox Name="CuadroConfirmarNuevaContrasena" HorizontalAlignment="Center" VerticalAlignment="Top" Width="532" Height="56" Margin="0,424,0,0" FontSize="28"/>
+        <Label Content="{x:Static p:Resources.ETIQUETA_RESTABLECIMIENTO_RESTABLECIMIENTOCONTRASENA}" HorizontalAlignment="Center" Margin="0,38,0,0" VerticalAlignment="Top" FontSize="52" FontWeight="Bold" Foreground="White"/>
+        <PasswordBox Name="cuadroContrasenaNueva" HorizontalAlignment="Center" VerticalAlignment="Top" Width="532" Height="56" Margin="0,258,0,0" FontSize="28"/>
+        <PasswordBox Name="cuadroConfirmarNuevaContrasena" HorizontalAlignment="Center" VerticalAlignment="Top" Width="532" Height="56" Margin="0,424,0,0" FontSize="28"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_NUEVACONTRASENA}" HorizontalAlignment="Center" Margin="0,172,0,0" VerticalAlignment="Top" Foreground="White" Height="64" Width="530" FontWeight="Bold" FontSize="36"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_CONFIRMACIONCONTRASENA}" HorizontalAlignment="Center" Margin="0,355,0,0" VerticalAlignment="Top" Foreground="White" Height="64" Width="530" FontWeight="Bold" FontSize="36"/>
-        <Button Content="{x:Static p:Resources.BOTON_RESTABLECIMIENTOCONTRASENA_ACTUALIZARCONTRASENA}" HorizontalAlignment="Center" Margin="0,578,0,0" VerticalAlignment="Top" Height="64" Width="532" Background="#FF03A64A" Foreground="White" FontWeight="Bold" FontSize="30" Click="ActualizarContraseña"/>
+        <Button Content="{x:Static p:Resources.BOTON_RESTABLECIMIENTOCONTRASENA_ACTUALIZARCONTRASENA}" HorizontalAlignment="Center" Margin="0,578,0,0" VerticalAlignment="Top" Height="64" Width="532" Background="#FF03A64A" Foreground="White" FontWeight="Bold" FontSize="30" Click="ActualizarContrasena"/>
 
     </Grid>
 </Page>

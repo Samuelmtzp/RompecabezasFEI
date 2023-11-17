@@ -8,9 +8,6 @@ namespace Contratos
     {
         [OperationContract]
         bool Registrar(CuentaJugador cuentaJugador);
-
-        [OperationContract]
-        bool ExisteCorreoElectronico(string correoElectronico);
         
         [OperationContract]
         bool ExisteNombreJugador(string nombreJugador);
@@ -19,17 +16,7 @@ namespace Contratos
         CuentaJugador IniciarSesion(string nombreJugador, string contrasena);
 
         [OperationContract]
-        bool CerrarSesion(string nombreUsuario);
-
-        [OperationContract]
-        bool EnviarMensajeCorreo(string encabezado, string correoDestino, 
-            string asunto, string mensaje);
-        
-        [OperationContract]
-        int ObtenerNumeroPartidasJugadas(string nombreJugador);
-        
-        [OperationContract]
-        int ObtenerNumeroPartidasGanadas(string nombreJugador);
+        bool CerrarSesion(string nombreUsuario);               
         
         [OperationContract]
         bool ActualizarInformacion(string nombreAnterior, string nuevoNombre, 

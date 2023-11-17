@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dominio;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -9,19 +10,24 @@ namespace RompecabezasFei
     {
         private string idioma;
         private bool hayMusicaActivadaInicialmente;
-     
+        private const string IdiomaIngles = "en-US";
+        private const string IdiomaEspanol = "es-MX";
+
         public PaginaAjustes()
         {
             InitializeComponent();
         }
 
-        #region Métodos privados
         private void InicializarSeleccionIdioma()
         {
-            if (App.Current.IdiomaActual == "en-US")
-                cajaOpcionesIdioma.SelectedIndex = 0;
+            if (App.Current.IdiomaActual == IdiomaIngles)
+            {
+                cajaOpcionesIdioma.SelectedIndex = (int)Idioma.Ingles;
+            }
             else
-                cajaOpcionesIdioma.SelectedIndex = 1;
+            {
+                cajaOpcionesIdioma.SelectedIndex = (int)Idioma.Espanol;
+            }
         }
 
         private void InicializarSeleccionMusica()
@@ -34,7 +40,7 @@ namespace RompecabezasFei
             else
             {
                 hayMusicaActivadaInicialmente = false;
-                botonCambioMusica.IsChecked = false;                
+                botonCambioMusica.IsChecked = false;
             }
         }
 
@@ -42,59 +48,54 @@ namespace RompecabezasFei
         {
             VentanaPrincipal.CambiarPagina(new PaginaAjustes());
         }
-        #endregion
 
-        #region Eventos
-        private void PaginaAjustesCargada(object objetoOrigen, RoutedEventArgs evento)
+        private void InicializarOpcionesDeAjustes(object objetoOrigen, RoutedEventArgs evento)
         {
             InicializarSeleccionIdioma();
             InicializarSeleccionMusica();
         }
 
-        private void CambiarIdioma(object objetoOrigen, SelectionChangedEventArgs evento)
+        private void SeleccionarIdioma(object controlOrigen, SelectionChangedEventArgs evento)
         {
-            if (cajaOpcionesIdioma.SelectedIndex == 0)
+            if (cajaOpcionesIdioma.SelectedIndex == (int)Idioma.Ingles)
             {
-                idioma = "en-US";
+                idioma = IdiomaIngles;
             }
             else
             {
-                idioma = "es-MX";
+                idioma = IdiomaEspanol;
             }
         }
-        
-        private void RegresarPaginaAnterior(object objetoOrigen, MouseButtonEventArgs evento)
+
+        private void IrAPaginaAnterior(object objetoOrigen, MouseButtonEventArgs evento)
         {
             if (typeof(PaginaInicioSesion).IsInstanceOfType(VentanaPrincipal.PaginaAnterior))
             {
                 VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
-            } 
+            }
             else
             {
                 VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
             }
         }
 
-        private void CajaOpcionesIdiomaCerrada(object objetoOrigen, EventArgs evento)
+        private void CajaDeOpcionesDeIdiomaCerrada(object objetoOrigen, EventArgs evento)
         {
             App.Current.CambiarIdioma(idioma);
             RefrescarPaginaActual();
         }
 
-        private void BotonCambioMusicaActivada(object objetoOrigen, 
-            RoutedEventArgs evento)
+        private void ActivarMusica(object objetoOrigen, RoutedEventArgs evento)
         {
             if (!hayMusicaActivadaInicialmente)
             {
                 App.Current.EstadoMusica(true);
-            }            
+            }
         }
 
-        private void BotonCambioMusicaDesactivada(object objetoOrigen, 
-            RoutedEventArgs evento)
-        {              
+        private void DesactivarMusica(object objetoOrigen, RoutedEventArgs evento)
+        {
             App.Current.EstadoMusica(false);
         }
-        #endregion
     }
 }

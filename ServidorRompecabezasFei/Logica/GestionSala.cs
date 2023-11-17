@@ -24,8 +24,8 @@ namespace Logica
                     {
                         Codigo = codigoSala,
                         IdAnfitrion = jugadorAnfitrion.IdJugador,
-                        MaximoJugadores = 4,
-                        MinimoJugadores = 2,                        
+                        MaximoJugadores = Sala.MaximoJugadores,
+                        MinimoJugadores = Sala.MinimoJugadores,
                     };
                     contexto.Sala.Add(nuevaSala);
                     resultado = contexto.SaveChanges() > 0;
@@ -34,7 +34,5 @@ namespace Logica
 
             return resultado;
         }
-
-
     }
 }

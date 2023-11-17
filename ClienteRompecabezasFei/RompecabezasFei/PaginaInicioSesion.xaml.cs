@@ -1,9 +1,7 @@
-﻿using log4net;
-using RompecabezasFei.ServicioRompecabezasFei;
+﻿using RompecabezasFei.ServicioRompecabezasFei;
 using Security;
+using Seguridad;
 using System;
-using System.ServiceModel;
-using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -17,164 +15,133 @@ namespace RompecabezasFei
 {
     public partial class PaginaInicioSesion : Page
     {
-        private static readonly ILog Log = Registros.Registrador.GetLogger();
-
         public PaginaInicioSesion()
         {
             InitializeComponent();
         }
 
-        #region Métodos privados
-        private void IniciarSesion(string nombreJugador, string contrasena)
-        {
-            ServicioJugadorClient cliente = new ServicioJugadorClient();
-            CuentaJugador cuentaJugadorAutenticada = cliente.
-                IniciarSesion(nombreJugador, contrasena);
-
-            if (cuentaJugadorAutenticada != null)
-            {
-                Dominio.CuentaJugador.Actual = new Dominio.CuentaJugador
-                {
-                    Contrasena = cuentaJugadorAutenticada.Contrasena,
-                    Correo = cuentaJugadorAutenticada.Correo,
-                    NombreJugador = cuentaJugadorAutenticada.NombreJugador,
-                    NumeroAvatar = cuentaJugadorAutenticada.NumeroAvatar,
-                    EsInvitado = false,
-                    FuenteImagenAvatar = Utilidades.GeneradorImagenes.
-                        GenerarFuenteImagenAvatar(cuentaJugadorAutenticada.NumeroAvatar)
-                };
-                VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
-            }
-            else
-            {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_INICIOSESION_MENSAJEINICIOSESIONERROR,
-                    Properties.Resources.ETIQUETA_INICIOSESION_INICIOSESIONCANCELADO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-        #endregion
-
-        #region Eventos
-        private void ModoInvitado(object controlOrigen, RoutedEventArgs evento)
+        private void IniciarSesionComoInvitado(object objetoOrigen, RoutedEventArgs evento)
         {
             int numeroAleatorio = new Random().Next();
 
             Dominio.CuentaJugador.Actual = new Dominio.CuentaJugador()
             {
-                NombreJugador = Properties.Resources.ETIQUETA_GENERAL_INVITADO + numeroAleatorio,
+                NombreJugador = Properties.Resources.ETIQUETA_GENERAL_INVITADO +
+                    numeroAleatorio,
                 EsInvitado = true,
             };
-
             VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
 
         }
 
-        private void RecuperacionContrasena(object controlOrigen,
+        private void IrAPaginaRecuperacionContrasena(object objetoOrigen,
             MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaRecuperacionContrasena());
         }
 
-        private void RegistrarJugador(object controlOrigen, MouseButtonEventArgs evento)
+        private void IrAPaginaRegistroJugador(object objetoOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaRegistroJugador());
         }
 
-        private void IrPaginaAjustes(object controlOrigen, MouseButtonEventArgs evento)
+        private void IrAPaginaAjustes(object objetoOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPaginaGuardandoAnterior(new PaginaAjustes());
         }
 
-        private void IniciarSesion(object controlOrigen, RoutedEventArgs evento)
+        private void IniciarSesion(object objetoOrigen, RoutedEventArgs evento)
         {
-            var nombreUsuario = cuadroTextoNombreUsuario.Text;
-            var contrasena = cuadroContrasena.Password;
+            string nombreJugador = cuadroTextoNombreUsuario.Text;
+            string contrasena = cuadroContrasenaContrasena.Password;
 
-            if (!string.IsNullOrWhiteSpace(nombreUsuario) &&
-                !string.IsNullOrWhiteSpace(contrasena))
+            if (!ValidadorDatos.EsCadenaVacia(nombreJugador) &&
+                !ValidadorDatos.EsCadenaVacia(contrasena))
             {
-                if (ExistenCadenasValidas(nombreUsuario, contrasena) &&
-                    !ExistenLongitudesExcedidas(nombreUsuario, contrasena))
+                if (!ExistenDatosInvalidos(nombreJugador, contrasena))
                 {
-                    try
+                    CuentaJugador cuentaJugadorAutenticada =
+                        Servicios.ServicioJugador.IniciarSesion(nombreJugador,
+                        EncriptadorContrasena.CalcularHashSha512(contrasena));
+
+                    if (cuentaJugadorAutenticada != null)
                     {
-                        IniciarSesion(nombreUsuario,
-                            EncriptadorContrasena.CalcularHashSha512(contrasena));
+                        Dominio.CuentaJugador.Actual = new Dominio.CuentaJugador
+                        {
+                            Contrasena = cuentaJugadorAutenticada.Contrasena,
+                            Correo = cuentaJugadorAutenticada.Correo,
+                            NombreJugador = cuentaJugadorAutenticada.NombreJugador,
+                            NumeroAvatar = cuentaJugadorAutenticada.NumeroAvatar,
+                            EsInvitado = false,
+                            FuenteImagenAvatar = Utilidades.GeneradorImagenes.
+                                GenerarFuenteImagenAvatar(cuentaJugadorAutenticada.NumeroAvatar)
+                        };
+                        VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
                     }
-                    catch (EndpointNotFoundException excepcion)
+                    else
                     {
-                        Registros.Registrador.EscribirRegistro(excepcion);
-                        //Log.Error($"{ex.Message}");
                         MessageBox.Show(Properties.Resources.
-                            ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                            ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                            MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                    catch (CommunicationObjectFaultedException excepcion)
-                    {
-                        Registros.Registrador.EscribirRegistro(excepcion);
-                        //Log.Error($"{ex.Message}");
-                        MessageBox.Show(Properties.Resources.
-                            ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                            ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                            MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                    catch (TimeoutException excepcion)
-                    {
-                        Registros.Registrador.EscribirRegistro(excepcion);
-                        //Log.Error($"{ex.Message}");
-                        MessageBox.Show(Properties.Resources.
-                            ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                            ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                            ETIQUETA_INICIOSESION_MENSAJEINICIOSESIONERROR,
+                            Properties.Resources.ETIQUETA_INICIOSESION_INICIOSESIONCANCELADO,
                             MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
                 else
                 {
-                   MessageBox.Show(Properties.Resources.
-                       ETIQUETA_VALIDACION_MENSAJECAMPOSINVALIDOS,Properties.Resources.
-                       ETIQUETA_VALIDACION_CAMPOSINVALIDOS,
-                       MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(Properties.Resources.
+                        ETIQUETA_VALIDACION_MENSAJECAMPOSINVALIDOS, Properties.Resources.
+                        ETIQUETA_VALIDACION_CAMPOSINVALIDOS, MessageBoxButton.OK,
+                        MessageBoxImage.Error);
                 }
             }
             else
             {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_GENERAL_MENSAJECAMPOSVACIOS,Properties.Resources.
-                    ETIQUETA_VALIDACION_CAMPOSVACIOS,
+                MessageBox.Show(Properties.Resources.ETIQUETA_GENERAL_MENSAJECAMPOSVACIOS,
+                    Properties.Resources.ETIQUETA_VALIDACION_CAMPOSVACIOS,
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        #endregion
 
-        #region Validaciones
-        private bool ExistenCadenasValidas(string nombreJugador, string contrasena)
+        private bool ExistenDatosInvalidos(string nombreJugador, string contrasena)
         {
-            bool resultado = false;
+            bool hayCamposInvalidos = false;
 
-            if (Regex.IsMatch(nombreJugador, @"^[a-zA-Z0-9]+(?:\s[a-zA-Z0-9]+)?$") &&
-                Regex.IsMatch(contrasena, "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$"))
+            if (ValidadorDatos.ExistenCaracteresInvalidosParaContrasena(contrasena))
             {
-                resultado = true;
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_VALIDACION_MENSAJECONTRASENAINVALIDA, Properties.Resources.
+                    ETIQUETA_VALIDACION_CONTRASENAINVALIDA, MessageBoxButton.OK);
+                hayCamposInvalidos = true;
             }
 
-            return resultado;
+            if (ValidadorDatos.ExistenCaracteresInvalidosParaNombreJugador(nombreJugador))
+            {
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_VALIDACION_MENSAJENOMBREUSUARIOINVALIDO, Properties.Resources.
+                    ETIQUETA_VALIDACION_NOMBREUSUARIOINVALIDO, MessageBoxButton.OK);
+                hayCamposInvalidos = true;
+            }
+
+            if (ExistenLongitudesExcedidas(nombreJugador, contrasena))
+            {
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJELONGITUDEXCEDIDA,
+                   Properties.Resources.ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS, MessageBoxButton.OK);
+            }
+
+            return hayCamposInvalidos;
         }
 
         private bool ExistenLongitudesExcedidas(string nombreJugador, string contrasena)
         {
             bool resultado = false;
 
-            if (nombreJugador.Length > 15 || contrasena.Length > 45)
+            if (ValidadorDatos.ExisteLongitudExcedidaEnNombreJugador(nombreJugador) ||
+                ValidadorDatos.ExisteLongitudExcedidaEnContrasena(contrasena))
             {
                 resultado = true;
-                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJELONGITUDEXCEDIDA,
-                   Properties.Resources.ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS, MessageBoxButton.OK);
             }
 
             return resultado;
         }
-        #endregion
     }
 }

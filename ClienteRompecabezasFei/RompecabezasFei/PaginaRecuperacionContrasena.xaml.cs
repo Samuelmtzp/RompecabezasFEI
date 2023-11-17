@@ -1,32 +1,28 @@
-﻿using System;
-using System.ServiceModel;
-using System.Text.RegularExpressions;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using RompecabezasFei.ServicioRompecabezasFei;
+using Seguridad;
 
 namespace RompecabezasFei
 {
     public partial class PaginaRecuperacionContrasena : Page
     {
-        private string correo;
-
         public PaginaRecuperacionContrasena()
         {
             InitializeComponent();
         }
 
-        private void EventoClickSiguiente(object objetoOrigen, RoutedEventArgs evento)
+        private void IrAPaginaRestablecimientoContrasena(object objetoOrigen,
+            RoutedEventArgs evento)
         {
-            correo = CuadroCorreo.Text.Trim();
+            string correo = cuadroTextoCorreo.Text;
 
-            if (!ExistenCaracteresInvalidosParaCorreo(correo))
+            if (!ValidadorDatos.ExistenCaracteresInvalidosParaCorreo(correo))
             {
-                if (ExisteCorreoElectronico(correo))
+                if (Servicios.ServicioCorreo.ExisteCorreoElectronico(correo))
                 {
-                    PaginaCodigoRestablecimientoContrasena 
-                        paginaCodigoRestablecimientoContrasena = new 
+                    PaginaCodigoRestablecimientoContrasena
+                        paginaCodigoRestablecimientoContrasena = new
                         PaginaCodigoRestablecimientoContrasena(correo);
                     VentanaPrincipal.CambiarPagina(paginaCodigoRestablecimientoContrasena);
                 }
@@ -34,59 +30,20 @@ namespace RompecabezasFei
                 {
                     MessageBox.Show(Properties.Resources.
                         ETIQUETA_RECUPERACIONCONTRASENA_MENSAJECORREOINEXISTENE, Properties.
-                        Resources.ETIQUETA_RECUPERACIONCONTRASENA_CORREOINEXISTENTE, 
+                        Resources.ETIQUETA_RECUPERACIONCONTRASENA_CORREOINEXISTENTE,
                         MessageBoxButton.OK);
                 }
             }
-        }
-
-        private void EventoClickAccionRegresar(object objetoOrigen, MouseButtonEventArgs evento)
-        {
-            VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
-        }
-
-        private bool ExistenCaracteresInvalidosParaCorreo(string textoValido)
-        {
-            bool caracteresInvalidos = false;
-
-            if (Regex.IsMatch(textoValido, @"^[^@\s]+@[^@\s]+\.[^@\s]+$") == false)
+            else
             {
-                caracteresInvalidos = true;
                 MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECORREOINVALIDO,
                     Properties.Resources.ETIQUETA_VALIDACION_CORREOINVALIDO, MessageBoxButton.OK);
             }
-            return caracteresInvalidos;
         }
 
-        private bool ExisteCorreoElectronico(string correoElectronico)
+        private void IrAPaginaInicioSesion(object objetoOrigen, MouseButtonEventArgs evento)
         {
-            ServicioJugadorClient cliente = new ServicioJugadorClient();
-            bool resultado = false;
-
-            try
-            {
-                resultado = cliente.ExisteCorreoElectronico(correoElectronico);
-            }
-            catch (CommunicationException)
-            {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            catch (TimeoutException)
-            {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            finally
-            {
-                cliente.Abort();
-            }
-
-            return resultado;
+            VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
         }
     }
 }

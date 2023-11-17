@@ -1,7 +1,6 @@
-﻿using RompecabezasFei.ServicioRompecabezasFei;
-using System;
+﻿using RompecabezasFei.Utilidades;
+using Seguridad;
 using System.Linq;
-using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -9,54 +8,23 @@ namespace RompecabezasFei
 {
     public partial class PaginaCodigoRestablecimientoContrasena : Page
     {
-        private readonly string correo;
-        private string codigoGenerado;        
+        private readonly string correoDestino;
 
-        public PaginaCodigoRestablecimientoContrasena(string correo)
+        public PaginaCodigoRestablecimientoContrasena(string correoDestino)
         {
             InitializeComponent();
-            this.correo = correo;
+            this.correoDestino = correoDestino;
             EnviarCodigo();
         }
 
-        #region Métodos privados
         private void EnviarCodigo()
-        {            
-            Random generadorNumeroAleatorio = new Random();
-            const int valorMinimoCodigo = 100000;
-            const int valorMaximoCodigo = 1000000;
-            codigoGenerado = generadorNumeroAleatorio.Next(valorMinimoCodigo, 
-                valorMaximoCodigo).ToString();
-            ServicioJugadorClient cliente = new ServicioJugadorClient();
-            bool codigoEnviado = false;            
+        {
+            bool envioDeCodigoRealizado = GestionadorCodigoCorreo.
+                EnviarNuevoCodigoDeVerificacionACorreo(correoDestino, Properties.Resources.
+                ETIQUETA_CODIGO_CODIGORESTABLECIMIENTO, Properties.Resources.
+                ETIQUETA_RECUPERACION_MENSAJE + $" {GestionadorCodigoCorreo.CodigoGenerado}");
 
-            try
-            {
-                codigoEnviado = cliente.EnviarMensajeCorreo(Properties.Resources.
-                    ETIQUETA_GENERAL_ROMPECABEZASFEI, correo, Properties.Resources.
-                    ETIQUETA_CODIGO_CODIGORESTABLECIMIENTO, Properties.Resources.
-                    ETIQUETA_RECUPERACION_MENSAJE + $" {codigoGenerado}");
-            }
-            catch (CommunicationException)
-            {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            catch (TimeoutException)
-            {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            finally
-            {
-                cliente.Abort();
-            }
-
-            if (!codigoEnviado)
+            if (!envioDeCodigoRealizado)
             {
                 MessageBox.Show(Properties.Resources.
                             ETIQUETA_CODIGO_MENSAJENOENVIADO, Properties.Resources.
@@ -64,30 +32,30 @@ namespace RompecabezasFei
                             MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        #endregion
 
-        #region Eventos
-        private void ClickCancelar(object objetoOrigen, RoutedEventArgs evento)
+        private void IrAPaginaInicioSesion(object objetoOrigen, RoutedEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
         }
 
-        private void SiguientePaginaRestablecimientoContrasena(object objetoOrigen, 
+        private void IrAPaginaRestablecimientoContrasena(object objetoOrigen,
             RoutedEventArgs evento)
         {
             string codigoVerificacion = cuadroTextoCodigoRestablecimiento.Text;
 
-            if (!string.IsNullOrEmpty(codigoGenerado))
+            if (!ValidadorDatos.EsCadenaVacia(codigoVerificacion))
             {
-                bool codigoVerificacionCoincide = codigoVerificacion.Equals(codigoGenerado);
+                bool codigoVerificacionCoincide = ValidadorDatos.ExisteCoincidenciaEnCadenas(
+                    codigoVerificacion, GestionadorCodigoCorreo.CodigoGenerado);
 
                 if (codigoVerificacionCoincide)
                 {
-                    VentanaPrincipal.CambiarPagina(new PaginaRestablecimientoContrasena(correo));
+                    VentanaPrincipal.CambiarPagina(new PaginaRestablecimientoContrasena(
+                        correoDestino));
                 }
                 else
                 {
-                    MessageBox.Show(Properties.Resources.ETIQUETA_CODIGO_MENSAJECODIGONOCOINCIDE, 
+                    MessageBox.Show(Properties.Resources.ETIQUETA_CODIGO_MENSAJECODIGONOCOINCIDE,
                         Properties.Resources.ETIQUETA_CODIGO_CODIGONOCOINCIDE,
                         MessageBoxButton.OK);
                 }
@@ -101,11 +69,10 @@ namespace RompecabezasFei
             {
                 string texto = cuadroTextoCodigoRestablecimiento.Text = new string(
                     cuadroTextoCodigoRestablecimiento.Text.Where(char.IsDigit).ToArray());
-                cuadroTextoCodigoRestablecimiento.CaretIndex = 
+                cuadroTextoCodigoRestablecimiento.CaretIndex =
                     cuadroTextoCodigoRestablecimiento.Text.Length;
                 cuadroTextoCodigoRestablecimiento.Text = texto;
             }
         }
-        #endregion
     }
 }

@@ -8,11 +8,11 @@
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1280">
     <Grid>
-        <Image x:Name="ImagenFlechaRegreso" Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="42,36,1157,603" Height="81" Width="81" MouseDown="AccionRegresar"/>
+        <Image Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="42,36,1157,603" Height="81" Width="81" MouseDown="IrAPaginaMenuPrincipal"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_UNIRSESALA_UNIRSESALA}" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,28,0,0" VerticalAlignment="Top" Width="768" Height="84" FontSize="48" Foreground="White" FontWeight="Bold"/>
         <TextBlock Text="{x:Static p:Resources.ETIQUETA_UNIRSESALA_INSTRUCCIONUNIRSE}" HorizontalAlignment="Left" Margin="82,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="99" Width="1125" FontSize="36" Foreground="White"/>
-        <TextBox Name="CuadroTextoCodigoSala" HorizontalAlignment="Left" Margin="82,401,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1125" Height="58" FontSize="24"/>
-        <Button Name="BotonUnirse" Content="{x:Static p:Resources.BOTON_UNIRSESALA_UNIRSE}" HorizontalAlignment="Left" Margin="328,566,0,0" VerticalAlignment="Top" Height="72" Width="618" Background="#FF03A64A" Foreground="White" FontSize="36" Click="AccionUnirse" FontWeight="Bold"/>
+        <TextBox Name="cuadroTextoCodigoSala" HorizontalAlignment="Left" Margin="82,401,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1125" Height="58" FontSize="24"/>
+        <Button Content="{x:Static p:Resources.BOTON_UNIRSESALA_UNIRSE}" HorizontalAlignment="Left" Margin="328,566,0,0" VerticalAlignment="Top" Height="72" Width="618" Background="#FF03A64A" Foreground="White" FontSize="36" Click="IntentarUnirJugadorASala" FontWeight="Bold"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_CODIGOSALA}" HorizontalAlignment="Left" Margin="82,0,0,0" VerticalAlignment="Center" Height="60" Width="419" FontSize="36" Foreground="White"/>
 
 

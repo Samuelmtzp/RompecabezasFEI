@@ -52,7 +52,7 @@ namespace Dominio
                 estaDentroDeCelda = value;
                 if (estaDentroDeCelda)
                 {
-                    EstablecerEstiloPiezaDentroDeCelda();
+                    EstablecerEstiloDePiezaDentroDeCelda();
                 }
             }
         }
@@ -69,7 +69,8 @@ namespace Dominio
             set { columnaCorrecta = value; }
         }
 
-        public void EstablecerFuenteImagen(BitmapImage fuenteImagenOriginal, Int32Rect areaRecorte)
+        public void EstablecerFuenteImagen(BitmapImage fuenteImagenOriginal, 
+            Int32Rect areaRecorte)
         {
             fuenteImagenRecortada = new CroppedBitmap(fuenteImagenOriginal, areaRecorte);
             imagen = new Image
@@ -90,19 +91,19 @@ namespace Dominio
             return Borde.ActualHeight - Imagen.Height;
         }
 
-        public void EstablecerEstiloPiezaSeleccionada()
+        public void EstablecerEstiloDePiezaSeleccionada()
         {
             borde.BorderBrush = Brushes.Red;
             borde.BorderThickness = new Thickness(4);
         }
 
-        public void EstablecerEstiloPiezaSinSeleccionar()
+        public void EstablecerEstiloDePiezaSinSeleccionar()
         {
             borde.BorderBrush = Brushes.White;
             borde.BorderThickness = new Thickness(2);
         }
 
-        private void EstablecerEstiloPiezaDentroDeCelda()
+        private void EstablecerEstiloDePiezaDentroDeCelda()
         {
             borde.BorderBrush = Brushes.Transparent;
             borde.BorderThickness = new Thickness(0);

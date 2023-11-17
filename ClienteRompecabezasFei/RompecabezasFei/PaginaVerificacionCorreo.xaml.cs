@@ -1,99 +1,69 @@
 ﻿using System;
 using System.Linq;
-using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Windows.Threading;
 using RompecabezasFei.ServicioRompecabezasFei;
+using RompecabezasFei.Utilidades;
 using Security;
+using Seguridad;
 
 namespace RompecabezasFei
 {
     public partial class PaginaVerificacionCorreo : Page
     {
-        string codigoGenerado;
-        private const int DuracionContadorSegundos = 60;
-        private int segundosRestantes;
-        private DispatcherTimer temporizador;
-        private Dominio.CuentaJugador jugadorRegistro;
+        private readonly Dominio.CuentaJugador jugadorRegistro;
 
         public PaginaVerificacionCorreo(Dominio.CuentaJugador jugadorRegistro)
         {
             InitializeComponent();
             this.jugadorRegistro = jugadorRegistro;
-            EnviarCodigo();
+            GestionadorCodigoCorreo.EnviarNuevoCodigoDeVerificacionACorreo(
+                jugadorRegistro.Correo, Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ASUNTO,
+                Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJE + " " + 
+                GestionadorCodigoCorreo.CodigoGenerado);
+            IniciarTemporizador();
         }
 
-        private void InicializarTemporizador()
+        private void IniciarTemporizador()
         {
-            segundosRestantes = DuracionContadorSegundos;
-            temporizador = new DispatcherTimer();
-            temporizador.Interval = TimeSpan.FromSeconds(1);
-            temporizador.Tick += ActualizarTiempo;
-            temporizador.Start();
+            DeshabilitarBotonEnvioCodigo();
+            Temporizador.temporizador.Tick += ActualizarTiempoRestante;
+            Temporizador.IniciarTemporizador();
         }
 
-        public void EventoAccionEnviarCodigo(object controlOrigen, RoutedEventArgs evento)
+        public void ActualizarTiempoRestante(object objetoOrigen, EventArgs evento)
         {
-            EnviarCodigo();            
-        }
-
-        private void EnviarCodigo()
-        {
-            codigoGenerado = GenerarCodigo();
-            DeshabilitarBotonEnvioCodigo(); 
-            ServicioJugadorClient cliente = new ServicioJugadorClient();
-            
-            try
+            if (Temporizador.segundosRestantes > Temporizador.MinimoSegundosRestantes)
             {
-                cliente.EnviarMensajeCorreo(Properties.Resources.
-                    ETIQUETA_GENERAL_ROMPECABEZASFEI, jugadorRegistro.Correo,
-                    Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ASUNTO,
-                    Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJE + " " + 
-                    codigoGenerado);
-                EnviarCodigo();
+                Temporizador.segundosRestantes--;
+                TimeSpan tiempoRestante = TimeSpan.FromSeconds(Temporizador.segundosRestantes);
+                etiquetaTiempoRestante.Content = $"{tiempoRestante.Minutes:00}:" +
+                    $"{tiempoRestante.Seconds:00}";
             }
-            catch(CommunicationException)
+            else
             {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                Temporizador.DetenerTemporizador();
+                etiquetaTiempoRestante.Content = "00:00";
+                HabilitarBotonEnvioCodigo();
             }
-            catch (TimeoutException)
-            {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            finally
-            {
-                cliente.Abort();
-            }
-            
-            InicializarTemporizador();
         }
 
-        private string GenerarCodigo()
+        private void ConcluirRegistroDeNuevoJugador(object objetoOrigen, 
+            RoutedEventArgs evento)
         {
-            Random generadorNumeroAleatorio = new Random();
-            return generadorNumeroAleatorio.Next(100000, 1000000).ToString();
-        }
+            string codigoVerificacion = cuadroTextoCodigoVerificacion.Text;
 
-        private void EventoAccionRegistrar(object controlOrigen, RoutedEventArgs evento)
-        {
-            string codigoVerificacion = CuadroTextoCodigoVerificacion.Text;
-
-            if (!string.IsNullOrEmpty(codigoGenerado))
+            if (!ValidadorDatos.EsCadenaVacia(codigoVerificacion))
             {
-                bool codigoVerificacionCoincide = codigoVerificacion.Equals(codigoGenerado);
+                bool esElMismoCodigoDeVerificacion = ValidadorDatos.
+                    ExisteCoincidenciaEnCadenas(codigoVerificacion, 
+                    GestionadorCodigoCorreo.CodigoGenerado);
 
-                if (codigoVerificacionCoincide)
+                if (esElMismoCodigoDeVerificacion)
                 {
-                    string contrasenaCifrada = EncriptadorContrasena.
-                        CalcularHashSha512(jugadorRegistro.Contrasena);
+                    string contrasenaCifrada = EncriptadorContrasena.CalcularHashSha512(
+                        jugadorRegistro.Contrasena);
                     CuentaJugador nuevoJugador = new CuentaJugador
                     {
                         NombreJugador = jugadorRegistro.NombreJugador,
@@ -101,22 +71,21 @@ namespace RompecabezasFei
                         Contrasena = contrasenaCifrada,
                         Correo = jugadorRegistro.Correo
                     };
-                    bool resultadoRegistro = Registrar(nuevoJugador);
+                    bool registroRealizado = Servicios.ServicioJugador.RegistrarJugador(
+                        nuevoJugador);
 
-                    if (resultadoRegistro)
+                    if (registroRealizado)
                     {
-                        temporizador.Stop();
-                        MessageBox.Show(
-                            Properties.Resources.
-                            ETIQUETA_VERIFICACIONCORREO_MENSAJEUSUARIOREGISTRADO,
-                            Properties.Resources.ETIQUETA_VERIFICACIONCORREO_REGISTROREALIZADO,
+                        Temporizador.DetenerTemporizador();                        
+                        MessageBox.Show(Properties.Resources.
+                            ETIQUETA_VERIFICACIONCORREO_MENSAJEUSUARIOREGISTRADO, Properties.
+                            Resources.ETIQUETA_VERIFICACIONCORREO_REGISTROREALIZADO,
                             MessageBoxButton.OK);
                         VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
                     }
                     else
                     {
-                        MessageBox.Show(
-                            Properties.Resources.
+                        MessageBox.Show(Properties.Resources.
                             ETIQUETA_VERIFICACIONCORREO_MENSAJEREGISTRONOREALIZADO,
                             Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ERRORREGISTRO,
                             MessageBoxButton.OK);
@@ -124,68 +93,36 @@ namespace RompecabezasFei
                 }
                 else
                 {
-                    MessageBox.Show(
-                        Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJECODIGOINCORRECTO,
+                    MessageBox.Show(Properties.Resources.
+                        ETIQUETA_VERIFICACIONCORREO_MENSAJECODIGOINCORRECTO,
                         Properties.Resources.ETIQUETA_VERIFICACIONCORREO_CODIGOINCORRECTO,
                         MessageBoxButton.OK);
                 }
             }
         }
 
-        private bool Registrar(CuentaJugador nuevoJugador)
-        {
-            ServicioJugadorClient cliente = new ServicioJugadorClient();
-            bool resultado = false;
-
-            try
-            {
-                resultado = cliente.Registrar(nuevoJugador);
-            }
-            catch (CommunicationException)
-            {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            catch (TimeoutException)
-            {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-
-            return resultado;
-        }
-
-        private void EventoAceptarSoloCaracteresNumericos(object objetoOrigen,
+        private void AceptarSoloCaracteresNumericos(object objetoOrigen,
             TextChangedEventArgs evento)
         {
-            if (objetoOrigen is TextBox CuadroTextoCodigoVerificacion)
+            if (objetoOrigen is TextBox cuadroTextoCodigoVerificacion)
             {
-                string texto = CuadroTextoCodigoVerificacion.Text = new string(
-                  CuadroTextoCodigoVerificacion.Text.Where(char.IsDigit).ToArray());
-                CuadroTextoCodigoVerificacion.CaretIndex =
-                    CuadroTextoCodigoVerificacion.Text.Length;
-                CuadroTextoCodigoVerificacion.Text = texto;
+                string texto = cuadroTextoCodigoVerificacion.Text = 
+                    new string(cuadroTextoCodigoVerificacion.Text.
+                    Where(char.IsDigit).ToArray());
+                cuadroTextoCodigoVerificacion.CaretIndex = 
+                    cuadroTextoCodigoVerificacion.Text.Length;
+                cuadroTextoCodigoVerificacion.Text = texto;
             }
-        }
+        }        
 
-        private void ActualizarTiempo(object objetoOrigen, EventArgs evento)
+        public void EnviarNuevoCodigoDeConfirmacionACorreo(object objetoOrigen, 
+            RoutedEventArgs evento)
         {
-            if (segundosRestantes > 0)
-            {
-                segundosRestantes--;
-                TimeSpan time = TimeSpan.FromSeconds(segundosRestantes);
-                EtiquetaTiempoRestante.Content = $"{time.Minutes:00}:{time.Seconds:00}";
-            }
-            else
-            {
-                temporizador.Stop();
-                EtiquetaTiempoRestante.Content = "00:00";
-                HabilitarBotonEnvioCodigo();
-            }
+            GestionadorCodigoCorreo.EnviarNuevoCodigoDeVerificacionACorreo(
+                jugadorRegistro.Correo, Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ASUNTO,
+                Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJE + " " +
+                GestionadorCodigoCorreo.CodigoGenerado);
+            IniciarTemporizador();
         }
 
         private void HabilitarBotonEnvioCodigo()

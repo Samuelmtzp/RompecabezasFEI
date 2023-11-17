@@ -1,4 +1,5 @@
 ﻿using RompecabezasFei.ServicioRompecabezasFei;
+using Seguridad;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -12,105 +13,130 @@ namespace RompecabezasFei
     [CallbackBehavior(ConcurrencyMode = ConcurrencyMode.Multiple)]
     public partial class PaginaSala : Page, IServicioSalaCallback
     {
-        #region Atributos
         private string codigoSala;
-        private bool esNuevaSala;
         private bool esAnfitrion;
-        private bool hayConexionEstablecida;
         private ServicioSalaClient clienteServicioJuego;
-        private ObservableCollection<Dominio.CuentaJugador> jugadoresSala;
-        #endregion
+        private ObservableCollection<Dominio.CuentaJugador> jugadoresEnSala;
 
-        #region Propiedades
         public string CodigoSala 
         {
             get { return codigoSala; }
             set { codigoSala = value; }
         }
-        public bool EsNuevaSala
+
+        public bool EsAnfitrion
         {
-            get { return esNuevaSala; }
-            set { esNuevaSala = value; }
+            get { return esAnfitrion; }
+            set { esAnfitrion = value; }
         }
-        public ObservableCollection<Dominio.CuentaJugador> JugadoresSala
+
+        public ObservableCollection<Dominio.CuentaJugador> JugadoresEnSala
         {
-            get { return jugadoresSala; }
-            set { jugadoresSala = value; }
+            get { return jugadoresEnSala; }
+            set { jugadoresEnSala = value; }
         }
-        #endregion
 
         public PaginaSala()
         {
             InitializeComponent();
-            jugadoresSala = new ObservableCollection<Dominio.CuentaJugador>();
+            jugadoresEnSala = new ObservableCollection<Dominio.CuentaJugador>();
             listaJugadoresSala.DataContext = this;
         }        
 
-        private void EventoClickRegresar(object remitente, MouseButtonEventArgs evento)
+        private void IrAPaginaMenuPrincipal(object objetoOrigen, MouseButtonEventArgs evento)
         {
             FinalizarConexionConSala();
             VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
         }
 
-        private void AccionCopiarCodigoSala(object remitente, RoutedEventArgs evento)
+        private void CopiarCodigoDeSalaEnPortapapeles(object objetoOrigen, 
+            RoutedEventArgs evento)
         {
             Clipboard.SetText(codigoSala);
         }
 
-        private void AccionEnviarMensaje(object remitente, RoutedEventArgs evento)
+        private void EnviarMensajeEnChatDeSala(object objetoOrigen, RoutedEventArgs evento)
         {
-            if (!string.IsNullOrEmpty(CuadroTextoMensajeUsuario.Text.Trim()))
+            if (!ValidadorDatos.EsCadenaVacia(cuadroTextoMensajeUsuario.Text.Trim()))
             {
                 clienteServicioJuego.EnviarMensajeDeSala(Dominio.CuentaJugador.
-                    Actual.NombreJugador, codigoSala, CuadroTextoMensajeUsuario.Text);
-                CuadroTextoMensajeUsuario.Clear();
+                    Actual.NombreJugador, codigoSala, cuadroTextoMensajeUsuario.Text);
+                cuadroTextoMensajeUsuario.Clear();
             }
         }
 
-        private void EventoClickNuevaPartida(object remitente, RoutedEventArgs evento)
+        private void IrAPaginaCreacionNuevaPartida(object objetoOrigen, RoutedEventArgs evento)
         {
-            VentanaPrincipal.CambiarPagina(new PaginaNuevaPartida(codigoSala));
-            
+            PaginaCreacionNuevaPartida paginaCreacionNuevaPartida = 
+                new PaginaCreacionNuevaPartida();
+            paginaCreacionNuevaPartida.CodigoSala = codigoSala;
+            VentanaPrincipal.CambiarPagina(paginaCreacionNuevaPartida);
         }
 
-        public void IniciarConexionConSala(bool esNuevaSala)
+        public void UnirseASala()
         {
-            this.esNuevaSala = esNuevaSala;
+            clienteServicioJuego = new ServicioSalaClient(new InstanceContext(this));
 
-            if (!hayConexionEstablecida)
+            if (esAnfitrion)
             {
-                clienteServicioJuego = new ServicioSalaClient(new InstanceContext(this));
-
-                if (esNuevaSala)
-                {
-                    esAnfitrion = true;
-                    botonNuevaPartida.Visibility = Visibility.Visible;
-                    CrearNuevaSala();
-                }
-                else
-                {
-                    esAnfitrion = false;
-                    botonNuevaPartida.Visibility = Visibility.Hidden;
-                }
-
-                jugadoresSala.Add(Dominio.CuentaJugador.Actual);
-                EtiquetaCodigoSala.Content = codigoSala;                
+                botonNuevaPartida.Visibility = Visibility.Visible;
+                CrearNuevaSala();
+            }
+            else
+            {
+                botonNuevaPartida.Visibility = Visibility.Hidden;
                 CargarJugadoresEnSala();
-                clienteServicioJuego.ConectarCuentaJugadorASala(Dominio.CuentaJugador.
-                    Actual.NombreJugador, codigoSala, 
-                    Properties.Resources.ETIQUETA_MENSAJESALA_BIENVENIDA);
-                hayConexionEstablecida = true;
+            }
+
+            etiquetaCodigoSala.Content = codigoSala;            
+            ConectarCuentaJugadorASala(Dominio.CuentaJugador.Actual.NombreJugador);
+            jugadoresEnSala.Add(Dominio.CuentaJugador.Actual);
+        }
+
+        private void ConectarCuentaJugadorASala(string nombreJugador)
+        {
+            try
+            {
+                clienteServicioJuego.ConectarCuentaJugadorASala(nombreJugador,
+                    codigoSala, Properties.Resources.ETIQUETA_MENSAJESALA_BIENVENIDA);
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                //Registros.Registros.escribirRegistro(excepcion.Message);
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                clienteServicioJuego.Abort();
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                //Registros.Registros.escribirRegistro(excepcion.Message);
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                clienteServicioJuego.Abort();
+            }
+            catch (TimeoutException excepcion)
+            {
+                //Registros.Registros.escribirRegistro(excepcion.Message);
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                clienteServicioJuego.Abort();
             }
         }
 
         private void CargarJugadoresEnSala()
         {
-            CuentaJugador[] jugadoresACargar = clienteServicioJuego.
+            CuentaJugador[] jugadoresRecuperados = Servicios.ServicioSala.
                 ObtenerJugadoresConectadosEnSala(codigoSala);
 
-            foreach (CuentaJugador jugador in jugadoresACargar)
+            foreach (CuentaJugador jugador in jugadoresRecuperados)
             {
-                jugadoresSala.Add(new Dominio.CuentaJugador
+                jugadoresEnSala.Add(new Dominio.CuentaJugador
                 {
                     NombreJugador = jugador.NombreJugador,
                     FuenteImagenAvatar = Utilidades.GeneradorImagenes.
@@ -119,105 +145,58 @@ namespace RompecabezasFei
             }
         }
 
-        public void CargarDatosSala(bool esAnfitrion, string codigoSala)
-        {
-            this.esAnfitrion = esAnfitrion;
-            EtiquetaCodigoSala.Content = codigoSala;
-        }
-
         private void CrearNuevaSala()
         {
-            try
+            codigoSala = Servicios.ServicioSala.GenerarCodigoParaNuevaSala();
+            
+            if (codigoSala != null)
             {
-                codigoSala = clienteServicioJuego.GenerarCodigoParaNuevaSala();
-                clienteServicioJuego.CrearNuevaSala(Dominio.CuentaJugador.
+                Servicios.ServicioSala.CrearNuevaSala(Dominio.CuentaJugador.
                     Actual.NombreJugador, codigoSala);
-            }
-            catch (CommunicationException)
-            {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-                clienteServicioJuego.Abort();
-            }
-            catch (TimeoutException)
-            {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-                clienteServicioJuego.Abort();
-            }
+            }     
         }
 
         private void FinalizarConexionConSala()
         {
-            if (hayConexionEstablecida)
-            {
-                try
-                {
-                    clienteServicioJuego.DesconectarCuentaJugadorDeSala(Dominio.
-                        CuentaJugador.Actual.NombreJugador, codigoSala,
-                        Properties.Resources.ETIQUETA_MENSAJESALA_DESPEDIDA);
-                }
-                catch (CommunicationException)
-                {
-                    MessageBox.Show(Properties.Resources.
-                        ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                        ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                        MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                catch (TimeoutException)
-                {
-                    MessageBox.Show(Properties.Resources.
-                        ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                        ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                        MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                finally
-                {
-                    clienteServicioJuego.Abort();                    
-                }
-
-                clienteServicioJuego = null;
-                hayConexionEstablecida = false;
-            }
-        }
-
-        public bool VerificarDisponibilidadSala(string idSala)
-        {
-            bool disponibilidadSala = false;
-            ServicioSalaClient cliente = new 
-                ServicioSalaClient(new InstanceContext(this));
-
             try
             {
-                disponibilidadSala = cliente.ExisteSalaDisponible(idSala);
+                clienteServicioJuego.DesconectarCuentaJugadorDeSala(Dominio.
+                    CuentaJugador.Actual.NombreJugador, codigoSala,
+                    Properties.Resources.ETIQUETA_MENSAJESALA_DESPEDIDA);
+                clienteServicioJuego.Close();
             }
-            catch (CommunicationException)
+            catch (EndpointNotFoundException excepcion)
             {
+                //Registros.Registros.escribirRegistro(excepcion.Message);
                 MessageBox.Show(Properties.Resources.
                     ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                     ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
                     MessageBoxButton.OK, MessageBoxImage.Error);
+                clienteServicioJuego.Abort();
             }
-            catch (TimeoutException)
+            catch (CommunicationObjectFaultedException excepcion)
             {
+                //Registros.Registros.escribirRegistro(excepcion.Message);
                 MessageBox.Show(Properties.Resources.
                     ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
                     ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
                     MessageBoxButton.OK, MessageBoxImage.Error);
+                clienteServicioJuego.Abort();
             }
-            finally
+            catch (TimeoutException excepcion)
             {
-                cliente.Abort();
+                //Registros.Registros.escribirRegistro(excepcion.Message);
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
+                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                clienteServicioJuego.Abort();
             }
 
-            return disponibilidadSala;
+            clienteServicioJuego = null;
         }
 
-        private void EventoClickModificarJugadores(object objetoOrigen,
+        private void ModificarJugadoresEnSala(object objetoOrigen,
             MouseButtonEventArgs evento)
         {
 
@@ -226,12 +205,12 @@ namespace RompecabezasFei
         #region Callbacks
         public void MostrarMensajeDeSala(string mensaje)
         {
-            CuadroTextoMensajes.AppendText(mensaje + "\n");
+            cuadroTextoMensajes.AppendText(mensaje + "\n");
         }
 
         public void NotificarNuevoJugadorConectadoEnSala(CuentaJugador nuevoJugador)
         {
-            if (jugadoresSala != null)
+            if (jugadoresEnSala != null)
             {
                 Dominio.CuentaJugador nuevaCuentaJugador = new Dominio.CuentaJugador
                 {
@@ -239,21 +218,21 @@ namespace RompecabezasFei
                         GenerarFuenteImagenAvatar(nuevoJugador.NumeroAvatar),
                     NombreJugador = nuevoJugador.NombreJugador
                 };
-                jugadoresSala.Add(nuevaCuentaJugador);
+                jugadoresEnSala.Add(nuevaCuentaJugador);
             }
         }
 
         public void NotificarJugadorDesconectadoDeSala(string nombreJugador)
         {
-            if (jugadoresSala != null)
+            if (jugadoresEnSala != null)
             {
                 Dominio.CuentaJugador cuentaJugadorEncontrada = 
-                    jugadoresSala.Where(jugador => jugador.NombreJugador == 
+                    jugadoresEnSala.Where(jugador => jugador.NombreJugador == 
                     nombreJugador).FirstOrDefault();
 
                 if (cuentaJugadorEncontrada != null)
                 {
-                    jugadoresSala.Remove(cuentaJugadorEncontrada);
+                    jugadoresEnSala.Remove(cuentaJugadorEncontrada);
                 }
             }
         }
