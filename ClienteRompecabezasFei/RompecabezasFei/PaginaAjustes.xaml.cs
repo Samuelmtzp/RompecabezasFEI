@@ -24,7 +24,7 @@ namespace RompecabezasFei
             if (App.Current.IdiomaActual == IdiomaIngles)
             {
                 cajaOpcionesIdioma.SelectedIndex = (int)Idioma.Ingles;
-            }                
+            }
             else
             {
                 cajaOpcionesIdioma.SelectedIndex = (int)Idioma.Espanol;
@@ -41,7 +41,7 @@ namespace RompecabezasFei
             else
             {
                 hayMusicaActivadaInicialmente = false;
-                botonCambioMusica.IsChecked = false;                
+                botonCambioMusica.IsChecked = false;
             }
         }
 
@@ -69,13 +69,13 @@ namespace RompecabezasFei
                 idioma = IdiomaEspanol;
             }
         }
-        
+
         private void RegresarAPaginaAnterior(object objetoOrigen, MouseButtonEventArgs evento)
         {
             if (typeof(PaginaInicioSesion).IsInstanceOfType(VentanaPrincipal.PaginaAnterior))
             {
                 VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
-            } 
+            }
             else
             {
                 VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
@@ -88,18 +88,18 @@ namespace RompecabezasFei
             RefrescarPaginaActual();
         }
 
-        private void EventoBotonCambioMusicaActivado(object controlOrigen, 
+        private void BotonCambioMusicaActivada(object objetoOrigen,
             RoutedEventArgs evento)
         {
             if (!hayMusicaActivadaInicialmente)
             {
                 App.Current.EstadoMusica(true);
-            }            
+            }
         }
 
-        private void EventoBotonCambioMusicaDesactivado(object controlOrigen, 
+        private void BotonCambioMusicaDesactivada(object objetoOrigen,
             RoutedEventArgs evento)
-        {              
+        {
             App.Current.EstadoMusica(false);
         }
         #endregion

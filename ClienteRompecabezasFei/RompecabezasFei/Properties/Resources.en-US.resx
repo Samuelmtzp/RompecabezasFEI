@@ -252,6 +252,9 @@
   <data name="ETIQUETA_ACTUALIZACIONINFORMACION_NOMBRENODISPONIBLE" xml:space="preserve">
     <value>The name is not available</value>
   </data>
+  <data name="ETIQUETA_ACTUALIZARCONTRASENA_CONTRASENANOACTUALIZADA" xml:space="preserve">
+    <value>Password update has not been done</value>
+  </data>
   <data name="ETIQUETA_AJUSTES_IDIOMA" xml:space="preserve">
     <value>Language</value>
   </data>
@@ -297,6 +300,9 @@
   <data name="ETIQUETA_CODIGO_CODIGONOCOINCIDE" xml:space="preserve">
     <value>Code does not match</value>
   </data>
+  <data name="ETIQUETA_CODIGO_CODIGONOENVIADO" xml:space="preserve">
+    <value>Code not sent</value>
+  </data>
   <data name="ETIQUETA_CODIGO_CODIGORESTABLECIMIENTO" xml:space="preserve">
     <value>Password reset code</value>
   </data>
@@ -308,6 +314,9 @@
   </data>
   <data name="ETIQUETA_CODIGO_MENSAJECODIGONOCOINCIDE" xml:space="preserve">
     <value>The code entered does not match</value>
+  </data>
+  <data name="ETIQUETA_CODIGO_MENSAJENOENVIADO" xml:space="preserve">
+    <value>Confirmation code could not be sent</value>
   </data>
   <data name="ETIQUETA_CONFIRMACIONCORREO_CODIGOCONFIRMACION" xml:space="preserve">
     <value>Confirmation code</value>
@@ -548,6 +557,9 @@
   </data>
   <data name="ETIQUETA_REGISTRO_CORREONODISPONIBLE" xml:space="preserve">
     <value>Email not available</value>
+  </data>
+  <data name="ETIQUETA_REGISTRO_MENSAJECORREONODISPONIBLE" xml:space="preserve">
+    <value>The email address entered is not available. Enter a different one.</value>
   </data>
   <data name="ETIQUETA_REGISTRO_REGISTROUSUARIO" xml:space="preserve">
     <value>Player register</value>

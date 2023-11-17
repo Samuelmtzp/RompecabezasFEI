@@ -46,7 +46,7 @@ namespace RompecabezasFei
         private void IrPaginaActualizacionInformacion(object objetoOrigen, RoutedEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaActualizacionInformacion(
-                Dominio.CuentaJugador.Actual.NombreJugador, 
+                Dominio.CuentaJugador.Actual.NombreJugador,
                 Dominio.CuentaJugador.Actual.NumeroAvatar));
         }
 

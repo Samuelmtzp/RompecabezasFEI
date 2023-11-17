@@ -8,6 +8,8 @@ namespace RompecabezasFei
 {
     public partial class PaginaActualizacionInformacion : Page
     {
+        private bool nombreModificado;
+
         public PaginaActualizacionInformacion(string nombreJugador, int numeroAvatar)
         {
             InitializeComponent();
@@ -19,16 +21,17 @@ namespace RompecabezasFei
             cuadroTextoNombreUsuario.Text = nombreJugador;
             imagenAvatarActual.Tag = Convert.ToInt16(numeroAvatar);
             imagenAvatarActual.Source = Utilidades.GeneradorImagenes.
-                GenerarFuenteImagenAvatar(numeroAvatar);            
+                GenerarFuenteImagenAvatar(numeroAvatar);
         }
 
-        #region Eventos        
-        private void EventoClickRegresar(object controlOrigen, MouseButtonEventArgs evento)
+        #region Eventos
+        private void RegresarPaginaInformacionJugador(object controlOrigen,
+            MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
         }
 
-        private void GuardarModificacionesDatosJugador(object objetoOrigen, 
+        private void GuardarModificacionesDatosJugador(object objetoOrigen,
             RoutedEventArgs evento)
         {
             string nombreAnterior = Dominio.CuentaJugador.Actual.NombreJugador;
@@ -77,7 +80,7 @@ namespace RompecabezasFei
                     {
                         MessageBox.Show(
                             Properties.Resources.
-                            ETIQUETA_ACTUALIZACIONINFORMACION_NOMBRENODISPONIBLE, 
+                            ETIQUETA_ACTUALIZACIONINFORMACION_NOMBRENODISPONIBLE,
                             Properties.Resources.
                             ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACION,
                             MessageBoxButton.OK);
@@ -109,14 +112,14 @@ namespace RompecabezasFei
 
         private bool ExistenModificacionesEnNombreJugador(string nuevoNombreJugador)
         {
-            bool resultado = true;
+            nombreModificado = true;
 
             if (Dominio.CuentaJugador.Actual.NombreJugador.Equals(nuevoNombreJugador))
             {
-                resultado = false;
+                nombreModificado = false;
             }
 
-            return resultado;
+            return nombreModificado;
         }
 
         private bool ExistenDatosInvalidosParaActualizacion()
@@ -139,7 +142,7 @@ namespace RompecabezasFei
                     Properties.Resources.ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS,
                     MessageBoxButton.OK);
             }
-                
+
             if (ValidadorDatos.ExistenCaracteresInvalidosParaNombreJugador(
                 cuadroTextoNombreUsuario.Text))
             {
@@ -152,6 +155,67 @@ namespace RompecabezasFei
 
             return datosInvalidos;
         }
+        #endregion
+
+        #region Método prueba
+        /*public void PruebaParaActualizarInformacion(string nuevoNombre, int nuevoNumeroAvatar)
+        {
+            //ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
+            bool esNombreDisponible = false;
+
+            try
+            {
+                esNombreDisponible = !cliente.ExisteNombreJugador(nuevoNombre);
+            }
+            catch (EndpointNotFoundException)
+            {
+                cliente.Abort();
+            }
+
+            if (esNombreDisponible)
+            {
+                bool actualizacionRealizada = false;
+                string nombreAnterior = Dominio.CuentaJugador.Actual.NombreJugador;
+
+                try
+                {
+                    actualizacionRealizada = cliente.ActualizarInformacion(nombreAnterior,
+                        nuevoNombre, nuevoNumeroAvatar);
+                    cliente.Close();
+                }
+                catch (EndpointNotFoundException)
+                {
+                    cliente.Abort();
+                }
+
+                if (actualizacionRealizada)
+                {
+                    MessageBox.Show(
+                      Properties.Resources.ETIQUETA_ACTUALIZACIONINFORMACION_MENSAJEACTUALIZACION,
+                     Properties.Resources.ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONREALIZADA,
+                        MessageBoxButton.OK);
+                    Dominio.CuentaJugador.Actual.NumeroAvatar = nuevoNumeroAvatar;
+                    Dominio.CuentaJugador.Actual.NombreJugador = nuevoNombre;
+                    Dominio.CuentaJugador.Actual.FuenteImagenAvatar = Utilidades.
+                        GeneradorImagenes.GenerarFuenteImagenAvatar(nuevoNumeroAvatar);
+                    VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
+                }
+                else
+                {
+                    MessageBox.Show(
+                   Properties.Resources.ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONNOREALIZADA,
+                        Properties.Resources.ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACION,
+                        MessageBoxButton.OK);
+                }
+            }
+            else
+            {
+                MessageBox.Show(
+                    Properties.Resources.ETIQUETA_ACTUALIZACIONINFORMACION_NOMBRENODISPONIBLE,
+                    Properties.Resources.ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACION,
+                    MessageBoxButton.OK);
+            }
+        }*/
         #endregion
     }
 }

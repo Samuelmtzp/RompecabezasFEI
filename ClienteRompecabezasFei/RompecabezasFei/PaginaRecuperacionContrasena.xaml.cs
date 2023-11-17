@@ -12,7 +12,7 @@ namespace RompecabezasFei
             InitializeComponent();
         }
 
-        private void IrPaginaRestablecimientoContrasena(object objetoOrigen, 
+        private void IrPaginaRestablecimientoContrasena(object objetoOrigen,
             RoutedEventArgs evento)
         {
             string correo = cuadroTextoCorreo.Text;
@@ -21,8 +21,8 @@ namespace RompecabezasFei
             {
                 if (Servicios.ServicioCorreo.ExisteCorreoElectronico(correo))
                 {
-                    PaginaCodigoRestablecimientoContrasena 
-                        paginaCodigoRestablecimientoContrasena = new 
+                    PaginaCodigoRestablecimientoContrasena
+                        paginaCodigoRestablecimientoContrasena = new
                         PaginaCodigoRestablecimientoContrasena(correo);
                     VentanaPrincipal.CambiarPagina(paginaCodigoRestablecimientoContrasena);
                 }
@@ -30,7 +30,7 @@ namespace RompecabezasFei
                 {
                     MessageBox.Show(Properties.Resources.
                         ETIQUETA_RECUPERACIONCONTRASENA_MENSAJECORREOINEXISTENE, Properties.
-                        Resources.ETIQUETA_RECUPERACIONCONTRASENA_CORREOINEXISTENTE, 
+                        Resources.ETIQUETA_RECUPERACIONCONTRASENA_CORREOINEXISTENTE,
                         MessageBoxButton.OK);
                 }
             }

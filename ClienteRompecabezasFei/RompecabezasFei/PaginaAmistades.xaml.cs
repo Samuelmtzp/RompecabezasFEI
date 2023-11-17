@@ -381,7 +381,7 @@ namespace RompecabezasFei
         private void RechazarSolicitudDeAmistad(object controlOrigen, RoutedEventArgs evento)
         {
             var filaActual = (ListBoxItem)listaSolicitudes.ContainerFromElement(
-                (Button)controlOrigen);
+                (Button)objetoOrigen);
             filaActual.IsSelected = true;
             var jugadorSeleccionado = (Dominio.CuentaJugador)listaSolicitudes.SelectedItem;
             string nombreJugadorOrigen = jugadorSeleccionado.NombreJugador;

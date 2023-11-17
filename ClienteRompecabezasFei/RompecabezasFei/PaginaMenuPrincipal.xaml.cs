@@ -24,7 +24,7 @@ namespace RompecabezasFei
             imagenMisAmigos.Visibility = Visibility.Visible;
             imagenAvatarUsuario.Source = Dominio.CuentaJugador.Actual.FuenteImagenAvatar;
         }
-            
+
         #region Eventos
         private void CrearNuevaSala(object objetoOrigen, RoutedEventArgs evento)
         {
@@ -49,8 +49,8 @@ namespace RompecabezasFei
         private void CerrarSesion(object objetoOrigen, MouseButtonEventArgs evento)
         {
             MessageBoxResult resultadoOpcionCerrarSesion = MessageBox.Show(
-                Properties.Resources.ETIQUETA_CERRARSESION_MENSAJE, 
-                Properties.Resources.ETIQUETA_CERRARSESION_TITULO, 
+                Properties.Resources.ETIQUETA_CERRARSESION_MENSAJE,
+                Properties.Resources.ETIQUETA_CERRARSESION_TITULO,
                 MessageBoxButton.YesNo, MessageBoxImage.Question);
 
             if (resultadoOpcionCerrarSesion == MessageBoxResult.Yes)

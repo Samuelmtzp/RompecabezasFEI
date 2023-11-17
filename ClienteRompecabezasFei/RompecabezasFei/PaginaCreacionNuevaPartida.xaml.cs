@@ -64,7 +64,7 @@ namespace RompecabezasFei
         private void OcultarPreseleccionDeImagen(object objetoOrigen, MouseEventArgs evento)
         {
             Border borde = objetoOrigen as Border;
-            
+
             if (borde != bordeImagenSeleccionada)
             {
                 ImagenRompecabezas imagen = borde.DataContext as ImagenRompecabezas;
@@ -96,7 +96,7 @@ namespace RompecabezasFei
             // - boton iniciar partida
         }
 
-        private void SeleccionarDificultad(object controlOrigen, 
+        private void SeleccionarDificultad(object controlOrigen,
             SelectionChangedEventArgs evento)
         {
             dificultad = (Dificultad)cuadroSeleccionDificultad.SelectedIndex;
@@ -106,5 +106,5 @@ namespace RompecabezasFei
         {
             VentanaPrincipal.CambiarPagina(new PaginaPartida(dificultad, numeroImagen));
         }
-    }    
+    }
 }

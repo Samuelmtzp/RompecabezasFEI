@@ -21,7 +21,7 @@ namespace RompecabezasFei
 
             if (!EsContrasenaInvalida(contrasena))
             {
-                if (ValidadorDatos.ExisteCoincidenciaEnCadenas(cuadroContrasenaNueva.Password, 
+                if (ValidadorDatos.ExisteCoincidenciaEnCadenas(cuadroContrasenaNueva.Password,
                     cuadroConfirmarNuevaContrasena.Password))
                 {
                     string contrasenaCifrada = EncriptadorContrasena.
@@ -41,7 +41,7 @@ namespace RompecabezasFei
                     {
                         MessageBox.Show(Properties.Resources.
                             ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENANORESTABLECIDA, Properties.
-                            Resources.ETIQUETA_RESTABLECIMIENTO_CONTRASENANORESTABLECIDA, 
+                            Resources.ETIQUETA_RESTABLECIMIENTO_CONTRASENANORESTABLECIDA,
                             MessageBoxButton.OK);
                     }
                 }
@@ -49,7 +49,7 @@ namespace RompecabezasFei
                 {
                     MessageBox.Show(Properties.Resources.
                         ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE,
-                        Properties.Resources.ETIQUETA_VALIDACION_CONTRASENADIFERENTE, 
+                        Properties.Resources.ETIQUETA_VALIDACION_CONTRASENADIFERENTE,
                         MessageBoxButton.OK);
                 }
             }
@@ -60,7 +60,7 @@ namespace RompecabezasFei
         {
             bool camposInvalidos = false;
 
-            if (ValidadorDatos.ExisteLongitudExcedidaEnContrasena(contrasena) || 
+            if (ValidadorDatos.ExisteLongitudExcedidaEnContrasena(contrasena) ||
                 ValidadorDatos.ExistenCaracteresInvalidosParaContrasena(contrasena))
             {
                 camposInvalidos = true;

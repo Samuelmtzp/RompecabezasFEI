@@ -19,7 +19,7 @@ namespace RompecabezasFei
 
         #region Métodos privados
         private void EnviarCodigo()
-        {            
+        {
             bool envioDeCodigoRealizado = GestionadorCodigoCorreo.
                 EnviarNuevoCodigoDeVerificacionACorreo(correoDestino, Properties.Resources.
                 ETIQUETA_CODIGO_CODIGORESTABLECIMIENTO, Properties.Resources.
@@ -27,8 +27,10 @@ namespace RompecabezasFei
 
             if (!envioDeCodigoRealizado)
             {
-                MessageBox.Show("El código de confirmación no pudo enviarse", "Codigo no enviado",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(Properties.Resources.
+                            ETIQUETA_CODIGO_MENSAJENOENVIADO, Properties.Resources.
+                            ETIQUETA_CODIGO_CODIGONOENVIADO,
+                            MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         #endregion
@@ -39,7 +41,7 @@ namespace RompecabezasFei
             VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
         }
 
-        private void IrPaginaRestablecimientoContrasena(object objetoOrigen, 
+        private void IrPaginaRestablecimientoContrasena(object objetoOrigen,
             RoutedEventArgs evento)
         {
             string codigoVerificacion = cuadroTextoCodigoRestablecimiento.Text;
@@ -56,21 +58,21 @@ namespace RompecabezasFei
                 }
                 else
                 {
-                    MessageBox.Show(Properties.Resources.ETIQUETA_CODIGO_MENSAJECODIGONOCOINCIDE, 
+                    MessageBox.Show(Properties.Resources.ETIQUETA_CODIGO_MENSAJECODIGONOCOINCIDE,
                         Properties.Resources.ETIQUETA_CODIGO_CODIGONOCOINCIDE,
                         MessageBoxButton.OK);
                 }
             }
         }
 
-        private void EventoAceptarSoloCaracteresNumericos(object controlOrigen,
+        private void AceptarSoloCaracteresNumericos(object objetoOrigen,
             TextChangedEventArgs evento)
         {
-            if (controlOrigen is TextBox cuadroTextoCodigoRestablecimiento)
+            if (objetoOrigen is TextBox cuadroTextoCodigoRestablecimiento)
             {
                 string texto = cuadroTextoCodigoRestablecimiento.Text = new string(
                     cuadroTextoCodigoRestablecimiento.Text.Where(char.IsDigit).ToArray());
-                cuadroTextoCodigoRestablecimiento.CaretIndex = 
+                cuadroTextoCodigoRestablecimiento.CaretIndex =
                     cuadroTextoCodigoRestablecimiento.Text.Length;
                 cuadroTextoCodigoRestablecimiento.Text = texto;
             }

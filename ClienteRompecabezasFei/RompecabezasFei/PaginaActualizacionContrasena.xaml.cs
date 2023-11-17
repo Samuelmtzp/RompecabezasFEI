@@ -22,17 +22,17 @@ namespace RompecabezasFei
         private void ActualizarContrasena(object objetoOrigen, RoutedEventArgs evento)
         {
             string contrasenaActual = Dominio.CuentaJugador.Actual.Contrasena;
-            string contrasenaAnterior = cuadroContrasenaActual.Password;     
+            string contrasenaAnterior = cuadroContrasenaActual.Password;
             string nuevaContrasena = cuadroNuevaContrasena.Password;
             string confirmacionContrasena = cuadroConfirmacionContrasena.Password;
 
             if (ValidadorDatos.ExisteCoincidenciaEnCadenas(contrasenaAnterior, contrasenaActual))
             {
-                if (!ValidadorDatos.ExisteCoincidenciaEnCadenas(contrasenaAnterior, 
+                if (!ValidadorDatos.ExisteCoincidenciaEnCadenas(contrasenaAnterior,
                     nuevaContrasena))
                 {
                     if (!ExistenDatosInvalidos(nuevaContrasena, confirmacionContrasena))
-                    {                        
+                    {
                         string correoJugador = Dominio.CuentaJugador.Actual.Correo;
                         string nuevaContrasenaCifrada = EncriptadorContrasena.
                             CalcularHashSha512(nuevaContrasena);
@@ -59,8 +59,8 @@ namespace RompecabezasFei
         }
         #endregion
 
-        #region Validaciones        
-        private bool ExistenDatosInvalidos(string nuevaContrasena, 
+        #region Validaciones
+        private bool ExistenDatosInvalidos(string nuevaContrasena,
             string confirmacionContrasena)
         {
             bool hayDatosInvalidos = false;
@@ -90,7 +90,7 @@ namespace RompecabezasFei
                 hayDatosInvalidos = true;
             }
 
-            if (!ValidadorDatos.ExisteCoincidenciaEnCadenas(nuevaContrasena, 
+            if (!ValidadorDatos.ExisteCoincidenciaEnCadenas(nuevaContrasena,
                 confirmacionContrasena))
             {
                 MessageBox.Show(Properties.Resources.
@@ -104,14 +104,14 @@ namespace RompecabezasFei
         private bool ExistenCamposVacios()
         {
             bool resultado = false;
-            
+
             if (ValidadorDatos.EsCadenaVacia(cuadroContrasenaActual.Password) ||
                 ValidadorDatos.EsCadenaVacia(cuadroNuevaContrasena.Password) ||
                 ValidadorDatos.EsCadenaVacia(cuadroConfirmacionContrasena.Password))
             {
-                resultado = true;               
+                resultado = true;
             }
-            
+
             return resultado;
         }
         #endregion

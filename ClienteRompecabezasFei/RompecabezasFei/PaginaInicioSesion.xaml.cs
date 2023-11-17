@@ -5,6 +5,11 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using Registros;
+using System.Diagnostics;
+using System.IO;
 
 namespace RompecabezasFei
 {
@@ -19,13 +24,15 @@ namespace RompecabezasFei
         private void IniciarSesionComoInvitado(object objetoOrigen, RoutedEventArgs evento)
         {
             int numeroAleatorio = new Random().Next();
+
             Dominio.CuentaJugador.Actual = new Dominio.CuentaJugador()
             {
-                NombreJugador = Properties.Resources.ETIQUETA_GENERAL_INVITADO + 
+                NombreJugador = Properties.Resources.ETIQUETA_GENERAL_INVITADO +
                     numeroAleatorio,
                 EsInvitado = true,
             };
             VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
+
         }
 
         private void IrPaginaRecuperacionContrasena(object objetoOrigen,
@@ -84,7 +91,7 @@ namespace RompecabezasFei
                 {
                     MessageBox.Show(Properties.Resources.
                         ETIQUETA_VALIDACION_MENSAJECAMPOSINVALIDOS, Properties.Resources.
-                        ETIQUETA_VALIDACION_CAMPOSINVALIDOS, MessageBoxButton.OK, 
+                        ETIQUETA_VALIDACION_CAMPOSINVALIDOS, MessageBoxButton.OK,
                         MessageBoxImage.Error);
                 }
             }
@@ -132,7 +139,7 @@ namespace RompecabezasFei
         {
             bool resultado = false;
 
-            if (ValidadorDatos.ExisteLongitudExcedidaEnNombreJugador(nombreJugador) || 
+            if (ValidadorDatos.ExisteLongitudExcedidaEnNombreJugador(nombreJugador) ||
                 ValidadorDatos.ExisteLongitudExcedidaEnContrasena(contrasena))
             {
                 resultado = true;

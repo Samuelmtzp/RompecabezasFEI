@@ -31,7 +31,7 @@ namespace Logica
             using (var contexto = new EntidadesRompecabezasFei())
             {
                 var coincidencias = (from cuenta in contexto.Cuenta 
-                                    where cuenta.Correo.Equals(correoElectronico) 
+                                    where cuenta.Correo == correoElectronico
                                     select cuenta).Count();
 
                 if (coincidencias > 0)

@@ -81,7 +81,7 @@ namespace RompecabezasFei
             }
         }
 
-        #region Validaciones        
+        #region Validaciones
         private bool ExistenCamposInvalidos()
         {
             bool hayCamposInvalidos = false;
@@ -91,7 +91,7 @@ namespace RompecabezasFei
                 MessageBox.Show(Properties.Resources.
                     ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS, Properties.Resources.
                     ETIQUETA_VALIDACION_CAMPOSVACIOS, MessageBoxButton.OK);
-                hayCamposInvalidos = true;                
+                hayCamposInvalidos = true;
             }
 
             if (ValidadorDatos.ExistenCaracteresInvalidosParaNombreJugador(
@@ -120,13 +120,13 @@ namespace RompecabezasFei
                     ETIQUETA_VALIDACION_CONTRASENAINVALIDA, MessageBoxButton.OK);
                 hayCamposInvalidos = true;
             }
-            
+
             if (ExistenLongitudesExcedidas())
             {
                 MessageBox.Show(Properties.Resources.
                     ETIQUETA_VALIDACION_MENSAJECAMPOSEXCEDIDOS, Properties.Resources.
-                    ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS, MessageBoxButton.OK); 
-                hayCamposInvalidos = true;                
+                    ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS, MessageBoxButton.OK);
+                hayCamposInvalidos = true;
             }
 
             if (!ValidadorDatos.ExisteCoincidenciaEnCadenas(cuadroContrasenaContrasena.Password,
