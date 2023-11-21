@@ -5,7 +5,7 @@ using System.Windows.Media.Imaging;
 
 namespace RompecabezasFei.Utilidades
 {
-    public class GeneradorImagenes
+    public static class GeneradorImagenes
     {
         public static BitmapImage GenerarFuenteImagenAvatar(int numeroAvatar)
         {

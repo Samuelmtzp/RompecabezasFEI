@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace Seguridad
 {
-    public class ValidadorDatos
+    public static class ValidadorDatos
     {
         private const int MaximoCaracteresContrasena = 45;
         private const int MaximoCaracteresCorreo = 65;
@@ -53,8 +53,8 @@ namespace Seguridad
         {
             bool contrasenaInvalida = false;
 
-            if (Regex.IsMatch(contrasena, PatronContrasena, RegexOptions.None,
-                TimeSpan.FromMilliseconds(MilisegundosMaximosParaExpresionRegular)) == false)
+            if (!Regex.IsMatch(contrasena, PatronContrasena, RegexOptions.None,
+                TimeSpan.FromMilliseconds(MilisegundosMaximosParaExpresionRegular)))
             {
                 contrasenaInvalida = true;
             }
@@ -66,8 +66,8 @@ namespace Seguridad
         {
             bool resultado = false;
 
-            if (Regex.IsMatch(nombreJugador, PatronNombreJugador, RegexOptions.None,
-                TimeSpan.FromMilliseconds(MilisegundosMaximosParaExpresionRegular)) == false)
+            if (!Regex.IsMatch(nombreJugador, PatronNombreJugador, RegexOptions.None,
+                TimeSpan.FromMilliseconds(MilisegundosMaximosParaExpresionRegular)))
             {
                 resultado = true;
             }
@@ -79,8 +79,8 @@ namespace Seguridad
         {
             bool resultado = false;
 
-            if (Regex.IsMatch(correo, PatronCorreo, RegexOptions.None, 
-                TimeSpan.FromMilliseconds(MilisegundosMaximosParaExpresionRegular)) == false)
+            if (!Regex.IsMatch(correo, PatronCorreo, RegexOptions.None, 
+                TimeSpan.FromMilliseconds(MilisegundosMaximosParaExpresionRegular)))
             {
                 resultado = true;
             }

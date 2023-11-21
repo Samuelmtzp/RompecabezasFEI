@@ -8,23 +8,23 @@ namespace RompecabezasFei.Utilidades
         public const int DuracionContadorSegundos = 60;
         public const int MinimoSegundosRestantes = 0; 
         public const int IntervaloDeSegundos = 1;
-        public int segundosRestantes;
-        public DispatcherTimer temporizador;
+        public int SegundosRestantes { get; set; }
+        public DispatcherTimer Cronometro { get; set; }
 
         public void IniciarTemporizador()
         {
-            segundosRestantes = DuracionContadorSegundos;
-            temporizador = new DispatcherTimer
+            SegundosRestantes = DuracionContadorSegundos;
+            Cronometro = new DispatcherTimer
             {
                 Interval = TimeSpan.FromSeconds(IntervaloDeSegundos)
             };
-            temporizador.Start();
+            Cronometro.Start();
         }
 
         public void DetenerTemporizador()
         {
-            segundosRestantes = 0;
-            temporizador.Stop();
+            SegundosRestantes = 0;
+            Cronometro.Stop();
         }
     }
 }

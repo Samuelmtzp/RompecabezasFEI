@@ -30,16 +30,16 @@ namespace RompecabezasFei
         {
             DeshabilitarBotonEnvioCodigo();
             temporizador = new Temporizador();
-            temporizador.temporizador.Tick += ActualizarTiempoRestante;
+            temporizador.Cronometro.Tick += ActualizarTiempoRestante;
             temporizador.IniciarTemporizador();
         }
 
         public void ActualizarTiempoRestante(object objetoOrigen, EventArgs evento)
         {
-            if (temporizador.segundosRestantes > Temporizador.MinimoSegundosRestantes)
+            if (temporizador.SegundosRestantes > Temporizador.MinimoSegundosRestantes)
             {
-                temporizador.segundosRestantes--;
-                TimeSpan tiempoRestante = TimeSpan.FromSeconds(temporizador.segundosRestantes);
+                temporizador.SegundosRestantes--;
+                TimeSpan tiempoRestante = TimeSpan.FromSeconds(temporizador.SegundosRestantes);
                 etiquetaTiempoRestante.Content = $"{tiempoRestante.Minutes:00}:" +
                     $"{tiempoRestante.Seconds:00}";
             }
@@ -106,9 +106,10 @@ namespace RompecabezasFei
         private void AceptarSoloCaracteresNumericos(object objetoOrigen,
             TextChangedEventArgs evento)
         {
-            if (objetoOrigen is TextBox)
+            TextBox cuadroTexto = objetoOrigen as TextBox;
+
+            if (cuadroTexto != null)
             {
-                TextBox cuadroTexto = (TextBox)objetoOrigen;
                 string texto = cuadroTexto.Text = new string(cuadroTexto.Text.Where(
                     char.IsDigit).ToArray());
                 cuadroTexto.CaretIndex = cuadroTexto.Text.Length;
