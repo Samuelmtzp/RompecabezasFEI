@@ -12,21 +12,11 @@ namespace RompecabezasFei
 {
     public partial class PaginaAmistades : Page, IServicioAmistadesCallback
     {
-        private ObservableCollection<Dominio.CuentaJugador> cuentasDeAmigos;
-        private ObservableCollection<Dominio.CuentaJugador> cuentasDeSolicitudes;
         private ServicioAmistadesClient clienteServicioAmistades;
 
-        public ObservableCollection<Dominio.CuentaJugador> CuentasDeAmigos
-        {
-            get { return cuentasDeAmigos; }
-            set { cuentasDeAmigos = value; }
-        }
+        public ObservableCollection<Dominio.CuentaJugador> CuentasDeAmigos { get; set; }
 
-        public ObservableCollection<Dominio.CuentaJugador> CuentasDeSolicitudes
-        {
-            get { return cuentasDeSolicitudes; }
-            set { cuentasDeSolicitudes = value; }
-        }
+        public ObservableCollection<Dominio.CuentaJugador> CuentasDeSolicitudes { get; set; }
 
         public PaginaAmistades(bool inicializarDatos)
         {
@@ -44,11 +34,11 @@ namespace RompecabezasFei
 
         private void CargarAmigosJugador()
         {
-            cuentasDeAmigos = new ObservableCollection<Dominio.CuentaJugador>();
+            CuentasDeAmigos = new ObservableCollection<Dominio.CuentaJugador>();
             CuentaJugador[] amigosObtenidos = Servicios.ServicioAmistades.
                 ObtenerAmigosDeJugador(Dominio.CuentaJugador.Actual.NombreJugador);
 
-            if (amigosObtenidos != null && amigosObtenidos.Count() > 0)
+            if (amigosObtenidos != null && amigosObtenidos.Any())
             {
                 foreach (CuentaJugador amigo in amigosObtenidos)
                 {
@@ -61,18 +51,18 @@ namespace RompecabezasFei
                         ColorEstadoConectividad = ObtenerColorSegunEstadoConectividad(
                             amigo.EstadoConectividad),
                     };
-                    cuentasDeAmigos.Add(cuentaAmigo);
+                    CuentasDeAmigos.Add(cuentaAmigo);
                 }
             }
         }
 
         private void CargarJugadoresConSolicitudPendiente()
         {
-            cuentasDeSolicitudes = new ObservableCollection<Dominio.CuentaJugador>();
+            CuentasDeSolicitudes = new ObservableCollection<Dominio.CuentaJugador>();
             CuentaJugador[] jugadoresObtenidos = Servicios.ServicioAmistades.
                 ObtenerJugadoresConSolicitudPendiente(Dominio.CuentaJugador.Actual.NombreJugador);
 
-            if (jugadoresObtenidos != null && jugadoresObtenidos.Count() > 0)
+            if (jugadoresObtenidos != null && jugadoresObtenidos.Any())
             {
                 foreach (CuentaJugador jugador in jugadoresObtenidos)
                 {
@@ -85,7 +75,7 @@ namespace RompecabezasFei
                         ColorEstadoConectividad = ObtenerColorSegunEstadoConectividad(
                             jugador.EstadoConectividad),
                     };
-                    cuentasDeSolicitudes.Add(cuentaSolicitud);
+                    CuentasDeSolicitudes.Add(cuentaSolicitud);
                 }
             }
         }
@@ -307,7 +297,7 @@ namespace RompecabezasFei
 
             if (eliminacionRealizada)
             {
-                cuentasDeAmigos.Remove(jugadorSeleccionado);
+                CuentasDeAmigos.Remove(jugadorSeleccionado);
             }
             else
             {
@@ -367,8 +357,8 @@ namespace RompecabezasFei
 
             if (solicitudAceptada)
             {
-                cuentasDeSolicitudes.Remove(jugadorSeleccionado);
-                cuentasDeAmigos.Add(jugadorSeleccionado);
+                CuentasDeSolicitudes.Remove(jugadorSeleccionado);
+                CuentasDeAmigos.Add(jugadorSeleccionado);
             }
             else
             {
@@ -423,7 +413,7 @@ namespace RompecabezasFei
 
             if (solicitudRechazada)
             {
-                cuentasDeSolicitudes.Remove(jugadorSeleccionado);
+                CuentasDeSolicitudes.Remove(jugadorSeleccionado);
             }
             else
             {
@@ -436,11 +426,11 @@ namespace RompecabezasFei
         public void NotificarEstadoConectividadDeJugador(string nombreJugador,
             EstadoConectividadJugador estado)
         {
-            if (cuentasDeAmigos != null)
+            if (CuentasDeAmigos != null)
             {
-                var cuentaAmigoModificacion = cuentasDeAmigos.Where(amigo =>
-                    amigo.NombreJugador == nombreJugador).FirstOrDefault();
-                cuentasDeAmigos.Remove(cuentaAmigoModificacion);
+                var cuentaAmigoModificacion = CuentasDeAmigos.FirstOrDefault(amigo =>
+                    amigo.NombreJugador == nombreJugador);
+                CuentasDeAmigos.Remove(cuentaAmigoModificacion);
 
                 if (cuentaAmigoModificacion != null)
                 {
@@ -448,15 +438,15 @@ namespace RompecabezasFei
                         ObtenerColorSegunEstadoConectividad(estado);
                 }
 
-                cuentasDeAmigos.Insert(0, cuentaAmigoModificacion);
+                CuentasDeAmigos.Insert(0, cuentaAmigoModificacion);
             }
         }
 
         public void NotificarSolicitudAmistadEnviada(CuentaJugador cuentaNuevaSolicitud)
         {
-            if (cuentasDeSolicitudes != null)
+            if (CuentasDeSolicitudes != null)
             {
-                cuentasDeSolicitudes.Add(new Dominio.CuentaJugador
+                CuentasDeSolicitudes.Add(new Dominio.CuentaJugador
                 {
                     NombreJugador = cuentaNuevaSolicitud.NombreJugador,
                     NumeroAvatar = cuentaNuevaSolicitud.NumeroAvatar,
@@ -470,18 +460,18 @@ namespace RompecabezasFei
 
         public void NotificarSolicitudAmistadAceptada(CuentaJugador cuentaNuevoAmigo)
         {
-            if (cuentasDeAmigos != null)
+            if (CuentasDeAmigos != null)
             {
-                var solicitudAmistadResidual = cuentasDeSolicitudes.Where(cuentaSolicitud =>
+                var solicitudAmistadResidual = CuentasDeSolicitudes.FirstOrDefault(cuentaSolicitud =>
                     cuentaSolicitud.NombreJugador ==
-                    cuentaNuevoAmigo.NombreJugador).FirstOrDefault();
+                    cuentaNuevoAmigo.NombreJugador);
 
                 if (solicitudAmistadResidual != null)
                 {
-                    cuentasDeSolicitudes.Remove(solicitudAmistadResidual);
+                    CuentasDeSolicitudes.Remove(solicitudAmistadResidual);
                 }
 
-                cuentasDeAmigos.Add(new Dominio.CuentaJugador
+                CuentasDeAmigos.Add(new Dominio.CuentaJugador
                 {
                     NombreJugador = cuentaNuevoAmigo.NombreJugador,
                     NumeroAvatar = cuentaNuevoAmigo.NumeroAvatar,
@@ -495,14 +485,14 @@ namespace RompecabezasFei
 
         public void NotificarAmistadEliminada(string nombreAmigoEliminacion)
         {
-            if (cuentasDeAmigos != null)
+            if (CuentasDeAmigos != null)
             {
-                var cuentaAmigoEliminacion = cuentasDeAmigos.Where(amigo =>
-                    amigo.NombreJugador == nombreAmigoEliminacion).FirstOrDefault();
+                var cuentaAmigoEliminacion = CuentasDeAmigos.FirstOrDefault(amigo =>
+                    amigo.NombreJugador == nombreAmigoEliminacion);
 
                 if (cuentaAmigoEliminacion != null)
                 {
-                    cuentasDeAmigos.Remove(cuentaAmigoEliminacion);
+                    CuentasDeAmigos.Remove(cuentaAmigoEliminacion);
                 }
             }
         }

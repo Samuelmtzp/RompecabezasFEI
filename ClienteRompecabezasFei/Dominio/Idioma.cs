@@ -1,6 +1,6 @@
 ﻿namespace Dominio
 {
-    public enum Idioma : int
+    public enum Idioma
     {
         Ingles = 0,
         Espanol = 1,

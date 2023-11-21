@@ -7,20 +7,14 @@ namespace Dominio
 {
     public class Pieza : UIElement
     {
-        private Image imagen;
         private Border borde;
-        private double ancho;
-        private double alto;
         private bool estaDentroDeCelda;
-        private int filaCorrecta;
-        private int columnaCorrecta;
-        CroppedBitmap fuenteImagenRecortada;
 
-        public Image Imagen
-        {
-            get { return imagen; }
-            set { imagen = value; }
-        }
+        public double Ancho { get; set; }
+
+        public double Alto { get; set; }
+
+        public Image Imagen { get; set; }
 
         public Border Borde
         {
@@ -28,20 +22,8 @@ namespace Dominio
             set
             {
                 borde = value;
-                borde.Child = imagen;
+                borde.Child = Imagen;
             }
-        }
-
-        public double Ancho
-        {
-            get { return ancho; }
-            set { ancho = value; }
-        }
-
-        public double Alto
-        {
-            get { return alto; }
-            set { alto = value; }
         }
 
         public bool EstaDentroDeCelda
@@ -50,6 +32,7 @@ namespace Dominio
             set
             {
                 estaDentroDeCelda = value;
+
                 if (estaDentroDeCelda)
                 {
                     EstablecerEstiloDePiezaDentroDeCelda();
@@ -57,38 +40,32 @@ namespace Dominio
             }
         }
 
-        public int FilaCorrecta
-        {
-            get { return filaCorrecta; }
-            set { filaCorrecta = value; }
-        }
+        public int FilaCorrecta { get; set; }
 
-        public int ColumnaCorrecta
-        {
-            get { return columnaCorrecta; }
-            set { columnaCorrecta = value; }
-        }
+        public int ColumnaCorrecta { get; set; }
+
+        public CroppedBitmap FuenteImagenRecortada { get; set; }
 
         public void EstablecerFuenteImagen(BitmapImage fuenteImagenOriginal, 
             Int32Rect areaRecorte)
         {
-            fuenteImagenRecortada = new CroppedBitmap(fuenteImagenOriginal, areaRecorte);
-            imagen = new Image
+            FuenteImagenRecortada = new CroppedBitmap(fuenteImagenOriginal, areaRecorte);
+            Imagen = new Image
             {
-                Source = fuenteImagenRecortada,
-                Width = ancho,
-                Height = alto,
+                Source = FuenteImagenRecortada,
+                Width = Ancho,
+                Height = Alto,
             };
         }
 
         public double ObtenerDiferenciaAnchoEntreImagenYBorde()
         {
-            return Borde.ActualWidth - Imagen.Width;
+            return borde.ActualWidth - Imagen.Width;
         }
 
         public double ObtenerDiferenciaAlturaEntreImagenYBorde()
         {
-            return Borde.ActualHeight - Imagen.Height;
+            return borde.ActualHeight - Imagen.Height;
         }
 
         public void EstablecerEstiloDePiezaSeleccionada()

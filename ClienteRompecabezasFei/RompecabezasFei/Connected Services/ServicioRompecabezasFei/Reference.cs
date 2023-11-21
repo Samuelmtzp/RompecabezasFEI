@@ -468,10 +468,10 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         System.Threading.Tasks.Task<RompecabezasFei.ServicioRompecabezasFei.CuentaJugador> IniciarSesionAsync(string nombreJugador, string contrasena);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJugador/CerrarSesion", ReplyAction="http://tempuri.org/IServicioJugador/CerrarSesionResponse")]
-        bool CerrarSesion(string nombreUsuario);
+        bool CerrarSesion(string nombreJugador);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJugador/CerrarSesion", ReplyAction="http://tempuri.org/IServicioJugador/CerrarSesionResponse")]
-        System.Threading.Tasks.Task<bool> CerrarSesionAsync(string nombreUsuario);
+        System.Threading.Tasks.Task<bool> CerrarSesionAsync(string nombreJugador);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJugador/ActualizarInformacion", ReplyAction="http://tempuri.org/IServicioJugador/ActualizarInformacionResponse")]
         bool ActualizarInformacion(string nombreAnterior, string nuevoNombre, int nuevoNumeroAvatar);
@@ -537,12 +537,12 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
             return base.Channel.IniciarSesionAsync(nombreJugador, contrasena);
         }
         
-        public bool CerrarSesion(string nombreUsuario) {
-            return base.Channel.CerrarSesion(nombreUsuario);
+        public bool CerrarSesion(string nombreJugador) {
+            return base.Channel.CerrarSesion(nombreJugador);
         }
         
-        public System.Threading.Tasks.Task<bool> CerrarSesionAsync(string nombreUsuario) {
-            return base.Channel.CerrarSesionAsync(nombreUsuario);
+        public System.Threading.Tasks.Task<bool> CerrarSesionAsync(string nombreJugador) {
+            return base.Channel.CerrarSesionAsync(nombreJugador);
         }
         
         public bool ActualizarInformacion(string nombreAnterior, string nuevoNombre, int nuevoNumeroAvatar) {

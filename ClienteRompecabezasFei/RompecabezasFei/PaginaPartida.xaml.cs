@@ -20,14 +20,9 @@ namespace RompecabezasFei
         private readonly Tablero tablero;
         private Point posicionInicialCursor;
         private Pieza piezaActual;
-        private ObservableCollection<Dominio.CuentaJugador> jugadoresPartida;
         #endregion
 
-        public ObservableCollection<Dominio.CuentaJugador> JugadoresPartida
-        {
-            get { return jugadoresPartida; }
-            set { jugadoresPartida = value; }
-        }
+        public ObservableCollection<Dominio.CuentaJugador> JugadoresPartida { get; set; }
 
         public PaginaPartida() 
         {
@@ -43,8 +38,9 @@ namespace RompecabezasFei
                 Celdas = new List<Celda>(),
                 NumeroImagenRompecabezas = numeroImagenRompecabezas
             };
-            jugadoresPartida = new ObservableCollection<Dominio.CuentaJugador>();
+            JugadoresPartida = new ObservableCollection<Dominio.CuentaJugador>();
             listaJugadoresPartida.DataContext = this;
+            CargarJugadoresPartida();
         }
 
         private void CargarJugadoresPartida()
@@ -276,7 +272,7 @@ namespace RompecabezasFei
 
         private void IrPaginaAjustesPartida(object objetoOrigen, MouseButtonEventArgs evento)
         {
-
+            // Implementar la funcionalidad de redirigir a pagina de ajustes de partida
         }
 
         private void IniciarJuego(object objetoOrigen, RoutedEventArgs evento)

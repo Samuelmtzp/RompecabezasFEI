@@ -13,6 +13,7 @@ namespace RompecabezasFei
     public partial class PaginaVerificacionCorreo : Page
     {
         private readonly Dominio.CuentaJugador jugadorRegistro;
+        private Temporizador temporizador;
 
         public PaginaVerificacionCorreo(Dominio.CuentaJugador jugadorRegistro)
         {
@@ -28,22 +29,23 @@ namespace RompecabezasFei
         private void IniciarTemporizador()
         {
             DeshabilitarBotonEnvioCodigo();
-            Temporizador.temporizador.Tick += ActualizarTiempoRestante;
-            Temporizador.IniciarTemporizador();
+            temporizador = new Temporizador();
+            temporizador.temporizador.Tick += ActualizarTiempoRestante;
+            temporizador.IniciarTemporizador();
         }
 
         public void ActualizarTiempoRestante(object objetoOrigen, EventArgs evento)
         {
-            if (Temporizador.segundosRestantes > Temporizador.MinimoSegundosRestantes)
+            if (temporizador.segundosRestantes > Temporizador.MinimoSegundosRestantes)
             {
-                Temporizador.segundosRestantes--;
-                TimeSpan tiempoRestante = TimeSpan.FromSeconds(Temporizador.segundosRestantes);
+                temporizador.segundosRestantes--;
+                TimeSpan tiempoRestante = TimeSpan.FromSeconds(temporizador.segundosRestantes);
                 etiquetaTiempoRestante.Content = $"{tiempoRestante.Minutes:00}:" +
                     $"{tiempoRestante.Seconds:00}";
             }
             else
             {
-                Temporizador.DetenerTemporizador();
+                temporizador.DetenerTemporizador();
                 etiquetaTiempoRestante.Content = "00:00";
                 HabilitarBotonEnvioCodigo();
             }
@@ -76,7 +78,7 @@ namespace RompecabezasFei
 
                     if (registroRealizado)
                     {
-                        Temporizador.DetenerTemporizador();                        
+                        temporizador.DetenerTemporizador();
                         MessageBox.Show(Properties.Resources.
                             ETIQUETA_VERIFICACIONCORREO_MENSAJEUSUARIOREGISTRADO, Properties.
                             Resources.ETIQUETA_VERIFICACIONCORREO_REGISTROREALIZADO,
@@ -104,14 +106,13 @@ namespace RompecabezasFei
         private void AceptarSoloCaracteresNumericos(object objetoOrigen,
             TextChangedEventArgs evento)
         {
-            if (objetoOrigen is TextBox cuadroTextoCodigoVerificacion)
+            if (objetoOrigen is TextBox)
             {
-                string texto = cuadroTextoCodigoVerificacion.Text = 
-                    new string(cuadroTextoCodigoVerificacion.Text.
-                    Where(char.IsDigit).ToArray());
-                cuadroTextoCodigoVerificacion.CaretIndex = 
-                    cuadroTextoCodigoVerificacion.Text.Length;
-                cuadroTextoCodigoVerificacion.Text = texto;
+                TextBox cuadroTexto = (TextBox)objetoOrigen;
+                string texto = cuadroTexto.Text = new string(cuadroTexto.Text.Where(
+                    char.IsDigit).ToArray());
+                cuadroTexto.CaretIndex = cuadroTexto.Text.Length;
+                cuadroTexto.Text = texto;
             }
         }        
 

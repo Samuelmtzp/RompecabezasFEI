@@ -56,11 +56,6 @@ namespace Servicios
             
             try
             {
-                CuentaJugador cuentaJugadorRegistro = new CuentaJugador()
-                {
-                    Correo = correo,
-                    Contrasena = contrasena,
-                };
                 resultado = registro.ActualizarContrasena(correo, contrasena);
             }
             catch (EntityException)
@@ -220,10 +215,11 @@ namespace Servicios
         public bool ExisteSalaDisponible(string codigoSala)
         {
             bool resultado = false;
-            Sala salaEncontrada = salasActivas.FirstOrDefault(
+            Sala salaEncontrada = salasActivas.First(
                 sala => sala.CodigoSala.Equals(codigoSala));
             
-            if (salaEncontrada != null && salaEncontrada.ExisteCupoJugadores())
+            if (!string.IsNullOrEmpty(salaEncontrada.CodigoSala) &&
+                salaEncontrada.ExisteCupoJugadores())
             {
                 resultado = true;
             }
@@ -238,10 +234,11 @@ namespace Servicios
             {
                 jugadoresConectados[nombreJugador].OperacionesContexto.
                     ContextoIServicioSala = OperationContext.Current;
-                Sala salaEncontrada = salasActivas.FirstOrDefault(
-                    sala => sala.CodigoSala.Equals(codigoSala));
+                Sala salaEncontrada = salasActivas.First(sala => 
+                    sala.CodigoSala.Equals(codigoSala));
 
-                if (salaEncontrada.ExisteCupoJugadores())
+                if (!string.IsNullOrEmpty(salaEncontrada.CodigoSala) &&
+                    salaEncontrada.ExisteCupoJugadores())
                 {
                     EnviarMensajeDeSala(nombreJugador, codigoSala, mensajeBienvenida);
                     NotificarNuevoJugadorConectadoASala(
@@ -257,17 +254,18 @@ namespace Servicios
             string codigoSala, string mensajeDespedida)
         {
             CuentaJugador cuentaJugadorEncontrada = null;
-            Sala salaEncontrada = salasActivas.FirstOrDefault(sala => 
+            Sala salaEncontrada = salasActivas.First(sala => 
                 sala.CodigoSala.Equals(codigoSala));
 
-            if (salaEncontrada != null)
+            if (!string.IsNullOrEmpty(salaEncontrada.CodigoSala))
             {
                 cuentaJugadorEncontrada = salaEncontrada.Jugadores.
-                    FirstOrDefault(cuentaJugador =>
+                    First(cuentaJugador =>
                     cuentaJugador.NombreJugador == nombreJugador);                
             }
 
-            if (cuentaJugadorEncontrada != null)
+            if (cuentaJugadorEncontrada!= null && !string.IsNullOrEmpty(
+                cuentaJugadorEncontrada.NombreJugador))
             {
                 if (jugadoresConectados.ContainsKey(nombreJugador))
                 {
@@ -293,19 +291,24 @@ namespace Servicios
         public void EnviarMensajeDeSala(string nombreJugador, string codigoSala, 
             string mensaje)
         {
-            Sala salaEncontrada = salasActivas.FirstOrDefault(sala => 
+            Sala salaEncontrada = salasActivas.First(sala => 
                 sala.CodigoSala.Equals(codigoSala));
             
-            foreach (CuentaJugador cuentaJugador in salaEncontrada.Jugadores)
+            if (!string.IsNullOrEmpty(salaEncontrada.CodigoSala))
             {
-                string horaActual = DateTime.Now.ToShortTimeString();
-                string mensajeFinal = horaActual + $" {nombreJugador}: {mensaje}";
-                
-                if (cuentaJugador.OperacionesContexto.ContextoIServicioSala != null)
+                foreach (GestionContexto gestionadorContextoJugador in 
+                    salaEncontrada.Jugadores.Select(cuentaJugador => 
+                    cuentaJugador.OperacionesContexto))
                 {
-                    cuentaJugador.OperacionesContexto.ContextoIServicioSala.
-                        GetCallbackChannel<IServicioJuegoCallback>().
-                        MostrarMensajeDeSala(mensajeFinal);
+                    string horaActual = DateTime.Now.ToShortTimeString();
+                    string mensajeFinal = horaActual + $" {nombreJugador}: {mensaje}";
+
+                    if (gestionadorContextoJugador.ContextoIServicioSala != null)
+                    {
+                        gestionadorContextoJugador.ContextoIServicioSala.
+                            GetCallbackChannel<IServicioJuegoCallback>().
+                            MostrarMensajeDeSala(mensajeFinal);
+                    }
                 }
             }
         }
@@ -313,28 +316,34 @@ namespace Servicios
         private void NotificarNuevoJugadorConectadoASala(CuentaJugador nuevoJugador, 
             string codigoSala)
         {
-            Sala salaEncontrada = salasActivas.FirstOrDefault(sala =>
+            Sala salaEncontrada = salasActivas.First(sala =>
                 sala.CodigoSala.Equals(codigoSala));
 
-            foreach (CuentaJugador jugador in salaEncontrada.Jugadores)
+            if (!string.IsNullOrEmpty(salaEncontrada.CodigoSala))
             {
-                jugador.OperacionesContexto.ContextoIServicioSala.GetCallbackChannel<
-                    IServicioJuegoCallback>().NotificarNuevoJugadorConectadoEnSala(
-                    nuevoJugador);
+                foreach (CuentaJugador jugador in salaEncontrada.Jugadores)
+                {
+                    jugador.OperacionesContexto.ContextoIServicioSala.GetCallbackChannel<
+                        IServicioJuegoCallback>().NotificarNuevoJugadorConectadoEnSala(
+                        nuevoJugador);
+                }
             }
         }
 
         private void NotificarJugadorDesconectadoDeSala(string nombreJugador, 
             string codigoSala)
         {
-            Sala salaEncontrada = salasActivas.FirstOrDefault(sala =>
+            Sala salaEncontrada = salasActivas.First(sala =>
                 sala.CodigoSala.Equals(codigoSala));
 
-            foreach (CuentaJugador jugador in salaEncontrada.Jugadores)
+            if (!string.IsNullOrEmpty(salaEncontrada.CodigoSala))
             {
-                jugador.OperacionesContexto.ContextoIServicioSala.GetCallbackChannel<
-                    IServicioJuegoCallback>().NotificarJugadorDesconectadoDeSala(
-                    nombreJugador);
+                foreach (CuentaJugador jugador in salaEncontrada.Jugadores)
+                {
+                    jugador.OperacionesContexto.ContextoIServicioSala.GetCallbackChannel<
+                        IServicioJuegoCallback>().NotificarJugadorDesconectadoDeSala(
+                        nombreJugador);
+                }
             }
         }
 
@@ -346,10 +355,10 @@ namespace Servicios
         public List<CuentaJugador> ObtenerJugadoresConectadosEnSala(string codigoSala)
         {
             List<CuentaJugador> jugadoresEnSala = new List<CuentaJugador>();
-            Sala salaEncontrada = salasActivas.FirstOrDefault(sala =>
+            Sala salaEncontrada = salasActivas.First(sala =>
                 sala.CodigoSala.Equals(codigoSala));
 
-            if (salaEncontrada != null)
+            if (!string.IsNullOrEmpty(salaEncontrada.CodigoSala))
             {
                 jugadoresEnSala = salaEncontrada.Jugadores;
             }

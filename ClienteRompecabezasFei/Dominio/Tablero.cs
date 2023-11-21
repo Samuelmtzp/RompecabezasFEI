@@ -4,45 +4,22 @@ using System.Linq;
 namespace Dominio
 {
     public class Tablero
-    {        
-        private double anchoDeCelda;
-        private double alturaDeCelda;
-        private int totalFilas;
-        private int totalColumnas;
-        private int numeroImagenRompecabezas;
+    {
         private Dificultad dificultad;
-        private List<Pieza> piezas;
-        private List<Celda> celdas;
 
-        public double AnchoDeCelda
-        {
-            get { return anchoDeCelda; }
-            set { anchoDeCelda = value; }
-        }
+        public double AnchoDeCelda { get; set; }
 
-        public double AlturaDeCelda
-        {
-            get { return alturaDeCelda; }
-            set { alturaDeCelda = value; }
-        }
+        public double AlturaDeCelda { get; set; }
 
-        public int TotalFilas
-        {
-            get { return totalFilas; }
-            set { totalFilas = value; }
-        }
+        public int TotalFilas { get; set; }
 
-        public int TotalColumnas
-        {
-            get { return totalColumnas; }
-            set { totalColumnas = value; }
-        }
+        public int TotalColumnas { get; set; }
 
-        public int NumeroImagenRompecabezas
-        {
-            get { return numeroImagenRompecabezas; }
-            set { numeroImagenRompecabezas = value; }
-        }
+        public int NumeroImagenRompecabezas { get; set; }
+
+        public List<Pieza> Piezas { get; set; }
+
+        public List<Celda> Celdas { get; set; }
 
         public Dificultad Dificultad
         {
@@ -54,46 +31,34 @@ namespace Dominio
                 switch (dificultad)
                 {
                     case Dificultad.Facil:
-                        totalFilas = 6;
-                        totalColumnas = 10;
+                        TotalFilas = 6;
+                        TotalColumnas = 10;
                         break;
                     case Dificultad.Medio:
-                        totalFilas = 8;
-                        totalColumnas = 13;
+                        TotalFilas = 8;
+                        TotalColumnas = 13;
                         break;
                     case Dificultad.Dificil:
-                        totalFilas = 10;
-                        totalColumnas = 16;
+                        TotalFilas = 10;
+                        TotalColumnas = 16;
                         break;
                 }
             }
         } 
 
-        public List<Pieza> Piezas
-        {
-            get { return piezas; }
-            set { piezas = value; }
-        }
-
-        public List<Celda> Celdas
-        {
-            get { return celdas; }
-            set { celdas = value; }
-        }
-
         public bool EsRompecabezasCompletado()
         {
-            bool esJuegoCompletado = false;
-            var piezasSinAcomodar = from pieza in piezas
-                                    where pieza.EstaDentroDeCelda == false
+            bool resultado = false;
+            var piezasSinAcomodar = from pieza in Piezas
+                                    where !pieza.EstaDentroDeCelda
                                     select pieza;
 
-            if (piezasSinAcomodar.Count() == 0)
+            if (piezasSinAcomodar.Any())
             {
-                esJuegoCompletado = true;
+                resultado = true;
             }
 
-            return esJuegoCompletado;
+            return resultado;
         }
     }
 }

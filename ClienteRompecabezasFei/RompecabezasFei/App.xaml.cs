@@ -9,7 +9,6 @@ namespace RompecabezasFei
     {
         private readonly List<string> idiomasDisponibles;
         private string idiomaActual;
-        private bool musicaActiva;
         SoundPlayer reproductorMusica;
 
         public string IdiomaActual
@@ -23,34 +22,25 @@ namespace RompecabezasFei
             }
         }
 
-        public bool MusicaActiva
-        {
-            get
-            {
-                return musicaActiva;
-            }
-            set
-            {
-                musicaActiva = value;   
-            }
-        }
+        public bool MusicaActiva { get; set; }
 
         public static new App Current
         {
             get
             {
-                return (App) Application.Current;
+                return (App)Application.Current;
             }
         }
 
         App()
         {
-            idiomasDisponibles = new List<string>() 
-            { 
-                "es-MX", 
-                "en-US" 
+            const int NumeroIdiomaInicial = 0;
+            idiomasDisponibles = new List<string>()
+            {
+                "es-MX",
+                "en-US"
             };
-            IdiomaActual = idiomasDisponibles[0];
+            IdiomaActual = idiomasDisponibles[NumeroIdiomaInicial];
         }
 
         public void CambiarIdioma(string nuevoIdioma)
@@ -62,17 +52,17 @@ namespace RompecabezasFei
         {
             if (musicaActivada)
             {
-                reproductorMusica.PlayLooping();    
-                musicaActiva = true;
+                reproductorMusica.PlayLooping();
+                MusicaActiva = true;
             }
             else
             {
                 reproductorMusica.Stop();
-                musicaActiva = false;
+                MusicaActiva = false;
             }
         }
 
-        protected override void OnStartup(StartupEventArgs evento)
+        protected override void OnStartup(StartupEventArgs e)
         {
             reproductorMusica = new SoundPlayer(RompecabezasFei.Properties.
                 ResourceSonidos.MusicaRompecabezasFei);

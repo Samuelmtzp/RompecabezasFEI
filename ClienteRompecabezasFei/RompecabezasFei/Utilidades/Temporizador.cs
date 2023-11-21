@@ -8,10 +8,10 @@ namespace RompecabezasFei.Utilidades
         public const int DuracionContadorSegundos = 60;
         public const int MinimoSegundosRestantes = 0; 
         public const int IntervaloDeSegundos = 1;
-        public static int segundosRestantes;
-        public static DispatcherTimer temporizador;
+        public int segundosRestantes;
+        public DispatcherTimer temporizador;
 
-        public static void IniciarTemporizador()
+        public void IniciarTemporizador()
         {
             segundosRestantes = DuracionContadorSegundos;
             temporizador = new DispatcherTimer
@@ -21,7 +21,7 @@ namespace RompecabezasFei.Utilidades
             temporizador.Start();
         }
 
-        public static void DetenerTemporizador()
+        public void DetenerTemporizador()
         {
             segundosRestantes = 0;
             temporizador.Stop();

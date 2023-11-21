@@ -5,82 +5,39 @@ namespace Logica
     [DataContract]
     public class CuentaJugador
     {
-        #region Atributos
-        private int idJugador;
-        private string nombreJugador;
-        private int numeroAvatar;
-        private string correo;
-        private string contrasena;
-        private int puntaje;
-        private EstadoConectividadJugador estadoConectividad;
-        private GestionContexto operacionesContexto;
-        #endregion
-
         #region Propiedades
         [DataMember]
-        public int IdJugador
-        {
-            get { return idJugador; }
-            set { idJugador = value; }
-        }
+        public int IdJugador { get; set; }
 
         [DataMember]
-        public string NombreJugador
-        {
-            get { return nombreJugador; }
-            set { nombreJugador = value; }
-        }
+        public string NombreJugador { get; set; }
 
         [DataMember]
-        public int NumeroAvatar
-        {
-            get { return numeroAvatar; }
-            set { numeroAvatar = value; }
-        }
+        public int NumeroAvatar { get; set; }
         
         [DataMember]
-        public string Correo
-        {
-            get { return correo; }
-            set { correo = value; }
-        }
+        public string Correo { get; set; }
         
         [DataMember]
-        public string Contrasena
-        {
-            get { return contrasena; }
-            set { contrasena = value; }
-        }
+        public string Contrasena { get; set; }
 
         [DataMember]
-        public int Puntaje
-        {
-            get { return puntaje; }
-            set { puntaje = value; }
-        }
+        public int Puntaje { get; set; }
 
         [DataMember]
-        public EstadoConectividadJugador EstadoConectividad
-        {
-            get { return estadoConectividad; }
-            set { estadoConectividad = value; }
-        }
+        public EstadoConectividadJugador EstadoConectividad { get; set; }
 
         // Operaciones de contexto para interfaces de callbacks
-        public GestionContexto OperacionesContexto
-        {
-            get { return operacionesContexto; }
-            set { operacionesContexto = value; }
-        }
+        public GestionContexto OperacionesContexto { get; set; }
         #endregion
 
         #region Métodos
         public override string ToString()
         {
-            return $"NombreJugador = {nombreJugador}\n" +
-                $"NumeroAvatar = {numeroAvatar}\n" +
-                $"Correo = {correo}\n" +
-                $"Contrasena = {contrasena}";
+            return $"NombreJugador = {NombreJugador}\n" +
+                $"NumeroAvatar = {NumeroAvatar}\n" +
+                $"Correo = {Correo}\n" +
+                $"Contrasena = {Contrasena}";
         }
         #endregion
     }

@@ -25,34 +25,29 @@ namespace RompecabezasFei
             string nuevaContrasena = cuadroNuevaContrasena.Password;
             string confirmacionContrasena = cuadroConfirmacionContrasena.Password;
 
-            if (ValidadorDatos.ExisteCoincidenciaEnCadenas(contrasenaAnterior, contrasenaActual))
+            if (ValidadorDatos.ExisteCoincidenciaEnCadenas(contrasenaAnterior, contrasenaActual) &&
+                !ValidadorDatos.ExisteCoincidenciaEnCadenas(contrasenaAnterior, nuevaContrasena) && 
+                !ExistenDatosInvalidos(nuevaContrasena, confirmacionContrasena))
             {
-                if (!ValidadorDatos.ExisteCoincidenciaEnCadenas(contrasenaAnterior,
-                    nuevaContrasena))
-                {
-                    if (!ExistenDatosInvalidos(nuevaContrasena, confirmacionContrasena))
-                    {
-                        string correoJugador = Dominio.CuentaJugador.Actual.Correo;
-                        string nuevaContrasenaCifrada = EncriptadorContrasena.
-                            CalcularHashSha512(nuevaContrasena);
-                        bool actualizacionRealizada = Servicios.ServicioJugador.
-                            ActualizarContrasena(correoJugador, nuevaContrasenaCifrada);
+                string correoJugador = Dominio.CuentaJugador.Actual.Correo;
+                string nuevaContrasenaCifrada = EncriptadorContrasena.
+                    CalcularHashSha512(nuevaContrasena);
+                bool actualizacionRealizada = Servicios.ServicioJugador.
+                    ActualizarContrasena(correoJugador, nuevaContrasenaCifrada);
 
-                        if (actualizacionRealizada)
-                        {
-                            MessageBox.Show("La actualización de la contraseña " +
-                                "se ha realizado correctamente",
-                                "Actualización realizada correctamente",
-                                MessageBoxButton.OK);
-                            Dominio.CuentaJugador.Actual.Contrasena = nuevaContrasena;
-                            VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
-                        }
-                        else
-                        {
-                            MessageBox.Show("La actualización de la contraseña no se ha realizado",
-                                "Error al actualizar información", MessageBoxButton.OK);
-                        }
-                    }
+                if (actualizacionRealizada)
+                {
+                    MessageBox.Show("La actualización de la contraseña " +
+                        "se ha realizado correctamente",
+                        "Actualización realizada correctamente",
+                        MessageBoxButton.OK);
+                    Dominio.CuentaJugador.Actual.Contrasena = nuevaContrasena;
+                    VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
+                }
+                else
+                {
+                    MessageBox.Show("La actualización de la contraseña no se ha realizado",
+                        "Error al actualizar información", MessageBoxButton.OK);
                 }
             }
         }
