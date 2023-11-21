@@ -1,4 +1,5 @@
 ﻿using RompecabezasFei.ServicioRompecabezasFei;
+using RompecabezasFei.Utilidades;
 using Seguridad;
 using System;
 using System.Collections.ObjectModel;
@@ -87,29 +88,17 @@ namespace RompecabezasFei
             }
             catch (EndpointNotFoundException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioJuego.Abort();
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioJuego.Abort();
             }
             catch (TimeoutException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioJuego.Abort();
             }
         }
@@ -152,29 +141,17 @@ namespace RompecabezasFei
             }
             catch (EndpointNotFoundException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioJuego.Abort();
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioJuego.Abort();
             }
             catch (TimeoutException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioJuego.Abort();
             }
 
