@@ -1,5 +1,5 @@
-›
-bC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\Autenticacion.cs
+Á
+lC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\Autenticacion.cs
 	namespace 	
 Logica
  
@@ -176,8 +176,8 @@ Contrasena$$= G
 ;))  !
 }** 	
 }++ 
-},, å(
-eC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\ConsultasJugador.cs
+},, ñ(
+oC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\ConsultasJugador.cs
 	namespace 	
 Logica
  
@@ -455,8 +455,8 @@ eC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logi
 ;JJ" #
 }KK 	
 }LL 
-}MM ˝
-bC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\CuentaJugador.cs
+}MM ‘$
+lC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\CuentaJugador.cs
 	namespace 	
 Logica
  
@@ -468,170 +468,267 @@ bC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logi
 
 class 
 CuentaJugador 
-{ 
-[		 	
-
-DataMember			 
-]		 
-public
+{ 
+private		 
+int		 
+	idJugador		 
+;		 
+private
 
- 
-int
+ 
+string
 
- 
-	IdJugador
+ 
+nombreJugador
 
- 
-{
-
- 
-get
-
- "
+ $
 ;
 
-" #
-set
-
-$ '
-;
-
-' (
-}
-
-) *
-[ 	
+$ %
+private 
+int 
+numeroAvatar  
+;  !
+private 
+string 
+correo 
+; 
+private 
+string 
 
-DataMember	 
-] 
-public 
-string 
-NombreJugador #
-{$ %
-get& )
-;) *
-set+ .
-;. /
-}0 1
-[ 	
+contrasena !
+;! "
+private 
+int 
+puntaje 
+; 
+private %
+EstadoConectividadJugador )
+estadoConectividad* <
+;< =
+private 
+GestionContexto 
+operacionesContexto  3
+;3 4
+[ 	
 
-DataMember	 
-] 
-public 
-int 
-NumeroAvatar 
-{  !
-get" %
-;% &
-set' *
-;* +
-}, -
-[ 	
-
-DataMember	 
-] 
-public 
-string 
-Correo 
-{ 
-get "
-;" #
-set$ '
-;' (
-}) *
-[ 	
-
-DataMember	 
-] 
-public 
-string 
-
-Contrasena  
-{! "
-get# &
-;& '
-set( +
-;+ ,
-}- .
-[ 	
-
-DataMember	 
-] 
-public 
-int 
-Puntaje 
-{ 
-get  
-;  !
-set" %
-;% &
-}' (
+DataMember	 
+] 
+public 
+int 
+	IdJugador 
+{ 	
+get 
+{ 
+return 
+	idJugador "
+;" #
+}$ %
+set 
+{ 
+	idJugador 
+= 
+value #
+;# $
+}% &
+} 	
 [ 	
 
 DataMember	 
 ] 
-public %
-EstadoConectividadJugador (
-EstadoConectividad) ;
-{< =
-get> A
-;A B
-setC F
-;F G
-}H I
-public 
-GestionContexto 
-OperacionesContexto 2
-{3 4
-get5 8
-;8 9
-set: =
-;= >
-}? @
-public## 
-override## 
-string## 
-ToString## '
-(##' (
-)##( )
-{$$ 	
-return%% 
-$"%% 
-$str%% %
-{%%% &
-NombreJugador%%& 3
-}%%3 4
-$str%%4 6
-"%%6 7
-+%%8 9
-$"&& 
-$str&& !
-{&&! "
-NumeroAvatar&&" .
-}&&. /
-$str&&/ 1
-"&&1 2
-+&&3 4
-$"'' 
-$str'' 
-{'' 
-Correo'' "
-}''" #
-$str''# %
-"''% &
-+''' (
-$"(( 
-$str(( 
-{((  
+public 
+string 
+NombreJugador #
+{ 	
+get 
+{ 
+return 
+nombreJugador &
+;& '
+}( )
+set 
+{ 
+nombreJugador 
+=  !
+value" '
+;' (
+}) *
+}   	
+["" 	
 
-Contrasena((  *
-}((* +
-"((+ ,
-;((, -
-})) 	
-}++ 
-},, Á
-nC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\EstadoConectividadJugador.cs
+DataMember""	 
+]"" 
+public## 
+int## 
+NumeroAvatar## 
+{$$ 	
+get%% 
+{%% 
+return%% 
+numeroAvatar%% %
+;%%% &
+}%%' (
+set&& 
+{&& 
+numeroAvatar&& 
+=&&  
+value&&! &
+;&&& '
+}&&( )
+}'' 	
+[)) 	
+
+DataMember))	 
+])) 
+public** 
+string** 
+Correo** 
+{++ 	
+get,, 
+{,, 
+return,, 
+correo,, 
+;,,  
+},,! "
+set-- 
+{-- 
+correo-- 
+=-- 
+value--  
+;--  !
+}--" #
+}.. 	
+[00 	
+
+DataMember00	 
+]00 
+public11 
+string11 
+
+Contrasena11  
+{22 	
+get33 
+{33 
+return33 
+
+contrasena33 #
+;33# $
+}33% &
+set44 
+{44 
+
+contrasena44 
+=44 
+value44 $
+;44$ %
+}44& '
+}55 	
+[77 	
+
+DataMember77	 
+]77 
+public88 
+int88 
+Puntaje88 
+{99 	
+get:: 
+{:: 
+return:: 
+puntaje::  
+;::  !
+}::" #
+set;; 
+{;; 
+puntaje;; 
+=;; 
+value;; !
+;;;! "
+};;# $
+}<< 	
+[>> 	
+
+DataMember>>	 
+]>> 
+public?? %
+EstadoConectividadJugador?? (
+EstadoConectividad??) ;
+{@@ 	
+getAA 
+{AA 
+returnAA 
+estadoConectividadAA +
+;AA+ ,
+}AA- .
+setBB 
+{BB 
+estadoConectividadBB $
+=BB% &
+valueBB' ,
+;BB, -
+}BB. /
+}CC 	
+publicFF 
+GestionContextoFF 
+OperacionesContextoFF 2
+{GG 	
+getHH 
+{HH 
+returnHH 
+operacionesContextoHH ,
+;HH, -
+}HH. /
+setII 
+{II 
+operacionesContextoII %
+=II& '
+valueII( -
+;II- .
+}II/ 0
+}JJ 	
+publicNN 
+overrideNN 
+stringNN 
+ToStringNN '
+(NN' (
+)NN( )
+{OO 	
+returnPP 
+$"PP 
+$strPP %
+{PP% &
+nombreJugadorPP& 3
+}PP3 4
+$strPP4 6
+"PP6 7
++PP8 9
+$"QQ 
+$strQQ !
+{QQ! "
+numeroAvatarQQ" .
+}QQ. /
+$strQQ/ 1
+"QQ1 2
++QQ3 4
+$"RR 
+$strRR 
+{RR 
+correoRR "
+}RR" #
+$strRR# %
+"RR% &
++RR' (
+$"SS 
+$strSS 
+{SS  
+
+contrasenaSS  *
+}SS* +
+"SS+ ,
+;SS, -
+}TT 	
+}VV 
+}WW ë
+xC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\EstadoConectividadJugador.cs
 	namespace 	
 Logica
  
@@ -640,6 +737,8 @@ nC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logi
 
 enum %
 EstadoConectividadJugador )
+:* +
+int, /
 { 
 Desconectado 
 = 
@@ -653,8 +752,8 @@ nC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logi
 = 
 $num 
 } 
-}		 ‚
-lC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\GeneradorMensajesCorreo.cs
+}		 £
+vC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\GeneradorMensajesCorreo.cs
 	namespace		 	
 Logica		
  
@@ -671,13 +770,15 @@ lC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logi
 readonly 
 ILog  $
 Log% (
-=) *
-Registrador+ 6
-.6 7
-	GetLogger7 @
-(@ A
-)A B
-;B C
+=) *
+	Registros+ 4
+.4 5
+Registrador5 @
+.@ A
+	GetLoggerA J
+(J K
+)K L
+;L M
 public 
 bool 
 EnviarMensaje !
@@ -718,176 +819,170 @@ SmtpClient) 3
 ,D E
 NumeroPuertoF R
 )R S
-;S T
-clienteSmtp 
-. 
-	EnableSsl !
-=" #
-true$ (
-;( )
-try 
-{ 
-MailMessage 
-mensajeCorreo )
-=* +
-new, /
-MailMessage0 ;
-(; <
-)< =
-{ 
-From 
-= 
-new 
-MailAddress *
-(* +
+;S T
+try 
+{ 
+MailMessage 
+mensajeCorreo )
+=* +
+new, /
+MailMessage0 ;
+(; <
+)< =
+{ 
+From 
+= 
+new 
+MailAddress *
+(* +
 
-Properties+ 5
-.5 6
-Settings6 >
-.> ?
-Default? F
-.F G
-EmailG L
-,L M
+Properties+ 5
+.5 6
+Settings6 >
+.> ?
+Default? F
+.F G
+EmailG L
+,L M
 
-encabezadoN X
-)X Y
-,Y Z
-Subject 
-= 
-asunto $
-,$ %
-Body 
-= 
-mensaje "
-," #
-BodyEncoding  
-=! "
-Encoding# +
-.+ ,
-UTF8, 0
-,0 1
+encabezadoN X
+)X Y
+,Y Z
+Subject 
+= 
+asunto $
+,$ %
+Body 
+= 
+mensaje "
+," #
+BodyEncoding  
+=! "
+Encoding# +
+.+ ,
+UTF8, 0
+,0 1
 
-IsBodyHtml 
-=  
-true! %
-}   
-;   
-mensajeCorreo!! 
-.!! 
-To!!  
-.!!  !
-Add!!! $
-(!!$ %
-correoDestino!!% 2
-)!!2 3
-;!!3 4
-clienteSmtp## 
-.## 
-Credentials## '
-=##( )
-new##* -
-NetworkCredential##. ?
-(##? @
+IsBodyHtml 
+=  
+true! %
+} 
+; 
+mensajeCorreo 
+. 
+To  
+.  !
+Add! $
+($ %
+correoDestino% 2
+)2 3
+;3 4
+clienteSmtp!! 
+.!! 
+Credentials!! '
+=!!( )
+new!!* -
+NetworkCredential!!. ?
+(!!? @
 
-Properties##@ J
-.##J K
-Settings##K S
-.##S T
-Default##T [
-.##[ \
-Email##\ a
-,##a b
+Properties!!@ J
+.!!J K
+Settings!!K S
+.!!S T
+Default!!T [
+.!![ \
+Email!!\ a
+,!!a b
 
-Properties##c m
-.##m n
-Settings##n v
-.##v w
-Default##w ~
-.##~ 
-EmailPassword	## å
+Properties!!c m
+.!!m n
+Settings!!n v
+.!!v w
+Default!!w ~
+.!!~ 
+EmailPassword	!! å
 )
-##å ç
+!!å ç
 ;
-##ç é
-clienteSmtp$$ 
-.$$ 
-	EnableSsl$$ %
-=$$& '
-true$$( ,
-;$$, -
-clienteSmtp%% 
-.%% 
-Send%%  
-(%%  !
-mensajeCorreo%%! .
-)%%. /
-;%%/ 0
-}&& 
-catch'' 
-('' 
-ArgumentException'' $
-ex''% '
-)''' (
-{(( 
-Log)) 
-.)) 
-Error)) 
-()) 
-$")) 
-{)) 
-ex)) 
-.))  
-Message))  '
-}))' (
-"))( )
-)))) *
-;))* +
-	resultado** 
-=** 
-false** !
-;**! "
-}++ 
-catch,, 
-(,, 
-SmtpException,,  
-ex,,! #
-),,# $
-{-- 
-Log.. 
-... 
-Error.. 
-(.. 
-$".. 
-{.. 
-ex.. 
-...  
-Message..  '
-}..' (
-"..( )
-)..) *
-;..* +
-	resultado// 
-=// 
-false// !
-;//! "
-}00 
-finally11 
-{22 
-clienteSmtp33 
-.33 
-Dispose33 #
-(33# $
-)33$ %
-;33% &
-}44 
-return55 
-	resultado55 
-;55 
-}66 	
-}77 
-}88 é
-dC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\GestionContexto.cs
+!!ç é
+clienteSmtp"" 
+."" 
+	EnableSsl"" %
+=""& '
+true""( ,
+;"", -
+clienteSmtp## 
+.## 
+Send##  
+(##  !
+mensajeCorreo##! .
+)##. /
+;##/ 0
+}$$ 
+catch%% 
+(%% 
+ArgumentException%% $
+ex%%% '
+)%%' (
+{&& 
+Log'' 
+.'' 
+Error'' 
+('' 
+$"'' 
+{'' 
+ex'' 
+.''  
+Message''  '
+}''' (
+"''( )
+)'') *
+;''* +
+	resultado(( 
+=(( 
+false(( !
+;((! "
+})) 
+catch** 
+(** 
+SmtpException**  
+ex**! #
+)**# $
+{++ 
+Log,, 
+.,, 
+Error,, 
+(,, 
+$",, 
+{,, 
+ex,, 
+.,,  
+Message,,  '
+},,' (
+",,( )
+),,) *
+;,,* +
+	resultado-- 
+=-- 
+false-- !
+;--! "
+}.. 
+finally// 
+{00 
+clienteSmtp11 
+.11 
+Dispose11 #
+(11# $
+)11$ %
+;11% &
+}22 
+return33 
+	resultado33 
+;33 
+}44 	
+}55 
+}66 Â
+nC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\GestionContexto.cs
 	namespace 	
 Logica
  
@@ -896,42 +991,76 @@ dC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logi
 
 class 
 GestionContexto  
-{ 
-public 
-OperationContext !
-ContextoIServicioSala  5
-{6 7
-get8 ;
-;; <
-set= @
-;@ A
-}B C
-public		 
-OperationContext		 &
-ContextoIServicioAmistades		  :
-{		; <
-get		= @
-;		@ A
-set		B E
-;		E F
-}		G H
-public 
-GestionContexto 
-( 
-)  
-{ 	!
-ContextoIServicioSala !
-=" #
-null$ (
-;( )&
-ContextoIServicioAmistades &
-=' (
-null) -
-;- .
-} 	
-} 
-} ’ù
-eC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\GestionAmistades.cs
+{ 
+private 
+OperationContext  "
+contextoIServicioJuego! 7
+;7 8
+private 
+OperationContext  &
+contextoIServicioAmistades! ;
+;; <
+public
+
+ 
+GestionContexto
+
+ 
+(
+
+ 
+)
+
+  
+{ 	"
+contextoIServicioJuego "
+=# $
+null% )
+;) *&
+contextoIServicioAmistades &
+=' (
+null) -
+;- .
+} 	
+public 
+OperationContext !
+ContextoIServicioSala  5
+{ 	
+get 
+{ 
+return "
+contextoIServicioJuego /
+;/ 0
+}1 2
+set 
+{ "
+contextoIServicioJuego (
+=) *
+value+ 0
+;0 1
+}2 3
+} 	
+public 
+OperationContext &
+ContextoIServicioAmistades  :
+{ 	
+get 
+{ 
+return &
+contextoIServicioAmistades 3
+;3 4
+}5 6
+set 
+{ &
+contextoIServicioAmistades ,
+=- .
+value/ 4
+;4 5
+}6 7
+} 	
+} 
+} Ÿ†
+oC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\GestionAmistades.cs
 	namespace 	
 Logica
  
@@ -1233,235 +1362,229 @@ eC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logi
 (GG> ?
 )GG? @
 )GG@ A
-{HH 
-varII 
-jugadorOrigenII !
-=II" #
-contextoII$ ,
-.II, -
-JugadorII- 4
-.II4 5
-WhereII5 :
-(II: ;
-jugadorII; B
-=>IIC E
-jugadorJJ 
-.JJ 
-NombreJugadorJJ )
-==JJ* ,
-nombreJugadorOrigenJJ- @
-)JJ@ A
-.JJA B
-FirstOrDefaultJJB P
-(JJP Q
-)JJQ R
-;JJR S
-varKK 
-jugadorDestinoKK "
-=KK# $
-contextoKK% -
-.KK- .
-JugadorKK. 5
-.KK5 6
-WhereKK6 ;
-(KK; <
-jugadorKK< C
-=>KKD F
-jugadorLL 
-.LL 
-NombreJugadorLL )
-==LL* , 
-nombreJugadorDestinoLL- A
-)LLA B
-.LLB C
-FirstOrDefaultLLC Q
-(LLQ R
-)LLR S
-;LLS T
-ifNN 
-(NN 
-jugadorOrigenNN !
-!=NN" $
-nullNN% )
-&&NN* ,
-jugadorDestinoNN- ;
-!=NN< >
-nullNN? C
-)NNC D
-{OO 
-SolicitudAmistadPP $
-	solicitudPP% .
-=PP/ 0
-newPP1 4
-SolicitudAmistadPP5 E
-{QQ 
-IdJugadorOrigenRR '
-=RR( )
-jugadorOrigenRR* 7
-.RR7 8
-	IdJugadorRR8 A
-,RRA B
-IdJugadorDestinoSS (
-=SS) *
-jugadorDestinoSS+ 9
-.SS9 :
-	IdJugadorSS: C
-,SSC D
-}TT 
-;TT 
-contextoUU 
-.UU 
-SolicitudAmistadUU -
-.UU- .
-AddUU. 1
-(UU1 2
-	solicitudUU2 ;
-)UU; <
-;UU< =
-	resultadoVV 
-=VV 
-contextoVV  (
-.VV( )
-SaveChangesVV) 4
-(VV4 5
-)VV5 6
->VV7 8
-$numVV9 :
-;VV: ;
-}WW 
-}XX 
-returnZZ 
-	resultadoZZ 
-;ZZ 
-}[[ 	
-public]] 
-bool]] %
-AceptarSolicitudDeAmistad]] -
-(]]- .
-string]]. 4
-nombreJugadorOrigen]]5 H
-,]]H I
-string^^  
-nombreJugadorDestino^^ '
-)^^' (
-{__ 	
-bool`` 
-	resultado`` 
-=`` 
-false`` "
-;``" #
-ifbb 
-(bb $
-ExisteSolicitudDeAmistadbb (
-(bb( )
-nombreJugadorOrigenbb) <
-,bb< = 
-nombreJugadorDestinobb> R
-)bbR S
-)bbS T
-{cc &
-EliminarSolicitudDeAmistaddd *
-(dd* +
-nombreJugadorOrigendd+ >
-,dd> ? 
-nombreJugadorDestinodd@ T
-)ddT U
-;ddU V
-}ee 
-ifgg 
-(gg $
-ExisteSolicitudDeAmistadgg (
-(gg( ) 
-nombreJugadorDestinogg) =
-,gg= >
-nombreJugadorOrigengg? R
-)ggR S
-)ggS T
-{hh &
-EliminarSolicitudDeAmistadii *
-(ii* + 
-nombreJugadorDestinoii+ ?
-,ii? @
-nombreJugadorOrigeniiA T
-)iiT U
-;iiU V
-}jj 
-ifll 
-(ll 
-!ll #
-ExisteAmistadConJugadorll (
-(ll( )
-nombreJugadorOrigenll) <
-,ll< = 
-nombreJugadorDestinoll> R
-)llR S
-)llS T
-{mm 
-	resultadonn 
-=nn /
-#RegistrarNuevaAmistadEntreJugadoresnn ?
-(nn? @
-nombreJugadorOrigennn@ S
-,nnS T 
-nombreJugadorDestinooo (
-)oo( )
-;oo) *
-}pp 
-returnrr 
-	resultadorr 
-;rr 
-}ss 	
-privateuu 
-booluu /
-#RegistrarNuevaAmistadEntreJugadoresuu 8
-(uu8 9
-stringuu9 ?
-nombreJugadorAuu@ N
-,uuN O
-stringvv 
-nombreJugadorBvv !
-)vv! "
-{ww 	
-boolxx 
-	resultadoxx 
-=xx 
-falsexx "
-;xx" #
-usingzz 
-(zz 
-varzz 
-contextozz 
-=zz  !
-newzz" %$
-EntidadesRompecabezasFeizz& >
-(zz> ?
-)zz? @
-)zz@ A
-{{{ 
-var|| 
-jugadorA|| 
-=|| 
-contexto|| '
-.||' (
-Jugador||( /
-.||/ 0
-Where||0 5
-(||5 6
-jugador||6 =
-=>||> @
-jugador}} 
-.}} 
-NombreJugador}} )
-==}}* ,
-nombreJugadorA}}- ;
-)}}; <
-.}}< =
-FirstOrDefault}}= K
-(}}K L
-)}}L M
-;}}M N
+{HH 
+ConsultasJugadorII  
+consultasJugadorII! 1
+=II2 3
+newII4 7
+ConsultasJugadorII8 H
+(IIH I
+)III J
+;IIJ K
+varJJ 
+jugadorOrigenJJ !
+=JJ" #
+contextoJJ$ ,
+.JJ, -
+JugadorJJ- 4
+.JJ4 5
+WhereJJ5 :
+(JJ: ;
+jugadorJJ; B
+=>JJC E
+jugadorKK 
+.KK 
+NombreJugadorKK )
+==KK* ,
+nombreJugadorOrigenKK- @
+)KK@ A
+.KKA B
+FirstOrDefaultKKB P
+(KKP Q
+)KKQ R
+;KKR S
+varLL 
+jugadorDestinoLL "
+=LL# $
+contextoLL% -
+.LL- .
+JugadorLL. 5
+.LL5 6
+WhereLL6 ;
+(LL; <
+jugadorLL< C
+=>LLD F
+jugadorMM 
+.MM 
+NombreJugadorMM )
+==MM* , 
+nombreJugadorDestinoMM- A
+)MMA B
+.MMB C
+FirstOrDefaultMMC Q
+(MMQ R
+)MMR S
+;MMS T
+ifOO 
+(OO 
+jugadorOrigenOO !
+!=OO" $
+nullOO% )
+&&OO* ,
+jugadorDestinoOO- ;
+!=OO< >
+nullOO? C
+)OOC D
+{PP 
+SolicitudAmistadQQ $
+	solicitudQQ% .
+=QQ/ 0
+newQQ1 4
+SolicitudAmistadQQ5 E
+{RR 
+IdJugadorOrigenSS '
+=SS( )
+jugadorOrigenSS* 7
+.SS7 8
+	IdJugadorSS8 A
+,SSA B
+IdJugadorDestinoTT (
+=TT) *
+jugadorDestinoTT+ 9
+.TT9 :
+	IdJugadorTT: C
+,TTC D
+}UU 
+;UU 
+contextoVV 
+.VV 
+SolicitudAmistadVV -
+.VV- .
+AddVV. 1
+(VV1 2
+	solicitudVV2 ;
+)VV; <
+;VV< =
+	resultadoWW 
+=WW 
+contextoWW  (
+.WW( )
+SaveChangesWW) 4
+(WW4 5
+)WW5 6
+>WW7 8
+$numWW9 :
+;WW: ;
+}XX 
+}YY 
+return[[ 
+	resultado[[ 
+;[[ 
+}\\ 	
+public^^ 
+bool^^ %
+AceptarSolicitudDeAmistad^^ -
+(^^- .
+string^^. 4
+nombreJugadorOrigen^^5 H
+,^^H I
+string__  
+nombreJugadorDestino__ '
+)__' (
+{`` 	
+boolaa 
+	resultadoaa 
+=aa 
+falseaa "
+;aa" #
+ifcc 
+(cc $
+ExisteSolicitudDeAmistadcc (
+(cc( )
+nombreJugadorOrigencc) <
+,cc< = 
+nombreJugadorDestinocc> R
+)ccR S
+)ccS T
+{dd &
+EliminarSolicitudDeAmistadee *
+(ee* +
+nombreJugadorOrigenee+ >
+,ee> ? 
+nombreJugadorDestinoee@ T
+)eeT U
+;eeU V
+}ff 
+ifhh 
+(hh $
+ExisteSolicitudDeAmistadhh (
+(hh( ) 
+nombreJugadorDestinohh) =
+,hh= >
+nombreJugadorOrigenhh? R
+)hhR S
+)hhS T
+{ii &
+EliminarSolicitudDeAmistadjj *
+(jj* + 
+nombreJugadorDestinojj+ ?
+,jj? @
+nombreJugadorOrigenjjA T
+)jjT U
+;jjU V
+}kk 
+ifmm 
+(mm 
+!mm #
+ExisteAmistadConJugadormm (
+(mm( )
+nombreJugadorOrigenmm) <
+,mm< = 
+nombreJugadorDestinomm> R
+)mmR S
+)mmS T
+{nn 
+	resultadooo 
+=oo /
+#RegistrarNuevaAmistadEntreJugadoresoo ?
+(oo? @
+nombreJugadorOrigenoo@ S
+,ooS T 
+nombreJugadorDestinopp (
+)pp( )
+;pp) *
+}qq 
+returnss 
+	resultadoss 
+;ss 
+}tt 	
+privatevv 
+boolvv /
+#RegistrarNuevaAmistadEntreJugadoresvv 8
+(vv8 9
+stringvv9 ?
+nombreJugadorAvv@ N
+,vvN O
+stringww 
+nombreJugadorBww !
+)ww! "
+{xx 	
+boolyy 
+	resultadoyy 
+=yy 
+falseyy "
+;yy" #
+using{{ 
+({{ 
+var{{ 
+contexto{{ 
+={{  !
+new{{" %$
+EntidadesRompecabezasFei{{& >
+({{> ?
+){{? @
+){{@ A
+{|| 
+ConsultasJugador}}  
+consultasJugador}}! 1
+=}}2 3
+new}}4 7
+ConsultasJugador}}8 H
+(}}H I
+)}}I J
+;}}J K
 var~~ 
-jugadorB~~ 
+jugadorA~~ 
 =~~ 
 contexto~~ '
 .~~' (
@@ -1475,245 +1598,245 @@ eC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logi
 . 
 NombreJugador )
 ==* ,
-nombreJugadorB- ;
+nombreJugadorA- ;
 ); <
 .< =
 FirstOrDefault= K
 (K L
 )L M
-;M N
-if
-ÅÅ 
-(
-ÅÅ 
-jugadorA
-ÅÅ 
-!=
-ÅÅ 
-null
-ÅÅ  $
-&&
-ÅÅ% '
+;M N
+var
+ÄÄ 
 jugadorB
-ÅÅ( 0
-!=
-ÅÅ1 3
-null
-ÅÅ4 8
-)
-ÅÅ8 9
-{
-ÇÇ 
-Amistad
-ÉÉ 
-amistad
-ÉÉ #
+ÄÄ 
 =
-ÉÉ$ %
-new
-ÉÉ& )
-Amistad
-ÉÉ* 1
+ÄÄ 
+contexto
+ÄÄ '
+.
+ÄÄ' (
+Jugador
+ÄÄ( /
+.
+ÄÄ/ 0
+Where
+ÄÄ0 5
+(
+ÄÄ5 6
+jugador
+ÄÄ6 =
+=>
+ÄÄ> @
+jugador
+ÅÅ 
+.
+ÅÅ 
+NombreJugador
+ÅÅ )
+==
+ÅÅ* ,
+nombreJugadorB
+ÅÅ- ;
+)
+ÅÅ; <
+.
+ÅÅ< =
+FirstOrDefault
+ÅÅ= K
+(
+ÅÅK L
+)
+ÅÅL M
+;
+ÅÅM N
+if
+ÉÉ 
+(
+ÉÉ 
+jugadorA
+ÉÉ 
+!=
+ÉÉ 
+null
+ÉÉ  $
+&&
+ÉÉ% '
+jugadorB
+ÉÉ( 0
+!=
+ÉÉ1 3
+null
+ÉÉ4 8
+)
+ÉÉ8 9
 {
-ÑÑ 
+ÑÑ 
+Amistad
+ÖÖ 
+amistad
+ÖÖ #
+=
+ÖÖ$ %
+new
+ÖÖ& )
+Amistad
+ÖÖ* 1
+{
+ÜÜ 
 
 IdJugadorA
-ÖÖ "
+áá "
 =
-ÖÖ# $
+áá# $
 jugadorA
-ÖÖ% -
+áá% -
 .
-ÖÖ- .
+áá- .
 	IdJugador
-ÖÖ. 7
+áá. 7
 ,
-ÖÖ7 8
+áá7 8
 
 IdJugadorB
-ÜÜ "
+àà "
 =
-ÜÜ# $
+àà# $
 jugadorB
-ÜÜ% -
+àà% -
 .
-ÜÜ- .
+àà- .
 	IdJugador
-ÜÜ. 7
+àà. 7
 }
-áá 
+ââ 
 ;
-áá 
+ââ 
 contexto
-àà 
+ää 
 .
-àà 
+ää 
 Amistad
-àà $
+ää $
 .
-àà$ %
+ää$ %
 Add
-àà% (
+ää% (
 (
-àà( )
+ää( )
 amistad
-àà) 0
+ää) 0
 )
-àà0 1
+ää0 1
 ;
-àà1 2
+ää1 2
 	resultado
-ââ 
+ãã 
 =
-ââ 
+ãã 
 contexto
-ââ  (
+ãã  (
 .
-ââ( )
+ãã( )
 SaveChanges
-ââ) 4
+ãã) 4
 (
-ââ4 5
+ãã4 5
 )
-ââ5 6
+ãã5 6
 >
-ââ7 8
+ãã7 8
 $num
-ââ9 :
+ãã9 :
 ;
-ââ: ;
+ãã: ;
 }
-ää 
+åå 
 }
-ãã 
+çç 
 return
-çç 
+èè 
 	resultado
-çç 
+èè 
 ;
-çç 
+èè 
 }
-éé 	
+êê 	
 public
-êê 
+íí 
 bool
-êê +
+íí +
 EliminarAmistadEntreJugadores
-êê 1
+íí 1
 (
-êê1 2
+íí1 2
 string
-êê2 8
+íí2 8
 nombreJugadorA
-êê9 G
+íí9 G
 ,
-êêG H
+ííG H
 string
-êêI O
+ííI O
 nombreJugadorB
-êêP ^
+ííP ^
 )
-êê^ _
+íí^ _
 {
-ëë 	
+ìì 	
 bool
-íí 
+îî 
 	resultado
-íí 
+îî 
 =
-íí 
+îî 
 false
-íí "
+îî "
 ;
-íí" #
+îî" #
 using
-îî 
+ññ 
 (
-îî 
+ññ 
 var
-îî 
+ññ 
 contexto
-îî 
+ññ 
 =
-îî  !
+ññ  !
 new
-îî" %&
+ññ" %&
 EntidadesRompecabezasFei
-îî& >
+ññ& >
 (
-îî> ?
+ññ> ?
 )
-îî? @
+ññ? @
 )
-îî@ A
+ññ@ A
 {
-ïï 
+óó 
 var
-ññ 
+òò 
 amistadObtenida
-ññ #
+òò #
 =
-ññ$ %
+òò$ %
 contexto
-ññ& .
+òò& .
 .
-ññ. /
+òò. /
 Amistad
-ññ/ 6
+òò/ 6
 .
-ññ6 7
+òò6 7
 FirstOrDefault
-ññ7 E
+òò7 E
 (
-ññE F
+òòE F
 amistad
-ññF M
+òòF M
 =>
-ññN P
-amistad
-óó 
-.
-óó 
-JugadorA
-óó $
-.
-óó$ %
-NombreJugador
-óó% 2
-.
-óó2 3
-Equals
-óó3 9
-(
-óó9 :
-nombreJugadorA
-óó: H
-)
-óóH I
-&&
-óóJ L
-amistad
-òò 
-.
-òò 
-JugadorB
-òò $
-.
-òò$ %
-NombreJugador
-òò% 2
-.
-òò2 3
-Equals
-òò3 9
-(
-òò9 :
-nombreJugadorB
-òò: H
-)
-òòH I
-||
-òòJ L
+òòN P
 amistad
 ôô 
 .
@@ -1730,7 +1853,7 @@ IdJugadorB
 ôô3 9
 (
 ôô9 :
-nombreJugadorB
+nombreJugadorA
 ôô: H
 )
 ôôH I
@@ -1752,557 +1875,579 @@ IdJugadorB
 öö3 9
 (
 öö9 :
-nombreJugadorA
+nombreJugadorB
 öö: H
 )
-ööH I
-)
-ööI J
-;
-ööJ K
-if
-úú 
-(
-úú 
-amistadObtenida
-úú #
-!=
-úú$ &
-null
-úú' +
-)
-úú+ ,
-{
-ùù 
-contexto
-ûû 
+ööH I
+||
+ööJ L
+amistad
+õõ 
 .
-ûû 
+õõ 
+JugadorA
+õõ $
+.
+õõ$ %
+NombreJugador
+õõ% 2
+.
+õõ2 3
+Equals
+õõ3 9
+(
+õõ9 :
+nombreJugadorB
+õõ: H
+)
+õõH I
+&&
+õõJ L
+amistad
+úú 
+.
+úú 
+JugadorB
+úú $
+.
+úú$ %
+NombreJugador
+úú% 2
+.
+úú2 3
+Equals
+úú3 9
+(
+úú9 :
+nombreJugadorA
+úú: H
+)
+úúH I
+)
+úúI J
+;
+úúJ K
+if
+ûû 
+(
+ûû 
+amistadObtenida
+ûû #
+!=
+ûû$ &
+null
+ûû' +
+)
+ûû+ ,
+{
+üü 
+contexto
+†† 
+.
+†† 
 Amistad
-ûû $
+†† $
 .
-ûû$ %
+††$ %
 Remove
-ûû% +
+††% +
 (
-ûû+ ,
+††+ ,
 amistadObtenida
-ûû, ;
+††, ;
 )
-ûû; <
+††; <
 ;
-ûû< =
+††< =
 	resultado
-üü 
+°° 
 =
-üü 
+°° 
 contexto
-üü  (
+°°  (
 .
-üü( )
+°°( )
 SaveChanges
-üü) 4
+°°) 4
 (
-üü4 5
+°°4 5
 )
-üü5 6
+°°5 6
 >
-üü7 8
+°°7 8
 $num
-üü9 :
+°°9 :
 ;
-üü: ;
+°°: ;
 }
-†† 
+¢¢ 
 }
-°° 
+££ 
 return
-££ 
+•• 
 	resultado
-££ 
+•• 
 ;
-££ 
+•• 
 }
-§§ 	
+¶¶ 	
 public
-¶¶ 
+®® 
 bool
-¶¶ (
+®® (
 EliminarSolicitudDeAmistad
-¶¶ .
+®® .
 (
-¶¶. /
+®®. /
 string
-¶¶/ 5!
+®®/ 5!
 nombreJugadorOrigen
-¶¶6 I
+®®6 I
 ,
-¶¶I J
+®®I J
 string
-ßß "
+©© "
 nombreJugadorDestino
-ßß '
+©© '
 )
-ßß' (
+©©' (
 {
-®® 	
+™™ 	
 bool
-©© 
+´´ 
 	resultado
-©© 
+´´ 
 =
-©© 
+´´ 
 false
-©© "
+´´ "
 ;
-©©" #
+´´" #
 using
-´´ 
+≠≠ 
 (
-´´ 
+≠≠ 
 var
-´´ 
+≠≠ 
 contexto
-´´ 
+≠≠ 
 =
-´´  !
+≠≠  !
 new
-´´" %&
+≠≠" %&
 EntidadesRompecabezasFei
-´´& >
+≠≠& >
 (
-´´> ?
+≠≠> ?
 )
-´´? @
+≠≠? @
 )
-´´@ A
+≠≠@ A
 {
-¨¨ 
+ÆÆ 
 var
-≠≠ &
+ØØ &
 solicitudAmistadObtenida
-≠≠ ,
+ØØ ,
 =
-≠≠- .
+ØØ- .
 contexto
-≠≠/ 7
+ØØ/ 7
 .
-≠≠7 8
+ØØ7 8
 SolicitudAmistad
-≠≠8 H
+ØØ8 H
 .
-≠≠H I
+ØØH I
 FirstOrDefault
-ÆÆ "
+∞∞ "
 (
-ÆÆ" #
+∞∞" #
 	solicitud
-ÆÆ# ,
+∞∞# ,
 =>
-ÆÆ- /
+∞∞- /
 	solicitud
-ØØ 
+±± 
 .
-ØØ 
+±± 
 JugadorOrigen
-ØØ +
+±± +
 .
-ØØ+ ,
+±±+ ,
 NombreJugador
-ØØ, 9
+±±, 9
 .
-ØØ9 :
+±±9 :
 Equals
-ØØ: @
+±±: @
 (
-ØØ@ A!
+±±@ A!
 nombreJugadorOrigen
-ØØA T
+±±A T
 )
-ØØT U
+±±T U
 &&
-ØØV X
+±±V X
 	solicitud
-∞∞ 
+≤≤ 
 .
-∞∞ 
+≤≤ 
 JugadorDestino
-∞∞ ,
+≤≤ ,
 .
-∞∞, -
+≤≤, -
 NombreJugador
-∞∞- :
+≤≤- :
 .
-∞∞: ;
+≤≤: ;
 Equals
-∞∞; A
+≤≤; A
 (
-∞∞A B"
+≤≤A B"
 nombreJugadorDestino
-∞∞B V
+≤≤B V
 )
-∞∞V W
+≤≤V W
 )
-∞∞W X
+≤≤W X
 ;
-∞∞X Y
+≤≤X Y
 if
-≤≤ 
+¥¥ 
 (
-≤≤ &
+¥¥ &
 solicitudAmistadObtenida
-≤≤ ,
+¥¥ ,
 !=
-≤≤- /
+¥¥- /
 null
-≤≤0 4
+¥¥0 4
 )
-≤≤4 5
+¥¥4 5
 {
-≥≥ 
+µµ 
 contexto
-¥¥ 
+∂∂ 
 .
-¥¥ 
+∂∂ 
 SolicitudAmistad
-¥¥ -
+∂∂ -
 .
-¥¥- .
+∂∂- .
 Remove
-¥¥. 4
+∂∂. 4
 (
-¥¥4 5&
+∂∂4 5&
 solicitudAmistadObtenida
-¥¥5 M
+∂∂5 M
 )
-¥¥M N
+∂∂M N
 ;
-¥¥N O
+∂∂N O
 	resultado
-µµ 
+∑∑ 
 =
-µµ 
+∑∑ 
 contexto
-µµ  (
+∑∑  (
 .
-µµ( )
+∑∑( )
 SaveChanges
-µµ) 4
+∑∑) 4
 (
-µµ4 5
+∑∑4 5
 )
-µµ5 6
+∑∑5 6
 >
-µµ7 8
+∑∑7 8
 $num
-µµ9 :
+∑∑9 :
 ;
-µµ: ;
+∑∑: ;
 }
-∂∂ 
+∏∏ 
 }
-∑∑ 
+ππ 
 return
-ππ 
+ªª 
 	resultado
-ππ 
+ªª 
 ;
-ππ 
+ªª 
 }
-∫∫ 	
+ºº 	
 public
-ºº 
+ææ 
 bool
-ºº &
+ææ &
 ExisteSolicitudDeAmistad
-ºº ,
+ææ ,
 (
-ºº, -
+ææ, -
 string
-ºº- 3!
+ææ- 3!
 nombreJugadorOrigen
-ºº4 G
+ææ4 G
 ,
-ººG H
+ææG H
 string
-ΩΩ "
+øø "
 nombreJugadorDestino
-ΩΩ '
+øø '
 )
-ΩΩ' (
+øø' (
 {
-ææ 	
+¿¿ 	
 bool
-øø 
+¡¡ 
 	resultado
-øø 
+¡¡ 
 =
-øø 
+¡¡ 
 false
-øø "
+¡¡ "
 ;
-øø" #
+¡¡" #
 using
-¡¡ 
+√√ 
 (
-¡¡ 
+√√ 
 var
-¡¡ 
+√√ 
 contexto
-¡¡ 
+√√ 
 =
-¡¡  !
+√√  !
 new
-¡¡" %&
+√√" %&
 EntidadesRompecabezasFei
-¡¡& >
+√√& >
 (
-¡¡> ?
+√√> ?
 )
-¡¡? @
+√√? @
 )
-¡¡@ A
+√√@ A
 {
-¬¬ 
+ƒƒ 
 int
-√√ 
+≈≈ 
 coincidencias
-√√ !
+≈≈ !
 =
-√√" #
+≈≈" #
 (
-√√$ %
+≈≈$ %
 from
-√√% )
+≈≈% )
 	solicitud
-√√* 3
+≈≈* 3
 in
-√√4 6
+≈≈4 6
 contexto
-√√7 ?
+≈≈7 ?
 .
-√√? @
+≈≈? @
 SolicitudAmistad
-√√@ P
+≈≈@ P
 where
-ƒƒ% *
+∆∆% *
 	solicitud
-ƒƒ+ 4
+∆∆+ 4
 .
-ƒƒ4 5
+∆∆4 5
 JugadorOrigen
-ƒƒ5 B
+∆∆5 B
 .
-ƒƒB C
+∆∆B C
 NombreJugador
-ƒƒC P
+∆∆C P
 .
-ƒƒP Q
-Equals
-≈≈% +
-(
-≈≈+ ,!
-nombreJugadorOrigen
-≈≈, ?
-)
-≈≈? @
-&&
-≈≈A C
-	solicitud
-∆∆% .
-.
-∆∆. /
-JugadorDestino
-∆∆/ =
-.
-∆∆= >
-NombreJugador
-∆∆> K
-.
-∆∆K L
+∆∆P Q
 Equals
 ««% +
 (
-««+ ,"
-nombreJugadorDestino
-««, @
+««+ ,!
+nombreJugadorOrigen
+««, ?
 )
-««@ A
-select
-»»% +
-	solicitud
-»», 5
-)
-»»5 6
-.
-»»6 7
-Count
-»»7 <
-(
-»»< =
-)
-»»= >
-;
-»»> ?
-if
-   
-(
-   
-coincidencias
-   !
->
-  " #
-$num
-  $ %
-)
-  % &
-{
-ÀÀ 
-	resultado
-ÃÃ 
-=
-ÃÃ 
-true
-ÃÃ  $
-;
-ÃÃ$ %
-}
-ÕÕ 
-}
-ŒŒ 
-return
-–– 
-	resultado
-–– 
-;
-–– 
-}
-—— 	
-public
-”” 
-bool
-”” %
-ExisteAmistadConJugador
-”” +
-(
-””+ ,
-string
-””, 2
-nombreJugadorA
-””3 A
-,
-””A B
-string
-””C I
-nombreJugadorB
-””J X
-)
-””X Y
-{
-‘‘ 	
-bool
-’’ 
-	resultado
-’’ 
-=
-’’ 
-false
-’’ "
-;
-’’" #
-using
-◊◊ 
-(
-◊◊ 
-var
-◊◊ 
-contexto
-◊◊ 
-=
-◊◊  !
-new
-◊◊" %&
-EntidadesRompecabezasFei
-◊◊& >
-(
-◊◊> ?
-)
-◊◊? @
-)
-◊◊@ A
-{
-ÿÿ 
-int
-ŸŸ 
-coincidencias
-ŸŸ !
-=
-ŸŸ" #
-(
-ŸŸ$ %
-from
-ŸŸ% )
-amistad
-ŸŸ* 1
-in
-ŸŸ2 4
-contexto
-ŸŸ5 =
-.
-ŸŸ= >
-Amistad
-ŸŸ> E
-where
-⁄⁄$ )
-amistad
-⁄⁄* 1
-.
-⁄⁄1 2
-JugadorA
-⁄⁄2 :
-.
-⁄⁄: ;
-NombreJugador
-⁄⁄; H
-.
-⁄⁄H I
-Equals
-€€$ *
-(
-€€* +
-nombreJugadorA
-€€+ 9
-)
-€€9 :
+««? @
 &&
-€€; =
-amistad
-‹‹$ +
+««A C
+	solicitud
+»»% .
 .
-‹‹+ ,
-JugadorB
-‹‹, 4
+»». /
+JugadorDestino
+»»/ =
 .
-‹‹4 5
+»»= >
 NombreJugador
-‹‹5 B
+»»> K
 .
-‹‹B C
+»»K L
+Equals
+……% +
+(
+……+ ,"
+nombreJugadorDestino
+……, @
+)
+……@ A
+select
+  % +
+	solicitud
+  , 5
+)
+  5 6
+.
+  6 7
+Count
+  7 <
+(
+  < =
+)
+  = >
+;
+  > ?
+if
+ÃÃ 
+(
+ÃÃ 
+coincidencias
+ÃÃ !
+>
+ÃÃ" #
+$num
+ÃÃ$ %
+)
+ÃÃ% &
+{
+ÕÕ 
+	resultado
+ŒŒ 
+=
+ŒŒ 
+true
+ŒŒ  $
+;
+ŒŒ$ %
+}
+œœ 
+}
+–– 
+return
+““ 
+	resultado
+““ 
+;
+““ 
+}
+”” 	
+public
+’’ 
+bool
+’’ %
+ExisteAmistadConJugador
+’’ +
+(
+’’+ ,
+string
+’’, 2
+nombreJugadorA
+’’3 A
+,
+’’A B
+string
+’’C I
+nombreJugadorB
+’’J X
+)
+’’X Y
+{
+÷÷ 	
+bool
+◊◊ 
+	resultado
+◊◊ 
+=
+◊◊ 
+false
+◊◊ "
+;
+◊◊" #
+using
+ŸŸ 
+(
+ŸŸ 
+var
+ŸŸ 
+contexto
+ŸŸ 
+=
+ŸŸ  !
+new
+ŸŸ" %&
+EntidadesRompecabezasFei
+ŸŸ& >
+(
+ŸŸ> ?
+)
+ŸŸ? @
+)
+ŸŸ@ A
+{
+⁄⁄ 
+int
+€€ 
+coincidencias
+€€ !
+=
+€€" #
+(
+€€$ %
+from
+€€% )
+amistad
+€€* 1
+in
+€€2 4
+contexto
+€€5 =
+.
+€€= >
+Amistad
+€€> E
+where
+‹‹$ )
+amistad
+‹‹* 1
+.
+‹‹1 2
+JugadorA
+‹‹2 :
+.
+‹‹: ;
+NombreJugador
+‹‹; H
+.
+‹‹H I
 Equals
 ››$ *
 (
 ››* +
-nombreJugadorB
+nombreJugadorA
 ››+ 9
 )
 ››9 :
-||
+&&
 ››; =
 amistad
 ﬁﬁ$ +
 .
 ﬁﬁ+ ,
-JugadorA
+JugadorB
 ﬁﬁ, 4
 .
 ﬁﬁ4 5
@@ -2318,13 +2463,13 @@ IdJugadorB
 ﬂﬂ+ 9
 )
 ﬂﬂ9 :
-&&
+||
 ﬂﬂ; =
 amistad
 ‡‡$ +
 .
 ‡‡+ ,
-JugadorB
+JugadorA
 ‡‡, 4
 .
 ‡‡4 5
@@ -2336,64 +2481,86 @@ IdJugadorB
 ··$ *
 (
 ··* +
-nombreJugadorA
+nombreJugadorB
 ··+ 9
 )
-··9 :
-select
-‚‚$ *
+··9 :
+&&
+··; =
 amistad
-‚‚+ 2
-)
-‚‚2 3
+‚‚$ +
 .
-‚‚3 4
+‚‚+ ,
+JugadorB
+‚‚, 4
+.
+‚‚4 5
+NombreJugador
+‚‚5 B
+.
+‚‚B C
+Equals
+„„$ *
+(
+„„* +
+nombreJugadorA
+„„+ 9
+)
+„„9 :
+select
+‰‰$ *
+amistad
+‰‰+ 2
+)
+‰‰2 3
+.
+‰‰3 4
 Count
-‚‚4 9
+‰‰4 9
 (
-‚‚9 :
+‰‰9 :
 )
-‚‚: ;
+‰‰: ;
 ;
-‚‚; <
+‰‰; <
 if
-‰‰ 
+ÊÊ 
 (
-‰‰ 
+ÊÊ 
 coincidencias
-‰‰ !
+ÊÊ !
 >
-‰‰" #
+ÊÊ" #
 $num
-‰‰$ %
-)
-‰‰% &
-{
-ÂÂ 
-	resultado
-ÊÊ 
-=
-ÊÊ 
-true
-ÊÊ  $
-;
 ÊÊ$ %
-}
-ÁÁ 
-}
-ËË 
-return
-ÍÍ 
+)
+ÊÊ% &
+{
+ÁÁ 
 	resultado
-ÍÍ 
+ËË 
+=
+ËË 
+true
+ËË  $
 ;
-ÍÍ 
+ËË$ %
 }
-ÎÎ 	
+ÈÈ 
 }
-ÏÏ 
-}ÌÌ ÿ"
-cC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\GestionPartida.cs
+ÍÍ 
+return
+ÏÏ 
+	resultado
+ÏÏ 
+;
+ÏÏ 
+}
+ÌÌ 	
+}
+ÓÓ 
+}ÔÔ ‚"
+mC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\GestionPartida.cs
 	namespace 	
 Logica
  
@@ -2639,8 +2806,8 @@ codigoSala--+ 5
 ;== 
 }>> 	
 }?? 
-}@@ ‹
-`C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\GestionSala.cs
+}@@ Ê
+jC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\GestionSala.cs
 	namespace 	
 Logica
  
@@ -2774,8 +2941,8 @@ codigoSala! +
 ;## 
 }$$ 	
 }%% 
-}&& ó
-lC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\Properties\AssemblyInfo.cs
+}&& °
+vC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\Properties\AssemblyInfo.cs
 [ 
 assembly 	
 :	 
@@ -2900,8 +3067,8 @@ ComVisible 
 ($$ 
 $str$$ (
 )$$( )
-]$$) *£*
-]C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\Registro.cs
+]$$) *≠*
+gC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\Registro.cs
 	namespace 	
 Logica
  
@@ -3201,8 +3368,8 @@ contrasenaBB0 :
 ;HH 
 }II 	
 }JJ 
-}KK ¨
-YC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\Sala.cs
+}KK å
+cC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\Sala.cs
 	namespace 	
 Logica
  
@@ -3214,114 +3381,168 @@ YC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logi
 
 class 
 Sala 
-{ 
-public		 
-const		 
-int		 
-MaximoJugadores		 (
-=		) *
-$num		+ ,
-;		, -
-public
+{ 
+private
 
- 
-const
+ 
+string
 
- 
-int
+ 
+
+codigoSala
 
- 
-MinimoJugadores
-
- (
-=
-
-) *
-$num
-
-+ ,
+ !
 ;
 
-, -
-[ 	
+! "
+private 
+string 
+nombreAnfitrion &
+;& '
+private 
+int %
+contadorJugadoresActuales -
+=. /
+$num0 1
+;1 2
+public 
+const 
+int 
+MaximoJugadores (
+=) *
+$num+ ,
+;, -
+public 
+const 
+int 
+MinimoJugadores (
+=) *
+$num+ ,
+;, -
+private 
+List 
+< 
+CuentaJugador "
+>" #
+	jugadores$ -
+;- .
+[ 	
 
-DataMember	 
-] 
-public 
-string 
+DataMember	 
+] 
+public 
+string 
 
-CodigoSala  
-{! "
-get# &
-;& '
-set( +
-;+ ,
-}- .
-[ 	
+CodigoSala  
+{ 	
+get 
+{ 
+return 
 
-DataMember	 
-] 
-public 
-string 
-NombreAnfitrion %
-{& '
-get( +
-;+ ,
-set- 0
-;0 1
-}2 3
-[ 	
+codigoSala #
+;# $
+}% &
+set 
+{ 
 
-DataMember	 
-] 
-public 
-int %
-ContadorJugadoresActuales ,
-{- .
-get/ 2
-;2 3
-set4 7
-;7 8
-}9 :
-[ 	
+codigoSala 
+= 
+value $
+;$ %
+}& '
+} 	
+[ 	
 
-DataMember	 
-] 
-public 
-List 
-< 
-CuentaJugador !
->! "
-	Jugadores# ,
-{- .
-get/ 2
-;2 3
-set4 7
-;7 8
-}9 :
-public 
-bool 
-ExisteCupoJugadores '
-(' (
-)( )
-{ 	
-return %
-ContadorJugadoresActuales ,
-<- .
-MaximoJugadores/ >
-;> ?
-} 	
-public 
-bool 
-	EstaVacia 
-( 
-) 
-{ 	
-return %
-ContadorJugadoresActuales ,
-==- /
-$num0 1
-;1 2
-}   	
-}!! 
-}"" 
+DataMember	 
+] 
+public 
+string 
+NombreAnfitrion %
+{ 	
+get 
+{ 
+return 
+nombreAnfitrion (
+;( )
+}* +
+set 
+{ 
+nombreAnfitrion !
+=" #
+value$ )
+;) *
+}+ ,
+} 	
+[!! 	
+
+DataMember!!	 
+]!! 
+public"" 
+int"" %
+ContadorJugadoresActuales"" ,
+{## 	
+get$$ 
+{$$ 
+return$$ %
+contadorJugadoresActuales$$ 2
+;$$2 3
+}$$4 5
+set%% 
+{%% %
+contadorJugadoresActuales%% +
+=%%, -
+value%%. 3
+;%%3 4
+}%%5 6
+}&& 	
+[(( 	
+
+DataMember((	 
+](( 
+public)) 
+List)) 
+<)) 
+CuentaJugador)) !
+>))! "
+	Jugadores))# ,
+{** 	
+get++ 
+{++ 
+return++ 
+	jugadores++ "
+;++" #
+}++$ %
+set,, 
+{,, 
+	jugadores,, 
+=,, 
+value,, #
+;,,# $
+},,% &
+}-- 	
+public11 
+bool11 
+ExisteCupoJugadores11 '
+(11' (
+)11( )
+{22 	
+return33 %
+contadorJugadoresActuales33 ,
+<33- .
+MaximoJugadores33/ >
+;33> ?
+}44 	
+public66 
+bool66 
+	EstaVacia66 
+(66 
+)66 
+{77 	
+return88 %
+contadorJugadoresActuales88 ,
+==88- /
+$num880 1
+;881 2
+}99 	
+};; 
+}<< 

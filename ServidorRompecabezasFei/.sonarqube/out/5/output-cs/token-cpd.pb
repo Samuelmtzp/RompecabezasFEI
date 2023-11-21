@@ -1,5 +1,5 @@
-™
-nC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Servidor\Properties\AssemblyInfo.cs
+£
+xC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Servidor\Properties\AssemblyInfo.cs
 [ 
 assembly 	
 :	 
@@ -124,17 +124,16 @@ ComVisible 
 ($$ 
 $str$$ (
 )$$( )
-]$$) *’
-_C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Servidor\Servidor.cs
+]$$) *ˆ
+iC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Servidor\Servidor.cs
 	namespace 	
 Servidor
  
 { 
 public 
-
-static 
-class 
-Servidor  
+
+class 
+Servidor 
 { 
 public		 
 static		 

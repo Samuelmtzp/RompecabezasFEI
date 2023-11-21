@@ -1,103 +1,134 @@
-Œ
-ZC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Celda.cs
+ö
+dC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Celda.cs
 
- 
+ 
+   
+   
+		    
 
- 
+ 
 
-		 
+ 
 
- æ
-bC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Dominio\CuentaJugador.cs
-  #
-
- #
-
+ š
+lC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\Dominio\CuentaJugador.cs
+  $FF #
+		 $ & 
 
 
- 
+   % 
+ $$ %% 
+ !** #++ 
+ 00 #11 
+  7<< 0== )
+ .BB +CC $
+ 66  77 
+% 8HH ,II %
 
- 
+ #
 
-  
+ 
 
- 
+"" 
 
- 
+((  
 
- 6
+.. 
 
- -
+44 
 
-$ *m
-_C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Dificultad.cs
+:: 6
 
- i
-[C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Idioma.cs
+@@ -
 
- ™
-gC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Dominio\ImagenRompecabezas.cs
+FF$ *w
+iC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Dificultad.cs
 
- #
+ s
+eC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Idioma.cs
 
- 
+ ƒ
+qC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\Dominio\ImagenRompecabezas.cs
 
-		 !
+ #
+   
+ " % 
+		   % 
 
- º
-ZC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Pieza.cs
+ 
 
- x
+ !
+
+ ä
+dC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Pieza.cs
+
+ 2
 
 
-    ?? DD II JJ OO PP UU VV (
- & *"" !$$ %
- 88 
- 99 2
-  $55 ??' -DD( .
+    $LL d
+    `` aa ff gg ll mm (
+ %% && OO (
+ ++ ,, PP (
+ &11 *44 !55 %
+  >> %?? 
+ #DD (EE !
+ +KK !NN .
+ VV' -[[( .
+ VV [[ 
 
- 
+## 
 
- %
+)) 
 
-++ 
+// %
 
--- "
-// 244 !77 .
+<< 
 
-11 *
-117 K446 J
-22 !44L W
+BB "
 
-== =
+HH *
+HH7 KKK6 J
+II !KKL W
 
-BB >
+TT =
 
-GG 7
+YY >
 
-MM 9
-SS 9&& 8n
-lC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Properties\AssemblyInfo.csü
-\C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Tablero.cs
+^^ 7
 
- (
- % #  "
+dd 9
+jj 977 8x
+vC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Properties\AssemblyInfo.csæ
+fC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Tablero.cs
 
+ 
+ # % 
+		 $ & <
 
 
- "
+  #   99 "== "AA "<
+ !%% &&& :: %>> %BB %
+ ,++ 1,, *(
+ %11 #44 66 "(
+ "JJ KK WW2 8
+ "PP QQ 
 
- #(
- "" "&& "** "(
-  ## %'' %++ %
+ "
 
- +
- !442 8
+ #
 
- !
+ 
 
- $
+##  
 
-11 ,
-33 :: == 
-44 !88 !
+)) +
+
+// $
+
+HH !
+
+NN !
+
+TT ,
+VV "]] !`` $
+WW ![[ !

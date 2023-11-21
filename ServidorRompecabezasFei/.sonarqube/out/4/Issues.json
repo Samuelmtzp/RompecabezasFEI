@@ -5,9 +5,9 @@
     {
       "tool": {
         "name": "Compilador de Microsoft (R) Visual C#",
-        "version": "4.8.0.0",
-        "fileVersion": "4.8.0-7.23558.1 (e0917286)",
-        "semanticVersion": "4.8.0",
+        "version": "4.7.0.0",
+        "fileVersion": "4.7.0-3.23416.8 (43b0b05c)",
+        "semanticVersion": "4.7.0",
         "language": "es-MX"
       },
       "results": [
@@ -18,7 +18,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
                 "region": {
                   "startLine": 26,
                   "startColumn": 13,
@@ -39,7 +39,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
                 "region": {
                   "startLine": 45,
                   "startColumn": 13,
@@ -60,11 +60,11 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
                 "region": {
-                  "startLine": 62,
+                  "startLine": 67,
                   "startColumn": 13,
-                  "endLine": 64,
+                  "endLine": 69,
                   "endColumn": 14
                 }
               }
@@ -81,11 +81,74 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
                 "region": {
-                  "startLine": 79,
+                  "startLine": 84,
                   "startColumn": 13,
-                  "endLine": 81,
+                  "endLine": 86,
+                  "endColumn": 14
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1481",
+          "level": "warning",
+          "message": "Remove the unused local variable 'cuentaJugadorRegistro'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 59,
+                  "startColumn": 31,
+                  "endLine": 59,
+                  "endColumn": 52
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S927",
+          "level": "warning",
+          "message": "Rename parameter 'nombreJugador' to 'nombreUsuario' to match the interface declaration.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 129,
+                  "startColumn": 41,
+                  "endLine": 129,
+                  "endColumn": 54
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S108",
+          "level": "warning",
+          "message": "Either remove or fill this block of code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 157,
+                  "startColumn": 13,
+                  "endLine": 159,
                   "endColumn": 14
                 }
               }
@@ -102,11 +165,32 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
                 "region": {
-                  "startLine": 116,
+                  "startLine": 176,
+                  "startColumn": 13,
+                  "endLine": 178,
+                  "endColumn": 14
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S108",
+          "level": "warning",
+          "message": "Either remove or fill this block of code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 121,
                   "startColumn": 17,
-                  "endLine": 118,
+                  "endLine": 123,
                   "endColumn": 18
                 }
               }
@@ -123,11 +207,263 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
                 "region": {
-                  "startLine": 152,
+                  "startLine": 201,
                   "startColumn": 13,
-                  "endLine": 154,
+                  "endLine": 203,
+                  "endColumn": 14
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6602",
+          "level": "warning",
+          "message": "\"Find\" method should be used instead of the \"FirstOrDefault\" extension method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 223,
+                  "startColumn": 48,
+                  "endLine": 223,
+                  "endColumn": 62
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6602",
+          "level": "warning",
+          "message": "\"Find\" method should be used instead of the \"FirstOrDefault\" extension method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 241,
+                  "startColumn": 52,
+                  "endLine": 241,
+                  "endColumn": 66
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6602",
+          "level": "warning",
+          "message": "\"Find\" method should be used instead of the \"FirstOrDefault\" extension method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 260,
+                  "startColumn": 48,
+                  "endLine": 260,
+                  "endColumn": 62
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6602",
+          "level": "warning",
+          "message": "\"Find\" method should be used instead of the \"FirstOrDefault\" extension method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 266,
+                  "startColumn": 21,
+                  "endLine": 266,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6602",
+          "level": "warning",
+          "message": "\"Find\" method should be used instead of the \"FirstOrDefault\" extension method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 316,
+                  "startColumn": 48,
+                  "endLine": 316,
+                  "endColumn": 62
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2259",
+          "level": "warning",
+          "message": "'salaEncontrada' is null on at least one execution path.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 244,
+                  "startColumn": 21,
+                  "endLine": 244,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6602",
+          "level": "warning",
+          "message": "\"Find\" method should be used instead of the \"FirstOrDefault\" extension method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 330,
+                  "startColumn": 48,
+                  "endLine": 330,
+                  "endColumn": 62
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2259",
+          "level": "warning",
+          "message": "'salaEncontrada' is null on at least one execution path.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 319,
+                  "startColumn": 47,
+                  "endLine": 319,
+                  "endColumn": 61
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6602",
+          "level": "warning",
+          "message": "\"Find\" method should be used instead of the \"FirstOrDefault\" extension method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 349,
+                  "startColumn": 48,
+                  "endLine": 349,
+                  "endColumn": 62
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S108",
+          "level": "warning",
+          "message": "Either remove or fill this block of code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 393,
+                  "startColumn": 13,
+                  "endLine": 395,
+                  "endColumn": 14
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2259",
+          "level": "warning",
+          "message": "'salaEncontrada' is null on at least one execution path.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 333,
+                  "startColumn": 47,
+                  "endLine": 333,
+                  "endColumn": 61
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S108",
+          "level": "warning",
+          "message": "Either remove or fill this block of code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 439,
+                  "startColumn": 13,
+                  "endLine": 441,
                   "endColumn": 14
                 }
               }
@@ -144,11 +480,11 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
                 "region": {
-                  "startLine": 171,
+                  "startLine": 463,
                   "startColumn": 13,
-                  "endLine": 173,
+                  "endLine": 465,
                   "endColumn": 14
                 }
               }
@@ -165,11 +501,11 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
                 "region": {
-                  "startLine": 196,
+                  "startLine": 544,
                   "startColumn": 13,
-                  "endLine": 198,
+                  "endLine": 546,
                   "endColumn": 14
                 }
               }
@@ -186,11 +522,11 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
                 "region": {
-                  "startLine": 402,
+                  "startLine": 490,
                   "startColumn": 13,
-                  "endLine": 404,
+                  "endLine": 492,
                   "endColumn": 14
                 }
               }
@@ -207,11 +543,11 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
                 "region": {
-                  "startLine": 448,
+                  "startLine": 517,
                   "startColumn": 13,
-                  "endLine": 450,
+                  "endLine": 519,
                   "endColumn": 14
                 }
               }
@@ -228,11 +564,11 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
                 "region": {
-                  "startLine": 472,
+                  "startLine": 563,
                   "startColumn": 13,
-                  "endLine": 474,
+                  "endLine": 565,
                   "endColumn": 14
                 }
               }
@@ -249,11 +585,11 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
                 "region": {
-                  "startLine": 499,
+                  "startLine": 581,
                   "startColumn": 13,
-                  "endLine": 501,
+                  "endLine": 583,
                   "endColumn": 14
                 }
               }
@@ -270,11 +606,11 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
                 "region": {
-                  "startLine": 553,
+                  "startLine": 645,
                   "startColumn": 13,
-                  "endLine": 555,
+                  "endLine": 647,
                   "endColumn": 14
                 }
               }
@@ -291,11 +627,11 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
                 "region": {
-                  "startLine": 526,
+                  "startLine": 664,
                   "startColumn": 13,
-                  "endLine": 528,
+                  "endLine": 666,
                   "endColumn": 14
                 }
               }
@@ -312,11 +648,11 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
                 "region": {
-                  "startLine": 572,
+                  "startLine": 713,
                   "startColumn": 13,
-                  "endLine": 574,
+                  "endLine": 715,
                   "endColumn": 14
                 }
               }
@@ -333,11 +669,11 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
                 "region": {
-                  "startLine": 590,
+                  "startLine": 731,
                   "startColumn": 13,
-                  "endLine": 592,
+                  "endLine": 733,
                   "endColumn": 14
                 }
               }
@@ -348,81 +684,18 @@
           }
         },
         {
-          "ruleId": "S108",
+          "ruleId": "S6602",
           "level": "warning",
-          "message": "Either remove or fill this block of code.",
+          "message": "\"Find\" method should be used instead of the \"FirstOrDefault\" extension method.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
                 "region": {
-                  "startLine": 654,
-                  "startColumn": 13,
-                  "endLine": 656,
-                  "endColumn": 14
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S108",
-          "level": "warning",
-          "message": "Either remove or fill this block of code.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
-                "region": {
-                  "startLine": 673,
-                  "startColumn": 13,
-                  "endLine": 675,
-                  "endColumn": 14
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S108",
-          "level": "warning",
-          "message": "Either remove or fill this block of code.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
-                "region": {
-                  "startLine": 722,
-                  "startColumn": 13,
-                  "endLine": 724,
-                  "endColumn": 14
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S108",
-          "level": "warning",
-          "message": "Either remove or fill this block of code.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
-                "region": {
-                  "startLine": 740,
-                  "startColumn": 13,
-                  "endLine": 742,
-                  "endColumn": 14
+                  "startLine": 296,
+                  "startColumn": 48,
+                  "endLine": 296,
+                  "endColumn": 62
                 }
               }
             }
@@ -434,16 +707,37 @@
         {
           "ruleId": "S3267",
           "level": "warning",
-          "message": "Loop should be simplified by calling Select(gestionadorContextoJugador => gestionadorContextoJugador.ContextoIServicioSala))",
+          "message": "Loop should be simplified by calling Select(cuentaJugador => cuentaJugador.OperacionesContexto))",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
                 "region": {
-                  "startLine": 300,
-                  "startColumn": 21,
-                  "endLine": 301,
-                  "endColumn": 55
+                  "startLine": 299,
+                  "startColumn": 53,
+                  "endLine": 299,
+                  "endColumn": 77
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2259",
+          "level": "warning",
+          "message": "'salaEncontrada' is null on at least one execution path.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/king_/Documents/ProyectoTecnologias/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 299,
+                  "startColumn": 53,
+                  "endLine": 299,
+                  "endColumn": 67
                 }
               }
             }
@@ -471,6 +765,39 @@
             ]
           }
         },
+        "S1481": {
+          "id": "S1481",
+          "shortDescription": "Unused local variables should be removed",
+          "fullDescription": "An unused local variable is a variable that has been declared but is not used anywhere in the block of code where it is defined. It is dead code, contributing to unnecessary complexity and leading to confusion when reading the code. Therefore, it should be removed from your code to maintain clarity and efficiency.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1481",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2259": {
+          "id": "S2259",
+          "shortDescription": "Null pointers should not be dereferenced",
+          "fullDescription": "Accessing a null value will always throw a NullReferenceException most likely causing an abrupt program termination.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2259",
+          "properties": {
+            "category": "Major Bug",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
         "S3267": {
           "id": "S3267",
           "shortDescription": "Loops should be simplified with \"LINQ\" expressions",
@@ -483,6 +810,40 @@
             "tags": [
               "C#",
               "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S6602": {
+          "id": "S6602",
+          "shortDescription": "\"Find\" method should be used instead of the \"FirstOrDefault\" extension",
+          "fullDescription": "Both the List.Find method and IEnumerable.FirstOrDefault method can be used to find the first element that satisfies a given condition in a collection. However, List.Find can be faster than IEnumerable.FirstOrDefault for List objects. For small collections, the performance difference may be minor, but for large collections, it can make a noticeable difference. The same applies for ImmutableList and arrays too.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-6602",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S927": {
+          "id": "S927",
+          "shortDescription": "Parameter names should match base declaration and other partial definitions",
+          "fullDescription": "Parameters are part of the method signature and its identity.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-927",
+          "properties": {
+            "category": "Critical Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
               "SonarWay"
             ]
           }

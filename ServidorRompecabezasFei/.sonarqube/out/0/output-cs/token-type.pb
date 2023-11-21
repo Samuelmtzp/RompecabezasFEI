@@ -1,5 +1,5 @@
-Õ
-kC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Datos\Properties\AssemblyInfo.cs
+ß
+uC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Datos\Properties\AssemblyInfo.cs
  
  
  

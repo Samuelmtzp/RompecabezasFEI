@@ -1,5 +1,5 @@
-É
-gC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioCorreo.cs
+Ó
+qC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioCorreo.cs
 
  $
 
@@ -15,8 +15,8 @@ gC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Cont
 
  
 
-" )Ð
-hC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioPartida.cs
+" )Ú
+rC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioPartida.cs
 
  %
 
@@ -77,8 +77,8 @@ hC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Cont
 
 //3 <
 
-//E NÊ
-jC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioAmistades.cs
+//E NÔ
+tC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioAmistades.cs
 
  '
 
@@ -155,8 +155,8 @@ jC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Cont
 
 ::9 F
 
-;;& ,¶
-hC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioJugador.cs
+;;& ,À
+rC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioJugador.cs
 
  %
 
@@ -194,8 +194,8 @@ hC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Cont
 
 ) /
 
-8 BÁ
-eC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioSala.cs
+8 BË
+oC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioSala.cs
 
  "
 
@@ -250,5 +250,5 @@ eC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Cont
 
 ,, /
 
-,,7 Dq
-oC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Contratos\Properties\AssemblyInfo.cs
+,,7 D{
+yC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Contratos\Properties\AssemblyInfo.cs

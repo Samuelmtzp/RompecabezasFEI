@@ -4,14 +4,14 @@
   <ProjectLanguage>C#</ProjectLanguage>
   <ProjectType>Product</ProjectType>
   <ProjectGuid>81e8f49e-e3b9-4de1-bc8b-530306943fe4</ProjectGuid>
-  <FullPath>C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Seguridad\Seguridad.csproj</FullPath>
+  <FullPath>C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\Seguridad\Seguridad.csproj</FullPath>
   <IsExcluded>false</IsExcluded>
   <AnalysisResults>
-    <AnalysisResult Id="FilesToAnalyze" Location="C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\.sonarqube\conf\2\FilesToAnalyze.txt" />
+    <AnalysisResult Id="FilesToAnalyze" Location="C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\.sonarqube\conf\2\FilesToAnalyze.txt" />
   </AnalysisResults>
   <AnalysisSettings>
-    <Property Name="sonar.cs.roslyn.reportFilePaths">C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\.sonarqube\out\2\Issues.json</Property>
-    <Property Name="sonar.cs.analyzer.projectOutPaths">C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\.sonarqube\out\2</Property>
+    <Property Name="sonar.cs.roslyn.reportFilePaths">C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\.sonarqube\out\2\Issues.json</Property>
+    <Property Name="sonar.cs.analyzer.projectOutPaths">C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\.sonarqube\out\2</Property>
   </AnalysisSettings>
   <Configuration>Debug</Configuration>
   <Platform>AnyCPU</Platform>

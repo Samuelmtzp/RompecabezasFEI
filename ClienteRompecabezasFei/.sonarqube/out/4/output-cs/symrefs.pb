@@ -1,10 +1,10 @@
-Ñ
-vC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaAjustesPartida.xaml.cs
+è
+ÄC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaAjustesPartida.xaml.cs
 
- -Ñ
-xC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Servicios\ServicioAmistades.cs
+ -è
+ÇC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Servicios\ServicioAmistades.cs
 
- )
+ "
 
 
 
@@ -64,10 +64,10 @@ xC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 
 ªª #
 øø "
-ﬂﬂ %ª
-uC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Servicios\ServicioCorreo.cs
+ﬂﬂ %≈
+C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Servicios\ServicioCorreo.cs
 
- &
+ 
 
 
 
@@ -84,10 +84,10 @@ uC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 44 2
 44: K;;< M<
 66! (;; #<< EE NN WW 
-77 ;; ZZ  
-vC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Servicios\ServicioJugador.cs
+77 ;; ZZ ’
+ÄC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Servicios\ServicioJugador.cs
 
- '
+  
 
 
 
@@ -167,10 +167,10 @@ vC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 
 ÓÓ 
 ÚÚ 
-ëë õ
-sC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Servicios\ServicioSala.cs
+ëë •
+}C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Servicios\ServicioSala.cs
 
- $
+ 
 
 
 
@@ -202,10 +202,10 @@ sC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 
 ÑÑ +
 àà 
-§§ "Ñ
-vC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Servicios\ServicioPartida.cs
+§§ "è
+ÄC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Servicios\ServicioPartida.cs
 
- '
+  
 
 
 
@@ -219,29 +219,30 @@ vC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 44 6
 44> K<<A N<
 66" )<< #== FF OO XX 
-88 << [[ π
-eC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\App.xaml.cs
-   
+88 << [[ Õ
+oC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\App.xaml.cs
+ && ** 
 
 
-& 8&& ++ -
- # % (
- %77 !<< !CC 
- "++ 00 
-  88 == 
+& 800 55 -
+ # % 2
+ ! #"" BB GG (
+ %AA !FF !MM 
+ "55 :: 
 
- %
-%% )++. A
+  
 
-.. !
-..) 400 &
-33  EE 
-33& 455 
+&& %
 
-AA  )
+88 !
+88) 4:: &
+==  OO 
+==& 4?? 
 
-AA; <Õ
-C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaActualizacionContrasena.xaml.cs
+KK  )
+
+KK; Aÿ
+âC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaActualizacionContrasena.xaml.cs
 
 		 6
 
@@ -257,22 +258,22 @@ eC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 
 O U
  #O _
- %; M< N2
- "P _' 6""' 6,,> M
- )8 N
-   $$$) 6
-!! -$$8 N
-## +&& *
-77 * &
-772 A<<H WUU< K
-88 )VV &2
-:: "AA !JJ !RR !]] $
-`` (MM #
-bb hh kk œ
-ÄC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaActualizacionInformacion.xaml.cs
+ %; M@ R2
+ " #!!/ >%%/ >//F U
+ )!!@ V
+## ,''1 >
+$$ 5''@ V
+&& 3)) 2
+<< *!! .
+<<2 AAAH WZZ< K
+== )[[ &2
+?? "FF !OO !WW !bb $
+ee (RR #
+gg mm pp €
+äC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaActualizacionInformacion.xaml.cs
 
 		 7(
- %nn rr  uu #
+ %pp tt  ww #
 5 B  -
 H T/ ;
  ( 
@@ -290,333 +291,341 @@ eC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 !!> J
 
 "" "
-$$ !55. <2
-%% ''J U22C N55> I??E P2
-&& !((I Z55K \>>D UAAH Y
+$$ !662 @2
+%% ''J U33G R66B M@@I T2
+&& !((I Z66O `??H YBBL ]
 '' "** "// !
 (( "**' 8//% 6
-44 /77 .
-
-YY 2
-
-YY: F
-
-YYX ^
-[[" 7]]< Q
-`` 8((% H
-``= NddA R
-bb ff ii 
-ll 9''% I
-llA SppB T
-xx ;00 78
-zz ~~ 
-áá 
-êê 
-óó !°
-oC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaAjustes.xaml.cs
-
-
-
- &(
- ?? CC UU& ,(
- 2&& -++ -[[ .
- ), 8?? %
- *CC &
- /77 &
-"" /88 &
-00 *VV !
-
-55 1
-
-559 E
-
-55W ]
-
-;; &
-
-;;. ;
-
-;;W ]
-
-GG &
-
-GG. :
-
-GGQ W
-
-SS 2
-
-SS: F
-
-SSR X
-
-YY "
-
-YY* 6
-
-YYH N
-
-aa %
-
-aa- 9
-
-aaK Qª
-qC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaAmistades.xaml.cs
-
- (∏
-( @ (WW (aa (jj (ss (
-——. F
-€€ ,
-‰‰ ,
-ÌÌ ,
-ãã' ?
-ïï (
-ûû (
-ßß (
-∆∆( @
-–– ,
-ŸŸ ,
-‚‚ ,
-ˇˇ% =
-ââ (
-íí (
-õõ (
-˘˘ (
-˚˚ (
-ÑÑ (
-çç (
-ññ (¢
-; J%% 66 #
-¨¨ 
-ÈÈ 
-≠≠ 
-ØØ. =
-±± 
-ππ 
-œœ 
-⁄⁄ 
-ËË 
-ÍÍ- <
-ÔÔ #f
-; O==  NN (
-ËË $
-†† $
-øø $
-¡¡ $
-——/ C
-◊◊ (
-$ 4  
-## ( #(
-&& +)) ))+ :++0 ?
---* 566( 3
-;; 9 4(
->> .AA "AA. @CC2 D
-EE* 9NN- <
-SS 4 /B
-ww  C332 UKK2 U
-∂∂ ;
-««. Q
-‡‡. Q
-xx& ,|| 8
-zz ! 
-ÇÇ 
-ÖÖ 
-ââ 
+55 388 2
+
+[[ 2
+
+[[: F
+
+[[X ^
+]]" 7__< Q
+bb 8((% H
+bb= NffA R
+dd hh kk 
+nn 9''% I
+nnA SrrB T
+zz ;11 ;:
+|| 
+ÄÄ 
+ââ 
+íí 
+ôô !´
+yC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaAjustes.xaml.cs
+
+		 &(
+ >> BB TT& ,(
+ 2%% -** -ZZ .
+ ), 8>> %
+ *BB &
+ /66 &
+!! /77 &
+// *UU !
+
+44 1
+
+449 E
+
+44W ]
+
+:: &
+
+::. ;
+
+::W ]
+
+FF &
+
+FF. :
+
+FFQ W
+
+RR 2
+
+RR: F
+
+RRR X
+
+XX "
+
+XX* 6
+
+XXH N
+
+`` %
+
+``- 9
+
+``K Qè
+{C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaAmistades.xaml.cs
+
+ (∂
+< K ( !// @@ #
+∂∂ 
+ÛÛ 
+∑∑ 
+ππ. =
+ªª 
+√√ 
+ŸŸ 
+‰‰ 
+ÚÚ 
+ÙÙ- <
+˘˘ #z
+< P - &GG  XX (
+ÚÚ $
+™™ $
+…… $
+ÀÀ $
+€€/ C
+·· (∏
+( @&& (aa (kk (tt (}} (
+€€. F
+ÂÂ ,
+ÓÓ ,
+˜˜ ,
+ïï' ?
+üü (
+®® (
+±± (
+––( @
+⁄⁄ ,
+„„ ,
+ÏÏ ,
+ââ% =
+ìì (
+úú (
+•• (
+ÉÉ (
+ÖÖ (
+éé (
+óó (
+†† (
 
-åå /
-«« +$
+; J
 
-éé 
-ìì 
-öö 
+; O
+$ 4!!  
+-- ('' #(
+00 +33 33+ :550 ?
+77* 5@@( 3
+EE 9(( 4(
+HH .KK "KK. @MM2 D
+OO* 9XX- <
+]] 4)) /D
 
-èè '
-ëëB V
+ÅÅ  C==2 UUU2 U
+¿¿ ;
+——. Q
+ÍÍ. Q
 
-ùù -
-…… )
+ÇÇ& ,
+ÜÜ <
 
-üü &
-¢¢' :
+ÑÑ !
+ââ 
+åå 
+èè 
+ìì 
 
-†† '
-¢¢< P$
+ññ /
+—— +$
 
-°° *
-§§ )
-¨¨ ,
+òò 
+ùù 
+§§ 
 
-ØØ ,
-……0 G
+ôô '
+õõB V
 
-±± &
-¥¥ #
+ßß -
+”” )
 
-≤≤ '
-¥¥% 9$
+©© &
+¨¨' :
 
-≥≥ 
-∂∂ 
-ΩΩ  
+™™ '
+¨¨< P$
 
-¿¿ +
+´´ *
+ÆÆ )
+∂∂ ,
 
-¿¿3 ?
+ππ ,
+””0 G
 
-¿¿V \
+ªª &
+ææ #
 
-≈≈ -
+ºº '
+ææ% 9$
 
-≈≈5 A
+ΩΩ 
+¿¿ 
+««  
 
-≈≈S Y
+   +
 
-ÀÀ *
-““1 D
+  3 ?
 
-ÃÃ +
-““F Z$
+  V \
 
-ÕÕ ,
-—— +
- +
+œœ -
 
-ˇˇ "
+œœ5 A
 
-ˇˇ* 6
-ÇÇ $
+œœS Y
 
-ˇˇH N
+’’ *
+‹‹1 D
 
-ÅÅ 
-ÉÉ $
+÷÷ +
+‹‹F Z$
 
-ÑÑ #
-ÜÜ$ 7
-¨¨' :
+◊◊ ,
+€€ +
+˙˙ +
 
-ÖÖ !
-åå2 @
+ââ "
 
-ÜÜ !
-ååB P$
+ââ* 6
+åå $
 
-áá %
-ãã $
-™™ $
+ââH N
 
-∂∂ .
+ãã 
+çç $
 
-∂∂6 B
-∫∫ $
+éé #
+êê$ 7
+∂∂' :
 
-∑∑ "
+èè !
+ññ2 @
 
-ππ 
-ªª <
+êê !
+ññB P$
 
-ºº #
-øø #
-¡¡- @
-ËË, ?
-ÈÈ$ 7$
+ëë %
+ïï $
+¥¥ $
 
-ΩΩ "
-∆∆ %
-ÊÊ !
+¿¿ .
 
-¡¡ *
-«« +
+¿¿6 B
+ƒƒ $
 
-¬¬ +
-««- A
+¡¡ "
 
-ÛÛ /
+√√ 
+≈≈ <
 
-ÛÛ7 C
-ˆˆ $
+∆∆ #
+…… #
+ÀÀ- @
+ÚÚ, ?
+ÛÛ$ 7$
 
-ÛÛU [
+«« "
+–– %
+ !
 
-ıı 
-˜˜ $
+ÀÀ *
+—— +
 
-¯¯ #
-˘˘) <
-††, ?
+ÃÃ +
+——- A
 
-˘˘ &
-ÄÄ '
+˝˝ /
 
-˙˙ '
-ÄÄ) =$
+˝˝7 C
+ÄÄ $
 
-˚˚ #
-ˇˇ "
-ûû "
+˝˝U [
 
-™™ 8
+ˇˇ 
+ÅÅ $
 
-™™@ M
-∞∞+ 8
+ÇÇ #
+ÉÉ) <
+™™, ?
 
-´´& ,
-∂∂< B<
+ÉÉ &
+ää '
 
-ØØ +
-±±' >
-≥≥ +
-µµ +
-ππ* A
+ÑÑ '
+ää) =$
 
-ØØM R
-∞∞ 
+ÖÖ #
+ââ "
+®® "
 
-ΩΩ 4<
+¥¥ 8
 
-ΩΩC W
-√√$ 8
-ƒƒ# 7
-∆∆2 F
-»» ,
+¥¥@ M
+∫∫+ 8
 
-ÕÕ 5H
+µµ& ,
+¿¿< B<
 
-ÕÕD T
-”” $
-‹‹$ 4
-››# 3
-ﬂﬂ2 B
-·· ($
+ππ +
+ªª' >
+ΩΩ +
+øø +
+√√* A
 
-—— ,
-’’ ,
-◊◊0 H
+ππD I
+∫∫ 
 
-——S b
-““ #
+«« 4<
 
-ÊÊ -
+««C W
+ÕÕ$ 8
+ŒŒ# 7
+––2 F
+““ ,
 
-ÊÊ5 K
-ÎÎ+ A$
+◊◊ 5H
 
-ÍÍ *
-ÌÌ *
-ÔÔ+ A
+◊◊D T
+›› $
+ÊÊ$ 4
+ÁÁ# 3
+ÈÈ2 B
+ÎÎ ($
 
-ÍÍL Q
-ÎÎ 
+€€ ,
+ﬂﬂ ,
+··0 H
 
-ÙÙ 7
+€€J Y
+‹‹ #
 
-ÙÙ? K
+ -
 
-ıı "ê
-ÅC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaModificacionJugadoresSala.xaml.cs
+5 K
+ıı+ A$
+
+ÙÙ *
+˜˜ *
+˘˘+ A
+
+ÙÙC H
+ıı 
+
+˛˛ 7
+
+˛˛? K
+
+ˇˇ "ö
+ãC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaModificacionJugadoresSala.xaml.cs
 
  8ç
-àC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaCodigoRestablecimientoContrasena.xaml.cs
+íC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaCodigoRestablecimientoContrasena.xaml.cs
 
 		 ?(
   - 7 D66 %
@@ -638,13 +647,13 @@ qC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 ,, %... @11 &
 00 /33 .
 
-AA 3
-AA; GDD FF0 <
+AA 3
+AA; GDD 
 
 BB! '<
-FF #GG *GG= HII II) 4JJ 
-GG JJ# (∂
-zC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaInformacionJugador.xaml.cs
+DD( IFF @GG 5HH 1II 5JJ 1
+FF JJ9 >¡
+ÑC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaInformacionJugador.xaml.cs
 
  1
  & 
@@ -667,8 +676,8 @@ zC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 
 003 ?
 
-00V \‹
-tC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaInicioSesion.xaml.cs
+00V \Ê
+~C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaInicioSesion.xaml.cs
 
  +
 
@@ -721,8 +730,8 @@ tC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 
 àà 
 çç 
-êê ß
-uC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaMenuPrincipal.xaml.cs
+êê ±
+C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaMenuPrincipal.xaml.cs
 
  ,
  5 0
@@ -763,299 +772,304 @@ uC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 
 DD- 9
 
-DDP V·
-oC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaPartida.xaml.cs
+DDP VÖ
+yC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaPartida.xaml.cs
 
  &F
  (
-ââ 
-™™ #
-∞∞ #
-∆∆ #
-…… #ú
-! ("" 55 55E L66 66G N::& -==0 7EE$ +FF% ,WW' .cc1 8dd. 5hh ooB IppD Krr& -tt0 7zz  '{{ &
-ÉÉ 
-ññ$ +
-¶¶$ +
-¬¬$ +
-œœ$ +
-öö0 7
-œœ :
+çç 
+ÆÆ #
+¥¥ #
+   #
+ÕÕ #ú
+! ('' 99 99E L:: ::G N>>& -AA0 7II$ +JJ% ,[[' .gg1 8hh. 5ll ssB IttD Kvv& -xx0 7~~  ' &
+áá 
+öö$ +
+™™$ +
+∆∆$ +
+””$ +
+ûû0 7
+”” :
  +
-®® %
-¥¥F [
-µµF [
-øø )Ê
+¨¨ %
+∏∏F [
+ππF [
+√√ )Ê
  !
-µµ" -
-∂∂" -
-∑∑ 
-∏∏ 
-ÏÏ* 5
-ÌÌ- 8
-ÔÔ+ 6
+ππ" -
+∫∫" -
+ªª 
+ºº 
 * 5
-ÒÒ '
-ãã 
-ãã( 3
-çç 
-°° 
-££ 
-••4 ?
-¶¶1 <
-ßß 
-©© 
-≤≤ 
-∂∂7 B
-∑∑6 A
-ªª# .
-ºº' 2
-ΩΩ" -
-ææ& 1
-»» 
-   
-ÀÀ 
-ÕÕ 
-; K)) 
-( 2$$ '
-8 P''+ C
-.. +++ "
-33 !
-ÑÑ 2
-77 (<< 'LL /OO /TT /2
-88 5<<* NYY @[[ @__ @2
-:: :: #::: >AA #dd' +<
-==  ==& -==G NBB" )WW cc' .F
-?? NN SS ee# (ff" 'gg5 :hh' ,
-cc $ee/ 8
-dd $ff. 7
-mm +
-õõ "*
-mm8 Loo% 9pp& :
-ÄÄ6 J
-oo vvD Pww' 3
-pp ww %ww5 B2
-rr rr #rr: >vvR V}}' +2
-tt  tt& -ttG Nvv: A~~* 1
-vv )
-ÄÄL W:
-xx $
-ÄÄ 
-ÅÅ 
-ÇÇ 
-ÉÉ' 1
-
-àà 1
-ÅÅ' A<
-
-ää 
-ãã 
-åå 
-çç 
-èè 
-
-íí 0
-úú '$
-
-îî 
-öö# ,
-úú# ,
-
-òò #
-õõ !
-
-ôô $
-ùù "
-
-öö  
-ûû, 5
-
-úú  
-üü+ 4
-
-§§ C
-ÚÚ J
-
-∞∞ 4
-ππ 3$
-
-∞∞< J
-µµ 
-∑∑% 3$
-
-±± !
-∂∂ 
-∏∏$ 2$
-
-≥≥ !
-∫∫  
-ΩΩ #0
-
-¿¿ 4
-°° 8
-≤≤ <
-   <
-
-¿¿< A
-¬¬U Z$
+ÒÒ- 8
+ÛÛ+ 6
+ÙÙ* 5
+ıı '
+èè 
+èè( 3
+ëë 
+•• 
+ßß 
+©©4 ?
+™™1 <
+´´ 
+≠≠ 
+∂∂ 
+∫∫7 B
+ªª6 A
+øø# .
+¿¿' 2
+¡¡" -
+¬¬& 1
+ÃÃ 
+ŒŒ 
+œœ 
+—— (
+< L ) ".. 
+
+; K
+$$( 2)) '
+$$8 P,,+ C
+
+22 +
+77 !
+àà 2
+;; (@@ 'PP /SS /XX /2
+<< 5@@* N]] @__ @cc @2
+>> >> #>>: >EE #hh' +<
+AA  AA& -AAG NFF" )[[ gg' .F
+CC RR WW ii# (jj" 'kk5 :ll' ,
+gg $ii/ 8
+hh $jj. 7
+qq +
+üü "*
+qq8 Lss% 9tt& :
+ÑÑ6 J
+ss zzD P{{' 3
+tt {{ %{{5 B4
+vv vv #vv: >zzR V
+ÅÅ' +4
+xx  xx& -xxG Nzz: A
+ÇÇ* 1
+zz )
+ÑÑL W:
+|| $
+ÑÑ 
+ÖÖ 
+ÜÜ 
+áá' 1
+
+åå 1
+ÖÖ' A<
+
+éé 
+èè 
+êê 
+ëë 
+ìì 
+
+ññ 0
+†† '$
+
+òò 
+ûû# ,
+††# ,
+
+úú #
+üü !
+
+ùù $
+°° "
+
+ûû  
+¢¢, 5
+
+††  
+££+ 4
+
+®® C
+ˆˆ J
+
+¥¥ 4
+ΩΩ 3$
+
+¥¥< J
+ππ 
+ªª% 3$
+
+µµ !
+∫∫ 
+ºº$ 2$
+
+∑∑ !
+ææ  
+¡¡ #0
 
-¬¬ !
-≈≈ !
-««" 3
+ƒƒ 4
+•• 8
+∂∂ <
+ŒŒ <
 
-¬¬9 >
-¬¬B G$
+ƒƒ< A
+∆∆U Z$
 
-√√ !
-«« 
-   "
+∆∆ !
+…… !
+ÀÀ" 3
 
-ÕÕ 3
-ÍÍ& C
+∆∆9 >
+∆∆B G$
 
-ÕÕ> G
-œœT ]$
+«« !
+ÀÀ 
+ŒŒ "
 
-œœ !
-““ !
-‘‘" 3
+—— 3
+ÓÓ& C
 
-œœ9 >
-œœB G$
+——> G
+””T ]$
 
-–– !
-‘‘ 
-◊◊ "
+”” !
+÷÷ !
+ÿÿ" 3
 
-⁄⁄ :
-ŒŒ 5<
+””9 >
+””B G$
 
-⁄⁄A I
-ÂÂ  
-ÊÊ  
-ÁÁ  
-ËË  H
+‘‘ !
+ÿÿ 
+€€ "
 
-ﬁﬁ) 2
-‡‡< E
-··; D
-‚‚? H
-„„? H
-ÍÍD M0
+ﬁﬁ :
+““ 5<
 
-‡‡ *
-‚‚- <
-ÂÂ& 5
-ÔÔ> M0
+ﬁﬁA I
+ÈÈ  
+ÍÍ  
+ÎÎ  
+ÏÏ  H
 
-·· *
-„„- <
-ÁÁ& 5
-= L
+‚‚) 2
+‰‰< E
+ÂÂ; D
+ÊÊ? H
+ÁÁ? H
+ÓÓD M0
 
-‚‚ *
-ÊÊ& 5
+‰‰ *
+ÊÊ- <
+ÈÈ& 5
+ÛÛ> M0
 
-„„ *
-ËË& 5$
+ÂÂ *
+ÁÁ- <
+ÎÎ& 5
+ÙÙ= L
 
-ÍÍ #
-ÏÏ !
-ÌÌ !
+ÊÊ *
+ÍÍ& 5
 
-˙˙ 4
-““ 3
+ÁÁ *
+ÏÏ& 5$
 
-¸¸ -
-˝˝ 
+ÓÓ #
+ !
+ÒÒ !
 
-ÄÄ '
+˛˛ 4
+÷÷ 3
 
-ÄÄ/ ;
+ÄÄ -
+ÅÅ 
 
-ÄÄM S
+ÑÑ '
 
-ÇÇ -
-ÉÉ $
+ÑÑ/ ;
 
-áá 3
-˝˝, J
-ÉÉ, J
+ÑÑM S
 
-áá; G
+ÜÜ -
+áá $
 
-ááS Y
+ãã 3
+ÅÅ, J
+áá, J
 
-ëë +
+ãã; G
 
-ëë3 ?
+ããS Y
 
-ëëV \
+ïï +
 
-ññ !
+ïï3 ?
 
-ññ) 5
+ïïV \
 
-ññG M
+öö !
 
-ôô ,
-õõ# 7
+öö) 5
 
-üü %
-ãã/ ?
+ööG M
 
-üü- 9
-°°A M
+ùù ,
+üü# 7
 
-üüP V
-®®( .
+££ %
+èè/ ?
 
-ÆÆ 
-åå% /
+££- 9
+••A M
 
-ÆÆ' 3
-≤≤E Q
+££P V
+¨¨( .
 
-ÆÆD J
-≥≥- 30
+≤≤ 
+êê% /
 
-≥≥ *
-¥¥- A
-µµ- A
-øø, @$
+≤≤' 3
+∂∂E Q
 
-¥¥ *
-∂∂L _
-ºº< O$
+≤≤D J
+∑∑- 30
 
-µµ *
-∑∑K ^
-ææ; N
+∑∑ *
+∏∏- A
+ππ- A
+√√, @$
 
-∂∂ %
-ππ4 B
+∏∏ *
+∫∫L _
+¿¿< O$
 
-∑∑ %
-ππD R
+ππ *
+ªªK ^
+¬¬; N
 
-ƒƒ  
-çç- 8
+∫∫ %
+ΩΩ4 B
 
-ƒƒ( 4
-  E Q
+ªª %
+ΩΩD R
 
-ƒƒK Q
-ÃÃ' -
+»»  
+ëë- 8
 
-ÃÃ $
-ŒŒ6 D
+»»( 4
+ŒŒE Q
 
-ÿÿ 2
+»»K Q
+––' -
 
-ÿÿ: C
+–– $
+““6 D
 
-ÿÿL Uî
-~C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaRecuperacionContrasena.xaml.cs
+‹‹ 2
+
+‹‹: C
+
+‹‹L Uü
+àC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaRecuperacionContrasena.xaml.cs
 
  5
 
@@ -1071,8 +1085,8 @@ oC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 
 ,,2 >
 
-,,U [Ÿ
-wC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaRegistroJugador.xaml.cs
+,,U [‰
+ÅC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaRegistroJugador.xaml.cs
 
 		 .
 ) 5 +
@@ -1125,18 +1139,18 @@ wC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 
 †† 
 ©© 
-¨¨ ∫
-rC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaResultados.xaml.cs
+¨¨ ƒ
+|C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaResultados.xaml.cs
 
  )
 
- "
+ "
 
-* 6
+* 6
 
-H N
- !+ 5ç
-ÇC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaRestablecimientoContrasena.xaml.cs
+H N
+ !+ 5ó
+åC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaRestablecimientoContrasena.xaml.cs
 
  9
 
@@ -1154,97 +1168,109 @@ rC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
  /   .
 :: ) %
 ::1 ;>>B L??H R
-<<  AA DD "À
-lC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaSala.xaml.cs
+<<  AA DD "¬	
+vC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaSala.xaml.cs
 
- #é
-# 7// $??  UU $__ $hh $qq $
-îî $
-óó $
-†† $
-©© $
-≤≤ $
-µµ  v
-  (( (00* 4994 >LL) 3VV xx1 ;
-áá 
-ââ 
-åå* 4
-ïï8 B
- AA d
-; J NN || 
-∆∆ 
-ŒŒ 
-‘‘ 
-◊◊ #
-‹‹ #
+ #å
+ ! # 77 (??* 4HH4 >[[) 3ee 
+áá1 ;
+ññ 
+òò 
+õõ* 4
+§§8 B(
+   $ PP ê
+# 7>> $NN  dd $nn $ww $
+ÄÄ $
+££ $
+¶¶ $
+ØØ $
+∏∏ $
+¡¡ $
+ƒƒ  z
+< K## ($$ !** ]] 
+ãã 
+’’ 
+›› 
+„„ 
+ÊÊ #
+ÎÎ #
 
- +
+  
 
-3 ?
+ 
 
-V \
+!!; J
 
-%% 5
+.. +
 
-%%= I
+..3 ?
 
-&& "
+..V \
 
-++ .
+44 5
 
-++6 B
+44= I
 
-++T Z
+55 "
 
-55 2
+:: .
 
-55: F
+::6 B
 
-55X ^
-77' A99 &::+ E
+::T Z
 
-== 
-QQ /MM &
-QQ7 DUU@ M
-uu *II %
-ww 0zz. B
+DD 2
 
-ÖÖ #DD 
+DD: F
 
-êê -!! $
+DDX ^
+FF' AHH &II+ E
 
-∏∏ -
+LL 
+`` /\\ &
+``7 Ddd@ M
 
-∏∏5 A
+ÑÑ *XX %
 
-ππ! '
+ÜÜ 0
+ââ. B
 
-øø (
+îî #SS 
 
-øø0 7
-¡¡+ 2
+üü -00 $
 
-ƒƒ 8$
+«« -
 
-ƒƒG S
-ÀÀ2 >
-ÃÃ$ 0
+««5 A
 
-»»& 8
-ŒŒ$ 6
+»»! '
 
-““ 6
+ŒŒ (
 
-““> K
-ÿÿ !$
+ŒŒ0 7
+––+ 2
 
-÷÷& =
-⁄⁄ +
-‹‹+ B
+”” 8$
 
-◊◊3 :
-◊◊> E√
-wC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaSeleccionAvatar.xaml.cs
+””G S
+⁄⁄2 >
+€€$ 0
+
+◊◊& 8
+››$ 6
+
+·· 6
+
+··> K
+ÁÁ !$
+
+ÂÂ& =
+ÈÈ +
+ÎÎ+ B
+
+ÊÊ* 1
+ÊÊ5 <Œ
+ÅC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaSeleccionAvatar.xaml.cs
 
 		 .2
   -  88" />>; H
@@ -1273,60 +1299,62 @@ wC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 
 33L R
 77& ;99/ D
-==/ M??/ M»
-|C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaCreacionNuevaPartida.xaml.cs
+==/ M??/ M˝
+ÜC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaCreacionNuevaPartida.xaml.cs
 
 
 
- 3<
- .11 0;; 0FF 'HH 'MM #2
- % ; E]] bb= G(
-   LL bbI U
- '##7 D
-8 L!!  %% $
+ 32
+9 M - &**  .. $<
+ .:: 0DD 0OO 'QQ 'VV #2
+ %"" ##; Eff kk= G(
+  $$ UU kkI U
+ ! # 
 
-  
- 2 )2
-## !##' 3##G S''6 B((# /
+8 L
 
--- 0
---8 D// '
+  
+(( 2!! )2
+,, !,,' 3,,< H006 B11# /
 
---U [
-// 11 33 
+66 0
+668 D88 '
 
-77 0
-778 D99 '
+66U [
+88 :: << 
 
-77U [(
-99 ;; ==, 1>> 
-==# )>>8 >
+@@ 0
+@@8 DBB '
 
-BB &
-BB. :DD '
+@@U [(
+BB DD FF, 1GG 
+FF# )GG8 >
 
-BBQ W(
-DD KK( -MM& +NN 
-KK %LL !
+KK &
+KK. :MM '
 
-QQ "
+KKQ W(
+MM TT( -VV& +WW 
+TT %UU !
 
-QQ* 6
+ZZ "
 
-QQM S
+ZZ* 6
 
-ZZ *
+ZZM S
 
-ZZ2 ?
+cc *
 
-[[& ,
+cc2 ?
 
-`` %
+dd& ,
 
-``- 9
+ii %
 
-``K QÜ
-rC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaUnirseSala.xaml.cs
+ii- 9
+
+iiK Qê
+|C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaUnirseSala.xaml.cs
 
  )
 
@@ -1341,49 +1369,48 @@ rC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 
 3 ?
 
-V \∂
-zC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaVerificacionCorreo.xaml.cs
+V \€
+ÑC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaVerificacionCorreo.xaml.cs
 
  1F
-/ >  DD 'GG( 7HH' 6JJ! 0{{ Z
- )   !! "" '' )) **? K00 QQ $
-> M# 2 
- ( ~~ 
-%% ,!!. F
+/ >  BB 'EE( 7FF' 6HH! 0zz 
+> M# 2 
+ ( }} 
+## ,. F
 
-%%4 @
+##4 @
 
-%%L R
-** '++4 B,, %
+##L R
+(( '))4 B** %
 
-66 3
+44 3
 
-66; G
+44; G
 
-77 "
-99 %;;. @>>0 B
-== 2AA 1
-CC ,II% 6
-EE" .MM $
-LL *OO )
+55 "
+77 %99. @<<0 B
+;; 2?? 1
+AA ,GG% 6
+CC" .KK $
+JJ *MM )
 
-jj 3
-jj; Gmm oo/ ;
+hh 3
+hh; Gkk 
 
-kk! '<
-oo #pp *pp= Hrr rr) 4ss 
-pp ss# (
+ii! '<
+kk( Emm <nn <pp -qq 1rr -
+mm rr5 :
 
-ww :
+vv :
 
-wwB N
+vvB N
 
-xx "
+ww "
 
-ÅÅ .22 )
+ÄÄ .00 )
 
-áá 1 (Ì
-yC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Utilidades\GeneradorImagenes.cs
+ÜÜ 1 (¯
+ÉC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Utilidades\GeneradorImagenes.cs
 
  "
 
@@ -1401,8 +1428,8 @@ yC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
  %7 I
  #/ ?
  %A S
- + 7ú
-tC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Utilidades\Temporizador.cs
+ + 7¶
+~C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Utilidades\Temporizador.cs
 
  
  1  8
@@ -1411,13 +1438,13 @@ tC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 
 
  ,0 C
- $  (
- +   
+ +  (
+& 2   
 
- '
+ .
 
- 'ˇ
-C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Utilidades\GestionadorCodigoCorreo.cs
+ .ä
+âC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Utilidades\GestionadorCodigoCorreo.cs
 
  (
  /1 F
@@ -1432,8 +1459,8 @@ tC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 I VG T
   
 " ) 
- !! §
-rC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\VentanaPrincipal.xaml.cs
+ !! Æ
+|C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\VentanaPrincipal.xaml.cs
  ) 1 A<
 		 ( ' 3L X ## )
 
@@ -1450,5 +1477,5 @@ rC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 
 ''/ ;
 
-''M Sv
-tC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Properties\AssemblyInfo.cs
+''M SÄ
+~C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Properties\AssemblyInfo.cs

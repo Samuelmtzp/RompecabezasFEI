@@ -1,10 +1,10 @@
-ì
-cC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Registros\Registrador.cs
+ù
+mC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Registros\Registrador.cs
 
- #
+ 
 
  $
 = J
 
-( 5q
-oC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Registros\Properties\AssemblyInfo.cs
+( 5{
+yC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Registros\Properties\AssemblyInfo.cs

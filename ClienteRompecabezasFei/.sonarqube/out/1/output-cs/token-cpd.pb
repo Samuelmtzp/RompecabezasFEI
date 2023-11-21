@@ -1,5 +1,5 @@
-ï#
-bC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Registros\Registrador.cs
+ã#
+lC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\Registros\Registrador.cs
 	namespace 	
 	Registros
  
@@ -7,16 +7,13 @@ bC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Regis
 public
 
  
-
-static
-
- 
+
 class
 
- 
+ 
 Registrador
 
- #
+ 
 { 
 public 
 static 
@@ -247,9 +244,9 @@ StackFrame $
 ;**G H
 }++ 
 },, 	
-}-- 
-}.. ê
-nC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Registros\Properties\AssemblyInfo.cs
+}.. 
+}// ö
+xC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\Registros\Properties\AssemblyInfo.cs
 [ 
 assembly 	
 :	 

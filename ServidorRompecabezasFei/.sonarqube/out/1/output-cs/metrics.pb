@@ -1,6 +1,6 @@
-
-cC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Registros\Registrador.cs 8r	
+‰
+mC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Registros\Registrador.cs 8r	
 ‚
-”
-oC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Registros\Properties\AssemblyInfo.csj !"r	
+ž
+yC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Registros\Properties\AssemblyInfo.csj !"r	
 #$%

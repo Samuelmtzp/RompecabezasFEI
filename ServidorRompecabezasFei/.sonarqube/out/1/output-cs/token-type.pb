@@ -1,14 +1,14 @@
-±
-cC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Registros\Registrador.cs
+­
+mC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Registros\Registrador.cs
  
  
  	 
-   #   & 46 <M O
+     & 46 <M O
 
  
 
- õ
-oC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Registros\Properties\AssemblyInfo.cs
+ ÿ
+yC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Registros\Properties\AssemblyInfo.cs
  
  
  

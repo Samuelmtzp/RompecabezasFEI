@@ -1,5 +1,5 @@
-¶
-bC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\Autenticacion.cs
+∞
+lC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\Autenticacion.cs
 
  
 
@@ -10,8 +10,8 @@ bC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logi
 
  ' !))  
  ? G= E<
- + +!!' >""( ?##! 8$$% <â
-eC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\ConsultasJugador.cs
+ + +!!' >""( ?##! 8$$% <ì
+oC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\ConsultasJugador.cs
 
  !
 
@@ -37,49 +37,65 @@ eC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logi
 >> /
 >>7 DFF* 7
 @@ DD JJ "
-BB DD9 AÑ
-bC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\CuentaJugador.cs
+BB DD9 Aé
+lC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\CuentaJugador.cs
 
- 
-
+ 
+		  " (
 
 
- 
- #%%& 3
- &&" .
- '' "
-  ((  *
+ $ & PP& 3(
+  %% %&& QQ" .(
+ ,, -- RR "(
+ !33 #44 SS  *
+ ::  ;; 
+* <AA +BB $
+  3HH ,II %
 
- 
+ 
 
-) ;
+ #
 
- 2
+## 
 
-## '|
-nC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\EstadoConectividadJugador.cs
+** 
+
+11  
+
+88 
+
+??) ;
+
+FF 2
+
+NN 'Ü
+xC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\EstadoConectividadJugador.cs
 
  )ú
-lC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\GeneradorMensajesCorreo.cs
+vC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\GeneradorMensajesCorreo.cs
 
  (
-% ()) .. 
+% ('' ,, 
 
  !
-) 3N X
-< I!!% 2
-  $
-" ) "(
- ** // 55 
- F R<
- " ## $$ %% 33 
- )!! %%! .û
-dC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\GestionContexto.cs
+) 3N X
+< I% 2
+  $
+" ) "(
+ (( -- 33 
+ F R2
+ "!! "" ## 11 
+ ) ##! .Ë
+nC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\GestionContexto.cs
 
-  
-  5 !
-		  : &Î
-eC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\GestionAmistades.cs
+  (
+! 7 " / ((
+! ; & 3 ,
+
+  5
+
+  :ó
+oC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\GestionAmistades.cs
 
  !
 
@@ -96,133 +112,142 @@ eC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logi
 00 55, 5
 
 BB ,
-BB4 GJJ- @
-CC 'LL- A
-EE VV ZZ 2
-GG II$ ,KK% -UU VV  (
-II !NN !RR* 7
-II; BJJ 
-KK "NN- ;SS+ 9
-KK< CLL 
-PP% .UU2 ;
+BB4 GKK- @
+CC 'MM- A
+EE WW [[ 2
+GG JJ$ ,LL% -VV WW  (
 
-]] -F
-]]5 Hbb) <dd+ >gg? RiiA Tll) <nn@ SF
-^^ 'bb> Rdd@ Tgg) =ii+ ?ll> Roo (
-`` nn rr 
-uu 8nn ?
-uu@ N}}- ;
-vv !- ;"
-xx 
-ââ 
-çç 6
-zz || '~~ '
-àà 
-ââ  ("
-|| 
-ÅÅ 
-ÖÖ% -
-||6 =}} "
+II! 1
+JJ !OO !SS* 7
+JJ; BKK 
+LL "OO- ;TT+ 9
+LL< CMM 
+QQ% .VV2 ;
+
+^^ -F
+^^5 Hcc) <ee+ >hh? RjjA Tmm) <oo@ SF
+__ 'cc> Ree@ Thh) =jj+ ?mm> Rpp (
+aa oo ss 
+vv 8oo ?
+vv@ N- ;
+ww !
+ÅÅ- ;"
+yy 
+ãã 
+èè 8
+{{ ~~ '
+ÄÄ '
+ää 
+ãã  (
+
+}}! 1"
 ~~ 
-ÅÅ( 0
-ÜÜ% -
-~~6 = 
+ÉÉ 
+áá% -
+~~6 = $
 
-ÉÉ #
-àà) 0
+ÄÄ 
+ÉÉ( 0
+àà% -
 
-êê 1$
+ÄÄ6 =
+ÅÅ 
 
-êê9 G
-óó: H
-öö: H$
+ÖÖ #
+ää) 0
 
-êêP ^
-òò: H
-ôô: H$
+íí 1$
 
-íí 
-üü 
-££ 0
+íí9 G
+ôô: H
+úú: H$
 
-îî 
-ññ& .
-ûû 
-üü  ($
+ííP ^
+öö: H
+õõ: H$
 
-ññ #
-úú #
-ûû, ;<
+îî 
+°° 
+•• 0
 
-ññF M
-óó 
-òò 
+ññ 
+òò& .
+†† 
+°°  ($
+
+òò #
+ûû #
+††, ;<
+
+òòF M
 ôô 
-öö  
+öö 
+õõ 
+úú  
 
-¶¶ .dd *ii *
+®® .ee *jj *
 
-¶¶6 I
-ØØA T
+®®6 I
+±±A T
 
-ßß '
-∞∞B V$
+©© '
+≤≤B V$
 
-©© 
-µµ 
-ππ 0
+´´ 
+∑∑ 
+ªª 0
 
-´´ 
-≠≠/ 7
-¥¥ 
-µµ  ($
+≠≠ 
+ØØ/ 7
+∂∂ 
+∑∑  ($
 
-≠≠ ,
-≤≤ ,
-¥¥5 M$
+ØØ ,
+¥¥ ,
+∂∂5 M$
 
-ÆÆ# ,
-ØØ 
-∞∞  
+∞∞# ,
+±± 
+≤≤  
 
-ºº ,bb (gg (
+ææ ,cc (hh (
 
-ºº4 G
-≈≈, ?
+ææ4 G
+««, ?
 
-ΩΩ '
-««, @$
+øø '
+……, @$
 
-øø 
-ÃÃ 
-–– 
+¡¡ 
+ŒŒ 
+““ 
 
-¡¡ 
-√√7 ?
+√√ 
+≈≈7 ?
 
-√√ !
-   !
+≈≈ !
+ÃÃ !
 
-”” +ll ($
+’’ +mm ($
 
-””3 A
-€€+ 9
+’’3 A
+››+ 9
+„„+ 9$
+
+’’J X
+ﬂﬂ+ 9
 ··+ 9$
 
-””J X
-››+ 9
-ﬂﬂ+ 9$
+◊◊ 
+ËË 
+ÏÏ 
 
-’’ 
-ÊÊ 
-ÍÍ 
+ŸŸ 
+€€5 =
 
-◊◊ 
-ŸŸ5 =
-
-ŸŸ !
-‰‰ !≠
-cC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\GestionPartida.cs
+€€ !
+ÊÊ !∑
+mC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\GestionPartida.cs
 
 
 
@@ -245,8 +270,8 @@ cC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logi
 ++ )// %33$ 5
 ,, ,, &
 ,,8 ?-- 
-11% 5882 Bº
-`C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\GestionSala.cs
+11% 5882 B∆
+jC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\GestionSala.cs
 
 
 
@@ -259,9 +284,9 @@ cC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logi
  + 3   (
  ( $& 6
 B I 
- (& /n
-lC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\Properties\AssemblyInfo.cs≈
-]C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\Registro.cs
+ (& /x
+vC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\Properties\AssemblyInfo.csœ
+gC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\Registro.cs
 
  
 
@@ -289,23 +314,28 @@ lC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logi
 99 EE HH 
 ;; ==% -EE $
 == "@@ "BB "
-==D J>> Â
-YC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\Sala.cs
+==D J>> Ô
+cC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\Sala.cs
 
- 
-		 (/ >
-
+ 
 
 
- (
+ ! # 
+ & ( !2
+ -$$ 2%% +33 ,88 ,
+ (33/ >
 
-  
+ (
+$ -++ ",, 
 
- %
- , , ,
+  
 
-# ,
+ %
 
- '
+"" ,
 
- 
+))# ,
+
+11 '
+
+66 

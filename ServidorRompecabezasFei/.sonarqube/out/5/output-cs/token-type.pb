@@ -1,5 +1,5 @@
-Ø
-nC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Servidor\Properties\AssemblyInfo.cs
+â
+xC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Servidor\Properties\AssemblyInfo.cs
  
  
  
@@ -25,10 +25,10 @@ nC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Serv
  
    S
 !! #
-"" '## 	## ## $$$ 	$$ $$ (Å
-_C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Servidor\Servidor.cs
+"" '## 	## ## $$$ 	$$ $$ (Á
+iC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Servidor\Servidor.cs
  
  
  
  	 
-    		 		 		 		  &      &' >  & 9  3 & < 
+  		 		 		 		  &      &' >  & 9  3 & < 

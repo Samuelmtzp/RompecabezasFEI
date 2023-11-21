@@ -1,9 +1,9 @@
-®
-bC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Registros\Registrador.cs
+¸
+lC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\Registros\Registrador.cs
 
 
 
- #
+ 
 
  $
 = J( 5
@@ -19,5 +19,5 @@ bC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Regis
  (##& 7
  &$$& 5
   $ 6%% &
-"" '%%1 =p
-nC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Registros\Properties\AssemblyInfo.cs
+"" '%%1 =z
+xC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\Registros\Properties\AssemblyInfo.cs

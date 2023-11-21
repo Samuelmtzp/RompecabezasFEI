@@ -1,1 +1,1 @@
-C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\.sonarqube\out\2
+C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\.sonarqube\out\2

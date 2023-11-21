@@ -1,5 +1,6 @@
-¿
-ZC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Celda.cs
+
+
+dC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Celda.cs
 	namespace 	
 Dominio
  
@@ -8,37 +9,76 @@ ZC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Domin
 
 class 
 Celda 
-{ 
-public 
-	Rectangle 
-Area 
-{ 
-get  #
-;# $
-set% (
-;( )
-}* +
-public		 
-int		 
-Fila		 
-{		 
-get		 
-;		 
-set		 "
-;		" #
-}		$ %
-public 
-int 
-Columna 
-{ 
-get  
-;  !
-set" %
-;% &
-}' (
-} 
-} ∆
-bC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Dominio\CuentaJugador.cs
+{ 
+private 
+	Rectangle 
+area 
+; 
+private 
+int 
+fila 
+; 
+private		 
+int		 
+columna		 
+;		 
+public 
+	Rectangle 
+Area 
+{ 	
+get 
+{ 
+return 
+area 
+; 
+}  
+set 
+{ 
+area 
+= 
+value 
+; 
+}  !
+} 	
+public 
+int 
+Fila 
+{ 	
+get 
+{ 
+return 
+fila 
+; 
+}  
+set 
+{ 
+fila 
+= 
+value 
+; 
+}  !
+} 	
+public 
+int 
+Columna 
+{ 	
+get 
+{ 
+return 
+columna  
+;  !
+}" #
+set 
+{ 
+columna 
+= 
+value !
+;! "
+}# $
+} 	
+} 
+} «
+lC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\Dominio\CuentaJugador.cs
 	namespace 	
 Dominio
  
@@ -47,112 +87,226 @@ bC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Domin
 
 class 
 CuentaJugador 
-{ 
-public 
-string 
-NombreJugador #
-{$ %
-get& )
-;) *
-set+ .
-;. /
-}0 1
-public
+{ 
+private		 
+string		 
+nombreJugador		 $
+;		$ %
+private
 
- 
+ 
 int
 
- 
-NumeroAvatar
+ 
+numeroAvatar
 
- 
-{
-
-  !
-get
-
-" %
+  
 ;
 
-% &
-set
-
-' *
-;
-
-* +
-}
-
-, -
-public 
-string 
-Correo 
-{ 
-get "
-;" #
-set$ '
-;' (
-}) *
-public 
-string 
+  !
+private 
+string 
+correo 
+; 
+private 
+string 
 
-Contrasena  
-{! "
-get# &
-;& '
-set( +
-;+ ,
-}- .
-public 
-bool 
+contrasena !
+;! "
+private 
+bool 
 
-EsInvitado 
-{  
-get! $
-;$ %
-set& )
-;) *
-}+ ,
-public 
-int 
-Puntaje 
-{ 
-get  
-;  !
-set" %
-;% &
-}' (
-public 
-SolidColorBrush #
-ColorEstadoConectividad 6
-{7 8
-get9 <
-;< =
-set> A
-;A B
-}C D
-public 
-BitmapImage 
-FuenteImagenAvatar -
-{. /
-get0 3
-;3 4
-set5 8
-;8 9
-}: ;
-public 
-static 
-CuentaJugador #
-Actual$ *
-{+ ,
-get- 0
-;0 1
-set2 5
-;5 6
-}7 8
-} 
-} Ω
-_C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Dificultad.cs
+esInvitado 
+;  
+private 
+SolidColorBrush #
+colorEstadoConectividad  7
+;7 8
+private 
+BitmapImage 
+fuenteImagenAvatar .
+;. /
+private 
+int 
+puntaje 
+; 
+private 
+static 
+CuentaJugador $
+cuentaJugadorActual% 8
+;8 9
+public 
+string 
+NombreJugador #
+{ 	
+get 
+{ 
+return 
+nombreJugador &
+;& '
+}( )
+set 
+{ 
+nombreJugador 
+=  !
+value" '
+;' (
+}) *
+} 	
+public 
+int 
+NumeroAvatar 
+{ 	
+get 
+{ 
+return 
+numeroAvatar %
+;% &
+}' (
+set 
+{ 
+numeroAvatar 
+=  
+value! &
+;& '
+}( )
+}   	
+public"" 
+string"" 
+Correo"" 
+{## 	
+get$$ 
+{$$ 
+return$$ 
+correo$$ 
+;$$  
+}$$! "
+set%% 
+{%% 
+correo%% 
+=%% 
+value%%  
+;%%  !
+}%%" #
+}&& 	
+public(( 
+string(( 
+
+Contrasena((  
+{)) 	
+get** 
+{** 
+return** 
+
+contrasena** #
+;**# $
+}**% &
+set++ 
+{++ 
+
+contrasena++ 
+=++ 
+value++ $
+;++$ %
+}++& '
+},, 	
+public.. 
+bool.. 
+
+EsInvitado.. 
+{// 	
+get00 
+{00 
+return00 
+
+esInvitado00 #
+;00# $
+}00% &
+set11 
+{11 
+
+esInvitado11 
+=11 
+value11 $
+;11$ %
+}11& '
+}22 	
+public44 
+int44 
+Puntaje44 
+{55 	
+get66 
+{66 
+return66 
+puntaje66  
+;66  !
+}66" #
+set77 
+{77 
+puntaje77 
+=77 
+value77 !
+;77! "
+}77# $
+}88 	
+public:: 
+SolidColorBrush:: #
+ColorEstadoConectividad:: 6
+{;; 	
+get<< 
+{<< 
+return<< #
+colorEstadoConectividad<< 0
+;<<0 1
+}<<2 3
+set== 
+{== #
+colorEstadoConectividad== )
+===* +
+value==, 1
+;==1 2
+}==3 4
+}>> 	
+public@@ 
+BitmapImage@@ 
+FuenteImagenAvatar@@ -
+{AA 	
+getBB 
+{BB 
+returnBB 
+fuenteImagenAvatarBB +
+;BB+ ,
+}BB- .
+setCC 
+{CC 
+fuenteImagenAvatarCC $
+=CC% &
+valueCC' ,
+;CC, -
+}CC. /
+}DD 	
+publicFF 
+staticFF 
+CuentaJugadorFF #
+ActualFF$ *
+{GG 	
+getHH 
+{HH 
+returnHH 
+cuentaJugadorActualHH ,
+;HH, -
+}HH. /
+setII 
+{II 
+cuentaJugadorActualII %
+=II& '
+valueII( -
+;II- .
+}II/ 0
+}JJ 	
+}LL 
+}MM Á
+iC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Dificultad.cs
 	namespace 	
 Dominio
  
@@ -162,6 +316,8 @@ _C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Domin
 enum 
 
 Dificultad 
+: 
+int  
 { 
 Facil 
 = 
@@ -175,8 +331,8 @@ Dificultad 
 = 
 $num 
 } 
-}		 Ç
-[C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Idioma.cs
+}		 ¨
+eC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Idioma.cs
 	namespace 	
 Dominio
  
@@ -185,6 +341,8 @@ Dificultad 
 
 enum 
 Idioma 
+: 
+int 
 { 
 Ingles 
 = 
@@ -195,8 +353,8 @@ Dificultad 
 $num 
 , 
 } 
-} Ê
-gC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Dominio\ImagenRompecabezas.cs
+} º
+qC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\Dominio\ImagenRompecabezas.cs
 	namespace 	
 Dominio
  
@@ -205,37 +363,76 @@ gC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Domin
 
 class 
 ImagenRompecabezas #
-{ 
-public 
-string 
-Ruta 
-{ 
-get  
-;  !
-set" %
-;% &
-}' (
-public		 
-Color		 
-ColorDeBorde		 !
-{		" #
-get		$ '
-;		' (
-set		) ,
-;		, -
-}		. /
-public 
-int 
-NumeroImagen 
-{  !
-get" %
-;% &
-set' *
-;* +
-}, -
-} 
-} €(
-ZC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Pieza.cs
+{ 
+private 
+string 
+ruta 
+; 
+private 
+Color 
+colorDeBorde "
+;" #
+private		 
+int		 
+numeroImagen		  
+;		  !
+public 
+string 
+Ruta 
+{ 	
+get 
+{ 
+return 
+ruta 
+; 
+}  
+set 
+{ 
+ruta 
+= 
+value 
+; 
+}  !
+} 	
+public 
+Color 
+ColorDeBorde !
+{ 	
+get 
+{ 
+return 
+colorDeBorde %
+;% &
+}' (
+set 
+{ 
+colorDeBorde 
+=  
+value! &
+;& '
+}( )
+} 	
+public 
+int 
+NumeroImagen 
+{ 	
+get 
+{ 
+return 
+numeroImagen %
+;% &
+}' (
+set 
+{ 
+numeroImagen 
+=  
+value! &
+;& '
+}( )
+} 	
+} 
+} ù1
+dC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Pieza.cs
 	namespace 	
 Dominio
  
@@ -249,277 +446,336 @@ ZC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Domin
 {		 
 private
 
- 
-Border
+ 
+Image
 
- 
-borde
+ 
+imagen
 
- 
+ 
 ;
 
  
-private 
-bool 
-estaDentroDeCelda &
-;& '
-public 
-double 
-Ancho 
-{ 
-get !
-;! "
-set# &
-;& '
-}( )
-public 
-double 
-Alto 
-{ 
-get  
-;  !
-set" %
-;% &
-}' (
-public 
-Image 
-Imagen 
-{ 
-get !
-;! "
-set# &
-;& '
-}( )
-public 
-Border 
-Borde 
+private 
+Border 
+borde 
+; 
+private 
+double 
+ancho 
+; 
+private 
+double 
+alto 
+; 
+private 
+bool 
+estaDentroDeCelda &
+;& '
+private 
+int 
+filaCorrecta  
+;  !
+private 
+int 
+columnaCorrecta #
+;# $
+CroppedBitmap !
+fuenteImagenRecortada +
+;+ ,
+public 
+Image 
+Imagen 
 { 	
 get 
 { 
-return 
-borde 
-; 
-}  !
+return 
+imagen 
+;  
+}! "
 set 
-{ 
-borde 
-= 
-value 
-; 
-borde 
-. 
-Child 
-= 
-Imagen $
-;$ %
-} 
-} 	
-public 
-bool 
-EstaDentroDeCelda %
-{ 	
-get 
-{ 
-return 
-estaDentroDeCelda *
-;* +
-}, -
-set   
-{!! 
-estaDentroDeCelda"" !
-=""" #
-value""$ )
-;"") *
-if$$ 
-($$ 
-estaDentroDeCelda$$ %
-)$$% &
-{%% 0
-$EstablecerEstiloDePiezaDentroDeCelda&& 8
-(&&8 9
-)&&9 :
-;&&: ;
-}'' 
-}(( 
-})) 	
-public++ 
-int++ 
-FilaCorrecta++ 
-{++  !
-get++" %
-;++% &
-set++' *
-;++* +
-}++, -
-public-- 
-int-- 
-ColumnaCorrecta-- "
-{--# $
-get--% (
-;--( )
-set--* -
-;--- .
-}--/ 0
-public// 
-CroppedBitmap// !
-FuenteImagenRecortada// 2
-{//3 4
-get//5 8
-;//8 9
-set//: =
-;//= >
-}//? @
-public11 
-void11 "
-EstablecerFuenteImagen11 *
-(11* +
-BitmapImage11+ 6 
-fuenteImagenOriginal117 K
-,11K L
-	Int32Rect22 
-areaRecorte22 !
-)22! "
-{33 	!
-FuenteImagenRecortada44 !
-=44" #
-new44$ '
-CroppedBitmap44( 5
-(445 6 
-fuenteImagenOriginal446 J
-,44J K
-areaRecorte44L W
-)44W X
-;44X Y
-Imagen55 
-=55 
-new55 
-Image55 
-{66 
-Source77 
-=77 !
-FuenteImagenRecortada77 .
-,77. /
-Width88 
-=88 
-Ancho88 
-,88 
-Height99 
-=99 
-Alto99 
-,99 
-}:: 
-;:: 
-};; 	
-public== 
-double== 3
-'ObtenerDiferenciaAnchoEntreImagenYBorde== =
-(=== >
-)==> ?
-{>> 	
-return?? 
-borde?? 
-.?? 
-ActualWidth?? $
--??% &
-Imagen??' -
-.??- .
-Width??. 3
-;??3 4
+{ 
+imagen 
+= 
+value  
+;  !
+}" #
+} 	
+public 
+Border 
+Borde 
+{ 	
+get 
+{ 
+return 
+borde 
+; 
+}  !
+set 
+{ 
+borde 
+= 
+value 
+; 
+borde 
+. 
+Child 
+= 
+imagen $
+;$ %
+}   
+}!! 	
+public## 
+double## 
+Ancho## 
+{$$ 	
+get%% 
+{%% 
+return%% 
+ancho%% 
+;%% 
+}%%  !
+set&& 
+{&& 
+ancho&& 
+=&& 
+value&& 
+;&&  
+}&&! "
+}'' 	
+public)) 
+double)) 
+Alto)) 
+{** 	
+get++ 
+{++ 
+return++ 
+alto++ 
+;++ 
+}++  
+set,, 
+{,, 
+alto,, 
+=,, 
+value,, 
+;,, 
+},,  !
+}-- 	
+public// 
+bool// 
+EstaDentroDeCelda// %
+{00 	
+get11 
+{11 
+return11 
+estaDentroDeCelda11 *
+;11* +
+}11, -
+set22 
+{33 
+estaDentroDeCelda44 !
+=44" #
+value44$ )
+;44) *
+if55 
+(55 
+estaDentroDeCelda55 %
+)55% &
+{66 0
+$EstablecerEstiloDePiezaDentroDeCelda77 8
+(778 9
+)779 :
+;77: ;
+}88 
+}99 
+}:: 	
+public<< 
+int<< 
+FilaCorrecta<< 
+{== 	
+get>> 
+{>> 
+return>> 
+filaCorrecta>> %
+;>>% &
+}>>' (
+set?? 
+{?? 
+filaCorrecta?? 
+=??  
+value??! &
+;??& '
+}??( )
 }@@ 	
-publicBB 
-doubleBB 4
-(ObtenerDiferenciaAlturaEntreImagenYBordeBB >
-(BB> ?
-)BB? @
-{CC 	
-returnDD 
-bordeDD 
-.DD 
-ActualHeightDD %
--DD& '
-ImagenDD( .
-.DD. /
-HeightDD/ 5
-;DD5 6
-}EE 	
-publicGG 
-voidGG /
-#EstablecerEstiloDePiezaSeleccionadaGG 7
-(GG7 8
-)GG8 9
-{HH 	
-bordeII 
-.II 
-BorderBrushII 
-=II 
-BrushesII  '
-.II' (
-RedII( +
-;II+ ,
-bordeJJ 
-.JJ 
-BorderThicknessJJ !
-=JJ" #
-newJJ$ '
-	ThicknessJJ( 1
-(JJ1 2
-$numJJ2 3
-)JJ3 4
-;JJ4 5
-}KK 	
-publicMM 
-voidMM 1
-%EstablecerEstiloDePiezaSinSeleccionarMM 9
-(MM9 :
-)MM: ;
-{NN 	
-bordeOO 
-.OO 
-BorderBrushOO 
-=OO 
-BrushesOO  '
-.OO' (
-WhiteOO( -
-;OO- .
-bordePP 
-.PP 
-BorderThicknessPP !
-=PP" #
-newPP$ '
-	ThicknessPP( 1
-(PP1 2
-$numPP2 3
-)PP3 4
-;PP4 5
-}QQ 	
-privateSS 
-voidSS 0
-$EstablecerEstiloDePiezaDentroDeCeldaSS 9
-(SS9 :
-)SS: ;
-{TT 	
-bordeUU 
-.UU 
-BorderBrushUU 
-=UU 
-BrushesUU  '
-.UU' (
-TransparentUU( 3
-;UU3 4
-bordeVV 
-.VV 
-BorderThicknessVV !
-=VV" #
-newVV$ '
-	ThicknessVV( 1
-(VV1 2
-$numVV2 3
-)VV3 4
-;VV4 5
-}WW 	
-}XX 
-}YY ó
-lC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Properties\AssemblyInfo.cs
+publicBB 
+intBB 
+ColumnaCorrectaBB "
+{CC 	
+getDD 
+{DD 
+returnDD 
+columnaCorrectaDD (
+;DD( )
+}DD* +
+setEE 
+{EE 
+columnaCorrectaEE !
+=EE" #
+valueEE$ )
+;EE) *
+}EE+ ,
+}FF 	
+publicHH 
+voidHH "
+EstablecerFuenteImagenHH *
+(HH* +
+BitmapImageHH+ 6 
+fuenteImagenOriginalHH7 K
+,HHK L
+	Int32RectII 
+areaRecorteII !
+)II! "
+{JJ 	!
+fuenteImagenRecortadaKK !
+=KK" #
+newKK$ '
+CroppedBitmapKK( 5
+(KK5 6 
+fuenteImagenOriginalKK6 J
+,KKJ K
+areaRecorteKKL W
+)KKW X
+;KKX Y
+imagenLL 
+=LL 
+newLL 
+ImageLL 
+{MM 
+SourceNN 
+=NN !
+fuenteImagenRecortadaNN .
+,NN. /
+WidthOO 
+=OO 
+anchoOO 
+,OO 
+HeightPP 
+=PP 
+altoPP 
+,PP 
+}QQ 
+;QQ 
+}RR 	
+publicTT 
+doubleTT 3
+'ObtenerDiferenciaAnchoEntreImagenYBordeTT =
+(TT= >
+)TT> ?
+{UU 	
+returnVV 
+BordeVV 
+.VV 
+ActualWidthVV $
+-VV% &
+ImagenVV' -
+.VV- .
+WidthVV. 3
+;VV3 4
+}WW 	
+publicYY 
+doubleYY 4
+(ObtenerDiferenciaAlturaEntreImagenYBordeYY >
+(YY> ?
+)YY? @
+{ZZ 	
+return[[ 
+Borde[[ 
+.[[ 
+ActualHeight[[ %
+-[[& '
+Imagen[[( .
+.[[. /
+Height[[/ 5
+;[[5 6
+}\\ 	
+public^^ 
+void^^ /
+#EstablecerEstiloDePiezaSeleccionada^^ 7
+(^^7 8
+)^^8 9
+{__ 	
+borde`` 
+.`` 
+BorderBrush`` 
+=`` 
+Brushes``  '
+.``' (
+Red``( +
+;``+ ,
+bordeaa 
+.aa 
+BorderThicknessaa !
+=aa" #
+newaa$ '
+	Thicknessaa( 1
+(aa1 2
+$numaa2 3
+)aa3 4
+;aa4 5
+}bb 	
+publicdd 
+voiddd 1
+%EstablecerEstiloDePiezaSinSeleccionardd 9
+(dd9 :
+)dd: ;
+{ee 	
+bordeff 
+.ff 
+BorderBrushff 
+=ff 
+Brushesff  '
+.ff' (
+Whiteff( -
+;ff- .
+bordegg 
+.gg 
+BorderThicknessgg !
+=gg" #
+newgg$ '
+	Thicknessgg( 1
+(gg1 2
+$numgg2 3
+)gg3 4
+;gg4 5
+}hh 	
+privatejj 
+voidjj 0
+$EstablecerEstiloDePiezaDentroDeCeldajj 9
+(jj9 :
+)jj: ;
+{kk 	
+bordell 
+.ll 
+BorderBrushll 
+=ll 
+Brushesll  '
+.ll' (
+Transparentll( 3
+;ll3 4
+bordemm 
+.mm 
+BorderThicknessmm !
+=mm" #
+newmm$ '
+	Thicknessmm( 1
+(mm1 2
+$nummm2 3
+)mm3 4
+;mm4 5
+}nn 	
+}oo 
+}pp °
+vC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Properties\AssemblyInfo.cs
 [ 
 assembly 	
 :	 
@@ -644,8 +900,8 @@ ComVisible 
 ($$ 
 $str$$ (
 )$$( )
-]$$) *ê
-\C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Tablero.cs
+]$$) *á+
+fC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Tablero.cs
 	namespace 	
 Dominio
  
@@ -655,223 +911,316 @@ ComVisible 
 class 
 Tablero 
 { 
-private 
+private 
+double 
+anchoDeCelda #
+;# $
+private		 
+double		 
+alturaDeCelda		 $
+;		$ %
+private
+
+ 
+int
+
+ 
 
-Dificultad 
-
-dificultad %
-;% &
-public
+totalFilas
 
- 
-double
-
- 
-AnchoDeCelda
-
- "
-{
-
-# $
-get
-
-% (
+ 
 ;
 
-( )
-set
-
-* -
-;
-
-- .
-}
-
-/ 0
-public 
-double 
-AlturaDeCelda #
-{$ %
-get& )
-;) *
-set+ .
-;. /
-}0 1
-public 
-int 
+ 
+private 
+int 
+totalColumnas !
+;! "
+private 
+int $
+numeroImagenRompecabezas ,
+;, -
+private 
 
-TotalFilas 
-{ 
-get  #
-;# $
-set% (
-;( )
-}* +
-public 
-int 
-TotalColumnas  
-{! "
-get# &
-;& '
-set( +
-;+ ,
-}- .
-public 
-int $
-NumeroImagenRompecabezas +
-{, -
-get. 1
-;1 2
-set3 6
-;6 7
-}8 9
-public 
-List 
-< 
-Pieza 
-> 
-Piezas !
-{" #
-get$ '
-;' (
-set) ,
-;, -
-}. /
-public 
-List 
-< 
-Celda 
-> 
-Celdas !
-{" #
-get$ '
-;' (
-set) ,
-;, -
-}. /
-public 
+Dificultad 
 
-Dificultad 
+dificultad %
+;% &
+private 
+List 
+< 
+Pieza 
+> 
+piezas "
+;" #
+private 
+List 
+< 
+Celda 
+> 
+celdas "
+;" #
+public 
+double 
+AnchoDeCelda "
+{ 	
+get 
+{ 
+return 
+anchoDeCelda %
+;% &
+}' (
+set 
+{ 
+anchoDeCelda 
+=  
+value! &
+;& '
+}( )
+} 	
+public 
+double 
+AlturaDeCelda #
+{ 	
+get 
+{ 
+return 
+alturaDeCelda &
+;& '
+}( )
+set 
+{ 
+alturaDeCelda 
+=  !
+value" '
+;' (
+}) *
+} 	
+public 
+int 
 
-Dificultad $
-{ 	
-get 
-{ 
-return 
+TotalFilas 
+{ 	
+get 
+{ 
+return 
 
-dificultad #
-;# $
-}% &
-set 
-{ 
+totalFilas #
+;# $
+}% &
+set   
+{   
 
-dificultad 
-= 
-value "
-;" #
-switch 
-( 
+totalFilas   
+=   
+value   $
+;  $ %
+}  & '
+}!! 	
+public## 
+int## 
+TotalColumnas##  
+{$$ 	
+get%% 
+{%% 
+return%% 
+totalColumnas%% &
+;%%& '
+}%%( )
+set&& 
+{&& 
+totalColumnas&& 
+=&&  !
+value&&" '
+;&&' (
+}&&) *
+}'' 	
+public)) 
+int)) $
+NumeroImagenRompecabezas)) +
+{** 	
+get++ 
+{++ 
+return++ $
+numeroImagenRompecabezas++ 1
+;++1 2
+}++3 4
+set,, 
+{,, $
+numeroImagenRompecabezas,, *
+=,,+ ,
+value,,- 2
+;,,2 3
+},,4 5
+}-- 	
+public// 
 
-dificultad "
-)" #
-{   
-case!! 
+Dificultad// 
 
-Dificultad!! #
-.!!# $
-Facil!!$ )
-:!!) *
+Dificultad// $
+{00 	
+get11 
+{11 
+return11 
 
-TotalFilas"" "
-=""# $
-$num""% &
-;""& '
-TotalColumnas## %
-=##& '
-$num##( *
-;##* +
-break$$ 
-;$$ 
-case%% 
+dificultad11 #
+;11# $
+}11% &
+set22 
+{33 
 
-Dificultad%% #
-.%%# $
-Medio%%$ )
-:%%) *
+dificultad44 
+=44 
+value44 "
+;44" #
+switch66 
+(66 
 
-TotalFilas&& "
-=&&# $
-$num&&% &
-;&&& '
-TotalColumnas'' %
-=''& '
-$num''( *
-;''* +
-break(( 
-;(( 
-case)) 
+dificultad66 "
+)66" #
+{77 
+case88 
 
-Dificultad)) #
-.))# $
-Dificil))$ +
-:))+ ,
+Dificultad88 #
+.88# $
+Facil88$ )
+:88) *
 
-TotalFilas** "
-=**# $
-$num**% '
-;**' (
-TotalColumnas++ %
-=++& '
-$num++( *
-;++* +
-break,, 
-;,, 
-}-- 
-}.. 
-}// 	
-public11 
-bool11 $
-EsRompecabezasCompletado11 ,
-(11, -
-)11- .
-{22 	
-bool33 
-	resultado33 
-=33 
-false33 "
-;33" #
-var44 
-piezasSinAcomodar44 !
-=44" #
-from44$ (
-pieza44) .
-in44/ 1
-Piezas442 8
-where55$ )
-!55* +
-pieza55+ 0
-.550 1
-EstaDentroDeCelda551 B
-select66$ *
-pieza66+ 0
-;660 1
-if88 
-(88 
-piezasSinAcomodar88 !
-.88! "
-Any88" %
-(88% &
-)88& '
-)88' (
-{99 
-	resultado:: 
-=:: 
-true::  
-;::  !
-};; 
-return== 
-	resultado== 
-;== 
-}>> 	
-}?? 
-}@@ 
+totalFilas99 "
+=99# $
+$num99% &
+;99& '
+totalColumnas:: %
+=::& '
+$num::( *
+;::* +
+break;; 
+;;; 
+case<< 
+
+Dificultad<< #
+.<<# $
+Medio<<$ )
+:<<) *
+
+totalFilas== "
+===# $
+$num==% &
+;==& '
+totalColumnas>> %
+=>>& '
+$num>>( *
+;>>* +
+break?? 
+;?? 
+case@@ 
+
+Dificultad@@ #
+.@@# $
+Dificil@@$ +
+:@@+ ,
+
+totalFilasAA "
+=AA# $
+$numAA% '
+;AA' (
+totalColumnasBB %
+=BB& '
+$numBB( *
+;BB* +
+breakCC 
+;CC 
+}DD 
+}EE 
+}FF 	
+publicHH 
+ListHH 
+<HH 
+PiezaHH 
+>HH 
+PiezasHH !
+{II 	
+getJJ 
+{JJ 
+returnJJ 
+piezasJJ 
+;JJ  
+}JJ! "
+setKK 
+{KK 
+piezasKK 
+=KK 
+valueKK  
+;KK  !
+}KK" #
+}LL 	
+publicNN 
+ListNN 
+<NN 
+CeldaNN 
+>NN 
+CeldasNN !
+{OO 	
+getPP 
+{PP 
+returnPP 
+celdasPP 
+;PP  
+}PP! "
+setQQ 
+{QQ 
+celdasQQ 
+=QQ 
+valueQQ  
+;QQ  !
+}QQ" #
+}RR 	
+publicTT 
+boolTT $
+EsRompecabezasCompletadoTT ,
+(TT, -
+)TT- .
+{UU 	
+boolVV 
+esJuegoCompletadoVV "
+=VV# $
+falseVV% *
+;VV* +
+varWW 
+piezasSinAcomodarWW !
+=WW" #
+fromWW$ (
+piezaWW) .
+inWW/ 1
+piezasWW2 8
+whereXX$ )
+piezaXX* /
+.XX/ 0
+EstaDentroDeCeldaXX0 A
+==XXB D
+falseXXE J
+selectYY$ *
+piezaYY+ 0
+;YY0 1
+if[[ 
+([[ 
+piezasSinAcomodar[[ !
+.[[! "
+Count[[" '
+([[' (
+)[[( )
+==[[* ,
+$num[[- .
+)[[. /
+{\\ 
+esJuegoCompletado]] !
+=]]" #
+true]]$ (
+;]]( )
+}^^ 
+return`` 
+esJuegoCompletado`` $
+;``$ %
+}aa 	
+}bb 
+}cc 

@@ -1,14 +1,13 @@
-Î
-cC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Registros\Registrador.cs
+Ä
+mC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Registros\Registrador.cs
 	namespace 	
 	Registros
  
 { 
 public 
-
-static 
-class 
-Registrador #
+
+class 
+Registrador 
 { 
 public 
 static 
@@ -51,8 +50,8 @@ LogManager
 6 7
 } 	
 } 
-} ¿
-oC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Registros\Properties\AssemblyInfo.cs
+} É
+yC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Registros\Properties\AssemblyInfo.cs
 [ 
 assembly 	
 :	 

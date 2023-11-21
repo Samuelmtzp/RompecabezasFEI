@@ -1,5 +1,5 @@
-Ê
-lC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Pruebas\PruebaConsultasJugador.cs
+Ô
+vC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Pruebas\PruebaConsultasJugador.cs
 
  '
 
@@ -36,8 +36,8 @@ lC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Prue
 hh 5
 jj  mm7 D
 kk -ll( 8
-ll %nn# 8Ç
-mC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Pruebas\PruebaGeneradorMensajes.cs
+ll %nn# 8Ñ
+wC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Pruebas\PruebaGeneradorMensajes.cs
 
  (
  3 . '
@@ -60,9 +60,9 @@ mC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Prue
 )) ..+ 1
 ** ..3 :
 ,,+ B-- 1
--- //% +o
-mC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Pruebas\Properties\AssemblyInfo.cs—
-iC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Pruebas\PruebaAutenticacion.cs
+-- //% +y
+wC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Pruebas\Properties\AssemblyInfo.cs¡
+sC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Pruebas\PruebaAutenticacion.cs
 
  $
 		 3 . '

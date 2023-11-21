@@ -1,9 +1,9 @@
-·
-gC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioCorreo.cs
+Á
+qC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioCorreo.cs
  
  	  
-  $	 		 		% +	  ! '4 :  !¼
-hC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioPartida.cs
+  $	 		 		% +	  ! '4 :  !Æ
+rC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioPartida.cs
  
  
  	 ( ./ G 
@@ -12,8 +12,8 @@ hC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Cont
  
 
  %	   "	   $ ) -	   "	  ! '	  ! %	  ' -   	 !! !!$ *"" $$	 %% %%) /''	 (( (() /++ ,, 
-,, ,, -..	 ..& *// //, 2//> DÔ
-jC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioAmistades.cs
+,, ,, -..	 ..& *// //, 2//> DÞ
+tC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioAmistades.cs
  
  
  
@@ -21,8 +21,8 @@ jC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Cont
   '
 
 	   B H	   3 9	  & ,B H	  ' -C I	  ( .D J	  & , 	  % +< B  	 !! !!+ 1!!B H##	 $$ $$6 <&&	 '' ''9 ?))	 ** **9 ?-- .. 
-.. .. /00	 00& *11 11. ;33	 33& *44 44/ <66	 66& *77 77' -99	 99& *:: ::2 8;; %ú
-hC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioJugador.cs
+.. .. /00	 00& *11 11. ;33	 33& *44 44/ <66	 66& *77 77' -99	 99& *:: ::2 8;; %„
+rC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioJugador.cs
  
  
  	  
@@ -30,8 +30,8 @@ hC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Cont
 
  
 
- $	  ! '	  $ *: @	    	  # ): @ 	  " (1 7á
-eC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioSala.cs
+ $	  ! '	  $ *: @	    	  # ): @ 	  " (1 7ë
+oC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioSala.cs
  
  
  
@@ -39,8 +39,8 @@ eC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Cont
   "
 
 	   "4 :	  ( .> D 	  , 2B H 	   = C	 & * ! '7 =J P	  	  " ("" ## 
-## ## +%%	 %%& *&& &&" (((	 ((& *)) ))2 ?++	 ++& *,, ,,0 6Ù
-oC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Contratos\Properties\AssemblyInfo.cs
+## ## +%%	 %%& *&& &&" (((	 ((& *)) ))2 ?++	 ++& *,, ,,0 6ã
+yC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Contratos\Properties\AssemblyInfo.cs
  
  
  

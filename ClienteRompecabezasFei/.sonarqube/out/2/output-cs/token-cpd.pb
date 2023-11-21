@@ -1,5 +1,5 @@
-»
-lC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Seguridad\EncriptadorContrasena.cs
+Å
+vC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\Seguridad\EncriptadorContrasena.cs
 	namespace 	
 Security
  
@@ -84,8 +84,8 @@ lC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Segur
 ;' (
 } 	
 } 
-} ™
-nC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Seguridad\Properties\AssemblyInfo.cs
+} £
+xC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\Seguridad\Properties\AssemblyInfo.cs
 [ 
 assembly 	
 :	 
@@ -210,389 +210,349 @@ ComVisible 
 ($$ 
 $str$$ (
 )$$( )
-]$$) *¼8
-eC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Seguridad\ValidadorDatos.cs
-	namespace 	
-	Seguridad
+]$$) *Û1
+oC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\Seguridad\ValidadorDatos.cs
+	namespace 	
+	Seguridad
  
-{ 
-public 
+{ 
+public 
 
-class 
-ValidadorDatos 
-{ 
+class 
+ValidadorDatos 
+{ 
+private 
+const 
+int &
+MaximoCaracteresContrasena 4
+=5 6
+$num7 9
+;9 :
 private 
 const 
-int &
-MaximoCaracteresContrasena 4
-=5 6
-$num7 9
-;9 :
+int "
+MaximoCaracteresCorreo 0
+=1 2
+$num3 5
+;5 6
 private		 
 const		 
-int		 "
-MaximoCaracteresCorreo		 0
-=		1 2
-$num		3 5
-;		5 6
+int		 )
+MaximoCaracteresNombreJugador		 7
+=		8 9
+$num		: <
+;		< =
 private
 
  
 const
 
- 
-int
+ 
+string
 
- )
-MaximoCaracteresNombreJugador
+ 
+PatronContrasena
 
- 7
+ -
 =
 
-8 9
-$num
+. /
+$str
 
-: <
+0 `
 ;
 
-< =
+` a
 private 
-const 
-int 3
-'MilisegundosMaximosParaExpresionRegular A
-=B C
-$numD G
-;G H
+const 
+string 
+PatronNombreJugador 0
+=1 2
+$str3 W
+;W X
 private 
 const 
-string 
-PatronContrasena -
-=. /
-$str0 `
-;` a
-private 
-const 
-string 
-PatronNombreJugador 0
-=1 2
-$str3 W
-;W X
-private 
-const 
-string 
-PatronCorreo )
-=* +
-$str, I
-;I J
-public 
-static 
-bool .
-"ExisteLongitudExcedidaEnContrasena =
-(= >
-string> D
+string 
+PatronCorreo )
+=* +
+$str, I
+;I J
+public 
+static 
+bool .
+"ExisteLongitudExcedidaEnContrasena =
+(= >
+string> D
 
-contrasenaE O
-)O P
-{ 	
-bool 
-camposExcedidos  
-=! "
-false# (
-;( )
-if 
-( 
+contrasenaE O
+)O P
+{ 	
+bool 
+camposExcedidos  
+=! "
+false# (
+;( )
+if 
+( 
 
-contrasena 
-. 
-Length !
->" #&
-MaximoCaracteresContrasena$ >
-)> ?
-{ 
-camposExcedidos 
-=  !
-true" &
-;& '
-} 
-return 
-camposExcedidos "
-;" #
-} 	
-public 
-static 
-bool *
-ExisteLongitudExcedidaEnCorreo 9
-(9 :
-string: @
-correoA G
-)G H
-{ 	
-bool 
-camposExcedidos  
-=! "
-false# (
-;( )
-if   
-(   
-correo   
-.   
-Length   
->   "
-MaximoCaracteresCorreo    6
-)  6 7
-{!! 
-camposExcedidos"" 
-=""  !
-true""" &
-;""& '
-}## 
-return%% 
-camposExcedidos%% "
-;%%" #
-}&& 	
-public(( 
-static(( 
-bool(( 1
-%ExisteLongitudExcedidaEnNombreJugador(( @
-(((@ A
-string((A G
-nombreJugador((H U
-)((U V
-{)) 	
-bool** 
-camposExcedidos**  
-=**! "
-false**# (
-;**( )
-if,, 
-(,, 
-nombreJugador,, 
-.,, 
-Length,, $
->,,% &)
-MaximoCaracteresNombreJugador,,' D
-),,D E
-{-- 
-camposExcedidos.. 
-=..  !
-true.." &
-;..& '
-}// 
-return11 
-camposExcedidos11 "
-;11" #
-}22 	
-public44 
-static44 
-bool44 4
-(ExistenCaracteresInvalidosParaContrasena44 C
-(44C D
-string44D J
+contrasena 
+. 
+Length !
+>" #&
+MaximoCaracteresContrasena$ >
+)> ?
+{ 
+camposExcedidos 
+=  !
+true" &
+;& '
+} 
+return 
+camposExcedidos "
+;" #
+} 	
+public 
+static 
+bool *
+ExisteLongitudExcedidaEnCorreo 9
+(9 :
+string: @
+correoA G
+)G H
+{ 	
+bool 
+camposExcedidos  
+=! "
+false# (
+;( )
+if 
+( 
+correo 
+. 
+Length 
+> "
+MaximoCaracteresCorreo  6
+)6 7
+{ 
+camposExcedidos   
+=    !
+true  " &
+;  & '
+}!! 
+return## 
+camposExcedidos## "
+;##" #
+}$$ 	
+public&& 
+static&& 
+bool&& 1
+%ExisteLongitudExcedidaEnNombreJugador&& @
+(&&@ A
+string&&A G
+nombreJugador&&H U
+)&&U V
+{'' 	
+bool(( 
+camposExcedidos((  
+=((! "
+false((# (
+;((( )
+if** 
+(** 
+nombreJugador** 
+.** 
+Length** $
+>**% &)
+MaximoCaracteresNombreJugador**' D
+)**D E
+{++ 
+camposExcedidos,, 
+=,,  !
+true,," &
+;,,& '
+}-- 
+return// 
+camposExcedidos// "
+;//" #
+}00 	
+public22 
+static22 
+bool22 4
+(ExistenCaracteresInvalidosParaContrasena22 C
+(22C D
+string22D J
 
-contrasena44K U
-)44U V
-{55 	
-bool66 
-contrasenaInvalida66 #
-=66$ %
-false66& +
-;66+ ,
-if88 
-(88 
-Regex88 
-.88 
-IsMatch88 
-(88 
+contrasena22K U
+)22U V
+{33 	
+bool44 
+contrasenaInvalida44 #
+=44$ %
+false44& +
+;44+ ,
+if66 
+(66 
+Regex66 
+.66 
+IsMatch66 
+(66 
 
-contrasena88 (
-,88( )
-PatronContrasena88* :
-,88: ;
-RegexOptions88< H
-.88H I
-None88I M
-,88M N
-TimeSpan99 
-.99 
-FromMilliseconds99 )
-(99) *3
-'MilisegundosMaximosParaExpresionRegular99* Q
-)99Q R
-)99R S
-==99T V
-false99W \
-)99\ ]
-{:: 
-contrasenaInvalida;; "
-=;;# $
-true;;% )
-;;;) *
-}<< 
-return>> 
-contrasenaInvalida>> %
-;>>% &
-}?? 	
-publicAA 
-staticAA 
-boolAA 7
-+ExistenCaracteresInvalidosParaNombreJugadorAA F
-(AAF G
-stringAAG M
-nombreJugadorAAN [
-)AA[ \
-{BB 	
-boolCC 
-	resultadoCC 
-=CC 
-falseCC "
-;CC" #
-ifEE 
-(EE 
-RegexEE 
-.EE 
-IsMatchEE 
-(EE 
-nombreJugadorEE +
-,EE+ ,
-PatronNombreJugadorEE- @
-,EE@ A
-RegexOptionsEEB N
-.EEN O
-NoneEEO S
-,EES T
-TimeSpanFF 
-.FF 
-FromMillisecondsFF )
-(FF) *3
-'MilisegundosMaximosParaExpresionRegularFF* Q
-)FFQ R
-)FFR S
-==FFT V
-falseFFW \
-)FF\ ]
-{GG 
-	resultadoHH 
-=HH 
-trueHH  
-;HH  !
-}II 
-returnKK 
-	resultadoKK 
-;KK 
-}LL 	
-publicNN 
-staticNN 
-boolNN 0
-$ExistenCaracteresInvalidosParaCorreoNN ?
-(NN? @
-stringNN@ F
-correoNNG M
-)NNM N
-{OO 	
-boolPP 
-	resultadoPP 
-=PP 
-falsePP "
-;PP" #
-ifRR 
-(RR 
-RegexRR 
-.RR 
-IsMatchRR 
-(RR 
-correoRR $
-,RR$ %
-PatronCorreoRR& 2
-,RR2 3
-RegexOptionsRR4 @
-.RR@ A
-NoneRRA E
-,RRE F
-TimeSpanSS 
-.SS 
-FromMillisecondsSS )
-(SS) *3
-'MilisegundosMaximosParaExpresionRegularSS* Q
-)SSQ R
-)SSR S
-==SST V
-falseSSW \
-)SS\ ]
-{TT 
-	resultadoUU 
-=UU 
-trueUU  
-;UU  !
-}VV 
-returnXX 
-	resultadoXX 
-;XX 
-}YY 	
-public[[ 
-static[[ 
-bool[[ 
-EsCadenaVacia[[ (
-([[( )
-string[[) /
-cadena[[0 6
-)[[6 7
-{\\ 	
-bool]] 
-	resultado]] 
-=]] 
-false]] "
-;]]" #
-if__ 
-(__ 
-string__ 
-.__ 
-IsNullOrWhiteSpace__ )
-(__) *
-cadena__* 0
-)__0 1
-)__1 2
-{`` 
-	resultadoaa 
-=aa 
-trueaa  
-;aa  !
-}bb 
-returndd 
-	resultadodd 
-;dd 
-}ee 	
-publicgg 
-staticgg 
-boolgg '
-ExisteCoincidenciaEnCadenasgg 6
-(gg6 7
-stringgg7 =
-cadenaAgg> E
-,ggE F
-stringggG M
-cadenaBggN U
-)ggU V
-{hh 	
-boolii 
-	resultadoii 
-=ii 
-falseii "
-;ii" #
-ifkk 
-(kk 
-cadenaAkk 
-==kk 
-cadenaBkk "
-)kk" #
-{ll 
-	resultadomm 
-=mm 
-truemm  
-;mm  !
-}nn 
-returnpp 
-	resultadopp 
-;pp 
-}qq 	
-}rr 
-}ss 
+contrasena66 (
+,66( )
+PatronContrasena66* :
+)66: ;
+==66< >
+false66? D
+)66D E
+{77 
+contrasenaInvalida88 "
+=88# $
+true88% )
+;88) *
+}99 
+return;; 
+contrasenaInvalida;; %
+;;;% &
+}<< 	
+public>> 
+static>> 
+bool>> 7
++ExistenCaracteresInvalidosParaNombreJugador>> F
+(>>F G
+string>>G M
+nombreJugador>>N [
+)>>[ \
+{?? 	
+bool@@ 
+	resultado@@ 
+=@@ 
+false@@ "
+;@@" #
+ifBB 
+(BB 
+RegexBB 
+.BB 
+IsMatchBB 
+(BB 
+nombreJugadorBB +
+,BB+ ,
+PatronNombreJugadorBB- @
+)BB@ A
+==BBB D
+falseBBE J
+)BBJ K
+{CC 
+	resultadoDD 
+=DD 
+trueDD  
+;DD  !
+}EE 
+returnGG 
+	resultadoGG 
+;GG 
+}HH 	
+publicJJ 
+staticJJ 
+boolJJ 0
+$ExistenCaracteresInvalidosParaCorreoJJ ?
+(JJ? @
+stringJJ@ F
+correoJJG M
+)JJM N
+{KK 	
+boolLL 
+	resultadoLL 
+=LL 
+falseLL "
+;LL" #
+ifNN 
+(NN 
+RegexNN 
+.NN 
+IsMatchNN 
+(NN 
+correoNN $
+,NN$ %
+PatronCorreoNN& 2
+)NN2 3
+==NN4 6
+falseNN7 <
+)NN< =
+{OO 
+	resultadoPP 
+=PP 
+truePP  
+;PP  !
+}QQ 
+returnSS 
+	resultadoSS 
+;SS 
+}TT 	
+publicVV 
+staticVV 
+boolVV 
+EsCadenaVaciaVV (
+(VV( )
+stringVV) /
+cadenaVV0 6
+)VV6 7
+{WW 	
+boolXX 
+	resultadoXX 
+=XX 
+falseXX "
+;XX" #
+ifZZ 
+(ZZ 
+stringZZ 
+.ZZ 
+IsNullOrWhiteSpaceZZ )
+(ZZ) *
+cadenaZZ* 0
+)ZZ0 1
+)ZZ1 2
+{[[ 
+	resultado\\ 
+=\\ 
+true\\  
+;\\  !
+}]] 
+return__ 
+	resultado__ 
+;__ 
+}`` 	
+publicbb 
+staticbb 
+boolbb '
+ExisteCoincidenciaEnCadenasbb 6
+(bb6 7
+stringbb7 =
+cadenaAbb> E
+,bbE F
+stringbbG M
+cadenaBbbN U
+)bbU V
+{cc 	
+booldd 
+	resultadodd 
+=dd 
+falsedd "
+;dd" #
+ifff 
+(ff 
+cadenaAff 
+==ff 
+cadenaBff "
+)ff" #
+{gg 
+	resultadohh 
+=hh 
+truehh  
+;hh  !
+}ii 
+returnkk 
+	resultadokk 
+;kk 
+}ll 	
+}mm 
+}nn 

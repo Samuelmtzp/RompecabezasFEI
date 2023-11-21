@@ -1,26 +1,29 @@
-Æ
-bC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\Autenticacion.cs 8r(	
- !"#$%&')*+,xÇ!"#$)Ã
-eC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\ConsultasJugador.cs 8r?	
- !"#%&'()+,./023456789;<>?@BCDEFGHJKLMxÇ!"%'+24567;BDEFJì
-bC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\CuentaJugador.cs 8jr	
-#$%&'()+,Ç%{
-nC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\EstadoConectividadJugador.csr		æ
-lC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\GeneradorMensajesCorreo.cs 8r3	
- !#$%&'()*+,-./012345678xÇ!#$%)*./35É
-dC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\GestionContexto.cs 8r	Ç†
-eC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\GestionAmistades.cs@ 	8 r§	
- !"#$&')*+,./012356789:;<=?@BCDEGHIJKLNOPQRSTUVWXZ[]^_`bcdeghijlmnoprsuvwxz{|}~ÅÇÉÑÖÜáàâäãçéêëíîïñóòôöúùûü†°£§¶ß®©´¨≠ÆØ∞≤≥¥µ∂∑π∫ºΩæø¡¬√ƒ≈∆«» ÀÃÕŒ–—”‘’◊ÿŸ⁄€‹›ﬁﬂ‡·‚‰ÂÊÁËÍÎÏÌxÇÑ !&.013579:?GIJKLNRSUVZbdgilnrz|}~ÅÖÜàâçîñóòôöúûü£´≠ÆØ∞≤¥µπ¡√ƒ∆ Ã–◊Ÿ⁄‹ﬁ‡‰ÊÍ¿
-cC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\GestionPartida.cs 8r8	
-!"$%&')*+,-/0123456789:;=>?@xÇ!)+,-/34689=ù
-`C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\GestionSala.cs 8r"	
+∏
+lC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\Autenticacion.cs 8r(	
+ !"#$%&')*+,xÇ!"#$)÷
+oC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\ConsultasJugador.cs 8r?	
+ !"#%&'()+,./023456789;<>?@BCDEFGHJKLMxÇ!"%'+24567;BDEFJ’
+lC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\CuentaJugador.cs 8jErF	
+ "#$%&')*+,-.012345789:;<>?@ABCFGHIJNOPQRSTVWÇ%&,-34:;ABHIPÖ
+xC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\EstadoConectividadJugador.csr		∆
+vC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\GeneradorMensajesCorreo.cs 8r2	
+!"#$%&'()*+,-./0123456xÇ!"#'(,-13õ
+nC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\GestionContexto.cs 8r
+Ç∞
+oC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\GestionAmistades.csB 	8 r®	
+ !"#$&')*+,./012356789:;<=?@BCDEGHIJKLMOPQRSTUVWXY[\^_`acdefhijkmnopqstvwxy{|}~ÄÅÉÑÖÜáàâäãåçèêíìîñóòôöõúûü†°¢£•¶®©™´≠ÆØ∞±≤¥µ∂∑∏πªºæø¿¡√ƒ≈∆«»… ÃÕŒœ–“”’÷◊Ÿ⁄€‹›ﬁﬂ‡·‚„‰ÊÁËÈÍÏÌÓÔxÇÜ !&.013579:?GJKLMOSTVW[cehjmos{~ÄÅÉáàäãèñòôöõúû†°•≠Ø∞±≤¥∂∑ª√≈∆»ÃŒ“Ÿ€‹ﬁ‡‚ÊËÏ 
+mC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\GestionPartida.cs 8r8	
+!"$%&')*+,-/0123456789:;=>?@xÇ!)+,-/34689=ß
+jC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\GestionSala.cs 8r"	
  !#$%&xÇ
-#ê
-lC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\Properties\AssemblyInfo.csj !"r	
-#$«
-]C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\Registro.cs 8r?	
- "#$%'()*,-./01245789;<=>@ABCEFHIJKxÇ')*,./04;=>@BEHÖ
-YC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Logica\Sala.cs 
+#ö
+vC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\Properties\AssemblyInfo.csj !"r	
+#$—
+gC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\Registro.cs 8r?	
+ "#$%'()*,-./01245789;<=>@ABCEFHIJKxÇ')*,./04;=>@BEH´
+cC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Logica\Sala.cs
+ 
 8
-r	
- !"Ç
+r/
+!"#$%&()*+,-12346789;<Ç
+$%+,38

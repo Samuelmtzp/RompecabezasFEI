@@ -1,5 +1,5 @@
-°
-vC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaAjustesPartida.xaml.cs
+¨
+ÄC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaAjustesPartida.xaml.cs
 	namespace 	
 RompecabezasFei
  
@@ -23,8 +23,8 @@ vC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 ;! "
 } 	
 } 
-} ßê
-xC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Servicios\ServicioAmistades.cs
+} ûê
+ÇC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Servicios\ServicioAmistades.cs
 	namespace 	
 RompecabezasFei
  
@@ -32,10 +32,9 @@ xC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 	Servicios #
 { 
 public 
-
-static 
-class 
-ServicioAmistades )
+
+class 
+ServicioAmistades "
 {		 
 public
 
@@ -1342,8 +1341,8 @@ Properties
 ‡‡ 	
 }
 ·· 
-}‚‚ Ä6
-uC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Servicios\ServicioCorreo.cs
+}‚‚ ˆ5
+C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Servicios\ServicioCorreo.cs
 	namespace 	
 RompecabezasFei
  
@@ -1351,10 +1350,9 @@ uC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 	Servicios #
 { 
 public 
-
-static 
-class 
-ServicioCorreo &
+
+class 
+ServicioCorreo 
 {		 
 public
 
@@ -1722,8 +1720,8 @@ PropertiesTT< F
 ;ZZ 
 }[[ 	
 }\\ 
-}]] ‡Æ
-vC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Servicios\ServicioJugador.cs
+}]] ◊Æ
+ÄC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Servicios\ServicioJugador.cs
 	namespace 	
 RompecabezasFei
  
@@ -1731,10 +1729,9 @@ vC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 	Servicios #
 { 
 public 
-
-static 
-class 
-ServicioJugador '
+
+class 
+ServicioJugador  
 {		 
 public
 
@@ -3430,8 +3427,8 @@ Properties
 íí 	
 }
 ìì 
-}îî Ác
-sC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Servicios\ServicioSala.cs
+}îî ›c
+}C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Servicios\ServicioSala.cs
 	namespace 	
 RompecabezasFei
  
@@ -3439,10 +3436,9 @@ sC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 	Servicios #
 { 
 public 
-
-static 
-class 
-ServicioSala $
+
+class 
+ServicioSala 
 {		 
 public
 
@@ -4259,8 +4255,8 @@ Properties
 •• 	
 }
 ¶¶ 
-}ßß ¬6
-vC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Servicios\ServicioPartida.cs
+}ßß π6
+ÄC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Servicios\ServicioPartida.cs
 	namespace 	
 RompecabezasFei
  
@@ -4268,10 +4264,9 @@ vC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 	Servicios #
 { 
 public 
-
-static 
-class 
-ServicioPartida '
+
+class 
+ServicioPartida  
 {		 
 public
 
@@ -4640,8 +4635,8 @@ PropertiesUU< F
 ;[[ 
 }\\ 	
 }]] 
-}^^ ∞
-eC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\App.xaml.cs
+}^^ ±
+oC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\App.xaml.cs
 	namespace 	
 RompecabezasFei
  
@@ -4681,189 +4676,196 @@ eC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 private 
 string 
 idiomaActual #
-;# $
-SoundPlayer 
-reproductorMusica %
-;% &
-public 
-string 
-IdiomaActual "
-{ 	
-get 
-{ 
-return 
-idiomaActual %
-;% &
-}' (
-private 
-set 
-{ 
-Thread 
-. 
-CurrentThread $
-.$ %
-CurrentUICulture% 5
-=6 7
-new8 ;
-System< B
-.B C
-Globalization !
-.! "
-CultureInfo" -
-(- .
-value. 3
-)3 4
-;4 5
-idiomaActual 
-= 
-value $
-;$ %
-} 
-} 	
-public 
-bool 
-MusicaActiva  
-{! "
-get# &
-;& '
-set( +
-;+ ,
-}- .
-public 
-static 
-new 
-App 
-Current %
-{ 	
-get 
-{ 
-return 
-( 
-App 
-) 
-Application '
-.' (
-Current( /
-;/ 0
-}   
-}!! 	
-App## 
-(## 
-)## 
-{$$ 	
-const%% 
-int%% 
-NumeroIdiomaInicial%% )
-=%%* +
-$num%%, -
-;%%- .
-idiomasDisponibles&& 
-=&&  
-new&&! $
-List&&% )
-<&&) *
-string&&* 0
->&&0 1
-(&&1 2
-)&&2 3
-{'' 
-$str(( 
-,(( 
-$str)) 
-}** 
-;** 
-IdiomaActual++ 
-=++ 
-idiomasDisponibles++ -
-[++- .
-NumeroIdiomaInicial++. A
-]++A B
-;++B C
-},, 	
-public.. 
-void.. 
-CambiarIdioma.. !
-(..! "
-string.." (
-nuevoIdioma..) 4
-)..4 5
-{// 	
-IdiomaActual00 
-=00 
-nuevoIdioma00 &
-;00& '
-}11 	
-public33 
-void33 
-EstadoMusica33  
-(33  !
-bool33! %
-musicaActivada33& 4
-)334 5
-{44 	
-if55 
-(55 
-musicaActivada55 
-)55 
-{66 
-reproductorMusica77 !
-.77! "
-PlayLooping77" -
-(77- .
-)77. /
-;77/ 0
-MusicaActiva88 
-=88 
-true88 #
-;88# $
-}99 
-else:: 
-{;; 
-reproductorMusica<< !
-.<<! "
-Stop<<" &
-(<<& '
-)<<' (
-;<<( )
-MusicaActiva== 
-=== 
-false== $
-;==$ %
-}>> 
-}?? 	
-	protectedAA 
-overrideAA 
-voidAA 
-	OnStartupAA  )
-(AA) *
-StartupEventArgsAA* :
-eAA; <
-)AA< =
-{BB 	
-reproductorMusicaCC 
-=CC 
-newCC  #
-SoundPlayerCC$ /
-(CC/ 0
-RompecabezasFeiCC0 ?
-.CC? @
+;# $
+private 
+bool 
+musicaActiva !
+;! "
+SoundPlayer 
+reproductorMusica %
+;% &
+public 
+string 
+IdiomaActual "
+{ 	
+get 
+{ 
+return 
+idiomaActual %
+;% &
+}' (
+private 
+set 
+{ 
+Thread 
+. 
+CurrentThread $
+.$ %
+CurrentUICulture% 5
+=6 7
+new8 ;
+System< B
+.B C
+Globalization !
+.! "
+CultureInfo" -
+(- .
+value. 3
+)3 4
+;4 5
+idiomaActual 
+= 
+value $
+;$ %
+} 
+} 	
+public 
+bool 
+MusicaActiva  
+{ 	
+get 
+{ 
+return 
+musicaActiva #
+;# $
+} 
+set   
+{!! 
+musicaActiva"" 
+="" 
+value"" $
+;""$ %
+}## 
+}$$ 	
+public&& 
+static&& 
+new&& 
+App&& 
+Current&& %
+{'' 	
+get(( 
+{)) 
+return** 
+(** 
+App** 
+)** 
+Application** (
+.**( )
+Current**) 0
+;**0 1
+}++ 
+},, 	
+App.. 
+(.. 
+).. 
+{// 	
+idiomasDisponibles00 
+=00  
+new00! $
+List00% )
+<00) *
+string00* 0
+>000 1
+(001 2
+)002 3
+{11 
+$str22 
+,22 
+$str33 
+}44 
+;44 
+IdiomaActual55 
+=55 
+idiomasDisponibles55 -
+[55- .
+$num55. /
+]55/ 0
+;550 1
+}66 	
+public88 
+void88 
+CambiarIdioma88 !
+(88! "
+string88" (
+nuevoIdioma88) 4
+)884 5
+{99 	
+IdiomaActual:: 
+=:: 
+nuevoIdioma:: &
+;::& '
+};; 	
+public== 
+void== 
+EstadoMusica==  
+(==  !
+bool==! %
+musicaActivada==& 4
+)==4 5
+{>> 	
+if?? 
+(?? 
+musicaActivada?? 
+)?? 
+{@@ 
+reproductorMusicaAA !
+.AA! "
+PlayLoopingAA" -
+(AA- .
+)AA. /
+;AA/ 0
+musicaActivaBB 
+=BB 
+trueBB #
+;BB# $
+}CC 
+elseDD 
+{EE 
+reproductorMusicaFF !
+.FF! "
+StopFF" &
+(FF& '
+)FF' (
+;FF( )
+musicaActivaGG 
+=GG 
+falseGG $
+;GG$ %
+}HH 
+}II 	
+	protectedKK 
+overrideKK 
+voidKK 
+	OnStartupKK  )
+(KK) *
+StartupEventArgsKK* :
+eventoKK; A
+)KKA B
+{LL 	
+reproductorMusicaMM 
+=MM 
+newMM  #
+SoundPlayerMM$ /
+(MM/ 0
+RompecabezasFeiMM0 ?
+.MM? @
 
-PropertiesCC@ J
-.CCJ K
-ResourceSonidosDD 
-.DD  !
-MusicaRompecabezasFeiDD  5
-)DD5 6
-;DD6 7
-EstadoMusicaEE 
-(EE 
-falseEE 
-)EE 
-;EE  
-}FF 	
-}GG 
-}HH ÿD
-C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaActualizacionContrasena.xaml.cs
+PropertiesMM@ J
+.MMJ K
+ResourceSonidosNN 
+.NN  !
+MusicaRompecabezasFeiNN  5
+)NN5 6
+;NN6 7
+EstadoMusicaOO 
+(OO 
+falseOO 
+)OO 
+;OO  
+}PP 	
+}QQ 
+}RR €E
+âC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaActualizacionContrasena.xaml.cs
 	namespace 	
 RompecabezasFei
  
@@ -4963,351 +4965,359 @@ ContrasenaC M
 contrasenaAnterior; M
 ,M N
 contrasenaActualO _
-)_ `
-&&a c
-! 
-ValidadorDatos 
-.  '
-ExisteCoincidenciaEnCadenas  ;
-(; <
-contrasenaAnterior< N
-,N O
-nuevaContrasenaP _
-)_ `
-&&a c
-! !
-ExistenDatosInvalidos &
-(& '
-nuevaContrasena' 6
-,6 7"
-confirmacionContrasena8 N
-)N O
-)O P
-{ 
-string   
-correoJugador   $
-=  % &
-Dominio  ' .
-.  . /
-CuentaJugador  / <
-.  < =
-Actual  = C
-.  C D
-Correo  D J
-;  J K
-string!! "
-nuevaContrasenaCifrada!! -
-=!!. /!
-EncriptadorContrasena!!0 E
-.!!E F
-CalcularHashSha512"" &
-(""& '
-nuevaContrasena""' 6
-)""6 7
-;""7 8
-bool## "
-actualizacionRealizada## +
-=##, -
-	Servicios##. 7
-.##7 8
-ServicioJugador##8 G
-.##G H 
-ActualizarContrasena$$ (
-($$( )
-correoJugador$$) 6
-,$$6 7"
-nuevaContrasenaCifrada$$8 N
-)$$N O
-;$$O P
-if&& 
-(&& "
-actualizacionRealizada&& *
-)&&* +
-{'' 
+)_ `
+)` a
+{ 
+if 
+( 
+! 
+ValidadorDatos #
+.# $'
+ExisteCoincidenciaEnCadenas$ ?
+(? @
+contrasenaAnterior@ R
+,R S
+nuevaContrasena #
+)# $
+)$ %
+{   
+if!! 
+(!! 
+!!! !
+ExistenDatosInvalidos!! .
+(!!. /
+nuevaContrasena!!/ >
+,!!> ?"
+confirmacionContrasena!!@ V
+)!!V W
+)!!W X
+{"" 
+string## 
+correoJugador## ,
+=##- .
+Dominio##/ 6
+.##6 7
+CuentaJugador##7 D
+.##D E
+Actual##E K
+.##K L
+Correo##L R
+;##R S
+string$$ "
+nuevaContrasenaCifrada$$ 5
+=$$6 7!
+EncriptadorContrasena$$8 M
+.$$M N
+CalcularHashSha512%% .
+(%%. /
+nuevaContrasena%%/ >
+)%%> ?
+;%%? @
+bool&& "
+actualizacionRealizada&& 3
+=&&4 5
+	Servicios&&6 ?
+.&&? @
+ServicioJugador&&@ O
+.&&O P 
+ActualizarContrasena'' 0
+(''0 1
+correoJugador''1 >
+,''> ?"
+nuevaContrasenaCifrada''@ V
+)''V W
+;''W X
+if)) 
+()) "
+actualizacionRealizada)) 2
+)))2 3
+{** 
 
-MessageBox(( 
-.(( 
-Show(( #
-(((# $
-$str(($ H
-+((I J
-$str)) 7
-,))7 8
-$str** ?
-,**? @
-MessageBoxButton++ (
-.++( )
-OK++) +
-)+++ ,
-;++, -
-Dominio,, 
-.,, 
-CuentaJugador,, )
-.,,) *
-Actual,,* 0
-.,,0 1
+MessageBox++ &
+.++& '
+Show++' +
+(+++ ,
+$str++, P
++++Q R
+$str,,  ?
+,,,? @
+$str--  G
+,--G H
+MessageBoxButton..  0
+...0 1
+OK..1 3
+)..3 4
+;..4 5
+Dominio// #
+.//# $
+CuentaJugador//$ 1
+.//1 2
+Actual//2 8
+.//8 9
 
-Contrasena,,1 ;
-=,,< =
-nuevaContrasena,,> M
-;,,M N
-VentanaPrincipal-- $
-.--$ %
-CambiarPagina--% 2
-(--2 3
-new--3 6$
-PaginaInformacionJugador--7 O
-(--O P
-)--P Q
-)--Q R
-;--R S
-}.. 
-else// 
-{00 
+Contrasena//9 C
+=//D E
+nuevaContrasena//F U
+;//U V
+VentanaPrincipal00 ,
+.00, -
+CambiarPagina00- :
+(00: ;
+new00; >$
+PaginaInformacionJugador00? W
+(00W X
+)00X Y
+)00Y Z
+;00Z [
+}11 
+else22 
+{33 
 
-MessageBox11 
-.11 
-Show11 #
-(11# $
-$str11$ Z
-,11Z [
-$str22 9
-,229 :
-MessageBoxButton22; K
-.22K L
-OK22L N
-)22N O
-;22O P
-}33 
-}44 
-}55 	
-private77 
-bool77 !
-ExistenDatosInvalidos77 *
-(77* +
-string77+ 1
-nuevaContrasena772 A
-,77A B
-string88 "
-confirmacionContrasena88 )
-)88) *
-{99 	
-bool:: 
-hayDatosInvalidos:: "
-=::# $
-false::% *
-;::* +
-if<< 
-(<< 
-ValidadorDatos<< 
-.<< 4
-(ExistenCaracteresInvalidosParaContrasena<< G
-(<<G H
-nuevaContrasena<<H W
-)<<W X
-)<<X Y
-{== 
+MessageBox44 &
+.44& '
+Show44' +
+(44+ ,
+$str44, b
+,44b c
+$str55  A
+,55A B
+MessageBoxButton55C S
+.55S T
+OK55T V
+)55V W
+;55W X
+}66 
+}77 
+}88 
+}99 
+}:: 	
+private<< 
+bool<< !
+ExistenDatosInvalidos<< *
+(<<* +
+string<<+ 1
+nuevaContrasena<<2 A
+,<<A B
+string== "
+confirmacionContrasena== )
+)==) *
+{>> 	
+bool?? 
+hayDatosInvalidos?? "
+=??# $
+false??% *
+;??* +
+ifAA 
+(AA 
+ValidadorDatosAA 
+.AA 4
+(ExistenCaracteresInvalidosParaContrasenaAA G
+(AAG H
+nuevaContrasenaAAH W
+)AAW X
+)AAX Y
+{BB 
 
-MessageBox>> 
-.>> 
-Show>> 
-(>>  
+MessageBoxCC 
+.CC 
+ShowCC 
+(CC  
 
-Properties>>  *
-.>>* +
-	Resources>>+ 4
-.>>4 56
-*ETIQUETA_VALIDACION_MENSAJECONTRASENANUEVA>>5 _
-,>>_ `
+PropertiesCC  *
+.CC* +
+	ResourcesCC+ 4
+.CC4 56
+*ETIQUETA_VALIDACION_MENSAJECONTRASENANUEVACC5 _
+,CC_ `
 
-Properties?? 
-.?? 
-	Resources?? (
-.??( )2
-&ETIQUETA_VALIDACION_CONTRASENAINVALIDA??) O
-,??O P
-MessageBoxButton@@ $
-.@@$ %
-OK@@% '
-)@@' (
-;@@( )
-hayDatosInvalidosAA !
-=AA" #
-trueAA$ (
-;AA( )
-}BB 
-ifDD 
-(DD 
-ValidadorDatosDD 
-.DD .
-"ExisteLongitudExcedidaEnContrasenaDD A
-(DDA B"
-cuadroContrasenaActualEE &
-.EE& '
-PasswordEE' /
-)EE/ 0
-)EE0 1
-{FF 
+PropertiesDD 
+.DD 
+	ResourcesDD (
+.DD( )2
+&ETIQUETA_VALIDACION_CONTRASENAINVALIDADD) O
+,DDO P
+MessageBoxButtonEE $
+.EE$ %
+OKEE% '
+)EE' (
+;EE( )
+hayDatosInvalidosFF !
+=FF" #
+trueFF$ (
+;FF( )
+}GG 
+ifII 
+(II 
+ValidadorDatosII 
+.II .
+"ExisteLongitudExcedidaEnContrasenaII A
+(IIA B"
+cuadroContrasenaActualJJ &
+.JJ& '
+PasswordJJ' /
+)JJ/ 0
+)JJ0 1
+{KK 
 
-MessageBoxGG 
-.GG 
-ShowGG 
-(GG  
+MessageBoxLL 
+.LL 
+ShowLL 
+(LL  
 
-PropertiesGG  *
-.GG* +
-	ResourcesGG+ 4
-.GG4 52
-&ETIQUETA_VALIDACION_CONTRASENAEXCEDIDAGG5 [
-,GG[ \
+PropertiesLL  *
+.LL* +
+	ResourcesLL+ 4
+.LL4 52
+&ETIQUETA_VALIDACION_CONTRASENAEXCEDIDALL5 [
+,LL[ \
 
-PropertiesHH 
-.HH  
-	ResourcesHH  )
-.HH) *0
-$ETIQUETA_VALIDACION_LONGITUDEXCEDIDAHH* N
-,HHN O
-MessageBoxButtonII %
-.II% &
-OKII& (
-)II( )
-;II) *
-hayDatosInvalidosJJ !
-=JJ" #
-trueJJ$ (
-;JJ( )
-}KK 
-ifMM 
-(MM 
-ExistenCamposVaciosMM #
-(MM# $
-)MM$ %
-)MM% &
-{NN 
+PropertiesMM 
+.MM  
+	ResourcesMM  )
+.MM) *0
+$ETIQUETA_VALIDACION_LONGITUDEXCEDIDAMM* N
+,MMN O
+MessageBoxButtonNN %
+.NN% &
+OKNN& (
+)NN( )
+;NN) *
+hayDatosInvalidosOO !
+=OO" #
+trueOO$ (
+;OO( )
+}PP 
+ifRR 
+(RR 
+ExistenCamposVaciosRR #
+(RR# $
+)RR$ %
+)RR% &
+{SS 
 
-MessageBoxOO 
-.OO 
-ShowOO 
-(OO  
+MessageBoxTT 
+.TT 
+ShowTT 
+(TT  
 
-PropertiesOO  *
-.OO* +
-	ResourcesOO+ 4
-.OO4 53
-'ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOSOO5 \
-,OO\ ]
+PropertiesTT  *
+.TT* +
+	ResourcesTT+ 4
+.TT4 53
+'ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOSTT5 \
+,TT\ ]
 
-PropertiesPP 
-.PP 
-	ResourcesPP '
-.PP' (,
- ETIQUETA_VALIDACION_CAMPOSVACIOSPP( H
-,PPH I
-MessageBoxButtonQQ #
-.QQ# $
-OKQQ$ &
-)QQ& '
-;QQ' (
-hayDatosInvalidosRR !
-=RR" #
-trueRR$ (
-;RR( )
-}SS 
-ifUU 
-(UU 
-!UU 
-ValidadorDatosUU 
-.UU  '
-ExisteCoincidenciaEnCadenasUU  ;
-(UU; <
-nuevaContrasenaUU< K
-,UUK L"
-confirmacionContrasenaVV &
+PropertiesUU 
+.UU 
+	ResourcesUU '
+.UU' (,
+ ETIQUETA_VALIDACION_CAMPOSVACIOSUU( H
+,UUH I
+MessageBoxButtonVV #
+.VV# $
+OKVV$ &
 )VV& '
-)VV' (
-{WW 
+;VV' (
+hayDatosInvalidosWW !
+=WW" #
+trueWW$ (
+;WW( )
+}XX 
+ifZZ 
+(ZZ 
+!ZZ 
+ValidadorDatosZZ 
+.ZZ  '
+ExisteCoincidenciaEnCadenasZZ  ;
+(ZZ; <
+nuevaContrasenaZZ< K
+,ZZK L"
+confirmacionContrasena[[ &
+)[[& '
+)[[' (
+{\\ 
 
-MessageBoxXX 
-.XX 
-ShowXX 
-(XX  
+MessageBox]] 
+.]] 
+Show]] 
+(]]  
 
-PropertiesXX  *
-.XX* +
-	ResourcesXX+ 4
-.XX4 5:
-.ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTEYY B
-,YYB C
+Properties]]  *
+.]]* +
+	Resources]]+ 4
+.]]4 5:
+.ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE^^ B
+,^^B C
 
-PropertiesYYD N
-.YYN O
-	ResourcesYYO X
-.YYX Y3
-'ETIQUETA_VALIDACION_CONTRASENADIFERENTEZZ ;
-,ZZ; <
-MessageBoxButtonZZ= M
-.ZZM N
-OKZZN P
-)ZZP Q
-;ZZQ R
-}[[ 
-return]] 
-hayDatosInvalidos]] $
-;]]$ %
-}^^ 	
-private`` 
-bool`` 
-ExistenCamposVacios`` (
-(``( )
-)``) *
-{aa 	
-boolbb 
-	resultadobb 
-=bb 
-falsebb "
-;bb" #
-ifdd 
-(dd 
-ValidadorDatosdd 
-.dd 
-EsCadenaVaciadd ,
-(dd, -"
-cuadroContrasenaActualdd- C
-.ddC D
-PasswordddD L
-)ddL M
-||ddN P
-ValidadorDatosee 
-.ee 
-EsCadenaVaciaee ,
-(ee, -!
-cuadroNuevaContrasenaee- B
-.eeB C
-PasswordeeC K
-)eeK L
-||eeM O
-ValidadorDatosff 
-.ff 
-EsCadenaVaciaff ,
-(ff, -(
-cuadroConfirmacionContrasenaff- I
-.ffI J
-PasswordffJ R
-)ffR S
-)ffS T
-{gg 
-	resultadohh 
-=hh 
-truehh  
-;hh  !
-}ii 
-returnkk 
-	resultadokk 
-;kk 
-}ll 	
-}mm 
-}nn êb
-ÄC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaActualizacionInformacion.xaml.cs
+Properties^^D N
+.^^N O
+	Resources^^O X
+.^^X Y3
+'ETIQUETA_VALIDACION_CONTRASENADIFERENTE__ ;
+,__; <
+MessageBoxButton__= M
+.__M N
+OK__N P
+)__P Q
+;__Q R
+}`` 
+returnbb 
+hayDatosInvalidosbb $
+;bb$ %
+}cc 	
+privateee 
+boolee 
+ExistenCamposVaciosee (
+(ee( )
+)ee) *
+{ff 	
+boolgg 
+	resultadogg 
+=gg 
+falsegg "
+;gg" #
+ifii 
+(ii 
+ValidadorDatosii 
+.ii 
+EsCadenaVaciaii ,
+(ii, -"
+cuadroContrasenaActualii- C
+.iiC D
+PasswordiiD L
+)iiL M
+||iiN P
+ValidadorDatosjj 
+.jj 
+EsCadenaVaciajj ,
+(jj, -!
+cuadroNuevaContrasenajj- B
+.jjB C
+PasswordjjC K
+)jjK L
+||jjM O
+ValidadorDatoskk 
+.kk 
+EsCadenaVaciakk ,
+(kk, -(
+cuadroConfirmacionContrasenakk- I
+.kkI J
+PasswordkkJ R
+)kkR S
+)kkS T
+{ll 
+	resultadomm 
+=mm 
+truemm  
+;mm  !
+}nn 
+returnpp 
+	resultadopp 
+;pp 
+}qq 	
+}rr 
+}ss Úb
+äC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaActualizacionInformacion.xaml.cs
 	namespace 	
 RompecabezasFei
  
@@ -5498,863 +5508,877 @@ $ExistenModificacionesEnNombreJugador''% I
 (// 
 esNombreDiferente// !
 ||//" $
-esAvatarDiferente//% 6
-&&//7 9
-!00 2
-&ExistenDatosInvalidosParaActualizacion00 7
-(007 8
-)008 9
-)009 :
-{11 
-if22 
-(22 
-!22 
-	Servicios22 
-.22 
-ServicioJugador22 .
-.22. /
-ExisteNombreJugador22/ B
-(22B C
-nuevoNombre22C N
-)22N O
-)22O P
-{33 
-bool44 "
-actualizacionRealizada44 /
-=440 1
-	Servicios442 ;
-.44; <
-ServicioJugador44< K
-.44K L!
-ActualizarInformacion55 -
-(55- .
-nombreAnterior55. <
-,55< =
-nuevoNombre55> I
-,55I J
-nuevoNumeroAvatar55K \
-)55\ ]
-;55] ^
-if77 
-(77 "
-actualizacionRealizada77 .
-)77. /
-{88 
+esAvatarDiferente//% 6
+)//6 7
+{00 
+if11 
+(11 
+!11 2
+&ExistenDatosInvalidosParaActualizacion11 ;
+(11; <
+)11< =
+)11= >
+{22 
+if33 
+(33 
+!33 
+	Servicios33 "
+.33" #
+ServicioJugador33# 2
+.332 3
+ExisteNombreJugador333 F
+(33F G
+nuevoNombre33G R
+)33R S
+)33S T
+{44 
+bool55 "
+actualizacionRealizada55 3
+=554 5
+	Servicios556 ?
+.55? @
+ServicioJugador55@ O
+.55O P!
+ActualizarInformacion66 1
+(661 2
+nombreAnterior662 @
+,66@ A
+nuevoNombre66B M
+,66M N
+nuevoNumeroAvatar66O `
+)66` a
+;66a b
+if88 
+(88 "
+actualizacionRealizada88 2
+)882 3
+{99 
 
-MessageBox99 "
-.99" #
-Show99# '
-(99' (
+MessageBox:: &
+.::& '
+Show::' +
+(::+ ,
 
-Properties99( 2
-.992 3
-	Resources993 <
-.99< =B
-6ETIQUETA_ACTUALIZACIONINFORMACION_MENSAJEACTUALIZACION:: R
-,::R S
+Properties::, 6
+.::6 7
+	Resources::7 @
+.::@ AB
+6ETIQUETA_ACTUALIZACIONINFORMACION_MENSAJEACTUALIZACION;;  V
+,;;V W
 
-Properties;; &
-.;;& '
-	Resources;;' 0
-.;;0 1D
-8ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONREALIZADA<< T
-,<<T U
-MessageBoxButton== ,
-.==, -
-OK==- /
-)==/ 0
-;==0 1
-Dominio>> 
-.>>  
-CuentaJugador>>  -
-.>>- .
-Actual>>. 4
-.>>4 5
-NumeroAvatar>>5 A
-=>>B C
-nuevoNumeroAvatar>>D U
-;>>U V
-Dominio?? 
-.??  
-CuentaJugador??  -
-.??- .
-Actual??. 4
-.??4 5
-NombreJugador??5 B
-=??C D
-nuevoNombre??E P
-;??P Q
-Dominio@@ 
-.@@  
-CuentaJugador@@  -
-.@@- .
-Actual@@. 4
-.@@4 5
-FuenteImagenAvatar@@5 G
-=@@H I
+Properties<<  *
+.<<* +
+	Resources<<+ 4
+.<<4 5D
+8ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONREALIZADA==  X
+,==X Y
+MessageBoxButton>>  0
+.>>0 1
+OK>>1 3
+)>>3 4
+;>>4 5
+Dominio?? #
+.??# $
+CuentaJugador??$ 1
+.??1 2
+Actual??2 8
+.??8 9
+NumeroAvatar??9 E
+=??F G
+nuevoNumeroAvatar??H Y
+;??Y Z
+Dominio@@ #
+.@@# $
+CuentaJugador@@$ 1
+.@@1 2
+Actual@@2 8
+.@@8 9
+NombreJugador@@9 F
+=@@G H
+nuevoNombre@@I T
+;@@T U
+DominioAA #
+.AA# $
+CuentaJugadorAA$ 1
+.AA1 2
+ActualAA2 8
+.AA8 9
+FuenteImagenAvatarAA9 K
+=AAL M
 
-Utilidades@@J T
-.@@T U
-GeneradorImagenesAA -
-.AA- .%
-GenerarFuenteImagenAvatarAA. G
-(AAG H
-nuevoNumeroAvatarAAH Y
-)AAY Z
-;AAZ [
-VentanaPrincipalBB (
-.BB( )
-CambiarPaginaBB) 6
-(BB6 7
-newBB7 :$
-PaginaInformacionJugadorBB; S
-(BBS T
-)BBT U
-)BBU V
-;BBV W
-}CC 
-elseDD 
-{EE 
+UtilidadesAAN X
+.AAX Y
+GeneradorImagenesBB  1
+.BB1 2%
+GenerarFuenteImagenAvatarBB2 K
+(BBK L
+nuevoNumeroAvatarBBL ]
+)BB] ^
+;BB^ _
+VentanaPrincipalCC ,
+.CC, -
+CambiarPaginaCC- :
+(CC: ;
+newCC; >$
+PaginaInformacionJugadorCC? W
+(CCW X
+)CCX Y
+)CCY Z
+;CCZ [
+}DD 
+elseEE 
+{FF 
 
-MessageBoxFF "
-.FF" #
-ShowFF# '
-(FF' (
+MessageBoxGG &
+.GG& '
+ShowGG' +
+(GG+ ,
 
-PropertiesFF( 2
-.FF2 3
-	ResourcesFF3 <
-.FF< =F
-:ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONNOREALIZADAGG V
-,GGV W
+PropertiesGG, 6
+.GG6 7
+	ResourcesGG7 @
+.GG@ AF
+:ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONNOREALIZADAHH  Z
+,HHZ [
 
-PropertiesHH &
-.HH& '
-	ResourcesHH' 0
-.HH0 1@
-4ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACIONII P
-,IIP Q
-MessageBoxButtonJJ ,
-.JJ, -
-OKJJ- /
-)JJ/ 0
-;JJ0 1
-}KK 
-}LL 
-elseMM 
-{NN 
+PropertiesII  *
+.II* +
+	ResourcesII+ 4
+.II4 5@
+4ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACIONJJ  T
+,JJT U
+MessageBoxButtonKK  0
+.KK0 1
+OKKK1 3
+)KK3 4
+;KK4 5
+}LL 
+}MM 
+elseNN 
+{OO 
 
-MessageBoxOO 
-.OO 
-ShowOO #
-(OO# $
+MessageBoxPP "
+.PP" #
+ShowPP# '
+(PP' (
 
-PropertiesPP "
-.PP" #
-	ResourcesPP# ,
-.PP, -@
-4ETIQUETA_ACTUALIZACIONINFORMACION_NOMBRENODISPONIBLEQQ L
-,QQL M
+PropertiesQQ &
+.QQ& '
+	ResourcesQQ' 0
+.QQ0 1@
+4ETIQUETA_ACTUALIZACIONINFORMACION_NOMBRENODISPONIBLERR P
+,RRP Q
 
-PropertiesRR "
-.RR" #
-	ResourcesRR# ,
-.RR, -@
-4ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACIONSS L
-,SSL M
-MessageBoxButtonTT (
-.TT( )
-OKTT) +
-)TT+ ,
-;TT, -
-}UU 
-}VV 
-}WW 	
-privateYY 
-voidYY )
-NavegarAPaginaSeleccionAvatarYY 2
-(YY2 3
-objectYY3 9
-objetoOrigenYY: F
-,YYF G
-RoutedEventArgsYYH W
-eventoYYX ^
-)YY^ _
-{ZZ 	!
-PaginaSeleccionAvatar[[ !!
-paginaSeleccionAvatar[[" 7
-=[[8 9
-new[[: =!
-PaginaSeleccionAvatar[[> S
-([[S T
-Convert\\ 
-.\\ 
-ToInt32\\ 
-(\\  
-imagenAvatarActual\\  2
-.\\2 3
-Tag\\3 6
-)\\6 7
-,\\7 8$
-cuadroTextoNombreUsuario\\9 Q
-.\\Q R
-Text\\R V
-)\\V W
-;\\W X
-VentanaPrincipal]] 
-.]] *
-CambiarPaginaGuardandoAnterior]] ;
-(]]; <!
-paginaSeleccionAvatar]]< Q
-)]]Q R
-;]]R S
-}^^ 	
-private`` 
-bool`` /
-#ExistenModificacionesEnNumeroAvatar`` 8
-(``8 9
-int``9 <
-nuevoNumeroAvatar``= N
-)``N O
-{aa 	
-boolbb 
-	resultadobb 
-=bb 
-truebb !
-;bb! "
-ifdd 
-(dd 
-Dominiodd 
-.dd 
-CuentaJugadordd %
-.dd% &
-Actualdd& ,
-.dd, -
-NumeroAvatardd- 9
-.dd9 :
-Equalsdd: @
-(dd@ A
-nuevoNumeroAvatarddA R
-)ddR S
-)ddS T
-{ee 
-	resultadoff 
-=ff 
-falseff !
-;ff! "
-}gg 
-returnii 
-	resultadoii 
-;ii 
-}jj 	
-privatell 
-boolll 0
-$ExistenModificacionesEnNombreJugadorll 9
-(ll9 :
-stringll: @
-nuevoNombreJugadorllA S
-)llS T
-{mm 	
-nombreModificadonn 
-=nn 
-truenn #
-;nn# $
-ifpp 
-(pp 
-Dominiopp 
-.pp 
-CuentaJugadorpp %
-.pp% &
-Actualpp& ,
-.pp, -
-NombreJugadorpp- :
-.pp: ;
-Equalspp; A
-(ppA B
-nuevoNombreJugadorppB T
-)ppT U
-)ppU V
-{qq 
-nombreModificadorr  
-=rr! "
-falserr# (
-;rr( )
-}ss 
-returnuu 
-nombreModificadouu #
-;uu# $
-}vv 	
-privatexx 
-boolxx 2
-&ExistenDatosInvalidosParaActualizacionxx ;
-(xx; <
-)xx< =
-{yy 	
-boolzz 
-datosInvalidoszz 
-=zz  !
-falsezz" '
-;zz' (
-if|| 
-(|| 
-ValidadorDatos|| 
-.|| 
-EsCadenaVacia|| ,
-(||, -$
-cuadroTextoNombreUsuario||- E
-.||E F
-Text||F J
-)||J K
-)||K L
-{}} 
-datosInvalidos~~ 
-=~~  
-true~~! %
-;~~% &
+PropertiesSS &
+.SS& '
+	ResourcesSS' 0
+.SS0 1@
+4ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACIONTT P
+,TTP Q
+MessageBoxButtonUU ,
+.UU, -
+OKUU- /
+)UU/ 0
+;UU0 1
+}VV 
+}WW 
+}XX 
+}YY 	
+private[[ 
+void[[ )
+NavegarAPaginaSeleccionAvatar[[ 2
+([[2 3
+object[[3 9
+objetoOrigen[[: F
+,[[F G
+RoutedEventArgs[[H W
+evento[[X ^
+)[[^ _
+{\\ 	!
+PaginaSeleccionAvatar]] !!
+paginaSeleccionAvatar]]" 7
+=]]8 9
+new]]: =!
+PaginaSeleccionAvatar]]> S
+(]]S T
+Convert^^ 
+.^^ 
+ToInt32^^ 
+(^^  
+imagenAvatarActual^^  2
+.^^2 3
+Tag^^3 6
+)^^6 7
+,^^7 8$
+cuadroTextoNombreUsuario^^9 Q
+.^^Q R
+Text^^R V
+)^^V W
+;^^W X
+VentanaPrincipal__ 
+.__ *
+CambiarPaginaGuardandoAnterior__ ;
+(__; <!
+paginaSeleccionAvatar__< Q
+)__Q R
+;__R S
+}`` 	
+privatebb 
+boolbb /
+#ExistenModificacionesEnNumeroAvatarbb 8
+(bb8 9
+intbb9 <
+nuevoNumeroAvatarbb= N
+)bbN O
+{cc 	
+booldd 
+	resultadodd 
+=dd 
+truedd !
+;dd! "
+ifff 
+(ff 
+Dominioff 
+.ff 
+CuentaJugadorff %
+.ff% &
+Actualff& ,
+.ff, -
+NumeroAvatarff- 9
+.ff9 :
+Equalsff: @
+(ff@ A
+nuevoNumeroAvatarffA R
+)ffR S
+)ffS T
+{gg 
+	resultadohh 
+=hh 
+falsehh !
+;hh! "
+}ii 
+returnkk 
+	resultadokk 
+;kk 
+}ll 	
+privatenn 
+boolnn 0
+$ExistenModificacionesEnNombreJugadornn 9
+(nn9 :
+stringnn: @
+nuevoNombreJugadornnA S
+)nnS T
+{oo 	
+nombreModificadopp 
+=pp 
+truepp #
+;pp# $
+ifrr 
+(rr 
+Dominiorr 
+.rr 
+CuentaJugadorrr %
+.rr% &
+Actualrr& ,
+.rr, -
+NombreJugadorrr- :
+.rr: ;
+Equalsrr; A
+(rrA B
+nuevoNombreJugadorrrB T
+)rrT U
+)rrU V
+{ss 
+nombreModificadott  
+=tt! "
+falsett# (
+;tt( )
+}uu 
+returnww 
+nombreModificadoww #
+;ww# $
+}xx 	
+privatezz 
+boolzz 2
+&ExistenDatosInvalidosParaActualizacionzz ;
+(zz; <
+)zz< =
+{{{ 	
+bool|| 
+datosInvalidos|| 
+=||  !
+false||" '
+;||' (
+if~~ 
+(~~ 
+ValidadorDatos~~ 
+.~~ 
+EsCadenaVacia~~ ,
+(~~, -$
+cuadroTextoNombreUsuario~~- E
+.~~E F
+Text~~F J
+)~~J K
+)~~K L
+{ 
+datosInvalidos
+ÄÄ 
+=
+ÄÄ  
+true
+ÄÄ! %
+;
+ÄÄ% &
 
-MessageBox 
-. 
-Show 
-(  
-
-Properties  *
-.* +
-	Resources+ 4
-.4 53
-'ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS5 \
-,\ ]
+MessageBox
+ÅÅ 
+.
+ÅÅ 
+Show
+ÅÅ 
+(
+ÅÅ  
 
 Properties
-ÄÄ 
+ÅÅ  *
 .
-ÄÄ 
+ÅÅ* +
 	Resources
-ÄÄ (
+ÅÅ+ 4
 .
-ÄÄ( ).
+ÅÅ4 55
+'ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS
+ÅÅ5 \
+,
+ÅÅ\ ]
+
+Properties
+ÇÇ 
+.
+ÇÇ 
+	Resources
+ÇÇ (
+.
+ÇÇ( ).
  ETIQUETA_VALIDACION_CAMPOSVACIOS
-ÄÄ) I
+ÇÇ) I
 ,
-ÄÄI J
+ÇÇI J
 MessageBoxButton
-ÅÅ $
+ÉÉ $
 .
-ÅÅ$ %
+ÉÉ$ %
 OK
-ÅÅ% '
+ÉÉ% '
 )
-ÅÅ' (
+ÉÉ' (
 ;
-ÅÅ( )
+ÉÉ( )
 }
-ÇÇ 
+ÑÑ 
 if
-ÑÑ 
+ÜÜ 
 (
-ÑÑ 
+ÜÜ 
 ValidadorDatos
-ÑÑ 
+ÜÜ 
 .
-ÑÑ 3
+ÜÜ 3
 %ExisteLongitudExcedidaEnNombreJugador
-ÑÑ D
+ÜÜ D
 (
-ÑÑD E&
+ÜÜD E&
 cuadroTextoNombreUsuario
-ÖÖ (
+áá (
 .
-ÖÖ( )
+áá( )
 Text
-ÖÖ) -
+áá) -
 )
-ÖÖ- .
+áá- .
 )
-ÖÖ. /
+áá. /
 {
-ÜÜ 
+àà 
 datosInvalidos
-áá 
+ââ 
 =
-áá  
+ââ  
 true
-áá! %
+ââ! %
 ;
-áá% &
+ââ% &
 
 MessageBox
-àà 
+ää 
 .
-àà 
+ää 
 Show
-àà 
+ää 
 (
-àà  
+ää  
 
 Properties
-àà  *
+ää  *
 .
-àà* +
+ää* +
 	Resources
-àà+ 4
+ää+ 4
 .
-àà4 58
+ää4 58
 *ETIQUETA_VALIDACION_MENSAJECAMPOSEXCEDIDOS
-àà5 _
+ää5 _
 ,
-àà_ `
+ää_ `
 
 Properties
-ââ 
+ãã 
 .
-ââ 
+ãã 
 	Resources
-ââ (
+ãã (
 .
-ââ( )1
+ãã( )1
 #ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS
-ââ) L
+ãã) L
 ,
-ââL M
+ããL M
 MessageBoxButton
-ää $
+åå $
 .
-ää$ %
+åå$ %
 OK
-ää% '
+åå% '
 )
-ää' (
+åå' (
 ;
-ää( )
+åå( )
 }
-ãã 
+çç 
 if
-çç 
+èè 
 (
-çç 
+èè 
 ValidadorDatos
-çç 
+èè 
 .
-çç 9
+èè 9
 +ExistenCaracteresInvalidosParaNombreJugador
-çç J
+èè J
 (
-ççJ K&
+èèJ K&
 cuadroTextoNombreUsuario
-éé (
+êê (
 .
-éé( )
+êê( )
 Text
-éé) -
+êê) -
 )
-éé- .
+êê- .
 )
-éé. /
+êê. /
 {
-èè 
+ëë 
 datosInvalidos
-êê 
+íí 
 =
-êê  
+íí  
 true
-êê! %
+íí! %
 ;
-êê% &
+íí% &
 
 MessageBox
-ëë 
+ìì 
 .
-ëë 
+ìì 
 Show
-ëë 
+ìì 
 (
-ëë  
+ìì  
 
 Properties
-íí 
+îî 
 .
-íí 
+îî 
 	Resources
-íí (
+îî (
 .
-íí( )>
+îî( )>
 0ETIQUETA_VALIDACION_MENSAJENOMBREUSUARIOINVALIDO
-íí) Y
+îî) Y
 ,
-ííY Z
+îîY Z
 
 Properties
-ìì 
+ïï 
 .
-ìì 
+ïï 
 	Resources
-ìì (
+ïï (
 .
-ìì( )7
+ïï( )7
 )ETIQUETA_VALIDACION_NOMBREUSUARIOINVALIDO
-ìì) R
+ïï) R
 ,
-ììR S
+ïïR S
 MessageBoxButton
-îî $
+ññ $
 .
-îî$ %
+ññ$ %
 OK
-îî% '
+ññ% '
 )
-îî' (
+ññ' (
 ;
-îî( )
+ññ( )
 }
-ïï 
+óó 
 return
-óó 
+ôô 
 datosInvalidos
-óó !
+ôô !
 ;
-óó! "
+ôô! "
 }
-òò 	
+öö 	
 }
-ôô 
-}öö ®1
-oC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaAjustes.xaml.cs
-	namespace 	
-RompecabezasFei
+ÿÿ 
+}ŸŸ ü2
+yC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaAjustes.xaml.cs
+	namespace 	
+RompecabezasFei
  
-{		 
-public
-
- 
+{ 
+public		 
 
-partial
+partial		 
+class		 
+PaginaAjustes		 &
+:		' (
+Page		) -
+{
 
- 
-class
-
- 
-PaginaAjustes
-
- &
-:
-
-' (
-Page
-
-) -
-{ 
-private 
-string 
-idioma 
-; 
-private 
-bool )
-hayMusicaActivadaInicialmente 2
-;2 3
+ 
+private 
+string 
+idioma 
+; 
+private 
+bool )
+hayMusicaActivadaInicialmente 2
+;2 3
+private 
+const 
+string 
+IdiomaIngles )
+=* +
+$str, 3
+;3 4
 private 
 const 
-string 
-IdiomaIngles )
-=* +
-$str, 3
-;3 4
-private 
-const 
-string 
-IdiomaEspanol *
-=+ ,
-$str- 4
-;4 5
-public 
-PaginaAjustes 
-( 
-) 
-{ 	
-InitializeComponent 
-(  
-)  !
-;! "
-} 	
-private 
-void &
-InicializarSeleccionIdioma /
-(/ 0
-)0 1
-{ 	
-if 
-( 
-App 
-. 
-Current 
-. 
-IdiomaActual (
-==) +
-IdiomaIngles, 8
-)8 9
-{ 
-cajaOpcionesIdioma "
-." #
-SelectedIndex# 0
-=1 2
-(3 4
-int4 7
-)7 8
-Idioma8 >
-.> ?
-Ingles? E
-;E F
-} 
-else 
-{ 
-cajaOpcionesIdioma "
-." #
-SelectedIndex# 0
-=1 2
-(3 4
-int4 7
-)7 8
-Idioma8 >
-.> ?
-Espanol? F
-;F G
-} 
-}   	
-private"" 
-void"" &
-InicializarSeleccionMusica"" /
-(""/ 0
-)""0 1
-{## 	
-if$$ 
-($$ 
-App$$ 
-.$$ 
-Current$$ 
-.$$ 
-MusicaActiva$$ (
-)$$( )
-{%% )
-hayMusicaActivadaInicialmente&& -
-=&&. /
-true&&0 4
-;&&4 5
-botonCambioMusica'' !
-.''! "
-	IsChecked''" +
-='', -
-true''. 2
-;''2 3
-}(( 
-else)) 
-{** )
-hayMusicaActivadaInicialmente++ -
-=++. /
-false++0 5
-;++5 6
-botonCambioMusica,, !
-.,,! "
-	IsChecked,," +
-=,,, -
-false,,. 3
-;,,3 4
-}-- 
-}.. 	
-private00 
-void00 !
-RefrescarPaginaActual00 *
-(00* +
-)00+ ,
-{11 	
-VentanaPrincipal22 
-.22 
-CambiarPagina22 *
-(22* +
-new22+ .
-PaginaAjustes22/ <
-(22< =
-)22= >
-)22> ?
-;22? @
-}33 	
-private55 
-void55 (
-InicializarOpcionesDeAjustes55 1
-(551 2
-object552 8
-objetoOrigen559 E
-,55E F
-RoutedEventArgs55G V
-evento55W ]
-)55] ^
-{66 	&
-InicializarSeleccionIdioma77 &
+string 
+IdiomaEspanol *
+=+ ,
+$str- 4
+;4 5
+public 
+PaginaAjustes 
+( 
+) 
+{ 	
+InitializeComponent 
+(  
+)  !
+;! "
+} 	
+private 
+void &
+InicializarSeleccionIdioma /
+(/ 0
+)0 1
+{ 	
+if 
+( 
+App 
+. 
+Current 
+. 
+IdiomaActual (
+==) +
+IdiomaIngles, 8
+)8 9
+{ 
+cajaOpcionesIdioma "
+." #
+SelectedIndex# 0
+=1 2
+(3 4
+int4 7
+)7 8
+Idioma8 >
+.> ?
+Ingles? E
+;E F
+} 
+else 
+{ 
+cajaOpcionesIdioma "
+." #
+SelectedIndex# 0
+=1 2
+(3 4
+int4 7
+)7 8
+Idioma8 >
+.> ?
+Espanol? F
+;F G
+} 
+} 	
+private!! 
+void!! &
+InicializarSeleccionMusica!! /
+(!!/ 0
+)!!0 1
+{"" 	
+if## 
+(## 
+App## 
+.## 
+Current## 
+.## 
+MusicaActiva## (
+)##( )
+{$$ )
+hayMusicaActivadaInicialmente%% -
+=%%. /
+true%%0 4
+;%%4 5
+botonCambioMusica&& !
+.&&! "
+	IsChecked&&" +
+=&&, -
+true&&. 2
+;&&2 3
+}'' 
+else(( 
+{)) )
+hayMusicaActivadaInicialmente** -
+=**. /
+false**0 5
+;**5 6
+botonCambioMusica++ !
+.++! "
+	IsChecked++" +
+=++, -
+false++. 3
+;++3 4
+},, 
+}-- 	
+private// 
+void// !
+RefrescarPaginaActual// *
+(//* +
+)//+ ,
+{00 	
+VentanaPrincipal11 
+.11 
+CambiarPagina11 *
+(11* +
+new11+ .
+PaginaAjustes11/ <
+(11< =
+)11= >
+)11> ?
+;11? @
+}22 	
+private44 
+void44 (
+InicializarOpcionesDeAjustes44 1
+(441 2
+object442 8
+objetoOrigen449 E
+,44E F
+RoutedEventArgs44G V
+evento44W ]
+)44] ^
+{55 	&
+InicializarSeleccionIdioma66 &
+(66& '
+)66' (
+;66( )&
+InicializarSeleccionMusica77 &
 (77& '
 )77' (
-;77( )&
-InicializarSeleccionMusica88 &
-(88& '
-)88' (
-;88( )
-}99 	
-private;; 
-void;; 
-SeleccionarIdioma;; &
-(;;& '
-object;;' -
-controlOrigen;;. ;
-,;;; <%
-SelectionChangedEventArgs;;= V
-evento;;W ]
-);;] ^
-{<< 	
-if== 
-(== 
-cajaOpcionesIdioma== "
-.==" #
-SelectedIndex==# 0
-====1 3
-(==4 5
-int==5 8
-)==8 9
-Idioma==9 ?
-.==? @
-Ingles==@ F
-)==F G
-{>> 
-idioma?? 
-=?? 
-IdiomaIngles?? %
-;??% &
-}@@ 
-elseAA 
-{BB 
-idiomaCC 
-=CC 
-IdiomaEspanolCC &
-;CC& '
-}DD 
-}EE 	
-privateGG 
-voidGG 
-IrAPaginaAnteriorGG &
-(GG& '
-objectGG' -
-objetoOrigenGG. :
-,GG: ; 
-MouseButtonEventArgsGG< P
-eventoGGQ W
-)GGW X
-{HH 	
-ifII 
-(II 
-VentanaPrincipalII  
-.II  !
-PaginaAnteriorII! /
-isII0 2
-PaginaInicioSesionII3 E
-)IIE F
-{JJ 
-VentanaPrincipalKK  
-.KK  !
-CambiarPaginaKK! .
-(KK. /
-newKK/ 2
-PaginaInicioSesionKK3 E
-(KKE F
-)KKF G
-)KKG H
-;KKH I
-}LL 
-elseMM 
-{NN 
-VentanaPrincipalOO  
-.OO  !
-CambiarPaginaOO! .
-(OO. /
-newOO/ 2
-PaginaMenuPrincipalOO3 F
-(OOF G
-)OOG H
-)OOH I
-;OOI J
-}PP 
-}QQ 	
-privateSS 
-voidSS )
-CajaDeOpcionesDeIdiomaCerradaSS 2
-(SS2 3
-objectSS3 9
-objetoOrigenSS: F
-,SSF G
-	EventArgsSSH Q
-eventoSSR X
-)SSX Y
-{TT 	
-AppUU 
-.UU 
-CurrentUU 
-.UU 
-CambiarIdiomaUU %
-(UU% &
-idiomaUU& ,
-)UU, -
-;UU- .!
-RefrescarPaginaActualVV !
-(VV! "
-)VV" #
-;VV# $
-}WW 	
-privateYY 
-voidYY 
-ActivarMusicaYY "
-(YY" #
-objectYY# )
-objetoOrigenYY* 6
-,YY6 7
-RoutedEventArgsYY8 G
-eventoYYH N
-)YYN O
-{ZZ 	
-if[[ 
-([[ 
-![[ )
-hayMusicaActivadaInicialmente[[ .
-)[[. /
-{\\ 
-App]] 
-.]] 
-Current]] 
-.]] 
-EstadoMusica]] (
-(]]( )
-true]]) -
-)]]- .
-;]]. /
-}^^ 
-}__ 	
-privateaa 
-voidaa 
-DesactivarMusicaaa %
-(aa% &
-objectaa& ,
-objetoOrigenaa- 9
-,aa9 :
-RoutedEventArgsaa; J
-eventoaaK Q
-)aaQ R
-{bb 	
-Appcc 
-.cc 
-Currentcc 
-.cc 
-EstadoMusicacc $
-(cc$ %
-falsecc% *
-)cc* +
-;cc+ ,
-}dd 	
-}ee 
-}ff §Ë
-qC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaAmistades.xaml.cs
+;77( )
+}88 	
+private:: 
+void:: 
+SeleccionarIdioma:: &
+(::& '
+object::' -
+controlOrigen::. ;
+,::; <%
+SelectionChangedEventArgs::= V
+evento::W ]
+)::] ^
+{;; 	
+if<< 
+(<< 
+cajaOpcionesIdioma<< "
+.<<" #
+SelectedIndex<<# 0
+==<<1 3
+(<<4 5
+int<<5 8
+)<<8 9
+Idioma<<9 ?
+.<<? @
+Ingles<<@ F
+)<<F G
+{== 
+idioma>> 
+=>> 
+IdiomaIngles>> %
+;>>% &
+}?? 
+else@@ 
+{AA 
+idiomaBB 
+=BB 
+IdiomaEspanolBB &
+;BB& '
+}CC 
+}DD 	
+privateFF 
+voidFF 
+IrAPaginaAnteriorFF &
+(FF& '
+objectFF' -
+objetoOrigenFF. :
+,FF: ; 
+MouseButtonEventArgsFF< P
+eventoFFQ W
+)FFW X
+{GG 	
+ifHH 
+(HH 
+typeofHH 
+(HH 
+PaginaInicioSesionHH )
+)HH) *
+.HH* +
+IsInstanceOfTypeHH+ ;
+(HH; <
+VentanaPrincipalHH< L
+.HHL M
+PaginaAnteriorHHM [
+)HH[ \
+)HH\ ]
+{II 
+VentanaPrincipalJJ  
+.JJ  !
+CambiarPaginaJJ! .
+(JJ. /
+newJJ/ 2
+PaginaInicioSesionJJ3 E
+(JJE F
+)JJF G
+)JJG H
+;JJH I
+}KK 
+elseLL 
+{MM 
+VentanaPrincipalNN  
+.NN  !
+CambiarPaginaNN! .
+(NN. /
+newNN/ 2
+PaginaMenuPrincipalNN3 F
+(NNF G
+)NNG H
+)NNH I
+;NNI J
+}OO 
+}PP 	
+privateRR 
+voidRR )
+CajaDeOpcionesDeIdiomaCerradaRR 2
+(RR2 3
+objectRR3 9
+objetoOrigenRR: F
+,RRF G
+	EventArgsRRH Q
+eventoRRR X
+)RRX Y
+{SS 	
+AppTT 
+.TT 
+CurrentTT 
+.TT 
+CambiarIdiomaTT %
+(TT% &
+idiomaTT& ,
+)TT, -
+;TT- .!
+RefrescarPaginaActualUU !
+(UU! "
+)UU" #
+;UU# $
+}VV 	
+privateXX 
+voidXX 
+ActivarMusicaXX "
+(XX" #
+objectXX# )
+objetoOrigenXX* 6
+,XX6 7
+RoutedEventArgsXX8 G
+eventoXXH N
+)XXN O
+{YY 	
+ifZZ 
+(ZZ 
+!ZZ )
+hayMusicaActivadaInicialmenteZZ .
+)ZZ. /
+{[[ 
+App\\ 
+.\\ 
+Current\\ 
+.\\ 
+EstadoMusica\\ (
+(\\( )
+true\\) -
+)\\- .
+;\\. /
+}]] 
+}^^ 	
+private`` 
+void`` 
+DesactivarMusica`` %
+(``% &
+object``& ,
+objetoOrigen``- 9
+,``9 :
+RoutedEventArgs``; J
+evento``K Q
+)``Q R
+{aa 	
+Appbb 
+.bb 
+Currentbb 
+.bb 
+EstadoMusicabb $
+(bb$ %
+falsebb% *
+)bb* +
+;bb+ ,
+}cc 	
+}dd 
+}ee È
+{C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaAmistades.xaml.cs
 	namespace 	
 RompecabezasFei
  
@@ -6369,3787 +6393,3878 @@ qC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 ,/ 0&
 IServicioAmistadesCallback1 K
 { 
-private #
-ServicioAmistadesClient '$
-clienteServicioAmistades( @
-;@ A
-public  
-ObservableCollection #
-<# $
-Dominio$ +
-.+ ,
-CuentaJugador, 9
->9 :
-CuentasDeAmigos; J
-{K L
-getM P
-;P Q
-setR U
-;U V
-}W X
+private  
+ObservableCollection $
+<$ %
+Dominio% ,
+., -
+CuentaJugador- :
+>: ;
+cuentasDeAmigos< K
+;K L
+private  
+ObservableCollection $
+<$ %
+Dominio% ,
+., -
+CuentaJugador- :
+>: ; 
+cuentasDeSolicitudes< P
+;P Q
+private #
+ServicioAmistadesClient '$
+clienteServicioAmistades( @
+;@ A
 public  
 ObservableCollection #
 <# $
 Dominio$ +
 .+ ,
 CuentaJugador, 9
->9 : 
-CuentasDeSolicitudes; O
-{P Q
-getR U
-;U V
-setW Z
-;Z [
-}\ ]
-public 
-PaginaAmistades 
-( 
-bool #
-inicializarDatos$ 4
-)4 5
-{ 	
-if 
-( 
-inicializarDatos  
-)  !
-{ 
-InitializeComponent #
-(# $
-)$ %
-;% &
-listaAmigos 
-. 
-DataContext '
-=( )
-this* .
-;. /
-listaSolicitudes  
-.  !
-DataContext! ,
-=- .
-this/ 3
-;3 4$
-clienteServicioAmistades (
-=) *
-new+ .#
-ServicioAmistadesClient/ F
-(F G
-newG J
-InstanceContextK Z
-(Z [
-this[ _
-)_ `
-)` a
-;a b
-CargarAmigosJugador #
-(# $
-)$ %
-;% &0
-$CargarJugadoresConSolicitudPendiente 4
-(4 5
-)5 6
-;6 7+
-SuscribirJugadorANotificaciones /
-(/ 0
-)0 1
-;1 2
-}   
-}!! 	
-private## 
-void## 
-CargarAmigosJugador## (
-(##( )
-)##) *
-{$$ 	
-CuentasDeAmigos%% 
-=%% 
-new%% ! 
-ObservableCollection%%" 6
-<%%6 7
-Dominio%%7 >
-.%%> ?
-CuentaJugador%%? L
->%%L M
-(%%M N
-)%%N O
-;%%O P
-CuentaJugador&& 
-[&& 
-]&& 
-amigosObtenidos&& +
-=&&, -
-	Servicios&&. 7
-.&&7 8
-ServicioAmistades&&8 I
-.&&I J"
-ObtenerAmigosDeJugador'' &
-(''& '
-Dominio''' .
-.''. /
-CuentaJugador''/ <
-.''< =
-Actual''= C
-.''C D
-NombreJugador''D Q
-)''Q R
-;''R S
-if)) 
-()) 
-amigosObtenidos)) 
-!=))  "
-null))# '
-&&))( *
-amigosObtenidos))+ :
-.)): ;
-Any)); >
-())> ?
-)))? @
-)))@ A
-{** 
-foreach++ 
-(++ 
-CuentaJugador++ &
-amigo++' ,
-in++- /
-amigosObtenidos++0 ?
-)++? @
-{,, 
-Dominio-- 
-.-- 
-CuentaJugador-- )
-cuentaAmigo--* 5
-=--6 7
-new--8 ;
-Dominio--< C
-.--C D
-CuentaJugador--D Q
-{.. 
-NombreJugador// %
-=//& '
-amigo//( -
-.//- .
-NombreJugador//. ;
-,//; <
-NumeroAvatar00 $
-=00% &
-amigo00' ,
-.00, -
-NumeroAvatar00- 9
-,009 :
-FuenteImagenAvatar11 *
-=11+ ,
+>9 :
+CuentasDeAmigos; J
+{ 	
+get 
+{ 
+return 
+cuentasDeAmigos (
+;( )
+}* +
+set 
+{ 
+cuentasDeAmigos !
+=" #
+value$ )
+;) *
+}+ ,
+} 	
+public  
+ObservableCollection #
+<# $
+Dominio$ +
+.+ ,
+CuentaJugador, 9
+>9 : 
+CuentasDeSolicitudes; O
+{ 	
+get 
+{ 
+return  
+cuentasDeSolicitudes -
+;- .
+}/ 0
+set 
+{  
+cuentasDeSolicitudes &
+=' (
+value) .
+;. /
+}0 1
+} 	
+public 
+PaginaAmistades 
+( 
+bool #
+inicializarDatos$ 4
+)4 5
+{   	
+if!! 
+(!! 
+inicializarDatos!!  
+)!!  !
+{"" 
+InitializeComponent## #
+(### $
+)##$ %
+;##% &
+listaAmigos$$ 
+.$$ 
+DataContext$$ '
+=$$( )
+this$$* .
+;$$. /
+listaSolicitudes%%  
+.%%  !
+DataContext%%! ,
+=%%- .
+this%%/ 3
+;%%3 4$
+clienteServicioAmistades&& (
+=&&) *
+new&&+ .#
+ServicioAmistadesClient&&/ F
+(&&F G
+new&&G J
+InstanceContext&&K Z
+(&&Z [
+this&&[ _
+)&&_ `
+)&&` a
+;&&a b
+CargarAmigosJugador'' #
+(''# $
+)''$ %
+;''% &0
+$CargarJugadoresConSolicitudPendiente(( 4
+(((4 5
+)((5 6
+;((6 7+
+SuscribirJugadorANotificaciones)) /
+())/ 0
+)))0 1
+;))1 2
+}** 
+}++ 	
+private-- 
+void-- 
+CargarAmigosJugador-- (
+(--( )
+)--) *
+{.. 	
+cuentasDeAmigos// 
+=// 
+new// ! 
+ObservableCollection//" 6
+<//6 7
+Dominio//7 >
+.//> ?
+CuentaJugador//? L
+>//L M
+(//M N
+)//N O
+;//O P
+CuentaJugador00 
+[00 
+]00 
+amigosObtenidos00 +
+=00, -
+	Servicios00. 7
+.007 8
+ServicioAmistades008 I
+.00I J"
+ObtenerAmigosDeJugador11 &
+(11& '
+Dominio11' .
+.11. /
+CuentaJugador11/ <
+.11< =
+Actual11= C
+.11C D
+NombreJugador11D Q
+)11Q R
+;11R S
+if33 
+(33 
+amigosObtenidos33 
+!=33  "
+null33# '
+&&33( *
+amigosObtenidos33+ :
+.33: ;
+Count33; @
+(33@ A
+)33A B
+>33C D
+$num33E F
+)33F G
+{44 
+foreach55 
+(55 
+CuentaJugador55 &
+amigo55' ,
+in55- /
+amigosObtenidos550 ?
+)55? @
+{66 
+Dominio77 
+.77 
+CuentaJugador77 )
+cuentaAmigo77* 5
+=776 7
+new778 ;
+Dominio77< C
+.77C D
+CuentaJugador77D Q
+{88 
+NombreJugador99 %
+=99& '
+amigo99( -
+.99- .
+NombreJugador99. ;
+,99; <
+NumeroAvatar:: $
+=::% &
+amigo::' ,
+.::, -
+NumeroAvatar::- 9
+,::9 :
+FuenteImagenAvatar;; *
+=;;+ ,
 
-Utilidades11- 7
-.117 8
-GeneradorImagenes118 I
-.11I J%
-GenerarFuenteImagenAvatar22 5
-(225 6
-amigo226 ;
-.22; <
-NumeroAvatar22< H
-)22H I
-,22I J#
-ColorEstadoConectividad33 /
-=330 1/
-#ObtenerColorSegunEstadoConectividad332 U
-(33U V
-amigo44 !
-.44! "
-EstadoConectividad44" 4
-)444 5
-,445 6
-}55 
-;55 
-CuentasDeAmigos66 #
-.66# $
-Add66$ '
-(66' (
-cuentaAmigo66( 3
-)663 4
-;664 5
-}77 
-}88 
-}99 	
-private;; 
-void;; 0
-$CargarJugadoresConSolicitudPendiente;; 9
-(;;9 :
-);;: ;
-{<< 	 
-CuentasDeSolicitudes==  
-===! "
-new==# & 
-ObservableCollection==' ;
-<==; <
-Dominio==< C
-.==C D
-CuentaJugador==D Q
->==Q R
-(==R S
-)==S T
-;==T U
-CuentaJugador>> 
-[>> 
-]>> 
-jugadoresObtenidos>> .
-=>>/ 0
-	Servicios>>1 :
-.>>: ;
-ServicioAmistades>>; L
-.>>L M1
-%ObtenerJugadoresConSolicitudPendiente?? 5
-(??5 6
-Dominio??6 =
-.??= >
-CuentaJugador??> K
-.??K L
-Actual??L R
-.??R S
-NombreJugador??S `
-)??` a
-;??a b
-ifAA 
-(AA 
-jugadoresObtenidosAA "
-!=AA# %
-nullAA& *
-&&AA+ -
-jugadoresObtenidosAA. @
-.AA@ A
-AnyAAA D
-(AAD E
-)AAE F
-)AAF G
-{BB 
-foreachCC 
-(CC 
-CuentaJugadorCC &
-jugadorCC' .
-inCC/ 1
-jugadoresObtenidosCC2 D
-)CCD E
-{DD 
-DominioEE 
-.EE 
-CuentaJugadorEE )
-cuentaSolicitudEE* 9
-=EE: ;
-newEE< ?
-DominioEE@ G
-.EEG H
-CuentaJugadorEEH U
-{FF 
-NombreJugadorGG %
-=GG& '
-jugadorGG( /
-.GG/ 0
-NombreJugadorGG0 =
-,GG= >
-NumeroAvatarHH $
-=HH% &
-jugadorHH' .
-.HH. /
-NumeroAvatarHH/ ;
-,HH; <
-FuenteImagenAvatarII *
-=II+ ,
+Utilidades;;- 7
+.;;7 8
+GeneradorImagenes;;8 I
+.;;I J%
+GenerarFuenteImagenAvatar<< 5
+(<<5 6
+amigo<<6 ;
+.<<; <
+NumeroAvatar<<< H
+)<<H I
+,<<I J#
+ColorEstadoConectividad== /
+===0 1/
+#ObtenerColorSegunEstadoConectividad==2 U
+(==U V
+amigo>> !
+.>>! "
+EstadoConectividad>>" 4
+)>>4 5
+,>>5 6
+}?? 
+;?? 
+cuentasDeAmigos@@ #
+.@@# $
+Add@@$ '
+(@@' (
+cuentaAmigo@@( 3
+)@@3 4
+;@@4 5
+}AA 
+}BB 
+}CC 	
+privateEE 
+voidEE 0
+$CargarJugadoresConSolicitudPendienteEE 9
+(EE9 :
+)EE: ;
+{FF 	 
+cuentasDeSolicitudesGG  
+=GG! "
+newGG# & 
+ObservableCollectionGG' ;
+<GG; <
+DominioGG< C
+.GGC D
+CuentaJugadorGGD Q
+>GGQ R
+(GGR S
+)GGS T
+;GGT U
+CuentaJugadorHH 
+[HH 
+]HH 
+jugadoresObtenidosHH .
+=HH/ 0
+	ServiciosHH1 :
+.HH: ;
+ServicioAmistadesHH; L
+.HHL M1
+%ObtenerJugadoresConSolicitudPendienteII 5
+(II5 6
+DominioII6 =
+.II= >
+CuentaJugadorII> K
+.IIK L
+ActualIIL R
+.IIR S
+NombreJugadorIIS `
+)II` a
+;IIa b
+ifKK 
+(KK 
+jugadoresObtenidosKK "
+!=KK# %
+nullKK& *
+&&KK+ -
+jugadoresObtenidosKK. @
+.KK@ A
+CountKKA F
+(KKF G
+)KKG H
+>KKI J
+$numKKK L
+)KKL M
+{LL 
+foreachMM 
+(MM 
+CuentaJugadorMM &
+jugadorMM' .
+inMM/ 1
+jugadoresObtenidosMM2 D
+)MMD E
+{NN 
+DominioOO 
+.OO 
+CuentaJugadorOO )
+cuentaSolicitudOO* 9
+=OO: ;
+newOO< ?
+DominioOO@ G
+.OOG H
+CuentaJugadorOOH U
+{PP 
+NombreJugadorQQ %
+=QQ& '
+jugadorQQ( /
+.QQ/ 0
+NombreJugadorQQ0 =
+,QQ= >
+NumeroAvatarRR $
+=RR% &
+jugadorRR' .
+.RR. /
+NumeroAvatarRR/ ;
+,RR; <
+FuenteImagenAvatarSS *
+=SS+ ,
 
-UtilidadesII- 7
-.II7 8
-GeneradorImagenesII8 I
-.III J%
-GenerarFuenteImagenAvatarJJ 5
-(JJ5 6
-jugadorJJ6 =
-.JJ= >
-NumeroAvatarJJ> J
-)JJJ K
-,JJK L#
-ColorEstadoConectividadKK /
-=KK0 1/
-#ObtenerColorSegunEstadoConectividadKK2 U
-(KKU V
-jugadorLL #
-.LL# $
-EstadoConectividadLL$ 6
-)LL6 7
-,LL7 8
-}MM 
-;MM  
-CuentasDeSolicitudesNN (
-.NN( )
-AddNN) ,
-(NN, -
-cuentaSolicitudNN- <
-)NN< =
-;NN= >
-}OO 
-}PP 
-}QQ 	
-privateSS 
-voidSS +
-SuscribirJugadorANotificacionesSS 4
-(SS4 5
-)SS5 6
-{TT 	
-tryUU 
-{VV $
-clienteServicioAmistadesWW (
-.WW( )4
-(SuscribirJugadorANotificacionesAmistadesWW) Q
-(WWQ R
-DominioXX 
-.XX 
-CuentaJugadorXX (
-.XX( )
-ActualXX) /
-.XX/ 0
-NombreJugadorXX0 =
-)XX= >
-;XX> ?
-}YY 
-catchZZ 
-(ZZ %
-EndpointNotFoundExceptionZZ ,
-	excepcionZZ- 6
-)ZZ6 7
-{[[ 
-
-MessageBox]] 
-.]] 
-Show]] 
-(]]  
-
-Properties]]  *
-.]]* +
-	Resources]]+ 4
-.]]4 52
-&ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE^^ :
-,^^: ;
-
-Properties^^< F
-.^^F G
-	Resources^^G P
-.^^P Q1
-%ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO__ 9
-,__9 :
-MessageBoxButton`` $
-.``$ %
-OK``% '
-,``' (
-MessageBoxImage``) 8
-.``8 9
-Error``9 >
-)``> ?
-;``? @$
+UtilidadesSS- 7
+.SS7 8
+GeneradorImagenesSS8 I
+.SSI J%
+GenerarFuenteImagenAvatarTT 5
+(TT5 6
+jugadorTT6 =
+.TT= >
+NumeroAvatarTT> J
+)TTJ K
+,TTK L#
+ColorEstadoConectividadUU /
+=UU0 1/
+#ObtenerColorSegunEstadoConectividadUU2 U
+(UUU V
+jugadorVV #
+.VV# $
+EstadoConectividadVV$ 6
+)VV6 7
+,VV7 8
+}WW 
+;WW  
+cuentasDeSolicitudesXX (
+.XX( )
+AddXX) ,
+(XX, -
+cuentaSolicitudXX- <
+)XX< =
+;XX= >
+}YY 
+}ZZ 
+}[[ 	
+private]] 
+void]] +
+SuscribirJugadorANotificaciones]] 4
+(]]4 5
+)]]5 6
+{^^ 	
+try__ 
+{`` $
 clienteServicioAmistadesaa (
-.aa( )
-Abortaa) .
-(aa. /
-)aa/ 0
-;aa0 1
-}bb 
-catchcc 
-(cc /
-#CommunicationObjectFaultedExceptioncc 6
-	excepcioncc7 @
-)cc@ A
-{dd 
+.aa( )4
+(SuscribirJugadorANotificacionesAmistadesaa) Q
+(aaQ R
+Dominiobb 
+.bb 
+CuentaJugadorbb (
+.bb( )
+Actualbb) /
+.bb/ 0
+NombreJugadorbb0 =
+)bb= >
+;bb> ?
+}cc 
+catchdd 
+(dd %
+EndpointNotFoundExceptiondd ,
+	excepciondd- 6
+)dd6 7
+{ee 
 
-MessageBoxff 
-.ff 
-Showff 
-(ff  
+MessageBoxgg 
+.gg 
+Showgg 
+(gg  
 
-Propertiesff  *
-.ff* +
-	Resourcesff+ 4
-.ff4 52
-&ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJEgg :
-,gg: ;
+Propertiesgg  *
+.gg* +
+	Resourcesgg+ 4
+.gg4 52
+&ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJEhh :
+,hh: ;
 
-Propertiesgg< F
-.ggF G
-	ResourcesggG P
-.ggP Q1
-%ETIQUETA_ERRORCONEXIONSERVIDOR_TITULOhh 9
-,hh9 :
-MessageBoxButtonii $
-.ii$ %
-OKii% '
-,ii' (
-MessageBoxImageii) 8
-.ii8 9
-Errorii9 >
-)ii> ?
-;ii? @$
-clienteServicioAmistadesjj (
-.jj( )
-Abortjj) .
-(jj. /
-)jj/ 0
-;jj0 1
-}kk 
-catchll 
-(ll 
-TimeoutExceptionll #
-	excepcionll$ -
-)ll- .
-{mm 
+Propertieshh< F
+.hhF G
+	ResourceshhG P
+.hhP Q1
+%ETIQUETA_ERRORCONEXIONSERVIDOR_TITULOii 9
+,ii9 :
+MessageBoxButtonjj $
+.jj$ %
+OKjj% '
+,jj' (
+MessageBoxImagejj) 8
+.jj8 9
+Errorjj9 >
+)jj> ?
+;jj? @$
+clienteServicioAmistadeskk (
+.kk( )
+Abortkk) .
+(kk. /
+)kk/ 0
+;kk0 1
+}ll 
+catchmm 
+(mm /
+#CommunicationObjectFaultedExceptionmm 6
+	excepcionmm7 @
+)mm@ A
+{nn 
 
-MessageBoxoo 
-.oo 
-Showoo 
-(oo  
+MessageBoxpp 
+.pp 
+Showpp 
+(pp  
 
-Propertiesoo  *
-.oo* +
-	Resourcesoo+ 4
-.oo4 52
-&ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJEpp :
-,pp: ;
+Propertiespp  *
+.pp* +
+	Resourcespp+ 4
+.pp4 52
+&ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJEqq :
+,qq: ;
 
-Propertiespp< F
-.ppF G
-	ResourcesppG P
-.ppP Q1
-%ETIQUETA_ERRORCONEXIONSERVIDOR_TITULOqq 9
-,qq9 :
-MessageBoxButtonrr $
-.rr$ %
-OKrr% '
-,rr' (
-MessageBoxImagerr) 8
-.rr8 9
-Errorrr9 >
-)rr> ?
-;rr? @$
-clienteServicioAmistadesss (
-.ss( )
-Abortss) .
-(ss. /
-)ss/ 0
-;ss0 1
-}tt 
-}uu 	
-privateww 
-SolidColorBrushww /
-#ObtenerColorSegunEstadoConectividadww  C
-(wwC D%
-EstadoConectividadJugadorxx %
-estadoxx& ,
-)xx, -
-{yy 	
-SolidColorBrushzz 
-colorzz !
-;zz! "
-switch|| 
-(|| 
-estado|| 
-)|| 
-{}} 
-case~~ %
-EstadoConectividadJugador~~ .
-.~~. /
-	Conectado~~/ 8
-:~~8 9
-color 
-= 
-Brushes #
-.# $
-Green$ )
-;) *
-break
-ÄÄ 
-;
-ÄÄ 
-case
-ÅÅ '
+Propertiesqq< F
+.qqF G
+	ResourcesqqG P
+.qqP Q1
+%ETIQUETA_ERRORCONEXIONSERVIDOR_TITULOrr 9
+,rr9 :
+MessageBoxButtonss $
+.ss$ %
+OKss% '
+,ss' (
+MessageBoxImagess) 8
+.ss8 9
+Errorss9 >
+)ss> ?
+;ss? @$
+clienteServicioAmistadestt (
+.tt( )
+Aborttt) .
+(tt. /
+)tt/ 0
+;tt0 1
+}uu 
+catchvv 
+(vv 
+TimeoutExceptionvv #
+	excepcionvv$ -
+)vv- .
+{ww 
+
+MessageBoxyy 
+.yy 
+Showyy 
+(yy  
+
+Propertiesyy  *
+.yy* +
+	Resourcesyy+ 4
+.yy4 52
+&ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJEzz :
+,zz: ;
+
+Propertieszz< F
+.zzF G
+	ResourceszzG P
+.zzP Q1
+%ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO{{ 9
+,{{9 :
+MessageBoxButton|| $
+.||$ %
+OK||% '
+,||' (
+MessageBoxImage||) 8
+.||8 9
+Error||9 >
+)||> ?
+;||? @$
+clienteServicioAmistades}} (
+.}}( )
+Abort}}) .
+(}}. /
+)}}/ 0
+;}}0 1
+}~~ 
+} 	
+private
+ÅÅ 
+SolidColorBrush
+ÅÅ 1
+#ObtenerColorSegunEstadoConectividad
+ÅÅ  C
+(
+ÅÅC D'
 EstadoConectividadJugador
-ÅÅ .
+ÇÇ %
+estado
+ÇÇ& ,
+)
+ÇÇ, -
+{
+ÉÉ 	
+SolidColorBrush
+ÑÑ 
+color
+ÑÑ !
+;
+ÑÑ! "
+switch
+ÜÜ 
+(
+ÜÜ 
+estado
+ÜÜ 
+)
+ÜÜ 
+{
+áá 
+case
+àà '
+EstadoConectividadJugador
+àà .
 .
-ÅÅ. /
+àà. /
+	Conectado
+àà/ 8
+:
+àà8 9
+color
+ââ 
+=
+ââ 
+Brushes
+ââ #
+.
+ââ# $
+Green
+ââ$ )
+;
+ââ) *
+break
+ää 
+;
+ää 
+case
+ãã '
+EstadoConectividadJugador
+ãã .
+.
+ãã. /
 	EnPartida
-ÅÅ/ 8
+ãã/ 8
 :
-ÅÅ8 9
+ãã8 9
 color
-ÇÇ 
+åå 
 =
-ÇÇ 
+åå 
 Brushes
-ÇÇ #
+åå #
 .
-ÇÇ# $
+åå# $
 Red
-ÇÇ$ '
+åå$ '
 ;
-ÇÇ' (
+åå' (
 break
-ÉÉ 
+çç 
 ;
-ÉÉ 
+çç 
 default
-ÑÑ 
+éé 
 :
-ÑÑ 
+éé 
 color
-ÖÖ 
+èè 
 =
-ÖÖ 
+èè 
 Brushes
-ÖÖ #
+èè #
 .
-ÖÖ# $
+èè# $
 Gray
-ÖÖ$ (
+èè$ (
 ;
-ÖÖ( )
+èè( )
 break
-ÜÜ 
+êê 
 ;
-ÜÜ 
+êê 
 }
-áá 
+ëë 
 return
-ââ 
+ìì 
 color
-ââ 
+ìì 
 ;
-ââ 
+ìì 
 }
-ää 	
+îî 	
 private
-åå 
+ññ 
 bool
-åå (
+ññ (
 EsElNombreDelJugadorActual
-åå /
+ññ /
 (
-åå/ 0
+ññ/ 0
 )
-åå0 1
+ññ0 1
 {
-çç 	
+óó 	
 bool
-éé 
+òò 
 	resultado
-éé 
+òò 
 =
-éé 
+òò 
 false
-éé "
+òò "
 ;
-éé" #
+òò" #
 string
-èè "
+ôô "
 nombreJugadorDestino
-èè '
+ôô '
 =
-èè( )0
+ôô( )0
 "cuadroTextoNombreUsuarioInvitacion
-èè* L
+ôô* L
 .
-èèL M
+ôôL M
 Text
-èèM Q
+ôôM Q
 ;
-èèQ R
+ôôQ R
 if
-ëë 
+õõ 
 (
-ëë 
+õõ 
 Dominio
-ëë 
+õõ 
 .
-ëë 
+õõ 
 CuentaJugador
-ëë %
+õõ %
 .
-ëë% &
+õõ% &
 Actual
-ëë& ,
+õõ& ,
 .
-ëë, -
+õõ, -
 NombreJugador
-ëë- :
+õõ- :
 .
-ëë: ;
+õõ: ;
 Equals
-ëë; A
+õõ; A
 (
-ëëA B"
+õõA B"
 nombreJugadorDestino
-ëëB V
+õõB V
 )
-ëëV W
+õõV W
 )
-ëëW X
+õõW X
 {
-íí 
+úú 
 	resultado
-ìì 
+ùù 
 =
-ìì 
+ùù 
 true
-ìì  
+ùù  
 ;
-ìì  !
+ùù  !
 
 MessageBox
-îî 
+ûû 
 .
-îî 
+ûû 
 Show
-îî 
+ûû 
 (
-îî  
+ûû  
 $str
-îî  O
+ûû  O
 +
-îîP Q
+ûûP Q
 $str
-ïï I
+üü I
 ,
-ïïI J
+üüI J
 $str
-ññ :
+†† :
 ,
-ññ: ;
+††: ;
 MessageBoxButton
-óó $
+°° $
 .
-óó$ %
+°°$ %
 OK
-óó% '
+°°% '
 ,
-óó' (
+°°' (
 MessageBoxImage
-óó) 8
+°°) 8
 .
-óó8 9
+°°8 9
 Error
-óó9 >
+°°9 >
 )
-óó> ?
+°°> ?
 ;
-óó? @
+°°? @
 }
-òò 
+¢¢ 
 return
-öö 
+§§ 
 	resultado
-öö 
+§§ 
 ;
-öö 
+§§ 
 }
-õõ 	
+•• 	
 private
-ùù 
+ßß 
 bool
-ùù &
+ßß &
 ExisteSolicitudDeAmistad
-ùù -
+ßß -
 (
-ùù- .
+ßß- .
 )
-ùù. /
+ßß. /
 {
-ûû 	
+®® 	
 string
-üü !
+©© !
 nombreJugadorOrigen
-üü &
+©© &
 =
-üü' (
+©©' (
 Dominio
-üü) 0
+©©) 0
 .
-üü0 1
+©©0 1
 CuentaJugador
-üü1 >
+©©1 >
 .
-üü> ?
+©©> ?
 Actual
-üü? E
+©©? E
 .
-üüE F
+©©E F
 NombreJugador
-üüF S
+©©F S
 ;
-üüS T
+©©S T
 string
-†† "
+™™ "
 nombreJugadorDestino
-†† '
+™™ '
 =
-††( )0
+™™( )0
 "cuadroTextoNombreUsuarioInvitacion
-††* L
+™™* L
 .
-††L M
+™™L M
 Text
-††M Q
+™™M Q
 ;
-††Q R
+™™Q R
 bool
-°° '
+´´ '
 existeSolicitudSinAceptar
-°° *
+´´ *
 =
-°°+ ,
+´´+ ,
 	Servicios
-°°- 6
+´´- 6
 .
-°°6 7
+´´6 7
 ServicioAmistades
-°°7 H
+´´7 H
 .
-°°H I$
+´´H I$
 ExisteSolicitudAmistad
-¢¢ &
+¨¨ &
 (
-¢¢& '!
+¨¨& '!
 nombreJugadorOrigen
-¢¢' :
+¨¨' :
 ,
-¢¢: ;"
+¨¨: ;"
 nombreJugadorDestino
-¢¢< P
+¨¨< P
 )
-¢¢P Q
+¨¨P Q
 ;
-¢¢Q R
+¨¨Q R
 if
-§§ 
+ÆÆ 
 (
-§§ '
+ÆÆ '
 existeSolicitudSinAceptar
-§§ )
+ÆÆ )
 )
-§§) *
+ÆÆ) *
 {
-•• 
+ØØ 
 
 MessageBox
-¶¶ 
+∞∞ 
 .
-¶¶ 
+∞∞ 
 Show
-¶¶ 
+∞∞ 
 (
-¶¶  
+∞∞  
 $str
-¶¶  S
+∞∞  S
 +
-¶¶T U
+∞∞T U
 $str
-ßß Y
+±± Y
 ,
-ßßY Z
+±±Y Z
 $str
-®® :
+≤≤ :
 ,
-®®: ;
+≤≤: ;
 MessageBoxButton
-©© $
+≥≥ $
 .
-©©$ %
+≥≥$ %
 OK
-©©% '
+≥≥% '
 ,
-©©' (
+≥≥' (
 MessageBoxImage
-©©) 8
+≥≥) 8
 .
-©©8 9
+≥≥8 9
 Error
-©©9 >
+≥≥9 >
 )
-©©> ?
+≥≥> ?
 ;
-©©? @
+≥≥? @
 }
-™™ 
+¥¥ 
 return
-¨¨ '
+∂∂ '
 existeSolicitudSinAceptar
-¨¨ ,
+∂∂ ,
 ;
-¨¨, -
+∂∂, -
 }
-≠≠ 	
+∑∑ 	
 private
-ØØ 
+ππ 
 bool
-ØØ %
+ππ %
 ExisteAmistadConJugador
-ØØ ,
+ππ ,
 (
-ØØ, -
+ππ, -
 )
-ØØ- .
+ππ- .
 {
-∞∞ 	
+∫∫ 	
 string
-±± !
+ªª !
 nombreJugadorOrigen
-±± &
+ªª &
 =
-±±' (
+ªª' (
 Dominio
-±±) 0
+ªª) 0
 .
-±±0 1
+ªª0 1
 CuentaJugador
-±±1 >
+ªª1 >
 .
-±±> ?
+ªª> ?
 Actual
-±±? E
+ªª? E
 .
-±±E F
+ªªE F
 NombreJugador
-±±F S
+ªªF S
 ;
-±±S T
+ªªS T
 string
-≤≤ "
+ºº "
 nombreJugadorDestino
-≤≤ '
+ºº '
 =
-≤≤( )0
+ºº( )0
 "cuadroTextoNombreUsuarioInvitacion
-≤≤* L
+ºº* L
 .
-≤≤L M
+ººL M
 Text
-≤≤M Q
+ººM Q
 ;
-≤≤Q R
+ººQ R
 bool
-≥≥ 
+ΩΩ 
 existeAmistad
-≥≥ 
+ΩΩ 
 =
-≥≥  
+ΩΩ  
 	Servicios
-≥≥! *
+ΩΩ! *
 .
-≥≥* +
+ΩΩ* +
 ServicioAmistades
-≥≥+ <
+ΩΩ+ <
 .
-≥≥< =%
+ΩΩ< =%
 ExisteAmistadConJugador
-≥≥= T
+ΩΩ= T
 (
-≥≥T U!
+ΩΩT U!
 nombreJugadorOrigen
-¥¥ #
+ææ #
 ,
-¥¥# $"
+ææ# $"
 nombreJugadorDestino
-¥¥% 9
+ææ% 9
 )
-¥¥9 :
+ææ9 :
 ;
-¥¥: ;
+ææ: ;
 if
-∂∂ 
+¿¿ 
 (
-∂∂ 
+¿¿ 
 existeAmistad
-∂∂ 
+¿¿ 
 )
-∂∂ 
+¿¿ 
 {
-∑∑ 
+¡¡ 
 
 MessageBox
-∏∏ 
+¬¬ 
 .
-∏∏ 
+¬¬ 
 Show
-∏∏ 
+¬¬ 
 (
-∏∏  
+¬¬  
 $str
-∏∏  S
+¬¬  S
 +
-∏∏T U
+¬¬T U
 $str
-ππ /
+√√ /
 ,
-ππ/ 0
+√√/ 0
 $str
-ππ1 W
+√√1 W
 ,
-ππW X
+√√W X
 MessageBoxButton
-∫∫ $
+ƒƒ $
 .
-∫∫$ %
+ƒƒ$ %
 OK
-∫∫% '
+ƒƒ% '
 ,
-∫∫' (
+ƒƒ' (
 MessageBoxImage
-∫∫) 8
+ƒƒ) 8
 .
-∫∫8 9
+ƒƒ8 9
 Error
-∫∫9 >
+ƒƒ9 >
 )
-∫∫> ?
+ƒƒ> ?
 ;
-∫∫? @
+ƒƒ? @
 }
-ªª 
+≈≈ 
 return
-ΩΩ 
+«« 
 existeAmistad
-ΩΩ  
+««  
 ;
-ΩΩ  !
+««  !
 }
-ææ 	
+»» 	
 private
-¿¿ 
+   
 void
-¿¿ $
+   $
 IrAPaginaMenuPrincipal
-¿¿ +
+   +
 (
-¿¿+ ,
+  + ,
 object
-¿¿, 2
+  , 2
 objetoOrigen
-¿¿3 ?
+  3 ?
 ,
-¿¿? @"
+  ? @"
 MouseButtonEventArgs
-¿¿A U
+  A U
 evento
-¿¿V \
+  V \
 )
-¿¿\ ]
+  \ ]
 {
-¡¡ 	
+ÀÀ 	
 VentanaPrincipal
-¬¬ 
+ÃÃ 
 .
-¬¬ 
+ÃÃ 
 CambiarPagina
-¬¬ *
+ÃÃ *
 (
-¬¬* +
+ÃÃ* +
 new
-¬¬+ .!
+ÃÃ+ .!
 PaginaMenuPrincipal
-¬¬/ B
+ÃÃ/ B
 (
-¬¬B C
+ÃÃB C
 )
-¬¬C D
+ÃÃC D
 )
-¬¬D E
+ÃÃD E
 ;
-¬¬E F
+ÃÃE F
 }
-√√ 	
+ÕÕ 	
 private
-≈≈ 
+œœ 
 void
-≈≈ &
+œœ &
 EnviarSolicitudDeAmistad
-≈≈ -
+œœ -
 (
-≈≈- .
+œœ- .
 object
-≈≈. 4
+œœ. 4
 objetoOrigen
-≈≈5 A
+œœ5 A
 ,
-≈≈A B
+œœA B
 RoutedEventArgs
-≈≈C R
+œœC R
 evento
-≈≈S Y
+œœS Y
 )
-≈≈Y Z
+œœY Z
 {
-∆∆ 	
+–– 	
 if
-«« 
+—— 
 (
-«« 
+—— 
 !
-«« (
+—— (
 EsElNombreDelJugadorActual
-«« +
+—— +
 (
-««+ ,
+——+ ,
 )
-««, -
+——, -
 &&
-««. 0
+——. 0
 	Servicios
-««1 :
+——1 :
 .
-««: ;
+——: ;
 ServicioJugador
-««; J
+——; J
 .
-««J K!
+——J K!
 ExisteNombreJugador
-»» #
+““ #
 (
-»»# $0
+““# $0
 "cuadroTextoNombreUsuarioInvitacion
-»»$ F
+““$ F
 .
-»»F G
+““F G
 Text
-»»G K
+““G K
 )
-»»K L
+““K L
 &&
-»»M O
+““M O
 !
-…… &
+”” &
 ExisteSolicitudDeAmistad
-…… )
+”” )
 (
-……) *
+””) *
 )
-……* +
+””* +
 &&
-……, .
+””, .
 !
-……/ 0%
+””/ 0%
 ExisteAmistadConJugador
-……0 G
+””0 G
 (
-……G H
+””G H
 )
-……H I
+””H I
 )
-……I J
+””I J
 {
-   
+‘‘ 
 string
-ÀÀ !
+’’ !
 nombreJugadorOrigen
-ÀÀ *
+’’ *
 =
-ÀÀ+ ,
+’’+ ,
 Dominio
-ÀÀ- 4
+’’- 4
 .
-ÀÀ4 5
+’’4 5
 CuentaJugador
-ÀÀ5 B
+’’5 B
 .
-ÀÀB C
+’’B C
 Actual
-ÀÀC I
+’’C I
 .
-ÀÀI J
+’’I J
 NombreJugador
-ÀÀJ W
+’’J W
 ;
-ÀÀW X
+’’W X
 string
-ÃÃ "
+÷÷ "
 nombreJugadorDestino
-ÃÃ +
+÷÷ +
 =
-ÃÃ, -0
+÷÷, -0
 "cuadroTextoNombreUsuarioInvitacion
-ÃÃ. P
+÷÷. P
 .
-ÃÃP Q
+÷÷P Q
 Text
-ÃÃQ U
+÷÷Q U
 ;
-ÃÃU V
+÷÷U V
 bool
-ÕÕ %
+◊◊ %
 envioSolicitudRealizado
-ÕÕ ,
+◊◊ ,
 =
-ÕÕ- .
+◊◊- .
 false
-ÕÕ/ 4
+◊◊/ 4
 ;
-ÕÕ4 5
+◊◊4 5
 try
-œœ 
+ŸŸ 
 {
-–– %
+⁄⁄ %
 envioSolicitudRealizado
-—— +
+€€ +
 =
-——, -&
+€€, -&
 clienteServicioAmistades
-——. F
+€€. F
 .
-——F G&
+€€F G&
 EnviarSolicitudDeAmistad
-““ 0
+‹‹ 0
 (
-““0 1!
+‹‹0 1!
 nombreJugadorOrigen
-““1 D
+‹‹1 D
 ,
-““D E"
+‹‹D E"
 nombreJugadorDestino
-““F Z
+‹‹F Z
 )
-““Z [
+‹‹Z [
 ;
-““[ \
+‹‹[ \
 }
-”” 
+›› 
 catch
-‘‘ 
+ﬁﬁ 
 (
-‘‘ '
+ﬁﬁ '
 EndpointNotFoundException
-‘‘ 0
+ﬁﬁ 0
 	excepcion
-‘‘1 :
+ﬁﬁ1 :
 )
-‘‘: ;
+ﬁﬁ: ;
 {
-’’ 
+ﬂﬂ 
 
 MessageBox
-◊◊ 
+·· 
 .
-◊◊ 
+·· 
 Show
-◊◊ #
+·· #
 (
-◊◊# $
+··# $
 
 Properties
-◊◊$ .
+··$ .
 .
-◊◊. /
+··. /
 	Resources
-◊◊/ 8
+··/ 8
 .
-◊◊8 94
+··8 94
 &ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE
-ÿÿ >
+‚‚ >
 ,
-ÿÿ> ?
+‚‚> ?
 
 Properties
-ÿÿ@ J
+‚‚@ J
 .
-ÿÿJ K
+‚‚J K
 	Resources
-ÿÿK T
+‚‚K T
 .
-ÿÿT U3
+‚‚T U3
 %ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO
-ŸŸ =
+„„ =
 ,
-ŸŸ= >
+„„= >
 MessageBoxButton
-⁄⁄ (
+‰‰ (
 .
-⁄⁄( )
+‰‰( )
 OK
-⁄⁄) +
+‰‰) +
 ,
-⁄⁄+ ,
+‰‰+ ,
 MessageBoxImage
-⁄⁄- <
+‰‰- <
 .
-⁄⁄< =
+‰‰< =
 Error
-⁄⁄= B
+‰‰= B
 )
-⁄⁄B C
+‰‰B C
 ;
-⁄⁄C D&
+‰‰C D&
 clienteServicioAmistades
-€€ ,
+ÂÂ ,
 .
-€€, -
+ÂÂ, -
 Abort
-€€- 2
+ÂÂ- 2
 (
-€€2 3
+ÂÂ2 3
 )
-€€3 4
+ÂÂ3 4
 ;
-€€4 5
+ÂÂ4 5
 }
-‹‹ 
+ÊÊ 
 catch
-›› 
+ÁÁ 
 (
-›› 1
+ÁÁ 1
 #CommunicationObjectFaultedException
-›› :
+ÁÁ :
 	excepcion
-››; D
+ÁÁ; D
 )
-››D E
+ÁÁD E
 {
-ﬁﬁ 
+ËË 
 
 MessageBox
-‡‡ 
+ÍÍ 
 .
-‡‡ 
+ÍÍ 
 Show
-‡‡ #
+ÍÍ #
 (
-‡‡# $
+ÍÍ# $
 
 Properties
-‡‡$ .
+ÍÍ$ .
 .
-‡‡. /
+ÍÍ. /
 	Resources
-‡‡/ 8
+ÍÍ/ 8
 .
-‡‡8 94
+ÍÍ8 94
 &ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE
-·· >
+ÎÎ >
 ,
-··> ?
+ÎÎ> ?
 
 Properties
-··@ J
+ÎÎ@ J
 .
-··J K
+ÎÎJ K
 	Resources
-··K T
+ÎÎK T
 .
-··T U3
+ÎÎT U3
 %ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO
-‚‚ =
+ÏÏ =
 ,
-‚‚= >
+ÏÏ= >
 MessageBoxButton
-„„ (
+ÌÌ (
 .
-„„( )
+ÌÌ( )
 OK
-„„) +
+ÌÌ) +
 ,
-„„+ ,
+ÌÌ+ ,
 MessageBoxImage
-„„- <
+ÌÌ- <
 .
-„„< =
+ÌÌ< =
 Error
-„„= B
+ÌÌ= B
 )
-„„B C
+ÌÌB C
 ;
-„„C D&
+ÌÌC D&
 clienteServicioAmistades
-‰‰ ,
+ÓÓ ,
 .
-‰‰, -
+ÓÓ, -
 Abort
-‰‰- 2
+ÓÓ- 2
 (
-‰‰2 3
+ÓÓ2 3
 )
-‰‰3 4
+ÓÓ3 4
 ;
-‰‰4 5
+ÓÓ4 5
 }
-ÂÂ 
+ÔÔ 
 catch
-ÊÊ 
+ 
 (
-ÊÊ 
+ 
 TimeoutException
-ÊÊ '
+ '
 	excepcion
-ÊÊ( 1
+( 1
 )
-ÊÊ1 2
-{
-ÁÁ 
-
-MessageBox
-ÈÈ 
-.
-ÈÈ 
-Show
-ÈÈ #
-(
-ÈÈ# $
-
-Properties
-ÈÈ$ .
-.
-ÈÈ. /
-	Resources
-ÈÈ/ 8
-.
-ÈÈ8 94
-&ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE
-ÍÍ >
-,
-ÍÍ> ?
-
-Properties
-ÍÍ@ J
-.
-ÍÍJ K
-	Resources
-ÍÍK T
-.
-ÍÍT U3
-%ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO
-ÎÎ =
-,
-ÎÎ= >
-MessageBoxButton
-ÏÏ (
-.
-ÏÏ( )
-OK
-ÏÏ) +
-,
-ÏÏ+ ,
-MessageBoxImage
-ÏÏ- <
-.
-ÏÏ< =
-Error
-ÏÏ= B
-)
-ÏÏB C
-;
-ÏÏC D&
-clienteServicioAmistades
-ÌÌ ,
-.
-ÌÌ, -
-Abort
-ÌÌ- 2
-(
-ÌÌ2 3
-)
-ÌÌ3 4
-;
-ÌÌ4 5
-}
-ÓÓ 
-if
- 
-(
- %
-envioSolicitudRealizado
- +
-)
-+ ,
+1 2
 {
 ÒÒ 
 
 MessageBox
-ÚÚ 
+ÛÛ 
 .
-ÚÚ 
+ÛÛ 
 Show
-ÚÚ #
+ÛÛ #
 (
-ÚÚ# $
-$str
-ÚÚ$ Y
+ÛÛ# $
+
+Properties
+ÛÛ$ .
+.
+ÛÛ. /
+	Resources
+ÛÛ/ 8
+.
+ÛÛ8 94
+&ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE
+ÙÙ >
 ,
-ÚÚY Z
-$str
-ÛÛ 6
+ÙÙ> ?
+
+Properties
+ÙÙ@ J
+.
+ÙÙJ K
+	Resources
+ÙÙK T
+.
+ÙÙT U3
+%ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO
+ıı =
 ,
-ÛÛ6 7
+ıı= >
 MessageBoxButton
-ÙÙ (
+ˆˆ (
 .
-ÙÙ( )
+ˆˆ( )
 OK
-ÙÙ) +
+ˆˆ) +
 ,
-ÙÙ+ ,
+ˆˆ+ ,
 MessageBoxImage
-ÙÙ- <
+ˆˆ- <
 .
-ÙÙ< =
+ˆˆ< =
+Error
+ˆˆ= B
+)
+ˆˆB C
+;
+ˆˆC D&
+clienteServicioAmistades
+˜˜ ,
+.
+˜˜, -
+Abort
+˜˜- 2
+(
+˜˜2 3
+)
+˜˜3 4
+;
+˜˜4 5
+}
+¯¯ 
+if
+˙˙ 
+(
+˙˙ %
+envioSolicitudRealizado
+˙˙ +
+)
+˙˙+ ,
+{
+˚˚ 
+
+MessageBox
+¸¸ 
+.
+¸¸ 
+Show
+¸¸ #
+(
+¸¸# $
+$str
+¸¸$ Y
+,
+¸¸Y Z
+$str
+˝˝ 6
+,
+˝˝6 7
+MessageBoxButton
+˛˛ (
+.
+˛˛( )
+OK
+˛˛) +
+,
+˛˛+ ,
+MessageBoxImage
+˛˛- <
+.
+˛˛< =
 Information
-ÙÙ= H
+˛˛= H
 )
-ÙÙH I
+˛˛H I
 ;
-ÙÙI J
+˛˛I J
 }
-ıı 
+ˇˇ 
 else
-ˆˆ 
+ÄÄ 
 {
-˜˜ 
+ÅÅ 
 
 MessageBox
-¯¯ 
+ÇÇ 
 .
-¯¯ 
+ÇÇ 
 Show
-¯¯ #
+ÇÇ #
 (
-¯¯# $
+ÇÇ# $
 $str
-¯¯$ Y
+ÇÇ$ Y
 ,
-¯¯Y Z
+ÇÇY Z
 $str
-˘˘ >
+ÉÉ >
 ,
-˘˘> ?
+ÉÉ> ?
 MessageBoxButton
-˙˙ (
+ÑÑ (
 .
-˙˙( )
+ÑÑ( )
 OK
-˙˙) +
+ÑÑ) +
 ,
-˙˙+ ,
+ÑÑ+ ,
 MessageBoxImage
-˙˙- <
+ÑÑ- <
 .
-˙˙< =
+ÑÑ< =
 Error
-˙˙= B
+ÑÑ= B
 )
-˙˙B C
+ÑÑB C
 ;
-˙˙C D
+ÑÑC D
 }
-˚˚ 
+ÖÖ 
 }
-¸¸ 
+ÜÜ 
 }
-˝˝ 	
+áá 	
 private
-ˇˇ 
+ââ 
 void
-ˇˇ 
+ââ 
 EliminarAmigo
-ˇˇ "
+ââ "
 (
-ˇˇ" #
+ââ" #
 object
-ˇˇ# )
+ââ# )
 objetoOrigen
-ˇˇ* 6
+ââ* 6
 ,
-ˇˇ6 7
+ââ6 7
 RoutedEventArgs
-ˇˇ8 G
+ââ8 G
 evento
-ˇˇH N
+ââH N
 )
-ˇˇN O
+ââN O
 {
-ÄÄ 	
+ää 	
 var
-ÅÅ 
+ãã 
 
 filaActual
-ÅÅ 
+ãã 
 =
-ÅÅ 
+ãã 
 (
-ÅÅ 
+ãã 
 ListBoxItem
-ÅÅ )
+ãã )
 )
-ÅÅ) *
+ãã) *
 listaAmigos
-ÅÅ* 5
+ãã* 5
 .
-ÅÅ5 6"
+ãã5 6"
 ContainerFromElement
-ÅÅ6 J
+ãã6 J
 (
-ÅÅJ K
+ããJ K
 (
-ÇÇ 
+åå 
 Button
-ÇÇ 
+åå 
 )
-ÇÇ 
+åå 
 objetoOrigen
-ÇÇ $
+åå $
 )
-ÇÇ$ %
+åå$ %
 ;
-ÇÇ% &
+åå% &
 
 filaActual
-ÉÉ 
+çç 
 .
-ÉÉ 
+çç 
 
 IsSelected
-ÉÉ !
+çç !
 =
-ÉÉ" #
+çç" #
 true
-ÉÉ$ (
+çç$ (
 ;
-ÉÉ( )
+çç( )
 var
-ÑÑ !
+éé !
 jugadorSeleccionado
-ÑÑ #
+éé #
 =
-ÑÑ$ %
+éé$ %
 (
-ÑÑ& '
+éé& '
 Dominio
-ÑÑ' .
+éé' .
 .
-ÑÑ. /
+éé. /
 CuentaJugador
-ÑÑ/ <
+éé/ <
 )
-ÑÑ< =
+éé< =
 listaAmigos
-ÑÑ= H
+éé= H
 .
-ÑÑH I
+ééH I
 SelectedItem
-ÑÑI U
+ééI U
 ;
-ÑÑU V
+ééU V
 string
-ÖÖ 
+èè 
 nombreJugadorA
-ÖÖ !
+èè !
 =
-ÖÖ" #
+èè" #
 Dominio
-ÖÖ$ +
+èè$ +
 .
-ÖÖ+ ,
+èè+ ,
 CuentaJugador
-ÖÖ, 9
+èè, 9
 .
-ÖÖ9 :
+èè9 :
 Actual
-ÖÖ: @
+èè: @
 .
-ÖÖ@ A
+èè@ A
 NombreJugador
-ÖÖA N
+èèA N
 ;
-ÖÖN O
+èèN O
 string
-ÜÜ 
+êê 
 nombreJugadorB
-ÜÜ !
+êê !
 =
-ÜÜ" #!
+êê" #!
 jugadorSeleccionado
-ÜÜ$ 7
+êê$ 7
 .
-ÜÜ7 8
+êê7 8
 NombreJugador
-ÜÜ8 E
+êê8 E
 ;
-ÜÜE F
+êêE F
 bool
-áá "
+ëë "
 eliminacionRealizada
-áá %
+ëë %
 =
-áá& '
+ëë& '
 false
-áá( -
+ëë( -
 ;
-áá- .
+ëë- .
 try
-ââ 
+ìì 
 {
-ää "
+îî "
 eliminacionRealizada
-ãã $
+ïï $
 =
-ãã% &&
+ïï% &&
 clienteServicioAmistades
-ãã' ?
+ïï' ?
 .
-ãã? @+
+ïï? @+
 EliminarAmistadEntreJugadores
-åå 1
+ññ 1
 (
-åå1 2
+ññ1 2
 nombreJugadorA
-åå2 @
+ññ2 @
 ,
-åå@ A
+ññ@ A
 nombreJugadorB
-ååB P
+ññB P
 )
-ååP Q
+ññP Q
 ;
-ååQ R
+ññQ R
 }
-çç 
+óó 
 catch
-éé 
+òò 
 (
-éé '
+òò '
 EndpointNotFoundException
-éé ,
+òò ,
 	excepcion
-éé- 6
+òò- 6
 )
-éé6 7
+òò6 7
 {
-èè 
+ôô 
 
 MessageBox
-ëë 
+õõ 
 .
-ëë 
+õõ 
 Show
-ëë 
+õõ 
 (
-ëë  
+õõ  
 
 Properties
-ëë  *
+õõ  *
 .
-ëë* +
+õõ* +
 	Resources
-ëë+ 4
+õõ+ 4
 .
-ëë4 54
+õõ4 54
 &ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE
-íí :
+úú :
 ,
-íí: ;
+úú: ;
 
 Properties
-íí< F
+úú< F
 .
-ííF G
+úúF G
 	Resources
-ííG P
+úúG P
 .
-ííP Q3
+úúP Q3
 %ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO
-ìì 9
+ùù 9
 ,
-ìì9 :
+ùù9 :
 MessageBoxButton
-îî $
+ûû $
 .
-îî$ %
+ûû$ %
 OK
-îî% '
+ûû% '
 ,
-îî' (
+ûû' (
 MessageBoxImage
-îî) 8
+ûû) 8
 .
-îî8 9
+ûû8 9
 Error
-îî9 >
+ûû9 >
 )
-îî> ?
+ûû> ?
 ;
-îî? @&
+ûû? @&
 clienteServicioAmistades
-ïï (
+üü (
 .
-ïï( )
+üü( )
 Abort
-ïï) .
+üü) .
 (
-ïï. /
+üü. /
 )
-ïï/ 0
+üü/ 0
 ;
-ïï0 1
+üü0 1
 }
-ññ 
+†† 
 catch
-óó 
+°° 
 (
-óó 1
+°° 1
 #CommunicationObjectFaultedException
-óó 6
+°° 6
 	excepcion
-óó7 @
+°°7 @
 )
-óó@ A
+°°@ A
 {
-òò 
+¢¢ 
 
 MessageBox
-öö 
+§§ 
 .
-öö 
+§§ 
 Show
-öö 
+§§ 
 (
-öö  
+§§  
 
 Properties
-öö  *
+§§  *
 .
-öö* +
+§§* +
 	Resources
-öö+ 4
+§§+ 4
 .
-öö4 54
+§§4 54
 &ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE
-õõ :
+•• :
 ,
-õõ: ;
+••: ;
 
 Properties
-õõ< F
+••< F
 .
-õõF G
+••F G
 	Resources
-õõG P
+••G P
 .
-õõP Q3
+••P Q3
 %ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO
-úú 9
+¶¶ 9
 ,
-úú9 :
+¶¶9 :
 MessageBoxButton
-ùù $
+ßß $
 .
-ùù$ %
+ßß$ %
 OK
-ùù% '
+ßß% '
 ,
-ùù' (
+ßß' (
 MessageBoxImage
-ùù) 8
+ßß) 8
 .
-ùù8 9
+ßß8 9
 Error
-ùù9 >
+ßß9 >
 )
-ùù> ?
+ßß> ?
 ;
-ùù? @&
+ßß? @&
 clienteServicioAmistades
-ûû (
+®® (
 .
-ûû( )
+®®( )
 Abort
-ûû) .
+®®) .
 (
-ûû. /
+®®. /
 )
-ûû/ 0
+®®/ 0
 ;
-ûû0 1
+®®0 1
 }
-üü 
+©© 
 catch
-†† 
+™™ 
 (
-†† 
+™™ 
 TimeoutException
-†† #
+™™ #
 	excepcion
-††$ -
+™™$ -
 )
-††- .
+™™- .
 {
-°° 
+´´ 
 
 MessageBox
-££ 
+≠≠ 
 .
-££ 
+≠≠ 
 Show
-££ 
+≠≠ 
 (
-££  
+≠≠  
 
 Properties
-££  *
+≠≠  *
 .
-££* +
+≠≠* +
 	Resources
-££+ 4
+≠≠+ 4
 .
-££4 54
+≠≠4 54
 &ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE
-§§ :
+ÆÆ :
 ,
-§§: ;
+ÆÆ: ;
 
 Properties
-§§< F
+ÆÆ< F
 .
-§§F G
+ÆÆF G
 	Resources
-§§G P
+ÆÆG P
 .
-§§P Q3
+ÆÆP Q3
 %ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO
-•• 9
+ØØ 9
 ,
-••9 :
+ØØ9 :
 MessageBoxButton
-¶¶ $
+∞∞ $
 .
-¶¶$ %
+∞∞$ %
 OK
-¶¶% '
+∞∞% '
 ,
-¶¶' (
+∞∞' (
 MessageBoxImage
-¶¶) 8
+∞∞) 8
 .
-¶¶8 9
+∞∞8 9
 Error
-¶¶9 >
+∞∞9 >
 )
-¶¶> ?
+∞∞> ?
 ;
-¶¶? @&
+∞∞? @&
 clienteServicioAmistades
-ßß (
+±± (
 .
-ßß( )
+±±( )
 Abort
-ßß) .
+±±) .
 (
-ßß. /
+±±. /
 )
-ßß/ 0
+±±/ 0
 ;
-ßß0 1
+±±0 1
 }
-®® 
+≤≤ 
 if
-™™ 
+¥¥ 
 (
-™™ "
+¥¥ "
 eliminacionRealizada
-™™ $
+¥¥ $
 )
-™™$ %
+¥¥$ %
 {
-´´ 
-CuentasDeAmigos
-¨¨ 
+µµ 
+cuentasDeAmigos
+∂∂ 
 .
-¨¨  
+∂∂  
 Remove
-¨¨  &
+∂∂  &
 (
-¨¨& '!
+∂∂& '!
 jugadorSeleccionado
-¨¨' :
+∂∂' :
 )
-¨¨: ;
+∂∂: ;
 ;
-¨¨; <
+∂∂; <
 }
-≠≠ 
+∑∑ 
 else
-ÆÆ 
+∏∏ 
 {
-ØØ 
+ππ 
 
 MessageBox
-∞∞ 
+∫∫ 
 .
-∞∞ 
+∫∫ 
 Show
-∞∞ 
+∫∫ 
 (
-∞∞  
+∫∫  
 $str
-∞∞  Y
+∫∫  Y
 ,
-∞∞Y Z
+∫∫Y Z
 $str
-±± -
+ªª -
 ,
-±±- .
+ªª- .
 MessageBoxButton
-≤≤ $
+ºº $
 .
-≤≤$ %
+ºº$ %
 OK
-≤≤% '
+ºº% '
 ,
-≤≤' (
+ºº' (
 MessageBoxImage
-≤≤) 8
+ºº) 8
 .
-≤≤8 9
+ºº8 9
 Error
-≤≤9 >
+ºº9 >
 )
-≤≤> ?
+ºº> ?
 ;
-≤≤? @
+ºº? @
 }
-≥≥ 
+ΩΩ 
 }
-¥¥ 	
+ææ 	
 private
-∂∂ 
+¿¿ 
 void
-∂∂ '
+¿¿ '
 AceptarSolicitudDeAmistad
-∂∂ .
+¿¿ .
 (
-∂∂. /
+¿¿. /
 object
-∂∂/ 5
+¿¿/ 5
 objetoOrigen
-∂∂6 B
+¿¿6 B
 ,
-∂∂B C
+¿¿B C
 RoutedEventArgs
-∑∑ 
+¡¡ 
 evento
-∑∑ "
+¡¡ "
 )
-∑∑" #
+¡¡" #
 {
-∏∏ 	
+¬¬ 	
 var
-ππ 
+√√ 
 
 filaActual
-ππ 
+√√ 
 =
-ππ 
+√√ 
 (
-ππ 
+√√ 
 ListBoxItem
-ππ )
+√√ )
 )
-ππ) *
+√√) *
 listaSolicitudes
-ππ* :
+√√* :
 .
-ππ: ;"
+√√: ;"
 ContainerFromElement
-ππ; O
+√√; O
 (
-ππO P
+√√O P
 (
-∫∫ 
+ƒƒ 
 Button
-∫∫ 
+ƒƒ 
 )
-∫∫ 
+ƒƒ 
 objetoOrigen
-∫∫ $
+ƒƒ $
 )
-∫∫$ %
+ƒƒ$ %
 ;
-∫∫% &
+ƒƒ% &
 
 filaActual
-ªª 
+≈≈ 
 .
-ªª 
+≈≈ 
 
 IsSelected
-ªª !
+≈≈ !
 =
-ªª" #
+≈≈" #
 true
-ªª$ (
+≈≈$ (
 ;
-ªª( )
+≈≈( )
 var
-ºº !
+∆∆ !
 jugadorSeleccionado
-ºº #
+∆∆ #
 =
-ºº$ %
+∆∆$ %
 (
-ºº& '
+∆∆& '
 Dominio
-ºº' .
+∆∆' .
 .
-ºº. /
+∆∆. /
 CuentaJugador
-ºº/ <
+∆∆/ <
 )
-ºº< =
+∆∆< =
 listaSolicitudes
-ºº= M
+∆∆= M
 .
-ººM N
+∆∆M N
 SelectedItem
-ººN Z
+∆∆N Z
 ;
-ººZ [
+∆∆Z [
 bool
-ΩΩ 
+«« 
 solicitudAceptada
-ΩΩ "
+«« "
 =
-ΩΩ# $
+««# $
 false
-ΩΩ% *
+««% *
 ;
-ΩΩ* +
+««* +
 if
-øø 
+…… 
 (
-øø !
+…… !
 jugadorSeleccionado
-øø #
+…… #
 !=
-øø$ &
+……$ &
 null
-øø' +
+……' +
 )
-øø+ ,
+……+ ,
 {
-¿¿ 
+   
 string
-¡¡ !
+ÀÀ !
 nombreJugadorOrigen
-¡¡ *
+ÀÀ *
 =
-¡¡+ ,!
+ÀÀ+ ,!
 jugadorSeleccionado
-¡¡- @
+ÀÀ- @
 .
-¡¡@ A
+ÀÀ@ A
 NombreJugador
-¡¡A N
+ÀÀA N
 ;
-¡¡N O
+ÀÀN O
 string
-¬¬ "
+ÃÃ "
 nombreJugadorDestino
-¬¬ +
+ÃÃ +
 =
-¬¬, -
+ÃÃ, -
 Dominio
-¬¬. 5
+ÃÃ. 5
 .
-¬¬5 6
+ÃÃ5 6
 CuentaJugador
-¬¬6 C
+ÃÃ6 C
 .
-¬¬C D
+ÃÃC D
 Actual
-¬¬D J
+ÃÃD J
 .
-¬¬J K
+ÃÃJ K
 NombreJugador
-¬¬K X
+ÃÃK X
 ;
-¬¬X Y
+ÃÃX Y
 try
-ƒƒ 
+ŒŒ 
 {
-≈≈ 
+œœ 
 solicitudAceptada
-∆∆ %
+–– %
 =
-∆∆& '&
+––& '&
 clienteServicioAmistades
-∆∆( @
+––( @
 .
-∆∆@ A'
+––@ A'
 AceptarSolicitudDeAmistad
-∆∆A Z
+––A Z
 (
-∆∆Z [!
+––Z [!
 nombreJugadorOrigen
-«« +
+—— +
 ,
-««+ ,"
+——+ ,"
 nombreJugadorDestino
-««- A
+——- A
 )
-««A B
+——A B
 ;
-««B C
+——B C
 }
-»» 
+““ 
 catch
-…… 
+”” 
 (
-…… '
+”” '
 EndpointNotFoundException
-…… 0
+”” 0
 	excepcion
-……1 :
+””1 :
 )
-……: ;
+””: ;
 {
-   
+‘‘ 
 
 MessageBox
-ÃÃ 
+÷÷ 
 .
-ÃÃ 
+÷÷ 
 Show
-ÃÃ #
+÷÷ #
 (
-ÃÃ# $
+÷÷# $
 
 Properties
-ÃÃ$ .
+÷÷$ .
 .
-ÃÃ. /
+÷÷. /
 	Resources
-ÃÃ/ 8
+÷÷/ 8
 .
-ÃÃ8 94
+÷÷8 94
 &ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE
-ÕÕ >
+◊◊ >
 ,
-ÕÕ> ?
+◊◊> ?
 
 Properties
-ÕÕ@ J
+◊◊@ J
 .
-ÕÕJ K
+◊◊J K
 	Resources
-ÕÕK T
+◊◊K T
 .
-ÕÕT U3
+◊◊T U3
 %ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO
-ŒŒ =
+ÿÿ =
 ,
-ŒŒ= >
+ÿÿ= >
 MessageBoxButton
-œœ (
+ŸŸ (
 .
-œœ( )
+ŸŸ( )
 OK
-œœ) +
+ŸŸ) +
 ,
-œœ+ ,
+ŸŸ+ ,
 MessageBoxImage
-œœ- <
+ŸŸ- <
 .
-œœ< =
+ŸŸ< =
 Error
-œœ= B
+ŸŸ= B
 )
-œœB C
+ŸŸB C
 ;
-œœC D&
+ŸŸC D&
 clienteServicioAmistades
-–– ,
+⁄⁄ ,
 .
-––, -
+⁄⁄, -
 Abort
-––- 2
+⁄⁄- 2
 (
-––2 3
+⁄⁄2 3
 )
-––3 4
+⁄⁄3 4
 ;
-––4 5
+⁄⁄4 5
 }
-—— 
+€€ 
 catch
-““ 
+‹‹ 
 (
-““ 1
+‹‹ 1
 #CommunicationObjectFaultedException
-““ :
+‹‹ :
 	excepcion
-““; D
+‹‹; D
 )
-““D E
+‹‹D E
 {
-”” 
+›› 
 
 MessageBox
-’’ 
+ﬂﬂ 
 .
-’’ 
+ﬂﬂ 
 Show
-’’ #
+ﬂﬂ #
 (
-’’# $
+ﬂﬂ# $
 
 Properties
-’’$ .
+ﬂﬂ$ .
 .
-’’. /
+ﬂﬂ. /
 	Resources
-’’/ 8
+ﬂﬂ/ 8
 .
-’’8 94
+ﬂﬂ8 94
 &ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE
-÷÷ >
+‡‡ >
 ,
-÷÷> ?
+‡‡> ?
 
 Properties
-÷÷@ J
+‡‡@ J
 .
-÷÷J K
+‡‡J K
 	Resources
-÷÷K T
+‡‡K T
 .
-÷÷T U3
+‡‡T U3
 %ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO
-◊◊ =
+·· =
 ,
-◊◊= >
+··= >
 MessageBoxButton
-ÿÿ (
+‚‚ (
 .
-ÿÿ( )
+‚‚( )
 OK
-ÿÿ) +
+‚‚) +
 ,
-ÿÿ+ ,
+‚‚+ ,
 MessageBoxImage
-ÿÿ- <
+‚‚- <
 .
-ÿÿ< =
+‚‚< =
 Error
-ÿÿ= B
+‚‚= B
 )
-ÿÿB C
+‚‚B C
 ;
-ÿÿC D&
+‚‚C D&
 clienteServicioAmistades
-ŸŸ ,
+„„ ,
 .
-ŸŸ, -
+„„, -
 Abort
-ŸŸ- 2
+„„- 2
 (
-ŸŸ2 3
+„„2 3
 )
-ŸŸ3 4
+„„3 4
 ;
-ŸŸ4 5
+„„4 5
 }
-⁄⁄ 
+‰‰ 
 catch
-€€ 
+ÂÂ 
 (
-€€ 
+ÂÂ 
 TimeoutException
-€€ '
+ÂÂ '
 	excepcion
-€€( 1
+ÂÂ( 1
 )
-€€1 2
+ÂÂ1 2
 {
-‹‹ 
+ÊÊ 
 
 MessageBox
-ﬁﬁ 
+ËË 
 .
-ﬁﬁ 
+ËË 
 Show
-ﬁﬁ #
+ËË #
 (
-ﬁﬁ# $
+ËË# $
 
 Properties
-ﬁﬁ$ .
+ËË$ .
 .
-ﬁﬁ. /
+ËË. /
 	Resources
-ﬁﬁ/ 8
+ËË/ 8
 .
-ﬁﬁ8 94
+ËË8 94
 &ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE
-ﬂﬂ >
+ÈÈ >
 ,
-ﬂﬂ> ?
+ÈÈ> ?
 
 Properties
-ﬂﬂ@ J
+ÈÈ@ J
 .
-ﬂﬂJ K
+ÈÈJ K
 	Resources
-ﬂﬂK T
+ÈÈK T
 .
-ﬂﬂT U3
+ÈÈT U3
 %ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO
-‡‡ =
+ÍÍ =
 ,
-‡‡= >
+ÍÍ= >
 MessageBoxButton
-·· (
+ÎÎ (
 .
-··( )
+ÎÎ( )
 OK
-··) +
+ÎÎ) +
 ,
-··+ ,
+ÎÎ+ ,
 MessageBoxImage
-··- <
+ÎÎ- <
 .
-··< =
+ÎÎ< =
 Error
-··= B
+ÎÎ= B
 )
-··B C
+ÎÎB C
 ;
-··C D&
+ÎÎC D&
 clienteServicioAmistades
-‚‚ ,
+ÏÏ ,
 .
-‚‚, -
+ÏÏ, -
 Abort
-‚‚- 2
+ÏÏ- 2
 (
-‚‚2 3
+ÏÏ2 3
 )
-‚‚3 4
+ÏÏ3 4
 ;
-‚‚4 5
+ÏÏ4 5
 }
-„„ 
+ÌÌ 
 }
-‰‰ 
+ÓÓ 
 if
-ÊÊ 
+ 
 (
-ÊÊ 
+ 
 solicitudAceptada
-ÊÊ !
+ !
 )
-ÊÊ! "
+! "
 {
-ÁÁ "
-CuentasDeSolicitudes
-ËË $
+ÒÒ "
+cuentasDeSolicitudes
+ÚÚ $
 .
-ËË$ %
+ÚÚ$ %
 Remove
-ËË% +
+ÚÚ% +
 (
-ËË+ ,!
+ÚÚ+ ,!
 jugadorSeleccionado
-ËË, ?
+ÚÚ, ?
 )
-ËË? @
+ÚÚ? @
 ;
-ËË@ A
-CuentasDeAmigos
-ÈÈ 
+ÚÚ@ A
+cuentasDeAmigos
+ÛÛ 
 .
-ÈÈ  
+ÛÛ  
 Add
-ÈÈ  #
+ÛÛ  #
 (
-ÈÈ# $!
+ÛÛ# $!
 jugadorSeleccionado
-ÈÈ$ 7
+ÛÛ$ 7
 )
-ÈÈ7 8
+ÛÛ7 8
 ;
-ÈÈ8 9
+ÛÛ8 9
 }
-ÍÍ 
+ÙÙ 
 else
-ÎÎ 
+ıı 
 {
-ÏÏ 
+ˆˆ 
 
 MessageBox
-ÌÌ 
+˜˜ 
 .
-ÌÌ 
+˜˜ 
 Show
-ÌÌ 
+˜˜ 
 (
-ÌÌ  
+˜˜  
 $str
-ÌÌ  ^
+˜˜  ^
 ,
-ÌÌ^ _
+˜˜^ _
 $str
-ÓÓ ;
+¯¯ ;
 ,
-ÓÓ; <
+¯¯; <
 MessageBoxButton
-ÔÔ $
+˘˘ $
 .
-ÔÔ$ %
+˘˘$ %
 OK
-ÔÔ% '
+˘˘% '
 ,
-ÔÔ' (
+˘˘' (
 MessageBoxImage
-ÔÔ) 8
+˘˘) 8
 .
-ÔÔ8 9
+˘˘8 9
 Error
-ÔÔ9 >
+˘˘9 >
 )
-ÔÔ> ?
+˘˘> ?
 ;
-ÔÔ? @
+˘˘? @
 }
- 
+˙˙ 
 }
-ÒÒ 	
+˚˚ 	
 private
-ÛÛ 
+˝˝ 
 void
-ÛÛ (
+˝˝ (
 RechazarSolicitudDeAmistad
-ÛÛ /
+˝˝ /
 (
-ÛÛ/ 0
+˝˝/ 0
 object
-ÛÛ0 6
+˝˝0 6
 objetoOrigen
-ÛÛ7 C
+˝˝7 C
 ,
-ÛÛC D
+˝˝C D
 RoutedEventArgs
-ÛÛE T
+˝˝E T
 evento
-ÛÛU [
+˝˝U [
 )
-ÛÛ[ \
+˝˝[ \
 {
-ÙÙ 	
+˛˛ 	
 var
-ıı 
+ˇˇ 
 
 filaActual
-ıı 
+ˇˇ 
 =
-ıı 
+ˇˇ 
 (
-ıı 
+ˇˇ 
 ListBoxItem
-ıı )
+ˇˇ )
 )
-ıı) *
+ˇˇ) *
 listaSolicitudes
-ıı* :
+ˇˇ* :
 .
-ıı: ;"
+ˇˇ: ;"
 ContainerFromElement
-ıı; O
+ˇˇ; O
 (
-ııO P
+ˇˇO P
 (
-ˆˆ 
+ÄÄ 
 Button
-ˆˆ 
+ÄÄ 
 )
-ˆˆ 
+ÄÄ 
 objetoOrigen
-ˆˆ $
+ÄÄ $
 )
-ˆˆ$ %
+ÄÄ$ %
 ;
-ˆˆ% &
+ÄÄ% &
 
 filaActual
-˜˜ 
+ÅÅ 
 .
-˜˜ 
+ÅÅ 
 
 IsSelected
-˜˜ !
+ÅÅ !
 =
-˜˜" #
+ÅÅ" #
 true
-˜˜$ (
+ÅÅ$ (
 ;
-˜˜( )
+ÅÅ( )
 var
-¯¯ !
+ÇÇ !
 jugadorSeleccionado
-¯¯ #
+ÇÇ #
 =
-¯¯$ %
+ÇÇ$ %
 (
-¯¯& '
+ÇÇ& '
 Dominio
-¯¯' .
+ÇÇ' .
 .
-¯¯. /
+ÇÇ. /
 CuentaJugador
-¯¯/ <
+ÇÇ/ <
 )
-¯¯< =
+ÇÇ< =
 listaSolicitudes
-¯¯= M
+ÇÇ= M
 .
-¯¯M N
+ÇÇM N
 SelectedItem
-¯¯N Z
+ÇÇN Z
 ;
-¯¯Z [
+ÇÇZ [
 string
-˘˘ !
+ÉÉ !
 nombreJugadorOrigen
-˘˘ &
+ÉÉ &
 =
-˘˘' (!
+ÉÉ' (!
 jugadorSeleccionado
-˘˘) <
+ÉÉ) <
 .
-˘˘< =
+ÉÉ< =
 NombreJugador
-˘˘= J
+ÉÉ= J
 ;
-˘˘J K
+ÉÉJ K
 string
-˙˙ "
+ÑÑ "
 nombreJugadorDestino
-˙˙ '
+ÑÑ '
 =
-˙˙( )
+ÑÑ( )
 Dominio
-˙˙* 1
+ÑÑ* 1
 .
-˙˙1 2
+ÑÑ1 2
 CuentaJugador
-˙˙2 ?
+ÑÑ2 ?
 .
-˙˙? @
+ÑÑ? @
 Actual
-˙˙@ F
+ÑÑ@ F
 .
-˙˙F G
+ÑÑF G
 NombreJugador
-˙˙G T
+ÑÑG T
 ;
-˙˙T U
+ÑÑT U
 bool
-˚˚  
+ÖÖ  
 solicitudRechazada
-˚˚ #
+ÖÖ #
 =
-˚˚$ %
+ÖÖ$ %
 false
-˚˚& +
+ÖÖ& +
 ;
-˚˚+ ,
+ÖÖ+ ,
 try
-˝˝ 
+áá 
 {
-˛˛  
+àà  
 solicitudRechazada
-ˇˇ "
+ââ "
 =
-ˇˇ# $&
+ââ# $&
 clienteServicioAmistades
-ˇˇ% =
+ââ% =
 .
-ˇˇ= >(
+ââ= >(
 RechazarSolicitudDeAmistad
-ˇˇ> X
+ââ> X
 (
-ˇˇX Y!
+ââX Y!
 nombreJugadorOrigen
-ÄÄ '
+ää '
 ,
-ÄÄ' ("
+ää' ("
 nombreJugadorDestino
-ÄÄ) =
+ää) =
 )
-ÄÄ= >
+ää= >
 ;
-ÄÄ> ?
+ää> ?
 }
-ÅÅ 
+ãã 
 catch
-ÇÇ 
+åå 
 (
-ÇÇ '
+åå '
 EndpointNotFoundException
-ÇÇ ,
+åå ,
 	excepcion
-ÇÇ- 6
+åå- 6
 )
-ÇÇ6 7
+åå6 7
 {
-ÉÉ 
+çç 
 
 MessageBox
-ÖÖ 
+èè 
 .
-ÖÖ 
+èè 
 Show
-ÖÖ 
+èè 
 (
-ÖÖ  
+èè  
 
 Properties
-ÖÖ  *
+èè  *
 .
-ÖÖ* +
+èè* +
 	Resources
-ÖÖ+ 4
+èè+ 4
 .
-ÖÖ4 54
+èè4 54
 &ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE
-ÜÜ :
+êê :
 ,
-ÜÜ: ;
+êê: ;
 
 Properties
-ÜÜ< F
+êê< F
 .
-ÜÜF G
+êêF G
 	Resources
-ÜÜG P
+êêG P
 .
-ÜÜP Q3
+êêP Q3
 %ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO
-áá 9
+ëë 9
 ,
-áá9 :
+ëë9 :
 MessageBoxButton
-àà $
+íí $
 .
-àà$ %
+íí$ %
 OK
-àà% '
+íí% '
 ,
-àà' (
+íí' (
 MessageBoxImage
-àà) 8
+íí) 8
 .
-àà8 9
+íí8 9
 Error
-àà9 >
+íí9 >
 )
-àà> ?
+íí> ?
 ;
-àà? @&
+íí? @&
 clienteServicioAmistades
-ââ (
+ìì (
 .
-ââ( )
+ìì( )
 Abort
-ââ) .
+ìì) .
 (
-ââ. /
+ìì. /
 )
-ââ/ 0
+ìì/ 0
 ;
-ââ0 1
+ìì0 1
 }
-ää 
+îî 
 catch
-ãã 
+ïï 
 (
-ãã 1
+ïï 1
 #CommunicationObjectFaultedException
-ãã 6
+ïï 6
 	excepcion
-ãã7 @
+ïï7 @
 )
-ãã@ A
+ïï@ A
 {
-åå 
+ññ 
 
 MessageBox
-éé 
+òò 
 .
-éé 
+òò 
 Show
-éé 
+òò 
 (
-éé  
+òò  
 
 Properties
-éé  *
+òò  *
 .
-éé* +
+òò* +
 	Resources
-éé+ 4
+òò+ 4
 .
-éé4 54
+òò4 54
 &ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE
-èè :
+ôô :
 ,
-èè: ;
+ôô: ;
 
 Properties
-èè< F
+ôô< F
 .
-èèF G
+ôôF G
 	Resources
-èèG P
+ôôG P
 .
-èèP Q3
+ôôP Q3
 %ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO
-êê 9
+öö 9
 ,
-êê9 :
+öö9 :
 MessageBoxButton
-ëë $
+õõ $
 .
-ëë$ %
+õõ$ %
 OK
-ëë% '
+õõ% '
 ,
-ëë' (
+õõ' (
 MessageBoxImage
-ëë) 8
+õõ) 8
 .
-ëë8 9
+õõ8 9
 Error
-ëë9 >
+õõ9 >
 )
-ëë> ?
+õõ> ?
 ;
-ëë? @&
+õõ? @&
 clienteServicioAmistades
-íí (
+úú (
 .
-íí( )
+úú( )
 Abort
-íí) .
+úú) .
 (
-íí. /
+úú. /
 )
-íí/ 0
+úú/ 0
 ;
-íí0 1
+úú0 1
 }
-ìì 
+ùù 
 catch
-îî 
+ûû 
 (
-îî 
+ûû 
 TimeoutException
-îî #
+ûû #
 	excepcion
-îî$ -
+ûû$ -
 )
-îî- .
+ûû- .
 {
-ïï 
+üü 
 
 MessageBox
-óó 
+°° 
 .
-óó 
+°° 
 Show
-óó 
+°° 
 (
-óó  
+°°  
 
 Properties
-óó  *
+°°  *
 .
-óó* +
+°°* +
 	Resources
-óó+ 4
+°°+ 4
 .
-óó4 54
+°°4 54
 &ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE
-òò :
+¢¢ :
 ,
-òò: ;
+¢¢: ;
 
 Properties
-òò< F
+¢¢< F
 .
-òòF G
+¢¢F G
 	Resources
-òòG P
+¢¢G P
 .
-òòP Q3
+¢¢P Q3
 %ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO
-ôô 9
+££ 9
 ,
-ôô9 :
+££9 :
 MessageBoxButton
-öö $
+§§ $
 .
-öö$ %
+§§$ %
 OK
-öö% '
+§§% '
 ,
-öö' (
+§§' (
 MessageBoxImage
-öö) 8
+§§) 8
 .
-öö8 9
+§§8 9
 Error
-öö9 >
+§§9 >
 )
-öö> ?
+§§> ?
 ;
-öö? @&
+§§? @&
 clienteServicioAmistades
-õõ (
+•• (
 .
-õõ( )
+••( )
 Abort
-õõ) .
+••) .
 (
-õõ. /
+••. /
 )
-õõ/ 0
+••/ 0
 ;
-õõ0 1
+••0 1
 }
-úú 
+¶¶ 
 if
-ûû 
+®® 
 (
-ûû  
+®®  
 solicitudRechazada
-ûû "
+®® "
 )
-ûû" #
+®®" #
 {
-üü "
-CuentasDeSolicitudes
-†† $
+©© "
+cuentasDeSolicitudes
+™™ $
 .
-††$ %
+™™$ %
 Remove
-††% +
+™™% +
 (
-††+ ,!
+™™+ ,!
 jugadorSeleccionado
-††, ?
+™™, ?
 )
-††? @
+™™? @
 ;
-††@ A
+™™@ A
 }
-°° 
+´´ 
 else
-¢¢ 
+¨¨ 
 {
-££ 
+≠≠ 
 
 MessageBox
-§§ 
+ÆÆ 
 .
-§§ 
+ÆÆ 
 Show
-§§ 
+ÆÆ 
 (
-§§  
+ÆÆ  
 $str
-§§  _
+ÆÆ  _
 ,
-§§_ `
+ÆÆ_ `
 $str
-•• <
+ØØ <
 ,
-••< =
+ØØ< =
 MessageBoxButton
-¶¶ %
+∞∞ %
 .
-¶¶% &
+∞∞% &
 OK
-¶¶& (
+∞∞& (
 ,
-¶¶( )
+∞∞( )
 MessageBoxImage
-¶¶* 9
+∞∞* 9
 .
-¶¶9 :
+∞∞9 :
 Error
-¶¶: ?
+∞∞: ?
 )
-¶¶? @
+∞∞? @
 ;
-¶¶@ A
+∞∞@ A
 }
-ßß 
+±± 
 }
-®® 	
+≤≤ 	
 public
-™™ 
+¥¥ 
 void
-™™ 2
+¥¥ 2
 $NotificarEstadoConectividadDeJugador
-™™ 8
+¥¥ 8
 (
-™™8 9
+¥¥8 9
 string
-™™9 ?
+¥¥9 ?
 nombreJugador
-™™@ M
+¥¥@ M
 ,
-™™M N'
+¥¥M N'
 EstadoConectividadJugador
-´´ %
+µµ %
 estado
-´´& ,
+µµ& ,
 )
-´´, -
+µµ, -
 {
-¨¨ 	
+∂∂ 	
 if
-≠≠ 
+∑∑ 
 (
-≠≠ 
-CuentasDeAmigos
-≠≠ 
+∑∑ 
+cuentasDeAmigos
+∑∑ 
 !=
-≠≠  "
+∑∑  "
 null
-≠≠# '
+∑∑# '
 )
-≠≠' (
+∑∑' (
 {
-ÆÆ 
+∏∏ 
 var
-ØØ %
+ππ %
 cuentaAmigoModificacion
-ØØ +
+ππ +
 =
-ØØ, -
-CuentasDeAmigos
-ØØ. =
+ππ, -
+cuentasDeAmigos
+ππ. =
 .
-ØØ= >
-FirstOrDefault
-ØØ> L
+ππ= >
+Where
+ππ> C
 (
-ØØL M
+ππC D
 amigo
-ØØM R
+ππD I
 =>
-ØØS U
+ππJ L
 amigo
-∞∞ 
+∫∫ 
 .
-∞∞ 
+∫∫ 
 NombreJugador
-∞∞ '
+∫∫ '
 ==
-∞∞( *
+∫∫( *
 nombreJugador
-∞∞+ 8
+∫∫+ 8
 )
-∞∞8 9
-;
-∞∞9 :
-CuentasDeAmigos
-±± 
+∫∫8 9
 .
-±±  
+∫∫9 :
+FirstOrDefault
+∫∫: H
+(
+∫∫H I
+)
+∫∫I J
+;
+∫∫J K
+cuentasDeAmigos
+ªª 
+.
+ªª  
 Remove
-±±  &
+ªª  &
 (
-±±& '%
+ªª& '%
 cuentaAmigoModificacion
-±±' >
+ªª' >
 )
-±±> ?
+ªª> ?
 ;
-±±? @
+ªª? @
 if
-≥≥ 
+ΩΩ 
 (
-≥≥ %
+ΩΩ %
 cuentaAmigoModificacion
-≥≥ +
+ΩΩ +
 !=
-≥≥, .
+ΩΩ, .
 null
-≥≥/ 3
+ΩΩ/ 3
 )
-≥≥3 4
+ΩΩ3 4
 {
-¥¥ %
+ææ %
 cuentaAmigoModificacion
-µµ +
+øø +
 .
-µµ+ ,%
+øø+ ,%
 ColorEstadoConectividad
-µµ, C
+øø, C
 =
-µµD E1
+øøD E1
 #ObtenerColorSegunEstadoConectividad
-∂∂ ;
+¿¿ ;
 (
-∂∂; <
+¿¿; <
 estado
-∂∂< B
+¿¿< B
 )
-∂∂B C
+¿¿B C
 ;
-∂∂C D
+¿¿C D
 }
-∑∑ 
-CuentasDeAmigos
-ππ 
+¡¡ 
+cuentasDeAmigos
+√√ 
 .
-ππ  
+√√  
 Insert
-ππ  &
+√√  &
 (
-ππ& '
+√√& '
 $num
-ππ' (
+√√' (
 ,
-ππ( )%
+√√( )%
 cuentaAmigoModificacion
-ππ* A
+√√* A
 )
-ππA B
+√√A B
 ;
-ππB C
+√√B C
 }
-∫∫ 
+ƒƒ 
 }
-ªª 	
+≈≈ 	
 public
-ΩΩ 
+«« 
 void
-ΩΩ .
+«« .
  NotificarSolicitudAmistadEnviada
-ΩΩ 4
+«« 4
 (
-ΩΩ4 5
+««4 5
 CuentaJugador
-ΩΩ5 B"
+««5 B"
 cuentaNuevaSolicitud
-ΩΩC W
+««C W
 )
-ΩΩW X
+««W X
 {
-ææ 	
+»» 	
 if
-øø 
+…… 
 (
-øø "
-CuentasDeSolicitudes
-øø $
+…… "
+cuentasDeSolicitudes
+…… $
 !=
-øø% '
+……% '
 null
-øø( ,
+……( ,
 )
-øø, -
+……, -
 {
-¿¿ "
-CuentasDeSolicitudes
-¡¡ $
+   "
+cuentasDeSolicitudes
+ÀÀ $
 .
-¡¡$ %
+ÀÀ$ %
 Add
-¡¡% (
+ÀÀ% (
 (
-¡¡( )
+ÀÀ( )
 new
-¡¡) ,
+ÀÀ) ,
 Dominio
-¡¡- 4
+ÀÀ- 4
 .
-¡¡4 5
+ÀÀ4 5
 CuentaJugador
-¡¡5 B
+ÀÀ5 B
 {
-¬¬ 
+ÃÃ 
 NombreJugador
-√√ !
+ÕÕ !
 =
-√√" #"
+ÕÕ" #"
 cuentaNuevaSolicitud
-√√$ 8
+ÕÕ$ 8
 .
-√√8 9
+ÕÕ8 9
 NombreJugador
-√√9 F
+ÕÕ9 F
 ,
-√√F G
+ÕÕF G
 NumeroAvatar
-ƒƒ  
+ŒŒ  
 =
-ƒƒ! ""
+ŒŒ! ""
 cuentaNuevaSolicitud
-ƒƒ# 7
+ŒŒ# 7
 .
-ƒƒ7 8
+ŒŒ7 8
 NumeroAvatar
-ƒƒ8 D
+ŒŒ8 D
 ,
-ƒƒD E 
+ŒŒD E 
 FuenteImagenAvatar
-≈≈ &
+œœ &
 =
-≈≈' (
+œœ' (
 
 Utilidades
-≈≈) 3
+œœ) 3
 .
-≈≈3 4
+œœ3 4
 GeneradorImagenes
-≈≈4 E
+œœ4 E
 .
-≈≈E F'
+œœE F'
 GenerarFuenteImagenAvatar
-∆∆ 1
+–– 1
 (
-∆∆1 2"
+––1 2"
 cuentaNuevaSolicitud
-∆∆2 F
+––2 F
 .
-∆∆F G
+––F G
 NumeroAvatar
-∆∆G S
+––G S
 )
-∆∆S T
+––S T
 ,
-∆∆T U%
+––T U%
 ColorEstadoConectividad
-«« +
+—— +
 =
-««, -1
+——, -1
 #ObtenerColorSegunEstadoConectividad
-««. Q
+——. Q
 (
-««Q R"
+——Q R"
 cuentaNuevaSolicitud
-»» ,
+““ ,
 .
-»», - 
+““, - 
 EstadoConectividad
-»»- ?
+““- ?
 )
-»»? @
+““? @
 }
-…… 
+”” 
 )
-…… 
+”” 
 ;
-…… 
+”” 
 }
-   
+‘‘ 
 }
-ÀÀ 	
+’’ 	
 public
-ÕÕ 
+◊◊ 
 void
-ÕÕ /
+◊◊ /
 !NotificarSolicitudAmistadAceptada
-ÕÕ 5
+◊◊ 5
 (
-ÕÕ5 6
+◊◊5 6
 CuentaJugador
-ÕÕ6 C
+◊◊6 C
 cuentaNuevoAmigo
-ÕÕD T
+◊◊D T
 )
-ÕÕT U
+◊◊T U
 {
-ŒŒ 	
+ÿÿ 	
 if
-œœ 
+ŸŸ 
 (
-œœ 
-CuentasDeAmigos
-œœ 
+ŸŸ 
+cuentasDeAmigos
+ŸŸ 
 !=
-œœ  "
+ŸŸ  "
 null
-œœ# '
+ŸŸ# '
 )
-œœ' (
+ŸŸ' (
 {
-–– 
+⁄⁄ 
 var
-—— &
+€€ &
 solicitudAmistadResidual
-—— ,
+€€ ,
 =
-——- ."
-CuentasDeSolicitudes
-——/ C
+€€- ."
+cuentasDeSolicitudes
+€€/ C
 .
-——C D
-FirstOrDefault
-——D R
+€€C D
+Where
+€€D I
 (
-——R S
+€€I J
 cuentaSolicitud
-——S b
+€€J Y
 =>
-——c e
+€€Z \
 cuentaSolicitud
-““ #
+‹‹ #
 .
-““# $
+‹‹# $
 NombreJugador
-““$ 1
+‹‹$ 1
 ==
-““2 4
+‹‹2 4
 cuentaNuevoAmigo
-”” $
+›› $
 .
-””$ %
+››$ %
 NombreJugador
-””% 2
+››% 2
 )
-””2 3
+››2 3
+.
+››3 4
+FirstOrDefault
+››4 B
+(
+››B C
+)
+››C D
 ;
-””3 4
+››D E
 if
-’’ 
+ﬂﬂ 
 (
-’’ &
+ﬂﬂ &
 solicitudAmistadResidual
-’’ ,
+ﬂﬂ ,
 !=
-’’- /
+ﬂﬂ- /
 null
-’’0 4
+ﬂﬂ0 4
 )
-’’4 5
+ﬂﬂ4 5
 {
-÷÷ "
-CuentasDeSolicitudes
-◊◊ (
+‡‡ "
+cuentasDeSolicitudes
+·· (
 .
-◊◊( )
+··( )
 Remove
-◊◊) /
+··) /
 (
-◊◊/ 0&
+··/ 0&
 solicitudAmistadResidual
-◊◊0 H
+··0 H
 )
-◊◊H I
+··H I
 ;
-◊◊I J
+··I J
 }
-ÿÿ 
-CuentasDeAmigos
-⁄⁄ 
+‚‚ 
+cuentasDeAmigos
+‰‰ 
 .
-⁄⁄  
+‰‰  
 Add
-⁄⁄  #
+‰‰  #
 (
-⁄⁄# $
+‰‰# $
 new
-⁄⁄$ '
+‰‰$ '
 Dominio
-⁄⁄( /
+‰‰( /
 .
-⁄⁄/ 0
+‰‰/ 0
 CuentaJugador
-⁄⁄0 =
+‰‰0 =
 {
-€€ 
+ÂÂ 
 NombreJugador
-‹‹ !
+ÊÊ !
 =
-‹‹" #
+ÊÊ" #
 cuentaNuevoAmigo
-‹‹$ 4
+ÊÊ$ 4
 .
-‹‹4 5
+ÊÊ4 5
 NombreJugador
-‹‹5 B
+ÊÊ5 B
 ,
-‹‹B C
+ÊÊB C
 NumeroAvatar
-››  
+ÁÁ  
 =
-››! "
+ÁÁ! "
 cuentaNuevoAmigo
-››# 3
+ÁÁ# 3
 .
-››3 4
+ÁÁ3 4
 NumeroAvatar
-››4 @
+ÁÁ4 @
 ,
-››@ A 
+ÁÁ@ A 
 FuenteImagenAvatar
-ﬁﬁ &
+ËË &
 =
-ﬁﬁ' (
+ËË' (
 
 Utilidades
-ﬁﬁ) 3
+ËË) 3
 .
-ﬁﬁ3 4
+ËË3 4
 GeneradorImagenes
-ﬁﬁ4 E
+ËË4 E
 .
-ﬁﬁE F'
+ËËE F'
 GenerarFuenteImagenAvatar
-ﬂﬂ 1
+ÈÈ 1
 (
-ﬂﬂ1 2
+ÈÈ1 2
 cuentaNuevoAmigo
-ﬂﬂ2 B
+ÈÈ2 B
 .
-ﬂﬂB C
+ÈÈB C
 NumeroAvatar
-ﬂﬂC O
+ÈÈC O
 )
-ﬂﬂO P
+ÈÈO P
 ,
-ﬂﬂP Q%
+ÈÈP Q%
 ColorEstadoConectividad
-‡‡ +
+ÍÍ +
 =
-‡‡, -1
+ÍÍ, -1
 #ObtenerColorSegunEstadoConectividad
-‡‡. Q
+ÍÍ. Q
 (
-‡‡Q R
+ÍÍQ R
 cuentaNuevoAmigo
-·· (
+ÎÎ (
 .
-··( ) 
+ÎÎ( ) 
 EstadoConectividad
-··) ;
+ÎÎ) ;
 )
-··; <
+ÎÎ; <
 }
-‚‚ 
+ÏÏ 
 )
-‚‚ 
+ÏÏ 
 ;
-‚‚ 
+ÏÏ 
 }
-„„ 
+ÌÌ 
 }
-‰‰ 	
+ÓÓ 	
 public
-ÊÊ 
+ 
 void
-ÊÊ '
+ '
 NotificarAmistadEliminada
-ÊÊ -
+ -
 (
-ÊÊ- .
+- .
 string
-ÊÊ. 4$
+. 4$
 nombreAmigoEliminacion
-ÊÊ5 K
+5 K
 )
-ÊÊK L
+K L
 {
-ÁÁ 	
+ÒÒ 	
 if
-ËË 
+ÚÚ 
 (
-ËË 
-CuentasDeAmigos
-ËË 
+ÚÚ 
+cuentasDeAmigos
+ÚÚ 
 !=
-ËË  "
+ÚÚ  "
 null
-ËË# '
+ÚÚ# '
 )
-ËË' (
+ÚÚ' (
 {
-ÈÈ 
+ÛÛ 
 var
-ÍÍ $
+ÙÙ $
 cuentaAmigoEliminacion
-ÍÍ *
+ÙÙ *
 =
-ÍÍ+ ,
-CuentasDeAmigos
-ÍÍ- <
+ÙÙ+ ,
+cuentasDeAmigos
+ÙÙ- <
 .
-ÍÍ< =
-FirstOrDefault
-ÍÍ= K
+ÙÙ< =
+Where
+ÙÙ= B
 (
-ÍÍK L
+ÙÙB C
 amigo
-ÍÍL Q
+ÙÙC H
 =>
-ÍÍR T
+ÙÙI K
 amigo
-ÎÎ 
+ıı 
 .
-ÎÎ 
+ıı 
 NombreJugador
-ÎÎ '
+ıı '
 ==
-ÎÎ( *$
+ıı( *$
 nombreAmigoEliminacion
-ÎÎ+ A
+ıı+ A
 )
-ÎÎA B
+ııA B
+.
+ııB C
+FirstOrDefault
+ııC Q
+(
+ııQ R
+)
+ııR S
 ;
-ÎÎB C
+ııS T
 if
-ÌÌ 
+˜˜ 
 (
-ÌÌ $
+˜˜ $
 cuentaAmigoEliminacion
-ÌÌ *
+˜˜ *
 !=
-ÌÌ+ -
+˜˜+ -
 null
-ÌÌ. 2
+˜˜. 2
 )
-ÌÌ2 3
+˜˜2 3
 {
-ÓÓ 
-CuentasDeAmigos
-ÔÔ #
+¯¯ 
+cuentasDeAmigos
+˘˘ #
 .
-ÔÔ# $
+˘˘# $
 Remove
-ÔÔ$ *
+˘˘$ *
 (
-ÔÔ* +$
+˘˘* +$
 cuentaAmigoEliminacion
-ÔÔ+ A
+˘˘+ A
 )
-ÔÔA B
+˘˘A B
 ;
-ÔÔB C
+˘˘B C
 }
- 
+˙˙ 
 }
-ÒÒ 
+˚˚ 
 }
-ÚÚ 	
+¸¸ 	
 private
-ÙÙ 
+˛˛ 
 void
-ÙÙ 0
+˛˛ 0
 "DesuscribirJugadorDeNotificaciones
-ÙÙ 7
+˛˛ 7
 (
-ÙÙ7 8
+˛˛7 8
 object
-ÙÙ8 >
+˛˛8 >
 objetoOrigen
-ÙÙ? K
+˛˛? K
 ,
-ÙÙK L
+˛˛K L
 RoutedEventArgs
-ıı 
+ˇˇ 
 evento
-ıı "
+ˇˇ "
 )
-ıı" #
+ˇˇ" #
 {
-ˆˆ 	
+ÄÄ 	
 try
-˜˜ 
+ÅÅ 
 {
-¯¯ &
+ÇÇ &
 clienteServicioAmistades
-˘˘ (
+ÉÉ (
 .
-˘˘( )9
+ÉÉ( )9
 +DesuscribirJugadorDeNotificacionesAmistades
-˘˘) T
+ÉÉ) T
 (
-˘˘T U
+ÉÉT U
 Dominio
-˙˙ 
+ÑÑ 
 .
-˙˙ 
+ÑÑ 
 CuentaJugador
-˙˙ )
+ÑÑ )
 .
-˙˙) *
+ÑÑ) *
 Actual
-˙˙* 0
+ÑÑ* 0
 .
-˙˙0 1
+ÑÑ0 1
 NombreJugador
-˙˙1 >
+ÑÑ1 >
 )
-˙˙> ?
+ÑÑ> ?
 ;
-˙˙? @&
+ÑÑ? @&
 clienteServicioAmistades
-˚˚ (
+ÖÖ (
 .
-˚˚( )
+ÖÖ( )
 Close
-˚˚) .
+ÖÖ) .
 (
-˚˚. /
+ÖÖ. /
 )
-˚˚/ 0
+ÖÖ/ 0
 ;
-˚˚0 1
+ÖÖ0 1
 }
-¸¸ 
+ÜÜ 
 catch
-˝˝ 
+áá 
 (
-˝˝ '
+áá '
 EndpointNotFoundException
-˝˝ ,
+áá ,
 	excepcion
-˝˝- 6
+áá- 6
 )
-˝˝6 7
+áá6 7
 {
-˛˛ 
+àà 
 
 MessageBox
-ÄÄ 
+ää 
 .
-ÄÄ 
+ää 
 Show
-ÄÄ 
+ää 
 (
-ÄÄ  
+ää  
 
 Properties
-ÄÄ  *
+ää  *
 .
-ÄÄ* +
+ää* +
 	Resources
-ÄÄ+ 4
+ää+ 4
 .
-ÄÄ4 54
+ää4 54
 &ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE
-ÅÅ :
+ãã :
 ,
-ÅÅ: ;
+ãã: ;
 
 Properties
-ÅÅ< F
+ãã< F
 .
-ÅÅF G
+ããF G
 	Resources
-ÅÅG P
+ããG P
 .
-ÅÅP Q3
+ããP Q3
 %ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO
-ÇÇ 9
+åå 9
 ,
-ÇÇ9 :
+åå9 :
 MessageBoxButton
-ÉÉ $
+çç $
 .
-ÉÉ$ %
+çç$ %
 OK
-ÉÉ% '
+çç% '
 ,
-ÉÉ' (
+çç' (
 MessageBoxImage
-ÉÉ) 8
+çç) 8
 .
-ÉÉ8 9
+çç8 9
 Error
-ÉÉ9 >
+çç9 >
 )
-ÉÉ> ?
+çç> ?
 ;
-ÉÉ? @&
+çç? @&
 clienteServicioAmistades
-ÑÑ (
+éé (
 .
-ÑÑ( )
+éé( )
 Abort
-ÑÑ) .
+éé) .
 (
-ÑÑ. /
+éé. /
 )
-ÑÑ/ 0
+éé/ 0
 ;
-ÑÑ0 1
+éé0 1
 }
-ÖÖ 
+èè 
 catch
-ÜÜ 
+êê 
 (
-ÜÜ 1
+êê 1
 #CommunicationObjectFaultedException
-ÜÜ 6
+êê 6
 	excepcion
-ÜÜ7 @
+êê7 @
 )
-ÜÜ@ A
+êê@ A
 {
-áá 
+ëë 
 
 MessageBox
-ââ 
+ìì 
 .
-ââ 
+ìì 
 Show
-ââ 
+ìì 
 (
-ââ  
+ìì  
 
 Properties
-ââ  *
+ìì  *
 .
-ââ* +
+ìì* +
 	Resources
-ââ+ 4
+ìì+ 4
 .
-ââ4 54
+ìì4 54
 &ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE
-ää :
+îî :
 ,
-ää: ;
+îî: ;
 
 Properties
-ää< F
+îî< F
 .
-ääF G
+îîF G
 	Resources
-ääG P
+îîG P
 .
-ääP Q3
+îîP Q3
 %ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO
-ãã 9
+ïï 9
 ,
-ãã9 :
+ïï9 :
 MessageBoxButton
-åå $
+ññ $
 .
-åå$ %
+ññ$ %
 OK
-åå% '
+ññ% '
 ,
-åå' (
+ññ' (
 MessageBoxImage
-åå) 8
+ññ) 8
 .
-åå8 9
+ññ8 9
 Error
-åå9 >
+ññ9 >
 )
-åå> ?
+ññ> ?
 ;
-åå? @&
+ññ? @&
 clienteServicioAmistades
-çç (
+óó (
 .
-çç( )
+óó( )
 Abort
-çç) .
+óó) .
 (
-çç. /
+óó. /
 )
-çç/ 0
+óó/ 0
 ;
-çç0 1
+óó0 1
 }
-éé 
+òò 
 catch
-èè 
+ôô 
 (
-èè 
+ôô 
 TimeoutException
-èè #
+ôô #
 	excepcion
-èè$ -
+ôô$ -
 )
-èè- .
+ôô- .
 {
-êê 
+öö 
 
 MessageBox
-íí 
+úú 
 .
-íí 
+úú 
 Show
-íí 
+úú 
 (
-íí  
+úú  
 
 Properties
-íí  *
+úú  *
 .
-íí* +
+úú* +
 	Resources
-íí+ 4
+úú+ 4
 .
-íí4 54
+úú4 54
 &ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE
-ìì :
+ùù :
 ,
-ìì: ;
+ùù: ;
 
 Properties
-ìì< F
+ùù< F
 .
-ììF G
+ùùF G
 	Resources
-ììG P
+ùùG P
 .
-ììP Q3
+ùùP Q3
 %ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO
-îî 9
+ûû 9
 ,
-îî9 :
+ûû9 :
 MessageBoxButton
-ïï $
+üü $
 .
-ïï$ %
+üü$ %
 OK
-ïï% '
+üü% '
 ,
-ïï' (
+üü' (
 MessageBoxImage
-ïï) 8
+üü) 8
 .
-ïï8 9
+üü8 9
 Error
-ïï9 >
+üü9 >
 )
-ïï> ?
+üü> ?
 ;
-ïï? @&
+üü? @&
 clienteServicioAmistades
-ññ (
+†† (
 .
-ññ( )
+††( )
 Abort
-ññ) .
+††) .
 (
-ññ. /
+††. /
 )
-ññ/ 0
+††/ 0
 ;
-ññ0 1
+††0 1
 }
-óó 
+°° 
 }
-òò 	
+¢¢ 	
 }
-ôô 
-}öö √
-ÅC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaModificacionJugadoresSala.xaml.cs
+££ 
+}§§ Õ
+ãC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaModificacionJugadoresSala.xaml.cs
 	namespace 	
 RompecabezasFei
  
@@ -10173,8 +10288,8 @@ Properties
 ;! "
 } 	
 } 
-} ».
-àC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaCodigoRestablecimientoContrasena.xaml.cs
+} ÷.
+íC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaCodigoRestablecimientoContrasena.xaml.cs
 	namespace 	
 RompecabezasFei
  
@@ -10417,65 +10532,58 @@ Properties;; "
 (DD 
 objetoOrigenDD 
 isDD 
-TextBoxDD  '
-)DD' (
-{EE 
-TextBoxFF 
-cuadroTextoFF #
-=FF$ %
-(FF& '
-TextBoxFF' .
-)FF. /
-objetoOrigenFF0 <
-;FF< =
-stringGG 
-textoGG 
-=GG 
-cuadroTextoGG *
-.GG* +
-TextGG+ /
-=GG0 1
-newGG2 5
-stringGG6 <
-(GG< =
-cuadroTextoGG= H
-.GGH I
-TextGGI M
-.GGM N
-WhereGGN S
-(GGS T
-charHH 
-.HH 
-IsDigitHH  
-)HH  !
-.HH! "
-ToArrayHH" )
-(HH) *
-)HH* +
-)HH+ ,
-;HH, -
-cuadroTextoII 
-.II 
+TextBoxDD  '-
+!cuadroTextoCodigoRestablecimientoDD( I
+)DDI J
+{EE 
+stringFF 
+textoFF 
+=FF -
+!cuadroTextoCodigoRestablecimientoFF @
+.FF@ A
+TextFFA E
+=FFF G
+newFFH K
+stringFFL R
+(FFR S-
+!cuadroTextoCodigoRestablecimientoGG 5
+.GG5 6
+TextGG6 :
+.GG: ;
+WhereGG; @
+(GG@ A
+charGGA E
+.GGE F
+IsDigitGGF M
+)GGM N
+.GGN O
+ToArrayGGO V
+(GGV W
+)GGW X
+)GGX Y
+;GGY Z-
+!cuadroTextoCodigoRestablecimientoHH 1
+.HH1 2
 
-CaretIndexII &
-=II' (
-cuadroTextoII) 4
-.II4 5
-TextII5 9
-.II9 :
-LengthII: @
-;II@ A
-cuadroTextoJJ 
-.JJ 
-TextJJ  
-=JJ! "
-textoJJ# (
-;JJ( )
+CaretIndexHH2 <
+=HH= >-
+!cuadroTextoCodigoRestablecimientoII 5
+.II5 6
+TextII6 :
+.II: ;
+LengthII; A
+;IIA B-
+!cuadroTextoCodigoRestablecimientoJJ 1
+.JJ1 2
+TextJJ2 6
+=JJ7 8
+textoJJ9 >
+;JJ> ?
 }KK 
 }LL 	
 }MM 
-}NN ›!
-zC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaInformacionJugador.xaml.cs
+}NN Ë!
+ÑC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaInformacionJugador.xaml.cs
 	namespace 	
 RompecabezasFei
  
@@ -10693,8 +10801,8 @@ zC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 ;22E F
 }33 	
 }44 
-}55 ±Y
-tC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaInicioSesion.xaml.cs
+}55 ªY
+~C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaInicioSesion.xaml.cs
 	namespace 	
 RompecabezasFei
  
@@ -11337,8 +11445,8 @@ contrasena
 ëë 	
 }
 íí 
-}ìì ®/
-uC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaMenuPrincipal.xaml.cs
+}ìì ≤/
+C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaMenuPrincipal.xaml.cs
 	namespace 	
 RompecabezasFei
  
@@ -11657,8 +11765,8 @@ Properties44 
 ;FFP Q
 }GG 	
 }HH 
-}II »ˇ
-oC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaPartida.xaml.cs
+}II äÇ
+yC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaPartida.xaml.cs
 	namespace 	
 RompecabezasFei
  
@@ -11689,2657 +11797,2684 @@ oC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 private 
 Pieza 
 piezaActual !
-;! "
-public  
-ObservableCollection #
-<# $
-Dominio$ +
-.+ ,
-CuentaJugador, 9
->9 :
-JugadoresPartida; K
-{L M
-getN Q
-;Q R
-setS V
-;V W
-}X Y
-public 
-PaginaPartida 
-( 
-) 
-{ 	
-} 	
-public 
-PaginaPartida 
-( 
+;! "
+private  
+ObservableCollection $
+<$ %
+Dominio% ,
+., -
+CuentaJugador- :
+>: ;
+jugadoresPartida< L
+;L M
+public  
+ObservableCollection #
+<# $
+Dominio$ +
+.+ ,
+CuentaJugador, 9
+>9 :
+JugadoresPartida; K
+{ 	
+get 
+{ 
+return 
+jugadoresPartida )
+;) *
+}+ ,
+set 
+{ 
+jugadoresPartida "
+=# $
+value% *
+;* +
+}, -
+} 	
+public   
+PaginaPartida   
+(   
+)   
+{!! 	
+}"" 	
+public$$ 
+PaginaPartida$$ 
+($$ 
 
-Dificultad '
+Dificultad$$ '
 
-dificultad( 2
-,2 3
-int4 7$
-numeroImagenRompecabezas8 P
-)P Q
-{   	
-InitializeComponent!! 
-(!!  
-)!!  !
-;!!! "
-tablero"" 
-="" 
-new"" 
-Tablero"" !
-{## 
+dificultad$$( 2
+,$$2 3
+int$$4 7$
+numeroImagenRompecabezas$$8 P
+)$$P Q
+{%% 	
+InitializeComponent&& 
+(&&  
+)&&  !
+;&&! "
+tablero'' 
+='' 
+new'' 
+Tablero'' !
+{(( 
 
-Dificultad$$ 
-=$$ 
+Dificultad)) 
+=)) 
 
-dificultad$$ '
-,$$' (
-Piezas%% 
-=%% 
-new%% 
-List%% !
-<%%! "
-Pieza%%" '
->%%' (
-(%%( )
-)%%) *
-,%%* +
-Celdas&& 
-=&& 
-new&& 
-List&& !
-<&&! "
-Celda&&" '
->&&' (
-(&&( )
-)&&) *
-,&&* +$
-NumeroImagenRompecabezas'' (
-='') *$
-numeroImagenRompecabezas''+ C
-}(( 
-;(( 
-JugadoresPartida)) 
-=)) 
-new)) " 
-ObservableCollection))# 7
-<))7 8
-Dominio))8 ?
-.))? @
-CuentaJugador))@ M
->))M N
-())N O
-)))O P
-;))P Q!
-listaJugadoresPartida** !
-.**! "
-DataContext**" -
-=**. /
-this**0 4
-;**4 5"
-CargarJugadoresPartida++ "
-(++" #
-)++# $
-;++$ %
-},, 	
-private.. 
-void.. "
-CargarJugadoresPartida.. +
-(..+ ,
-).., -
-{// 	
-}11 	
-private33 
-void33 
-CrearTablero33 !
-(33! "
-)33" #
-{44 	
-tablero55 
-.55 
-AnchoDeCelda55  
-=55! "
-tableroRompecabezas55# 6
-.556 7
-ActualWidth557 B
-/55C D
-tablero55E L
-.55L M
-TotalColumnas55M Z
-;55Z [
-tablero66 
-.66 
-AlturaDeCelda66 !
-=66" #
-tableroRompecabezas66$ 7
-.667 8
-ActualHeight668 D
-/66E F
-tablero66G N
-.66N O
+dificultad)) '
+,))' (
+Piezas** 
+=** 
+new** 
+List** !
+<**! "
+Pieza**" '
+>**' (
+(**( )
+)**) *
+,*** +
+Celdas++ 
+=++ 
+new++ 
+List++ !
+<++! "
+Celda++" '
+>++' (
+(++( )
+)++) *
+,++* +$
+NumeroImagenRompecabezas,, (
+=,,) *$
+numeroImagenRompecabezas,,+ C
+}-- 
+;-- 
+jugadoresPartida.. 
+=.. 
+new.. " 
+ObservableCollection..# 7
+<..7 8
+Dominio..8 ?
+...? @
+CuentaJugador..@ M
+>..M N
+(..N O
+)..O P
+;..P Q!
+listaJugadoresPartida// !
+.//! "
+DataContext//" -
+=//. /
+this//0 4
+;//4 5
+}00 	
+private22 
+void22 "
+CargarJugadoresPartida22 +
+(22+ ,
+)22, -
+{33 	
+}55 	
+private77 
+void77 
+CrearTablero77 !
+(77! "
+)77" #
+{88 	
+tablero99 
+.99 
+AnchoDeCelda99  
+=99! "
+tableroRompecabezas99# 6
+.996 7
+ActualWidth997 B
+/99C D
+tablero99E L
+.99L M
+TotalColumnas99M Z
+;99Z [
+tablero:: 
+.:: 
+AlturaDeCelda:: !
+=::" #
+tableroRompecabezas::$ 7
+.::7 8
+ActualHeight::8 D
+/::E F
+tablero::G N
+.::N O
 
-TotalFilas66O Y
-;66Y Z
-bool77 #
-pintarCeldaConColorGris77 (
-;77( )
-bool88 0
-$pintarCeldaConColorGrisAlIniciarFila88 5
-=886 7
-true888 <
-;88< =
-for:: 
-(:: 
-int:: 
-fila:: 
-=:: 
-$num:: 
-;:: 
-fila:: #
-<::$ %
-tablero::& -
-.::- .
+TotalFilas::O Y
+;::Y Z
+bool;; #
+pintarCeldaConColorGris;; (
+;;;( )
+bool<< 0
+$pintarCeldaConColorGrisAlIniciarFila<< 5
+=<<6 7
+true<<8 <
+;<<< =
+for>> 
+(>> 
+int>> 
+fila>> 
+=>> 
+$num>> 
+;>> 
+fila>> #
+<>>$ %
+tablero>>& -
+.>>- .
 
-TotalFilas::. 8
-;::8 9
-fila::: >
-++::> @
-)::@ A
-{;; #
-pintarCeldaConColorGris<< '
-=<<( )0
-$pintarCeldaConColorGrisAlIniciarFila<<* N
-;<<N O
-for== 
-(== 
-int== 
-columna==  
-===! "
-$num==# $
-;==$ %
-columna==& -
-<==. /
-tablero==0 7
-.==7 8
-TotalColumnas==8 E
-;==E F
-columna==G N
-++==N P
-)==P Q
-{>> 
-Celda?? 
-celda?? 
-=??  !
-new??" %
-Celda??& +
-{@@ 
-FilaAA 
-=AA 
-filaAA #
-,AA# $
-ColumnaBB 
-=BB  !
-columnaBB" )
-,BB) *
-AreaCC 
-=CC 
-newCC "
-	RectangleCC# ,
-{DD 
-WidthEE !
-=EE" #
-tableroEE$ +
-.EE+ ,
-AnchoDeCeldaEE, 8
-,EE8 9
-HeightFF "
-=FF# $
-tableroFF% ,
-.FF, -
-AlturaDeCeldaFF- :
-,FF: ;
-StrokeGG "
-=GG# $
-BrushesGG% ,
-.GG, -
-BlackGG- 2
-,GG2 3
-StrokeThicknessHH +
-=HH, -
-$numHH. 1
-}II 
-}JJ 
-;JJ 
-ifLL 
-(LL #
-pintarCeldaConColorGrisLL /
-)LL/ 0
-{MM 
-celdaNN 
-.NN 
-AreaNN "
-.NN" #
-FillNN# '
-=NN( )
-BrushesNN* 1
-.NN1 2
-	LightGrayNN2 ;
-;NN; <#
-pintarCeldaConColorGrisOO /
-=OO0 1
-falseOO2 7
-;OO7 8
-}PP 
-elseQQ 
-{RR 
-celdaSS 
-.SS 
-AreaSS "
-.SS" #
-FillSS# '
-=SS( )
-BrushesSS* 1
-.SS1 2
-	AliceBlueSS2 ;
-;SS; <#
-pintarCeldaConColorGrisTT /
-=TT0 1
-trueTT2 6
-;TT6 7
-}UU 
-ifWW 
-(WW 
-columnaWW 
-+WW  !
-$numWW" #
-==WW$ &
-tableroWW' .
-.WW. /
-TotalColumnasWW/ <
-)WW< =
-{XX 
-ifYY 
-(YY 0
-$pintarCeldaConColorGrisAlIniciarFilaYY @
-)YY@ A
-{ZZ 0
-$pintarCeldaConColorGrisAlIniciarFila[[ @
-=[[A B
-false[[C H
-;[[H I
-}\\ 
-else]] 
+TotalFilas>>. 8
+;>>8 9
+fila>>: >
+++>>> @
+)>>@ A
+{?? #
+pintarCeldaConColorGris@@ '
+=@@( )0
+$pintarCeldaConColorGrisAlIniciarFila@@* N
+;@@N O
+forAA 
+(AA 
+intAA 
+columnaAA  
+=AA! "
+$numAA# $
+;AA$ %
+columnaAA& -
+<AA. /
+tableroAA0 7
+.AA7 8
+TotalColumnasAA8 E
+;AAE F
+columnaAAG N
+++AAN P
+)AAP Q
+{BB 
+CeldaCC 
+celdaCC 
+=CC  !
+newCC" %
+CeldaCC& +
+{DD 
+FilaEE 
+=EE 
+filaEE #
+,EE# $
+ColumnaFF 
+=FF  !
+columnaFF" )
+,FF) *
+AreaGG 
+=GG 
+newGG "
+	RectangleGG# ,
+{HH 
+WidthII !
+=II" #
+tableroII$ +
+.II+ ,
+AnchoDeCeldaII, 8
+,II8 9
+HeightJJ "
+=JJ# $
+tableroJJ% ,
+.JJ, -
+AlturaDeCeldaJJ- :
+,JJ: ;
+StrokeKK "
+=KK# $
+BrushesKK% ,
+.KK, -
+BlackKK- 2
+,KK2 3
+StrokeThicknessLL +
+=LL, -
+$numLL. 1
+}MM 
+}NN 
+;NN 
+ifPP 
+(PP #
+pintarCeldaConColorGrisPP /
+)PP/ 0
+{QQ 
+celdaRR 
+.RR 
+AreaRR "
+.RR" #
+FillRR# '
+=RR( )
+BrushesRR* 1
+.RR1 2
+	LightGrayRR2 ;
+;RR; <#
+pintarCeldaConColorGrisSS /
+=SS0 1
+falseSS2 7
+;SS7 8
+}TT 
+elseUU 
+{VV 
+celdaWW 
+.WW 
+AreaWW "
+.WW" #
+FillWW# '
+=WW( )
+BrushesWW* 1
+.WW1 2
+	AliceBlueWW2 ;
+;WW; <#
+pintarCeldaConColorGrisXX /
+=XX0 1
+trueXX2 6
+;XX6 7
+}YY 
+if[[ 
+([[ 
+columna[[ 
++[[  !
+$num[[" #
+==[[$ &
+tablero[[' .
+.[[. /
+TotalColumnas[[/ <
+)[[< =
+{\\ 
+if]] 
+(]] 0
+$pintarCeldaConColorGrisAlIniciarFila]] @
+)]]@ A
 {^^ 0
 $pintarCeldaConColorGrisAlIniciarFila__ @
-=__A B
-true__C G
-;__G H
-}`` 
-}aa 
-doublecc 
-	posicionXcc $
-=cc% &
-columnacc' .
-*cc/ 0
-tablerocc1 8
-.cc8 9
-AnchoDeCeldacc9 E
-;ccE F
-doubledd 
-	posicionYdd $
-=dd% &
-filadd' +
-*dd, -
-tablerodd. 5
-.dd5 6
-AlturaDeCeldadd6 C
-;ddC D
-Canvasee 
-.ee 
-SetLeftee "
-(ee" #
-celdaee# (
-.ee( )
-Areaee) -
-,ee- .
-	posicionXee/ 8
-)ee8 9
-;ee9 :
-Canvasff 
-.ff 
-SetTopff !
-(ff! "
-celdaff" '
-.ff' (
-Areaff( ,
-,ff, -
-	posicionYff. 7
-)ff7 8
-;ff8 9
-tableroRompecabezasgg '
-.gg' (
-Childrengg( 0
-.gg0 1
-Addgg1 4
-(gg4 5
-celdagg5 :
-.gg: ;
-Areagg; ?
-)gg? @
-;gg@ A
-tablerohh 
-.hh 
-Celdashh "
-.hh" #
-Addhh# &
-(hh& '
-celdahh' ,
-)hh, -
-;hh- .
-}ii 
-}jj 
-}kk 	
-privatemm 
-voidmm "
-RecortarImagenEnPiezasmm +
-(mm+ ,
-BitmapImagemm, 7 
-fuenteImagenOriginalmm8 L
-)mmL M
-{nn 	
-intoo 
-anchoRecorteoo 
-=oo 
-(oo  
-intoo  #
-)oo# $
-(oo$ % 
-fuenteImagenOriginaloo% 9
-.oo9 :
-Widthoo: ?
-/oo@ A
-tableroooB I
-.ooI J
-TotalColumnasooJ W
-)ooW X
-;ooX Y
-intpp 
-alturaRecortepp 
-=pp 
-(pp  !
-intpp! $
-)pp$ %
-(pp% & 
-fuenteImagenOriginalpp& :
-.pp: ;
-Heightpp; A
-/ppB C
-tableroppD K
-.ppK L
+=__A B
+false__C H
+;__H I
+}`` 
+elseaa 
+{bb 0
+$pintarCeldaConColorGrisAlIniciarFilacc @
+=ccA B
+trueccC G
+;ccG H
+}dd 
+}ee 
+doublegg 
+	posicionXgg $
+=gg% &
+columnagg' .
+*gg/ 0
+tablerogg1 8
+.gg8 9
+AnchoDeCeldagg9 E
+;ggE F
+doublehh 
+	posicionYhh $
+=hh% &
+filahh' +
+*hh, -
+tablerohh. 5
+.hh5 6
+AlturaDeCeldahh6 C
+;hhC D
+Canvasii 
+.ii 
+SetLeftii "
+(ii" #
+celdaii# (
+.ii( )
+Areaii) -
+,ii- .
+	posicionXii/ 8
+)ii8 9
+;ii9 :
+Canvasjj 
+.jj 
+SetTopjj !
+(jj! "
+celdajj" '
+.jj' (
+Areajj( ,
+,jj, -
+	posicionYjj. 7
+)jj7 8
+;jj8 9
+tableroRompecabezaskk '
+.kk' (
+Childrenkk( 0
+.kk0 1
+Addkk1 4
+(kk4 5
+celdakk5 :
+.kk: ;
+Areakk; ?
+)kk? @
+;kk@ A
+tableroll 
+.ll 
+Celdasll "
+.ll" #
+Addll# &
+(ll& '
+celdall' ,
+)ll, -
+;ll- .
+}mm 
+}nn 
+}oo 	
+privateqq 
+voidqq "
+RecortarImagenEnPiezasqq +
+(qq+ ,
+BitmapImageqq, 7 
+fuenteImagenOriginalqq8 L
+)qqL M
+{rr 	
+intss 
+anchoRecortess 
+=ss 
+(ss  
+intss  #
+)ss# $
+(ss$ % 
+fuenteImagenOriginalss% 9
+.ss9 :
+Widthss: ?
+/ss@ A
+tablerossB I
+.ssI J
+TotalColumnasssJ W
+)ssW X
+;ssX Y
+inttt 
+alturaRecortett 
+=tt 
+(tt  !
+inttt! $
+)tt$ %
+(tt% & 
+fuenteImagenOriginaltt& :
+.tt: ;
+Heighttt; A
+/ttB C
+tablerottD K
+.ttK L
 
-TotalFilasppL V
-)ppV W
-;ppW X
-forrr 
-(rr 
-intrr 
-filarr 
-=rr 
-$numrr 
-;rr 
-filarr #
-<rr$ %
-tablerorr& -
-.rr- .
+TotalFilasttL V
+)ttV W
+;ttW X
+forvv 
+(vv 
+intvv 
+filavv 
+=vv 
+$numvv 
+;vv 
+filavv #
+<vv$ %
+tablerovv& -
+.vv- .
 
-TotalFilasrr. 8
-;rr8 9
-filarr: >
-++rr> @
-)rr@ A
-{ss 
-fortt 
-(tt 
-inttt 
-columnatt  
-=tt! "
-$numtt# $
-;tt$ %
-columnatt& -
-<tt. /
-tablerott0 7
-.tt7 8
-TotalColumnastt8 E
-;ttE F
-columnattG N
-++ttN P
-)ttP Q
-{uu 
-	Int32Rectvv 
-areaRecortevv )
-=vv* +
-newvv, /
-	Int32Rectvv0 9
-(vv9 :
-columnavv: A
-*vvB C
-anchoRecortevvD P
-,vvP Q
-filavvR V
-*vvW X
-alturaRecorteww %
-,ww% &
-anchoRecorteww' 3
-,ww3 4
-alturaRecorteww5 B
-)wwB C
-;wwC D
-Piezaxx 
+TotalFilasvv. 8
+;vv8 9
+filavv: >
+++vv> @
+)vv@ A
+{ww 
+forxx 
+(xx 
+intxx 
+columnaxx  
+=xx! "
+$numxx# $
+;xx$ %
+columnaxx& -
+<xx. /
+tableroxx0 7
+.xx7 8
+TotalColumnasxx8 E
+;xxE F
+columnaxxG N
+++xxN P
+)xxP Q
+{yy 
+	Int32Rectzz 
+areaRecortezz )
+=zz* +
+newzz, /
+	Int32Rectzz0 9
+(zz9 :
+columnazz: A
+*zzB C
+anchoRecortezzD P
+,zzP Q
+filazzR V
+*zzW X
+alturaRecorte{{ %
+,{{% &
+anchoRecorte{{' 3
+,{{3 4
+alturaRecorte{{5 B
+){{B C
+;{{C D
+Pieza|| 
 
-nuevaPiezaxx $
-=xx% &
-newxx' *
-Piezaxx+ 0
-{yy 
-Anchozz 
-=zz 
-tablerozz  '
-.zz' (
-AnchoDeCeldazz( 4
-,zz4 5
-Alto{{ 
-={{ 
-tablero{{ &
-.{{& '
-AlturaDeCelda{{' 4
-,{{4 5
-EstaDentroDeCelda|| )
-=||* +
-false||, 1
-,||1 2
-FilaCorrecta}} $
-=}}% &
-fila}}' +
-,}}+ ,
-ColumnaCorrecta~~ '
-=~~( )
-columna~~* 1
-} 
-; 
-
-nuevaPieza
-ÄÄ 
-.
-ÄÄ $
-EstablecerFuenteImagen
-ÄÄ 5
-(
-ÄÄ5 6"
-fuenteImagenOriginal
-ÄÄ6 J
+nuevaPieza|| $
+=||% &
+new||' *
+Pieza||+ 0
+{}} 
+Ancho~~ 
+=~~ 
+tablero~~  '
+.~~' (
+AnchoDeCelda~~( 4
+,~~4 5
+Alto 
+= 
+tablero &
+.& '
+AlturaDeCelda' 4
+,4 5
+EstaDentroDeCelda
+ÄÄ )
+=
+ÄÄ* +
+false
+ÄÄ, 1
 ,
-ÄÄJ K
+ÄÄ1 2
+FilaCorrecta
+ÅÅ $
+=
+ÅÅ% &
+fila
+ÅÅ' +
+,
+ÅÅ+ ,
+ColumnaCorrecta
+ÇÇ '
+=
+ÇÇ( )
+columna
+ÇÇ* 1
+}
+ÉÉ 
+;
+ÉÉ 
+
+nuevaPieza
+ÑÑ 
+.
+ÑÑ $
+EstablecerFuenteImagen
+ÑÑ 5
+(
+ÑÑ5 6"
+fuenteImagenOriginal
+ÑÑ6 J
+,
+ÑÑJ K
 areaRecorte
-ÄÄL W
+ÑÑL W
 )
-ÄÄW X
+ÑÑW X
 ;
-ÄÄX Y
+ÑÑX Y
 
 nuevaPieza
-ÅÅ 
+ÖÖ 
 .
-ÅÅ 
+ÖÖ 
 Borde
-ÅÅ $
+ÖÖ $
 =
-ÅÅ% &(
+ÖÖ% &(
 GenerarNuevoBordeParaPieza
-ÅÅ' A
+ÖÖ' A
 (
-ÅÅA B
+ÖÖA B
 )
-ÅÅB C
+ÖÖB C
 ;
-ÅÅC D
+ÖÖC D
 
 nuevaPieza
-ÇÇ 
+ÜÜ 
 .
-ÇÇ 3
+ÜÜ 3
 %EstablecerEstiloDePiezaSinSeleccionar
-ÇÇ D
+ÜÜ D
 (
-ÇÇD E
+ÜÜD E
 )
-ÇÇE F
+ÜÜE F
 ;
-ÇÇF G
+ÜÜF G
 tablero
-ÉÉ 
+áá 
 .
-ÉÉ 
+áá 
 Piezas
-ÉÉ "
+áá "
 .
-ÉÉ" #
+áá" #
 Add
-ÉÉ# &
+áá# &
 (
-ÉÉ& '
+áá& '
 
 nuevaPieza
-ÉÉ' 1
+áá' 1
 )
-ÉÉ1 2
+áá1 2
 ;
-ÉÉ2 3
+áá2 3
 }
-ÑÑ 
+àà 
 }
-ÖÖ 
+ââ 
 }
-ÜÜ 	
+ää 	
 private
-àà 
+åå 
 Border
-àà (
+åå (
 GenerarNuevoBordeParaPieza
-àà 1
+åå 1
 (
-àà1 2
+åå1 2
 )
-àà2 3
+åå2 3
 {
-ââ 	
+çç 	
 Border
-ää 
+éé 
 bordeImagen
-ää 
+éé 
 =
-ää  
+éé  
 new
-ää! $
+éé! $
 Border
-ää% +
+éé% +
 (
-ää+ ,
+éé+ ,
 )
-ää, -
+éé, -
 ;
-ää- .
+éé- .
 bordeImagen
-ãã 
+èè 
 .
-ãã !
+èè !
 MouseLeftButtonDown
-ãã +
+èè +
 +=
-ãã, .
+èè, .
 SeleccionarPieza
-ãã/ ?
+èè/ ?
 ;
-ãã? @
+èè? @
 bordeImagen
-åå 
+êê 
 .
-åå 
+êê 
 	MouseMove
-åå !
+êê !
 +=
-åå" $
+êê" $
 
 MoverPieza
-åå% /
+êê% /
 ;
-åå/ 0
+êê/ 0
 bordeImagen
-çç 
+ëë 
 .
-çç 
+ëë 
 MouseLeftButtonUp
-çç )
+ëë )
 +=
-çç* ,
+ëë* ,
 SoltarPieza
-çç- 8
+ëë- 8
 ;
-çç8 9
+ëë8 9
 return
-èè 
+ìì 
 bordeImagen
-èè 
+ìì 
 ;
-èè 
+ìì 
 }
-êê 	
+îî 	
 private
-íí 
+ññ 
 void
-íí )
+ññ )
 MostrarPiezasAleatoriamente
-íí 0
+ññ 0
 (
-íí0 1
+ññ0 1
 )
-íí1 2
+ññ1 2
 {
-ìì 	
+óó 	
 Random
-îî 
+òò 
 	aleatorio
-îî 
+òò 
 =
-îî 
+òò 
 new
-îî "
+òò "
 Random
-îî# )
+òò# )
 (
-îî) *
+òò) *
 )
-îî* +
+òò* +
 ;
-îî+ ,
+òò+ ,
 foreach
-ññ 
+öö 
 (
-ññ 
+öö 
 Pieza
-ññ 
+öö 
 pieza
-ññ  
+öö  
 in
-ññ! #
+öö! #
 tablero
-ññ$ +
+öö$ +
 .
-ññ+ ,
+öö+ ,
 Piezas
-ññ, 2
+öö, 2
 )
-ññ2 3
+öö2 3
 {
-óó 
+õõ 
 double
-òò 
+úú 
 anchoTablero
-òò #
+úú #
 =
-òò$ %!
+úú$ %!
 tableroRompecabezas
-òò& 9
+úú& 9
 .
-òò9 :
+úú9 :
 ActualWidth
-òò: E
+úú: E
 ;
-òòE F
+úúE F
 double
-ôô 
+ùù 
 alturaTablero
-ôô $
+ùù $
 =
-ôô% &!
+ùù% &!
 tableroRompecabezas
-ôô' :
+ùù' :
 .
-ôô: ;
+ùù: ;
 ActualHeight
-ôô; G
+ùù; G
 ;
-ôôG H
+ùùG H
 double
-öö 
+ûû 
 	posicionX
-öö  
+ûû  
 =
-öö! "
+ûû! "
 	aleatorio
-öö# ,
+ûû# ,
 .
-öö, -
+ûû, -
 
 NextDouble
-öö- 7
+ûû- 7
 (
-öö7 8
+ûû7 8
 )
-öö8 9
+ûû8 9
 *
-öö: ;
+ûû: ;
 (
-õõ 
+üü 
 anchoTablero
-õõ !
+üü !
 -
-õõ" #
+üü" #
 pieza
-õõ$ )
-.
-õõ) *
-Imagen
-õõ* 0
-.
-õõ0 1
-Width
-õõ1 6
-)
-õõ6 7
-;
-õõ7 8
-double
-úú 
-	posicionY
-úú  
-=
-úú! "
-	aleatorio
-úú# ,
-.
-úú, -
-
-NextDouble
-úú- 7
-(
-úú7 8
-)
-úú8 9
-*
-úú: ;
-(
-ùù 
-alturaTablero
-ùù "
--
-ùù# $
-pieza
-ùù% *
-.
-ùù* +
-Imagen
-ùù+ 1
-.
-ùù1 2
-Height
-ùù2 8
-)
-ùù8 9
-;
-ùù9 :
-Canvas
-ûû 
-.
-ûû 
-SetLeft
-ûû 
-(
-ûû 
-pieza
-ûû $
-.
-ûû$ %
-Borde
-ûû% *
-,
-ûû* +
-	posicionX
-ûû, 5
-)
-ûû5 6
-;
-ûû6 7
-Canvas
-üü 
-.
-üü 
-SetTop
-üü 
-(
-üü 
-pieza
-üü #
-.
-üü# $
-Borde
 üü$ )
-,
-üü) *
-	posicionY
-üü+ 4
-)
-üü4 5
-;
-üü5 6!
-tableroRompecabezas
-†† #
 .
-††# $
-Children
-††$ ,
+üü) *
+Imagen
+üü* 0
 .
-††, -
-Add
-††- 0
-(
-††0 1
-pieza
-††1 6
-.
-††6 7
-Borde
-††7 <
-)
-††< =
-;
-††= >
-}
-°° 
-}
-¢¢ 	
-private
-§§ 
-void
-§§ <
-.SobreponerEnTableroPiezasFaltantesDePosicionar
-§§ C
-(
-§§C D
-)
-§§D E
-{
-•• 	
-foreach
-¶¶ 
-(
-¶¶ 
-Pieza
-¶¶ 
-pieza
-¶¶  
-in
-¶¶! #
-tablero
-¶¶$ +
-.
-¶¶+ ,
-Piezas
-¶¶, 2
-)
-¶¶2 3
-{
-ßß 
-if
-®® 
-(
-®® 
-!
-®® 
-pieza
-®® 
-.
-®® 
-EstaDentroDeCelda
-®® ,
-)
-®®, -
-{
-©© !
-tableroRompecabezas
-™™ '
-.
-™™' (
-Children
-™™( 0
-.
-™™0 1
-Remove
-™™1 7
-(
-™™7 8
-pieza
-™™8 =
-.
-™™= >
-Borde
-™™> C
-)
-™™C D
-;
-™™D E!
-tableroRompecabezas
-´´ '
-.
-´´' (
-Children
-´´( 0
-.
-´´0 1
-Add
-´´1 4
-(
-´´4 5
-pieza
-´´5 :
-.
-´´: ;
-Borde
-´´; @
-)
-´´@ A
-;
-´´A B
-}
-¨¨ 
-}
-≠≠ 
-}
-ÆÆ 	
-private
-∞∞ 
-bool
-∞∞ -
-EsPosicionValidaParaPiezaActual
-∞∞ 4
-(
-∞∞4 5
-double
-∞∞5 ;
-nuevaPosicionX
-∞∞< J
-,
-∞∞J K
-double
-±± 
-nuevaPosicionY
-±± !
-)
-±±! "
-{
-≤≤ 	
-bool
-≥≥ 
-esPosicionValida
-≥≥ !
-=
-≥≥" #
-false
-≥≥$ )
-;
-≥≥) *
-if
-µµ 
-(
-µµ 
-(
-µµ 
-nuevaPosicionX
-µµ 
-+
-µµ  !
-piezaActual
-µµ" -
-.
-µµ- .5
-'ObtenerDiferenciaAnchoEntreImagenYBorde
-µµ. U
-(
-µµU V
-)
-µµV W
-)
-µµW X
->=
-µµY [
-$num
-µµ\ ]
-&&
-µµ^ `
-(
-∂∂ 
-nuevaPosicionY
-∂∂ 
-+
-∂∂  !
-piezaActual
-∂∂" -
-.
-∂∂- .6
-(ObtenerDiferenciaAlturaEntreImagenYBorde
-∂∂. V
-(
-∂∂V W
-)
-∂∂W X
-)
-∂∂X Y
->=
-∂∂Z \
-$num
-∂∂] ^
-&&
-∂∂_ a
-(
-∑∑ 
-piezaActual
-∑∑ 
-.
-∑∑ 
-Ancho
-∑∑ "
-+
-∑∑# $
-nuevaPosicionX
-∑∑% 3
-<=
-∑∑4 6!
-tableroRompecabezas
-∑∑7 J
-.
-∑∑J K
-ActualWidth
-∑∑K V
-)
-∑∑V W
-&&
-∑∑X Z
-(
-∏∏ 
-piezaActual
-∏∏ 
-.
-∏∏ 
-Alto
-∏∏ !
-+
-∏∏" #
-nuevaPosicionY
-∏∏$ 2
-<=
-∏∏3 5!
-tableroRompecabezas
-∏∏6 I
-.
-∏∏I J
-ActualHeight
-∏∏J V
-)
-∏∏V W
-)
-∏∏W X
-{
-ππ 
-esPosicionValida
-∫∫  
-=
-∫∫! "
-true
-∫∫# '
-;
-∫∫' (
-}
-ªª 
-return
-ΩΩ 
-esPosicionValida
-ΩΩ #
-;
-ΩΩ# $
-}
-ææ 	
-private
-¿¿ 
-Pieza
-¿¿ ,
-BuscarPiezaPertenecienteABorde
-¿¿ 4
-(
-¿¿4 5
-Border
-¿¿5 ;
-borde
-¿¿< A
-)
-¿¿A B
-{
-¡¡ 	
-var
-¬¬ 
-piezasEncontradas
-¬¬ !
-=
-¬¬" #
-tablero
-¬¬$ +
-.
-¬¬+ ,
-Piezas
-¬¬, 2
-.
-¬¬2 3
-Where
-¬¬3 8
-(
-¬¬8 9
-pieza
-¬¬9 >
-=>
-¬¬? A
-pieza
-¬¬B G
-.
-¬¬G H
-Borde
-¬¬H M
-.
-¬¬M N
-Equals
-¬¬N T
-(
-¬¬T U
-borde
-¬¬U Z
-)
-¬¬Z [
-)
-¬¬[ \
-;
-¬¬\ ]
-Pieza
-√√ 
-piezaEncontrada
-√√ !
-=
-√√" #
-new
-√√$ '
-Pieza
-√√( -
-(
-√√- .
-)
-√√. /
-;
-√√/ 0
-if
-≈≈ 
-(
-≈≈ 
-piezasEncontradas
-≈≈ !
-.
-≈≈! "
-Any
-≈≈" %
-(
-≈≈% &
-)
-≈≈& '
-)
-≈≈' (
-{
-∆∆ 
-piezaEncontrada
-«« 
-=
-««  !
-piezasEncontradas
-««" 3
-.
-««3 4
-First
-««4 9
-(
-««9 :
-)
-««: ;
-;
-««; <
-}
-»» 
-return
-   
-piezaEncontrada
-   "
-;
-  " #
-}
-ÀÀ 	
-private
-ÕÕ 
-Celda
-ÕÕ +
-BuscarCeldaPertenecienteAArea
-ÕÕ 3
-(
-ÕÕ3 4
-	Rectangle
-ÕÕ4 =
-	areaCelda
-ÕÕ> G
-)
-ÕÕG H
-{
-ŒŒ 	
-var
-œœ 
-celdasEncontradas
-œœ !
-=
-œœ" #
-tablero
-œœ$ +
-.
-œœ+ ,
-Celdas
-œœ, 2
-.
-œœ2 3
-Where
-œœ3 8
-(
-œœ8 9
-celda
-œœ9 >
-=>
-œœ? A
-celda
-œœB G
-.
-œœG H
-Area
-œœH L
-.
-œœL M
-Equals
-œœM S
-(
-œœS T
-	areaCelda
-œœT ]
-)
-œœ] ^
-)
-œœ^ _
-;
-œœ_ `
-Celda
-–– 
-celdaEncontrada
-–– !
-=
-––" #
-new
-––$ '
-Celda
-––( -
-(
-––- .
-)
-––. /
-;
-––/ 0
-if
-““ 
-(
-““ 
-celdasEncontradas
-““ !
-.
-““! "
-Any
-““" %
-(
-““% &
-)
-““& '
-)
-““' (
-{
-”” 
-celdaEncontrada
-‘‘ 
-=
-‘‘  !
-celdasEncontradas
-‘‘" 3
-.
-‘‘3 4
-First
-‘‘4 9
-(
-‘‘9 :
-)
-‘‘: ;
-;
-‘‘; <
-}
-’’ 
-return
-◊◊ 
-celdaEncontrada
-◊◊ "
-;
-◊◊" #
-}
-ÿÿ 	
-private
-⁄⁄ 
-void
-⁄⁄ 3
-%PosicionarPiezaEnCeldaCorrespondiente
-⁄⁄ :
-(
-⁄⁄: ;
-Point
-⁄⁄; @
-posicion
-⁄⁄A I
-)
-⁄⁄I J
-{
-€€ 	
-foreach
-‹‹ 
-(
-‹‹ 
-	UIElement
-‹‹ 
-control
-‹‹ &
-in
-‹‹' )!
-tableroRompecabezas
-‹‹* =
-.
-‹‹= >
-Children
-‹‹> F
-)
-‹‹F G
-{
-›› 
-if
-ﬁﬁ 
-(
-ﬁﬁ 
-control
-ﬁﬁ 
-is
-ﬁﬁ 
-	Rectangle
-ﬁﬁ (
-	areaCelda
-ﬁﬁ) 2
-)
-ﬁﬁ2 3
-{
-ﬂﬂ 
-double
-‡‡ 
-posicionXMinima
-‡‡ *
-=
-‡‡+ ,
-Canvas
-‡‡- 3
-.
-‡‡3 4
-GetLeft
-‡‡4 ;
-(
-‡‡; <
-	areaCelda
-‡‡< E
-)
-‡‡E F
-;
-‡‡F G
-double
-·· 
-posicionYMinima
-·· *
-=
-··+ ,
-Canvas
-··- 3
-.
-··3 4
-GetTop
-··4 :
-(
-··: ;
-	areaCelda
-··; D
-)
-··D E
-;
-··E F
-double
-‚‚ 
-posicionXMaxima
-‚‚ *
-=
-‚‚+ ,
-posicionXMinima
-‚‚- <
-+
-‚‚= >
-	areaCelda
-‚‚? H
-.
-‚‚H I
+üü0 1
 Width
-‚‚I N
+üü1 6
+)
+üü6 7
 ;
-‚‚N O
+üü7 8
 double
-„„ 
-posicionYMaxima
-„„ *
+†† 
+	posicionY
+††  
 =
-„„+ ,
-posicionYMinima
-„„- <
-+
-„„= >
-	areaCelda
-„„? H
+††! "
+	aleatorio
+††# ,
 .
-„„H I
+††, -
+
+NextDouble
+††- 7
+(
+††7 8
+)
+††8 9
+*
+††: ;
+(
+°° 
+alturaTablero
+°° "
+-
+°°# $
+pieza
+°°% *
+.
+°°* +
+Imagen
+°°+ 1
+.
+°°1 2
 Height
-„„I O
+°°2 8
+)
+°°8 9
 ;
-„„O P
-if
-ÂÂ 
-(
-ÂÂ 
-posicion
-ÂÂ  
-.
-ÂÂ  !
-X
-ÂÂ! "
->=
-ÂÂ# %
-posicionXMinima
-ÂÂ& 5
-&&
-ÂÂ6 8
-posicion
-ÊÊ  
-.
-ÊÊ  !
-X
-ÊÊ! "
-<=
-ÊÊ# %
-posicionXMaxima
-ÊÊ& 5
-&&
-ÊÊ6 8
-posicion
-ÁÁ  
-.
-ÁÁ  !
-Y
-ÁÁ! "
->=
-ÁÁ# %
-posicionYMinima
-ÁÁ& 5
-&&
-ÁÁ6 8
-posicion
-ËË  
-.
-ËË  !
-Y
-ËË! "
-<=
-ËË# %
-posicionYMaxima
-ËË& 5
-)
-ËË5 6
-{
-ÈÈ 
-Celda
-ÍÍ 
-celda
-ÍÍ #
-=
-ÍÍ$ %+
-BuscarCeldaPertenecienteAArea
-ÍÍ& C
-(
-ÍÍC D
-	areaCelda
-ÍÍD M
-)
-ÍÍM N
-;
-ÍÍN O
-if
-ÏÏ 
-(
-ÏÏ 
-celda
-ÏÏ !
-.
-ÏÏ! "
-Fila
-ÏÏ" &
-==
-ÏÏ' )
-piezaActual
-ÏÏ* 5
-.
-ÏÏ5 6
-FilaCorrecta
-ÏÏ6 B
-&&
-ÏÏC E
-celda
-ÌÌ !
-.
-ÌÌ! "
-Columna
-ÌÌ" )
-==
-ÌÌ* ,
-piezaActual
-ÌÌ- 8
-.
-ÌÌ8 9
-ColumnaCorrecta
-ÌÌ9 H
-)
-ÌÌH I
-{
-ÓÓ 
+°°9 :
 Canvas
-ÔÔ "
+¢¢ 
 .
-ÔÔ" #
+¢¢ 
 SetLeft
-ÔÔ# *
+¢¢ 
 (
-ÔÔ* +
-piezaActual
-ÔÔ+ 6
+¢¢ 
+pieza
+¢¢ $
 .
-ÔÔ6 7
+¢¢$ %
 Borde
-ÔÔ7 <
+¢¢% *
 ,
-ÔÔ< =
-posicionXMinima
-ÔÔ> M
+¢¢* +
+	posicionX
+¢¢, 5
 )
-ÔÔM N
+¢¢5 6
 ;
-ÔÔN O
+¢¢6 7
 Canvas
- "
+££ 
 .
-" #
+££ 
 SetTop
-# )
+££ 
 (
-) *
+££ 
+pieza
+££ #
+.
+££# $
+Borde
+££$ )
+,
+££) *
+	posicionY
+££+ 4
+)
+££4 5
+;
+££5 6!
+tableroRompecabezas
+§§ #
+.
+§§# $
+Children
+§§$ ,
+.
+§§, -
+Add
+§§- 0
+(
+§§0 1
+pieza
+§§1 6
+.
+§§6 7
+Borde
+§§7 <
+)
+§§< =
+;
+§§= >
+}
+•• 
+}
+¶¶ 	
+private
+®® 
+void
+®® <
+.SobreponerEnTableroPiezasFaltantesDePosicionar
+®® C
+(
+®®C D
+)
+®®D E
+{
+©© 	
+foreach
+™™ 
+(
+™™ 
+Pieza
+™™ 
+pieza
+™™  
+in
+™™! #
+tablero
+™™$ +
+.
+™™+ ,
+Piezas
+™™, 2
+)
+™™2 3
+{
+´´ 
+if
+¨¨ 
+(
+¨¨ 
+!
+¨¨ 
+pieza
+¨¨ 
+.
+¨¨ 
+EstaDentroDeCelda
+¨¨ ,
+)
+¨¨, -
+{
+≠≠ !
+tableroRompecabezas
+ÆÆ '
+.
+ÆÆ' (
+Children
+ÆÆ( 0
+.
+ÆÆ0 1
+Remove
+ÆÆ1 7
+(
+ÆÆ7 8
+pieza
+ÆÆ8 =
+.
+ÆÆ= >
+Borde
+ÆÆ> C
+)
+ÆÆC D
+;
+ÆÆD E!
+tableroRompecabezas
+ØØ '
+.
+ØØ' (
+Children
+ØØ( 0
+.
+ØØ0 1
+Add
+ØØ1 4
+(
+ØØ4 5
+pieza
+ØØ5 :
+.
+ØØ: ;
+Borde
+ØØ; @
+)
+ØØ@ A
+;
+ØØA B
+}
+∞∞ 
+}
+±± 
+}
+≤≤ 	
+private
+¥¥ 
+bool
+¥¥ -
+EsPosicionValidaParaPiezaActual
+¥¥ 4
+(
+¥¥4 5
+double
+¥¥5 ;
+nuevaPosicionX
+¥¥< J
+,
+¥¥J K
+double
+µµ 
+nuevaPosicionY
+µµ !
+)
+µµ! "
+{
+∂∂ 	
+bool
+∑∑ 
+esPosicionValida
+∑∑ !
+=
+∑∑" #
+false
+∑∑$ )
+;
+∑∑) *
+if
+ππ 
+(
+ππ 
+(
+ππ 
+nuevaPosicionX
+ππ 
++
+ππ  !
+piezaActual
+ππ" -
+.
+ππ- .5
+'ObtenerDiferenciaAnchoEntreImagenYBorde
+ππ. U
+(
+ππU V
+)
+ππV W
+)
+ππW X
+>=
+ππY [
+$num
+ππ\ ]
+&&
+ππ^ `
+(
+∫∫ 
+nuevaPosicionY
+∫∫ 
++
+∫∫  !
+piezaActual
+∫∫" -
+.
+∫∫- .6
+(ObtenerDiferenciaAlturaEntreImagenYBorde
+∫∫. V
+(
+∫∫V W
+)
+∫∫W X
+)
+∫∫X Y
+>=
+∫∫Z \
+$num
+∫∫] ^
+&&
+∫∫_ a
+(
+ªª 
+piezaActual
+ªª 
+.
+ªª 
+Ancho
+ªª "
++
+ªª# $
+nuevaPosicionX
+ªª% 3
+<=
+ªª4 6!
+tableroRompecabezas
+ªª7 J
+.
+ªªJ K
+ActualWidth
+ªªK V
+)
+ªªV W
+&&
+ªªX Z
+(
+ºº 
+piezaActual
+ºº 
+.
+ºº 
+Alto
+ºº !
++
+ºº" #
+nuevaPosicionY
+ºº$ 2
+<=
+ºº3 5!
+tableroRompecabezas
+ºº6 I
+.
+ººI J
+ActualHeight
+ººJ V
+)
+ººV W
+)
+ººW X
+{
+ΩΩ 
+esPosicionValida
+ææ  
+=
+ææ! "
+true
+ææ# '
+;
+ææ' (
+}
+øø 
+return
+¡¡ 
+esPosicionValida
+¡¡ #
+;
+¡¡# $
+}
+¬¬ 	
+private
+ƒƒ 
+Pieza
+ƒƒ ,
+BuscarPiezaPertenecienteABorde
+ƒƒ 4
+(
+ƒƒ4 5
+Border
+ƒƒ5 ;
+borde
+ƒƒ< A
+)
+ƒƒA B
+{
+≈≈ 	
+var
+∆∆ 
+piezasEncontradas
+∆∆ !
+=
+∆∆" #
+tablero
+∆∆$ +
+.
+∆∆+ ,
+Piezas
+∆∆, 2
+.
+∆∆2 3
+Where
+∆∆3 8
+(
+∆∆8 9
+pieza
+∆∆9 >
+=>
+∆∆? A
+pieza
+∆∆B G
+.
+∆∆G H
+Borde
+∆∆H M
+.
+∆∆M N
+Equals
+∆∆N T
+(
+∆∆T U
+borde
+∆∆U Z
+)
+∆∆Z [
+)
+∆∆[ \
+;
+∆∆\ ]
+Pieza
+«« 
+piezaEncontrada
+«« !
+=
+««" #
+new
+««$ '
+Pieza
+««( -
+(
+««- .
+)
+««. /
+;
+««/ 0
+if
+…… 
+(
+…… 
+piezasEncontradas
+…… !
+.
+……! "
+Any
+……" %
+(
+……% &
+)
+……& '
+)
+……' (
+{
+   
+piezaEncontrada
+ÀÀ 
+=
+ÀÀ  !
+piezasEncontradas
+ÀÀ" 3
+.
+ÀÀ3 4
+First
+ÀÀ4 9
+(
+ÀÀ9 :
+)
+ÀÀ: ;
+;
+ÀÀ; <
+}
+ÃÃ 
+return
+ŒŒ 
+piezaEncontrada
+ŒŒ "
+;
+ŒŒ" #
+}
+œœ 	
+private
+—— 
+Celda
+—— +
+BuscarCeldaPertenecienteAArea
+—— 3
+(
+——3 4
+	Rectangle
+——4 =
+	areaCelda
+——> G
+)
+——G H
+{
+““ 	
+var
+”” 
+celdasEncontradas
+”” !
+=
+””" #
+tablero
+””$ +
+.
+””+ ,
+Celdas
+””, 2
+.
+””2 3
+Where
+””3 8
+(
+””8 9
+celda
+””9 >
+=>
+””? A
+celda
+””B G
+.
+””G H
+Area
+””H L
+.
+””L M
+Equals
+””M S
+(
+””S T
+	areaCelda
+””T ]
+)
+””] ^
+)
+””^ _
+;
+””_ `
+Celda
+‘‘ 
+celdaEncontrada
+‘‘ !
+=
+‘‘" #
+new
+‘‘$ '
+Celda
+‘‘( -
+(
+‘‘- .
+)
+‘‘. /
+;
+‘‘/ 0
+if
+÷÷ 
+(
+÷÷ 
+celdasEncontradas
+÷÷ !
+.
+÷÷! "
+Any
+÷÷" %
+(
+÷÷% &
+)
+÷÷& '
+)
+÷÷' (
+{
+◊◊ 
+celdaEncontrada
+ÿÿ 
+=
+ÿÿ  !
+celdasEncontradas
+ÿÿ" 3
+.
+ÿÿ3 4
+First
+ÿÿ4 9
+(
+ÿÿ9 :
+)
+ÿÿ: ;
+;
+ÿÿ; <
+}
+ŸŸ 
+return
+€€ 
+celdaEncontrada
+€€ "
+;
+€€" #
+}
+‹‹ 	
+private
+ﬁﬁ 
+void
+ﬁﬁ 3
+%PosicionarPiezaEnCeldaCorrespondiente
+ﬁﬁ :
+(
+ﬁﬁ: ;
+Point
+ﬁﬁ; @
+posicion
+ﬁﬁA I
+)
+ﬁﬁI J
+{
+ﬂﬂ 	
+foreach
+‡‡ 
+(
+‡‡ 
+	UIElement
+‡‡ 
+control
+‡‡ &
+in
+‡‡' )!
+tableroRompecabezas
+‡‡* =
+.
+‡‡= >
+Children
+‡‡> F
+)
+‡‡F G
+{
+·· 
+if
+‚‚ 
+(
+‚‚ 
+control
+‚‚ 
+is
+‚‚ 
+	Rectangle
+‚‚ (
+	areaCelda
+‚‚) 2
+)
+‚‚2 3
+{
+„„ 
+double
+‰‰ 
+posicionXMinima
+‰‰ *
+=
+‰‰+ ,
+Canvas
+‰‰- 3
+.
+‰‰3 4
+GetLeft
+‰‰4 ;
+(
+‰‰; <
+	areaCelda
+‰‰< E
+)
+‰‰E F
+;
+‰‰F G
+double
+ÂÂ 
+posicionYMinima
+ÂÂ *
+=
+ÂÂ+ ,
+Canvas
+ÂÂ- 3
+.
+ÂÂ3 4
+GetTop
+ÂÂ4 :
+(
+ÂÂ: ;
+	areaCelda
+ÂÂ; D
+)
+ÂÂD E
+;
+ÂÂE F
+double
+ÊÊ 
+posicionXMaxima
+ÊÊ *
+=
+ÊÊ+ ,
+posicionXMinima
+ÊÊ- <
++
+ÊÊ= >
+	areaCelda
+ÊÊ? H
+.
+ÊÊH I
+Width
+ÊÊI N
+;
+ÊÊN O
+double
+ÁÁ 
+posicionYMaxima
+ÁÁ *
+=
+ÁÁ+ ,
+posicionYMinima
+ÁÁ- <
++
+ÁÁ= >
+	areaCelda
+ÁÁ? H
+.
+ÁÁH I
+Height
+ÁÁI O
+;
+ÁÁO P
+if
+ÈÈ 
+(
+ÈÈ 
+posicion
+ÈÈ  
+.
+ÈÈ  !
+X
+ÈÈ! "
+>=
+ÈÈ# %
+posicionXMinima
+ÈÈ& 5
+&&
+ÈÈ6 8
+posicion
+ÍÍ  
+.
+ÍÍ  !
+X
+ÍÍ! "
+<=
+ÍÍ# %
+posicionXMaxima
+ÍÍ& 5
+&&
+ÍÍ6 8
+posicion
+ÎÎ  
+.
+ÎÎ  !
+Y
+ÎÎ! "
+>=
+ÎÎ# %
+posicionYMinima
+ÎÎ& 5
+&&
+ÎÎ6 8
+posicion
+ÏÏ  
+.
+ÏÏ  !
+Y
+ÏÏ! "
+<=
+ÏÏ# %
+posicionYMaxima
+ÏÏ& 5
+)
+ÏÏ5 6
+{
+ÌÌ 
+Celda
+ÓÓ 
+celda
+ÓÓ #
+=
+ÓÓ$ %+
+BuscarCeldaPertenecienteAArea
+ÓÓ& C
+(
+ÓÓC D
+	areaCelda
+ÓÓD M
+)
+ÓÓM N
+;
+ÓÓN O
+if
+ 
+(
+ 
+celda
+ !
+.
+! "
+Fila
+" &
+==
+' )
 piezaActual
 * 5
 .
-5 6
-Borde
-6 ;
-,
-; <
-posicionYMinima
-= L
-)
-L M
-;
-M N
-piezaActual
-ÒÒ '
-.
-ÒÒ' (
-EstaDentroDeCelda
-ÒÒ( 9
-=
-ÒÒ: ;
-true
-ÒÒ< @
-;
-ÒÒ@ A<
-.SobreponerEnTableroPiezasFaltantesDePosicionar
-ÚÚ J
-(
-ÚÚJ K
-)
-ÚÚK L
-;
-ÚÚL M
-break
-ÛÛ !
-;
-ÛÛ! "
-}
-ÙÙ 
-}
-ıı 
-}
-ˆˆ 
-}
-˜˜ 
-}
-¯¯ 	
-private
-˙˙ 
-void
-˙˙ -
-RemoverEventoVentanaDesactivada
-˙˙ 4
-(
-˙˙4 5
-)
-˙˙5 6
-{
-˚˚ 	
-VentanaPrincipal
-¸¸ 
-ventanaPrincipal
-¸¸ -
-=
-¸¸. /
-(
-¸¸0 1
-VentanaPrincipal
-¸¸1 A
-)
-¸¸A B
-Window
-¸¸B H
-.
-¸¸H I
-	GetWindow
-¸¸I R
-(
-¸¸R S
-this
-¸¸S W
-)
-¸¸W X
-;
-¸¸X Y
-ventanaPrincipal
-˝˝ 
-.
-˝˝ 
-Deactivated
-˝˝ (
--=
-˝˝) +,
-SoltarPiezaAlDesactivarVentana
-˝˝, J
-;
-˝˝J K
-}
-˛˛ 	
-private
-ÄÄ 
-void
-ÄÄ  
-CargarDatosPartida
-ÄÄ '
-(
-ÄÄ' (
-object
-ÄÄ( .
-objetoOrigen
-ÄÄ/ ;
-,
-ÄÄ; <
-RoutedEventArgs
-ÄÄ= L
-evento
-ÄÄM S
-)
-ÄÄS T
-{
-ÅÅ 	
-VentanaPrincipal
-ÇÇ 
-ventanaPrincipal
-ÇÇ -
-=
-ÇÇ. /
-(
-ÇÇ0 1
-VentanaPrincipal
-ÇÇ1 A
-)
-ÇÇA B
-Window
-ÇÇB H
-.
-ÇÇH I
-	GetWindow
-ÇÇI R
-(
-ÇÇR S
-this
-ÇÇS W
-)
-ÇÇW X
-;
-ÇÇX Y
-ventanaPrincipal
-ÉÉ 
-.
-ÉÉ 
-Deactivated
-ÉÉ (
-+=
-ÉÉ) +,
-SoltarPiezaAlDesactivarVentana
-ÉÉ, J
-;
-ÉÉJ K
-CrearTablero
-ÑÑ 
-(
-ÑÑ 
-)
-ÑÑ 
-;
-ÑÑ 
-}
-ÖÖ 	
-private
-áá 
-void
-áá ,
-SoltarPiezaAlDesactivarVentana
-áá 3
-(
-áá3 4
-object
-áá4 :
-objetoOrigen
-áá; G
-,
-ááG H
-	EventArgs
-ááI R
-evento
-ááS Y
-)
-ááY Z
-{
-àà 	!
-cursorSostienePieza
-ââ 
-=
-ââ  !
-false
-ââ" '
-;
-ââ' (
-if
-ãã 
-(
-ãã 
-piezaActual
-ãã 
-!=
-ãã 
-null
-ãã #
+5 6
+FilaCorrecta
+6 B
 &&
-ãã$ &
-!
-ãã' (
-piezaActual
-ãã( 3
+C E
+celda
+ÒÒ !
 .
-ãã3 4
+ÒÒ! "
+Columna
+ÒÒ" )
+==
+ÒÒ* ,
+piezaActual
+ÒÒ- 8
+.
+ÒÒ8 9
+ColumnaCorrecta
+ÒÒ9 H
+)
+ÒÒH I
+{
+ÚÚ 
+Canvas
+ÛÛ "
+.
+ÛÛ" #
+SetLeft
+ÛÛ# *
+(
+ÛÛ* +
+piezaActual
+ÛÛ+ 6
+.
+ÛÛ6 7
+Borde
+ÛÛ7 <
+,
+ÛÛ< =
+posicionXMinima
+ÛÛ> M
+)
+ÛÛM N
+;
+ÛÛN O
+Canvas
+ÙÙ "
+.
+ÙÙ" #
+SetTop
+ÙÙ# )
+(
+ÙÙ) *
+piezaActual
+ÙÙ* 5
+.
+ÙÙ5 6
+Borde
+ÙÙ6 ;
+,
+ÙÙ; <
+posicionYMinima
+ÙÙ= L
+)
+ÙÙL M
+;
+ÙÙM N
+piezaActual
+ıı '
+.
+ıı' (
 EstaDentroDeCelda
-ãã4 E
-)
-ããE F
-{
-åå 
-piezaActual
-çç 
-.
-çç 3
-%EstablecerEstiloDePiezaSinSeleccionar
-çç A
-(
-ççA B
-)
-ççB C
+ıı( 9
+=
+ıı: ;
+true
+ıı< @
 ;
-ççC D
-}
-éé 
-}
-èè 	
-private
-ëë 
-void
-ëë $
-IrPaginaAjustesPartida
-ëë +
+ıı@ A<
+.SobreponerEnTableroPiezasFaltantesDePosicionar
+ˆˆ J
 (
-ëë+ ,
-object
-ëë, 2
-objetoOrigen
-ëë3 ?
-,
-ëë? @"
-MouseButtonEventArgs
-ëëA U
-evento
-ëëV \
+ˆˆJ K
 )
-ëë\ ]
-{
-íí 	
+ˆˆK L
+;
+ˆˆL M
+break
+˜˜ !
+;
+˜˜! "
 }
-îî 	
+¯¯ 
+}
+˘˘ 
+}
+˙˙ 
+}
+˚˚ 
+}
+¸¸ 	
 private
-ññ 
+˛˛ 
 void
-ññ 
-IniciarJuego
-ññ !
+˛˛ -
+RemoverEventoVentanaDesactivada
+˛˛ 4
 (
-ññ! "
+˛˛4 5
+)
+˛˛5 6
+{
+ˇˇ 	
+VentanaPrincipal
+ÄÄ 
+ventanaPrincipal
+ÄÄ -
+=
+ÄÄ. /
+(
+ÄÄ0 1
+VentanaPrincipal
+ÄÄ1 A
+)
+ÄÄA B
+Window
+ÄÄB H
+.
+ÄÄH I
+	GetWindow
+ÄÄI R
+(
+ÄÄR S
+this
+ÄÄS W
+)
+ÄÄW X
+;
+ÄÄX Y
+ventanaPrincipal
+ÅÅ 
+.
+ÅÅ 
+Deactivated
+ÅÅ (
+-=
+ÅÅ) +,
+SoltarPiezaAlDesactivarVentana
+ÅÅ, J
+;
+ÅÅJ K
+}
+ÇÇ 	
+private
+ÑÑ 
+void
+ÑÑ  
+CargarDatosPartida
+ÑÑ '
+(
+ÑÑ' (
 object
-ññ" (
+ÑÑ( .
 objetoOrigen
-ññ) 5
+ÑÑ/ ;
 ,
-ññ5 6
+ÑÑ; <
 RoutedEventArgs
-ññ7 F
+ÑÑ= L
 evento
-ññG M
+ÑÑM S
 )
-ññM N
+ÑÑS T
 {
-óó 	
-botonIniciar
-òò 
+ÖÖ 	
+VentanaPrincipal
+ÜÜ 
+ventanaPrincipal
+ÜÜ -
+=
+ÜÜ. /
+(
+ÜÜ0 1
+VentanaPrincipal
+ÜÜ1 A
+)
+ÜÜA B
+Window
+ÜÜB H
 .
-òò 
-	IsEnabled
-òò "
-=
-òò# $
-false
-òò% *
+ÜÜH I
+	GetWindow
+ÜÜI R
+(
+ÜÜR S
+this
+ÜÜS W
+)
+ÜÜW X
 ;
-òò* +
-BitmapImage
-ôô "
-fuenteImagenOriginal
-ôô ,
+ÜÜX Y
+ventanaPrincipal
+áá 
+.
+áá 
+Deactivated
+áá (
++=
+áá) +,
+SoltarPiezaAlDesactivarVentana
+áá, J
+;
+ááJ K
+CrearTablero
+àà 
+(
+àà 
+)
+àà 
+;
+àà 
+}
+ââ 	
+private
+ãã 
+void
+ãã ,
+SoltarPiezaAlDesactivarVentana
+ãã 3
+(
+ãã3 4
+object
+ãã4 :
+objetoOrigen
+ãã; G
+,
+ããG H
+	EventArgs
+ããI R
+evento
+ããS Y
+)
+ããY Z
+{
+åå 	!
+cursorSostienePieza
+çç 
 =
-ôô- .
+çç  !
+false
+çç" '
+;
+çç' (
+if
+èè 
+(
+èè 
+piezaActual
+èè 
+!=
+èè 
+null
+èè #
+&&
+èè$ &
+!
+èè' (
+piezaActual
+èè( 3
+.
+èè3 4
+EstaDentroDeCelda
+èè4 E
+)
+èèE F
+{
+êê 
+piezaActual
+ëë 
+.
+ëë 3
+%EstablecerEstiloDePiezaSinSeleccionar
+ëë A
+(
+ëëA B
+)
+ëëB C
+;
+ëëC D
+}
+íí 
+}
+ìì 	
+private
+ïï 
+void
+ïï $
+IrPaginaAjustesPartida
+ïï +
+(
+ïï+ ,
+object
+ïï, 2
+objetoOrigen
+ïï3 ?
+,
+ïï? @"
+MouseButtonEventArgs
+ïïA U
+evento
+ïïV \
+)
+ïï\ ]
+{
+ññ 	
+}
+òò 	
+private
+öö 
+void
+öö 
+IniciarJuego
+öö !
+(
+öö! "
+object
+öö" (
+objetoOrigen
+öö) 5
+,
+öö5 6
+RoutedEventArgs
+öö7 F
+evento
+ööG M
+)
+ööM N
+{
+õõ 	
+botonIniciar
+úú 
+.
+úú 
+	IsEnabled
+úú "
+=
+úú# $
+false
+úú% *
+;
+úú* +
+BitmapImage
+ùù "
+fuenteImagenOriginal
+ùù ,
+=
+ùù- .
 
 Utilidades
-ôô/ 9
+ùù/ 9
 .
-ôô9 :
+ùù9 :
 GeneradorImagenes
-ôô: K
+ùù: K
 .
-ôôK L-
+ùùK L-
 GenerarFuenteImagenRompecabezas
-öö /
+ûû /
 (
-öö/ 0
+ûû/ 0
 tablero
-öö0 7
+ûû0 7
 .
-öö7 8&
+ûû7 8&
 NumeroImagenRompecabezas
-öö8 P
+ûû8 P
 )
-ööP Q
+ûûP Q
 ;
-ööQ R$
+ûûQ R$
 RecortarImagenEnPiezas
-õõ "
+üü "
 (
-õõ" #"
+üü" #"
 fuenteImagenOriginal
-õõ# 7
+üü# 7
 )
-õõ7 8
+üü7 8
 ;
-õõ8 9)
+üü8 9)
 MostrarPiezasAleatoriamente
-úú '
+†† '
 (
-úú' (
+††' (
 )
-úú( )
+††( )
 ;
-úú) *
+††) *
 }
-ùù 	
+°° 	
 private
-üü 
+££ 
 void
-üü 
+££ 
 SeleccionarPieza
-üü %
+££ %
 (
-üü% &
+££% &
 object
-üü& ,
+££& ,
 objetoOrigen
-üü- 9
+££- 9
 ,
-üü9 :"
+££9 :"
 MouseButtonEventArgs
-üü; O
+££; O
 evento
-üüP V
+££P V
 )
-üüV W
+££V W
 {
-†† 	
+§§ 	
 piezaActual
-°° 
+•• 
 =
-°° ,
+•• ,
 BuscarPiezaPertenecienteABorde
-°° 8
+•• 8
 (
-°°8 9
+••8 9
 (
-°°9 :
+••9 :
 Border
-°°: @
+••: @
 )
-°°@ A
+••@ A
 objetoOrigen
-°°A M
+••A M
 )
-°°M N
+••M N
 ;
-°°N O
+••N O
 if
-££ 
+ßß 
 (
-££ 
+ßß 
 !
-££ 
+ßß 
 piezaActual
-££ 
+ßß 
 .
-££ 
+ßß 
 EstaDentroDeCelda
-££ .
+ßß .
 )
-££. /
+ßß. /
 {
-§§ !
+®® !
 tableroRompecabezas
-•• #
+©© #
 .
-••# $
+©©# $
 Children
-••$ ,
+©©$ ,
 .
-••, -
+©©, -
 Remove
-••- 3
+©©- 3
 (
-••3 4
+©©3 4
 piezaActual
-••4 ?
+©©4 ?
 .
-••? @
+©©? @
 Borde
-••@ E
+©©@ E
 )
-••E F
+©©E F
 ;
-••F G!
+©©F G!
 tableroRompecabezas
-¶¶ #
-.
-¶¶# $
-Children
-¶¶$ ,
-.
-¶¶, -
-Add
-¶¶- 0
-(
-¶¶0 1
-piezaActual
-¶¶1 <
-.
-¶¶< =
-Borde
-¶¶= B
-)
-¶¶B C
-;
-¶¶C D
-piezaActual
-ßß 
-.
-ßß 1
-#EstablecerEstiloDePiezaSeleccionada
-ßß ?
-(
-ßß? @
-)
-ßß@ A
-;
-ßßA B#
-posicionInicialCursor
-®® %
-=
-®®& '
-evento
-®®( .
-.
-®®. /
-GetPosition
-®®/ :
-(
-®®: ;!
-tableroRompecabezas
-®®; N
-)
-®®N O
-;
-®®O P
-piezaActual
-©© 
-.
-©© 
-Borde
-©© !
-.
-©©! "
-CaptureMouse
-©©" .
-(
-©©. /
-)
-©©/ 0
-;
-©©0 1!
-cursorSostienePieza
 ™™ #
-=
-™™$ %
-true
-™™& *
+.
+™™# $
+Children
+™™$ ,
+.
+™™, -
+Add
+™™- 0
+(
+™™0 1
+piezaActual
+™™1 <
+.
+™™< =
+Borde
+™™= B
+)
+™™B C
 ;
-™™* +
+™™C D
+piezaActual
+´´ 
+.
+´´ 1
+#EstablecerEstiloDePiezaSeleccionada
+´´ ?
+(
+´´? @
+)
+´´@ A
+;
+´´A B#
+posicionInicialCursor
+¨¨ %
+=
+¨¨& '
+evento
+¨¨( .
+.
+¨¨. /
+GetPosition
+¨¨/ :
+(
+¨¨: ;!
+tableroRompecabezas
+¨¨; N
+)
+¨¨N O
+;
+¨¨O P
+piezaActual
+≠≠ 
+.
+≠≠ 
+Borde
+≠≠ !
+.
+≠≠! "
+CaptureMouse
+≠≠" .
+(
+≠≠. /
+)
+≠≠/ 0
+;
+≠≠0 1!
+cursorSostienePieza
+ÆÆ #
+=
+ÆÆ$ %
+true
+ÆÆ& *
+;
+ÆÆ* +
 }
-´´ 
+ØØ 
 }
-¨¨ 	
+∞∞ 	
 private
-ÆÆ 
+≤≤ 
 void
-ÆÆ 
+≤≤ 
 
 MoverPieza
-ÆÆ 
+≤≤ 
 (
-ÆÆ  
+≤≤  
 object
-ÆÆ  &
+≤≤  &
 objetoOrigen
-ÆÆ' 3
+≤≤' 3
 ,
-ÆÆ3 4
+≤≤3 4
 MouseEventArgs
-ÆÆ5 C
+≤≤5 C
 evento
-ÆÆD J
+≤≤D J
 )
-ÆÆJ K
+≤≤J K
 {
-ØØ 	
+≥≥ 	
 if
-∞∞ 
+¥¥ 
 (
-∞∞ !
+¥¥ !
 cursorSostienePieza
-∞∞ #
+¥¥ #
 )
-∞∞# $
+¥¥# $
 {
-±± 
+µµ 
 piezaActual
-≤≤ 
+∂∂ 
 =
-≤≤ ,
+∂∂ ,
 BuscarPiezaPertenecienteABorde
-≤≤ <
+∂∂ <
 (
-≤≤< =
+∂∂< =
 (
-≤≤= >
+∂∂= >
 Border
-≤≤> D
+∂∂> D
 )
-≤≤D E
+∂∂D E
 objetoOrigen
-≤≤E Q
+∂∂E Q
 )
-≤≤Q R
+∂∂Q R
 ;
-≤≤R S
+∂∂R S
 Point
-≥≥ "
+∑∑ "
 posicionActualCursor
-≥≥ *
+∑∑ *
 =
-≥≥+ ,
+∑∑+ ,
 evento
-≥≥- 3
+∑∑- 3
 .
-≥≥3 4
+∑∑3 4
 GetPosition
-≥≥4 ?
+∑∑4 ?
 (
-≥≥? @!
+∑∑? @!
 tableroRompecabezas
-≥≥@ S
+∑∑@ S
 )
-≥≥S T
+∑∑S T
 ;
-≥≥T U
+∑∑T U
 double
-¥¥ !
+∏∏ !
 diferenciaPosicionX
-¥¥ *
+∏∏ *
 =
-¥¥+ ,"
+∏∏+ ,"
 posicionActualCursor
-¥¥- A
+∏∏- A
 .
-¥¥A B
+∏∏A B
 X
-¥¥B C
+∏∏B C
 -
-¥¥D E#
+∏∏D E#
 posicionInicialCursor
-¥¥F [
+∏∏F [
 .
-¥¥[ \
+∏∏[ \
 X
-¥¥\ ]
+∏∏\ ]
 ;
-¥¥] ^
+∏∏] ^
 double
-µµ !
+ππ !
 diferenciaPosicionY
-µµ *
+ππ *
 =
-µµ+ ,"
+ππ+ ,"
 posicionActualCursor
-µµ- A
+ππ- A
 .
-µµA B
+ππA B
 Y
-µµB C
+ππB C
 -
-µµD E#
+ππD E#
 posicionInicialCursor
-µµF [
+ππF [
 .
-µµ[ \
+ππ[ \
 Y
-µµ\ ]
+ππ\ ]
 ;
-µµ] ^
+ππ] ^
 double
-∂∂ 
+∫∫ 
 nuevaPosicionX
-∂∂ %
+∫∫ %
 =
-∂∂& '
+∫∫& '
 Canvas
-∂∂( .
+∫∫( .
 .
-∂∂. /
+∫∫. /
 GetLeft
-∂∂/ 6
+∫∫/ 6
 (
-∂∂6 7
+∫∫6 7
 piezaActual
-∂∂7 B
+∫∫7 B
 .
-∂∂B C
+∫∫B C
 Borde
-∂∂C H
+∫∫C H
 )
-∂∂H I
+∫∫H I
 +
-∂∂J K!
+∫∫J K!
 diferenciaPosicionX
-∂∂L _
+∫∫L _
 ;
-∂∂_ `
+∫∫_ `
 double
-∑∑ 
+ªª 
 nuevaPosicionY
-∑∑ %
+ªª %
 =
-∑∑& '
+ªª& '
 Canvas
-∑∑( .
+ªª( .
 .
-∑∑. /
+ªª. /
 GetTop
-∑∑/ 5
+ªª/ 5
 (
-∑∑5 6
+ªª5 6
 piezaActual
-∑∑6 A
+ªª6 A
 .
-∑∑A B
+ªªA B
 Borde
-∑∑B G
+ªªB G
 )
-∑∑G H
+ªªG H
 +
-∑∑I J!
+ªªI J!
 diferenciaPosicionY
-∑∑K ^
+ªªK ^
 ;
-∑∑^ _
+ªª^ _
 if
-ππ 
+ΩΩ 
 (
-ππ -
+ΩΩ -
 EsPosicionValidaParaPiezaActual
-ππ 3
+ΩΩ 3
 (
-ππ3 4
+ΩΩ3 4
 nuevaPosicionX
-ππ4 B
+ΩΩ4 B
 ,
-ππB C
+ΩΩB C
 nuevaPosicionY
-ππD R
+ΩΩD R
 )
-ππR S
+ΩΩR S
 )
-ππS T
+ΩΩS T
 {
-∫∫ 
+ææ 
 Canvas
-ªª 
+øø 
 .
-ªª 
+øø 
 SetLeft
-ªª "
+øø "
 (
-ªª" #
+øø" #
 piezaActual
-ªª# .
+øø# .
 .
-ªª. /
+øø. /
 Borde
-ªª/ 4
+øø/ 4
 ,
-ªª4 5
+øø4 5
 Canvas
-ºº 
+¿¿ 
 .
-ºº 
+¿¿ 
 GetLeft
-ºº &
+¿¿ &
 (
-ºº& '
+¿¿& '
 piezaActual
-ºº' 2
+¿¿' 2
 .
-ºº2 3
+¿¿2 3
 Borde
-ºº3 8
+¿¿3 8
 )
-ºº8 9
+¿¿8 9
 +
-ºº: ;!
+¿¿: ;!
 diferenciaPosicionX
-ºº< O
+¿¿< O
 )
-ººO P
+¿¿O P
 ;
-ººP Q
+¿¿P Q
 Canvas
-ΩΩ 
+¡¡ 
 .
-ΩΩ 
+¡¡ 
 SetTop
-ΩΩ !
+¡¡ !
 (
-ΩΩ! "
+¡¡! "
 piezaActual
-ΩΩ" -
+¡¡" -
 .
-ΩΩ- .
+¡¡- .
 Borde
-ΩΩ. 3
+¡¡. 3
 ,
-ΩΩ3 4
+¡¡3 4
 Canvas
-ææ 
+¬¬ 
 .
-ææ 
+¬¬ 
 GetTop
-ææ %
+¬¬ %
 (
-ææ% &
+¬¬% &
 piezaActual
-ææ& 1
+¬¬& 1
 .
-ææ1 2
+¬¬1 2
 Borde
-ææ2 7
+¬¬2 7
 )
-ææ7 8
+¬¬7 8
 +
-ææ9 :!
+¬¬9 :!
 diferenciaPosicionY
-ææ; N
+¬¬; N
 )
-ææN O
+¬¬N O
 ;
-ææO P#
+¬¬O P#
 posicionInicialCursor
-øø )
+√√ )
 =
-øø* +"
+√√* +"
 posicionActualCursor
-øø, @
+√√, @
 ;
-øø@ A
+√√@ A
 }
-¿¿ 
+ƒƒ 
 }
-¡¡ 
+≈≈ 
 }
-¬¬ 	
+∆∆ 	
 private
-ƒƒ 
+»» 
 void
-ƒƒ 
+»» 
 SoltarPieza
-ƒƒ  
+»»  
 (
-ƒƒ  !
+»»  !
 object
-ƒƒ! '
+»»! '
 objetoOrigen
-ƒƒ( 4
+»»( 4
 ,
-ƒƒ4 5"
+»»4 5"
 MouseButtonEventArgs
-ƒƒ6 J
+»»6 J
 evento
-ƒƒK Q
+»»K Q
 )
-ƒƒQ R
+»»Q R
 {
-≈≈ 	
+…… 	
 if
-∆∆ 
+   
 (
-∆∆ !
+   !
 cursorSostienePieza
-∆∆ #
+   #
 )
-∆∆# $
+  # $
 {
-«« 
+ÀÀ 
 piezaActual
-»» 
+ÃÃ 
 .
-»» 
+ÃÃ 
 Borde
-»» !
+ÃÃ !
 .
-»»! "!
+ÃÃ! "!
 ReleaseMouseCapture
-»»" 5
+ÃÃ" 5
 (
-»»5 6
+ÃÃ5 6
 )
-»»6 7
+ÃÃ6 7
 ;
-»»7 8!
+ÃÃ7 8!
 cursorSostienePieza
-…… #
+ÕÕ #
 =
-……$ %
+ÕÕ$ %
 false
-……& +
+ÕÕ& +
 ;
-……+ ,
+ÕÕ+ ,
 piezaActual
-   
+ŒŒ 
 =
-   ,
+ŒŒ ,
 BuscarPiezaPertenecienteABorde
-   <
+ŒŒ <
 (
-  < =
+ŒŒ< =
 (
-  = >
+ŒŒ= >
 Border
-  > D
+ŒŒ> D
 )
-  D E
+ŒŒD E
 objetoOrigen
-  E Q
+ŒŒE Q
 )
-  Q R
+ŒŒQ R
 ;
-  R S
+ŒŒR S
 piezaActual
-ÀÀ 
+œœ 
 .
-ÀÀ 
+œœ 
 Borde
-ÀÀ !
+œœ !
 .
-ÀÀ! "
+œœ! "
 BorderBrush
-ÀÀ" -
+œœ" -
 =
-ÀÀ. /
+œœ. /
 Brushes
-ÀÀ0 7
+œœ0 7
 .
-ÀÀ7 8
+œœ7 8
 Transparent
-ÀÀ8 C
+œœ8 C
 ;
-ÀÀC D
+œœC D
 Point
-ÃÃ 
+–– 
 posicionActual
-ÃÃ $
+–– $
 =
-ÃÃ% &
+––% &
 evento
-ÃÃ' -
+––' -
 .
-ÃÃ- .
+––- .
 GetPosition
-ÃÃ. 9
+––. 9
 (
-ÃÃ9 :!
+––9 :!
 tableroRompecabezas
-ÃÃ: M
+––: M
 )
-ÃÃM N
+––M N
 ;
-ÃÃN O
+––N O
 piezaActual
-ÕÕ 
+—— 
 .
-ÕÕ 3
+—— 3
 %EstablecerEstiloDePiezaSinSeleccionar
-ÕÕ A
+—— A
 (
-ÕÕA B
+——A B
 )
-ÕÕB C
+——B C
 ;
-ÕÕC D3
+——C D3
 %PosicionarPiezaEnCeldaCorrespondiente
-ŒŒ 5
+““ 5
 (
-ŒŒ5 6
+““5 6
 posicionActual
-ŒŒ6 D
+““6 D
 )
-ŒŒD E
+““D E
 ;
-ŒŒE F
+““E F
 if
-œœ 
+”” 
 (
-œœ 
+”” 
 tablero
-œœ 
+”” 
 .
-œœ &
+”” &
 EsRompecabezasCompletado
-œœ 4
+”” 4
 (
-œœ4 5
+””4 5
 )
-œœ5 6
+””5 6
 )
-œœ6 7
+””6 7
 {
-–– 
+‘‘ 
 
 MessageBox
-—— 
+’’ 
 .
-—— 
+’’ 
 Show
-—— #
+’’ #
 (
-——# $
+’’# $
 
 Properties
-——$ .
+’’$ .
 .
-——. /
+’’. /
 	Resources
-——/ 8
+’’/ 8
 .
-——8 9.
+’’8 9.
  ETIQUETA_PARTIDA_JUEGOFINALIZADO
-——9 Y
+’’9 Y
 )
-——Y Z
+’’Y Z
 ;
-——Z [-
+’’Z [-
 RemoverEventoVentanaDesactivada
-““ 3
+÷÷ 3
 (
-““3 4
+÷÷3 4
 )
-““4 5
+÷÷4 5
 ;
-““5 6
+÷÷5 6
 VentanaPrincipal
-”” $
+◊◊ $
 .
-””$ %
+◊◊$ %
 CambiarPagina
-””% 2
+◊◊% 2
 (
-””2 3
+◊◊2 3
 new
-””3 6
+◊◊3 6
 PaginaResultados
-””7 G
+◊◊7 G
 (
-””G H
+◊◊G H
 )
-””H I
+◊◊H I
 )
-””I J
+◊◊I J
 ;
-””J K
+◊◊J K
 }
-‘‘ 
+ÿÿ 
 }
-’’ 
+ŸŸ 
 }
-÷÷ 	
+⁄⁄ 	
 public
-ÿÿ 
+‹‹ 
 void
-ÿÿ ,
+‹‹ ,
 ActualizarNuevaPosicionDePieza
-ÿÿ 2
+‹‹ 2
 (
-ÿÿ2 3
+‹‹2 3
 double
-ÿÿ3 9
+‹‹3 9
 	posicionX
-ÿÿ: C
+‹‹: C
 ,
-ÿÿC D
+‹‹C D
 double
-ÿÿE K
+‹‹E K
 	posicionY
-ÿÿL U
+‹‹L U
 )
-ÿÿU V
+‹‹U V
 {
-ŸŸ 	
+›› 	
 throw
-⁄⁄ 
+ﬁﬁ 
 new
-⁄⁄ %
+ﬁﬁ %
 NotImplementedException
-⁄⁄ -
+ﬁﬁ -
 (
-⁄⁄- .
+ﬁﬁ- .
 )
-⁄⁄. /
+ﬁﬁ. /
 ;
-⁄⁄/ 0
+ﬁﬁ/ 0
 }
-€€ 	
+ﬂﬂ 	
 }
-‹‹ 
-}›› É
-~C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaRecuperacionContrasena.xaml.cs
+‡‡ 
+}·· é
+àC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaRecuperacionContrasena.xaml.cs
 	namespace 	
 RompecabezasFei
  
@@ -14507,8 +14642,8 @@ Properties(( 
 ;..D E
 }// 	
 }00 
-}11 —o
-wC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaRegistroJugador.xaml.cs
+}11 ‹o
+ÅC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaRegistroJugador.xaml.cs
 	namespace 	
 RompecabezasFei
  
@@ -15374,8 +15509,8 @@ Properties
 ≠≠ 	
 }
 ÆÆ 
-}ØØ £
-rC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaResultados.xaml.cs
+}ØØ ≠
+|C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaResultados.xaml.cs
 	namespace 	
 RompecabezasFei
  
@@ -15388,52 +15523,50 @@ rC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 :* +
 Page, 0
 { 
-public		 
-PaginaResultados		 
-(		  
-)		  !
-{
-
- 	
-InitializeComponent 
+public 
+PaginaResultados 
 (  
 )  !
-;! "
-} 	
-private 
-void 
-IrAPaginaSala "
-(" #
-object# )
-objetoOrigen* 6
-,6 7
-RoutedEventArgs8 G
-eventoH N
-)N O
-{ 	
+{ 	
+InitializeComponent 
+(  
+)  !
+;! "
+} 	
+private 
+void 
+IrAPaginaSala "
+(" #
+object# )
+objetoOrigen* 6
+,6 7
+RoutedEventArgs8 G
+eventoH N
+)N O
+{ 	
 
-PaginaSala 
+PaginaSala 
 
-paginaSala !
-=" #
-new$ '
+paginaSala !
+=" #
+new$ '
 
-PaginaSala( 2
-(2 3
-)3 4
-;4 5
-VentanaPrincipal 
-. 
-CambiarPagina *
-(* +
+PaginaSala( 2
+(2 3
+)3 4
+;4 5
+VentanaPrincipal 
+. 
+CambiarPagina *
+(* +
 
-paginaSala+ 5
-)5 6
-;6 7
-} 	
-} 
-} ⁄&
-ÇC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaRestablecimientoContrasena.xaml.cs
+paginaSala+ 5
+)5 6
+;6 7
+} 	
+} 
+}   ‰&
+åC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaRestablecimientoContrasena.xaml.cs
 	namespace 	
 RompecabezasFei
  
@@ -15693,8 +15826,8 @@ contrasena??H R
 ;DD" #
 }EE 	
 }FF 
-}GG üâ
-lC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaSala.xaml.cs
+}GG ¥ë
+vC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaSala.xaml.cs
 	namespace 	
 RompecabezasFei
  
@@ -15720,1201 +15853,1313 @@ PaginaSala #
 ,* +!
 IServicioSalaCallback, A
 { 
-private 
-ServicioSalaClient " 
-clienteServicioJuego# 7
-;7 8
-public 
-string 
+private 
+string 
 
-CodigoSala  
-{! "
-get# &
-;& '
-set( +
-;+ ,
-}- .
-public 
-bool 
-EsAnfitrion 
-{  !
-get" %
-;% &
-set' *
-;* +
-}, -
-public  
-ObservableCollection #
-<# $
-Dominio$ +
-.+ ,
-CuentaJugador, 9
->9 :
-JugadoresEnSala; J
-{K L
-getM P
-;P Q
-setR U
-;U V
-}W X
-public 
+codigoSala !
+;! "
+private 
+bool 
+esAnfitrion  
+;  !
+private 
+ServicioSalaClient " 
+clienteServicioJuego# 7
+;7 8
+private  
+ObservableCollection $
+<$ %
+Dominio% ,
+., -
+CuentaJugador- :
+>: ;
+jugadoresEnSala< K
+;K L
+public 
+string 
 
-PaginaSala 
-( 
-) 
-{ 	
-InitializeComponent 
-(  
-)  !
-;! "
-JugadoresEnSala 
-= 
-new ! 
-ObservableCollection" 6
-<6 7
-Dominio7 >
-.> ?
-CuentaJugador? L
->L M
-(M N
-)N O
-;O P
-listaJugadoresSala 
-. 
-DataContext *
-=+ ,
-this- 1
-;1 2
-} 	
-private 
-void "
-IrAPaginaMenuPrincipal +
-(+ ,
-object, 2
-objetoOrigen3 ?
-,? @ 
-MouseButtonEventArgsA U
-eventoV \
-)\ ]
-{   	$
-FinalizarConexionConSala!! $
-(!!$ %
-)!!% &
-;!!& '
-VentanaPrincipal"" 
-."" 
-CambiarPagina"" *
-(""* +
-new""+ .
-PaginaMenuPrincipal""/ B
-(""B C
-)""C D
-)""D E
-;""E F
-}## 	
-private%% 
-void%% ,
- CopiarCodigoDeSalaEnPortapapeles%% 5
-(%%5 6
-object%%6 <
-objetoOrigen%%= I
-,%%I J
-RoutedEventArgs&& 
-evento&& "
-)&&" #
-{'' 	
-	Clipboard(( 
-.(( 
-SetText(( 
-((( 
+CodigoSala  
+{ 	
+get 
+{ 
+return 
 
-CodigoSala(( (
-)((( )
-;(() *
-})) 	
-private++ 
-void++ %
-EnviarMensajeEnChatDeSala++ .
-(++. /
-object++/ 5
-objetoOrigen++6 B
-,++B C
-RoutedEventArgs++D S
-evento++T Z
-)++Z [
-{,, 	
-if-- 
-(-- 
-!-- 
-ValidadorDatos-- 
-.--  
-EsCadenaVacia--  -
-(--- .%
-cuadroTextoMensajeUsuario--. G
-.--G H
-Text--H L
-.--L M
-Trim--M Q
-(--Q R
-)--R S
-)--S T
-)--T U
-{..  
-clienteServicioJuego// $
-.//$ %
-EnviarMensajeDeSala//% 8
-(//8 9
-Dominio//9 @
-.//@ A
-CuentaJugador//A N
-.//N O
-Actual00 
-.00 
-NombreJugador00 (
-,00( )
+codigoSala #
+;# $
+}% &
+set 
+{ 
 
-CodigoSala00* 4
-,004 5%
-cuadroTextoMensajeUsuario006 O
-.00O P
-Text00P T
-)00T U
-;00U V%
-cuadroTextoMensajeUsuario11 )
-.11) *
-Clear11* /
-(11/ 0
-)110 1
-;111 2
-}22 
-}33 	
-private55 
-void55 )
-IrAPaginaCreacionNuevaPartida55 2
-(552 3
-object553 9
-objetoOrigen55: F
-,55F G
-RoutedEventArgs55H W
-evento55X ^
-)55^ _
-{66 	&
-PaginaCreacionNuevaPartida77 &&
-paginaCreacionNuevaPartida77' A
-=77B C
-new88 &
-PaginaCreacionNuevaPartida88 .
-(88. /
-)88/ 0
-;880 1&
-paginaCreacionNuevaPartida99 &
-.99& '
+codigoSala 
+= 
+value $
+;$ %
+}& '
+} 	
+public 
+bool 
+EsAnfitrion 
+{ 	
+get 
+{ 
+return 
+esAnfitrion $
+;$ %
+}& '
+set 
+{ 
+esAnfitrion 
+= 
+value  %
+;% &
+}' (
+} 	
+public!!  
+ObservableCollection!! #
+<!!# $
+Dominio!!$ +
+.!!+ ,
+CuentaJugador!!, 9
+>!!9 :
+JugadoresEnSala!!; J
+{"" 	
+get## 
+{## 
+return## 
+jugadoresEnSala## (
+;##( )
+}##* +
+set$$ 
+{$$ 
+jugadoresEnSala$$ !
+=$$" #
+value$$$ )
+;$$) *
+}$$+ ,
+}%% 	
+public'' 
 
-CodigoSala99' 1
-=992 3
+PaginaSala'' 
+('' 
+)'' 
+{(( 	
+InitializeComponent)) 
+())  
+)))  !
+;))! "
+jugadoresEnSala** 
+=** 
+new** ! 
+ObservableCollection**" 6
+<**6 7
+Dominio**7 >
+.**> ?
+CuentaJugador**? L
+>**L M
+(**M N
+)**N O
+;**O P
+listaJugadoresSala++ 
+.++ 
+DataContext++ *
+=+++ ,
+this++- 1
+;++1 2
+},, 	
+private.. 
+void.. "
+IrAPaginaMenuPrincipal.. +
+(..+ ,
+object.., 2
+objetoOrigen..3 ?
+,..? @ 
+MouseButtonEventArgs..A U
+evento..V \
+)..\ ]
+{// 	$
+FinalizarConexionConSala00 $
+(00$ %
+)00% &
+;00& '
+VentanaPrincipal11 
+.11 
+CambiarPagina11 *
+(11* +
+new11+ .
+PaginaMenuPrincipal11/ B
+(11B C
+)11C D
+)11D E
+;11E F
+}22 	
+private44 
+void44 ,
+ CopiarCodigoDeSalaEnPortapapeles44 5
+(445 6
+object446 <
+objetoOrigen44= I
+,44I J
+RoutedEventArgs55 
+evento55 "
+)55" #
+{66 	
+	Clipboard77 
+.77 
+SetText77 
+(77 
 
-CodigoSala994 >
-;99> ?
-VentanaPrincipal:: 
-.:: 
-CambiarPagina:: *
-(::* +&
-paginaCreacionNuevaPartida::+ E
-)::E F
-;::F G
-};; 	
-public== 
-void== 
-UnirseASala== 
-(==  
-)==  !
-{>> 	 
-clienteServicioJuego??  
-=??! "
-new??# &
-ServicioSalaClient??' 9
-(??9 :
-new??: =
-InstanceContext??> M
-(??M N
-this??N R
-)??R S
-)??S T
-;??T U
-ifAA 
-(AA 
-EsAnfitrionAA 
-)AA 
-{BB 
-botonNuevaPartidaCC !
-.CC! "
+codigoSala77 (
+)77( )
+;77) *
+}88 	
+private:: 
+void:: %
+EnviarMensajeEnChatDeSala:: .
+(::. /
+object::/ 5
+objetoOrigen::6 B
+,::B C
+RoutedEventArgs::D S
+evento::T Z
+)::Z [
+{;; 	
+if<< 
+(<< 
+!<< 
+ValidadorDatos<< 
+.<<  
+EsCadenaVacia<<  -
+(<<- .%
+cuadroTextoMensajeUsuario<<. G
+.<<G H
+Text<<H L
+.<<L M
+Trim<<M Q
+(<<Q R
+)<<R S
+)<<S T
+)<<T U
+{==  
+clienteServicioJuego>> $
+.>>$ %
+EnviarMensajeDeSala>>% 8
+(>>8 9
+Dominio>>9 @
+.>>@ A
+CuentaJugador>>A N
+.>>N O
+Actual?? 
+.?? 
+NombreJugador?? (
+,??( )
 
-VisibilityCC" ,
-=CC- .
+codigoSala??* 4
+,??4 5%
+cuadroTextoMensajeUsuario??6 O
+.??O P
+Text??P T
+)??T U
+;??U V%
+cuadroTextoMensajeUsuario@@ )
+.@@) *
+Clear@@* /
+(@@/ 0
+)@@0 1
+;@@1 2
+}AA 
+}BB 	
+privateDD 
+voidDD )
+IrAPaginaCreacionNuevaPartidaDD 2
+(DD2 3
+objectDD3 9
+objetoOrigenDD: F
+,DDF G
+RoutedEventArgsDDH W
+eventoDDX ^
+)DD^ _
+{EE 	&
+PaginaCreacionNuevaPartidaFF &&
+paginaCreacionNuevaPartidaFF' A
+=FFB C
+newGG &
+PaginaCreacionNuevaPartidaGG .
+(GG. /
+)GG/ 0
+;GG0 1&
+paginaCreacionNuevaPartidaHH &
+.HH& '
 
-VisibilityCC/ 9
-.CC9 :
-VisibleCC: A
-;CCA B
-CrearNuevaSalaDD 
-(DD 
-)DD  
-;DD  !
-}EE 
-elseFF 
-{GG 
-botonNuevaPartidaHH !
-.HH! "
+CodigoSalaHH' 1
+=HH2 3
 
-VisibilityHH" ,
-=HH- .
+codigoSalaHH4 >
+;HH> ?
+VentanaPrincipalII 
+.II 
+CambiarPaginaII *
+(II* +&
+paginaCreacionNuevaPartidaII+ E
+)IIE F
+;IIF G
+}JJ 	
+publicLL 
+voidLL 
+UnirseASalaLL 
+(LL  
+)LL  !
+{MM 	 
+clienteServicioJuegoNN  
+=NN! "
+newNN# &
+ServicioSalaClientNN' 9
+(NN9 :
+newNN: =
+InstanceContextNN> M
+(NNM N
+thisNNN R
+)NNR S
+)NNS T
+;NNT U
+ifPP 
+(PP 
+esAnfitrionPP 
+)PP 
+{QQ 
+botonNuevaPartidaRR !
+.RR! "
 
-VisibilityHH/ 9
-.HH9 :
-HiddenHH: @
-;HH@ A!
-CargarJugadoresEnSalaII %
-(II% &
-)II& '
-;II' (
-}JJ 
-etiquetaCodigoSalaLL 
-.LL 
-ContentLL &
-=LL' (
+VisibilityRR" ,
+=RR- .
 
-CodigoSalaLL) 3
-;LL3 4&
-ConectarCuentaJugadorASalaMM &
-(MM& '
-DominioMM' .
-.MM. /
-CuentaJugadorMM/ <
-.MM< =
-ActualMM= C
-.MMC D
-NombreJugadorMMD Q
-)MMQ R
-;MMR S
-JugadoresEnSalaNN 
-.NN 
-AddNN 
-(NN  
-DominioNN  '
-.NN' (
-CuentaJugadorNN( 5
-.NN5 6
-ActualNN6 <
-)NN< =
-;NN= >
-}OO 	
-privateQQ 
-voidQQ &
-ConectarCuentaJugadorASalaQQ /
-(QQ/ 0
-stringQQ0 6
-nombreJugadorQQ7 D
-)QQD E
-{RR 	
-trySS 
-{TT  
-clienteServicioJuegoUU $
-.UU$ %&
-ConectarCuentaJugadorASalaUU% ?
-(UU? @
-nombreJugadorUU@ M
-,UUM N
+VisibilityRR/ 9
+.RR9 :
+VisibleRR: A
+;RRA B
+CrearNuevaSalaSS 
+(SS 
+)SS  
+;SS  !
+}TT 
+elseUU 
+{VV 
+botonNuevaPartidaWW !
+.WW! "
 
-CodigoSalaVV 
-,VV 
+VisibilityWW" ,
+=WW- .
 
-PropertiesVV  *
-.VV* +
-	ResourcesVV+ 4
-.VV4 5+
-ETIQUETA_MENSAJESALA_BIENVENIDAVV5 T
-)VVT U
-;VVU V
-}WW 
-catchXX 
-(XX %
-EndpointNotFoundExceptionXX ,
-	excepcionXX- 6
-)XX6 7
-{YY 
+VisibilityWW/ 9
+.WW9 :
+HiddenWW: @
+;WW@ A!
+CargarJugadoresEnSalaXX %
+(XX% &
+)XX& '
+;XX' (
+}YY 
+etiquetaCodigoSala[[ 
+.[[ 
+Content[[ &
+=[[' (
 
-MessageBox[[ 
-.[[ 
-Show[[ 
-([[  
+codigoSala[[) 3
+;[[3 4&
+ConectarCuentaJugadorASala\\ &
+(\\& '
+Dominio\\' .
+.\\. /
+CuentaJugador\\/ <
+.\\< =
+Actual\\= C
+.\\C D
+NombreJugador\\D Q
+)\\Q R
+;\\R S
+jugadoresEnSala]] 
+.]] 
+Add]] 
+(]]  
+Dominio]]  '
+.]]' (
+CuentaJugador]]( 5
+.]]5 6
+Actual]]6 <
+)]]< =
+;]]= >
+}^^ 	
+private`` 
+void`` &
+ConectarCuentaJugadorASala`` /
+(``/ 0
+string``0 6
+nombreJugador``7 D
+)``D E
+{aa 	
+trybb 
+{cc  
+clienteServicioJuegodd $
+.dd$ %&
+ConectarCuentaJugadorASaladd% ?
+(dd? @
+nombreJugadordd@ M
+,ddM N
 
-Properties[[  *
-.[[* +
-	Resources[[+ 4
-.[[4 52
-&ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE\\ :
-,\\: ;
+codigoSalaee 
+,ee 
 
-Properties\\< F
-.\\F G
-	Resources\\G P
-.\\P Q1
-%ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO]] 9
-,]]9 :
-MessageBoxButton^^ $
-.^^$ %
-OK^^% '
-,^^' (
-MessageBoxImage^^) 8
-.^^8 9
-Error^^9 >
-)^^> ?
-;^^? @ 
-clienteServicioJuego__ $
-.__$ %
-Abort__% *
-(__* +
-)__+ ,
-;__, -
-}`` 
-catchaa 
-(aa /
-#CommunicationObjectFaultedExceptionaa 6
-	excepcionaa7 @
-)aa@ A
-{bb 
+Propertiesee  *
+.ee* +
+	Resourcesee+ 4
+.ee4 5+
+ETIQUETA_MENSAJESALA_BIENVENIDAee5 T
+)eeT U
+;eeU V
+}ff 
+catchgg 
+(gg %
+EndpointNotFoundExceptiongg ,
+	excepciongg- 6
+)gg6 7
+{hh 
 
-MessageBoxdd 
-.dd 
-Showdd 
-(dd  
+MessageBoxjj 
+.jj 
+Showjj 
+(jj  
 
-Propertiesdd  *
-.dd* +
-	Resourcesdd+ 4
-.dd4 52
-&ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJEee :
-,ee: ;
+Propertiesjj  *
+.jj* +
+	Resourcesjj+ 4
+.jj4 52
+&ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJEkk :
+,kk: ;
 
-Propertiesee< F
-.eeF G
-	ResourceseeG P
-.eeP Q1
-%ETIQUETA_ERRORCONEXIONSERVIDOR_TITULOff 9
-,ff9 :
-MessageBoxButtongg $
-.gg$ %
-OKgg% '
-,gg' (
-MessageBoxImagegg) 8
-.gg8 9
-Errorgg9 >
-)gg> ?
-;gg? @ 
-clienteServicioJuegohh $
-.hh$ %
-Aborthh% *
-(hh* +
-)hh+ ,
-;hh, -
-}ii 
-catchjj 
-(jj 
-TimeoutExceptionjj #
-	excepcionjj$ -
-)jj- .
-{kk 
+Propertieskk< F
+.kkF G
+	ResourceskkG P
+.kkP Q1
+%ETIQUETA_ERRORCONEXIONSERVIDOR_TITULOll 9
+,ll9 :
+MessageBoxButtonmm $
+.mm$ %
+OKmm% '
+,mm' (
+MessageBoxImagemm) 8
+.mm8 9
+Errormm9 >
+)mm> ?
+;mm? @ 
+clienteServicioJuegonn $
+.nn$ %
+Abortnn% *
+(nn* +
+)nn+ ,
+;nn, -
+}oo 
+catchpp 
+(pp /
+#CommunicationObjectFaultedExceptionpp 6
+	excepcionpp7 @
+)pp@ A
+{qq 
 
-MessageBoxmm 
-.mm 
-Showmm 
-(mm  
+MessageBoxss 
+.ss 
+Showss 
+(ss  
 
-Propertiesmm  *
-.mm* +
-	Resourcesmm+ 4
-.mm4 52
-&ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJEnn :
-,nn: ;
+Propertiesss  *
+.ss* +
+	Resourcesss+ 4
+.ss4 52
+&ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJEtt :
+,tt: ;
 
-Propertiesnn< F
-.nnF G
-	ResourcesnnG P
-.nnP Q1
-%ETIQUETA_ERRORCONEXIONSERVIDOR_TITULOoo 9
-,oo9 :
-MessageBoxButtonpp $
-.pp$ %
-OKpp% '
-,pp' (
-MessageBoxImagepp) 8
-.pp8 9
-Errorpp9 >
-)pp> ?
-;pp? @ 
-clienteServicioJuegoqq $
-.qq$ %
-Abortqq% *
-(qq* +
-)qq+ ,
-;qq, -
-}rr 
-}ss 	
-privateuu 
-voiduu !
-CargarJugadoresEnSalauu *
-(uu* +
-)uu+ ,
-{vv 	
-CuentaJugadorww 
-[ww 
-]ww  
-jugadoresRecuperadosww 0
-=ww1 2
-	Serviciosww3 <
-.ww< =
-ServicioSalaww= I
-.wwI J,
- ObtenerJugadoresConectadosEnSalaxx 0
-(xx0 1
+Propertiestt< F
+.ttF G
+	ResourcesttG P
+.ttP Q1
+%ETIQUETA_ERRORCONEXIONSERVIDOR_TITULOuu 9
+,uu9 :
+MessageBoxButtonvv $
+.vv$ %
+OKvv% '
+,vv' (
+MessageBoxImagevv) 8
+.vv8 9
+Errorvv9 >
+)vv> ?
+;vv? @ 
+clienteServicioJuegoww $
+.ww$ %
+Abortww% *
+(ww* +
+)ww+ ,
+;ww, -
+}xx 
+catchyy 
+(yy 
+TimeoutExceptionyy #
+	excepcionyy$ -
+)yy- .
+{zz 
 
-CodigoSalaxx1 ;
-)xx; <
-;xx< =
-foreachzz 
-(zz 
-CuentaJugadorzz "
-jugadorzz# *
-inzz+ - 
-jugadoresRecuperadoszz. B
-)zzB C
-{{{ 
-JugadoresEnSala|| 
-.||  
-Add||  #
-(||# $
-new||$ '
-Dominio||( /
-.||/ 0
-CuentaJugador||0 =
-{}} 
-NombreJugador~~ !
-=~~" #
-jugador~~$ +
-.~~+ ,
-NombreJugador~~, 9
-,~~9 :
-FuenteImagenAvatar &
-=' (
+MessageBox|| 
+.|| 
+Show|| 
+(||  
 
-Utilidades) 3
-.3 4
-GeneradorImagenes4 E
-.E F'
-GenerarFuenteImagenAvatar
-ÄÄ 1
+Properties||  *
+.||* +
+	Resources||+ 4
+.||4 52
+&ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE}} :
+,}}: ;
+
+Properties}}< F
+.}}F G
+	Resources}}G P
+.}}P Q1
+%ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO~~ 9
+,~~9 :
+MessageBoxButton $
+.$ %
+OK% '
+,' (
+MessageBoxImage) 8
+.8 9
+Error9 >
+)> ?
+;? @"
+clienteServicioJuego
+ÄÄ $
+.
+ÄÄ$ %
+Abort
+ÄÄ% *
 (
-ÄÄ1 2
+ÄÄ* +
+)
+ÄÄ+ ,
+;
+ÄÄ, -
+}
+ÅÅ 
+}
+ÇÇ 	
+private
+ÑÑ 
+void
+ÑÑ #
+CargarJugadoresEnSala
+ÑÑ *
+(
+ÑÑ* +
+)
+ÑÑ+ ,
+{
+ÖÖ 	
+CuentaJugador
+ÜÜ 
+[
+ÜÜ 
+]
+ÜÜ "
+jugadoresRecuperados
+ÜÜ 0
+=
+ÜÜ1 2
+	Servicios
+ÜÜ3 <
+.
+ÜÜ< =
+ServicioSala
+ÜÜ= I
+.
+ÜÜI J.
+ ObtenerJugadoresConectadosEnSala
+áá 0
+(
+áá0 1
+
+codigoSala
+áá1 ;
+)
+áá; <
+;
+áá< =
+foreach
+ââ 
+(
+ââ 
+CuentaJugador
+ââ "
 jugador
-ÄÄ2 9
-.
-ÄÄ9 :
-NumeroAvatar
-ÄÄ: F
+ââ# *
+in
+ââ+ -"
+jugadoresRecuperados
+ââ. B
 )
-ÄÄF G
-}
-ÅÅ 
-)
-ÅÅ 
-;
-ÅÅ 
-}
-ÇÇ 
-}
-ÉÉ 	
-private
-ÖÖ 
-void
-ÖÖ 
-CrearNuevaSala
-ÖÖ #
-(
-ÖÖ# $
-)
-ÖÖ$ %
+ââB C
 {
-ÜÜ 	
-
-CodigoSala
-áá 
-=
-áá 
-	Servicios
-áá "
+ää 
+jugadoresEnSala
+ãã 
 .
-áá" #
-ServicioSala
-áá# /
-.
-áá/ 0(
-GenerarCodigoParaNuevaSala
-áá0 J
+ãã  
+Add
+ãã  #
 (
-ááJ K
-)
-ááK L
-;
-ááL M
-if
-ââ 
-(
-ââ 
-
-CodigoSala
-ââ 
-!=
-ââ 
-null
-ââ "
-)
-ââ" #
-{
-ää 
-	Servicios
-ãã 
-.
-ãã 
-ServicioSala
-ãã &
-.
-ãã& '
-CrearNuevaSala
-ãã' 5
-(
-ãã5 6
-Dominio
-ãã6 =
-.
-ãã= >
-CuentaJugador
-ãã> K
-.
-ããK L
-Actual
-åå 
-.
-åå 
-NombreJugador
-åå (
-,
-åå( )
-
-CodigoSala
-åå* 4
-)
-åå4 5
-;
-åå5 6
-}
-çç 
-}
-éé 	
-private
-êê 
-void
-êê &
-FinalizarConexionConSala
-êê -
-(
-êê- .
-)
-êê. /
-{
-ëë 	
-try
-íí 
-{
-ìì "
-clienteServicioJuego
-îî $
-.
-îî$ %,
-DesconectarCuentaJugadorDeSala
-îî% C
-(
-îîC D
-Dominio
-îîD K
-.
-îîK L
-CuentaJugador
-ïï !
-.
-ïï! "
-Actual
-ïï" (
-.
-ïï( )
-NombreJugador
-ïï) 6
-,
-ïï6 7
-
-CodigoSala
-ïï8 B
-,
-ïïB C
-
-Properties
-ññ 
-.
-ññ 
-	Resources
-ññ (
-.
-ññ( ),
-ETIQUETA_MENSAJESALA_DESPEDIDA
-ññ) G
-)
-ññG H
-;
-ññH I"
-clienteServicioJuego
-óó $
-.
-óó$ %
-Close
-óó% *
-(
-óó* +
-)
-óó+ ,
-;
-óó, -
-}
-òò 
-catch
-ôô 
-(
-ôô '
-EndpointNotFoundException
-ôô ,
-	excepcion
-ôô- 6
-)
-ôô6 7
-{
-öö 
-
-MessageBox
-úú 
-.
-úú 
-Show
-úú 
-(
-úú  
-
-Properties
-úú  *
-.
-úú* +
-	Resources
-úú+ 4
-.
-úú4 54
-&ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE
-ùù :
-,
-ùù: ;
-
-Properties
-ùù< F
-.
-ùùF G
-	Resources
-ùùG P
-.
-ùùP Q3
-%ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO
-ûû 9
-,
-ûû9 :
-MessageBoxButton
-üü $
-.
-üü$ %
-OK
-üü% '
-,
-üü' (
-MessageBoxImage
-üü) 8
-.
-üü8 9
-Error
-üü9 >
-)
-üü> ?
-;
-üü? @"
-clienteServicioJuego
-†† $
-.
-††$ %
-Abort
-††% *
-(
-††* +
-)
-††+ ,
-;
-††, -
-}
-°° 
-catch
-¢¢ 
-(
-¢¢ 1
-#CommunicationObjectFaultedException
-¢¢ 6
-	excepcion
-¢¢7 @
-)
-¢¢@ A
-{
-££ 
-
-MessageBox
-•• 
-.
-•• 
-Show
-•• 
-(
-••  
-
-Properties
-••  *
-.
-••* +
-	Resources
-••+ 4
-.
-••4 54
-&ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE
-¶¶ :
-,
-¶¶: ;
-
-Properties
-¶¶< F
-.
-¶¶F G
-	Resources
-¶¶G P
-.
-¶¶P Q3
-%ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO
-ßß 9
-,
-ßß9 :
-MessageBoxButton
-®® $
-.
-®®$ %
-OK
-®®% '
-,
-®®' (
-MessageBoxImage
-®®) 8
-.
-®®8 9
-Error
-®®9 >
-)
-®®> ?
-;
-®®? @"
-clienteServicioJuego
-©© $
-.
-©©$ %
-Abort
-©©% *
-(
-©©* +
-)
-©©+ ,
-;
-©©, -
-}
-™™ 
-catch
-´´ 
-(
-´´ 
-TimeoutException
-´´ #
-	excepcion
-´´$ -
-)
-´´- .
-{
-¨¨ 
-
-MessageBox
-ÆÆ 
-.
-ÆÆ 
-Show
-ÆÆ 
-(
-ÆÆ  
-
-Properties
-ÆÆ  *
-.
-ÆÆ* +
-	Resources
-ÆÆ+ 4
-.
-ÆÆ4 54
-&ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE
-ØØ :
-,
-ØØ: ;
-
-Properties
-ØØ< F
-.
-ØØF G
-	Resources
-ØØG P
-.
-ØØP Q3
-%ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO
-∞∞ 9
-,
-∞∞9 :
-MessageBoxButton
-±± $
-.
-±±$ %
-OK
-±±% '
-,
-±±' (
-MessageBoxImage
-±±) 8
-.
-±±8 9
-Error
-±±9 >
-)
-±±> ?
-;
-±±? @"
-clienteServicioJuego
-≤≤ $
-.
-≤≤$ %
-Abort
-≤≤% *
-(
-≤≤* +
-)
-≤≤+ ,
-;
-≤≤, -
-}
-≥≥ "
-clienteServicioJuego
-µµ  
-=
-µµ! "
-null
-µµ# '
-;
-µµ' (
-}
-∂∂ 	
-private
-∏∏ 
-void
-∏∏ &
-ModificarJugadoresEnSala
-∏∏ -
-(
-∏∏- .
-object
-∏∏. 4
-objetoOrigen
-∏∏5 A
-,
-∏∏A B"
-MouseButtonEventArgs
-ππ  
-evento
-ππ! '
-)
-ππ' (
-{
-∫∫ 	
-}
-ºº 	
-public
-øø 
-void
-øø "
-MostrarMensajeDeSala
-øø (
-(
-øø( )
-string
-øø) /
-mensaje
-øø0 7
-)
-øø7 8
-{
-¿¿ 	!
-cuadroTextoMensajes
-¡¡ 
-.
-¡¡  
-
-AppendText
-¡¡  *
-(
-¡¡* +
-mensaje
-¡¡+ 2
-+
-¡¡3 4
-$str
-¡¡5 9
-)
-¡¡9 :
-;
-¡¡: ;
-}
-¬¬ 	
-public
-ƒƒ 
-void
-ƒƒ 2
-$NotificarNuevoJugadorConectadoEnSala
-ƒƒ 8
-(
-ƒƒ8 9
-CuentaJugador
-ƒƒ9 F
-nuevoJugador
-ƒƒG S
-)
-ƒƒS T
-{
-≈≈ 	
-if
-∆∆ 
-(
-∆∆ 
-JugadoresEnSala
-∆∆ 
-!=
-∆∆  "
-null
-∆∆# '
-)
-∆∆' (
-{
-«« 
-Dominio
-»» 
-.
-»» 
-CuentaJugador
-»» % 
-nuevaCuentaJugador
-»»& 8
-=
-»»9 :
+ãã# $
 new
-»»; >
+ãã$ '
 Dominio
-»»? F
+ãã( /
 .
-»»F G
+ãã/ 0
 CuentaJugador
-»»G T
+ãã0 =
 {
-……  
-FuenteImagenAvatar
-   &
+åå 
+NombreJugador
+çç !
 =
-  ' (
+çç" #
+jugador
+çç$ +
+.
+çç+ ,
+NombreJugador
+çç, 9
+,
+çç9 : 
+FuenteImagenAvatar
+éé &
+=
+éé' (
 
 Utilidades
-  ) 3
+éé) 3
 .
-  3 4
+éé3 4
 GeneradorImagenes
-  4 E
+éé4 E
 .
-  E F'
+ééE F'
 GenerarFuenteImagenAvatar
-ÀÀ 1
+èè 1
 (
-ÀÀ1 2
-nuevoJugador
-ÀÀ2 >
+èè1 2
+jugador
+èè2 9
 .
-ÀÀ> ?
+èè9 :
 NumeroAvatar
-ÀÀ? K
+èè: F
 )
-ÀÀK L
-,
-ÀÀL M
-NombreJugador
-ÃÃ !
-=
-ÃÃ" #
-nuevoJugador
-ÃÃ$ 0
-.
-ÃÃ0 1
-NombreJugador
-ÃÃ1 >
+èèF G
 }
-ÕÕ 
-;
-ÕÕ 
-JugadoresEnSala
-ŒŒ 
-.
-ŒŒ  
-Add
-ŒŒ  #
-(
-ŒŒ# $ 
-nuevaCuentaJugador
-ŒŒ$ 6
+êê 
 )
-ŒŒ6 7
+êê 
 ;
-ŒŒ7 8
+êê 
 }
-œœ 
+ëë 
 }
-–– 	
-public
-““ 
+íí 	
+private
+îî 
 void
-““ 0
-"NotificarJugadorDesconectadoDeSala
-““ 6
+îî 
+CrearNuevaSala
+îî #
 (
-““6 7
-string
-““7 =
-nombreJugador
-““> K
+îî# $
 )
-““K L
+îî$ %
 {
-”” 	
-if
-‘‘ 
-(
-‘‘ 
-JugadoresEnSala
-‘‘ 
-!=
-‘‘  "
-null
-‘‘# '
-)
-‘‘' (
-{
-’’ 
-Dominio
-÷÷ 
-.
-÷÷ 
-CuentaJugador
-÷÷ %%
-cuentaJugadorEncontrada
-÷÷& =
+ïï 	
+
+codigoSala
+ññ 
 =
-÷÷> ?
-JugadoresEnSala
-◊◊ #
+ññ 
+	Servicios
+ññ "
 .
-◊◊# $
-FirstOrDefault
-◊◊$ 2
+ññ" #
+ServicioSala
+ññ# /
+.
+ññ/ 0(
+GenerarCodigoParaNuevaSala
+ññ0 J
 (
-◊◊2 3
-jugador
-◊◊3 :
-=>
-◊◊; =
-jugador
-◊◊> E
-.
-◊◊E F
-NombreJugador
-◊◊F S
-==
-◊◊T V
-nombreJugador
-ÿÿ !
+ññJ K
 )
-ÿÿ! "
+ññK L
 ;
-ÿÿ" #
+ññL M
 if
-⁄⁄ 
+òò 
 (
-⁄⁄ %
-cuentaJugadorEncontrada
-⁄⁄ +
+òò 
+
+codigoSala
+òò 
 !=
-⁄⁄, .
+òò 
 null
-⁄⁄/ 3
+òò "
 )
-⁄⁄3 4
+òò" #
 {
-€€ 
-JugadoresEnSala
-‹‹ #
+ôô 
+	Servicios
+öö 
 .
-‹‹# $
-Remove
-‹‹$ *
+öö 
+ServicioSala
+öö &
+.
+öö& '
+CrearNuevaSala
+öö' 5
 (
-‹‹* +%
-cuentaJugadorEncontrada
-‹‹+ B
+öö5 6
+Dominio
+öö6 =
+.
+öö= >
+CuentaJugador
+öö> K
+.
+ööK L
+Actual
+õõ 
+.
+õõ 
+NombreJugador
+õõ (
+,
+õõ( )
+
+codigoSala
+õõ* 4
 )
-‹‹B C
+õõ4 5
 ;
-‹‹C D
+õõ5 6
 }
-›› 
+úú 
+}
+ùù 	
+private
+üü 
+void
+üü &
+FinalizarConexionConSala
+üü -
+(
+üü- .
+)
+üü. /
+{
+†† 	
+try
+°° 
+{
+¢¢ "
+clienteServicioJuego
+££ $
+.
+££$ %,
+DesconectarCuentaJugadorDeSala
+££% C
+(
+££C D
+Dominio
+££D K
+.
+££K L
+CuentaJugador
+§§ !
+.
+§§! "
+Actual
+§§" (
+.
+§§( )
+NombreJugador
+§§) 6
+,
+§§6 7
+
+codigoSala
+§§8 B
+,
+§§B C
+
+Properties
+•• 
+.
+•• 
+	Resources
+•• (
+.
+••( ),
+ETIQUETA_MENSAJESALA_DESPEDIDA
+••) G
+)
+••G H
+;
+••H I"
+clienteServicioJuego
+¶¶ $
+.
+¶¶$ %
+Close
+¶¶% *
+(
+¶¶* +
+)
+¶¶+ ,
+;
+¶¶, -
+}
+ßß 
+catch
+®® 
+(
+®® '
+EndpointNotFoundException
+®® ,
+	excepcion
+®®- 6
+)
+®®6 7
+{
+©© 
+
+MessageBox
+´´ 
+.
+´´ 
+Show
+´´ 
+(
+´´  
+
+Properties
+´´  *
+.
+´´* +
+	Resources
+´´+ 4
+.
+´´4 54
+&ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE
+¨¨ :
+,
+¨¨: ;
+
+Properties
+¨¨< F
+.
+¨¨F G
+	Resources
+¨¨G P
+.
+¨¨P Q3
+%ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO
+≠≠ 9
+,
+≠≠9 :
+MessageBoxButton
+ÆÆ $
+.
+ÆÆ$ %
+OK
+ÆÆ% '
+,
+ÆÆ' (
+MessageBoxImage
+ÆÆ) 8
+.
+ÆÆ8 9
+Error
+ÆÆ9 >
+)
+ÆÆ> ?
+;
+ÆÆ? @"
+clienteServicioJuego
+ØØ $
+.
+ØØ$ %
+Abort
+ØØ% *
+(
+ØØ* +
+)
+ØØ+ ,
+;
+ØØ, -
+}
+∞∞ 
+catch
+±± 
+(
+±± 1
+#CommunicationObjectFaultedException
+±± 6
+	excepcion
+±±7 @
+)
+±±@ A
+{
+≤≤ 
+
+MessageBox
+¥¥ 
+.
+¥¥ 
+Show
+¥¥ 
+(
+¥¥  
+
+Properties
+¥¥  *
+.
+¥¥* +
+	Resources
+¥¥+ 4
+.
+¥¥4 54
+&ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE
+µµ :
+,
+µµ: ;
+
+Properties
+µµ< F
+.
+µµF G
+	Resources
+µµG P
+.
+µµP Q3
+%ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO
+∂∂ 9
+,
+∂∂9 :
+MessageBoxButton
+∑∑ $
+.
+∑∑$ %
+OK
+∑∑% '
+,
+∑∑' (
+MessageBoxImage
+∑∑) 8
+.
+∑∑8 9
+Error
+∑∑9 >
+)
+∑∑> ?
+;
+∑∑? @"
+clienteServicioJuego
+∏∏ $
+.
+∏∏$ %
+Abort
+∏∏% *
+(
+∏∏* +
+)
+∏∏+ ,
+;
+∏∏, -
+}
+ππ 
+catch
+∫∫ 
+(
+∫∫ 
+TimeoutException
+∫∫ #
+	excepcion
+∫∫$ -
+)
+∫∫- .
+{
+ªª 
+
+MessageBox
+ΩΩ 
+.
+ΩΩ 
+Show
+ΩΩ 
+(
+ΩΩ  
+
+Properties
+ΩΩ  *
+.
+ΩΩ* +
+	Resources
+ΩΩ+ 4
+.
+ΩΩ4 54
+&ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE
+ææ :
+,
+ææ: ;
+
+Properties
+ææ< F
+.
+ææF G
+	Resources
+ææG P
+.
+ææP Q3
+%ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO
+øø 9
+,
+øø9 :
+MessageBoxButton
+¿¿ $
+.
+¿¿$ %
+OK
+¿¿% '
+,
+¿¿' (
+MessageBoxImage
+¿¿) 8
+.
+¿¿8 9
+Error
+¿¿9 >
+)
+¿¿> ?
+;
+¿¿? @"
+clienteServicioJuego
+¡¡ $
+.
+¡¡$ %
+Abort
+¡¡% *
+(
+¡¡* +
+)
+¡¡+ ,
+;
+¡¡, -
+}
+¬¬ "
+clienteServicioJuego
+ƒƒ  
+=
+ƒƒ! "
+null
+ƒƒ# '
+;
+ƒƒ' (
+}
+≈≈ 	
+private
+«« 
+void
+«« &
+ModificarJugadoresEnSala
+«« -
+(
+««- .
+object
+««. 4
+objetoOrigen
+««5 A
+,
+««A B"
+MouseButtonEventArgs
+»»  
+evento
+»»! '
+)
+»»' (
+{
+…… 	
+}
+ÀÀ 	
+public
+ŒŒ 
+void
+ŒŒ "
+MostrarMensajeDeSala
+ŒŒ (
+(
+ŒŒ( )
+string
+ŒŒ) /
+mensaje
+ŒŒ0 7
+)
+ŒŒ7 8
+{
+œœ 	!
+cuadroTextoMensajes
+–– 
+.
+––  
+
+AppendText
+––  *
+(
+––* +
+mensaje
+––+ 2
++
+––3 4
+$str
+––5 9
+)
+––9 :
+;
+––: ;
+}
+—— 	
+public
+”” 
+void
+”” 2
+$NotificarNuevoJugadorConectadoEnSala
+”” 8
+(
+””8 9
+CuentaJugador
+””9 F
+nuevoJugador
+””G S
+)
+””S T
+{
+‘‘ 	
+if
+’’ 
+(
+’’ 
+jugadoresEnSala
+’’ 
+!=
+’’  "
+null
+’’# '
+)
+’’' (
+{
+÷÷ 
+Dominio
+◊◊ 
+.
+◊◊ 
+CuentaJugador
+◊◊ % 
+nuevaCuentaJugador
+◊◊& 8
+=
+◊◊9 :
+new
+◊◊; >
+Dominio
+◊◊? F
+.
+◊◊F G
+CuentaJugador
+◊◊G T
+{
+ÿÿ  
+FuenteImagenAvatar
+ŸŸ &
+=
+ŸŸ' (
+
+Utilidades
+ŸŸ) 3
+.
+ŸŸ3 4
+GeneradorImagenes
+ŸŸ4 E
+.
+ŸŸE F'
+GenerarFuenteImagenAvatar
+⁄⁄ 1
+(
+⁄⁄1 2
+nuevoJugador
+⁄⁄2 >
+.
+⁄⁄> ?
+NumeroAvatar
+⁄⁄? K
+)
+⁄⁄K L
+,
+⁄⁄L M
+NombreJugador
+€€ !
+=
+€€" #
+nuevoJugador
+€€$ 0
+.
+€€0 1
+NombreJugador
+€€1 >
+}
+‹‹ 
+;
+‹‹ 
+jugadoresEnSala
+›› 
+.
+››  
+Add
+››  #
+(
+››# $ 
+nuevaCuentaJugador
+››$ 6
+)
+››6 7
+;
+››7 8
 }
 ﬁﬁ 
 }
-ﬂﬂ 	
+ﬂﬂ 	
+public
+·· 
+void
+·· 0
+"NotificarJugadorDesconectadoDeSala
+·· 6
+(
+··6 7
+string
+··7 =
+nombreJugador
+··> K
+)
+··K L
+{
+‚‚ 	
+if
+„„ 
+(
+„„ 
+jugadoresEnSala
+„„ 
+!=
+„„  "
+null
+„„# '
+)
+„„' (
+{
+‰‰ 
+Dominio
+ÂÂ 
+.
+ÂÂ 
+CuentaJugador
+ÂÂ %%
+cuentaJugadorEncontrada
+ÂÂ& =
+=
+ÂÂ> ?
+jugadoresEnSala
+ÊÊ #
+.
+ÊÊ# $
+Where
+ÊÊ$ )
+(
+ÊÊ) *
+jugador
+ÊÊ* 1
+=>
+ÊÊ2 4
+jugador
+ÊÊ5 <
+.
+ÊÊ< =
+NombreJugador
+ÊÊ= J
+==
+ÊÊK M
+nombreJugador
+ÁÁ !
+)
+ÁÁ! "
+.
+ÁÁ" #
+FirstOrDefault
+ÁÁ# 1
+(
+ÁÁ1 2
+)
+ÁÁ2 3
+;
+ÁÁ3 4
+if
+ÈÈ 
+(
+ÈÈ %
+cuentaJugadorEncontrada
+ÈÈ +
+!=
+ÈÈ, .
+null
+ÈÈ/ 3
+)
+ÈÈ3 4
+{
+ÍÍ 
+jugadoresEnSala
+ÎÎ #
+.
+ÎÎ# $
+Remove
+ÎÎ$ *
+(
+ÎÎ* +%
+cuentaJugadorEncontrada
+ÎÎ+ B
+)
+ÎÎB C
+;
+ÎÎC D
 }
-·· 
-}‚‚ ú*
-wC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaSeleccionAvatar.xaml.cs
+ÏÏ 
+}
+ÌÌ 
+}
+ÓÓ 	
+}
+ 
+}ÒÒ î+
+ÅC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaSeleccionAvatar.xaml.cs
 	namespace 	
 RompecabezasFei
  
@@ -17125,13 +17370,19 @@ Utilidades''( 2
 )33R S
 {44 	
 if55 
-(55 
-VentanaPrincipal55  
-.55  !
-PaginaAnterior55! /
-is550 2!
-PaginaRegistroJugador553 H
-)55H I
+(55 
+typeof55 
+(55 !
+PaginaRegistroJugador55 ,
+)55, -
+.55- .
+IsInstanceOfType55. >
+(55> ?
+VentanaPrincipal55? O
+.55O P
+PaginaAnterior55P ^
+)55^ _
+)55_ `
 {66 !
 PaginaRegistroJugador77 %!
 paginaRegistroUsuario77& ;
@@ -17182,8 +17433,8 @@ contrasena889 C
 }@@ 
 }AA 	
 }BB 
-}CC í:
-|C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaCreacionNuevaPartida.xaml.cs
+}CC ﬁ=
+ÜC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaCreacionNuevaPartida.xaml.cs
 	namespace 	
 RompecabezasFei
  
@@ -17208,379 +17459,404 @@ contrasena889 C
 
 6 :
 { 
-private 
-Border #
-bordeImagenSeleccionada .
-;. /
-private 
+private  
+ObservableCollection $
+<$ %
+ImagenRompecabezas% 7
+>7 8 
+imagenesRompecabezas9 M
+;M N
+private 
+Border #
+bordeImagenSeleccionada .
+;. /
+private 
 
-Dificultad 
+Dificultad 
 
-dificultad %
-;% &
-private 
-int 
-numeroImagen  
-;  !
-private 
-const 
-int 
-TotalImagenes '
-=( )
-$num* ,
-;, -
-public  
-ObservableCollection #
-<# $
-ImagenRompecabezas$ 6
->6 7 
-ImagenesRompecabezas8 L
-{M N
-getO R
-;R S
-setT W
-;W X
-}Y Z
-public 
-string 
+dificultad %
+;% &
+private 
+int 
+numeroImagen  
+;  !
+private 
+string 
 
-CodigoSala  
-{! "
-get# &
-;& '
-set( +
-;+ ,
-}- .
-public &
-PaginaCreacionNuevaPartida )
-() *
-)* +
-{ 	
-InitializeComponent 
-(  
-)  !
-;! ")
-MostrarImagenesDeRompecabezas )
-() *
-)* +
-;+ ,
+codigoSala !
+;! "
+public  
+ObservableCollection #
+<# $
+ImagenRompecabezas$ 6
+>6 7 
+ImagenesRompecabezas8 L
+{ 	
+get 
+{ 
+return  
+imagenesRompecabezas -
+;- .
+}/ 0
+set 
+{  
+imagenesRompecabezas &
+=' (
+value) .
+;. /
+}0 1
+} 	
+public 
+string 
 
-dificultad 
-= 
+CodigoSala  
+{ 	
+get 
+{ 
+return 
 
-Dificultad #
-.# $
-Facil$ )
-;) *%
-cuadroSeleccionDificultad %
-.% &
-SelectedIndex& 3
-=4 5
-(6 7
-int7 :
-): ;
+codigoSala #
+;# $
+}% &
+set 
+{ 
 
-dificultad; E
-;E F
-numeroImagen 
-= 
-$num 
-; '
-galeriaImagenesRompecabezas '
-.' (
-DataContext( 3
-=4 5
-this6 :
-;: ;
-} 	
-private 
-void )
-MostrarImagenesDeRompecabezas 2
-(2 3
-)3 4
-{   	 
-ImagenesRompecabezas!!  
-=!!! "
-new!!# & 
-ObservableCollection!!' ;
-<!!; <
-ImagenRompecabezas!!< N
->!!N O
-(!!O P
-)!!P Q
-;!!Q R
-for## 
-(## 
-int## 
-indiceImagen## !
-=##" #
-$num##$ %
-;##% &
-indiceImagen##' 3
-<=##4 6
-TotalImagenes##7 D
-;##D E
-indiceImagen##G S
-++##S U
-)##U V
-{$$  
-ImagenesRompecabezas%% $
-.%%$ %
-Add%%% (
-(%%( )
-new%%) ,
-ImagenRompecabezas%%- ?
-{&& 
-Ruta'' 
-='' 
-$"'' 
-$str'' 5
-{''5 6
-indiceImagen''6 B
-}''B C
-$str''C G
-"''G H
-,''H I
-NumeroImagen((  
-=((! "
-indiceImagen((# /
-})) 
-))) 
-;)) 
-}** 
-}++ 	
-private-- 
-void-- '
-MostrarPreseleccionDeImagen-- 0
-(--0 1
-object--1 7
-objetoOrigen--8 D
-,--D E
-MouseEventArgs--F T
-evento--U [
-)--[ \
-{.. 	
-Border// 
-borde// 
-=// 
-objetoOrigen// '
-as//( *
-Border//+ 1
-;//1 2
-if11 
-(11 
-borde11 
-!=11 #
-bordeImagenSeleccionada11 0
-)110 1
-{22 
-borde33 
-.33 
-BorderBrush33 !
-=33" #
-new33$ '
-SolidColorBrush33( 7
-(337 8
-Colors338 >
-.33> ?
-Red33? B
-)33B C
-;33C D
-}44 
-}55 	
-private77 
-void77 '
-OcultarPreseleccionDeImagen77 0
-(770 1
-object771 7
-objetoOrigen778 D
-,77D E
-MouseEventArgs77F T
-evento77U [
-)77[ \
-{88 	
-Border99 
-borde99 
-=99 
-objetoOrigen99 '
-as99( *
-Border99+ 1
-;991 2
-if;; 
-(;; 
-borde;; 
-!=;; #
-bordeImagenSeleccionada;; 0
-);;0 1
-{<< 
-ImagenRompecabezas== "
-imagen==# )
-===* +
-borde==, 1
-.==1 2
-DataContext==2 =
-as==> @
-ImagenRompecabezas==A S
-;==S T
-borde>> 
-.>> 
-BorderBrush>> !
-=>>" #
-new>>$ '
-SolidColorBrush>>( 7
-(>>7 8
-imagen>>8 >
-.>>> ?
-ColorDeBorde>>? K
-)>>K L
-;>>L M
-}?? 
-}@@ 	
-privateBB 
-voidBB 
-SeleccionarImagenBB &
-(BB& '
-objectBB' -
-objetoOrigenBB. :
-,BB: ; 
-MouseButtonEventArgsBB< P
-eventoBBQ W
-)BBW X
-{CC 	
-BorderDD 
-bordeDD 
-=DD 
-objetoOrigenDD '
-asDD( *
-BorderDD+ 1
-;DD1 2
-ifFF 
-(FF #
-bordeImagenSeleccionadaFF '
-!=FF( *
-nullFF+ /
-)FF/ 0
-{GG #
-bordeImagenSeleccionadaHH '
-.HH' (
-BorderBrushHH( 3
-=HH4 5
-newHH6 9
-SolidColorBrushHH: I
-(HHI J
-ColorsHHJ P
-.HHP Q
-TransparentHHQ \
-)HH\ ]
-;HH] ^
-}II 
-ImagenRompecabezasKK 
-imagenKK %
-=KK& '
-bordeKK( -
-.KK- .
-DataContextKK. 9
-asKK: <
-ImagenRompecabezasKK= O
-;KKO P
-numeroImagenLL 
-=LL 
-imagenLL !
-.LL! "
-NumeroImagenLL" .
-;LL. /#
-bordeImagenSeleccionadaMM #
-=MM$ %
-bordeMM& +
-;MM+ ,
-bordeNN 
-.NN 
-BorderBrushNN 
-=NN 
-newNN  #
-SolidColorBrushNN$ 3
-(NN3 4
-ColorsNN4 :
-.NN: ;
-GreenNN; @
-)NN@ A
-;NNA B
-}OO 	
-privateQQ 
-voidQQ 
-IrAPaginaSalaQQ "
-(QQ" #
-objectQQ# )
-objetoOrigenQQ* 6
-,QQ6 7 
-MouseButtonEventArgsQQ8 L
-eventoQQM S
-)QQS T
-{RR 	
-VentanaPrincipalSS 
-.SS 
-CambiarPaginaSS *
-(SS* +
-newSS+ .
+codigoSala 
+= 
+value $
+;$ %
+}& '
+} 	
+public &
+PaginaCreacionNuevaPartida )
+() *
+)* +
+{ 	
+InitializeComponent   
+(    
+)    !
+;  ! ")
+MostrarImagenesDeRompecabezas!! )
+(!!) *
+)!!* +
+;!!+ ,
 
-PaginaSalaSS/ 9
-(SS9 :
-)SS: ;
-)SS; <
-;SS< =
+dificultad"" 
+="" 
+
+Dificultad"" #
+.""# $
+Facil""$ )
+;"") *%
+cuadroSeleccionDificultad## %
+.##% &
+SelectedIndex##& 3
+=##4 5
+(##6 7
+int##7 :
+)##: ;
+
+dificultad##; E
+;##E F
+numeroImagen$$ 
+=$$ 
+$num$$ 
+;$$ '
+galeriaImagenesRompecabezas%% '
+.%%' (
+DataContext%%( 3
+=%%4 5
+this%%6 :
+;%%: ;
+}&& 	
+private(( 
+void(( )
+MostrarImagenesDeRompecabezas(( 2
+(((2 3
+)((3 4
+{)) 	 
+imagenesRompecabezas**  
+=**! "
+new**# & 
+ObservableCollection**' ;
+<**; <
+ImagenRompecabezas**< N
+>**N O
+(**O P
+)**P Q
+;**Q R
+for,, 
+(,, 
+int,, 
+indiceImagen,, !
+=,," #
+$num,,$ %
+;,,% &
+indiceImagen,,' 3
+<=,,4 6
+$num,,7 9
+;,,9 :
+indiceImagen,,< H
+++,,H J
+),,J K
+{--  
+imagenesRompecabezas.. $
+...$ %
+Add..% (
+(..( )
+new..) ,
+ImagenRompecabezas..- ?
+{// 
+Ruta00 
+=00 
+$"00 
+$str00 5
+{005 6
+indiceImagen006 B
+}00B C
+$str00C G
+"00G H
+,00H I
+NumeroImagen11  
+=11! "
+indiceImagen11# /
+}22 
+)22 
+;22 
+}33 
+}44 	
+private66 
+void66 '
+MostrarPreseleccionDeImagen66 0
+(660 1
+object661 7
+objetoOrigen668 D
+,66D E
+MouseEventArgs66F T
+evento66U [
+)66[ \
+{77 	
+Border88 
+borde88 
+=88 
+objetoOrigen88 '
+as88( *
+Border88+ 1
+;881 2
+if:: 
+(:: 
+borde:: 
+!=:: #
+bordeImagenSeleccionada:: 0
+)::0 1
+{;; 
+borde<< 
+.<< 
+BorderBrush<< !
+=<<" #
+new<<$ '
+SolidColorBrush<<( 7
+(<<7 8
+Colors<<8 >
+.<<> ?
+Red<<? B
+)<<B C
+;<<C D
+}== 
+}>> 	
+private@@ 
+void@@ '
+OcultarPreseleccionDeImagen@@ 0
+(@@0 1
+object@@1 7
+objetoOrigen@@8 D
+,@@D E
+MouseEventArgs@@F T
+evento@@U [
+)@@[ \
+{AA 	
+BorderBB 
+bordeBB 
+=BB 
+objetoOrigenBB '
+asBB( *
+BorderBB+ 1
+;BB1 2
+ifDD 
+(DD 
+bordeDD 
+!=DD #
+bordeImagenSeleccionadaDD 0
+)DD0 1
+{EE 
+ImagenRompecabezasFF "
+imagenFF# )
+=FF* +
+bordeFF, 1
+.FF1 2
+DataContextFF2 =
+asFF> @
+ImagenRompecabezasFFA S
+;FFS T
+bordeGG 
+.GG 
+BorderBrushGG !
+=GG" #
+newGG$ '
+SolidColorBrushGG( 7
+(GG7 8
+imagenGG8 >
+.GG> ?
+ColorDeBordeGG? K
+)GGK L
+;GGL M
+}HH 
+}II 	
+privateKK 
+voidKK 
+SeleccionarImagenKK &
+(KK& '
+objectKK' -
+objetoOrigenKK. :
+,KK: ; 
+MouseButtonEventArgsKK< P
+eventoKKQ W
+)KKW X
+{LL 	
+BorderMM 
+bordeMM 
+=MM 
+objetoOrigenMM '
+asMM( *
+BorderMM+ 1
+;MM1 2
+ifOO 
+(OO #
+bordeImagenSeleccionadaOO '
+!=OO( *
+nullOO+ /
+)OO/ 0
+{PP #
+bordeImagenSeleccionadaQQ '
+.QQ' (
+BorderBrushQQ( 3
+=QQ4 5
+newQQ6 9
+SolidColorBrushQQ: I
+(QQI J
+ColorsQQJ P
+.QQP Q
+TransparentQQQ \
+)QQ\ ]
+;QQ] ^
+}RR 
+ImagenRompecabezasTT 
+imagenTT %
+=TT& '
+bordeTT( -
+.TT- .
+DataContextTT. 9
+asTT: <
+ImagenRompecabezasTT= O
+;TTO P
+numeroImagenUU 
+=UU 
+imagenUU !
+.UU! "
+NumeroImagenUU" .
+;UU. /#
+bordeImagenSeleccionadaVV #
+=VV$ %
+bordeVV& +
+;VV+ ,
+bordeWW 
+.WW 
+BorderBrushWW 
+=WW 
+newWW  #
+SolidColorBrushWW$ 3
+(WW3 4
+ColorsWW4 :
+.WW: ;
+GreenWW; @
+)WW@ A
+;WWA B
 }XX 	
 privateZZ 
-voidZZ !
-SeleccionarDificultadZZ *
-(ZZ* +
-objectZZ+ 1
-controlOrigenZZ2 ?
-,ZZ? @%
-SelectionChangedEventArgs[[ %
-evento[[& ,
-)[[, -
-{\\ 	
+voidZZ 
+IrAPaginaSalaZZ "
+(ZZ" #
+objectZZ# )
+objetoOrigenZZ* 6
+,ZZ6 7 
+MouseButtonEventArgsZZ8 L
+eventoZZM S
+)ZZS T
+{[[ 	
+VentanaPrincipal\\ 
+.\\ 
+CambiarPagina\\ *
+(\\* +
+new\\+ .
 
-dificultad]] 
-=]] 
-(]] 
+PaginaSala\\/ 9
+(\\9 :
+)\\: ;
+)\\; <
+;\\< =
+}aa 	
+privatecc 
+voidcc !
+SeleccionarDificultadcc *
+(cc* +
+objectcc+ 1
+controlOrigencc2 ?
+,cc? @%
+SelectionChangedEventArgsdd %
+eventodd& ,
+)dd, -
+{ee 	
 
-Dificultad]] $
-)]]$ %%
-cuadroSeleccionDificultad]]% >
-.]]> ?
-SelectedIndex]]? L
-;]]L M
-}^^ 	
-private`` 
-void`` 
-IrAPaginaPartida`` %
-(``% &
-object``& ,
-objetoOrigen``- 9
-,``9 :
-RoutedEventArgs``; J
-evento``K Q
-)``Q R
-{aa 	
-VentanaPrincipalbb 
-.bb 
-CambiarPaginabb *
-(bb* +
-newbb+ .
-PaginaPartidabb/ <
-(bb< =
+dificultadff 
+=ff 
+(ff 
 
-dificultadbb= G
-,bbG H
-numeroImagenbbI U
-)bbU V
-)bbV W
-;bbW X
-}cc 	
-}dd 
-}ee ÿ
-rC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaUnirseSala.xaml.cs
+Dificultadff $
+)ff$ %%
+cuadroSeleccionDificultadff% >
+.ff> ?
+SelectedIndexff? L
+;ffL M
+}gg 	
+privateii 
+voidii 
+IrAPaginaPartidaii %
+(ii% &
+objectii& ,
+objetoOrigenii- 9
+,ii9 :
+RoutedEventArgsii; J
+eventoiiK Q
+)iiQ R
+{jj 	
+VentanaPrincipalkk 
+.kk 
+CambiarPaginakk *
+(kk* +
+newkk+ .
+PaginaPartidakk/ <
+(kk< =
+
+dificultadkk= G
+,kkG H
+numeroImagenkkI U
+)kkU V
+)kkV W
+;kkW X
+}ll 	
+}mm 
+}nn ‚
+|C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaUnirseSala.xaml.cs
 	namespace 	
 RompecabezasFei
  
@@ -17709,8 +17985,8 @@ paginaSala/ 9
 ;E F
 } 	
 }   
-}!! èX
-zC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaVerificacionCorreo.xaml.cs
+}!! ≠V
+ÑC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\PaginaVerificacionCorreo.xaml.cs
 	namespace 	
 RompecabezasFei
  
@@ -17729,593 +18005,575 @@ zC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 .  !
 CuentaJugador! .
 jugadorRegistro/ >
-;> ?
-private 
-Temporizador 
-temporizador )
-;) *
-public $
-PaginaVerificacionCorreo '
-(' (
-Dominio( /
-./ 0
-CuentaJugador0 =
-jugadorRegistro> M
-)M N
-{ 	
-InitializeComponent 
-(  
-)  !
-;! "
-this 
-. 
-jugadorRegistro  
-=! "
-jugadorRegistro# 2
-;2 3#
-GestionadorCodigoCorreo #
-.# $2
-&EnviarNuevoCodigoDeVerificacionACorreo$ J
-(J K
-jugadorRegistro 
-.  
-Correo  &
-,& '
+;> ?
+public $
+PaginaVerificacionCorreo '
+(' (
+Dominio( /
+./ 0
+CuentaJugador0 =
+jugadorRegistro> M
+)M N
+{ 	
+InitializeComponent 
+(  
+)  !
+;! "
+this 
+. 
+jugadorRegistro  
+=! "
+jugadorRegistro# 2
+;2 3#
+GestionadorCodigoCorreo #
+.# $2
+&EnviarNuevoCodigoDeVerificacionACorreo$ J
+(J K
+jugadorRegistro 
+.  
+Correo  &
+,& '
 
-Properties( 2
-.2 3
-	Resources3 <
-.< =.
-"ETIQUETA_VERIFICACIONCORREO_ASUNTO= _
-,_ `
+Properties( 2
+.2 3
+	Resources3 <
+.< =.
+"ETIQUETA_VERIFICACIONCORREO_ASUNTO= _
+,_ `
 
-Properties 
-. 
-	Resources $
-.$ %/
-#ETIQUETA_VERIFICACIONCORREO_MENSAJE% H
-+I J
-$strK N
-+O P#
-GestionadorCodigoCorreo '
-.' (
-CodigoGenerado( 6
-)6 7
-;7 8
-IniciarTemporizador 
-(  
-)  !
-;! "
-} 	
-private 
-void 
-IniciarTemporizador (
-(( )
-)) *
-{ 	(
-DeshabilitarBotonEnvioCodigo (
-(( )
-)) *
-;* +
-temporizador   
-=   
-new   
-Temporizador   +
-(  + ,
-)  , -
-;  - .
-temporizador!! 
-.!! 
-temporizador!! %
-.!!% &
-Tick!!& *
-+=!!+ -$
-ActualizarTiempoRestante!!. F
-;!!F G
-temporizador"" 
-."" 
-IniciarTemporizador"" ,
-("", -
-)""- .
-;"". /
-}## 	
-public%% 
-void%% $
-ActualizarTiempoRestante%% ,
-(%%, -
-object%%- 3
-objetoOrigen%%4 @
-,%%@ A
-	EventArgs%%B K
-evento%%L R
-)%%R S
-{&& 	
-if'' 
-('' 
-temporizador'' 
+Properties 
+. 
+	Resources $
+.$ %/
+#ETIQUETA_VERIFICACIONCORREO_MENSAJE% H
++I J
+$strK N
++O P#
+GestionadorCodigoCorreo '
+.' (
+CodigoGenerado( 6
+)6 7
+;7 8
+IniciarTemporizador 
+(  
+)  !
+;! "
+} 	
+private 
+void 
+IniciarTemporizador (
+(( )
+)) *
+{ 	(
+DeshabilitarBotonEnvioCodigo (
+(( )
+)) *
+;* +
+Temporizador 
+. 
+temporizador %
+.% &
+Tick& *
++=+ -$
+ActualizarTiempoRestante. F
+;F G
+Temporizador   
+.   
+IniciarTemporizador   ,
+(  , -
+)  - .
+;  . /
+}!! 	
+public## 
+void## $
+ActualizarTiempoRestante## ,
+(##, -
+object##- 3
+objetoOrigen##4 @
+,##@ A
+	EventArgs##B K
+evento##L R
+)##R S
+{$$ 	
+if%% 
+(%% 
+Temporizador%% 
+.%% 
+segundosRestantes%% .
+>%%/ 0
+Temporizador%%1 =
+.%%= >#
+MinimoSegundosRestantes%%> U
+)%%U V
+{&& 
+Temporizador'' 
 .'' 
-segundosRestantes'' .
->''/ 0
-Temporizador''1 =
-.''= >#
-MinimoSegundosRestantes''> U
-)''U V
-{(( 
-temporizador)) 
-.)) 
-segundosRestantes)) .
---)). 0
-;))0 1
-TimeSpan** 
-tiempoRestante** '
-=**( )
-TimeSpan*** 2
-.**2 3
-FromSeconds**3 >
-(**> ?
-temporizador**? K
-.**K L
-segundosRestantes**L ]
-)**] ^
-;**^ _"
-etiquetaTiempoRestante++ &
-.++& '
-Content++' .
-=++/ 0
-$"++1 3
-{++3 4
-tiempoRestante++4 B
-.++B C
-Minutes++C J
-:++J K
-$str++K M
-}++M N
-$str++N O
-"++O P
-+++Q R
-$",, 
-{,, 
-tiempoRestante,, %
-.,,% &
-Seconds,,& -
-:,,- .
-$str,,. 0
-},,0 1
-",,1 2
-;,,2 3
-}-- 
-else.. 
-{// 
-temporizador00 
-.00 
-DetenerTemporizador00 0
-(000 1
-)001 2
-;002 3"
-etiquetaTiempoRestante11 &
-.11& '
-Content11' .
-=11/ 0
-$str111 8
-;118 9%
-HabilitarBotonEnvioCodigo22 )
-(22) *
-)22* +
-;22+ ,
-}33 
-}44 	
-private66 
-void66 *
-ConcluirRegistroDeNuevoJugador66 3
-(663 4
-object664 :
-objetoOrigen66; G
-,66G H
-RoutedEventArgs77 
-evento77 "
-)77" #
-{88 	
-string99 
-codigoVerificacion99 %
-=99& ')
-cuadroTextoCodigoVerificacion99( E
-.99E F
-Text99F J
-;99J K
-if;; 
-(;; 
-!;; 
-ValidadorDatos;; 
-.;;  
-EsCadenaVacia;;  -
-(;;- .
-codigoVerificacion;;. @
-);;@ A
-);;A B
-{<< 
-bool== )
-esElMismoCodigoDeVerificacion== 2
-===3 4
-ValidadorDatos==5 C
-.==C D'
-ExisteCoincidenciaEnCadenas>> /
-(>>/ 0
-codigoVerificacion>>0 B
-,>>B C#
-GestionadorCodigoCorreo?? +
-.??+ ,
-CodigoGenerado??, :
-)??: ;
-;??; <
-ifAA 
-(AA )
-esElMismoCodigoDeVerificacionAA 1
-)AA1 2
-{BB 
-stringCC 
-contrasenaCifradaCC ,
-=CC- .!
-EncriptadorContrasenaCC/ D
-.CCD E
-CalcularHashSha512CCE W
-(CCW X
-jugadorRegistroDD '
-.DD' (
+segundosRestantes'' .
+--''. 0
+;''0 1
+TimeSpan(( 
+tiempoRestante(( '
+=((( )
+TimeSpan((* 2
+.((2 3
+FromSeconds((3 >
+(((> ?
+Temporizador((? K
+.((K L
+segundosRestantes((L ]
+)((] ^
+;((^ _"
+etiquetaTiempoRestante)) &
+.))& '
+Content))' .
+=))/ 0
+$"))1 3
+{))3 4
+tiempoRestante))4 B
+.))B C
+Minutes))C J
+:))J K
+$str))K M
+}))M N
+$str))N O
+"))O P
++))Q R
+$"** 
+{** 
+tiempoRestante** %
+.**% &
+Seconds**& -
+:**- .
+$str**. 0
+}**0 1
+"**1 2
+;**2 3
+}++ 
+else,, 
+{-- 
+Temporizador.. 
+... 
+DetenerTemporizador.. 0
+(..0 1
+)..1 2
+;..2 3"
+etiquetaTiempoRestante// &
+.//& '
+Content//' .
+=/// 0
+$str//1 8
+;//8 9%
+HabilitarBotonEnvioCodigo00 )
+(00) *
+)00* +
+;00+ ,
+}11 
+}22 	
+private44 
+void44 *
+ConcluirRegistroDeNuevoJugador44 3
+(443 4
+object444 :
+objetoOrigen44; G
+,44G H
+RoutedEventArgs55 
+evento55 "
+)55" #
+{66 	
+string77 
+codigoVerificacion77 %
+=77& ')
+cuadroTextoCodigoVerificacion77( E
+.77E F
+Text77F J
+;77J K
+if99 
+(99 
+!99 
+ValidadorDatos99 
+.99  
+EsCadenaVacia99  -
+(99- .
+codigoVerificacion99. @
+)99@ A
+)99A B
+{:: 
+bool;; )
+esElMismoCodigoDeVerificacion;; 2
+=;;3 4
+ValidadorDatos;;5 C
+.;;C D'
+ExisteCoincidenciaEnCadenas<< /
+(<</ 0
+codigoVerificacion<<0 B
+,<<B C#
+GestionadorCodigoCorreo== +
+.==+ ,
+CodigoGenerado==, :
+)==: ;
+;==; <
+if?? 
+(?? )
+esElMismoCodigoDeVerificacion?? 1
+)??1 2
+{@@ 
+stringAA 
+contrasenaCifradaAA ,
+=AA- .!
+EncriptadorContrasenaAA/ D
+.AAD E
+CalcularHashSha512AAE W
+(AAW X
+jugadorRegistroBB '
+.BB' (
 
-ContrasenaDD( 2
-)DD2 3
-;DD3 4
-CuentaJugadorEE !
-nuevoJugadorEE" .
-=EE/ 0
-newEE1 4
-CuentaJugadorEE5 B
-{FF 
-NombreJugadorGG %
-=GG& '
-jugadorRegistroGG( 7
-.GG7 8
-NombreJugadorGG8 E
-,GGE F
-NumeroAvatarHH $
-=HH% &
-jugadorRegistroHH' 6
-.HH6 7
-NumeroAvatarHH7 C
-,HHC D
+ContrasenaBB( 2
+)BB2 3
+;BB3 4
+CuentaJugadorCC !
+nuevoJugadorCC" .
+=CC/ 0
+newCC1 4
+CuentaJugadorCC5 B
+{DD 
+NombreJugadorEE %
+=EE& '
+jugadorRegistroEE( 7
+.EE7 8
+NombreJugadorEE8 E
+,EEE F
+NumeroAvatarFF $
+=FF% &
+jugadorRegistroFF' 6
+.FF6 7
+NumeroAvatarFF7 C
+,FFC D
 
-ContrasenaII "
-=II# $
-contrasenaCifradaII% 6
-,II6 7
-CorreoJJ 
-=JJ  
-jugadorRegistroJJ! 0
-.JJ0 1
-CorreoJJ1 7
-}KK 
-;KK 
-boolLL 
-registroRealizadoLL *
-=LL+ ,
-	ServiciosLL- 6
-.LL6 7
-ServicioJugadorLL7 F
-.LLF G
-RegistrarJugadorLLG W
-(LLW X
-nuevoJugadorMM $
-)MM$ %
-;MM% &
-ifOO 
-(OO 
-registroRealizadoOO )
-)OO) *
-{PP 
-temporizadorQQ $
-.QQ$ %
-DetenerTemporizadorQQ% 8
-(QQ8 9
-)QQ9 :
-;QQ: ;
+ContrasenaGG "
+=GG# $
+contrasenaCifradaGG% 6
+,GG6 7
+CorreoHH 
+=HH  
+jugadorRegistroHH! 0
+.HH0 1
+CorreoHH1 7
+}II 
+;II 
+boolJJ 
+registroRealizadoJJ *
+=JJ+ ,
+	ServiciosJJ- 6
+.JJ6 7
+ServicioJugadorJJ7 F
+.JJF G
+RegistrarJugadorJJG W
+(JJW X
+nuevoJugadorKK $
+)KK$ %
+;KK% &
+ifMM 
+(MM 
+registroRealizadoMM )
+)MM) *
+{NN 
+TemporizadorOO $
+.OO$ %
+DetenerTemporizadorOO% 8
+(OO8 9
+)OO9 :
+;OO: ;
 
-MessageBoxRR "
-.RR" #
-ShowRR# '
-(RR' (
+MessageBoxPP "
+.PP" #
+ShowPP# '
+(PP' (
 
-PropertiesRR( 2
-.RR2 3
-	ResourcesRR3 <
-.RR< =@
-4ETIQUETA_VERIFICACIONCORREO_MENSAJEUSUARIOREGISTRADOSS P
-,SSP Q
+PropertiesPP( 2
+.PP2 3
+	ResourcesPP3 <
+.PP< =@
+4ETIQUETA_VERIFICACIONCORREO_MENSAJEUSUARIOREGISTRADOQQ P
+,QQP Q
 
-PropertiesSSR \
-.SS\ ]
-	ResourcesTT %
-.TT% &9
--ETIQUETA_VERIFICACIONCORREO_REGISTROREALIZADOTT& S
-,TTS T
-MessageBoxButtonUU ,
-.UU, -
-OKUU- /
-)UU/ 0
-;UU0 1
-VentanaPrincipalVV (
-.VV( )
-CambiarPaginaVV) 6
-(VV6 7
-newVV7 :
-PaginaInicioSesionVV; M
-(VVM N
-)VVN O
-)VVO P
-;VVP Q
-}WW 
-elseXX 
-{YY 
+PropertiesQQR \
+.QQ\ ]
+	ResourcesRR %
+.RR% &9
+-ETIQUETA_VERIFICACIONCORREO_REGISTROREALIZADORR& S
+,RRS T
+MessageBoxButtonSS ,
+.SS, -
+OKSS- /
+)SS/ 0
+;SS0 1
+VentanaPrincipalTT (
+.TT( )
+CambiarPaginaTT) 6
+(TT6 7
+newTT7 :
+PaginaInicioSesionTT; M
+(TTM N
+)TTN O
+)TTO P
+;TTP Q
+}UU 
+elseVV 
+{WW 
 
-MessageBoxZZ "
-.ZZ" #
-ShowZZ# '
-(ZZ' (
+MessageBoxXX "
+.XX" #
+ShowXX# '
+(XX' (
 
-PropertiesZZ( 2
-.ZZ2 3
-	ResourcesZZ3 <
-.ZZ< =B
-6ETIQUETA_VERIFICACIONCORREO_MENSAJEREGISTRONOREALIZADO[[ R
-,[[R S
+PropertiesXX( 2
+.XX2 3
+	ResourcesXX3 <
+.XX< =B
+6ETIQUETA_VERIFICACIONCORREO_MENSAJEREGISTRONOREALIZADOYY R
+,YYR S
 
-Properties\\ &
-.\\& '
-	Resources\\' 0
-.\\0 15
-)ETIQUETA_VERIFICACIONCORREO_ERRORREGISTRO\\1 Z
-,\\Z [
-MessageBoxButton]] ,
-.]], -
-OK]]- /
-)]]/ 0
-;]]0 1
-}^^ 
-}__ 
-else`` 
-{aa 
+PropertiesZZ &
+.ZZ& '
+	ResourcesZZ' 0
+.ZZ0 15
+)ETIQUETA_VERIFICACIONCORREO_ERRORREGISTROZZ1 Z
+,ZZZ [
+MessageBoxButton[[ ,
+.[[, -
+OK[[- /
+)[[/ 0
+;[[0 1
+}\\ 
+}]] 
+else^^ 
+{__ 
 
-MessageBoxbb 
-.bb 
-Showbb #
-(bb# $
+MessageBox`` 
+.`` 
+Show`` #
+(``# $
 
-Propertiesbb$ .
-.bb. /
-	Resourcesbb/ 8
-.bb8 9?
-3ETIQUETA_VERIFICACIONCORREO_MENSAJECODIGOINCORRECTOcc K
-,ccK L
+Properties``$ .
+.``. /
+	Resources``/ 8
+.``8 9?
+3ETIQUETA_VERIFICACIONCORREO_MENSAJECODIGOINCORRECTOaa K
+,aaK L
 
-Propertiesdd "
-.dd" #
-	Resourcesdd# ,
-.dd, -8
-,ETIQUETA_VERIFICACIONCORREO_CODIGOINCORRECTOdd- Y
-,ddY Z
-MessageBoxButtonee (
-.ee( )
-OKee) +
-)ee+ ,
-;ee, -
-}ff 
-}gg 
-}hh 	
-privatejj 
-voidjj *
-AceptarSoloCaracteresNumericosjj 3
-(jj3 4
-objectjj4 :
-objetoOrigenjj; G
-,jjG H 
-TextChangedEventArgskk  
-eventokk! '
-)kk' (
-{ll 	
-ifmm 
-(mm 
-objetoOrigenmm 
-ismm 
-TextBoxmm  '
-)mm' (
-{nn 
-TextBoxoo 
-cuadroTextooo #
-=oo$ %
-(oo& '
-TextBoxoo' .
-)oo. /
-objetoOrigenoo/ ;
-;oo; <
-stringpp 
-textopp 
-=pp 
-cuadroTextopp *
-.pp* +
-Textpp+ /
-=pp0 1
-newpp2 5
-stringpp6 <
-(pp< =
-cuadroTextopp= H
-.ppH I
-TextppI M
-.ppM N
-WhereppN S
-(ppS T
-charqq 
-.qq 
-IsDigitqq  
-)qq  !
-.qq! "
-ToArrayqq" )
-(qq) *
-)qq* +
-)qq+ ,
-;qq, -
-cuadroTextorr 
-.rr 
+Propertiesbb "
+.bb" #
+	Resourcesbb# ,
+.bb, -8
+,ETIQUETA_VERIFICACIONCORREO_CODIGOINCORRECTObb- Y
+,bbY Z
+MessageBoxButtoncc (
+.cc( )
+OKcc) +
+)cc+ ,
+;cc, -
+}dd 
+}ee 
+}ff 	
+privatehh 
+voidhh *
+AceptarSoloCaracteresNumericoshh 3
+(hh3 4
+objecthh4 :
+objetoOrigenhh; G
+,hhG H 
+TextChangedEventArgsii  
+eventoii! '
+)ii' (
+{jj 	
+ifkk 
+(kk 
+objetoOrigenkk 
+iskk 
+TextBoxkk  ')
+cuadroTextoCodigoVerificacionkk( E
+)kkE F
+{ll 
+stringmm 
+textomm 
+=mm )
+cuadroTextoCodigoVerificacionmm <
+.mm< =
+Textmm= A
+=mmB C
+newnn 
+stringnn 
+(nn )
+cuadroTextoCodigoVerificacionnn <
+.nn< =
+Textnn= A
+.nnA B
+Whereoo 
+(oo 
+charoo 
+.oo 
+IsDigitoo &
+)oo& '
+.oo' (
+ToArrayoo( /
+(oo/ 0
+)oo0 1
+)oo1 2
+;oo2 3)
+cuadroTextoCodigoVerificacionpp -
+.pp- .
 
-CaretIndexrr &
-=rr' (
-cuadroTextorr) 4
-.rr4 5
-Textrr5 9
-.rr9 :
-Lengthrr: @
-;rr@ A
-cuadroTextoss 
-.ss 
-Textss  
-=ss! "
-textoss# (
-;ss( )
-}tt 
-}uu 	
-publicww 
-voidww 2
-&EnviarNuevoCodigoDeConfirmacionACorreoww :
-(ww: ;
-objectww; A
-objetoOrigenwwB N
-,wwN O
-RoutedEventArgsxx 
-eventoxx "
-)xx" #
-{yy 	#
-GestionadorCodigoCorreozz #
-.zz# $2
-&EnviarNuevoCodigoDeVerificacionACorreozz$ J
-(zzJ K
-jugadorRegistro{{ 
-.{{  
-Correo{{  &
-,{{& '
+CaretIndexpp. 8
+=pp9 :)
+cuadroTextoCodigoVerificacionqq 1
+.qq1 2
+Textqq2 6
+.qq6 7
+Lengthqq7 =
+;qq= >)
+cuadroTextoCodigoVerificacionrr -
+.rr- .
+Textrr. 2
+=rr3 4
+textorr5 :
+;rr: ;
+}ss 
+}tt 	
+publicvv 
+voidvv 2
+&EnviarNuevoCodigoDeConfirmacionACorreovv :
+(vv: ;
+objectvv; A
+objetoOrigenvvB N
+,vvN O
+RoutedEventArgsww 
+eventoww "
+)ww" #
+{xx 	#
+GestionadorCodigoCorreoyy #
+.yy# $2
+&EnviarNuevoCodigoDeVerificacionACorreoyy$ J
+(yyJ K
+jugadorRegistrozz 
+.zz  
+Correozz  &
+,zz& '
 
-Properties{{( 2
-.{{2 3
-	Resources{{3 <
-.{{< =.
-"ETIQUETA_VERIFICACIONCORREO_ASUNTO{{= _
-,{{_ `
+Propertieszz( 2
+.zz2 3
+	Resourceszz3 <
+.zz< =.
+"ETIQUETA_VERIFICACIONCORREO_ASUNTOzz= _
+,zz_ `
 
-Properties|| 
-.|| 
-	Resources|| $
-.||$ %/
-#ETIQUETA_VERIFICACIONCORREO_MENSAJE||% H
-+||I J
-$str||K N
-+||O P#
-GestionadorCodigoCorreo}} '
-.}}' (
-CodigoGenerado}}( 6
-)}}6 7
-;}}7 8
-IniciarTemporizador~~ 
-(~~  
-)~~  !
-;~~! "
-} 	
+Properties{{ 
+.{{ 
+	Resources{{ $
+.{{$ %/
+#ETIQUETA_VERIFICACIONCORREO_MENSAJE{{% H
++{{I J
+$str{{K N
++{{O P#
+GestionadorCodigoCorreo|| '
+.||' (
+CodigoGenerado||( 6
+)||6 7
+;||7 8
+IniciarTemporizador}} 
+(}}  
+)}}  !
+;}}! "
+}~~ 	
 private
-ÅÅ 
+ÄÄ 
 void
-ÅÅ '
+ÄÄ '
 HabilitarBotonEnvioCodigo
-ÅÅ .
+ÄÄ .
 (
-ÅÅ. /
+ÄÄ. /
 )
-ÅÅ/ 0
+ÄÄ/ 0
 {
-ÇÇ 	
+ÅÅ 	
+BotonEnviarCodigo
+ÇÇ 
+.
+ÇÇ 
+	IsEnabled
+ÇÇ '
+=
+ÇÇ( )
+true
+ÇÇ* .
+;
+ÇÇ. /
 BotonEnviarCodigo
 ÉÉ 
 .
-ÉÉ 
-	IsEnabled
-ÉÉ '
-=
-ÉÉ( )
-true
-ÉÉ* .
-;
-ÉÉ. /
-BotonEnviarCodigo
-ÑÑ 
-.
-ÑÑ 
+ÉÉ 
 
 Foreground
-ÑÑ (
+ÉÉ (
 =
-ÑÑ) *
+ÉÉ) *
 Brushes
-ÑÑ+ 2
+ÉÉ+ 2
 .
-ÑÑ2 3
+ÉÉ2 3
 White
-ÑÑ3 8
+ÉÉ3 8
 ;
-ÑÑ8 9
+ÉÉ8 9
 }
-ÖÖ 	
+ÑÑ 	
 private
-áá 
+ÜÜ 
 void
-áá *
+ÜÜ *
 DeshabilitarBotonEnvioCodigo
-áá 1
+ÜÜ 1
 (
-áá1 2
+ÜÜ1 2
 )
-áá2 3
+ÜÜ2 3
 {
-àà 	
+áá 	
+BotonEnviarCodigo
+àà 
+.
+àà 
+	IsEnabled
+àà '
+=
+àà( )
+false
+àà* /
+;
+àà/ 0
 BotonEnviarCodigo
 ââ 
 .
-ââ 
-	IsEnabled
-ââ '
-=
-ââ( )
-false
-ââ* /
-;
-ââ/ 0
-BotonEnviarCodigo
-ää 
-.
-ää 
+ââ 
 
 Foreground
-ää (
+ââ (
 =
-ää) *
+ââ) *
 Brushes
-ää+ 2
+ââ+ 2
 .
-ää2 3
+ââ2 3
 Black
-ää3 8
+ââ3 8
 ;
-ää8 9
+ââ8 9
 }
-ãã 	
+ää 	
 }
-åå 
-}çç Î
-yC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Utilidades\GeneradorImagenes.cs
+ãã 
+}åå ˆ
+ÉC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Utilidades\GeneradorImagenes.cs
 	namespace 	
 RompecabezasFei
  
@@ -18485,8 +18743,8 @@ rutaImagen3 =
 ;K L
 } 	
 } 
-}   »
-tC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Utilidades\Temporizador.cs
+}   ¢
+~C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Utilidades\Temporizador.cs
 	namespace 	
 RompecabezasFei
  
@@ -18534,19 +18792,22 @@ Utilidades $
 ;
 
 0 1
-public 
-int 
-segundosRestantes $
-;$ %
-public 
-DispatcherTimer 
-temporizador +
-;+ ,
-public 
-void 
-IniciarTemporizador '
-(' (
-)( )
+public 
+static 
+int 
+segundosRestantes +
+;+ ,
+public 
+static 
+DispatcherTimer %
+temporizador& 2
+;2 3
+public 
+static 
+void 
+IniciarTemporizador .
+(. /
+)/ 0
 { 	
 segundosRestantes 
 = $
@@ -18574,11 +18835,12 @@ Utilidades $
 )  
 ;  !
 } 	
-public 
-void 
-DetenerTemporizador '
-(' (
-)( )
+public 
+static 
+void 
+DetenerTemporizador .
+(. /
+)/ 0
 { 	
 segundosRestantes 
 = 
@@ -18592,8 +18854,8 @@ Utilidades $
 ;  
 } 	
 } 
-} Û
-C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Utilidades\GestionadorCodigoCorreo.cs
+} ˛
+âC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Utilidades\GestionadorCodigoCorreo.cs
 	namespace 	
 RompecabezasFei
  
@@ -18723,8 +18985,8 @@ Properties 
 ;!! 
 }"" 	
 }## 
-}$$ ∂
-rC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\VentanaPrincipal.xaml.cs
+}$$ ¿
+|C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\VentanaPrincipal.xaml.cs
 	namespace 	
 RompecabezasFei
  
@@ -18897,8 +19159,8 @@ rC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Rompe
 }-- 
 }.. 	
 }// 
-}00 ≤
-tC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Properties\AssemblyInfo.cs
+}00 º
+~C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\RompecabezasFei\Properties\AssemblyInfo.cs
 [
 
  

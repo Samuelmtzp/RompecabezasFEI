@@ -1,5 +1,5 @@
-š
-gC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioCorreo.cs
+¤
+qC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioCorreo.cs
 	namespace 	
 	Contratos
  
@@ -43,8 +43,8 @@ encabezado( 2
 )) *
 ;* +
 } 
-} à
-hC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioPartida.cs
+} ê
+rC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioPartida.cs
 	namespace 	
 	Contratos
  
@@ -225,8 +225,8 @@ codigoSala!!+ 5
 )//N O
 ;//O P
 }00 
-}11 ©&
-jC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioAmistades.cs
+}11 ³&
+tC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioAmistades.cs
 	namespace 	
 	Contratos
  
@@ -460,8 +460,8 @@ $NotificarEstadoConectividadDeJugador:: 1
 );;, -
 ;;;- .
 }<< 
-}== 
-hC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioJugador.cs
+}== ‹
+rC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioJugador.cs
 	namespace 	
 	Contratos
  
@@ -529,7 +529,7 @@ contrasenaA K
 CerrarSesion 
 ( 
 string  
-nombreJugador! .
+nombreUsuario! .
 ). /
 ;/ 0
 [ 	
@@ -563,8 +563,8 @@ contrasena8 B
 )B C
 ;C D
 } 
-} Ó
-eC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioSala.cs
+} Ý
+oC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Contratos\IServicioSala.cs
 	namespace 	
 	Contratos
  
@@ -749,8 +749,8 @@ $NotificarNuevoJugadorConectadoEnSala)) 1
 ),,D E
 ;,,E F
 }-- 
-}.. š
-oC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Contratos\Properties\AssemblyInfo.cs
+}.. ¤
+yC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Contratos\Properties\AssemblyInfo.cs
 [ 
 assembly 	
 :	 
