@@ -1,1 +1,0 @@
-Roslyn version: 4.7.0.0Language version: CSharp7_3!Concurrent execution: enabled√æFile 'C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Servicios\obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs' was recognized as generated
