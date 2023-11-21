@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Compilador de Microsoft (R) Visual C#",
+        "version": "4.8.0.0",
+        "fileVersion": "4.8.0-7.23558.1 (e0917286)",
+        "semanticVersion": "4.8.0",
+        "language": "es-MX"
+      },
+      "results": [
+        {
+          "ruleId": "S2234",
+          "level": "warning",
+          "message": "Parameters to 'ExisteSolicitudDeAmistad' have the same names but not the same order as the method arguments.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Logica/GestionAmistades.cs",
+                "region": {
+                  "startLine": 103,
+                  "startColumn": 17,
+                  "endLine": 103,
+                  "endColumn": 41
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Logica/GestionAmistades.cs",
+                "region": {
+                  "startLine": 188,
+                  "startColumn": 21,
+                  "endLine": 188,
+                  "endColumn": 45
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2234",
+          "level": "warning",
+          "message": "Parameters to 'EliminarSolicitudDeAmistad' have the same names but not the same order as the method arguments.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Logica/GestionAmistades.cs",
+                "region": {
+                  "startLine": 105,
+                  "startColumn": 17,
+                  "endLine": 105,
+                  "endColumn": 43
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Logica/GestionAmistades.cs",
+                "region": {
+                  "startLine": 166,
+                  "startColumn": 21,
+                  "endLine": 166,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        }
+      ],
+      "rules": {
+        "S2234": {
+          "id": "S2234",
+          "shortDescription": "Arguments should be passed in the same order as the method parameters",
+          "fullDescription": "Calling a method with argument variables whose names match the method parameter names but in a different order can cause confusion. It could indicate a mistake in the arguments' order, leading to unexpected results.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2234",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

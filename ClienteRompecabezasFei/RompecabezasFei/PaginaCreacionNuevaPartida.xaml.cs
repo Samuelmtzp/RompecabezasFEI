@@ -9,23 +9,14 @@ namespace RompecabezasFei
 {
     public partial class PaginaCreacionNuevaPartida : Page
     {
-        private ObservableCollection<ImagenRompecabezas> imagenesRompecabezas;
         private Border bordeImagenSeleccionada;
         private Dificultad dificultad;
         private int numeroImagen;
-        private string codigoSala;
+        private const int TotalImagenes = 16;
 
-        public ObservableCollection<ImagenRompecabezas> ImagenesRompecabezas
-        {
-            get { return imagenesRompecabezas; }
-            set { imagenesRompecabezas = value; }
-        }
+        public ObservableCollection<ImagenRompecabezas> ImagenesRompecabezas { get; set; }
 
-        public string CodigoSala
-        {
-            get { return codigoSala; }
-            set { codigoSala = value; }
-        }
+        public string CodigoSala { get; set; }
 
         public PaginaCreacionNuevaPartida()
         {
@@ -39,11 +30,11 @@ namespace RompecabezasFei
 
         private void MostrarImagenesDeRompecabezas()
         {
-            imagenesRompecabezas = new ObservableCollection<ImagenRompecabezas>();
+            ImagenesRompecabezas = new ObservableCollection<ImagenRompecabezas>();
 
-            for (int indiceImagen = 1; indiceImagen <= 16;  indiceImagen++)
+            for (int indiceImagen = 1; indiceImagen <= TotalImagenes;  indiceImagen++)
             {
-                imagenesRompecabezas.Add(new ImagenRompecabezas
+                ImagenesRompecabezas.Add(new ImagenRompecabezas
                 {
                     Ruta = $"Imagenes\\Rompecabezas\\{indiceImagen}.png",
                     NumeroImagen = indiceImagen

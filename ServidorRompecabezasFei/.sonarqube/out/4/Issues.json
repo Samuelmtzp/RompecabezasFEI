@@ -1,0 +1,493 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Compilador de Microsoft (R) Visual C#",
+        "version": "4.8.0.0",
+        "fileVersion": "4.8.0-7.23558.1 (e0917286)",
+        "semanticVersion": "4.8.0",
+        "language": "es-MX"
+      },
+      "results": [
+        {
+          "ruleId": "S108",
+          "level": "warning",
+          "message": "Either remove or fill this block of code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 13,
+                  "endLine": 28,
+                  "endColumn": 14
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S108",
+          "level": "warning",
+          "message": "Either remove or fill this block of code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 45,
+                  "startColumn": 13,
+                  "endLine": 47,
+                  "endColumn": 14
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S108",
+          "level": "warning",
+          "message": "Either remove or fill this block of code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 62,
+                  "startColumn": 13,
+                  "endLine": 64,
+                  "endColumn": 14
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S108",
+          "level": "warning",
+          "message": "Either remove or fill this block of code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 79,
+                  "startColumn": 13,
+                  "endLine": 81,
+                  "endColumn": 14
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S108",
+          "level": "warning",
+          "message": "Either remove or fill this block of code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 116,
+                  "startColumn": 17,
+                  "endLine": 118,
+                  "endColumn": 18
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S108",
+          "level": "warning",
+          "message": "Either remove or fill this block of code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 152,
+                  "startColumn": 13,
+                  "endLine": 154,
+                  "endColumn": 14
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S108",
+          "level": "warning",
+          "message": "Either remove or fill this block of code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 171,
+                  "startColumn": 13,
+                  "endLine": 173,
+                  "endColumn": 14
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S108",
+          "level": "warning",
+          "message": "Either remove or fill this block of code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 196,
+                  "startColumn": 13,
+                  "endLine": 198,
+                  "endColumn": 14
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S108",
+          "level": "warning",
+          "message": "Either remove or fill this block of code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 402,
+                  "startColumn": 13,
+                  "endLine": 404,
+                  "endColumn": 14
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S108",
+          "level": "warning",
+          "message": "Either remove or fill this block of code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 448,
+                  "startColumn": 13,
+                  "endLine": 450,
+                  "endColumn": 14
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S108",
+          "level": "warning",
+          "message": "Either remove or fill this block of code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 472,
+                  "startColumn": 13,
+                  "endLine": 474,
+                  "endColumn": 14
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S108",
+          "level": "warning",
+          "message": "Either remove or fill this block of code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 499,
+                  "startColumn": 13,
+                  "endLine": 501,
+                  "endColumn": 14
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S108",
+          "level": "warning",
+          "message": "Either remove or fill this block of code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 553,
+                  "startColumn": 13,
+                  "endLine": 555,
+                  "endColumn": 14
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S108",
+          "level": "warning",
+          "message": "Either remove or fill this block of code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 526,
+                  "startColumn": 13,
+                  "endLine": 528,
+                  "endColumn": 14
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S108",
+          "level": "warning",
+          "message": "Either remove or fill this block of code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 572,
+                  "startColumn": 13,
+                  "endLine": 574,
+                  "endColumn": 14
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S108",
+          "level": "warning",
+          "message": "Either remove or fill this block of code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 590,
+                  "startColumn": 13,
+                  "endLine": 592,
+                  "endColumn": 14
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S108",
+          "level": "warning",
+          "message": "Either remove or fill this block of code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 654,
+                  "startColumn": 13,
+                  "endLine": 656,
+                  "endColumn": 14
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S108",
+          "level": "warning",
+          "message": "Either remove or fill this block of code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 673,
+                  "startColumn": 13,
+                  "endLine": 675,
+                  "endColumn": 14
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S108",
+          "level": "warning",
+          "message": "Either remove or fill this block of code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 722,
+                  "startColumn": 13,
+                  "endLine": 724,
+                  "endColumn": 14
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S108",
+          "level": "warning",
+          "message": "Either remove or fill this block of code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 740,
+                  "startColumn": 13,
+                  "endLine": 742,
+                  "endColumn": 14
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3267",
+          "level": "warning",
+          "message": "Loop should be simplified by calling Select(gestionadorContextoJugador => gestionadorContextoJugador.ContextoIServicioSala))",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/samue/OneDrive/Escritorio/RompecabezasFEI/ServidorRompecabezasFei/Servicios/ServicioRompecabezasFei.cs",
+                "region": {
+                  "startLine": 300,
+                  "startColumn": 21,
+                  "endLine": 301,
+                  "endColumn": 55
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        }
+      ],
+      "rules": {
+        "S108": {
+          "id": "S108",
+          "shortDescription": "Nested blocks of code should not be left empty",
+          "fullDescription": "An empty code block is confusing. It will require some effort from maintainers to determine if it is intentional or indicates the implementation is incomplete.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-108",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S3267": {
+          "id": "S3267",
+          "shortDescription": "Loops should be simplified with \"LINQ\" expressions",
+          "fullDescription": "When a loop is filtering, selecting or aggregating, those functions can be handled with a clearer, more concise LINQ expression instead.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-3267",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

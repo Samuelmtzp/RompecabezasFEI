@@ -65,13 +65,13 @@ namespace RompecabezasFei
         private void AceptarSoloCaracteresNumericos(object objetoOrigen,
             TextChangedEventArgs evento)
         {
-            if (objetoOrigen is TextBox cuadroTextoCodigoRestablecimiento)
+            if (objetoOrigen is TextBox)
             {
-                string texto = cuadroTextoCodigoRestablecimiento.Text = new string(
-                    cuadroTextoCodigoRestablecimiento.Text.Where(char.IsDigit).ToArray());
-                cuadroTextoCodigoRestablecimiento.CaretIndex =
-                    cuadroTextoCodigoRestablecimiento.Text.Length;
-                cuadroTextoCodigoRestablecimiento.Text = texto;
+                TextBox cuadroTexto = (TextBox) objetoOrigen;
+                string texto = cuadroTexto.Text = new string(cuadroTexto.Text.Where(
+                    char.IsDigit).ToArray());
+                cuadroTexto.CaretIndex = cuadroTexto.Text.Length;
+                cuadroTexto.Text = texto;
             }
         }
     }

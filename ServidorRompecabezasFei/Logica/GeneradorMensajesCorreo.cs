@@ -10,14 +10,18 @@ namespace Logica
 {
     public class GeneradorMensajesCorreo
     {
-        private static readonly ILog Log = Registros.Registrador.GetLogger();
+        private static readonly ILog Log = Registrador.GetLogger();
 
         public bool EnviarMensaje(string encabezado, string correoDestino, 
             string asunto, string mensaje)
         {
             bool resultado = true;
             int NumeroPuerto = 587;
-            SmtpClient clienteSmtp = new SmtpClient("smtp.gmail.com", NumeroPuerto);
+            SmtpClient clienteSmtp = new SmtpClient("smtp.gmail.com", NumeroPuerto)
+            {
+                EnableSsl = true
+            };
+
             try
             {
                 MailMessage mensajeCorreo = new MailMessage()

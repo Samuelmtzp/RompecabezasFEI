@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Text.RegularExpressions;
 
 namespace Seguridad
 {
@@ -7,6 +8,7 @@ namespace Seguridad
         private const int MaximoCaracteresContrasena = 45;
         private const int MaximoCaracteresCorreo = 65;
         private const int MaximoCaracteresNombreJugador = 15;
+        private const int MilisegundosMaximosParaExpresionRegular = 100;
         private const string PatronContrasena = "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$";
         private const string PatronNombreJugador = @"^[a-zA-Z0-9]+(?:\s[a-zA-Z0-9]+)?$";
         private const string PatronCorreo = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
@@ -51,7 +53,8 @@ namespace Seguridad
         {
             bool contrasenaInvalida = false;
 
-            if (Regex.IsMatch(contrasena, PatronContrasena) == false)
+            if (Regex.IsMatch(contrasena, PatronContrasena, RegexOptions.None,
+                TimeSpan.FromMilliseconds(MilisegundosMaximosParaExpresionRegular)) == false)
             {
                 contrasenaInvalida = true;
             }
@@ -63,7 +66,8 @@ namespace Seguridad
         {
             bool resultado = false;
 
-            if (Regex.IsMatch(nombreJugador, PatronNombreJugador) == false)
+            if (Regex.IsMatch(nombreJugador, PatronNombreJugador, RegexOptions.None,
+                TimeSpan.FromMilliseconds(MilisegundosMaximosParaExpresionRegular)) == false)
             {
                 resultado = true;
             }
@@ -75,7 +79,8 @@ namespace Seguridad
         {
             bool resultado = false;
 
-            if (Regex.IsMatch(correo, PatronCorreo) == false)
+            if (Regex.IsMatch(correo, PatronCorreo, RegexOptions.None, 
+                TimeSpan.FromMilliseconds(MilisegundosMaximosParaExpresionRegular)) == false)
             {
                 resultado = true;
             }

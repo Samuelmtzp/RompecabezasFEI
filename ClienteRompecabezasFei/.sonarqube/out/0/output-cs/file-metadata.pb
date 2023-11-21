@@ -1,0 +1,10 @@
+c
+ZC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Celda.csutf-8k
+bC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Dominio\CuentaJugador.csutf-8h
+_C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Dificultad.csutf-8d
+[C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Idioma.csutf-8p
+gC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Dominio\ImagenRompecabezas.csutf-8c
+ZC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Pieza.csutf-8u
+lC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Properties\AssemblyInfo.csutf-8e
+\C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Dominio\Tablero.csutf-8š
+ŽC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ClienteRompecabezasFei\Dominio\obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.csutf-8

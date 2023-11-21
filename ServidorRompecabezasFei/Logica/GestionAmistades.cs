@@ -70,7 +70,6 @@ namespace Logica
 
             using (var contexto = new EntidadesRompecabezasFei())
             {
-                ConsultasJugador consultasJugador = new ConsultasJugador();
                 var jugadorOrigen = contexto.Jugador.Where(jugador => 
                     jugador.NombreJugador == nombreJugadorOrigen).FirstOrDefault();
                 var jugadorDestino = contexto.Jugador.Where(jugador =>
@@ -122,7 +121,6 @@ namespace Logica
 
             using (var contexto = new EntidadesRompecabezasFei())
             {
-                ConsultasJugador consultasJugador = new ConsultasJugador();
                 var jugadorA = contexto.Jugador.Where(jugador =>
                     jugador.NombreJugador == nombreJugadorA).FirstOrDefault();
                 var jugadorB = contexto.Jugador.Where(jugador =>

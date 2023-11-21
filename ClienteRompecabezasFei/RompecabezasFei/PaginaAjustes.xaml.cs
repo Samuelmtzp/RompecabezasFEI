@@ -1,5 +1,6 @@
 ﻿using Dominio;
 using System;
+using System.CodeDom;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -69,7 +70,7 @@ namespace RompecabezasFei
 
         private void IrAPaginaAnterior(object objetoOrigen, MouseButtonEventArgs evento)
         {
-            if (typeof(PaginaInicioSesion).IsInstanceOfType(VentanaPrincipal.PaginaAnterior))
+            if (VentanaPrincipal.PaginaAnterior is PaginaInicioSesion)
             {
                 VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
             }

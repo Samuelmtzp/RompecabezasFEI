@@ -16,7 +16,7 @@ namespace Contratos
         CuentaJugador IniciarSesion(string nombreJugador, string contrasena);
 
         [OperationContract]
-        bool CerrarSesion(string nombreUsuario);               
+        bool CerrarSesion(string nombreJugador);               
         
         [OperationContract]
         bool ActualizarInformacion(string nombreAnterior, string nuevoNombre, 

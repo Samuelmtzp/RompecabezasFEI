@@ -7,7 +7,7 @@ using log4net;
 
 namespace Registros
 {
-    public class Registrador
+    public static class Registrador
     {
         public static ILog GetLogger([CallerFilePath] string nombreArchivo = "")
         {
@@ -42,7 +42,5 @@ namespace Registros
                 throw new Exception(directoryNotFoundException.Message);
             }
         }
-
     }
 }    
-

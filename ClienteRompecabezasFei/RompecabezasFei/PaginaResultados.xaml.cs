@@ -5,14 +5,10 @@ namespace RompecabezasFei
 {
     public partial class PaginaResultados : Page
     {
-        //private bool esAnfitrion;
-        //private string codigoSala;
 
         public PaginaResultados()
         {
             InitializeComponent();
-            //this.esAnfitrion = esAnfitrion;
-            //this.codigoSala = codigoSala;
         }
 
         private void IrAPaginaSala(object objetoOrigen, RoutedEventArgs evento)

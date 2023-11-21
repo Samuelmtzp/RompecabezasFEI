@@ -44,46 +44,44 @@ namespace RompecabezasFei
                 VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
             }
 
-            if (esNombreDiferente || esAvatarDiferente)
+            if (esNombreDiferente || esAvatarDiferente && 
+                !ExistenDatosInvalidosParaActualizacion())
             {
-                if (!ExistenDatosInvalidosParaActualizacion())
+                if (!Servicios.ServicioJugador.ExisteNombreJugador(nuevoNombre))
                 {
-                    if (!Servicios.ServicioJugador.ExisteNombreJugador(nuevoNombre))
-                    {
-                        bool actualizacionRealizada = Servicios.ServicioJugador.
-                            ActualizarInformacion(nombreAnterior, nuevoNombre, nuevoNumeroAvatar);
+                    bool actualizacionRealizada = Servicios.ServicioJugador.
+                        ActualizarInformacion(nombreAnterior, nuevoNombre, nuevoNumeroAvatar);
 
-                        if (actualizacionRealizada)
-                        {
-                            MessageBox.Show(Properties.Resources.
-                                ETIQUETA_ACTUALIZACIONINFORMACION_MENSAJEACTUALIZACION,
-                                Properties.Resources.
-                                ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONREALIZADA,
-                                MessageBoxButton.OK);
-                            Dominio.CuentaJugador.Actual.NumeroAvatar = nuevoNumeroAvatar;
-                            Dominio.CuentaJugador.Actual.NombreJugador = nuevoNombre;
-                            Dominio.CuentaJugador.Actual.FuenteImagenAvatar = Utilidades.
-                                GeneradorImagenes.GenerarFuenteImagenAvatar(nuevoNumeroAvatar);
-                            VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
-                        }
-                        else
-                        {
-                            MessageBox.Show(Properties.Resources.
-                                ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONNOREALIZADA,
-                                Properties.Resources.
-                                ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACION,
-                                MessageBoxButton.OK);
-                        }
+                    if (actualizacionRealizada)
+                    {
+                        MessageBox.Show(Properties.Resources.
+                            ETIQUETA_ACTUALIZACIONINFORMACION_MENSAJEACTUALIZACION,
+                            Properties.Resources.
+                            ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONREALIZADA,
+                            MessageBoxButton.OK);
+                        Dominio.CuentaJugador.Actual.NumeroAvatar = nuevoNumeroAvatar;
+                        Dominio.CuentaJugador.Actual.NombreJugador = nuevoNombre;
+                        Dominio.CuentaJugador.Actual.FuenteImagenAvatar = Utilidades.
+                            GeneradorImagenes.GenerarFuenteImagenAvatar(nuevoNumeroAvatar);
+                        VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
                     }
                     else
                     {
-                        MessageBox.Show(
-                            Properties.Resources.
-                            ETIQUETA_ACTUALIZACIONINFORMACION_NOMBRENODISPONIBLE,
+                        MessageBox.Show(Properties.Resources.
+                            ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONNOREALIZADA,
                             Properties.Resources.
                             ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACION,
                             MessageBoxButton.OK);
                     }
+                }
+                else
+                {
+                    MessageBox.Show(
+                        Properties.Resources.
+                        ETIQUETA_ACTUALIZACIONINFORMACION_NOMBRENODISPONIBLE,
+                        Properties.Resources.
+                        ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACION,
+                        MessageBoxButton.OK);
                 }
             }
         }
@@ -152,66 +150,5 @@ namespace RompecabezasFei
 
             return datosInvalidos;
         }
-
-        #region Método prueba
-        /*public void PruebaParaActualizarInformacion(string nuevoNombre, int nuevoNumeroAvatar)
-        {
-            //ServicioGestionJugadorClient cliente = new ServicioGestionJugadorClient();
-            bool esNombreDisponible = false;
-
-            try
-            {
-                esNombreDisponible = !cliente.ExisteNombreJugador(nuevoNombre);
-            }
-            catch (EndpointNotFoundException)
-            {
-                cliente.Abort();
-            }
-
-            if (esNombreDisponible)
-            {
-                bool actualizacionRealizada = false;
-                string nombreAnterior = Dominio.CuentaJugador.Actual.NombreJugador;
-
-                try
-                {
-                    actualizacionRealizada = cliente.ActualizarInformacion(nombreAnterior,
-                        nuevoNombre, nuevoNumeroAvatar);
-                    cliente.Close();
-                }
-                catch (EndpointNotFoundException)
-                {
-                    cliente.Abort();
-                }
-
-                if (actualizacionRealizada)
-                {
-                    MessageBox.Show(
-                      Properties.Resources.ETIQUETA_ACTUALIZACIONINFORMACION_MENSAJEACTUALIZACION,
-                     Properties.Resources.ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONREALIZADA,
-                        MessageBoxButton.OK);
-                    Dominio.CuentaJugador.Actual.NumeroAvatar = nuevoNumeroAvatar;
-                    Dominio.CuentaJugador.Actual.NombreJugador = nuevoNombre;
-                    Dominio.CuentaJugador.Actual.FuenteImagenAvatar = Utilidades.
-                        GeneradorImagenes.GenerarFuenteImagenAvatar(nuevoNumeroAvatar);
-                    VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
-                }
-                else
-                {
-                    MessageBox.Show(
-                   Properties.Resources.ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONNOREALIZADA,
-                        Properties.Resources.ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACION,
-                        MessageBoxButton.OK);
-                }
-            }
-            else
-            {
-                MessageBox.Show(
-                    Properties.Resources.ETIQUETA_ACTUALIZACIONINFORMACION_NOMBRENODISPONIBLE,
-                    Properties.Resources.ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACION,
-                    MessageBoxButton.OK);
-            }
-        }*/
-        #endregion
     }
 }

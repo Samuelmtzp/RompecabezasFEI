@@ -1,11 +1,12 @@
 ﻿using RompecabezasFei.ServicioRompecabezasFei;
+using RompecabezasFei.Utilidades;
 using System;
 using System.ServiceModel;
 using System.Windows;
 
 namespace RompecabezasFei.Servicios
 {
-    public class ServicioSala
+    public static class ServicioSala
     {
         public static bool ExisteSalaDisponible(string idSala)
         {
@@ -16,31 +17,22 @@ namespace RompecabezasFei.Servicios
             try
             {
                 hayDisponibilidad = cliente.ExisteSalaDisponible(idSala);
-                cliente.Abort();
+                cliente.Close();
             }
             catch (EndpointNotFoundException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                cliente.Abort();
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                cliente.Abort();
             }
             catch (TimeoutException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                cliente.Abort();
             }
 
             return hayDisponibilidad;
@@ -54,33 +46,23 @@ namespace RompecabezasFei.Servicios
 
             try
             {
-                //string codigoSala = cliente.GenerarCodigoParaNuevaSala();
                 resultado = cliente.CrearNuevaSala(nombreAnfitrion, codigoSala);
                 cliente.Close();
             }
             catch (EndpointNotFoundException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                cliente.Abort();
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                cliente.Abort();
             }
             catch (TimeoutException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                cliente.Abort();
             }
 
             return resultado;
@@ -99,27 +81,18 @@ namespace RompecabezasFei.Servicios
             }
             catch (EndpointNotFoundException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                cliente.Abort();
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                cliente.Abort();
             }
             catch (TimeoutException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                cliente.Abort();
             }
 
             return codigoSala;
@@ -138,27 +111,18 @@ namespace RompecabezasFei.Servicios
             }
             catch (EndpointNotFoundException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                cliente.Abort();
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                cliente.Abort();
             }
             catch (TimeoutException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                cliente.Abort();
             }
 
             return jugadoresEnSala;

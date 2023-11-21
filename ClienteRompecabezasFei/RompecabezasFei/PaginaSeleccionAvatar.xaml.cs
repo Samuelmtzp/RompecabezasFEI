@@ -50,7 +50,7 @@ namespace RompecabezasFei
 
         private void IrAPaginaAnterior(object objetoOrigen, RoutedEventArgs evento)
         {
-            if (typeof(PaginaRegistroJugador).IsInstanceOfType(VentanaPrincipal.PaginaAnterior))
+            if (VentanaPrincipal.PaginaAnterior is PaginaRegistroJugador)
             {
                 PaginaRegistroJugador paginaRegistroUsuario = new PaginaRegistroJugador(
                     numeroAvatar, nombreJugador, correo, contrasena, confirmacionContrasena);

@@ -852,45 +852,45 @@
   </wsdl:binding>
   <wsdl:service name="ServicioRompecabezasFei">
     <wsdl:port name="NetTcpBinding_IServicioAmistades" binding="tns:NetTcpBinding_IServicioAmistades">
-      <soap12:address location="net.tcp://localhost:9000/Contratos" />
+      <soap12:address location="net.tcp://localhost:9001/Contratos" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:9000/Contratos</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:9001/Contratos</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
           <Dns>localhost</Dns>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IServicioCorreo" binding="tns:NetTcpBinding_IServicioCorreo">
-      <soap12:address location="net.tcp://localhost:9000/Contratos" />
+      <soap12:address location="net.tcp://localhost:9001/Contratos" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:9000/Contratos</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:9001/Contratos</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
           <Dns>localhost</Dns>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IServicioJugador" binding="tns:NetTcpBinding_IServicioJugador">
-      <soap12:address location="net.tcp://localhost:9000/Contratos" />
+      <soap12:address location="net.tcp://localhost:9001/Contratos" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:9000/Contratos</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:9001/Contratos</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
           <Dns>localhost</Dns>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IServicioPartida" binding="tns:NetTcpBinding_IServicioPartida">
-      <soap12:address location="net.tcp://localhost:9000/Contratos" />
+      <soap12:address location="net.tcp://localhost:9001/Contratos" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:9000/Contratos</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:9001/Contratos</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
           <Dns>localhost</Dns>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IServicioSala" binding="tns:NetTcpBinding_IServicioSala">
-      <soap12:address location="net.tcp://localhost:9000/Contratos" />
+      <soap12:address location="net.tcp://localhost:9001/Contratos" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:9000/Contratos</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:9001/Contratos</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
           <Dns>localhost</Dns>
         </Identity>

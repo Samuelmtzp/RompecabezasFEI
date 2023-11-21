@@ -1,6 +1,6 @@
 ﻿namespace Dominio
 {
-    public enum Dificultad : int
+    public enum Dificultad
     {
         Facil = 1,
         Medio = 2,

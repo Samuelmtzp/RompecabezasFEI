@@ -71,12 +71,12 @@ namespace RompecabezasFei
                     }
                     else
                     {
-
+                        // colocar mensaje de error en caso de que exista el correo electrónico
                     }
                 }
                 else
                 {
-
+                    // colocar mensaje de error en caso de que exista el nombre del jugador
                 }
             }
         }

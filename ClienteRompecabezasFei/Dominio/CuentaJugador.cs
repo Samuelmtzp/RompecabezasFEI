@@ -5,73 +5,22 @@ namespace Dominio
 {
     public class CuentaJugador
     {
-        #region Atributos
-        private string nombreJugador;
-        private int numeroAvatar;
-        private string correo;
-        private string contrasena;
-        private bool esInvitado;
-        private SolidColorBrush colorEstadoConectividad;
-        private BitmapImage fuenteImagenAvatar;
-        private int puntaje;
-        private static CuentaJugador cuentaJugadorActual;
-        #endregion
-
-        #region Propiedades
-
-        public string NombreJugador 
-        { 
-            get { return nombreJugador; } 
-            set { nombreJugador = value; } 
-        }
+        public string NombreJugador { get; set; }
         
-        public int NumeroAvatar
-        {
-            get { return numeroAvatar; }
-            set { numeroAvatar = value; }
-        }
+        public int NumeroAvatar { get; set; }
         
-        public string Correo
-        {
-            get { return correo; }
-            set { correo = value; }
-        }
+        public string Correo { get; set; }
         
-        public string Contrasena
-        {
-            get { return contrasena; }
-            set { contrasena = value; }
-        }
+        public string Contrasena { get; set; }
         
-        public bool EsInvitado
-        {
-            get { return esInvitado; }
-            set { esInvitado = value; }
-        }
+        public bool EsInvitado { get; set; }
 
-        public int Puntaje
-        {
-            get { return puntaje; }
-            set { puntaje = value; }
-        }
+        public int Puntaje { get; set; }
 
-        public SolidColorBrush ColorEstadoConectividad
-        {
-            get { return colorEstadoConectividad; }
-            set { colorEstadoConectividad = value; }
-        }
+        public SolidColorBrush ColorEstadoConectividad { get; set; }
 
-        public BitmapImage FuenteImagenAvatar
-        {
-            get { return fuenteImagenAvatar; }
-            set { fuenteImagenAvatar = value; }
-        }
+        public BitmapImage FuenteImagenAvatar { get; set; }
 
-        public static CuentaJugador Actual
-        {
-            get { return cuentaJugadorActual; }
-            set { cuentaJugadorActual = value; }
-        }
-        #endregion
+        public static CuentaJugador Actual { get; set; }
     }
 }

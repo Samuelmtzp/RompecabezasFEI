@@ -1,6 +1,6 @@
 ﻿namespace Logica
 {
-    public enum EstadoConectividadJugador : int
+    public enum EstadoConectividadJugador
     {
         Desconectado = 0,
         Conectado = 1,

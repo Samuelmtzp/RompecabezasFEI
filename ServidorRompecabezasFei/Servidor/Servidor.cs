@@ -4,7 +4,7 @@ using System.ServiceModel;
 
 namespace Servidor
 {
-    public class Servidor
+    public static class Servidor
     {
         public static void Main(string[] args)
         {

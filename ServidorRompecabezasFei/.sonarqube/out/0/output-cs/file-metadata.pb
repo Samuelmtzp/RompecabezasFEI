@@ -1,0 +1,15 @@
+f
+[C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Datos\Amistad.csutf-8e
+ZC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Datos\Cuenta.csutf-8p
+eC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Datos\DificultadPartida.csutf-8u
+jC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Datos\EstadoSolicitudAmistad.csutf-8f
+[C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Datos\Jugador.csutf-8Å
+vC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Datos\ModeloDatosRompecabezasFei.Context.csutf-8y
+nC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Datos\ModeloDatosRompecabezasFei.csutf-8Ç
+wC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Datos\ModeloDatosRompecabezasFei.Designer.csutf-8f
+[C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Datos\Partida.csutf-8t
+kC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Datos\Properties\AssemblyInfo.csutf-8o
+dC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Datos\ResultadoPartida.csutf-8c
+XC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Datos\Sala.csutf-8o
+dC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Datos\SolicitudAmistad.csutf-8ô
+çC:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Datos\obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.csutf-8
