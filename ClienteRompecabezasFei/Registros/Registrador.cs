@@ -21,7 +21,10 @@ namespace Registros
             try
             {
                 if (!Directory.Exists(path))
+                {
                     Directory.CreateDirectory(path);
+                } 
+
                 StackTrace seguimientoDePila = new StackTrace();
                 StackFrame marcoDeSeguimientoDePila = seguimientoDePila.GetFrame(1); 
                 string metodo = marcoDeSeguimientoDePila.GetMethod().Name;

@@ -1,0 +1,3 @@
+﻿C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\Seguridad\EncriptadorContrasena.cs
+C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\Seguridad\Properties\AssemblyInfo.cs
+C:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ClienteRompecabezasFei\Seguridad\ValidadorDatos.cs

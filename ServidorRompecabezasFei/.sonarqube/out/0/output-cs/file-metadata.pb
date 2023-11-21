@@ -1,0 +1,15 @@
+p
+eC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Datos\Amistad.csutf-8o
+dC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Datos\Cuenta.csutf-8z
+oC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Datos\DificultadPartida.csutf-8
+tC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Datos\EstadoSolicitudAmistad.csutf-8p
+eC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Datos\Jugador.csutf-8å
+ÄC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Datos\ModeloDatosRompecabezasFei.Context.csutf-8É
+xC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Datos\ModeloDatosRompecabezasFei.csutf-8ç
+ÅC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Datos\ModeloDatosRompecabezasFei.Designer.csutf-8p
+eC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Datos\Partida.csutf-8~
+uC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Datos\Properties\AssemblyInfo.csutf-8y
+nC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Datos\ResultadoPartida.csutf-8m
+bC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Datos\Sala.csutf-8y
+nC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Datos\SolicitudAmistad.csutf-8£
+óC:\Users\king_\Documents\ProyectoTecnologias\RompecabezasFEI\ServidorRompecabezasFei\Datos\obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.csutf-8
