@@ -65,9 +65,10 @@ namespace RompecabezasFei
         private void AceptarSoloCaracteresNumericos(object objetoOrigen,
             TextChangedEventArgs evento)
         {
-            if (objetoOrigen is TextBox)
+            TextBox cuadroTexto = objetoOrigen as TextBox;
+
+            if (cuadroTexto != null)
             {
-                TextBox cuadroTexto = (TextBox) objetoOrigen;
                 string texto = cuadroTexto.Text = new string(cuadroTexto.Text.Where(
                     char.IsDigit).ToArray());
                 cuadroTexto.CaretIndex = cuadroTexto.Text.Length;

@@ -2,17 +2,11 @@
 
 namespace RompecabezasFei.Utilidades
 {
-    public class GestionadorCodigoCorreo
+    public static class GestionadorCodigoCorreo
     {
         private const int MinimoNumeroAleatorio = 100000;
         private const int MaximoNumeroAleatorio = 1000000;
-        private static string codigoGenerado;
-
-        public static string CodigoGenerado
-        {
-            get { return codigoGenerado; }
-            set { codigoGenerado = value; }
-        }
+        public static string CodigoGenerado { get; set; }
 
         private static string GenerarNuevoCodigoConfirmacion()
         {
@@ -25,7 +19,7 @@ namespace RompecabezasFei.Utilidades
         public static bool EnviarNuevoCodigoDeVerificacionACorreo(string correoDestino, 
             string asunto, string mensaje)
         {
-            codigoGenerado = GenerarNuevoCodigoConfirmacion();
+            CodigoGenerado = GenerarNuevoCodigoConfirmacion();
             bool resultado = Servicios.ServicioCorreo.EnviarMensajeACorreoElectronico(
                 Properties.Resources.ETIQUETA_GENERAL_ROMPECABEZASFEI, correoDestino,
                 asunto, mensaje);
