@@ -1,4 +1,5 @@
 ﻿using RompecabezasFei.ServicioRompecabezasFei;
+using RompecabezasFei.Utilidades;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -89,29 +90,17 @@ namespace RompecabezasFei
             }
             catch (EndpointNotFoundException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioAmistades.Abort();
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioAmistades.Abort();
             }
             catch (TimeoutException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioAmistades.Abort();
             }
         }
@@ -211,29 +200,17 @@ namespace RompecabezasFei
                 }
                 catch (EndpointNotFoundException excepcion)
                 {
-                    //Registros.Registros.escribirRegistro(excepcion.Message);
-                    MessageBox.Show(Properties.Resources.
-                        ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                        ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                     clienteServicioAmistades.Abort();
                 }
                 catch (CommunicationObjectFaultedException excepcion)
                 {
-                    //Registros.Registros.escribirRegistro(excepcion.Message);
-                    MessageBox.Show(Properties.Resources.
-                        ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                        ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                     clienteServicioAmistades.Abort();
                 }
                 catch (TimeoutException excepcion)
                 {
-                    //Registros.Registros.escribirRegistro(excepcion.Message);
-                    MessageBox.Show(Properties.Resources.
-                        ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                        ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                     clienteServicioAmistades.Abort();
                 }
 
@@ -269,29 +246,17 @@ namespace RompecabezasFei
             }
             catch (EndpointNotFoundException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioAmistades.Abort();
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioAmistades.Abort();
             }
             catch (TimeoutException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioAmistades.Abort();
             }
 
@@ -328,29 +293,17 @@ namespace RompecabezasFei
                 }
                 catch (EndpointNotFoundException excepcion)
                 {
-                    //Registros.Registros.escribirRegistro(excepcion.Message);
-                    MessageBox.Show(Properties.Resources.
-                        ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                        ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                     clienteServicioAmistades.Abort();
                 }
                 catch (CommunicationObjectFaultedException excepcion)
                 {
-                    //Registros.Registros.escribirRegistro(excepcion.Message);
-                    MessageBox.Show(Properties.Resources.
-                        ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                        ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                     clienteServicioAmistades.Abort();
                 }
                 catch (TimeoutException excepcion)
                 {
-                    //Registros.Registros.escribirRegistro(excepcion.Message);
-                    MessageBox.Show(Properties.Resources.
-                        ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                        ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                     clienteServicioAmistades.Abort();
                 }
             }
@@ -385,29 +338,17 @@ namespace RompecabezasFei
             }
             catch (EndpointNotFoundException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioAmistades.Abort();
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioAmistades.Abort();
             }
             catch (TimeoutException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioAmistades.Abort();
             }
 
@@ -508,29 +449,17 @@ namespace RompecabezasFei
             }
             catch (EndpointNotFoundException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioAmistades.Abort();
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioAmistades.Abort();
             }
             catch (TimeoutException excepcion)
             {
-                //Registros.Registros.escribirRegistro(excepcion.Message);
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE, Properties.Resources.
-                    ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioAmistades.Abort();
             }
         }
