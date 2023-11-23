@@ -90,16 +90,19 @@ namespace RompecabezasFei
             }
             catch (EndpointNotFoundException excepcion)
             {
+                Registros.Registrador.EscribirRegistro(excepcion);
                 GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioAmistades.Abort();
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
+                Registros.Registrador.EscribirRegistro(excepcion);
                 GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioAmistades.Abort();
             }
             catch (TimeoutException excepcion)
             {
+                Registros.Registrador.EscribirRegistro(excepcion);
                 GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioAmistades.Abort();
             }
@@ -134,9 +137,9 @@ namespace RompecabezasFei
             if (Dominio.CuentaJugador.Actual.NombreJugador.Equals(nombreJugadorDestino))
             {
                 resultado = true;
-                MessageBox.Show("No se envió la solicitud de amistad debido a " +
-                    "que el nombre del jugador es el mismo que tienes tú",
-                    "Error al enviar solicitud de amistad",
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_AMISTADES_SOLICITUDNOENVIADAMISMONOMBRE,Properties.Resources.
+                    ETIQUETA_AMISTADES_ERRORENVIARSOLICITUD,
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
@@ -152,9 +155,9 @@ namespace RompecabezasFei
 
             if (existeSolicitudSinAceptar)
             {
-                MessageBox.Show("No se envió la solicitud de amistad debido a que " +
-                    "anteriormente ya le has enviado una solicitud de amistad al jugador",
-                    "Error al enviar solicitud de amistad",
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_AMISTADES_MENSAJESOLICITUDNOENVIADA,Properties.Resources.
+                    ETIQUETA_AMISTADES_ERRORENVIARSOLICITUD,
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
@@ -170,8 +173,9 @@ namespace RompecabezasFei
 
             if (existeAmistad)
             {
-                MessageBox.Show("No se envió la solicitud de amistad debido a que " +
-                    "ya eres amigo del jugador", "Error al enviar solicitud de amistad",
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_AMISTADES_SOLICITUDNOENVIADAYAESAMIGO,Properties.Resources.
+                    ETIQUETA_AMISTADES_ERRORENVIARSOLICITUD,
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
@@ -200,30 +204,35 @@ namespace RompecabezasFei
                 }
                 catch (EndpointNotFoundException excepcion)
                 {
+                    Registros.Registrador.EscribirRegistro(excepcion);
                     GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                     clienteServicioAmistades.Abort();
                 }
                 catch (CommunicationObjectFaultedException excepcion)
                 {
+                    Registros.Registrador.EscribirRegistro(excepcion);
                     GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                     clienteServicioAmistades.Abort();
                 }
                 catch (TimeoutException excepcion)
                 {
+                    Registros.Registrador.EscribirRegistro(excepcion);
                     GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                     clienteServicioAmistades.Abort();
                 }
 
                 if (envioSolicitudRealizado)
                 {
-                    MessageBox.Show("Se ha enviado la solicitud de amistad correctamente",
-                        "Solicitud de amistad enviada",
+                    MessageBox.Show(Properties.Resources.
+                        ETIQUETA_AMISTADES_MENSAJESOLICTUDENVIADA,Properties.Resources.
+                        ETIQUETA_AMISTADES_SOLICITUDENVIADA,
                         MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
                 {
-                    MessageBox.Show("No se ha enviado la solicitud de amistad al jugador",
-                        "Error al enviar solicitud de amistad",
+                    MessageBox.Show(Properties.Resources.
+                        ETIQUETA_AMISTADES_SOLICITUDNOENVIADA,Properties.Resources.
+                        ETIQUETA_AMISTADES_ERRORENVIARSOLICITUD,
                         MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
@@ -246,16 +255,19 @@ namespace RompecabezasFei
             }
             catch (EndpointNotFoundException excepcion)
             {
+                Registros.Registrador.EscribirRegistro(excepcion);
                 GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioAmistades.Abort();
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
+                Registros.Registrador.EscribirRegistro(excepcion);
                 GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioAmistades.Abort();
             }
             catch (TimeoutException excepcion)
             {
+                Registros.Registrador.EscribirRegistro(excepcion);
                 GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioAmistades.Abort();
             }
@@ -266,8 +278,9 @@ namespace RompecabezasFei
             }
             else
             {
-                MessageBox.Show("No se ha podido eliminar al amigo de la lsita de amigos",
-                    "Error al eliminar amigo",
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_AMISTADES_MENSAJEERRORELIMINARAMIGO,Properties.Resources.
+                    ETIQUETA_AMISTADES_ERRORELIMINARAMIGO,
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
@@ -293,16 +306,19 @@ namespace RompecabezasFei
                 }
                 catch (EndpointNotFoundException excepcion)
                 {
+                    Registros.Registrador.EscribirRegistro(excepcion);
                     GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                     clienteServicioAmistades.Abort();
                 }
                 catch (CommunicationObjectFaultedException excepcion)
                 {
+                    Registros.Registrador.EscribirRegistro(excepcion);
                     GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                     clienteServicioAmistades.Abort();
                 }
                 catch (TimeoutException excepcion)
                 {
+                    Registros.Registrador.EscribirRegistro(excepcion);
                     GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                     clienteServicioAmistades.Abort();
                 }
@@ -315,8 +331,9 @@ namespace RompecabezasFei
             }
             else
             {
-                MessageBox.Show("No se ha podido marcar como aceptada la solicitud de amistad",
-                    "Error al aceptar solicitud de amistad",
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_AMISTADES_MENSAJEERRORACEPTARSOLICITUD,Properties.Resources.
+                    ETIQUETA_AMISTADES_ERRORACEPTARSOLICITUD,
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
@@ -338,16 +355,19 @@ namespace RompecabezasFei
             }
             catch (EndpointNotFoundException excepcion)
             {
+                Registros.Registrador.EscribirRegistro(excepcion);
                 GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioAmistades.Abort();
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
+                Registros.Registrador.EscribirRegistro(excepcion);
                 GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioAmistades.Abort();
             }
             catch (TimeoutException excepcion)
             {
+                Registros.Registrador.EscribirRegistro(excepcion);
                 GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioAmistades.Abort();
             }
@@ -358,9 +378,10 @@ namespace RompecabezasFei
             }
             else
             {
-                MessageBox.Show("No se ha podido marcar como rechazada la solicitud de amistad",
-                    "Error al rechazar solicitud de amistad",
-                     MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(Properties.Resources.
+                    ETIQUETA_AMISTADES_MENSAJEERRORRECHAZARSOLICITUD,Properties.Resources.
+                    ETIQUETA_AMISTADES_ERRORRECHAZARSOLICITUD,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -449,16 +470,19 @@ namespace RompecabezasFei
             }
             catch (EndpointNotFoundException excepcion)
             {
+                Registros.Registrador.EscribirRegistro(excepcion);
                 GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioAmistades.Abort();
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
+                Registros.Registrador.EscribirRegistro(excepcion);
                 GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioAmistades.Abort();
             }
             catch (TimeoutException excepcion)
             {
+                Registros.Registrador.EscribirRegistro(excepcion);
                 GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioAmistades.Abort();
             }

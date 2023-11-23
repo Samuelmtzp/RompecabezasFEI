@@ -47,7 +47,8 @@ namespace RompecabezasFei
             if (esNombreDiferente || esAvatarDiferente && 
                 !ExistenDatosInvalidosParaActualizacion())
             {
-                if (!Servicios.ServicioJugador.ExisteNombreJugador(nuevoNombre))
+                if (!Servicios.ServicioJugador.ExisteNombreJugador(nuevoNombre) || 
+                    esAvatarDiferente)
                 {
                     bool actualizacionRealizada = Servicios.ServicioJugador.
                         ActualizarInformacion(nombreAnterior, nuevoNombre, nuevoNumeroAvatar);
@@ -55,9 +56,9 @@ namespace RompecabezasFei
                     if (actualizacionRealizada)
                     {
                         MessageBox.Show(Properties.Resources.
-                            ETIQUETA_ACTUALIZACIONINFORMACION_MENSAJEACTUALIZACION,
-                            Properties.Resources.
                             ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONREALIZADA,
+                            Properties.Resources.
+                            ETIQUETA_ACTUALIZACIONINFORMACION_MENSAJEACTUALIZACION,
                             MessageBoxButton.OK);
                         Dominio.CuentaJugador.Actual.NumeroAvatar = nuevoNumeroAvatar;
                         Dominio.CuentaJugador.Actual.NombreJugador = nuevoNombre;
@@ -121,7 +122,7 @@ namespace RompecabezasFei
         {
             bool datosInvalidos = false;
 
-            if (ValidadorDatos.EsCadenaVacia(cuadroTextoNombreUsuario.Text))
+            if (ValidadorDatos.EsCadenaVacia(cuadroTextoNombreUsuario.Text.Trim()))
             {
                 datosInvalidos = true;
                 MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS,
@@ -130,7 +131,7 @@ namespace RompecabezasFei
             }
 
             if (ValidadorDatos.ExisteLongitudExcedidaEnNombreJugador(
-                cuadroTextoNombreUsuario.Text))
+                cuadroTextoNombreUsuario.Text.Trim()))
             {
                 datosInvalidos = true;
                 MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSEXCEDIDOS,
@@ -139,7 +140,7 @@ namespace RompecabezasFei
             }
 
             if (ValidadorDatos.ExistenCaracteresInvalidosParaNombreJugador(
-                cuadroTextoNombreUsuario.Text))
+                cuadroTextoNombreUsuario.Text.Trim()))
             {
                 datosInvalidos = true;
                 MessageBox.Show(

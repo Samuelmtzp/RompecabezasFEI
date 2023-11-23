@@ -273,6 +273,45 @@
   <data name="ETIQUETA_AMIGOS_USUARIONOENCONTRADO" xml:space="preserve">
     <value>Usuario no encontrado</value>
   </data>
+  <data name="ETIQUETA_AMISTADES_ERRORACEPTARSOLICITUD" xml:space="preserve">
+    <value>Error al aceptar solicitud de amistad</value>
+  </data>
+  <data name="ETIQUETA_AMISTADES_ERRORELIMINARAMIGO" xml:space="preserve">
+    <value>Error al eliminar amigo</value>
+  </data>
+  <data name="ETIQUETA_AMISTADES_ERRORENVIARSOLICITUD" xml:space="preserve">
+    <value>Error al enviar solicitud de amistad</value>
+  </data>
+  <data name="ETIQUETA_AMISTADES_ERRORRECHAZARSOLICITUD" xml:space="preserve">
+    <value>Error al rechazar solicitud de amistad</value>
+  </data>
+  <data name="ETIQUETA_AMISTADES_MENSAJEERRORACEPTARSOLICITUD" xml:space="preserve">
+    <value>No se ha podido marcar como aceptada la solicitud de amistad</value>
+  </data>
+  <data name="ETIQUETA_AMISTADES_MENSAJEERRORELIMINARAMIGO" xml:space="preserve">
+    <value>No se ha podido eliminar al amigo de la lista de amigos</value>
+  </data>
+  <data name="ETIQUETA_AMISTADES_MENSAJEERRORRECHAZARSOLICITUD" xml:space="preserve">
+    <value>No se ha podido marcar como rechazada la solicitud de amistad</value>
+  </data>
+  <data name="ETIQUETA_AMISTADES_MENSAJESOLICITUDNOENVIADA" xml:space="preserve">
+    <value>No se envió la solicitud de amistad debido a que anteriormente ya le has enviado una solicitud de amistad al jugador</value>
+  </data>
+  <data name="ETIQUETA_AMISTADES_MENSAJESOLICTUDENVIADA" xml:space="preserve">
+    <value>Se ha enviado la solicitud de amistad correctamente</value>
+  </data>
+  <data name="ETIQUETA_AMISTADES_SOLICITUDENVIADA" xml:space="preserve">
+    <value>Solicitud de amistad enviada</value>
+  </data>
+  <data name="ETIQUETA_AMISTADES_SOLICITUDNOENVIADA" xml:space="preserve">
+    <value>No se ha enviado la solicitud de amistad al jugador</value>
+  </data>
+  <data name="ETIQUETA_AMISTADES_SOLICITUDNOENVIADAMISMONOMBRE" xml:space="preserve">
+    <value>No se envió la solicitud de amistad debido a que el nombre del jugador es el mismo que tienes tú</value>
+  </data>
+  <data name="ETIQUETA_AMISTADES_SOLICITUDNOENVIADAYAESAMIGO" xml:space="preserve">
+    <value>No se envió la solicitud de amistad debido a que ya eres amigo del jugador</value>
+  </data>
   <data name="ETIQUETA_CANCELACIONACTUALIZACIONINFO_MENSAJE" xml:space="preserve">
     <value>Si regresas, el proceso de actualización de información se cancelará ¿Estás seguro de que deseas regresar?</value>
   </data>
