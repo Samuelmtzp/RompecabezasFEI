@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Datos;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Logica
@@ -7,7 +8,11 @@ namespace Logica
     public class Sala
     {
         public const int MaximoJugadores = 4;
+
         public const int MinimoJugadores = 2;
+
+        [DataMember]
+        public EstadoSala Estado { get; set; }
 
         [DataMember]
         public string CodigoSala { get; set; }
@@ -20,11 +25,6 @@ namespace Logica
         
         [DataMember]
         public List<CuentaJugador> Jugadores { get; set; }
-        
-        public bool ExisteCupoJugadores()
-        {
-            return ContadorJugadoresActuales < MaximoJugadores;
-        }
 
         public bool EstaVacia()
         {

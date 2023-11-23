@@ -6,11 +6,17 @@ namespace Seguridad
     public static class ValidadorDatos
     {
         private const int MaximoCaracteresContrasena = 45;
+        
         private const int MaximoCaracteresCorreo = 65;
+        
         private const int MaximoCaracteresNombreJugador = 15;
+        
         private const int MilisegundosMaximosParaExpresionRegular = 100;
+        
         private const string PatronContrasena = "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$";
+        
         private const string PatronNombreJugador = @"^[a-zA-Z0-9]+(?:\s[a-zA-Z0-9]+)?$";
+        
         private const string PatronCorreo = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
 
         public static bool ExisteLongitudExcedidaEnContrasena(string contrasena)

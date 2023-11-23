@@ -9,9 +9,13 @@ namespace RompecabezasFei
     public partial class PaginaSeleccionAvatar : Page
     {
         private readonly string nombreJugador;
+
         private readonly string correo;
+
         private readonly string contrasena;
+
         private readonly string confirmacionContrasena;
+
         private int numeroAvatar;
 
         public PaginaSeleccionAvatar(int numeroAvatar, string nombreJugador)

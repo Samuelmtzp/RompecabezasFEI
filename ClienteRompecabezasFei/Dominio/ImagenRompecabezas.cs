@@ -7,7 +7,7 @@ namespace Dominio
         public string Ruta { get; set; }
 
         public Color ColorDeBorde { get; set; }
-
+        
         public int NumeroImagen { get; set; }
     }
 }

@@ -1,9 +1,11 @@
 ﻿using Dominio;
 using RompecabezasFei.ServicioRompecabezasFei;
+using RompecabezasFei.Servicios;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -15,30 +17,52 @@ namespace RompecabezasFei
 {
     public partial class PaginaPartida : Page, IServicioPartidaCallback
     {
-        #region Atributos
         private bool cursorSostienePieza;
-        private readonly Tablero tablero;
+
+        public string CodigoSala { get; set; }
+        
+        private Dominio.Tablero tablero;
+        
         private Point posicionInicialCursor;
-        private Pieza piezaActual;
-        #endregion
+        
+        private Dominio.Pieza piezaActual;
+
+        private ServicioPartidaClient clienteServicioPartida;
 
         public ObservableCollection<Dominio.CuentaJugador> JugadoresPartida { get; set; }
 
         public PaginaPartida() 
-        {
+        { 
         }
 
-        public PaginaPartida(Dificultad dificultad, int numeroImagenRompecabezas)
+        public PaginaPartida(DificultadPartida dificultad, int numeroImagenRompecabezas)
         {
             InitializeComponent();
-            tablero = new Tablero
-            {
-                Dificultad = dificultad,
-                Piezas = new List<Pieza>(),
-                Celdas = new List<Celda>(),
-                NumeroImagenRompecabezas = numeroImagenRompecabezas
-            };
-            JugadoresPartida = new ObservableCollection<Dominio.CuentaJugador>();
+            // Mandar un mensaje al servidor para que redirija a los jugadores de la sala aquí
+            clienteServicioPartida = new ServicioPartidaClient(new InstanceContext(this));
+            clienteServicioPartida.CrearNuevaPartida(CodigoSala, dificultad);
+            
+            // Cargar jugadores que sigan conectados en la sala            
+
+            // Enviar objeto de tablero para que lo reciban todos los jugadores
+            
+            // (opcional) Que cada jugador indique que ya está listo cuando ya su página esté cargada
+            
+            // Habilitar el botón de inicio cuando ya todos realicen la confirmación de listo
+            
+            // Click en botón de iniciar partida de parte de anfitrión para mandar aviso al server y que este mande el tablero
+            
+            // Distribuir el tablero localmente, pero con el mismo orden
+            
+
+            //tablero = new Tablero
+            //{
+            //    Dificultad = dificultad,
+            //    Piezas = new List<Pieza>(),
+            //    Celdas = new List<Celda>(),
+            //    NumeroImagenRompecabezas = numeroImagenRompecabezas
+            //};
+            //JugadoresPartida = new ObservableCollection<Dominio.CuentaJugador>();
             listaJugadoresPartida.DataContext = this;
             CargarJugadoresPartida();
         }
@@ -117,7 +141,7 @@ namespace RompecabezasFei
                 {
                     Int32Rect areaRecorte = new Int32Rect(columna * anchoRecorte, fila *
                         alturaRecorte, anchoRecorte, alturaRecorte);
-                    Pieza nuevaPieza = new Pieza
+                    Dominio.Pieza nuevaPieza = new Dominio.Pieza
                     {
                         Ancho = tablero.AnchoDeCelda,
                         Alto = tablero.AlturaDeCelda,
@@ -147,7 +171,7 @@ namespace RompecabezasFei
         {
             Random aleatorio = new Random();
 
-            foreach (Pieza pieza in tablero.Piezas)
+            foreach (Dominio.Pieza pieza in tablero.Piezas)
             {
                 double anchoTablero = tableroRompecabezas.ActualWidth;
                 double alturaTablero = tableroRompecabezas.ActualHeight;
@@ -163,7 +187,7 @@ namespace RompecabezasFei
 
         private void SobreponerEnTableroPiezasFaltantesDePosicionar()
         {
-            foreach (Pieza pieza in tablero.Piezas)
+            foreach (Dominio.Pieza pieza in tablero.Piezas)
             {
                 if (!pieza.EstaDentroDeCelda)
                 {
@@ -189,10 +213,10 @@ namespace RompecabezasFei
             return esPosicionValida;
         }
 
-        private Pieza BuscarPiezaPertenecienteABorde(Border borde)
+        private Dominio.Pieza BuscarPiezaPertenecienteABorde(Border borde)
         {
             var piezasEncontradas = tablero.Piezas.Where(pieza => pieza.Borde.Equals(borde));
-            Pieza piezaEncontrada = new Pieza();
+            Dominio.Pieza piezaEncontrada = new Dominio.Pieza();
 
             if (piezasEncontradas.Any())
             {
@@ -342,6 +366,41 @@ namespace RompecabezasFei
         }
 
         public void ActualizarNuevaPosicionDePieza(double posicionX, double posicionY)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void NotificarPartidaListaParaIniciar()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ActualizarPosicionDePieza(double posicionX, double posicionY)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void MostrarTablero(ServicioRompecabezasFei.Tablero tablero)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void NotificarPiezaMarcadaComoBloqueada()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ActualizarPosicionDePieza(int numeroPieza, double posicionX, double posicionY)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void NotificarPiezaMarcadaComoCorrecta(int numeroPieza, string jugador)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void NotificarFinDePartida()
         {
             throw new NotImplementedException();
         }

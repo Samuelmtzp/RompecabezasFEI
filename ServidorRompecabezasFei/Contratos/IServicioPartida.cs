@@ -1,4 +1,5 @@
-﻿using Logica;
+﻿using Datos;
+using Logica;
 using System.ServiceModel;
 
 namespace Contratos
@@ -7,31 +8,26 @@ namespace Contratos
     public interface IServicioPartida
     {
         [OperationContract]
-        bool CrearNuevaPartida(string codigoSala);
+        bool CrearNuevaPartida(string codigoSala, DificultadPartida dificultad);
 
         [OperationContract]
-        bool IniciarPartida(string codigoSala);
+        bool IniciarPartida(string codigoSala, int numeroImagenRompecabezas);
 
         [OperationContract]
-        bool FinalizarPartida(string codigoSala, 
-            CuentaJugador cuentaJugador, bool esGanador);
+        bool FinalizarPartida(string codigoSala);
 
         [OperationContract]
-        bool GenerarTablero(string codigoSala);
+        void CambiarPosicionDePieza(string codigoSala, string nombreJugador, 
+            int numeroPieza, double posicionX, double posicionY);
 
         [OperationContract]
-        void MoverPiezaPosicionX(double posicionX);
+        void MarcarPiezaComoSeleccionada(string codigoSala, int numeroPieza);
 
         [OperationContract]
-        void MoverPiezaPosicionY(bool posicionY); 
+        void MarcarPiezaComoCorrecta(string codigoSala, int numeroPieza, string nombreJugador);
 
         [OperationContract]
-        bool NotificarJugadorPreparado(string codigoSala, 
-            string nombreJugador);        
-
-        [OperationContract]
-        bool ExpulsarJugadorPartida(string codigoSala, 
-            string nombreJugador);
+        bool ExpulsarJugador(string codigoSala, string nombreJugador);
 
         [OperationContract]
         int ObtenerNumeroPartidasJugadas(string nombreJugador);
@@ -44,6 +40,18 @@ namespace Contratos
     public interface IServicioPartidaCallback
     {
         [OperationContract(IsOneWay = true)]
-        void ActualizarNuevaPosicionDePieza(double posicionX, double posicionY);
+        void MostrarTablero(Tablero tablero);
+
+        [OperationContract(IsOneWay = true)]
+        void NotificarPiezaMarcadaComoBloqueada();
+
+        [OperationContract(IsOneWay = true)]
+        void ActualizarPosicionDePieza(int numeroPieza, double posicionX, double posicionY);
+
+        [OperationContract(IsOneWay = true)]
+        void NotificarPiezaMarcadaComoCorrecta(int numeroPieza, string jugador);
+
+        [OperationContract(IsOneWay = true)]
+        void NotificarFinDePartida();
     }
 }

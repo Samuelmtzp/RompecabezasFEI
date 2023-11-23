@@ -8,7 +8,9 @@ namespace RompecabezasFei
     public partial class App : Application
     {
         private readonly List<string> idiomasDisponibles;
+
         private string idiomaActual;
+        
         SoundPlayer reproductorMusica;
 
         public string IdiomaActual

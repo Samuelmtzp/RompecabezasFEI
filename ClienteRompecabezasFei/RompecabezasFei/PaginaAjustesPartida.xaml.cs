@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace RompecabezasFei
 {
-    /// <summary>
-    /// Interaction logic for PaginaAjustesPartida.xaml
-    /// </summary>
     public partial class PaginaAjustesPartida : Page
     {
         public PaginaAjustesPartida()

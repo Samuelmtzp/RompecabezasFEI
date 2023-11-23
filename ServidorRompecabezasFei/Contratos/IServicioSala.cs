@@ -4,7 +4,7 @@ using System.ServiceModel;
 
 namespace Contratos
 {
-    [ServiceContract(CallbackContract = typeof(IServicioJuegoCallback))]
+    [ServiceContract(CallbackContract = typeof(IServicioSalaCallback))]
     public interface IServicioSala
     {
         [OperationContract]
@@ -15,25 +15,31 @@ namespace Contratos
             string mensajeBienvenida);
 
         [OperationContract]
+        void ActualizarOperacionContextoSala(string nombreJugador, string codigoSala);
+
+        [OperationContract]
         void DesconectarCuentaJugadorDeSala(string nombreJugador, string codigoSala, 
             string mensajeDespedida);
 
         [OperationContract]
         List<CuentaJugador> ObtenerJugadoresConectadosEnSala(string codigoSala);
 
-        [OperationContract(IsOneWay = true)]
+        [OperationContract]
         void EnviarMensajeDeSala(string nombreJugador, string codigoSala, string mensaje);
 
         [OperationContract]
         string GenerarCodigoParaNuevaSala();
         
         [OperationContract]
-        bool ExisteSalaDisponible(string codigoSala);               
+        bool ExisteSalaDisponible(string codigoSala);
     }
 
     [ServiceContract]
-    public interface IServicioJuegoCallback
+    public interface IServicioSalaCallback
     {
+        [OperationContract(IsOneWay = true)]
+        void NotificarCreacionDePartida();
+
         [OperationContract(IsOneWay = true)]
         void MostrarMensajeDeSala(string mensaje);
 

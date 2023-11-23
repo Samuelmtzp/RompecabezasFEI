@@ -63,7 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Contratos\Contratos.csproj">
-      <Project>{A5002B07-5213-4A39-84AE-85FC7FDACF49}</Project>
+      <Project>{a5002b07-5213-4a39-84ae-85fc7fdacf49}</Project>
       <Name>Contratos</Name>
     </ProjectReference>
     <ProjectReference Include="..\Datos\Datos.csproj">

@@ -46,7 +46,6 @@
   <ItemGroup>
     <Compile Include="Celda.cs" />
     <Compile Include="CuentaJugador.cs" />
-    <Compile Include="Dificultad.cs" />
     <Compile Include="Idioma.cs" />
     <Compile Include="ImagenRompecabezas.cs" />
     <Compile Include="Pieza.cs" />

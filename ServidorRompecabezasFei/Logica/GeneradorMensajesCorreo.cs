@@ -5,7 +5,6 @@ using System.Text;
 using log4net;
 using Registros;
 
-
 namespace Logica
 {
     public class GeneradorMensajesCorreo
