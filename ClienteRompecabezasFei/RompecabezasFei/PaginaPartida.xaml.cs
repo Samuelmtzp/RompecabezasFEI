@@ -29,7 +29,7 @@ namespace RompecabezasFei
 
         private ServicioPartidaClient clienteServicioPartida;
 
-        public ObservableCollection<Dominio.CuentaJugador> JugadoresPartida { get; set; }
+        public ObservableCollection<Dominio.CuentaJugador> JugadoresEnPartida { get; set; }
 
         public PaginaPartida() 
         { 
@@ -41,19 +41,17 @@ namespace RompecabezasFei
             // Mandar un mensaje al servidor para que redirija a los jugadores de la sala aquí
             clienteServicioPartida = new ServicioPartidaClient(new InstanceContext(this));
             clienteServicioPartida.CrearNuevaPartida(CodigoSala, dificultad);
-            
-            // Cargar jugadores que sigan conectados en la sala            
 
-            // Enviar objeto de tablero para que lo reciban todos los jugadores
-            
-            // (opcional) Que cada jugador indique que ya está listo cuando ya su página esté cargada
-            
-            // Habilitar el botón de inicio cuando ya todos realicen la confirmación de listo
-            
+            // Cargar jugadores que sigan conectados en la sala            
+            listaJugadoresPartida.DataContext = this;
+            CargarJugadoresEnPartida();
+
+
+
             // Click en botón de iniciar partida de parte de anfitrión para mandar aviso al server y que este mande el tablero
-            
+
             // Distribuir el tablero localmente, pero con el mismo orden
-            
+
 
             //tablero = new Tablero
             //{
@@ -63,13 +61,29 @@ namespace RompecabezasFei
             //    NumeroImagenRompecabezas = numeroImagenRompecabezas
             //};
             //JugadoresPartida = new ObservableCollection<Dominio.CuentaJugador>();
-            listaJugadoresPartida.DataContext = this;
-            CargarJugadoresPartida();
+
         }
 
-        private void CargarJugadoresPartida()
+        private void CargarJugadoresEnPartida()
         {
-            // Cargar los jugadores que estarán en la partida
+            JugadoresEnPartida = new ObservableCollection<Dominio.CuentaJugador>();
+            ServicioRompecabezasFei.CuentaJugador[] amigosObtenidos = ServicioSala.
+                ObtenerJugadoresConectadosEnSala(Dominio.CuentaJugador.Actual.NombreJugador);
+
+            if (amigosObtenidos != null && amigosObtenidos.Any())
+            {
+                foreach (ServicioRompecabezasFei.CuentaJugador amigo in amigosObtenidos)
+                {
+                    Dominio.CuentaJugador cuentaAmigo = new Dominio.CuentaJugador
+                    {
+                        NombreJugador = amigo.NombreJugador,
+                        NumeroAvatar = amigo.NumeroAvatar,
+                        FuenteImagenAvatar = Utilidades.GeneradorImagenes.
+                            GenerarFuenteImagenAvatar(amigo.NumeroAvatar),
+                    };
+                    JugadoresEnPartida.Add(cuentaAmigo);
+                }
+            }
         }
 
         private void CrearTablero()

@@ -179,7 +179,7 @@ namespace Servicios
     }
 
 
-    #region IServicioJuego
+    #region IServicioSala
     public partial class ServicioRompecabezasFei : IServicioSala
     {
         private readonly List<Logica.Sala> salasActivas = new List<Logica.Sala>();
@@ -825,7 +825,7 @@ namespace Servicios
             return numeroPartidasGanadas;
         }
 
-        public void MarcarPiezaComoSeleccionada(string codigoSala, int numeroPieza)
+        public void BloquearPieza(string codigoSala, int numeroPieza)
         {
             throw new NotImplementedException();
         }

@@ -11,7 +11,7 @@
     <Grid>
         <Canvas Name="tableroRompecabezas" Margin="30,99,350,81" Width="900" Height="540"/>
         <Grid Margin="979,243,31,214" ShowGridLines="True">
-            <ListView Name="listaJugadoresPartida" VerticalAlignment="Top" Foreground="White" Background="#FF4A4A4A" ItemsSource="{Binding JugadoresPartida}" HorizontalContentAlignment="Center" Width="264" Height="260" >
+            <ListView Name="listaJugadoresPartida" VerticalAlignment="Top" Foreground="White" Background="#FF4A4A4A" ItemsSource="{Binding JugadoresEnPartida}" HorizontalContentAlignment="Center" Width="264" Height="260" >
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="Margin" Value="0,30,0,0"/>

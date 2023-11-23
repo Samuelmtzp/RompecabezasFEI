@@ -173,13 +173,13 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
     public enum DificultadPartida : int {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Facil = 1,
+        Facil = 0,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Medio = 2,
+        Medio = 1,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Dificil = 3,
+        Dificil = 2,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -774,11 +774,11 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/CambiarPosicionDePieza", ReplyAction="http://tempuri.org/IServicioPartida/CambiarPosicionDePiezaResponse")]
         System.Threading.Tasks.Task CambiarPosicionDePiezaAsync(string codigoSala, string nombreJugador, int numeroPieza, double posicionX, double posicionY);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/MarcarPiezaComoSeleccionada", ReplyAction="http://tempuri.org/IServicioPartida/MarcarPiezaComoSeleccionadaResponse")]
-        void MarcarPiezaComoSeleccionada(string codigoSala, int numeroPieza);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/BloquearPieza", ReplyAction="http://tempuri.org/IServicioPartida/BloquearPiezaResponse")]
+        void BloquearPieza(string codigoSala, int numeroPieza);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/MarcarPiezaComoSeleccionada", ReplyAction="http://tempuri.org/IServicioPartida/MarcarPiezaComoSeleccionadaResponse")]
-        System.Threading.Tasks.Task MarcarPiezaComoSeleccionadaAsync(string codigoSala, int numeroPieza);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/BloquearPieza", ReplyAction="http://tempuri.org/IServicioPartida/BloquearPiezaResponse")]
+        System.Threading.Tasks.Task BloquearPiezaAsync(string codigoSala, int numeroPieza);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/MarcarPiezaComoCorrecta", ReplyAction="http://tempuri.org/IServicioPartida/MarcarPiezaComoCorrectaResponse")]
         void MarcarPiezaComoCorrecta(string codigoSala, int numeroPieza, string nombreJugador);
@@ -884,12 +884,12 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
             return base.Channel.CambiarPosicionDePiezaAsync(codigoSala, nombreJugador, numeroPieza, posicionX, posicionY);
         }
         
-        public void MarcarPiezaComoSeleccionada(string codigoSala, int numeroPieza) {
-            base.Channel.MarcarPiezaComoSeleccionada(codigoSala, numeroPieza);
+        public void BloquearPieza(string codigoSala, int numeroPieza) {
+            base.Channel.BloquearPieza(codigoSala, numeroPieza);
         }
         
-        public System.Threading.Tasks.Task MarcarPiezaComoSeleccionadaAsync(string codigoSala, int numeroPieza) {
-            return base.Channel.MarcarPiezaComoSeleccionadaAsync(codigoSala, numeroPieza);
+        public System.Threading.Tasks.Task BloquearPiezaAsync(string codigoSala, int numeroPieza) {
+            return base.Channel.BloquearPiezaAsync(codigoSala, numeroPieza);
         }
         
         public void MarcarPiezaComoCorrecta(string codigoSala, int numeroPieza, string nombreJugador) {

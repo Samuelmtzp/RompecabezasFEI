@@ -198,11 +198,11 @@
   <wsdl:message name="IServicioPartida_CambiarPosicionDePieza_OutputMessage">
     <wsdl:part name="parameters" element="tns:CambiarPosicionDePiezaResponse" />
   </wsdl:message>
-  <wsdl:message name="IServicioPartida_MarcarPiezaComoSeleccionada_InputMessage">
-    <wsdl:part name="parameters" element="tns:MarcarPiezaComoSeleccionada" />
+  <wsdl:message name="IServicioPartida_BloquearPieza_InputMessage">
+    <wsdl:part name="parameters" element="tns:BloquearPieza" />
   </wsdl:message>
-  <wsdl:message name="IServicioPartida_MarcarPiezaComoSeleccionada_OutputMessage">
-    <wsdl:part name="parameters" element="tns:MarcarPiezaComoSeleccionadaResponse" />
+  <wsdl:message name="IServicioPartida_BloquearPieza_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BloquearPiezaResponse" />
   </wsdl:message>
   <wsdl:message name="IServicioPartida_MarcarPiezaComoCorrecta_InputMessage">
     <wsdl:part name="parameters" element="tns:MarcarPiezaComoCorrecta" />
@@ -414,9 +414,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioPartida/CambiarPosicionDePieza" message="tns:IServicioPartida_CambiarPosicionDePieza_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/CambiarPosicionDePiezaResponse" message="tns:IServicioPartida_CambiarPosicionDePieza_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="MarcarPiezaComoSeleccionada">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioPartida/MarcarPiezaComoSeleccionada" message="tns:IServicioPartida_MarcarPiezaComoSeleccionada_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/MarcarPiezaComoSeleccionadaResponse" message="tns:IServicioPartida_MarcarPiezaComoSeleccionada_OutputMessage" />
+    <wsdl:operation name="BloquearPieza">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioPartida/BloquearPieza" message="tns:IServicioPartida_BloquearPieza_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/BloquearPiezaResponse" message="tns:IServicioPartida_BloquearPieza_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="MarcarPiezaComoCorrecta">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioPartida/MarcarPiezaComoCorrecta" message="tns:IServicioPartida_MarcarPiezaComoCorrecta_InputMessage" />
@@ -742,8 +742,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="MarcarPiezaComoSeleccionada">
-      <soap12:operation soapAction="http://tempuri.org/IServicioPartida/MarcarPiezaComoSeleccionada" style="document" />
+    <wsdl:operation name="BloquearPieza">
+      <soap12:operation soapAction="http://tempuri.org/IServicioPartida/BloquearPieza" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
