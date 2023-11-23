@@ -108,16 +108,19 @@ namespace RompecabezasFei
             }
             catch (EndpointNotFoundException excepcion)
             {
+                Registros.Registrador.EscribirRegistro(excepcion);
                 GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioSala.Abort();
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
+                Registros.Registrador.EscribirRegistro(excepcion);
                 GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioSala.Abort();
             }
             catch (TimeoutException excepcion)
             {
+                Registros.Registrador.EscribirRegistro(excepcion);
                 GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioSala.Abort();
             }
@@ -161,16 +164,19 @@ namespace RompecabezasFei
             }
             catch (EndpointNotFoundException excepcion)
             {
+                Registros.Registrador.EscribirRegistro(excepcion);
                 GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioSala.Abort();
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
+                Registros.Registrador.EscribirRegistro(excepcion);
                 GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioSala.Abort();
             }
             catch (TimeoutException excepcion)
             {
+                Registros.Registrador.EscribirRegistro(excepcion);
                 GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 clienteServicioSala.Abort();
             }

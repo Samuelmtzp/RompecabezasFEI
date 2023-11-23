@@ -25,8 +25,7 @@ namespace RompecabezasFei
             string nuevaContrasena = cuadroNuevaContrasena.Password;
             string confirmacionContrasena = cuadroConfirmacionContrasena.Password;
 
-            if (ValidadorDatos.ExisteCoincidenciaEnCadenas(contrasenaAnterior, contrasenaActual) &&
-                !ValidadorDatos.ExisteCoincidenciaEnCadenas(contrasenaAnterior, nuevaContrasena) && 
+            if (!ValidadorDatos.ExisteCoincidenciaEnCadenas(contrasenaAnterior, nuevaContrasena) && 
                 !ExistenDatosInvalidos(nuevaContrasena, confirmacionContrasena))
             {
                 string correoJugador = Dominio.CuentaJugador.Actual.Correo;
@@ -37,17 +36,19 @@ namespace RompecabezasFei
 
                 if (actualizacionRealizada)
                 {
-                    MessageBox.Show("La actualización de la contraseña " +
-                        "se ha realizado correctamente",
-                        "Actualización realizada correctamente",
-                        MessageBoxButton.OK);
+                    MessageBox.Show(Properties.Resources.
+                       ETIQUETA_CONTRASENAACTUALIZADA_MENSAJE,Properties.Resources.
+                       ETIQUETA_ACTUALIZACIONINFORMACION_MENSAJEACTUALIZACION,
+                       MessageBoxButton.OK);
                     Dominio.CuentaJugador.Actual.Contrasena = nuevaContrasena;
                     VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
                 }
                 else
                 {
-                    MessageBox.Show("La actualización de la contraseña no se ha realizado",
-                        "Error al actualizar información", MessageBoxButton.OK);
+                    MessageBox.Show(Properties.Resources.
+                        ETIQUETA_ACTUALIZARCONTRASENA_CONTRASENANOACTUALIZADA,Properties.Resources.
+                        ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACION, 
+                        MessageBoxButton.OK);
                 }
             }
         }

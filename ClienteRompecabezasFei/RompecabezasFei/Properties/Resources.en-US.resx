@@ -273,6 +273,45 @@
   <data name="ETIQUETA_AMIGOS_USUARIONOENCONTRADO" xml:space="preserve">
     <value>User not found</value>
   </data>
+  <data name="ETIQUETA_AMISTADES_ERRORACEPTARSOLICITUD" xml:space="preserve">
+    <value>Error accepting friend request</value>
+  </data>
+  <data name="ETIQUETA_AMISTADES_ERRORELIMINARAMIGO" xml:space="preserve">
+    <value>Error deleting friend</value>
+  </data>
+  <data name="ETIQUETA_AMISTADES_ERRORENVIARSOLICITUD" xml:space="preserve">
+    <value>Error sending friend request</value>
+  </data>
+  <data name="ETIQUETA_AMISTADES_ERRORRECHAZARSOLICITUD" xml:space="preserve">
+    <value>Error rejecting friend request</value>
+  </data>
+  <data name="ETIQUETA_AMISTADES_MENSAJEERRORACEPTARSOLICITUD" xml:space="preserve">
+    <value>The friend request could not be marked as accepted</value>
+  </data>
+  <data name="ETIQUETA_AMISTADES_MENSAJEERRORELIMINARAMIGO" xml:space="preserve">
+    <value>Could not remove friend from friends list</value>
+  </data>
+  <data name="ETIQUETA_AMISTADES_MENSAJEERRORRECHAZARSOLICITUD" xml:space="preserve">
+    <value>The friend request could not be marked as rejected</value>
+  </data>
+  <data name="ETIQUETA_AMISTADES_MENSAJESOLICITUDNOENVIADA" xml:space="preserve">
+    <value>The friend request was not sent because you have previously sent a friend request to the player</value>
+  </data>
+  <data name="ETIQUETA_AMISTADES_MENSAJESOLICTUDENVIADA" xml:space="preserve">
+    <value>Friend request has been sent successfully</value>
+  </data>
+  <data name="ETIQUETA_AMISTADES_SOLICITUDENVIADA" xml:space="preserve">
+    <value>Friend request sent</value>
+  </data>
+  <data name="ETIQUETA_AMISTADES_SOLICITUDNOENVIADA" xml:space="preserve">
+    <value>The friend request has not been sent to the player</value>
+  </data>
+  <data name="ETIQUETA_AMISTADES_SOLICITUDNOENVIADAMISMONOMBRE" xml:space="preserve">
+    <value>The friend request was not sent because the player's name is the same as yours</value>
+  </data>
+  <data name="ETIQUETA_AMISTADES_SOLICITUDNOENVIADAYAESAMIGO" xml:space="preserve">
+    <value>The friend request was not sent because you are already friends with the player</value>
+  </data>
   <data name="ETIQUETA_CANCELACIONACTUALIZACIONINFO_MENSAJE" xml:space="preserve">
     <value>If you return, the information update process will be canceled. Are you sure you want to return?</value>
   </data>
