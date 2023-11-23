@@ -529,6 +529,123 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Error al aceptar solicitud de amistad.
+        /// </summary>
+        public static string ETIQUETA_AMISTADES_ERRORACEPTARSOLICITUD {
+            get {
+                return ResourceManager.GetString("ETIQUETA_AMISTADES_ERRORACEPTARSOLICITUD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error al eliminar amigo.
+        /// </summary>
+        public static string ETIQUETA_AMISTADES_ERRORELIMINARAMIGO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_AMISTADES_ERRORELIMINARAMIGO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error al enviar solicitud de amistad.
+        /// </summary>
+        public static string ETIQUETA_AMISTADES_ERRORENVIARSOLICITUD {
+            get {
+                return ResourceManager.GetString("ETIQUETA_AMISTADES_ERRORENVIARSOLICITUD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error al rechazar solicitud de amistad.
+        /// </summary>
+        public static string ETIQUETA_AMISTADES_ERRORRECHAZARSOLICITUD {
+            get {
+                return ResourceManager.GetString("ETIQUETA_AMISTADES_ERRORRECHAZARSOLICITUD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se ha podido marcar como aceptada la solicitud de amistad.
+        /// </summary>
+        public static string ETIQUETA_AMISTADES_MENSAJEERRORACEPTARSOLICITUD {
+            get {
+                return ResourceManager.GetString("ETIQUETA_AMISTADES_MENSAJEERRORACEPTARSOLICITUD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se ha podido eliminar al amigo de la lista de amigos.
+        /// </summary>
+        public static string ETIQUETA_AMISTADES_MENSAJEERRORELIMINARAMIGO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_AMISTADES_MENSAJEERRORELIMINARAMIGO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se ha podido marcar como rechazada la solicitud de amistad.
+        /// </summary>
+        public static string ETIQUETA_AMISTADES_MENSAJEERRORRECHAZARSOLICITUD {
+            get {
+                return ResourceManager.GetString("ETIQUETA_AMISTADES_MENSAJEERRORRECHAZARSOLICITUD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se envió la solicitud de amistad debido a que anteriormente ya le has enviado una solicitud de amistad al jugador.
+        /// </summary>
+        public static string ETIQUETA_AMISTADES_MENSAJESOLICITUDNOENVIADA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_AMISTADES_MENSAJESOLICITUDNOENVIADA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Se ha enviado la solicitud de amistad correctamente.
+        /// </summary>
+        public static string ETIQUETA_AMISTADES_MENSAJESOLICTUDENVIADA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_AMISTADES_MENSAJESOLICTUDENVIADA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Solicitud de amistad enviada.
+        /// </summary>
+        public static string ETIQUETA_AMISTADES_SOLICITUDENVIADA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_AMISTADES_SOLICITUDENVIADA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se ha enviado la solicitud de amistad al jugador.
+        /// </summary>
+        public static string ETIQUETA_AMISTADES_SOLICITUDNOENVIADA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_AMISTADES_SOLICITUDNOENVIADA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se envió la solicitud de amistad debido a que el nombre del jugador es el mismo que tienes tú.
+        /// </summary>
+        public static string ETIQUETA_AMISTADES_SOLICITUDNOENVIADAMISMONOMBRE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_AMISTADES_SOLICITUDNOENVIADAMISMONOMBRE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se envió la solicitud de amistad debido a que ya eres amigo del jugador.
+        /// </summary>
+        public static string ETIQUETA_AMISTADES_SOLICITUDNOENVIADAYAESAMIGO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_AMISTADES_SOLICITUDNOENVIADAYAESAMIGO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Si regresas, el proceso de actualización de información se cancelará ¿Estás seguro de que deseas regresar?.
         /// </summary>
         public static string ETIQUETA_CANCELACIONACTUALIZACIONINFO_MENSAJE {
