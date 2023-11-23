@@ -16,7 +16,7 @@
             </Grid.RowDefinitions>
             <Border Grid.Row="1" BorderBrush="White" BorderThickness="1">
                 <ScrollViewer Background="Transparent">
-                    <ItemsControl Name="galeriaImagenesRompecabezas" Grid.Row="1" ItemsSource="{Binding imagenesRompecabezas}">
+                    <ItemsControl Name="galeriaImagenesRompecabezas" Grid.Row="1" ItemsSource="{Binding ImagenesRompecabezas}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel IsItemsHost="True" Orientation="Horizontal" />

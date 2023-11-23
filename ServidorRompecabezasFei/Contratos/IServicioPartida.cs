@@ -21,7 +21,7 @@ namespace Contratos
             int numeroPieza, double posicionX, double posicionY);
 
         [OperationContract]
-        void MarcarPiezaComoSeleccionada(string codigoSala, int numeroPieza);
+        void BloquearPieza(string codigoSala, int numeroPieza);
 
         [OperationContract]
         void MarcarPiezaComoCorrecta(string codigoSala, int numeroPieza, string nombreJugador);
