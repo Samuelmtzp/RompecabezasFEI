@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 
 namespace RompecabezasFei.Utilidades
 {
@@ -20,9 +21,10 @@ namespace RompecabezasFei.Utilidades
             string asunto, string mensaje)
         {
             CodigoGenerado = GenerarNuevoCodigoConfirmacion();
+            string mensajeBase = $"{mensaje} {CodigoGenerado}";
             bool resultado = Servicios.ServicioCorreo.EnviarMensajeACorreoElectronico(
                 Properties.Resources.ETIQUETA_GENERAL_ROMPECABEZASFEI, correoDestino,
-                asunto, mensaje);
+                asunto, mensajeBase);
 
             return resultado;
         }

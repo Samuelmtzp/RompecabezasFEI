@@ -64,6 +64,7 @@ namespace RompecabezasFei.Servicios
             }
             catch (CommunicationObjectAbortedException excepcion)
             {
+                Registros.Registrador.EscribirRegistro(excepcion);
                 GeneradorMensajes.MostrarMensajeErrorConexionServidor();
                 cliente.Abort();
             }
