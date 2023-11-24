@@ -5,8 +5,6 @@ namespace Dominio
 {
     public class Tablero
     {
-        private Dificultad dificultad;
-
         public double AnchoDeCelda { get; set; }
 
         public double AlturaDeCelda { get; set; }
@@ -20,31 +18,6 @@ namespace Dominio
         public List<Pieza> Piezas { get; set; }
 
         public List<Celda> Celdas { get; set; }
-
-        public Dificultad Dificultad
-        {
-            get { return dificultad; }
-            set 
-            { 
-                dificultad = value;
-
-                switch (dificultad)
-                {
-                    case Dificultad.Facil:
-                        TotalFilas = 6;
-                        TotalColumnas = 10;
-                        break;
-                    case Dificultad.Medio:
-                        TotalFilas = 8;
-                        TotalColumnas = 13;
-                        break;
-                    case Dificultad.Dificil:
-                        TotalFilas = 10;
-                        TotalColumnas = 16;
-                        break;
-                }
-            }
-        } 
 
         public bool EsRompecabezasCompletado()
         {

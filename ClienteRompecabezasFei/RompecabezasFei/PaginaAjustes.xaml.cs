@@ -1,6 +1,5 @@
 ﻿using Dominio;
 using System;
-using System.CodeDom;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -10,8 +9,11 @@ namespace RompecabezasFei
     public partial class PaginaAjustes : Page
     {
         private string idioma;
+
         private bool hayMusicaActivadaInicialmente;
+        
         private const string IdiomaIngles = "en-US";
+        
         private const string IdiomaEspanol = "es-MX";
 
         public PaginaAjustes()

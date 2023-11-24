@@ -168,6 +168,190 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         EnPartida = 2,
     }
     
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DificultadPartida", Namespace="http://schemas.datacontract.org/2004/07/Datos")]
+    public enum DificultadPartida : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Facil = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Medio = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Dificil = 2,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Tablero", Namespace="http://schemas.datacontract.org/2004/07/Logica")]
+    [System.SerializableAttribute()]
+    public partial class Tablero : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RompecabezasFei.ServicioRompecabezasFei.DificultadPartida DificultadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NumeroImagenRompecabezasField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RompecabezasFei.ServicioRompecabezasFei.Pieza[] PiezasField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalColumnasField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalFilasField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RompecabezasFei.ServicioRompecabezasFei.DificultadPartida Dificultad {
+            get {
+                return this.DificultadField;
+            }
+            set {
+                if ((this.DificultadField.Equals(value) != true)) {
+                    this.DificultadField = value;
+                    this.RaisePropertyChanged("Dificultad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int NumeroImagenRompecabezas {
+            get {
+                return this.NumeroImagenRompecabezasField;
+            }
+            set {
+                if ((this.NumeroImagenRompecabezasField.Equals(value) != true)) {
+                    this.NumeroImagenRompecabezasField = value;
+                    this.RaisePropertyChanged("NumeroImagenRompecabezas");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RompecabezasFei.ServicioRompecabezasFei.Pieza[] Piezas {
+            get {
+                return this.PiezasField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PiezasField, value) != true)) {
+                    this.PiezasField = value;
+                    this.RaisePropertyChanged("Piezas");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalColumnas {
+            get {
+                return this.TotalColumnasField;
+            }
+            set {
+                if ((this.TotalColumnasField.Equals(value) != true)) {
+                    this.TotalColumnasField = value;
+                    this.RaisePropertyChanged("TotalColumnas");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalFilas {
+            get {
+                return this.TotalFilasField;
+            }
+            set {
+                if ((this.TotalFilasField.Equals(value) != true)) {
+                    this.TotalFilasField = value;
+                    this.RaisePropertyChanged("TotalFilas");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Pieza", Namespace="http://schemas.datacontract.org/2004/07/Logica")]
+    [System.SerializableAttribute()]
+    public partial class Pieza : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool EstaDentroDeCeldaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NumeroPiezaField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool EstaDentroDeCelda {
+            get {
+                return this.EstaDentroDeCeldaField;
+            }
+            set {
+                if ((this.EstaDentroDeCeldaField.Equals(value) != true)) {
+                    this.EstaDentroDeCeldaField = value;
+                    this.RaisePropertyChanged("EstaDentroDeCelda");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int NumeroPieza {
+            get {
+                return this.NumeroPiezaField;
+            }
+            set {
+                if ((this.NumeroPiezaField.Equals(value) != true)) {
+                    this.NumeroPiezaField = value;
+                    this.RaisePropertyChanged("NumeroPieza");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioRompecabezasFei.IServicioAmistades", CallbackContract=typeof(RompecabezasFei.ServicioRompecabezasFei.IServicioAmistadesCallback))]
     public interface IServicioAmistades {
@@ -567,52 +751,46 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
     public interface IServicioPartida {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/CrearNuevaPartida", ReplyAction="http://tempuri.org/IServicioPartida/CrearNuevaPartidaResponse")]
-        bool CrearNuevaPartida(string codigoSala);
+        bool CrearNuevaPartida(string codigoSala, RompecabezasFei.ServicioRompecabezasFei.DificultadPartida dificultad);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/CrearNuevaPartida", ReplyAction="http://tempuri.org/IServicioPartida/CrearNuevaPartidaResponse")]
-        System.Threading.Tasks.Task<bool> CrearNuevaPartidaAsync(string codigoSala);
+        System.Threading.Tasks.Task<bool> CrearNuevaPartidaAsync(string codigoSala, RompecabezasFei.ServicioRompecabezasFei.DificultadPartida dificultad);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/IniciarPartida", ReplyAction="http://tempuri.org/IServicioPartida/IniciarPartidaResponse")]
-        bool IniciarPartida(string codigoSala);
+        bool IniciarPartida(string codigoSala, int numeroImagenRompecabezas);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/IniciarPartida", ReplyAction="http://tempuri.org/IServicioPartida/IniciarPartidaResponse")]
-        System.Threading.Tasks.Task<bool> IniciarPartidaAsync(string codigoSala);
+        System.Threading.Tasks.Task<bool> IniciarPartidaAsync(string codigoSala, int numeroImagenRompecabezas);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/FinalizarPartida", ReplyAction="http://tempuri.org/IServicioPartida/FinalizarPartidaResponse")]
-        bool FinalizarPartida(string codigoSala, RompecabezasFei.ServicioRompecabezasFei.CuentaJugador cuentaJugador, bool esGanador);
+        bool FinalizarPartida(string codigoSala);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/FinalizarPartida", ReplyAction="http://tempuri.org/IServicioPartida/FinalizarPartidaResponse")]
-        System.Threading.Tasks.Task<bool> FinalizarPartidaAsync(string codigoSala, RompecabezasFei.ServicioRompecabezasFei.CuentaJugador cuentaJugador, bool esGanador);
+        System.Threading.Tasks.Task<bool> FinalizarPartidaAsync(string codigoSala);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/GenerarTablero", ReplyAction="http://tempuri.org/IServicioPartida/GenerarTableroResponse")]
-        bool GenerarTablero(string codigoSala);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/CambiarPosicionDePieza", ReplyAction="http://tempuri.org/IServicioPartida/CambiarPosicionDePiezaResponse")]
+        void CambiarPosicionDePieza(string codigoSala, string nombreJugador, int numeroPieza, double posicionX, double posicionY);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/GenerarTablero", ReplyAction="http://tempuri.org/IServicioPartida/GenerarTableroResponse")]
-        System.Threading.Tasks.Task<bool> GenerarTableroAsync(string codigoSala);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/CambiarPosicionDePieza", ReplyAction="http://tempuri.org/IServicioPartida/CambiarPosicionDePiezaResponse")]
+        System.Threading.Tasks.Task CambiarPosicionDePiezaAsync(string codigoSala, string nombreJugador, int numeroPieza, double posicionX, double posicionY);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/MoverPiezaPosicionX", ReplyAction="http://tempuri.org/IServicioPartida/MoverPiezaPosicionXResponse")]
-        void MoverPiezaPosicionX(double posicionX);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/BloquearPieza", ReplyAction="http://tempuri.org/IServicioPartida/BloquearPiezaResponse")]
+        void BloquearPieza(string codigoSala, int numeroPieza);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/MoverPiezaPosicionX", ReplyAction="http://tempuri.org/IServicioPartida/MoverPiezaPosicionXResponse")]
-        System.Threading.Tasks.Task MoverPiezaPosicionXAsync(double posicionX);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/BloquearPieza", ReplyAction="http://tempuri.org/IServicioPartida/BloquearPiezaResponse")]
+        System.Threading.Tasks.Task BloquearPiezaAsync(string codigoSala, int numeroPieza);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/MoverPiezaPosicionY", ReplyAction="http://tempuri.org/IServicioPartida/MoverPiezaPosicionYResponse")]
-        void MoverPiezaPosicionY(bool posicionY);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/MarcarPiezaComoCorrecta", ReplyAction="http://tempuri.org/IServicioPartida/MarcarPiezaComoCorrectaResponse")]
+        void MarcarPiezaComoCorrecta(string codigoSala, int numeroPieza, string nombreJugador);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/MoverPiezaPosicionY", ReplyAction="http://tempuri.org/IServicioPartida/MoverPiezaPosicionYResponse")]
-        System.Threading.Tasks.Task MoverPiezaPosicionYAsync(bool posicionY);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/MarcarPiezaComoCorrecta", ReplyAction="http://tempuri.org/IServicioPartida/MarcarPiezaComoCorrectaResponse")]
+        System.Threading.Tasks.Task MarcarPiezaComoCorrectaAsync(string codigoSala, int numeroPieza, string nombreJugador);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/NotificarJugadorPreparado", ReplyAction="http://tempuri.org/IServicioPartida/NotificarJugadorPreparadoResponse")]
-        bool NotificarJugadorPreparado(string codigoSala, string nombreJugador);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/ExpulsarJugador", ReplyAction="http://tempuri.org/IServicioPartida/ExpulsarJugadorResponse")]
+        bool ExpulsarJugador(string codigoSala, string nombreJugador);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/NotificarJugadorPreparado", ReplyAction="http://tempuri.org/IServicioPartida/NotificarJugadorPreparadoResponse")]
-        System.Threading.Tasks.Task<bool> NotificarJugadorPreparadoAsync(string codigoSala, string nombreJugador);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/ExpulsarJugadorPartida", ReplyAction="http://tempuri.org/IServicioPartida/ExpulsarJugadorPartidaResponse")]
-        bool ExpulsarJugadorPartida(string codigoSala, string nombreJugador);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/ExpulsarJugadorPartida", ReplyAction="http://tempuri.org/IServicioPartida/ExpulsarJugadorPartidaResponse")]
-        System.Threading.Tasks.Task<bool> ExpulsarJugadorPartidaAsync(string codigoSala, string nombreJugador);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/ExpulsarJugador", ReplyAction="http://tempuri.org/IServicioPartida/ExpulsarJugadorResponse")]
+        System.Threading.Tasks.Task<bool> ExpulsarJugadorAsync(string codigoSala, string nombreJugador);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/ObtenerNumeroPartidasJugadas", ReplyAction="http://tempuri.org/IServicioPartida/ObtenerNumeroPartidasJugadasResponse")]
         int ObtenerNumeroPartidasJugadas(string nombreJugador);
@@ -630,8 +808,20 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IServicioPartidaCallback {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioPartida/ActualizarNuevaPosicionDePieza")]
-        void ActualizarNuevaPosicionDePieza(double posicionX, double posicionY);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioPartida/MostrarTablero")]
+        void MostrarTablero(RompecabezasFei.ServicioRompecabezasFei.Tablero tablero);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioPartida/NotificarPiezaMarcadaComoBloqueada")]
+        void NotificarPiezaMarcadaComoBloqueada();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioPartida/ActualizarPosicionDePieza")]
+        void ActualizarPosicionDePieza(int numeroPieza, double posicionX, double posicionY);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioPartida/NotificarPiezaMarcadaComoCorrecta")]
+        void NotificarPiezaMarcadaComoCorrecta(int numeroPieza, string jugador);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioPartida/NotificarFinDePartida")]
+        void NotificarFinDePartida();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -662,68 +852,60 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
-        public bool CrearNuevaPartida(string codigoSala) {
-            return base.Channel.CrearNuevaPartida(codigoSala);
+        public bool CrearNuevaPartida(string codigoSala, RompecabezasFei.ServicioRompecabezasFei.DificultadPartida dificultad) {
+            return base.Channel.CrearNuevaPartida(codigoSala, dificultad);
         }
         
-        public System.Threading.Tasks.Task<bool> CrearNuevaPartidaAsync(string codigoSala) {
-            return base.Channel.CrearNuevaPartidaAsync(codigoSala);
+        public System.Threading.Tasks.Task<bool> CrearNuevaPartidaAsync(string codigoSala, RompecabezasFei.ServicioRompecabezasFei.DificultadPartida dificultad) {
+            return base.Channel.CrearNuevaPartidaAsync(codigoSala, dificultad);
         }
         
-        public bool IniciarPartida(string codigoSala) {
-            return base.Channel.IniciarPartida(codigoSala);
+        public bool IniciarPartida(string codigoSala, int numeroImagenRompecabezas) {
+            return base.Channel.IniciarPartida(codigoSala, numeroImagenRompecabezas);
         }
         
-        public System.Threading.Tasks.Task<bool> IniciarPartidaAsync(string codigoSala) {
-            return base.Channel.IniciarPartidaAsync(codigoSala);
+        public System.Threading.Tasks.Task<bool> IniciarPartidaAsync(string codigoSala, int numeroImagenRompecabezas) {
+            return base.Channel.IniciarPartidaAsync(codigoSala, numeroImagenRompecabezas);
         }
         
-        public bool FinalizarPartida(string codigoSala, RompecabezasFei.ServicioRompecabezasFei.CuentaJugador cuentaJugador, bool esGanador) {
-            return base.Channel.FinalizarPartida(codigoSala, cuentaJugador, esGanador);
+        public bool FinalizarPartida(string codigoSala) {
+            return base.Channel.FinalizarPartida(codigoSala);
         }
         
-        public System.Threading.Tasks.Task<bool> FinalizarPartidaAsync(string codigoSala, RompecabezasFei.ServicioRompecabezasFei.CuentaJugador cuentaJugador, bool esGanador) {
-            return base.Channel.FinalizarPartidaAsync(codigoSala, cuentaJugador, esGanador);
+        public System.Threading.Tasks.Task<bool> FinalizarPartidaAsync(string codigoSala) {
+            return base.Channel.FinalizarPartidaAsync(codigoSala);
         }
         
-        public bool GenerarTablero(string codigoSala) {
-            return base.Channel.GenerarTablero(codigoSala);
+        public void CambiarPosicionDePieza(string codigoSala, string nombreJugador, int numeroPieza, double posicionX, double posicionY) {
+            base.Channel.CambiarPosicionDePieza(codigoSala, nombreJugador, numeroPieza, posicionX, posicionY);
         }
         
-        public System.Threading.Tasks.Task<bool> GenerarTableroAsync(string codigoSala) {
-            return base.Channel.GenerarTableroAsync(codigoSala);
+        public System.Threading.Tasks.Task CambiarPosicionDePiezaAsync(string codigoSala, string nombreJugador, int numeroPieza, double posicionX, double posicionY) {
+            return base.Channel.CambiarPosicionDePiezaAsync(codigoSala, nombreJugador, numeroPieza, posicionX, posicionY);
         }
         
-        public void MoverPiezaPosicionX(double posicionX) {
-            base.Channel.MoverPiezaPosicionX(posicionX);
+        public void BloquearPieza(string codigoSala, int numeroPieza) {
+            base.Channel.BloquearPieza(codigoSala, numeroPieza);
         }
         
-        public System.Threading.Tasks.Task MoverPiezaPosicionXAsync(double posicionX) {
-            return base.Channel.MoverPiezaPosicionXAsync(posicionX);
+        public System.Threading.Tasks.Task BloquearPiezaAsync(string codigoSala, int numeroPieza) {
+            return base.Channel.BloquearPiezaAsync(codigoSala, numeroPieza);
         }
         
-        public void MoverPiezaPosicionY(bool posicionY) {
-            base.Channel.MoverPiezaPosicionY(posicionY);
+        public void MarcarPiezaComoCorrecta(string codigoSala, int numeroPieza, string nombreJugador) {
+            base.Channel.MarcarPiezaComoCorrecta(codigoSala, numeroPieza, nombreJugador);
         }
         
-        public System.Threading.Tasks.Task MoverPiezaPosicionYAsync(bool posicionY) {
-            return base.Channel.MoverPiezaPosicionYAsync(posicionY);
+        public System.Threading.Tasks.Task MarcarPiezaComoCorrectaAsync(string codigoSala, int numeroPieza, string nombreJugador) {
+            return base.Channel.MarcarPiezaComoCorrectaAsync(codigoSala, numeroPieza, nombreJugador);
         }
         
-        public bool NotificarJugadorPreparado(string codigoSala, string nombreJugador) {
-            return base.Channel.NotificarJugadorPreparado(codigoSala, nombreJugador);
+        public bool ExpulsarJugador(string codigoSala, string nombreJugador) {
+            return base.Channel.ExpulsarJugador(codigoSala, nombreJugador);
         }
         
-        public System.Threading.Tasks.Task<bool> NotificarJugadorPreparadoAsync(string codigoSala, string nombreJugador) {
-            return base.Channel.NotificarJugadorPreparadoAsync(codigoSala, nombreJugador);
-        }
-        
-        public bool ExpulsarJugadorPartida(string codigoSala, string nombreJugador) {
-            return base.Channel.ExpulsarJugadorPartida(codigoSala, nombreJugador);
-        }
-        
-        public System.Threading.Tasks.Task<bool> ExpulsarJugadorPartidaAsync(string codigoSala, string nombreJugador) {
-            return base.Channel.ExpulsarJugadorPartidaAsync(codigoSala, nombreJugador);
+        public System.Threading.Tasks.Task<bool> ExpulsarJugadorAsync(string codigoSala, string nombreJugador) {
+            return base.Channel.ExpulsarJugadorAsync(codigoSala, nombreJugador);
         }
         
         public int ObtenerNumeroPartidasJugadas(string nombreJugador) {
@@ -759,6 +941,12 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSala/ConectarCuentaJugadorASala", ReplyAction="http://tempuri.org/IServicioSala/ConectarCuentaJugadorASalaResponse")]
         System.Threading.Tasks.Task ConectarCuentaJugadorASalaAsync(string nombreJugador, string codigoSala, string mensajeBienvenida);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSala/ActualizarOperacionContextoSala", ReplyAction="http://tempuri.org/IServicioSala/ActualizarOperacionContextoSalaResponse")]
+        void ActualizarOperacionContextoSala(string nombreJugador, string codigoSala);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSala/ActualizarOperacionContextoSala", ReplyAction="http://tempuri.org/IServicioSala/ActualizarOperacionContextoSalaResponse")]
+        System.Threading.Tasks.Task ActualizarOperacionContextoSalaAsync(string nombreJugador, string codigoSala);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSala/DesconectarCuentaJugadorDeSala", ReplyAction="http://tempuri.org/IServicioSala/DesconectarCuentaJugadorDeSalaResponse")]
         void DesconectarCuentaJugadorDeSala(string nombreJugador, string codigoSala, string mensajeDespedida);
         
@@ -771,10 +959,10 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSala/ObtenerJugadoresConectadosEnSala", ReplyAction="http://tempuri.org/IServicioSala/ObtenerJugadoresConectadosEnSalaResponse")]
         System.Threading.Tasks.Task<RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[]> ObtenerJugadoresConectadosEnSalaAsync(string codigoSala);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioSala/EnviarMensajeDeSala")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSala/EnviarMensajeDeSala", ReplyAction="http://tempuri.org/IServicioSala/EnviarMensajeDeSalaResponse")]
         void EnviarMensajeDeSala(string nombreJugador, string codigoSala, string mensaje);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioSala/EnviarMensajeDeSala")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSala/EnviarMensajeDeSala", ReplyAction="http://tempuri.org/IServicioSala/EnviarMensajeDeSalaResponse")]
         System.Threading.Tasks.Task EnviarMensajeDeSalaAsync(string nombreJugador, string codigoSala, string mensaje);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSala/GenerarCodigoParaNuevaSala", ReplyAction="http://tempuri.org/IServicioSala/GenerarCodigoParaNuevaSalaResponse")]
@@ -792,6 +980,9 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IServicioSalaCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioSala/NotificarCreacionDePartida")]
+        void NotificarCreacionDePartida();
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioSala/MostrarMensajeDeSala")]
         void MostrarMensajeDeSala(string mensaje);
@@ -845,6 +1036,14 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         
         public System.Threading.Tasks.Task ConectarCuentaJugadorASalaAsync(string nombreJugador, string codigoSala, string mensajeBienvenida) {
             return base.Channel.ConectarCuentaJugadorASalaAsync(nombreJugador, codigoSala, mensajeBienvenida);
+        }
+        
+        public void ActualizarOperacionContextoSala(string nombreJugador, string codigoSala) {
+            base.Channel.ActualizarOperacionContextoSala(nombreJugador, codigoSala);
+        }
+        
+        public System.Threading.Tasks.Task ActualizarOperacionContextoSalaAsync(string nombreJugador, string codigoSala) {
+            return base.Channel.ActualizarOperacionContextoSalaAsync(nombreJugador, codigoSala);
         }
         
         public void DesconectarCuentaJugadorDeSala(string nombreJugador, string codigoSala, string mensajeDespedida) {

@@ -180,7 +180,10 @@
     <None Include="Connected Services\ServicioRompecabezasFei\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServicioRompecabezasFei\item2.xsd">
+    <None Include="Connected Services\ServicioRompecabezasFei\item21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServicioRompecabezasFei\item3.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServicioRompecabezasFei\RompecabezasFei.ServicioRompecabezasFei.CuentaJugador.datasource">

@@ -13,6 +13,7 @@ namespace RompecabezasFei
     public partial class PaginaVerificacionCorreo : Page
     {
         private readonly Dominio.CuentaJugador jugadorRegistro;
+
         private Temporizador temporizador;
 
         public PaginaVerificacionCorreo(Dominio.CuentaJugador jugadorRegistro)

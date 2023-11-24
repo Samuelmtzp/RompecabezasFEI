@@ -14,11 +14,11 @@ namespace Servidor
                 try
                 {
                     servidorRompecabezasFei.Open();
-                    Console.WriteLine("Servidor iniciado");
+                    Console.WriteLine("Servidor operacional");
                 }
                 catch (AddressAccessDeniedException)
                 {
-                    Console.WriteLine("Servidor no iniciado");
+                    Console.WriteLine("Servidor detenido");
                 }
                 Console.ReadLine();
             }

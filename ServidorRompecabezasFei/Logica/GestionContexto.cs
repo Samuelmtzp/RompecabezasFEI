@@ -8,10 +8,13 @@ namespace Logica
 
         public OperationContext ContextoIServicioAmistades { get; set; }
         
+        public OperationContext ContextoIServicioPartida { get; set; }
+
         public GestionContexto()
         {
             ContextoIServicioSala = null;
             ContextoIServicioAmistades = null;
+            ContextoIServicioPartida = null;
         }
     }
 }

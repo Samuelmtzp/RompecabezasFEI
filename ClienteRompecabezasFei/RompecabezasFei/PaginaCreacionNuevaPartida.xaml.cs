@@ -1,4 +1,5 @@
 ﻿using Dominio;
+using RompecabezasFei.ServicioRompecabezasFei;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,21 +11,28 @@ namespace RompecabezasFei
     public partial class PaginaCreacionNuevaPartida : Page
     {
         private Border bordeImagenSeleccionada;
-        private Dificultad dificultad;
-        private int numeroImagen;
+
+        private DificultadPartida dificultadSeleccionada;
+        
+        private int numeroImagenSeleccionada;
+        
         private const int TotalImagenes = 16;
+
+        private const int NumeroImagenInicial = 1;
 
         public ObservableCollection<ImagenRompecabezas> ImagenesRompecabezas { get; set; }
 
         public string CodigoSala { get; set; }
 
+        public ServicioSalaClient ClienteServicioSala { get; set; }
+
         public PaginaCreacionNuevaPartida()
         {
             InitializeComponent();
             MostrarImagenesDeRompecabezas();
-            dificultad = Dificultad.Facil;
-            cuadroSeleccionDificultad.SelectedIndex = (int)dificultad;
-            numeroImagen = 1;
+            dificultadSeleccionada = DificultadPartida.Facil;
+            cuadroSeleccionDificultad.SelectedIndex = (int)dificultadSeleccionada;
+            numeroImagenSeleccionada = NumeroImagenInicial;
             galeriaImagenesRompecabezas.DataContext = this;
         }
 
@@ -32,7 +40,8 @@ namespace RompecabezasFei
         {
             ImagenesRompecabezas = new ObservableCollection<ImagenRompecabezas>();
 
-            for (int indiceImagen = 1; indiceImagen <= TotalImagenes;  indiceImagen++)
+            for (int indiceImagen = NumeroImagenInicial; indiceImagen <= TotalImagenes;  
+                indiceImagen++)
             {
                 ImagenesRompecabezas.Add(new ImagenRompecabezas
                 {
@@ -73,29 +82,36 @@ namespace RompecabezasFei
             }
 
             ImagenRompecabezas imagen = borde.DataContext as ImagenRompecabezas;
-            numeroImagen = imagen.NumeroImagen;
+            numeroImagenSeleccionada = imagen.NumeroImagen;
             bordeImagenSeleccionada = borde;
             borde.BorderBrush = new SolidColorBrush(Colors.Green);
         }
 
         private void IrAPaginaSala(object objetoOrigen, MouseButtonEventArgs evento)
         {
-            VentanaPrincipal.CambiarPagina(new PaginaSala());
-            // Cargar datos que ya estaban en sala
-            // - Lista de jugadores conectados
-            // - EsAnfitrion
-            // - boton iniciar partida
+            PaginaSala paginaSala = new PaginaSala
+            {
+                CodigoSala = CodigoSala,
+                EsAnfitrion = true
+            };
+            paginaSala.RecargarSala();
+            VentanaPrincipal.CambiarPagina(paginaSala);
         }
 
-        private void SeleccionarDificultad(object controlOrigen,
+        private void SeleccionarDificultad(object objetoOrigen,
             SelectionChangedEventArgs evento)
         {
-            dificultad = (Dificultad)cuadroSeleccionDificultad.SelectedIndex;
+            dificultadSeleccionada = (DificultadPartida)cuadroSeleccionDificultad.SelectedIndex;
         }
 
         private void IrAPaginaPartida(object objetoOrigen, RoutedEventArgs evento)
         {
-            VentanaPrincipal.CambiarPagina(new PaginaPartida(dificultad, numeroImagen));
+            PaginaPartida paginaPartida = new PaginaPartida(dificultadSeleccionada,
+                numeroImagenSeleccionada)
+            {
+                CodigoSala = CodigoSala
+            };
+            VentanaPrincipal.CambiarPagina(paginaPartida);
         }
     }
 }

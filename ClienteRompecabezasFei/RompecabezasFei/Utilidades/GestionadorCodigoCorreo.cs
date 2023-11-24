@@ -6,7 +6,9 @@ namespace RompecabezasFei.Utilidades
     public static class GestionadorCodigoCorreo
     {
         private const int MinimoNumeroAleatorio = 100000;
+
         private const int MaximoNumeroAleatorio = 1000000;
+        
         public static string CodigoGenerado { get; set; }
 
         private static string GenerarNuevoCodigoConfirmacion()

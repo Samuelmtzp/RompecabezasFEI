@@ -8,12 +8,13 @@ namespace Dominio
     public class Pieza : UIElement
     {
         private Border borde;
-        private bool estaDentroDeCelda;
 
+        private bool estaDentroDeCelda;
+        
         public double Ancho { get; set; }
 
         public double Alto { get; set; }
-
+        
         public Image Imagen { get; set; }
 
         public Border Borde
