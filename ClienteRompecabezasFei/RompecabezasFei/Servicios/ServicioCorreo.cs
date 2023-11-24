@@ -16,7 +16,8 @@ namespace RompecabezasFei.Servicios
 
             try
             {
-                cliente.EnviarMensajeCorreo(encabezado, correoDestino, asunto, mensaje);
+                resultado = cliente.EnviarMensajeCorreo
+                    (encabezado, correoDestino, asunto, mensaje);
                 cliente.Close();
             }
             catch (EndpointNotFoundException excepcion)

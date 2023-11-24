@@ -22,7 +22,7 @@ namespace RompecabezasFei
             bool envioDeCodigoRealizado = GestionadorCodigoCorreo.
                 EnviarNuevoCodigoDeVerificacionACorreo(correoDestino, Properties.Resources.
                 ETIQUETA_CODIGO_CODIGORESTABLECIMIENTO, Properties.Resources.
-                ETIQUETA_RECUPERACION_MENSAJE + $" {GestionadorCodigoCorreo.CodigoGenerado}");
+                ETIQUETA_RECUPERACION_MENSAJE);
 
             if (!envioDeCodigoRealizado)
             {
