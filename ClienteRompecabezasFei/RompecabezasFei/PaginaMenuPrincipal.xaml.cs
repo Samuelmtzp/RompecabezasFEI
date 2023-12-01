@@ -1,10 +1,11 @@
-﻿using System.Windows;
+﻿using RompecabezasFei.ServicioRompecabezasFei;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace RompecabezasFei
 {
-    public partial class PaginaMenuPrincipal : Page
+    public partial class PaginaMenuPrincipal : Page, IServicioInvitacionesCallback
     {
         public PaginaMenuPrincipal()
         {
@@ -27,11 +28,8 @@ namespace RompecabezasFei
 
         private void CrearNuevaSala(object objetoOrigen, RoutedEventArgs evento)
         {
-            PaginaSala paginaSala = new PaginaSala
-            {
-                EsAnfitrion = true
-            };
-            paginaSala.UnirseASala();
+            PaginaSala paginaSala = new PaginaSala(true);
+            paginaSala.UnirseASala(true);
             VentanaPrincipal.CambiarPagina(paginaSala);
         }
 
@@ -52,12 +50,14 @@ namespace RompecabezasFei
                 Properties.Resources.ETIQUETA_CERRARSESION_TITULO,
                 MessageBoxButton.YesNo, MessageBoxImage.Question);
 
-            if (resultadoOpcionCerrarSesion == MessageBoxResult.Yes)
+            if (resultadoOpcionCerrarSesion == MessageBoxResult.Yes && 
+                !Dominio.CuentaJugador.Actual.EsInvitado)
             {
                 Servicios.ServicioJugador.CerrarSesion(Dominio.CuentaJugador.Actual.NombreJugador);
-                Dominio.CuentaJugador.Actual = null;
-                VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
             }
+            
+            Dominio.CuentaJugador.Actual = null;
+            VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
         }
 
         private void IrAPaginaInformacionJugador(object objetoOrigen, MouseButtonEventArgs evento)
@@ -68,6 +68,12 @@ namespace RompecabezasFei
         private void IrAPaginaAjustes(object objetoOrigen, MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPaginaGuardandoAnterior(new PaginaAjustes());
+        }
+
+        public void MostrarInvitacionDeSala(string nombreJugador, string codigoSala)
+        {
+            MessageBox.Show($"Invitacion a sala de: {nombreJugador}", "", 
+                MessageBoxButton.YesNo, MessageBoxImage.Information);
         }
     }
 }

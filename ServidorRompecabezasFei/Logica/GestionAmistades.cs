@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace Logica
 {
-    public class GestionAmistades
+    public static class GestionAmistades
     {
-        public List<CuentaJugador> ObtenerAmigosDeJugador(string nombreJugador)
+        public static List<CuentaJugador> ObtenerAmigosDeJugador(string nombreJugador)
         {
             List<CuentaJugador> amigos = new List<CuentaJugador>();
 
@@ -38,7 +38,7 @@ namespace Logica
             return amigos;
         }
 
-        public List<CuentaJugador> ObtenerJugadoresConSolicitudPendiente(
+        public static List<CuentaJugador> ObtenerJugadoresConSolicitudPendiente(
             string nombreJugador)
         {
             List<CuentaJugador> jugadoresConSolicitudPendiente = new List<CuentaJugador>();
@@ -63,7 +63,7 @@ namespace Logica
             return jugadoresConSolicitudPendiente;
         }
 
-        public bool EnviarSolicitudDeAmistad(string nombreJugadorOrigen, 
+        public static bool EnviarSolicitudDeAmistad(string nombreJugadorOrigen, 
             string nombreJugadorDestino)
         {
             bool resultado = false;
@@ -90,10 +90,16 @@ namespace Logica
             return resultado;
         }
 
-        public bool AceptarSolicitudDeAmistad(string nombreJugadorOrigen, 
+        public static bool AceptarSolicitudDeAmistad(string nombreJugadorOrigen, 
             string nombreJugadorDestino)
         {
             bool resultado = false;
+
+            if (!ExisteAmistadConJugador(nombreJugadorOrigen, nombreJugadorDestino))
+            {
+                resultado = RegistrarNuevaAmistadEntreJugadores(nombreJugadorOrigen,
+                    nombreJugadorDestino);
+            }
 
             if (ExisteSolicitudDeAmistad(nombreJugadorOrigen, nombreJugadorDestino))
             {
@@ -105,16 +111,10 @@ namespace Logica
                 EliminarSolicitudDeAmistad(nombreJugadorDestino, nombreJugadorOrigen);
             }
 
-            if (!ExisteAmistadConJugador(nombreJugadorOrigen, nombreJugadorDestino))
-            {
-                resultado = RegistrarNuevaAmistadEntreJugadores(nombreJugadorOrigen,
-                    nombreJugadorDestino);
-            }
-
             return resultado;
         }        
 
-        private bool RegistrarNuevaAmistadEntreJugadores(string nombreJugadorA, 
+        private static bool RegistrarNuevaAmistadEntreJugadores(string nombreJugadorA, 
             string nombreJugadorB)
         {
             bool resultado = false;
@@ -141,7 +141,7 @@ namespace Logica
             return resultado;
         }
 
-        public bool EliminarAmistadEntreJugadores(string nombreJugadorA, string nombreJugadorB)
+        public static bool EliminarAmistadEntreJugadores(string nombreJugadorA, string nombreJugadorB)
         {
             bool resultado = false;
 
@@ -163,7 +163,7 @@ namespace Logica
             return resultado;
         }
 
-        public bool EliminarSolicitudDeAmistad(string nombreJugadorOrigen, 
+        public static bool EliminarSolicitudDeAmistad(string nombreJugadorOrigen, 
             string nombreJugadorDestino)
         {
             bool resultado = false;
@@ -185,7 +185,7 @@ namespace Logica
             return resultado;
         }
 
-        public bool ExisteSolicitudDeAmistad(string nombreJugadorOrigen,
+        public static bool ExisteSolicitudDeAmistad(string nombreJugadorOrigen,
             string nombreJugadorDestino)
         {
             bool resultado = false;
@@ -208,7 +208,7 @@ namespace Logica
             return resultado;
         }
 
-        public bool ExisteAmistadConJugador(string nombreJugadorA, string nombreJugadorB)
+        public static bool ExisteAmistadConJugador(string nombreJugadorA, string nombreJugadorB)
         {
             bool resultado = false;
 

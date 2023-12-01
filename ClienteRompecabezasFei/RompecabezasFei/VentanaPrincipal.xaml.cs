@@ -33,7 +33,8 @@ namespace RompecabezasFei
 
         private void CerrarSesionActual(object objetoOrigen, CancelEventArgs evento)
         {
-            if (Dominio.CuentaJugador.Actual != null)
+            if (Dominio.CuentaJugador.Actual != null && 
+                !Dominio.CuentaJugador.Actual.EsInvitado)
             {
                 Servicios.ServicioJugador.CerrarSesion(Dominio.CuentaJugador.
                     Actual.NombreJugador);

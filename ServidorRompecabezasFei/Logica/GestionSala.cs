@@ -1,31 +1,23 @@
 ﻿using Datos;
-using System.Linq;
 
 namespace Logica
 {
-    public class GestionSala
+    public static class GestionSala
     {
-        public bool CrearNuevaSala(string nombreAnfitrion, string codigoSala)
+        public static bool CrearNuevaSala(string codigoSala)
         {
             bool resultado = false;
 
             using (var contexto = new EntidadesRompecabezasFei())
             {
-                Jugador jugadorAnfitrion = contexto.Jugador.Where(jugador =>
-                    jugador.NombreJugador == nombreAnfitrion).FirstOrDefault();
-
-                if (jugadorAnfitrion != null)
+                Datos.Sala nuevaSala = new Datos.Sala
                 {
-                    Datos.Sala nuevaSala = new Datos.Sala
-                    {
-                        Codigo = codigoSala,
-                        IdAnfitrion = jugadorAnfitrion.IdJugador,
-                        MaximoJugadores = Sala.MaximoJugadores,
-                        MinimoJugadores = Sala.MinimoJugadores,
-                    };
-                    contexto.Sala.Add(nuevaSala);
-                    resultado = contexto.SaveChanges() > 0;
-                }
+                    Codigo = codigoSala,
+                    MaximoJugadores = Sala.MaximoJugadoresPorSala,
+                    MinimoJugadores = Sala.MinimoJugadoresParaIniciarPartida,
+                };
+                contexto.Sala.Add(nuevaSala);
+                resultado = contexto.SaveChanges() > 0;
             }
 
             return resultado;

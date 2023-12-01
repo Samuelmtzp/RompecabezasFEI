@@ -3,9 +3,9 @@ using System.Linq;
 
 namespace Logica
 {
-    public class ConsultasJugador
+    public static class ConsultasJugador
     {
-        public bool ExisteNombreJugador(string nombreJugador)
+        public static bool ExisteNombreJugador(string nombreJugador)
         {
             bool resultado = false;
 
@@ -24,7 +24,7 @@ namespace Logica
             return resultado;
         }
 
-        public bool ExisteCorreoElectronico(string correoElectronico)
+        public static bool ExisteCorreoElectronico(string correoElectronico)
         {
             bool resultado = false;
             
@@ -43,7 +43,7 @@ namespace Logica
             return resultado;
         }
 
-        public int ObtenerNumeroPartidasJugadasDeJugador(string nombreJugador)
+        public static int ObtenerNumeroPartidasJugadasDeJugador(string nombreJugador)
         {
             int partidasJugadas;
             
@@ -59,7 +59,7 @@ namespace Logica
             return partidasJugadas;
         }
 
-        public int ObtenerNumeroPartidasGanadas(string nombreJugador)
+        public static int ObtenerNumeroPartidasGanadas(string nombreJugador)
         {
             int partidasGanadas;
 

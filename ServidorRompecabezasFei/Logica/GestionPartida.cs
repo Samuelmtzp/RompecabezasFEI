@@ -1,12 +1,13 @@
 ﻿using Datos;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Logica
 {
-    public class GestionPartida
+    public static class GestionPartida
     {
-        public bool CrearNuevaPartida(string codigoSala, DificultadPartida dificultad)
+        public static bool CrearNuevaPartida(string codigoSala, DificultadPartida dificultad)
         {
             bool operacionRealizada = false;
 
@@ -30,7 +31,7 @@ namespace Logica
             return operacionRealizada;
         }
 
-        public bool FinalizarPartida(string codigoSala, 
+        public static bool FinalizarPartida(string codigoSala, 
             CuentaJugador cuentaJugador, bool esGanador)
         {
             bool resultado = false;
@@ -56,36 +57,24 @@ namespace Logica
             }
 
             return resultado;
-        }
+        }            
 
-        public Tablero GenerarNuevoTablero(DificultadPartida dificultad, 
-            int numeroImagenRompecabezas)
+        public static ConcurrentDictionary<int, Pieza> GenerarPiezasParaTablero(int numeroFilas, 
+            int numeroColumnas)
         {
-            Tablero tablero = new Tablero
-            {
-                Dificultad = dificultad,
-                NumeroImagenRompecabezas = numeroImagenRompecabezas
-            };
-            tablero.Piezas = GenerarPiezasParaTablero(tablero.TotalFilas, 
-                tablero.TotalColumnas);
-
-            return tablero;
-        }
-
-        public List<Pieza> GenerarPiezasParaTablero(int numeroFilas, int numeroColumnas)
-        {
-            List<Pieza> piezas = new List<Pieza>();
+            ConcurrentDictionary<int, Pieza> piezas = new ConcurrentDictionary<int, Pieza>();
             int totalPiezas = numeroFilas * numeroColumnas;
-            int numeroPieza = 0;
            
-            while (numeroPieza < totalPiezas)
+            for (int numeroPieza = 1; numeroPieza <= totalPiezas; numeroPieza++)
             {
                 Pieza pieza = new Pieza()
                 {
-                    NumeroPieza = ++numeroPieza,
-                    EstaDentroDeCelda = false
+                    NumeroPieza = numeroPieza,
+                    EstaDentroDeCelda = false,
+                    EstaBloqueada = false,
+                    ValorEnPuntaje = PuntajePieza.PiezaNormal,
                 };
-                piezas.Add(pieza);
+                piezas.TryAdd(numeroPieza, pieza);
             }
 
             return piezas;

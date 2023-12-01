@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IServicioCorreo.cs" />
+    <Compile Include="IServicioInvitaciones.cs" />
     <Compile Include="IServicioPartida.cs" />
     <Compile Include="IServicioAmistades.cs" />
     <Compile Include="IServicioJugador.cs" />

@@ -1,73 +1,44 @@
-﻿using Datos;
-using System.Collections.Generic;
+﻿using System.Collections.Concurrent;
 using System.Linq;
 using System.Runtime.Serialization;
+using System.ServiceModel;
 
 namespace Logica
 {
     [DataContract]
     public class Tablero
     {
-        private DificultadPartida dificultad;
+        public const int CantidadFilasDificultadFacil = 6;
 
-        public const int NumeroFilasDificultadFacil = 6;
-
-        public const int NumeroFilasDificultadMedia = 8;
-
-        public const int NumeroFilasDificultadDificil = 10;
-
-        public const int NumeroColumnasDificultadFacil = 10;
-
-        public const int NumeroColumnasDificultadMedia = 13;
-
-        public const int NumeroColumnasDificultadDificil = 16;
+        public const int CantidadFilasDificultadMedia = 8;
+        
+        public const int CantidadFilasDificultadDificil = 10;
+        
+        public const int CantidadColumnasDificultadFacil = 10;
+        
+        public const int CantidadColumnasDificultadMedia = 13;
+        
+        public const int CantidadColumnasDificultadDificil = 16;
 
         [DataMember]
-        public int TotalFilas { get; private set; }
+        public int TotalFilas { get; set; }
 
         [DataMember]
-        public int TotalColumnas { get; private set; }
+        public int TotalColumnas { get; set; }
 
         [DataMember]
         public int NumeroImagenRompecabezas { get; set; }
 
-        [DataMember]
-        public List<Pieza> Piezas { get; set; }
-
-        [DataMember]
-        public DificultadPartida Dificultad
-        {
-            get { return dificultad; }
-            set
-            {
-                dificultad = value;
-
-                switch (dificultad)
-                {
-                    case DificultadPartida.Facil:
-                        TotalFilas = NumeroFilasDificultadFacil;
-                        TotalColumnas = NumeroColumnasDificultadFacil;
-                        break;
-                    case DificultadPartida.Medio:
-                        TotalFilas = NumeroFilasDificultadMedia;
-                        TotalColumnas = NumeroColumnasDificultadMedia;
-                        break;
-                    case DificultadPartida.Dificil:
-                        TotalFilas = NumeroFilasDificultadDificil;
-                        TotalColumnas = NumeroColumnasDificultadDificil;
-                        break;
-                }
-            }
-        }
+        public ConcurrentDictionary<int, Pieza> Piezas { get; set; }
 
         public bool EsRompecabezasCompletado()
         {
             bool resultado = false;
             var piezasSinAcomodar = from pieza in Piezas
-                                    where !pieza.EstaDentroDeCelda
+                                    where !pieza.Value.EstaDentroDeCelda
                                     select pieza;
 
-            if (piezasSinAcomodar.Any())
+            if (!piezasSinAcomodar.Any())
             {
                 resultado = true;
             }

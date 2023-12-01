@@ -11,7 +11,7 @@ namespace RompecabezasFei.Servicios
         public static int ObtenerNumeroPartidasJugadas(string nombreJugador)
         {
             ServicioPartidaClient cliente = new ServicioPartidaClient(
-                new InstanceContext(new PaginaPartida()));
+                new InstanceContext(new PaginaPartida(false, null)));
             int resultado = 0;
 
             try
@@ -44,7 +44,7 @@ namespace RompecabezasFei.Servicios
         public static int ObtenerNumeroPartidasGanadas(string nombreJugador)
         {
             ServicioPartidaClient cliente = new ServicioPartidaClient(
-                new InstanceContext(new PaginaPartida()));
+                new InstanceContext(new PaginaPartida(false, null)));
             int resultado = 0;
 
             try

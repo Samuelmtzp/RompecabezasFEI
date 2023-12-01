@@ -8,50 +8,58 @@ namespace Contratos
     public interface IServicioPartida
     {
         [OperationContract]
-        bool CrearNuevaPartida(string codigoSala, DificultadPartida dificultad);
+        bool CrearNuevaPartida(string codigoSala, DificultadPartida dificultad, 
+            int numeroImagen);
 
         [OperationContract]
-        bool IniciarPartida(string codigoSala, int numeroImagenRompecabezas);
+        void ConectarJugadorAPartida(string codigoSala, string nombreJugador);
 
         [OperationContract]
-        bool FinalizarPartida(string codigoSala);
+        void DesconectarJugadorDePartida(string codigoSala, string nombreJugadorDesconexion);
 
-        [OperationContract]
-        void CambiarPosicionDePieza(string codigoSala, string nombreJugador, 
-            int numeroPieza, double posicionX, double posicionY);
+        [OperationContract(IsOneWay = true)]
+        void IniciarPartida(string codigoSala);
 
-        [OperationContract]
-        void BloquearPieza(string codigoSala, int numeroPieza);
+        [OperationContract(IsOneWay = true)]
+        void BloquearPieza(string codigoSala, int numeroPieza, string nombreJugador);
 
-        [OperationContract]
-        void MarcarPiezaComoCorrecta(string codigoSala, int numeroPieza, string nombreJugador);
+        [OperationContract(IsOneWay = true)]
+        void DesbloquearPieza(string codigoSala, int numeroPieza, string nombreJugador);
 
-        [OperationContract]
-        bool ExpulsarJugador(string codigoSala, string nombreJugador);
+        [OperationContract(IsOneWay = true)]
+        void ColocarPieza(string codigoSala, int numeroPieza, string nombreJugador, 
+            double posicionX, double posicionY);
 
         [OperationContract]
         int ObtenerNumeroPartidasJugadas(string nombreJugador);
 
         [OperationContract]
         int ObtenerNumeroPartidasGanadas(string nombreJugador);
+
+        [OperationContract(IsOneWay = true)]
+        void ExpulsarAJugadorDePartida(string nombreJugadorExpulsion, string codigoSala);
     }
 
     [ServiceContract]
     public interface IServicioPartidaCallback
     {
         [OperationContract(IsOneWay = true)]
-        void MostrarTablero(Tablero tablero);
+        void NotificarInicioDePartida(Tablero tablero);
 
         [OperationContract(IsOneWay = true)]
-        void NotificarPiezaMarcadaComoBloqueada();
+        void NotificarBloqueoDePieza(int numeroPieza, string nombreJugador);
 
         [OperationContract(IsOneWay = true)]
-        void ActualizarPosicionDePieza(int numeroPieza, double posicionX, double posicionY);
+        void NotificarDesbloqueoDePieza(int numeroPieza, string nombreJugador);
 
         [OperationContract(IsOneWay = true)]
-        void NotificarPiezaMarcadaComoCorrecta(int numeroPieza, string jugador);
+        void NotificarColocacionDePieza(int numeroPieza, string nombreJugador, int puntaje, 
+            double posicionX, double posicionY);
 
         [OperationContract(IsOneWay = true)]
         void NotificarFinDePartida();
+
+        [OperationContract(IsOneWay = true)]
+        void NotificarJugadorDesconectadoDePartida(string nombreJugadorDesconectado);
     }
 }

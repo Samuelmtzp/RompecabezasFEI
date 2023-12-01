@@ -45,10 +45,6 @@
       <End Role="Partida" EntitySet="Partida" />
       <End Role="ResultadoPartida" EntitySet="ResultadoPartida" />
     </AssociationSet>
-    <AssociationSet Name="JugadorSala" Association="ModeloRompecabezasFei.Store.JugadorSala">
-      <End Role="Jugador" EntitySet="Jugador" />
-      <End Role="Sala" EntitySet="Sala" />
-    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Cuenta">
     <Key>
@@ -91,7 +87,6 @@
     <Property Name="Codigo" Type="nvarchar" Nullable="false" MaxLength="36" />
     <Property Name="MaximoJugadores" Type="int" Nullable="false" />
     <Property Name="MinimoJugadores" Type="int" Nullable="false" />
-    <Property Name="IdAnfitrion" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="ResultadoPartida">
     <Key>
@@ -207,18 +202,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="JugadorSala">
-    <End Role="Jugador" Type="ModeloRompecabezasFei.Store.Jugador" Multiplicity="0..1" />
-    <End Role="Sala" Type="ModeloRompecabezasFei.Store.Sala" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Jugador">
-        <PropertyRef Name="IdJugador" />
-      </Principal>
-      <Dependent Role="Sala">
-        <PropertyRef Name="IdAnfitrion" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -262,10 +245,6 @@
           <AssociationSet Name="PartidaResultadoPartida" Association="ModeloRompecabezasFei.PartidaResultadoPartida">
             <End Role="Partida" EntitySet="Partida" />
             <End Role="ResultadoPartida" EntitySet="ResultadoPartida" />
-          </AssociationSet>
-          <AssociationSet Name="JugadorSala" Association="ModeloRompecabezasFei.JugadorSala">
-            <End Role="Jugador" EntitySet="Jugador" />
-            <End Role="Sala" EntitySet="Sala" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Cuenta">
@@ -366,8 +345,6 @@
           <Property Name="Codigo" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="36" />
           <Property Name="MaximoJugadores" Type="Int32" Nullable="false" />
           <Property Name="MinimoJugadores" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Anfitrion" Relationship="ModeloRompecabezasFei.JugadorSala" FromRole="Sala" ToRole="Jugador" />
-          <Property Name="IdAnfitrion" Type="Int32" Nullable="true" />
         </EntityType>
         <EntityType Name="ResultadoPartida" >
           <Key>
@@ -436,18 +413,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="JugadorSala">
-          <End Type="ModeloRompecabezasFei.Jugador" Role="Jugador" Multiplicity="0..1" />
-          <End Type="ModeloRompecabezasFei.Sala" Role="Sala" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Jugador">
-              <PropertyRef Name="IdJugador" />
-            </Principal>
-            <Dependent Role="Sala">
-              <PropertyRef Name="IdAnfitrion" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -495,7 +460,6 @@
           <ScalarProperty Name="Codigo" ColumnName="Codigo" />
           <ScalarProperty Name="MaximoJugadores" ColumnName="MaximoJugadores" />
           <ScalarProperty Name="MinimoJugadores" ColumnName="MinimoJugadores" />
-          <ScalarProperty Name="IdAnfitrion" ColumnName="IdAnfitrion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

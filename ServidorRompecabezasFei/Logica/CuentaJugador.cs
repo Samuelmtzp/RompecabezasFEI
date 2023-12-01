@@ -1,11 +1,16 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.ServiceModel.Description;
 
 namespace Logica
 {
     [DataContract]
     public class CuentaJugador
     {
-        #region Propiedades
+        public const int NumeroAvatarInvitado = 0;
+
         [DataMember]
         public int IdJugador { get; set; }
 
@@ -25,20 +30,32 @@ namespace Logica
         public int Puntaje { get; set; }
 
         [DataMember]
-        public EstadoConectividadJugador EstadoConectividad { get; set; }
+        public bool EsInvitado { get; set; }
 
-        // Operaciones de contexto para interfaces de callbacks
-        public GestionContexto OperacionesContexto { get; set; }
-        #endregion
+        [DataMember]
+        public ConectividadJugador EstadoConectividad { get; set; }
 
-        #region Métodos
+        // Contexto de operación para interfaces de callbacks
+        public OperationContext ContextoOperacion { get; set; }
+        
+        public object ObtenerCanalDeCallback()
+        {
+            object interfaz = null;
+
+            if (ContextoOperacion != null)
+            {
+                interfaz = ContextoOperacion.GetCallbackChannel<object>();
+            }
+
+            return interfaz;
+        }
+
         public override string ToString()
         {
             return $"NombreJugador = {NombreJugador}\n" +
                 $"NumeroAvatar = {NumeroAvatar}\n" +
                 $"Correo = {Correo}\n" +
                 $"Contrasena = {Contrasena}";
-        }
-        #endregion
+        }        
     }
 }
