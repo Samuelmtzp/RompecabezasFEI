@@ -13,7 +13,7 @@ namespace RompecabezasFei
 
         private void IrAPaginaSala(object objetoOrigen, RoutedEventArgs evento)
         {
-            PaginaSala paginaSala = new PaginaSala();
+            PaginaSala paginaSala = new PaginaSala(true);
             VentanaPrincipal.CambiarPagina(paginaSala);
             //Recargar los datos de la sala a la que pertenece el jugador
             //Incluyendo:

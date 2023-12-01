@@ -18,26 +18,31 @@ namespace RompecabezasFei
 
         public string CodigoSala { get; set; }
 
-        public bool EsAnfitrion { get; set; }
+        private bool esAnfitrion;
 
         public ObservableCollection<Dominio.CuentaJugador> JugadoresEnSala { get; set; }
 
-        public PaginaSala()
+        public PaginaSala(bool cargarDatos)
         {
-            InitializeComponent();
-            JugadoresEnSala = new ObservableCollection<Dominio.CuentaJugador>();
-            listaJugadoresSala.DataContext = this;
+            if (cargarDatos)
+            {
+                InitializeComponent();                
+                JugadoresEnSala = new ObservableCollection<Dominio.CuentaJugador>();
+                listaJugadoresSala.DataContext = this;
+            }
         }
 
-        public void RecargarSala()
+        public void RecargarSala(bool esAnfitrion)
         {
+            this.esAnfitrion = esAnfitrion;
             clienteServicioSala = new ServicioSalaClient(new InstanceContext(this));
-            clienteServicioSala.ActualizarOperacionContextoSala(
+            clienteServicioSala.Open();
+            clienteServicioSala.RefrescarSesionEnSala(
                 Dominio.CuentaJugador.Actual.NombreJugador, CodigoSala);
             CargarJugadoresEnSala();
             etiquetaCodigoSala.Content = CodigoSala;
 
-            if (EsAnfitrion)
+            if (esAnfitrion)
             {
                 botonNuevaPartida.Visibility = Visibility.Visible;
             }
@@ -63,8 +68,29 @@ namespace RompecabezasFei
         {
             if (!ValidadorDatos.EsCadenaVacia(cuadroTextoMensajeUsuario.Text.Trim()))
             {
-                clienteServicioSala.EnviarMensajeDeSala(Dominio.CuentaJugador.
-                    Actual.NombreJugador, CodigoSala, cuadroTextoMensajeUsuario.Text);
+                try
+                {
+                    clienteServicioSala.EnviarMensajeDeSala(Dominio.CuentaJugador.
+                        Actual.NombreJugador, CodigoSala, cuadroTextoMensajeUsuario.Text);
+                }
+                catch (EndpointNotFoundException excepcion)
+                {
+                    Registros.Registrador.EscribirRegistro(excepcion);
+                    GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                    clienteServicioSala.Abort();
+                }
+                catch (CommunicationObjectFaultedException excepcion)
+                {
+                    Registros.Registrador.EscribirRegistro(excepcion);
+                    GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                    clienteServicioSala.Abort();
+                }
+                catch (TimeoutException excepcion)
+                {
+                    Registros.Registrador.EscribirRegistro(excepcion);
+                    GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                    clienteServicioSala.Abort();
+                }
                 cuadroTextoMensajeUsuario.Clear();
             }
         }
@@ -79,31 +105,33 @@ namespace RompecabezasFei
             VentanaPrincipal.CambiarPagina(paginaCreacionNuevaPartida);
         }
 
-        public void UnirseASala()
+        public void UnirseASala(bool esAnfitrion)
         {
-            clienteServicioSala = new ServicioSalaClient(new InstanceContext(this));
+            this.esAnfitrion = esAnfitrion;
 
-            if (EsAnfitrion)
+            if (esAnfitrion)
             {
-                botonNuevaPartida.Visibility = Visibility.Visible;
+                MostrarFuncionesDeAnfitrion();
                 CrearNuevaSala();
             }
             else
             {
-                botonNuevaPartida.Visibility = Visibility.Hidden;
                 CargarJugadoresEnSala();
             }
 
-            etiquetaCodigoSala.Content = CodigoSala;            
+            etiquetaCodigoSala.Content = CodigoSala;
             ConectarCuentaJugadorASala(Dominio.CuentaJugador.Actual.NombreJugador);
             JugadoresEnSala.Add(Dominio.CuentaJugador.Actual);
         }
 
         private void ConectarCuentaJugadorASala(string nombreJugador)
         {
+            clienteServicioSala = new ServicioSalaClient(new InstanceContext(this));
+            clienteServicioSala.Open();
+
             try
             {
-                clienteServicioSala.ConectarCuentaJugadorASala(nombreJugador,
+                clienteServicioSala.ConectarJugadorASala(nombreJugador,
                     CodigoSala, Properties.Resources.ETIQUETA_MENSAJESALA_BIENVENIDA);
             }
             catch (EndpointNotFoundException excepcion)
@@ -136,7 +164,7 @@ namespace RompecabezasFei
                 JugadoresEnSala.Add(new Dominio.CuentaJugador
                 {
                     NombreJugador = jugador.NombreJugador,
-                    FuenteImagenAvatar = Utilidades.GeneradorImagenes.
+                    FuenteImagenAvatar = GeneradorImagenes.
                         GenerarFuenteImagenAvatar(jugador.NumeroAvatar)
                 });
             }
@@ -150,14 +178,14 @@ namespace RompecabezasFei
             {
                 Servicios.ServicioSala.CrearNuevaSala(Dominio.CuentaJugador.
                     Actual.NombreJugador, CodigoSala);
-            }     
+            }
         }
 
         private void FinalizarConexionConSala()
         {
             try
             {
-                clienteServicioSala.DesconectarCuentaJugadorDeSala(Dominio.
+                clienteServicioSala.DesconectarJugadorDeSala(Dominio.
                     CuentaJugador.Actual.NombreJugador, CodigoSala,
                     Properties.Resources.ETIQUETA_MENSAJESALA_DESPEDIDA);
                 clienteServicioSala.Close();
@@ -187,16 +215,13 @@ namespace RompecabezasFei
         private void ModificarJugadoresEnSala(object objetoOrigen,
             MouseButtonEventArgs evento)
         {
-            // Ir a la página de modificacion de jugadores de sala
+            // Mostrar panel de modificación de jugadores de sala
         }
 
         #region Callbacks
         public void MostrarMensajeDeSala(string mensaje)
         {
-            if (cuadroTextoMensajes != null)
-            {
-                cuadroTextoMensajes.AppendText(mensaje + "\n");
-            }            
+            cuadroTextoMensajes.AppendText(mensaje + "\n");
         }
 
         public void NotificarNuevoJugadorConectadoEnSala(CuentaJugador nuevoJugador)
@@ -205,7 +230,7 @@ namespace RompecabezasFei
             {
                 Dominio.CuentaJugador nuevaCuentaJugador = new Dominio.CuentaJugador
                 {
-                    FuenteImagenAvatar = Utilidades.GeneradorImagenes.
+                    FuenteImagenAvatar = GeneradorImagenes.
                         GenerarFuenteImagenAvatar(nuevoJugador.NumeroAvatar),
                     NombreJugador = nuevoJugador.NombreJugador
                 };
@@ -213,33 +238,40 @@ namespace RompecabezasFei
             }
         }
 
-        public void NotificarJugadorDesconectadoDeSala(string nombreJugador)
+        public void NotificarJugadorDesconectadoDeSala(string nombreJugadorDesconectado)
         {
             if (JugadoresEnSala != null)
             {
-                Dominio.CuentaJugador cuentaJugadorEncontrada = 
-                    JugadoresEnSala.FirstOrDefault(jugador => jugador.NombreJugador == 
-                    nombreJugador);
-
-                if (cuentaJugadorEncontrada != null)
+                if (Dominio.CuentaJugador.Actual.NombreJugador != nombreJugadorDesconectado)
                 {
-                    JugadoresEnSala.Remove(cuentaJugadorEncontrada);
+                    Dominio.CuentaJugador cuentaJugadorEncontrada = JugadoresEnSala.
+                        FirstOrDefault(jugador => jugador.NombreJugador == 
+                        nombreJugadorDesconectado);
+
+                    if (cuentaJugadorEncontrada != null)
+                    {
+                        JugadoresEnSala.Remove(cuentaJugadorEncontrada);
+                    }
+                }
+                else
+                {
+                    VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
                 }
             }
         }
 
-        public void NotificarInicioDePartida()
+        public void NotificarCreacionDePartida()
         {
-            PaginaPartida paginaPartida = new PaginaPartida
-            {
-                CodigoSala = CodigoSala
-            };
+            PaginaPartida paginaPartida = new PaginaPartida(true, CodigoSala);
+            paginaPartida.CargarJugadoresEnPartida();
             VentanaPrincipal.CambiarPagina(paginaPartida);
         }
 
-        public void NotificarCreacionDePartida()
+        public void MostrarFuncionesDeAnfitrion()
         {
-            throw new NotImplementedException();
+            etiquetaModificarJugadores.Visibility = Visibility.Visible;
+            imagenModificarJugadores.Visibility= Visibility.Visible;
+            botonNuevaPartida.Visibility= Visibility.Visible;
         }
         #endregion
     }

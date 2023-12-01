@@ -6,7 +6,7 @@ namespace Servidor
 {
     public static class Servidor
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
             using (ServiceHost servidorRompecabezasFei = 
                 new ServiceHost(typeof(ServicioRompecabezasFei)))

@@ -85,7 +85,7 @@ namespace RompecabezasFei
         {
             try
             {
-                clienteServicioAmistades.SuscribirJugadorANotificacionesAmistades(
+                clienteServicioAmistades.SuscribirJugadorANotificacionesDeAmistades(
                    Dominio.CuentaJugador.Actual.NombreJugador);
             }
             catch (EndpointNotFoundException excepcion)
@@ -109,16 +109,16 @@ namespace RompecabezasFei
         }
 
         private SolidColorBrush ObtenerColorSegunEstadoConectividad(
-            EstadoConectividadJugador estado)
+            ConectividadJugador estado)
         {
             SolidColorBrush color;
 
             switch (estado)
             {
-                case EstadoConectividadJugador.Conectado:
+                case ConectividadJugador.Disponible:
                     color = Brushes.Green;
                     break;
-                case EstadoConectividadJugador.EnPartida:
+                case ConectividadJugador.NoDisponible:
                     color = Brushes.Red;
                     break;
                 default:
@@ -386,7 +386,7 @@ namespace RompecabezasFei
         }
 
         public void NotificarEstadoConectividadDeJugador(string nombreJugador,
-            EstadoConectividadJugador estado)
+            ConectividadJugador estado)
         {
             if (CuentasDeAmigos != null)
             {
@@ -424,8 +424,8 @@ namespace RompecabezasFei
         {
             if (CuentasDeAmigos != null)
             {
-                var solicitudAmistadResidual = CuentasDeSolicitudes.FirstOrDefault(cuentaSolicitud =>
-                    cuentaSolicitud.NombreJugador ==
+                var solicitudAmistadResidual = CuentasDeSolicitudes.FirstOrDefault(
+                    cuentaSolicitud => cuentaSolicitud.NombreJugador ==
                     cuentaNuevoAmigo.NombreJugador);
 
                 if (solicitudAmistadResidual != null)
@@ -464,7 +464,7 @@ namespace RompecabezasFei
         {
             try
             {
-                clienteServicioAmistades.DesuscribirJugadorDeNotificacionesAmistades(
+                clienteServicioAmistades.DesuscribirJugadorDeNotificacionesDeAmistades(
                     Dominio.CuentaJugador.Actual.NombreJugador);
                 clienteServicioAmistades.Close();
             }

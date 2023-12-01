@@ -11,20 +11,20 @@ namespace Contratos
         bool CrearNuevaSala(string nombreAnfitrion, string codigoSala);
 
         [OperationContract]
-        void ConectarCuentaJugadorASala(string nombreJugador, string codigoSala, 
+        void ConectarJugadorASala(string nombreNuevoJugador, string codigoSala, 
             string mensajeBienvenida);
 
         [OperationContract]
-        void ActualizarOperacionContextoSala(string nombreJugador, string codigoSala);
+        void RefrescarSesionEnSala(string nombreJugador, string codigoSala);
 
         [OperationContract]
-        void DesconectarCuentaJugadorDeSala(string nombreJugador, string codigoSala, 
+        void DesconectarJugadorDeSala(string nombreJugadorDesconexion, string codigoSala, 
             string mensajeDespedida);
 
         [OperationContract]
         List<CuentaJugador> ObtenerJugadoresConectadosEnSala(string codigoSala);
 
-        [OperationContract]
+        [OperationContract(IsOneWay = true)]
         void EnviarMensajeDeSala(string nombreJugador, string codigoSala, string mensaje);
 
         [OperationContract]
@@ -32,6 +32,14 @@ namespace Contratos
         
         [OperationContract]
         bool ExisteSalaDisponible(string codigoSala);
+
+        [OperationContract]
+        bool ConvertirAJugadorEnAnfitrionDeSala(string nombreAntiguoAnfitrion,
+            string nombreNuevoAnfitrion, string codigoSala); 
+
+        [OperationContract(IsOneWay = true)]
+        void InvitarAJugadorASala(string nombreJugador, string nombreAnfitrion,
+            string codigoSala);
     }
 
     [ServiceContract]
@@ -47,6 +55,10 @@ namespace Contratos
         void NotificarNuevoJugadorConectadoEnSala(CuentaJugador nuevoJugador);
 
         [OperationContract(IsOneWay = true)]
-        void NotificarJugadorDesconectadoDeSala(string nombreJugador);
+        void NotificarJugadorDesconectadoDeSala(string nombreJugadorDesconectado);
+
+        [OperationContract(IsOneWay = true)]
+        void MostrarFuncionesDeAnfitrion();
+
     }
 }

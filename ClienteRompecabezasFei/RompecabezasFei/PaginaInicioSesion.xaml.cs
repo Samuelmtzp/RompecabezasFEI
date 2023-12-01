@@ -1,15 +1,10 @@
-﻿using RompecabezasFei.ServicioRompecabezasFei;
-using Security;
+﻿using Security;
 using Seguridad;
 using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using Registros;
-using System.Diagnostics;
-using System.IO;
+using Dominio;
 
 namespace RompecabezasFei
 {
@@ -29,9 +24,11 @@ namespace RompecabezasFei
                 NombreJugador = Properties.Resources.ETIQUETA_GENERAL_INVITADO +
                     numeroAleatorio,
                 EsInvitado = true,
+                NumeroAvatar = (int)TipoAvatar.Invitado,
+                FuenteImagenAvatar = Utilidades.GeneradorImagenes.
+                    GenerarFuenteImagenAvatar((int)TipoAvatar.Invitado)
             };
             VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
-
         }
 
         private void IrAPaginaRecuperacionContrasena(object objetoOrigen,
@@ -60,7 +57,7 @@ namespace RompecabezasFei
             {
                 if (!ExistenDatosInvalidos(nombreJugador, contrasena))
                 {
-                    CuentaJugador cuentaJugadorAutenticada =
+                    ServicioRompecabezasFei.CuentaJugador cuentaJugadorAutenticada =
                         Servicios.ServicioJugador.IniciarSesion(nombreJugador,
                         EncriptadorContrasena.CalcularHashSha512(contrasena));
 

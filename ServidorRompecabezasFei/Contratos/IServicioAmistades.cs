@@ -6,7 +6,7 @@ namespace Contratos
 {
     [ServiceContract(CallbackContract = typeof(IServicioAmistadesCallback))]
     public interface IServicioAmistades
-    {        
+    {
         [OperationContract]
         List<CuentaJugador> ObtenerJugadoresConSolicitudPendiente(string nombreJugador);
 
@@ -32,14 +32,11 @@ namespace Contratos
         [OperationContract]
         bool EliminarAmistadEntreJugadores(string nombreJugadorA, string nombreJugadorB);
 
-        [OperationContract]
-        bool SuscribirJugadorANotificacionesAmistades(string nombreJugador);
+        [OperationContract(IsOneWay = true)]
+        void SuscribirJugadorANotificacionesDeAmistades(string nombreJugador);
 
-        [OperationContract]
-        bool DesuscribirJugadorDeNotificacionesAmistades(string nombreJugador);
-
-        [OperationContract]
-        bool EsJugadorSuscritoANotififacionesDeAmistades(string nombreJugador);
+        [OperationContract(IsOneWay = true)]
+        void DesuscribirJugadorDeNotificacionesDeAmistades(string nombreJugador);
     }
 
     [ServiceContract]
@@ -56,6 +53,6 @@ namespace Contratos
 
         [OperationContract(IsOneWay = true)]
         void NotificarEstadoConectividadDeJugador(string nombreJugador,
-            EstadoConectividadJugador estado);
+            ConectividadJugador estado);
     }
 }

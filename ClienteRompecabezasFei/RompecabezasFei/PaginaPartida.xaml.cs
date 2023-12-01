@@ -1,9 +1,11 @@
 ﻿using Dominio;
 using RompecabezasFei.ServicioRompecabezasFei;
 using RompecabezasFei.Servicios;
+using RompecabezasFei.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.ServiceModel;
 using System.Windows;
@@ -19,89 +21,188 @@ namespace RompecabezasFei
     {
         private bool cursorSostienePieza;
 
-        public string CodigoSala { get; set; }
-        
+        private bool todasLasPiezasEstanMostradas;
+
         private Dominio.Tablero tablero;
-        
-        private Point posicionInicialCursor;
-        
-        private Dominio.Pieza piezaActual;
+
+        private Point posicionActualCursor;
+
+        private Pieza piezaActual;
 
         private ServicioPartidaClient clienteServicioPartida;
 
+        private string codigoSala;
+
+        public bool EsAnfitrion { get; set; }
+
         public ObservableCollection<Dominio.CuentaJugador> JugadoresEnPartida { get; set; }
 
-        public PaginaPartida() 
-        { 
+        public PaginaPartida(bool cargarDatos, string codigoSala)
+        {
+            if (cargarDatos)
+            {
+                InitializeComponent();
+                this.codigoSala = codigoSala;
+                clienteServicioPartida = new ServicioPartidaClient(new InstanceContext(this));
+                listaJugadoresPartida.DataContext = this;
+                EsAnfitrion = false;
+                piezaActual = null;
+                ConectarJugadorAPartida(Dominio.CuentaJugador.Actual.NombreJugador);
+                AgregarEventoAbandonarPartidaAlCerrarVentana();
+            }
         }
 
-        public PaginaPartida(DificultadPartida dificultad, int numeroImagenRompecabezas)
+        public PaginaPartida(string codigoSala, DificultadPartida dificultadPartida, 
+            int numeroImagen)
         {
             InitializeComponent();
-            // Mandar un mensaje al servidor para que redirija a los jugadores de la sala aquí
-            clienteServicioPartida = new ServicioPartidaClient(new InstanceContext(this));
-            clienteServicioPartida.CrearNuevaPartida(CodigoSala, dificultad);
-
-            // Cargar jugadores que sigan conectados en la sala            
-            listaJugadoresPartida.DataContext = this;
-            CargarJugadoresEnPartida();
-
-
-
-            // Click en botón de iniciar partida de parte de anfitrión para mandar aviso al server y que este mande el tablero
-
-            // Distribuir el tablero localmente, pero con el mismo orden
-
-
-            //tablero = new Tablero
-            //{
-            //    Dificultad = dificultad,
-            //    Piezas = new List<Pieza>(),
-            //    Celdas = new List<Celda>(),
-            //    NumeroImagenRompecabezas = numeroImagenRompecabezas
-            //};
-            //JugadoresPartida = new ObservableCollection<Dominio.CuentaJugador>();
-
-        }
-
-        private void CargarJugadoresEnPartida()
-        {
-            JugadoresEnPartida = new ObservableCollection<Dominio.CuentaJugador>();
-            ServicioRompecabezasFei.CuentaJugador[] amigosObtenidos = ServicioSala.
-                ObtenerJugadoresConectadosEnSala(Dominio.CuentaJugador.Actual.NombreJugador);
-
-            if (amigosObtenidos != null && amigosObtenidos.Any())
+            
+            if (!string.IsNullOrEmpty(codigoSala))
             {
-                foreach (ServicioRompecabezasFei.CuentaJugador amigo in amigosObtenidos)
+                this.codigoSala = codigoSala;
+                EsAnfitrion = true;
+                botonIniciarPartida.Visibility = Visibility.Visible;
+                clienteServicioPartida = new ServicioPartidaClient(new InstanceContext(this));
+                bool resultadoCreacionPartida = false;
+
+                try
                 {
-                    Dominio.CuentaJugador cuentaAmigo = new Dominio.CuentaJugador
-                    {
-                        NombreJugador = amigo.NombreJugador,
-                        NumeroAvatar = amigo.NumeroAvatar,
-                        FuenteImagenAvatar = Utilidades.GeneradorImagenes.
-                            GenerarFuenteImagenAvatar(amigo.NumeroAvatar),
-                    };
-                    JugadoresEnPartida.Add(cuentaAmigo);
+                    resultadoCreacionPartida = clienteServicioPartida.CrearNuevaPartida(
+                        codigoSala, dificultadPartida, numeroImagen);
+                }
+                catch (EndpointNotFoundException excepcion)
+                {
+                    Registros.Registrador.EscribirRegistro(excepcion);
+                    GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                    clienteServicioPartida.Abort();
+                }
+                catch (CommunicationObjectFaultedException excepcion)
+                {
+                    Registros.Registrador.EscribirRegistro(excepcion);
+                    GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                    clienteServicioPartida.Abort();
+                }
+                catch (TimeoutException excepcion)
+                {
+                    Registros.Registrador.EscribirRegistro(excepcion);
+                    GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                    clienteServicioPartida.Abort();
+                }
+
+                if (resultadoCreacionPartida)
+                {
+                    listaJugadoresPartida.DataContext = this;
+                    ConectarJugadorAPartida(Dominio.CuentaJugador.Actual.NombreJugador);
+                    CargarJugadoresEnPartida();
                 }
             }
         }
 
-        private void CrearTablero()
+        private void ConectarJugadorAPartida(string nombreJugador)
         {
-            tablero.AnchoDeCelda = tableroRompecabezas.ActualWidth / tablero.TotalColumnas;
-            tablero.AlturaDeCelda = tableroRompecabezas.ActualHeight / tablero.TotalFilas;
-            bool pintarCeldaConColorGris;
-            bool pintarCeldaConColorGrisAlIniciarFila = true;
-
-            for (int fila = 0; fila < tablero.TotalFilas; fila++)
+            try
             {
-                pintarCeldaConColorGris = pintarCeldaConColorGrisAlIniciarFila;
-                for (int columna = 0; columna < tablero.TotalColumnas; columna++)
+                clienteServicioPartida.ConectarJugadorAPartida(codigoSala, nombreJugador);
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                Registros.Registrador.EscribirRegistro(excepcion);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                clienteServicioPartida.Abort();
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                Registros.Registrador.EscribirRegistro(excepcion);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                clienteServicioPartida.Abort();
+            }
+            catch (TimeoutException excepcion)
+            {
+                Registros.Registrador.EscribirRegistro(excepcion);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                clienteServicioPartida.Abort();
+            }
+        }
+
+        private void DesconectarJugadorDePartida(string nombreJugador)
+        {
+            try
+            {
+                clienteServicioPartida.DesconectarJugadorDePartida(codigoSala, nombreJugador);
+                clienteServicioPartida.Close();
+                RemoverEventoAbandonarPartidaAlCerrarVentana();
+                RemoverEventoDesbloqueoPiezaAlDesactivarVentana();
+                VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                Registros.Registrador.EscribirRegistro(excepcion);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                clienteServicioPartida.Abort();
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                Registros.Registrador.EscribirRegistro(excepcion);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                clienteServicioPartida.Abort();
+            }
+            catch (TimeoutException excepcion)
+            {
+                Registros.Registrador.EscribirRegistro(excepcion);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                clienteServicioPartida.Abort();
+            }
+        }
+
+        public void CargarJugadoresEnPartida()
+        {
+            JugadoresEnPartida = new ObservableCollection<Dominio.CuentaJugador>();
+            ServicioRompecabezasFei.CuentaJugador[] jugadoresObtenidos = ServicioSala.
+                ObtenerJugadoresConectadosEnSala(codigoSala);
+
+            if (jugadoresObtenidos != null && jugadoresObtenidos.Any())
+            {
+                foreach (ServicioRompecabezasFei.CuentaJugador jugador in jugadoresObtenidos)
+                {
+                    Dominio.CuentaJugador cuentaJugador = new Dominio.CuentaJugador
+                    {
+                        NombreJugador = jugador.NombreJugador,
+                        NumeroAvatar = jugador.NumeroAvatar,
+                        FuenteImagenAvatar = GeneradorImagenes.GenerarFuenteImagenAvatar(
+                            jugador.NumeroAvatar),
+                    };
+                    JugadoresEnPartida.Add(cuentaJugador);
+                }
+            }
+        }
+        
+        private void CrearTablero(int totalFilas, int totalColumnas)
+        {
+            tablero = new Dominio.Tablero
+            {
+                TotalFilas = totalFilas,
+                TotalColumnas = totalColumnas,
+                Piezas = new List<Pieza>(),
+                Celdas = new List<Celda>(),
+                AlturaDeCelda = tableroRompecabezas.ActualHeight / totalFilas,                
+                AnchoDeCelda = tableroRompecabezas.ActualWidth / totalColumnas,
+            };
+            bool pintarCelda;
+            bool pintarCeldaAlIniciarFila = true;
+            int numeroCelda = 1;
+
+            for (int fila = 0; fila < totalFilas; fila++)
+            {
+                pintarCelda = pintarCeldaAlIniciarFila;
+                int siguienteColumna;
+
+                for (int columna = 0; columna < totalColumnas; columna++)
                 {
                     Celda celda = new Celda
                     {
-                        Fila = fila,
-                        Columna = columna,
+                        NumeroCelda = numeroCelda++,
+                        PosicionX = columna * tablero.AnchoDeCelda,
+                        PosicionY = fila * tablero.AlturaDeCelda,
                         Area = new Rectangle
                         {
                             Width = tablero.AnchoDeCelda,
@@ -111,43 +212,44 @@ namespace RompecabezasFei
                         }
                     };
 
-                    if (pintarCeldaConColorGris)
+                    if (pintarCelda)
                     {
                         celda.Area.Fill = Brushes.LightGray;
-                        pintarCeldaConColorGris = false;
+                        pintarCelda = false;
                     }
                     else
                     {
-                        celda.Area.Fill = Brushes.AliceBlue;
-                        pintarCeldaConColorGris = true;
+                        celda.Area.Fill = Brushes.White;
+                        pintarCelda = true;
                     }
 
-                    if (columna + 1 == tablero.TotalColumnas)
+                    siguienteColumna = columna + 1;
+
+                    if (siguienteColumna == totalColumnas)
                     {
-                        if (pintarCeldaConColorGrisAlIniciarFila)
+                        if (pintarCeldaAlIniciarFila)
                         {
-                            pintarCeldaConColorGrisAlIniciarFila = false;
+                            pintarCeldaAlIniciarFila = false;
                         }
                         else
                         {
-                            pintarCeldaConColorGrisAlIniciarFila = true;
+                            pintarCeldaAlIniciarFila = true;
                         }
                     }
 
-                    double posicionX = columna * tablero.AnchoDeCelda;
-                    double posicionY = fila * tablero.AlturaDeCelda;
-                    Canvas.SetLeft(celda.Area, posicionX);
-                    Canvas.SetTop(celda.Area, posicionY);
+                    Canvas.SetLeft(celda.Area, celda.PosicionX);
+                    Canvas.SetTop(celda.Area, celda.PosicionY);
                     tableroRompecabezas.Children.Add(celda.Area);
                     tablero.Celdas.Add(celda);
                 }
             }
-        }        
+        }
 
         private void RecortarImagenEnPiezas(BitmapImage fuenteImagenOriginal)
         {
             int anchoRecorte = (int)(fuenteImagenOriginal.Width / tablero.TotalColumnas);
             int alturaRecorte = (int)(fuenteImagenOriginal.Height / tablero.TotalFilas);
+            int numeroPieza = 1;
 
             for (int fila = 0; fila < tablero.TotalFilas; fila++)
             {
@@ -155,37 +257,32 @@ namespace RompecabezasFei
                 {
                     Int32Rect areaRecorte = new Int32Rect(columna * anchoRecorte, fila *
                         alturaRecorte, anchoRecorte, alturaRecorte);
-                    Dominio.Pieza nuevaPieza = new Dominio.Pieza
+                    
+                    Pieza nuevaPieza = new Pieza
                     {
+                        PosicionX = columna * tablero.AnchoDeCelda,
+                        PosicionY = fila * tablero.AlturaDeCelda,
+                        NumeroPieza = numeroPieza++,
                         Ancho = tablero.AnchoDeCelda,
                         Alto = tablero.AlturaDeCelda,
                         EstaDentroDeCelda = false,
-                        FilaCorrecta = fila,
-                        ColumnaCorrecta = columna
                     };
                     nuevaPieza.EstablecerFuenteImagen(fuenteImagenOriginal, areaRecorte);
-                    nuevaPieza.Borde = GenerarNuevoBordeParaPieza();
-                    nuevaPieza.EstablecerEstiloDePiezaSinSeleccionar();
+                    nuevaPieza.Borde = new Border();
+                    nuevaPieza.Borde.MouseLeftButtonDown += IntentarBloquearPieza;
+                    nuevaPieza.Borde.MouseMove += MoverPieza;
+                    nuevaPieza.Borde.MouseLeftButtonUp += SoltarPieza;
+                    nuevaPieza.EsPiezaBloqueada = false;
                     tablero.Piezas.Add(nuevaPieza);
                 }
             }
-        }
-
-        private Border GenerarNuevoBordeParaPieza()
-        {
-            Border bordeImagen = new Border();
-            bordeImagen.MouseLeftButtonDown += SeleccionarPieza;
-            bordeImagen.MouseMove += MoverPieza;
-            bordeImagen.MouseLeftButtonUp += SoltarPieza;
-
-            return bordeImagen;
         }
 
         private void MostrarPiezasAleatoriamente()
         {
             Random aleatorio = new Random();
 
-            foreach (Dominio.Pieza pieza in tablero.Piezas)
+            foreach (Pieza pieza in tablero.Piezas)
             {
                 double anchoTablero = tableroRompecabezas.ActualWidth;
                 double alturaTablero = tableroRompecabezas.ActualHeight;
@@ -197,11 +294,13 @@ namespace RompecabezasFei
                 Canvas.SetTop(pieza.Borde, posicionY);
                 tableroRompecabezas.Children.Add(pieza.Borde);
             }
+
+            todasLasPiezasEstanMostradas = true;
         }
 
-        private void SobreponerEnTableroPiezasFaltantesDePosicionar()
+        private void MandarAlFrenteAPiezasFaltantesDeColocar()
         {
-            foreach (Dominio.Pieza pieza in tablero.Piezas)
+            foreach (Pieza pieza in tablero.Piezas)
             {
                 if (!pieza.EstaDentroDeCelda)
                 {
@@ -211,7 +310,7 @@ namespace RompecabezasFei
             }
         }
 
-        private bool EsPosicionValidaParaPiezaActual(double nuevaPosicionX, 
+        private bool EsPiezaDentroDeLimitesDeTablero(double nuevaPosicionX, 
             double nuevaPosicionY)
         {
             bool esPosicionValida = false;
@@ -227,10 +326,10 @@ namespace RompecabezasFei
             return esPosicionValida;
         }
 
-        private Dominio.Pieza BuscarPiezaPertenecienteABorde(Border borde)
+        private Pieza BuscarPiezaPertenecienteABorde(Border borde)
         {
             var piezasEncontradas = tablero.Piezas.Where(pieza => pieza.Borde.Equals(borde));
-            Dominio.Pieza piezaEncontrada = new Dominio.Pieza();
+            Pieza piezaEncontrada = new Pieza();
 
             if (piezasEncontradas.Any())
             {
@@ -240,62 +339,82 @@ namespace RompecabezasFei
             return piezaEncontrada;
         }
 
-        private Celda BuscarCeldaPertenecienteAArea(Rectangle areaCelda)
+        private void ColocarPieza(Pieza pieza)
         {
-            var celdasEncontradas = tablero.Celdas.Where(celda => celda.Area.Equals(areaCelda));
-            Celda celdaEncontrada = new Celda();
-
-            if (celdasEncontradas.Any())
-            {
-                celdaEncontrada = celdasEncontradas.First();
-            }
-
-            return celdaEncontrada;
+            Canvas.SetLeft(pieza.Borde, pieza.PosicionX);
+            Canvas.SetTop(pieza.Borde, pieza.PosicionY);
+            pieza.EstaDentroDeCelda = true;
+            MandarAlFrenteAPiezasFaltantesDeColocar();
         }
 
-        private void PosicionarPiezaEnCeldaCorrespondiente(Point posicion)
+        private bool EsPosicionCorrespondienteAPiezaActual(Point posicion)
         {
-            foreach (UIElement control in tableroRompecabezas.Children)
+            bool esPosicionCorrespondiente = false;
+
+            foreach (var area in tableroRompecabezas.Children.OfType<Rectangle>())
             {
-                if (control is Rectangle areaCelda)
+                double posicionXMinima = Canvas.GetLeft(area);
+                double posicionYMinima = Canvas.GetTop(area);
+                double posicionXMaxima = posicionXMinima + area.Width;
+                double posicionYMaxima = posicionYMinima + area.Height;
+
+                if (posicion.X >= posicionXMinima &&
+                    posicion.X <= posicionXMaxima &&
+                    posicion.Y >= posicionYMinima &&
+                    posicion.Y <= posicionYMaxima)
                 {
-                    double posicionXMinima = Canvas.GetLeft(areaCelda);
-                    double posicionYMinima = Canvas.GetTop(areaCelda);
-                    double posicionXMaxima = posicionXMinima + areaCelda.Width;
-                    double posicionYMaxima = posicionYMinima + areaCelda.Height;
+                    var celdaEncontrada = tablero.Celdas.Where(celda => 
+                        celda.Area.Equals(area)).FirstOrDefault();
 
-                    if (posicion.X >= posicionXMinima &&
-                        posicion.X <= posicionXMaxima &&
-                        posicion.Y >= posicionYMinima &&
-                        posicion.Y <= posicionYMaxima)
+                    if (celdaEncontrada != null && celdaEncontrada.NumeroCelda == 
+                        piezaActual.NumeroPieza)
                     {
-                        Celda celda = BuscarCeldaPertenecienteAArea(areaCelda);
-
-                        if (celda.Fila == piezaActual.FilaCorrecta &&
-                            celda.Columna == piezaActual.ColumnaCorrecta)
-                        {
-                            Canvas.SetLeft(piezaActual.Borde, posicionXMinima);
-                            Canvas.SetTop(piezaActual.Borde, posicionYMinima);
-                            piezaActual.EstaDentroDeCelda = true;
-                            SobreponerEnTableroPiezasFaltantesDePosicionar();
-                            break;
-                        }
+                        piezaActual.PosicionX = celdaEncontrada.PosicionX;
+                        piezaActual.PosicionY = celdaEncontrada.PosicionY;
+                        esPosicionCorrespondiente = true;
                     }
+
+                    break;
                 }
             }
+
+            return esPosicionCorrespondiente;
         }
         
-        private void RemoverEventoVentanaDesactivada()
-        {
-            VentanaPrincipal ventanaPrincipal = (VentanaPrincipal)Window.GetWindow(this);
-            ventanaPrincipal.Deactivated -= SoltarPiezaAlDesactivarVentana;
-        }        
-
-        private void CargarDatosPartida(object objetoOrigen, RoutedEventArgs evento)
+        private void AgregarEventoDesbloqueoPiezaAlDesactivarVentana(object objetoOrigen, 
+            RoutedEventArgs evento)
         {
             VentanaPrincipal ventanaPrincipal = (VentanaPrincipal)Window.GetWindow(this);
             ventanaPrincipal.Deactivated += SoltarPiezaAlDesactivarVentana;
-            CrearTablero();
+        }
+
+        private void RemoverEventoDesbloqueoPiezaAlDesactivarVentana()
+        {
+            VentanaPrincipal ventanaPrincipal = (VentanaPrincipal)Window.GetWindow(this);
+            ventanaPrincipal.Deactivated -= SoltarPiezaAlDesactivarVentana;
+        }
+        
+        private void AgregarEventoAbandonarPartidaAlCerrarVentana()
+        {
+            VentanaPrincipal ventanaPrincipal = (VentanaPrincipal)Window.GetWindow(this);
+            ventanaPrincipal.Closing += AbandonarPartidaAlCerrarVentana;
+        }
+
+        private void RemoverEventoAbandonarPartidaAlCerrarVentana()
+        {
+            VentanaPrincipal ventanaPrincipal = (VentanaPrincipal)Window.GetWindow(this);
+            ventanaPrincipal.Closing -= AbandonarPartidaAlCerrarVentana;
+        }
+
+        private void AbandonarPartidaAlCerrarVentana(object objetoOrigen, 
+            CancelEventArgs evento)
+        {
+            DesconectarJugadorDePartida(Dominio.CuentaJugador.Actual.NombreJugador);
+        }
+
+        private void AbandonarPartida(object objetoOrigen, RoutedEventArgs evento)
+        {
+            DesconectarJugadorDePartida(Dominio.CuentaJugador.Actual.NombreJugador);
         }
 
         private void SoltarPiezaAlDesactivarVentana(object objetoOrigen, EventArgs evento)
@@ -304,36 +423,74 @@ namespace RompecabezasFei
 
             if (piezaActual != null && !piezaActual.EstaDentroDeCelda)
             {
-                piezaActual.EstablecerEstiloDePiezaSinSeleccionar();
+                DesbloquearPiezaActual();
             }
         }
 
-        private void IrPaginaAjustesPartida(object objetoOrigen, MouseButtonEventArgs evento)
+        private void IrAPaginaAjustesPartida(object objetoOrigen, MouseButtonEventArgs evento)
         {
-            // Implementar la funcionalidad de redirigir a pagina de ajustes de partida
+            // Implementar la funcionalidad de mostrar los ajustes de partida
         }
 
-        private void IniciarJuego(object objetoOrigen, RoutedEventArgs evento)
+        private void IniciarPartida(object objetoOrigen, RoutedEventArgs evento)
         {
-            botonIniciar.IsEnabled = false;
-            BitmapImage fuenteImagenOriginal = Utilidades.GeneradorImagenes.
-                GenerarFuenteImagenRompecabezas(tablero.NumeroImagenRompecabezas);
-            RecortarImagenEnPiezas(fuenteImagenOriginal);
-            MostrarPiezasAleatoriamente();
+            try
+            {
+                clienteServicioPartida.IniciarPartida(codigoSala);
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                Registros.Registrador.EscribirRegistro(excepcion);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                clienteServicioPartida.Abort();
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                Registros.Registrador.EscribirRegistro(excepcion);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                clienteServicioPartida.Abort();
+            }
+            catch (TimeoutException excepcion)
+            {
+                Registros.Registrador.EscribirRegistro(excepcion);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                clienteServicioPartida.Abort();
+            }
+
+            botonIniciarPartida.Visibility = Visibility.Hidden;
         }
 
-        private void SeleccionarPieza(object objetoOrigen, MouseButtonEventArgs evento)
+        private void IntentarBloquearPieza(object objetoOrigen, MouseButtonEventArgs evento)
         {
             piezaActual = BuscarPiezaPertenecienteABorde((Border)objetoOrigen);
 
-            if (!piezaActual.EstaDentroDeCelda)
+            if (!piezaActual.EstaDentroDeCelda && !piezaActual.EsPiezaBloqueada)
             {
-                tableroRompecabezas.Children.Remove(piezaActual.Borde);
-                tableroRompecabezas.Children.Add(piezaActual.Borde);
-                piezaActual.EstablecerEstiloDePiezaSeleccionada();
-                posicionInicialCursor = evento.GetPosition(tableroRompecabezas);
-                piezaActual.Borde.CaptureMouse();
-                cursorSostienePieza = true;
+                posicionActualCursor = evento.GetPosition(tableroRompecabezas);
+
+                try
+                {
+                    clienteServicioPartida.BloquearPieza(codigoSala, 
+                        piezaActual.NumeroPieza, Dominio.CuentaJugador.Actual.NombreJugador);
+                }
+                catch (EndpointNotFoundException excepcion)
+                {
+                    Registros.Registrador.EscribirRegistro(excepcion);
+                    GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                    clienteServicioPartida.Abort();
+                }
+                catch (CommunicationObjectFaultedException excepcion)
+                {
+                    Registros.Registrador.EscribirRegistro(excepcion);
+                    GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                    clienteServicioPartida.Abort();
+                }
+                catch (TimeoutException excepcion)
+                {
+                    Registros.Registrador.EscribirRegistro(excepcion);
+                    GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                    clienteServicioPartida.Abort();
+                }
             }
         }
 
@@ -341,20 +498,19 @@ namespace RompecabezasFei
         {
             if (cursorSostienePieza)
             {
-                piezaActual = BuscarPiezaPertenecienteABorde((Border)objetoOrigen);
-                Point posicionActualCursor = evento.GetPosition(tableroRompecabezas);
-                double diferenciaPosicionX = posicionActualCursor.X - posicionInicialCursor.X;
-                double diferenciaPosicionY = posicionActualCursor.Y - posicionInicialCursor.Y;
+                Point nuevaPosicionCursor = evento.GetPosition(tableroRompecabezas);
+                double diferenciaPosicionX = nuevaPosicionCursor.X - posicionActualCursor.X;
+                double diferenciaPosicionY = nuevaPosicionCursor.Y - posicionActualCursor.Y;
                 double nuevaPosicionX = Canvas.GetLeft(piezaActual.Borde) + diferenciaPosicionX;
                 double nuevaPosicionY = Canvas.GetTop(piezaActual.Borde) + diferenciaPosicionY;
 
-                if (EsPosicionValidaParaPiezaActual(nuevaPosicionX, nuevaPosicionY))
+                if (EsPiezaDentroDeLimitesDeTablero(nuevaPosicionX, nuevaPosicionY))
                 {
-                    Canvas.SetLeft(piezaActual.Borde,
-                        Canvas.GetLeft(piezaActual.Borde) + diferenciaPosicionX);
-                    Canvas.SetTop(piezaActual.Borde,
-                        Canvas.GetTop(piezaActual.Borde) + diferenciaPosicionY);
-                    posicionInicialCursor = posicionActualCursor;
+                    Canvas.SetLeft(piezaActual.Borde, Canvas.GetLeft(piezaActual.Borde) + 
+                        diferenciaPosicionX);
+                    Canvas.SetTop(piezaActual.Borde, Canvas.GetTop(piezaActual.Borde) + 
+                        diferenciaPosicionY);
+                    posicionActualCursor = nuevaPosicionCursor;
                 }
             }
         }
@@ -365,58 +521,185 @@ namespace RompecabezasFei
             {
                 piezaActual.Borde.ReleaseMouseCapture();
                 cursorSostienePieza = false;
-                piezaActual = BuscarPiezaPertenecienteABorde((Border)objetoOrigen);
-                piezaActual.Borde.BorderBrush = Brushes.Transparent;
-                Point posicionActual = evento.GetPosition(tableroRompecabezas);
-                piezaActual.EstablecerEstiloDePiezaSinSeleccionar();
-                PosicionarPiezaEnCeldaCorrespondiente(posicionActual);
-                if (tablero.EsRompecabezasCompletado())
+                Point ultimaPosicion = evento.GetPosition(tableroRompecabezas);
+                
+                if (EsPosicionCorrespondienteAPiezaActual(ultimaPosicion))
                 {
-                    MessageBox.Show(Properties.Resources.ETIQUETA_PARTIDA_JUEGOFINALIZADO);
-                    RemoverEventoVentanaDesactivada();
-                    VentanaPrincipal.CambiarPagina(new PaginaResultados());
+                    try
+                    {
+                        clienteServicioPartida.ColocarPieza(codigoSala,
+                            piezaActual.NumeroPieza, Dominio.CuentaJugador.
+                            Actual.NombreJugador, piezaActual.PosicionX, piezaActual.PosicionY);
+                    }
+                    catch (EndpointNotFoundException excepcion)
+                    {
+                        Registros.Registrador.EscribirRegistro(excepcion);
+                        GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                        clienteServicioPartida.Abort();
+                    }
+                    catch (CommunicationObjectFaultedException excepcion)
+                    {
+                        Registros.Registrador.EscribirRegistro(excepcion);
+                        GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                        clienteServicioPartida.Abort();
+                    }
+                    catch (TimeoutException excepcion)
+                    {
+                        Registros.Registrador.EscribirRegistro(excepcion);
+                        GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                        clienteServicioPartida.Abort();
+                    }
+
+                    ColocarPieza(piezaActual);
+                }
+                else
+                {
+                    DesbloquearPiezaActual();
                 }
             }
         }
 
-        public void ActualizarNuevaPosicionDePieza(double posicionX, double posicionY)
+        private void DesbloquearPiezaActual()
         {
-            throw new NotImplementedException();
+            try
+            {
+                clienteServicioPartida.DesbloquearPieza(codigoSala,
+                    piezaActual.NumeroPieza, Dominio.CuentaJugador.
+                    Actual.NombreJugador);
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                Registros.Registrador.EscribirRegistro(excepcion);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                clienteServicioPartida.Abort();
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                Registros.Registrador.EscribirRegistro(excepcion);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                clienteServicioPartida.Abort();
+            }
+            catch (TimeoutException excepcion)
+            {
+                Registros.Registrador.EscribirRegistro(excepcion);
+                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
+                clienteServicioPartida.Abort();
+            }
+
+            piezaActual.EsPiezaBloqueada = false;
         }
 
-        public void NotificarPartidaListaParaIniciar()
+        public void NotificarInicioDePartida(ServicioRompecabezasFei.Tablero tablero)
         {
-            throw new NotImplementedException();
+            CrearTablero(tablero.TotalFilas, tablero.TotalColumnas);
+            BitmapImage fuenteImagenOriginal = GeneradorImagenes.
+                GenerarFuenteImagenRompecabezas(tablero.NumeroImagenRompecabezas);
+            RecortarImagenEnPiezas(fuenteImagenOriginal);
+            MostrarPiezasAleatoriamente();
         }
 
-        public void ActualizarPosicionDePieza(double posicionX, double posicionY)
+        public void NotificarBloqueoDePieza(int numeroPieza, string nombreJugador)
         {
-            throw new NotImplementedException();
+            if (todasLasPiezasEstanMostradas)
+            {
+                foreach (var bordePieza in tableroRompecabezas.Children.OfType<Border>())
+                {
+                    Pieza piezaEncontrada = BuscarPiezaPertenecienteABorde(bordePieza);
+                    
+                    if (piezaEncontrada.NumeroPieza == numeroPieza)
+                    {
+                        if (nombreJugador == Dominio.CuentaJugador.Actual.NombreJugador)
+                        {
+                            tableroRompecabezas.Children.Remove(piezaActual.Borde);
+                            tableroRompecabezas.Children.Add(piezaActual.Borde);
+                            piezaActual.Borde.CaptureMouse();
+                            cursorSostienePieza = true;
+                            piezaActual.EsPiezaBloqueada = true;
+                            piezaActual.EstablecerEstiloDePiezaBloqueadaPorJugadorActual();
+                        }
+                        else
+                        {
+                            piezaEncontrada.EsPiezaBloqueada = true;
+                            piezaEncontrada.EstablecerEstiloDePiezaBloqueadaPorAdversario();
+                        }
+                        break;
+                    }
+                }
+            }
         }
 
-        public void MostrarTablero(ServicioRompecabezasFei.Tablero tablero)
+        public void NotificarDesbloqueoDePieza(int numeroPieza, string nombreJugador)
         {
-            throw new NotImplementedException();
+            if (todasLasPiezasEstanMostradas)
+            {
+                foreach (var bordePieza in tableroRompecabezas.Children.OfType<Border>())
+                {
+                    Pieza piezaEncontrada = BuscarPiezaPertenecienteABorde(bordePieza);
+
+                    if (piezaEncontrada.NumeroPieza == numeroPieza)
+                    {
+                        piezaEncontrada.EsPiezaBloqueada = false;
+                        break;
+                    }
+                }
+            }
         }
 
-        public void NotificarPiezaMarcadaComoBloqueada()
+        public void NotificarColocacionDePieza(int numeroPieza, string nombreJugador, 
+            int puntaje, double posicionX, double posicionY)
         {
-            throw new NotImplementedException();
-        }
+            if (todasLasPiezasEstanMostradas)
+            {
+                foreach (UIElement control in tableroRompecabezas.Children)
+                {
+                    if (control is Border bordeCelda)
+                    {
+                        Pieza piezaEncontrada = BuscarPiezaPertenecienteABorde(bordeCelda);
 
-        public void ActualizarPosicionDePieza(int numeroPieza, double posicionX, double posicionY)
-        {
-            throw new NotImplementedException();
-        }
+                        if (piezaEncontrada.NumeroPieza == numeroPieza)
+                        {
+                            piezaEncontrada.PosicionX = posicionX;
+                            piezaEncontrada.PosicionY = posicionY;
+                            ColocarPieza(piezaEncontrada);
+                            var jugadorEncontrado = JugadoresEnPartida.Where(jugador => 
+                                jugador.NombreJugador == nombreJugador).FirstOrDefault();
 
-        public void NotificarPiezaMarcadaComoCorrecta(int numeroPieza, string jugador)
-        {
-            throw new NotImplementedException();
+                            if (jugadorEncontrado != null)
+                            {
+                                JugadoresEnPartida.Remove(jugadorEncontrado);
+                                jugadorEncontrado.Puntaje += puntaje;
+                                JugadoresEnPartida.Add(jugadorEncontrado);
+                            }
+
+                            break;
+                        }
+                    }
+                }
+            }
         }
 
         public void NotificarFinDePartida()
         {
-            throw new NotImplementedException();
+            RemoverEventoDesbloqueoPiezaAlDesactivarVentana();
+            MessageBox.Show("Partida finalizada");
         }
+
+        public void NotificarJugadorDesconectadoDePartida(string nombreJugadorDesconectado)
+        {
+            if (JugadoresEnPartida != null)
+            {
+                if (Dominio.CuentaJugador.Actual.NombreJugador != nombreJugadorDesconectado)
+                {
+                    var jugadorDesconectado = JugadoresEnPartida.FirstOrDefault(jugador =>
+                        jugador.NombreJugador == nombreJugadorDesconectado);
+                    JugadoresEnPartida.Remove(jugadorDesconectado);
+                }
+                else
+                {
+                    MessageBox.Show("Te han expulsado de la partida");
+                    VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
+                }
+            }
+        }        
     }
 }

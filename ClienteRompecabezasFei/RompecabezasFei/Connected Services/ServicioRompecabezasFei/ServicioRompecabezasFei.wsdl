@@ -16,6 +16,14 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IServicioInvitaciones_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsp:Policy wsu:Id="NetTcpBinding_IServicioJugador_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -96,23 +104,11 @@
   <wsdl:message name="IServicioAmistades_EliminarAmistadEntreJugadores_OutputMessage">
     <wsdl:part name="parameters" element="tns:EliminarAmistadEntreJugadoresResponse" />
   </wsdl:message>
-  <wsdl:message name="IServicioAmistades_SuscribirJugadorANotificacionesAmistades_InputMessage">
-    <wsdl:part name="parameters" element="tns:SuscribirJugadorANotificacionesAmistades" />
+  <wsdl:message name="IServicioAmistades_SuscribirJugadorANotificacionesDeAmistades_InputMessage">
+    <wsdl:part name="parameters" element="tns:SuscribirJugadorANotificacionesDeAmistades" />
   </wsdl:message>
-  <wsdl:message name="IServicioAmistades_SuscribirJugadorANotificacionesAmistades_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SuscribirJugadorANotificacionesAmistadesResponse" />
-  </wsdl:message>
-  <wsdl:message name="IServicioAmistades_DesuscribirJugadorDeNotificacionesAmistades_InputMessage">
-    <wsdl:part name="parameters" element="tns:DesuscribirJugadorDeNotificacionesAmistades" />
-  </wsdl:message>
-  <wsdl:message name="IServicioAmistades_DesuscribirJugadorDeNotificacionesAmistades_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DesuscribirJugadorDeNotificacionesAmistadesResponse" />
-  </wsdl:message>
-  <wsdl:message name="IServicioAmistades_EsJugadorSuscritoANotififacionesDeAmistades_InputMessage">
-    <wsdl:part name="parameters" element="tns:EsJugadorSuscritoANotififacionesDeAmistades" />
-  </wsdl:message>
-  <wsdl:message name="IServicioAmistades_EsJugadorSuscritoANotififacionesDeAmistades_OutputMessage">
-    <wsdl:part name="parameters" element="tns:EsJugadorSuscritoANotififacionesDeAmistadesResponse" />
+  <wsdl:message name="IServicioAmistades_DesuscribirJugadorDeNotificacionesDeAmistades_InputMessage">
+    <wsdl:part name="parameters" element="tns:DesuscribirJugadorDeNotificacionesDeAmistades" />
   </wsdl:message>
   <wsdl:message name="IServicioAmistades_NotificarSolicitudAmistadEnviada_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:NotificarSolicitudAmistadEnviada" />
@@ -137,6 +133,18 @@
   </wsdl:message>
   <wsdl:message name="IServicioCorreo_EnviarMensajeCorreo_OutputMessage">
     <wsdl:part name="parameters" element="tns:EnviarMensajeCorreoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioInvitaciones_SuscribirJugadorAInvitacionesDeSala_InputMessage">
+    <wsdl:part name="parameters" element="tns:SuscribirJugadorAInvitacionesDeSala" />
+  </wsdl:message>
+  <wsdl:message name="IServicioInvitaciones_DesuscribirJugadorDeInvitacionesDeSala_InputMessage">
+    <wsdl:part name="parameters" element="tns:DesuscribirJugadorDeInvitacionesDeSala" />
+  </wsdl:message>
+  <wsdl:message name="IServicioInvitaciones_MostrarInvitacionDeSala_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:MostrarInvitacionDeSala" />
+  </wsdl:message>
+  <wsdl:message name="IServicioInvitaciones_MostrarInvitacionDeSala_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:MostrarInvitacionDeSalaResponse" />
   </wsdl:message>
   <wsdl:message name="IServicioJugador_Registrar_InputMessage">
     <wsdl:part name="parameters" element="tns:Registrar" />
@@ -180,41 +188,29 @@
   <wsdl:message name="IServicioPartida_CrearNuevaPartida_OutputMessage">
     <wsdl:part name="parameters" element="tns:CrearNuevaPartidaResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioPartida_ConectarJugadorAPartida_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConectarJugadorAPartida" />
+  </wsdl:message>
+  <wsdl:message name="IServicioPartida_ConectarJugadorAPartida_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConectarJugadorAPartidaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioPartida_DesconectarJugadorDePartida_InputMessage">
+    <wsdl:part name="parameters" element="tns:DesconectarJugadorDePartida" />
+  </wsdl:message>
+  <wsdl:message name="IServicioPartida_DesconectarJugadorDePartida_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DesconectarJugadorDePartidaResponse" />
+  </wsdl:message>
   <wsdl:message name="IServicioPartida_IniciarPartida_InputMessage">
     <wsdl:part name="parameters" element="tns:IniciarPartida" />
-  </wsdl:message>
-  <wsdl:message name="IServicioPartida_IniciarPartida_OutputMessage">
-    <wsdl:part name="parameters" element="tns:IniciarPartidaResponse" />
-  </wsdl:message>
-  <wsdl:message name="IServicioPartida_FinalizarPartida_InputMessage">
-    <wsdl:part name="parameters" element="tns:FinalizarPartida" />
-  </wsdl:message>
-  <wsdl:message name="IServicioPartida_FinalizarPartida_OutputMessage">
-    <wsdl:part name="parameters" element="tns:FinalizarPartidaResponse" />
-  </wsdl:message>
-  <wsdl:message name="IServicioPartida_CambiarPosicionDePieza_InputMessage">
-    <wsdl:part name="parameters" element="tns:CambiarPosicionDePieza" />
-  </wsdl:message>
-  <wsdl:message name="IServicioPartida_CambiarPosicionDePieza_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CambiarPosicionDePiezaResponse" />
   </wsdl:message>
   <wsdl:message name="IServicioPartida_BloquearPieza_InputMessage">
     <wsdl:part name="parameters" element="tns:BloquearPieza" />
   </wsdl:message>
-  <wsdl:message name="IServicioPartida_BloquearPieza_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BloquearPiezaResponse" />
+  <wsdl:message name="IServicioPartida_DesbloquearPieza_InputMessage">
+    <wsdl:part name="parameters" element="tns:DesbloquearPieza" />
   </wsdl:message>
-  <wsdl:message name="IServicioPartida_MarcarPiezaComoCorrecta_InputMessage">
-    <wsdl:part name="parameters" element="tns:MarcarPiezaComoCorrecta" />
-  </wsdl:message>
-  <wsdl:message name="IServicioPartida_MarcarPiezaComoCorrecta_OutputMessage">
-    <wsdl:part name="parameters" element="tns:MarcarPiezaComoCorrectaResponse" />
-  </wsdl:message>
-  <wsdl:message name="IServicioPartida_ExpulsarJugador_InputMessage">
-    <wsdl:part name="parameters" element="tns:ExpulsarJugador" />
-  </wsdl:message>
-  <wsdl:message name="IServicioPartida_ExpulsarJugador_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ExpulsarJugadorResponse" />
+  <wsdl:message name="IServicioPartida_ColocarPieza_InputMessage">
+    <wsdl:part name="parameters" element="tns:ColocarPieza" />
   </wsdl:message>
   <wsdl:message name="IServicioPartida_ObtenerNumeroPartidasJugadas_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerNumeroPartidasJugadas" />
@@ -228,20 +224,26 @@
   <wsdl:message name="IServicioPartida_ObtenerNumeroPartidasGanadas_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerNumeroPartidasGanadasResponse" />
   </wsdl:message>
-  <wsdl:message name="IServicioPartida_MostrarTablero_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:MostrarTablero" />
+  <wsdl:message name="IServicioPartida_ExpulsarAJugadorDePartida_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExpulsarAJugadorDePartida" />
   </wsdl:message>
-  <wsdl:message name="IServicioPartida_NotificarPiezaMarcadaComoBloqueada_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:NotificarPiezaMarcadaComoBloqueada" />
+  <wsdl:message name="IServicioPartida_NotificarInicioDePartida_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotificarInicioDePartida" />
   </wsdl:message>
-  <wsdl:message name="IServicioPartida_ActualizarPosicionDePieza_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:ActualizarPosicionDePieza" />
+  <wsdl:message name="IServicioPartida_NotificarBloqueoDePieza_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotificarBloqueoDePieza" />
   </wsdl:message>
-  <wsdl:message name="IServicioPartida_NotificarPiezaMarcadaComoCorrecta_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:NotificarPiezaMarcadaComoCorrecta" />
+  <wsdl:message name="IServicioPartida_NotificarDesbloqueoDePieza_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotificarDesbloqueoDePieza" />
+  </wsdl:message>
+  <wsdl:message name="IServicioPartida_NotificarColocacionDePieza_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotificarColocacionDePieza" />
   </wsdl:message>
   <wsdl:message name="IServicioPartida_NotificarFinDePartida_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:NotificarFinDePartida" />
+  </wsdl:message>
+  <wsdl:message name="IServicioPartida_NotificarJugadorDesconectadoDePartida_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotificarJugadorDesconectadoDePartida" />
   </wsdl:message>
   <wsdl:message name="IServicioSala_CrearNuevaSala_InputMessage">
     <wsdl:part name="parameters" element="tns:CrearNuevaSala" />
@@ -249,23 +251,23 @@
   <wsdl:message name="IServicioSala_CrearNuevaSala_OutputMessage">
     <wsdl:part name="parameters" element="tns:CrearNuevaSalaResponse" />
   </wsdl:message>
-  <wsdl:message name="IServicioSala_ConectarCuentaJugadorASala_InputMessage">
-    <wsdl:part name="parameters" element="tns:ConectarCuentaJugadorASala" />
+  <wsdl:message name="IServicioSala_ConectarJugadorASala_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConectarJugadorASala" />
   </wsdl:message>
-  <wsdl:message name="IServicioSala_ConectarCuentaJugadorASala_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ConectarCuentaJugadorASalaResponse" />
+  <wsdl:message name="IServicioSala_ConectarJugadorASala_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConectarJugadorASalaResponse" />
   </wsdl:message>
-  <wsdl:message name="IServicioSala_ActualizarOperacionContextoSala_InputMessage">
-    <wsdl:part name="parameters" element="tns:ActualizarOperacionContextoSala" />
+  <wsdl:message name="IServicioSala_RefrescarSesionEnSala_InputMessage">
+    <wsdl:part name="parameters" element="tns:RefrescarSesionEnSala" />
   </wsdl:message>
-  <wsdl:message name="IServicioSala_ActualizarOperacionContextoSala_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ActualizarOperacionContextoSalaResponse" />
+  <wsdl:message name="IServicioSala_RefrescarSesionEnSala_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RefrescarSesionEnSalaResponse" />
   </wsdl:message>
-  <wsdl:message name="IServicioSala_DesconectarCuentaJugadorDeSala_InputMessage">
-    <wsdl:part name="parameters" element="tns:DesconectarCuentaJugadorDeSala" />
+  <wsdl:message name="IServicioSala_DesconectarJugadorDeSala_InputMessage">
+    <wsdl:part name="parameters" element="tns:DesconectarJugadorDeSala" />
   </wsdl:message>
-  <wsdl:message name="IServicioSala_DesconectarCuentaJugadorDeSala_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DesconectarCuentaJugadorDeSalaResponse" />
+  <wsdl:message name="IServicioSala_DesconectarJugadorDeSala_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DesconectarJugadorDeSalaResponse" />
   </wsdl:message>
   <wsdl:message name="IServicioSala_ObtenerJugadoresConectadosEnSala_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerJugadoresConectadosEnSala" />
@@ -275,9 +277,6 @@
   </wsdl:message>
   <wsdl:message name="IServicioSala_EnviarMensajeDeSala_InputMessage">
     <wsdl:part name="parameters" element="tns:EnviarMensajeDeSala" />
-  </wsdl:message>
-  <wsdl:message name="IServicioSala_EnviarMensajeDeSala_OutputMessage">
-    <wsdl:part name="parameters" element="tns:EnviarMensajeDeSalaResponse" />
   </wsdl:message>
   <wsdl:message name="IServicioSala_GenerarCodigoParaNuevaSala_InputMessage">
     <wsdl:part name="parameters" element="tns:GenerarCodigoParaNuevaSala" />
@@ -291,6 +290,15 @@
   <wsdl:message name="IServicioSala_ExisteSalaDisponible_OutputMessage">
     <wsdl:part name="parameters" element="tns:ExisteSalaDisponibleResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioSala_ConvertirAJugadorEnAnfitrionDeSala_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConvertirAJugadorEnAnfitrionDeSala" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSala_ConvertirAJugadorEnAnfitrionDeSala_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConvertirAJugadorEnAnfitrionDeSalaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSala_InvitarAJugadorASala_InputMessage">
+    <wsdl:part name="parameters" element="tns:InvitarAJugadorASala" />
+  </wsdl:message>
   <wsdl:message name="IServicioSala_NotificarCreacionDePartida_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:NotificarCreacionDePartida" />
   </wsdl:message>
@@ -302,6 +310,9 @@
   </wsdl:message>
   <wsdl:message name="IServicioSala_NotificarJugadorDesconectadoDeSala_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:NotificarJugadorDesconectadoDeSala" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSala_MostrarFuncionesDeAnfitrion_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:MostrarFuncionesDeAnfitrion" />
   </wsdl:message>
   <wsdl:portType name="IServicioAmistades">
     <wsdl:operation name="ObtenerJugadoresConSolicitudPendiente">
@@ -336,17 +347,11 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/EliminarAmistadEntreJugadores" message="tns:IServicioAmistades_EliminarAmistadEntreJugadores_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/EliminarAmistadEntreJugadoresResponse" message="tns:IServicioAmistades_EliminarAmistadEntreJugadores_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SuscribirJugadorANotificacionesAmistades">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/SuscribirJugadorANotificacionesAmistades" message="tns:IServicioAmistades_SuscribirJugadorANotificacionesAmistades_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/SuscribirJugadorANotificacionesAmistadesResponse" message="tns:IServicioAmistades_SuscribirJugadorANotificacionesAmistades_OutputMessage" />
+    <wsdl:operation name="SuscribirJugadorANotificacionesDeAmistades">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/SuscribirJugadorANotificacionesDeAmistades" message="tns:IServicioAmistades_SuscribirJugadorANotificacionesDeAmistades_InputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DesuscribirJugadorDeNotificacionesAmistades">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/DesuscribirJugadorDeNotificacionesAmistades" message="tns:IServicioAmistades_DesuscribirJugadorDeNotificacionesAmistades_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/DesuscribirJugadorDeNotificacionesAmistadesResponse" message="tns:IServicioAmistades_DesuscribirJugadorDeNotificacionesAmistades_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="EsJugadorSuscritoANotififacionesDeAmistades">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/EsJugadorSuscritoANotififacionesDeAmistades" message="tns:IServicioAmistades_EsJugadorSuscritoANotififacionesDeAmistades_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/EsJugadorSuscritoANotififacionesDeAmistadesResponse" message="tns:IServicioAmistades_EsJugadorSuscritoANotififacionesDeAmistades_OutputMessage" />
+    <wsdl:operation name="DesuscribirJugadorDeNotificacionesDeAmistades">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/DesuscribirJugadorDeNotificacionesDeAmistades" message="tns:IServicioAmistades_DesuscribirJugadorDeNotificacionesDeAmistades_InputMessage" />
     </wsdl:operation>
     <wsdl:operation name="NotificarSolicitudAmistadEnviada">
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/NotificarSolicitudAmistadEnviada" message="tns:IServicioAmistades_NotificarSolicitudAmistadEnviada_OutputCallbackMessage" />
@@ -369,6 +374,18 @@
     <wsdl:operation name="EnviarMensajeCorreo">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioCorreo/EnviarMensajeCorreo" message="tns:IServicioCorreo_EnviarMensajeCorreo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioCorreo/EnviarMensajeCorreoResponse" message="tns:IServicioCorreo_EnviarMensajeCorreo_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IServicioInvitaciones">
+    <wsdl:operation name="SuscribirJugadorAInvitacionesDeSala">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioInvitaciones/SuscribirJugadorAInvitacionesDeSala" message="tns:IServicioInvitaciones_SuscribirJugadorAInvitacionesDeSala_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DesuscribirJugadorDeInvitacionesDeSala">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioInvitaciones/DesuscribirJugadorDeInvitacionesDeSala" message="tns:IServicioInvitaciones_DesuscribirJugadorDeInvitacionesDeSala_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MostrarInvitacionDeSala">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioInvitaciones/MostrarInvitacionDeSala" message="tns:IServicioInvitaciones_MostrarInvitacionDeSala_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioInvitaciones/MostrarInvitacionDeSalaResponse" message="tns:IServicioInvitaciones_MostrarInvitacionDeSala_InputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IServicioJugador">
@@ -402,29 +419,25 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioPartida/CrearNuevaPartida" message="tns:IServicioPartida_CrearNuevaPartida_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/CrearNuevaPartidaResponse" message="tns:IServicioPartida_CrearNuevaPartida_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ConectarJugadorAPartida">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioPartida/ConectarJugadorAPartida" message="tns:IServicioPartida_ConectarJugadorAPartida_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/ConectarJugadorAPartidaResponse" message="tns:IServicioPartida_ConectarJugadorAPartida_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DesconectarJugadorDePartida">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioPartida/DesconectarJugadorDePartida" message="tns:IServicioPartida_DesconectarJugadorDePartida_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/DesconectarJugadorDePartidaResponse" message="tns:IServicioPartida_DesconectarJugadorDePartida_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="IniciarPartida">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioPartida/IniciarPartida" message="tns:IServicioPartida_IniciarPartida_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/IniciarPartidaResponse" message="tns:IServicioPartida_IniciarPartida_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="FinalizarPartida">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioPartida/FinalizarPartida" message="tns:IServicioPartida_FinalizarPartida_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/FinalizarPartidaResponse" message="tns:IServicioPartida_FinalizarPartida_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="CambiarPosicionDePieza">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioPartida/CambiarPosicionDePieza" message="tns:IServicioPartida_CambiarPosicionDePieza_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/CambiarPosicionDePiezaResponse" message="tns:IServicioPartida_CambiarPosicionDePieza_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="BloquearPieza">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioPartida/BloquearPieza" message="tns:IServicioPartida_BloquearPieza_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/BloquearPiezaResponse" message="tns:IServicioPartida_BloquearPieza_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="MarcarPiezaComoCorrecta">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioPartida/MarcarPiezaComoCorrecta" message="tns:IServicioPartida_MarcarPiezaComoCorrecta_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/MarcarPiezaComoCorrectaResponse" message="tns:IServicioPartida_MarcarPiezaComoCorrecta_OutputMessage" />
+    <wsdl:operation name="DesbloquearPieza">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioPartida/DesbloquearPieza" message="tns:IServicioPartida_DesbloquearPieza_InputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ExpulsarJugador">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioPartida/ExpulsarJugador" message="tns:IServicioPartida_ExpulsarJugador_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/ExpulsarJugadorResponse" message="tns:IServicioPartida_ExpulsarJugador_OutputMessage" />
+    <wsdl:operation name="ColocarPieza">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioPartida/ColocarPieza" message="tns:IServicioPartida_ColocarPieza_InputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ObtenerNumeroPartidasJugadas">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioPartida/ObtenerNumeroPartidasJugadas" message="tns:IServicioPartida_ObtenerNumeroPartidasJugadas_InputMessage" />
@@ -434,20 +447,26 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioPartida/ObtenerNumeroPartidasGanadas" message="tns:IServicioPartida_ObtenerNumeroPartidasGanadas_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/ObtenerNumeroPartidasGanadasResponse" message="tns:IServicioPartida_ObtenerNumeroPartidasGanadas_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="MostrarTablero">
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/MostrarTablero" message="tns:IServicioPartida_MostrarTablero_OutputCallbackMessage" />
+    <wsdl:operation name="ExpulsarAJugadorDePartida">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioPartida/ExpulsarAJugadorDePartida" message="tns:IServicioPartida_ExpulsarAJugadorDePartida_InputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="NotificarPiezaMarcadaComoBloqueada">
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/NotificarPiezaMarcadaComoBloqueada" message="tns:IServicioPartida_NotificarPiezaMarcadaComoBloqueada_OutputCallbackMessage" />
+    <wsdl:operation name="NotificarInicioDePartida">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/NotificarInicioDePartida" message="tns:IServicioPartida_NotificarInicioDePartida_OutputCallbackMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ActualizarPosicionDePieza">
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/ActualizarPosicionDePieza" message="tns:IServicioPartida_ActualizarPosicionDePieza_OutputCallbackMessage" />
+    <wsdl:operation name="NotificarBloqueoDePieza">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/NotificarBloqueoDePieza" message="tns:IServicioPartida_NotificarBloqueoDePieza_OutputCallbackMessage" />
     </wsdl:operation>
-    <wsdl:operation name="NotificarPiezaMarcadaComoCorrecta">
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/NotificarPiezaMarcadaComoCorrecta" message="tns:IServicioPartida_NotificarPiezaMarcadaComoCorrecta_OutputCallbackMessage" />
+    <wsdl:operation name="NotificarDesbloqueoDePieza">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/NotificarDesbloqueoDePieza" message="tns:IServicioPartida_NotificarDesbloqueoDePieza_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotificarColocacionDePieza">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/NotificarColocacionDePieza" message="tns:IServicioPartida_NotificarColocacionDePieza_OutputCallbackMessage" />
     </wsdl:operation>
     <wsdl:operation name="NotificarFinDePartida">
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/NotificarFinDePartida" message="tns:IServicioPartida_NotificarFinDePartida_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotificarJugadorDesconectadoDePartida">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/NotificarJugadorDesconectadoDePartida" message="tns:IServicioPartida_NotificarJugadorDesconectadoDePartida_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IServicioSala">
@@ -455,17 +474,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioSala/CrearNuevaSala" message="tns:IServicioSala_CrearNuevaSala_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioSala/CrearNuevaSalaResponse" message="tns:IServicioSala_CrearNuevaSala_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ConectarCuentaJugadorASala">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSala/ConectarCuentaJugadorASala" message="tns:IServicioSala_ConectarCuentaJugadorASala_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSala/ConectarCuentaJugadorASalaResponse" message="tns:IServicioSala_ConectarCuentaJugadorASala_OutputMessage" />
+    <wsdl:operation name="ConectarJugadorASala">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSala/ConectarJugadorASala" message="tns:IServicioSala_ConectarJugadorASala_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSala/ConectarJugadorASalaResponse" message="tns:IServicioSala_ConectarJugadorASala_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ActualizarOperacionContextoSala">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSala/ActualizarOperacionContextoSala" message="tns:IServicioSala_ActualizarOperacionContextoSala_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSala/ActualizarOperacionContextoSalaResponse" message="tns:IServicioSala_ActualizarOperacionContextoSala_OutputMessage" />
+    <wsdl:operation name="RefrescarSesionEnSala">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSala/RefrescarSesionEnSala" message="tns:IServicioSala_RefrescarSesionEnSala_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSala/RefrescarSesionEnSalaResponse" message="tns:IServicioSala_RefrescarSesionEnSala_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DesconectarCuentaJugadorDeSala">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSala/DesconectarCuentaJugadorDeSala" message="tns:IServicioSala_DesconectarCuentaJugadorDeSala_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSala/DesconectarCuentaJugadorDeSalaResponse" message="tns:IServicioSala_DesconectarCuentaJugadorDeSala_OutputMessage" />
+    <wsdl:operation name="DesconectarJugadorDeSala">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSala/DesconectarJugadorDeSala" message="tns:IServicioSala_DesconectarJugadorDeSala_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSala/DesconectarJugadorDeSalaResponse" message="tns:IServicioSala_DesconectarJugadorDeSala_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ObtenerJugadoresConectadosEnSala">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioSala/ObtenerJugadoresConectadosEnSala" message="tns:IServicioSala_ObtenerJugadoresConectadosEnSala_InputMessage" />
@@ -473,7 +492,6 @@
     </wsdl:operation>
     <wsdl:operation name="EnviarMensajeDeSala">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioSala/EnviarMensajeDeSala" message="tns:IServicioSala_EnviarMensajeDeSala_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSala/EnviarMensajeDeSalaResponse" message="tns:IServicioSala_EnviarMensajeDeSala_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GenerarCodigoParaNuevaSala">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioSala/GenerarCodigoParaNuevaSala" message="tns:IServicioSala_GenerarCodigoParaNuevaSala_InputMessage" />
@@ -482,6 +500,13 @@
     <wsdl:operation name="ExisteSalaDisponible">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioSala/ExisteSalaDisponible" message="tns:IServicioSala_ExisteSalaDisponible_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioSala/ExisteSalaDisponibleResponse" message="tns:IServicioSala_ExisteSalaDisponible_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConvertirAJugadorEnAnfitrionDeSala">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSala/ConvertirAJugadorEnAnfitrionDeSala" message="tns:IServicioSala_ConvertirAJugadorEnAnfitrionDeSala_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSala/ConvertirAJugadorEnAnfitrionDeSalaResponse" message="tns:IServicioSala_ConvertirAJugadorEnAnfitrionDeSala_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InvitarAJugadorASala">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSala/InvitarAJugadorASala" message="tns:IServicioSala_InvitarAJugadorASala_InputMessage" />
     </wsdl:operation>
     <wsdl:operation name="NotificarCreacionDePartida">
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioSala/NotificarCreacionDePartida" message="tns:IServicioSala_NotificarCreacionDePartida_OutputCallbackMessage" />
@@ -494,6 +519,9 @@
     </wsdl:operation>
     <wsdl:operation name="NotificarJugadorDesconectadoDeSala">
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioSala/NotificarJugadorDesconectadoDeSala" message="tns:IServicioSala_NotificarJugadorDesconectadoDeSala_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MostrarFuncionesDeAnfitrion">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSala/MostrarFuncionesDeAnfitrion" message="tns:IServicioSala_MostrarFuncionesDeAnfitrion_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IServicioAmistades" type="tns:IServicioAmistades">
@@ -571,32 +599,17 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SuscribirJugadorANotificacionesAmistades">
-      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/SuscribirJugadorANotificacionesAmistades" style="document" />
+    <wsdl:operation name="SuscribirJugadorANotificacionesDeAmistades">
+      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/SuscribirJugadorANotificacionesDeAmistades" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DesuscribirJugadorDeNotificacionesAmistades">
-      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/DesuscribirJugadorDeNotificacionesAmistades" style="document" />
+    <wsdl:operation name="DesuscribirJugadorDeNotificacionesDeAmistades">
+      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/DesuscribirJugadorDeNotificacionesDeAmistades" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="EsJugadorSuscritoANotififacionesDeAmistades">
-      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/EsJugadorSuscritoANotififacionesDeAmistades" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="NotificarSolicitudAmistadEnviada">
       <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/NotificarSolicitudAmistadEnviada" style="document" />
@@ -637,6 +650,31 @@
     </wsdl:operation>
     <wsdl:operation name="EnviarMensajeCorreo">
       <soap12:operation soapAction="http://tempuri.org/IServicioCorreo/EnviarMensajeCorreo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IServicioInvitaciones" type="tns:IServicioInvitaciones">
+    <wsp:PolicyReference URI="#NetTcpBinding_IServicioInvitaciones_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="SuscribirJugadorAInvitacionesDeSala">
+      <soap12:operation soapAction="http://tempuri.org/IServicioInvitaciones/SuscribirJugadorAInvitacionesDeSala" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="DesuscribirJugadorDeInvitacionesDeSala">
+      <soap12:operation soapAction="http://tempuri.org/IServicioInvitaciones/DesuscribirJugadorDeInvitacionesDeSala" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="MostrarInvitacionDeSala">
+      <soap12:operation soapAction="http://tempuri.org/IServicioInvitaciones/MostrarInvitacionDeSala" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -715,59 +753,47 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ConectarJugadorAPartida">
+      <soap12:operation soapAction="http://tempuri.org/IServicioPartida/ConectarJugadorAPartida" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DesconectarJugadorDePartida">
+      <soap12:operation soapAction="http://tempuri.org/IServicioPartida/DesconectarJugadorDePartida" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="IniciarPartida">
       <soap12:operation soapAction="http://tempuri.org/IServicioPartida/IniciarPartida" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="FinalizarPartida">
-      <soap12:operation soapAction="http://tempuri.org/IServicioPartida/FinalizarPartida" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CambiarPosicionDePieza">
-      <soap12:operation soapAction="http://tempuri.org/IServicioPartida/CambiarPosicionDePieza" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="BloquearPieza">
       <soap12:operation soapAction="http://tempuri.org/IServicioPartida/BloquearPieza" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="MarcarPiezaComoCorrecta">
-      <soap12:operation soapAction="http://tempuri.org/IServicioPartida/MarcarPiezaComoCorrecta" style="document" />
+    <wsdl:operation name="DesbloquearPieza">
+      <soap12:operation soapAction="http://tempuri.org/IServicioPartida/DesbloquearPieza" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ExpulsarJugador">
-      <soap12:operation soapAction="http://tempuri.org/IServicioPartida/ExpulsarJugador" style="document" />
+    <wsdl:operation name="ColocarPieza">
+      <soap12:operation soapAction="http://tempuri.org/IServicioPartida/ColocarPieza" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="ObtenerNumeroPartidasJugadas">
       <soap12:operation soapAction="http://tempuri.org/IServicioPartida/ObtenerNumeroPartidasJugadas" style="document" />
@@ -787,32 +813,44 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="MostrarTablero">
-      <soap12:operation soapAction="http://tempuri.org/IServicioPartida/MostrarTablero" style="document" />
+    <wsdl:operation name="ExpulsarAJugadorDePartida">
+      <soap12:operation soapAction="http://tempuri.org/IServicioPartida/ExpulsarAJugadorDePartida" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="NotificarInicioDePartida">
+      <soap12:operation soapAction="http://tempuri.org/IServicioPartida/NotificarInicioDePartida" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="NotificarPiezaMarcadaComoBloqueada">
-      <soap12:operation soapAction="http://tempuri.org/IServicioPartida/NotificarPiezaMarcadaComoBloqueada" style="document" />
+    <wsdl:operation name="NotificarBloqueoDePieza">
+      <soap12:operation soapAction="http://tempuri.org/IServicioPartida/NotificarBloqueoDePieza" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ActualizarPosicionDePieza">
-      <soap12:operation soapAction="http://tempuri.org/IServicioPartida/ActualizarPosicionDePieza" style="document" />
+    <wsdl:operation name="NotificarDesbloqueoDePieza">
+      <soap12:operation soapAction="http://tempuri.org/IServicioPartida/NotificarDesbloqueoDePieza" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="NotificarPiezaMarcadaComoCorrecta">
-      <soap12:operation soapAction="http://tempuri.org/IServicioPartida/NotificarPiezaMarcadaComoCorrecta" style="document" />
+    <wsdl:operation name="NotificarColocacionDePieza">
+      <soap12:operation soapAction="http://tempuri.org/IServicioPartida/NotificarColocacionDePieza" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="NotificarFinDePartida">
       <soap12:operation soapAction="http://tempuri.org/IServicioPartida/NotificarFinDePartida" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotificarJugadorDesconectadoDePartida">
+      <soap12:operation soapAction="http://tempuri.org/IServicioPartida/NotificarJugadorDesconectadoDePartida" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
@@ -830,8 +868,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ConectarCuentaJugadorASala">
-      <soap12:operation soapAction="http://tempuri.org/IServicioSala/ConectarCuentaJugadorASala" style="document" />
+    <wsdl:operation name="ConectarJugadorASala">
+      <soap12:operation soapAction="http://tempuri.org/IServicioSala/ConectarJugadorASala" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -839,8 +877,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ActualizarOperacionContextoSala">
-      <soap12:operation soapAction="http://tempuri.org/IServicioSala/ActualizarOperacionContextoSala" style="document" />
+    <wsdl:operation name="RefrescarSesionEnSala">
+      <soap12:operation soapAction="http://tempuri.org/IServicioSala/RefrescarSesionEnSala" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -848,8 +886,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DesconectarCuentaJugadorDeSala">
-      <soap12:operation soapAction="http://tempuri.org/IServicioSala/DesconectarCuentaJugadorDeSala" style="document" />
+    <wsdl:operation name="DesconectarJugadorDeSala">
+      <soap12:operation soapAction="http://tempuri.org/IServicioSala/DesconectarJugadorDeSala" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -871,9 +909,6 @@
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GenerarCodigoParaNuevaSala">
       <soap12:operation soapAction="http://tempuri.org/IServicioSala/GenerarCodigoParaNuevaSala" style="document" />
@@ -892,6 +927,21 @@
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConvertirAJugadorEnAnfitrionDeSala">
+      <soap12:operation soapAction="http://tempuri.org/IServicioSala/ConvertirAJugadorEnAnfitrionDeSala" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InvitarAJugadorASala">
+      <soap12:operation soapAction="http://tempuri.org/IServicioSala/InvitarAJugadorASala" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
     </wsdl:operation>
     <wsdl:operation name="NotificarCreacionDePartida">
       <soap12:operation soapAction="http://tempuri.org/IServicioSala/NotificarCreacionDePartida" style="document" />
@@ -917,6 +967,12 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="MostrarFuncionesDeAnfitrion">
+      <soap12:operation soapAction="http://tempuri.org/IServicioSala/MostrarFuncionesDeAnfitrion" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="ServicioRompecabezasFei">
     <wsdl:port name="NetTcpBinding_IServicioAmistades" binding="tns:NetTcpBinding_IServicioAmistades">
@@ -929,6 +985,15 @@
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IServicioCorreo" binding="tns:NetTcpBinding_IServicioCorreo">
+      <soap12:address location="net.tcp://localhost:8089/Contratos" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8089/Contratos</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IServicioInvitaciones" binding="tns:NetTcpBinding_IServicioInvitaciones">
       <soap12:address location="net.tcp://localhost:8089/Contratos" />
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8089/Contratos</wsa10:Address>

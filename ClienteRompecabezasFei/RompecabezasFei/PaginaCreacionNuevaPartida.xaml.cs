@@ -43,11 +43,13 @@ namespace RompecabezasFei
             for (int indiceImagen = NumeroImagenInicial; indiceImagen <= TotalImagenes;  
                 indiceImagen++)
             {
-                ImagenesRompecabezas.Add(new ImagenRompecabezas
+                var nuevaImagen = new ImagenRompecabezas
                 {
                     Ruta = $"Imagenes\\Rompecabezas\\{indiceImagen}.png",
                     NumeroImagen = indiceImagen
-                });
+                };
+
+                ImagenesRompecabezas.Add(nuevaImagen);
             }
         }
 
@@ -89,12 +91,11 @@ namespace RompecabezasFei
 
         private void IrAPaginaSala(object objetoOrigen, MouseButtonEventArgs evento)
         {
-            PaginaSala paginaSala = new PaginaSala
+            PaginaSala paginaSala = new PaginaSala(true)
             {
                 CodigoSala = CodigoSala,
-                EsAnfitrion = true
             };
-            paginaSala.RecargarSala();
+            paginaSala.RecargarSala(true);
             VentanaPrincipal.CambiarPagina(paginaSala);
         }
 
@@ -106,11 +107,9 @@ namespace RompecabezasFei
 
         private void IrAPaginaPartida(object objetoOrigen, RoutedEventArgs evento)
         {
-            PaginaPartida paginaPartida = new PaginaPartida(dificultadSeleccionada,
-                numeroImagenSeleccionada)
-            {
-                CodigoSala = CodigoSala
-            };
+            PaginaPartida paginaPartida = new PaginaPartida(CodigoSala, 
+                dificultadSeleccionada, numeroImagenSeleccionada);
+            paginaPartida.EsAnfitrion = true;
             VentanaPrincipal.CambiarPagina(paginaPartida);
         }
     }

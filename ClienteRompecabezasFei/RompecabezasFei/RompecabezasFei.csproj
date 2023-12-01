@@ -309,7 +309,7 @@
     <Resource Include="Imagenes\Indicadores\Amigos.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\Avatares\Invitado.png" />
+    <Resource Include="Imagenes\Avatares\0.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\Indicadores\Ajustes.png" />

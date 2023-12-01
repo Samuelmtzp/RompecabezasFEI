@@ -18,8 +18,5 @@ namespace Datos
         public string Codigo { get; set; }
         public int MaximoJugadores { get; set; }
         public int MinimoJugadores { get; set; }
-        public Nullable<int> IdAnfitrion { get; set; }
-    
-        public virtual Jugador Anfitrion { get; set; }
     }
 }

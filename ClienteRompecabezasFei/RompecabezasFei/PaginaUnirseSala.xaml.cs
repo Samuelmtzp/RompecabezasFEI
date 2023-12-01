@@ -13,14 +13,13 @@ namespace RompecabezasFei
 
         private void IntentarUnirJugadorASala(object objetoOrigen, RoutedEventArgs evento)
         {
-            PaginaSala paginaSala = new PaginaSala();
+            PaginaSala paginaSala = new PaginaSala(true);
 
             if (Servicios.ServicioSala.ExisteSalaDisponible(cuadroTextoCodigoSala.Text))
             {
                 paginaSala.CodigoSala = cuadroTextoCodigoSala.Text;
-                paginaSala.EsAnfitrion = false;
                 paginaSala.etiquetaCodigoSala.Content = cuadroTextoCodigoSala.Text; 
-                paginaSala.UnirseASala();                
+                paginaSala.UnirseASala(false);
                 VentanaPrincipal.CambiarPagina(paginaSala);
             }
         }

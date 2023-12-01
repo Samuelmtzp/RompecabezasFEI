@@ -3,9 +3,9 @@ using System.Linq;
 
 namespace Logica
 {
-    public class Registro
+    public static class Registro
     {
-        public bool Registrar(CuentaJugador cuentaJugadorRegistro)
+        public static bool Registrar(CuentaJugador cuentaJugadorRegistro)
         {
             bool resultado = false;
 
@@ -31,7 +31,7 @@ namespace Logica
             return resultado;
         }
 
-        public bool ActualizarInformacion(string nombreAnterior, 
+        public static bool ActualizarInformacion(string nombreAnterior, 
             string nuevoNombre, int nuevoNumeroAvatar)
         {
             bool resultado = false;
@@ -52,7 +52,7 @@ namespace Logica
             return resultado;
         }
 
-        public bool ActualizarContrasena(string correo, string contrasena)
+        public static bool ActualizarContrasena(string correo, string contrasena)
         {
             bool resultado = false;
 

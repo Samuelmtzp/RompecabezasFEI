@@ -8,15 +8,15 @@ namespace RompecabezasFei.Servicios
 {
     public static class ServicioSala
     {
-        public static bool ExisteSalaDisponible(string idSala)
+        public static bool ExisteSalaDisponible(string codigoSala)
         {
             bool hayDisponibilidad = false;
             ServicioSalaClient cliente = new ServicioSalaClient(new 
-                InstanceContext(new PaginaSala()));
+                InstanceContext(new PaginaSala(false)));
 
             try
             {
-                hayDisponibilidad = cliente.ExisteSalaDisponible(idSala);
+                hayDisponibilidad = cliente.ExisteSalaDisponible(codigoSala);
                 cliente.Close();
             }
             catch (EndpointNotFoundException excepcion)
@@ -43,8 +43,8 @@ namespace RompecabezasFei.Servicios
 
         public static bool CrearNuevaSala(string nombreAnfitrion, string codigoSala)
         {
-            ServicioSalaClient cliente = new ServicioSalaClient(new InstanceContext(
-                new PaginaSala())); 
+            ServicioSalaClient cliente = new ServicioSalaClient(
+                new InstanceContext(new PaginaSala(false)));
             bool resultado = false;
 
             try
@@ -76,8 +76,8 @@ namespace RompecabezasFei.Servicios
 
         public static string GenerarCodigoParaNuevaSala()
         {
-            ServicioSalaClient cliente = new ServicioSalaClient(new InstanceContext(
-                new PaginaSala()));
+            ServicioSalaClient cliente = new ServicioSalaClient(
+                new InstanceContext(new PaginaSala(false)));
             string codigoSala = null;
 
             try
@@ -109,8 +109,8 @@ namespace RompecabezasFei.Servicios
 
         public static CuentaJugador[] ObtenerJugadoresConectadosEnSala(string codigoSala)
         {
-            ServicioSalaClient cliente = new ServicioSalaClient(new InstanceContext(
-                new PaginaSala()));
+            ServicioSalaClient cliente = new ServicioSalaClient(
+                new InstanceContext(new PaginaSala(false)));
             CuentaJugador[] jugadoresEnSala = null;
 
             try

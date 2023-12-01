@@ -31,8 +31,8 @@ namespace RompecabezasFei
         {
             DeshabilitarBotonEnvioCodigo();
             temporizador = new Temporizador();
-            temporizador.Cronometro.Tick += ActualizarTiempoRestante;
-            temporizador.IniciarTemporizador();
+            temporizador.DespachadorDeTiempo.Tick += ActualizarTiempoRestante;
+            temporizador.IniciarTemporizador(Temporizador.DuracionSegundosMaximaReenvioDeCorreo);
         }
 
         public void ActualizarTiempoRestante(object objetoOrigen, EventArgs evento)
