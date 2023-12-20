@@ -8,6 +8,7 @@ using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace RompecabezasFei
 {
@@ -16,14 +17,33 @@ namespace RompecabezasFei
     {
         private ServicioSalaClient clienteServicioSala;
 
+        private Temporizador temporizador;
+
         public string CodigoSala { get; set; }
 
         private bool esAnfitrion;
+
+        Color colorActivo = (Color)ColorConverter.ConvertFromString("#FF03A64A");
+        Color colorDesactivado = (Color)ColorConverter.ConvertFromString("#808080");
 
         public ObservableCollection<Dominio.CuentaJugador> JugadoresEnSala { get; set; }
 
         public PaginaSala(bool cargarDatos)
         {
+            InitializeComponent();
+            JugadoresEnSala = new ObservableCollection<Dominio.CuentaJugador>();
+            listaJugadoresSala.DataContext = this;
+            panelModificacionJugador.Visibility = Visibility.Hidden;
+
+            if (EsAnfitrion)
+            {
+                imagenModificarJugador.Visibility = Visibility.Visible;
+                etiquetaModificarJugador.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                imagenModificarJugador.Visibility = Visibility.Hidden;
+                etiquetaModificarJugador.Visibility = Visibility.Hidden;
             if (cargarDatos)
             {
                 InitializeComponent();                
@@ -44,12 +64,49 @@ namespace RompecabezasFei
 
             if (esAnfitrion)
             {
-                botonNuevaPartida.Visibility = Visibility.Visible;
+                botonNuevaPartida.Visibility = Visibility.Visible;   
             }
             else
             {
                 botonNuevaPartida.Visibility = Visibility.Hidden;
             }
+        }
+
+        public void ActualizarTiempoRestante(object objetoOrigen, EventArgs evento)
+        {
+            if (temporizador.SegundosRestantes > Temporizador.MinimoSegundosRestantes)
+            {
+                temporizador.SegundosRestantes--;
+                TimeSpan tiempoRestante = TimeSpan.FromSeconds(temporizador.SegundosRestantes);
+                etiquetaTiempoRestante.Content = $"{tiempoRestante.Minutes:00}:" +
+                    $"{tiempoRestante.Seconds:00}";
+            }
+            else
+            {
+                temporizador.DetenerTemporizador();
+                etiquetaTiempoRestante.Content = "00:00";
+                HabilitarBotonEnviarInvitacion();
+            }
+        }
+
+        private void HabilitarBotonEnviarInvitacion()
+        {
+            botonEnviarInvitacion.IsEnabled = true;
+            botonEnviarInvitacion.Background = new SolidColorBrush(colorActivo);
+        }
+
+        private void DeshabilitarBotonEnviarInvitacion()
+        {
+            botonEnviarInvitacion.IsEnabled = false;
+            botonEnviarInvitacion.Background = new SolidColorBrush(colorDesactivado);
+        }
+
+        private void IniciarTemporizador()
+        {
+            DeshabilitarBotonEnviarInvitacion();
+            temporizador = new Temporizador();
+            temporizador.Cronometro.Tick += ActualizarTiempoRestante;
+            temporizador.IniciarTemporizador();
         }
 
         private void IrAPaginaMenuPrincipal(object objetoOrigen, MouseButtonEventArgs evento)
@@ -166,7 +223,7 @@ namespace RompecabezasFei
                     NombreJugador = jugador.NombreJugador,
                     FuenteImagenAvatar = GeneradorImagenes.
                         GenerarFuenteImagenAvatar(jugador.NumeroAvatar)
-                });
+                }); 
             }
         }
 
@@ -215,7 +272,59 @@ namespace RompecabezasFei
         private void ModificarJugadoresEnSala(object objetoOrigen,
             MouseButtonEventArgs evento)
         {
-            // Mostrar panel de modificación de jugadores de sala
+            panelModificacionJugador.Visibility = Visibility.Visible;  
+        }
+
+        private void CerrarModificacionJugadores(object objetoOrigen, 
+            MouseButtonEventArgs evento)
+        {
+            panelModificacionJugador.Visibility = Visibility.Hidden;
+        }
+
+        private void EnviarInvitacionPorCorreo(object objetoOrigen, RoutedEventArgs evento)
+        {
+            string correoDestino = cuadroTextoCorreoElectronico.Text;
+
+            if (!ValidadorDatos.ExistenCaracteresInvalidosParaCorreo(correoDestino))
+            {
+                if (Servicios.ServicioCorreo.ExisteCorreoElectronico(correoDestino))
+                {
+                    bool envioDeInvitacionRealizado = GestionadorCodigoCorreo.
+                    EnviarInvitacionSalaACorreo(correoDestino, Properties.Resources.
+                    ETIQUETA_MODIFICACIONSALA_CORREOINVITACIONASUNTO, Properties.Resources.
+                    ETIQUETA_MODIFICACIONSALA_MENSAJECORREOINVITACIONASUNTO, CodigoSala);
+
+                    if (!envioDeInvitacionRealizado)
+                    {
+                        MessageBox.Show(Properties.Resources.
+                                    ETIQUETA_CODIGO_MENSAJENOENVIADO, Properties.Resources.
+                                    ETIQUETA_CODIGO_CODIGONOENVIADO,
+                                    MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show(Properties.Resources.
+                                    ETIQUETA_MODIFICACIONSALA_MENSAJEINVITACIONENVIADA, 
+                                    Properties.Resources.
+                                    ETIQUETA_MODIFICACIONSALA_INVITACIONENVIADA,
+                                    MessageBoxButton.OK);
+                        IniciarTemporizador();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(Properties.Resources.
+                        ETIQUETA_RECUPERACIONCONTRASENA_MENSAJECORREOINEXISTENE, Properties.
+                        Resources.ETIQUETA_RECUPERACIONCONTRASENA_CORREOINEXISTENTE, 
+                        MessageBoxButton.OK);
+                }
+            }
+            else
+            {
+                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECORREOINVALIDO,
+                    Properties.Resources.ETIQUETA_VALIDACION_CORREOINVALIDO, 
+                    MessageBoxButton.OK);
+            }
         }
 
         #region Callbacks

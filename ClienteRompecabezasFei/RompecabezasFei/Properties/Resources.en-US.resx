@@ -540,6 +540,33 @@
   <data name="ETIQUETA_MENUPRINCIPAL_PERFIL" xml:space="preserve">
     <value>My profile</value>
   </data>
+  <data name="ETIQUETA_MODIFICACIONSALA_CORREOINVITACIONASUNTO" xml:space="preserve">
+    <value>Game room code</value>
+  </data>
+  <data name="ETIQUETA_MODIFICACIONSALA_ENVIARCODIGO" xml:space="preserve">
+    <value>Send code to email</value>
+  </data>
+  <data name="ETIQUETA_MODIFICACIONSALA_ENVIARINVITACION" xml:space="preserve">
+    <value>Send invitation</value>
+  </data>
+  <data name="ETIQUETA_MODIFICACIONSALA_INVITACIONENVIADA" xml:space="preserve">
+    <value>Invitation sent</value>
+  </data>
+  <data name="ETIQUETA_MODIFICACIONSALA_MENSAJECORREOINVITACIONASUNTO" xml:space="preserve">
+    <value>The room code is as follows:</value>
+  </data>
+  <data name="ETIQUETA_MODIFICACIONSALA_MENSAJEINVITACIONENVIADA" xml:space="preserve">
+    <value>The room invitation has been sent successfully</value>
+  </data>
+  <data name="ETIQUETA_MODIFICACIONSALA_PESTAÑAENSALA" xml:space="preserve">
+    <value>On lobby</value>
+  </data>
+  <data name="ETIQUETA_MODIFICACIONSALA_PESTAÑAINVITAR" xml:space="preserve">
+    <value>Invite</value>
+  </data>
+  <data name="ETIQUETA_MODIFICACIONSALA_TEXTOENVIARCODIGO" xml:space="preserve">
+    <value>To send a room invite to a player who is not on your friends list, you must enter their email address</value>
+  </data>
   <data name="ETIQUETA_OPCIONESSALA_CORREOINVALIDO" xml:space="preserve">
     <value>Invalid email</value>
   </data>

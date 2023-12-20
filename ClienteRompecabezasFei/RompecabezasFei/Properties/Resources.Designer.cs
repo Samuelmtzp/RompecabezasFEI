@@ -1276,6 +1276,87 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Código de sala de juego.
+        /// </summary>
+        public static string ETIQUETA_MODIFICACIONSALA_CORREOINVITACIONASUNTO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_MODIFICACIONSALA_CORREOINVITACIONASUNTO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Enviar código a correo.
+        /// </summary>
+        public static string ETIQUETA_MODIFICACIONSALA_ENVIARCODIGO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_MODIFICACIONSALA_ENVIARCODIGO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Enviar invitación.
+        /// </summary>
+        public static string ETIQUETA_MODIFICACIONSALA_ENVIARINVITACION {
+            get {
+                return ResourceManager.GetString("ETIQUETA_MODIFICACIONSALA_ENVIARINVITACION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Invitación enviada.
+        /// </summary>
+        public static string ETIQUETA_MODIFICACIONSALA_INVITACIONENVIADA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_MODIFICACIONSALA_INVITACIONENVIADA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El código de la sala es el siguiente:.
+        /// </summary>
+        public static string ETIQUETA_MODIFICACIONSALA_MENSAJECORREOINVITACIONASUNTO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_MODIFICACIONSALA_MENSAJECORREOINVITACIONASUNTO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La invitación de sala ha sido enviada exitosamente.
+        /// </summary>
+        public static string ETIQUETA_MODIFICACIONSALA_MENSAJEINVITACIONENVIADA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_MODIFICACIONSALA_MENSAJEINVITACIONENVIADA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a En sala.
+        /// </summary>
+        public static string ETIQUETA_MODIFICACIONSALA_PESTAÑAENSALA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_MODIFICACIONSALA_PESTAÑAENSALA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Invitar.
+        /// </summary>
+        public static string ETIQUETA_MODIFICACIONSALA_PESTAÑAINVITAR {
+            get {
+                return ResourceManager.GetString("ETIQUETA_MODIFICACIONSALA_PESTAÑAINVITAR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Para mandar una invitación de sala a un jugador que no está en tu lista de amigos, debes de ingresar su correo electrónico.
+        /// </summary>
+        public static string ETIQUETA_MODIFICACIONSALA_TEXTOENVIARCODIGO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_MODIFICACIONSALA_TEXTOENVIARCODIGO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Correo electrónico inválido.
         /// </summary>
         public static string ETIQUETA_OPCIONESSALA_CORREOINVALIDO {

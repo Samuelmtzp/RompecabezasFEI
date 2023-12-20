@@ -6,6 +6,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.ServiceModel;
 
 namespace Servicios
@@ -25,9 +26,9 @@ namespace Servicios
             {                
                 operacionRealizada = Registro.Registrar(cuentaJugador);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             return operacionRealizada;
@@ -43,9 +44,9 @@ namespace Servicios
                 operacionRealizada = Registro.ActualizarInformacion(nombreAnterior, 
                     nuevoNombre, nuevoNumeroAvatar);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
             
             return operacionRealizada;
@@ -59,9 +60,9 @@ namespace Servicios
             {
                 operacionRealizada = Registro.ActualizarContrasena(correo, contrasena);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             return operacionRealizada;
@@ -75,9 +76,9 @@ namespace Servicios
             {
                 hayExistencias = ConsultasJugador.ExisteNombreJugador(nombreJugador);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             return hayExistencias;
@@ -137,9 +138,9 @@ namespace Servicios
                 operacionRealizada = ConsultasJugador.ExisteCorreoElectronico(
                     correoElectronico);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             return operacionRealizada;
@@ -155,9 +156,9 @@ namespace Servicios
                 operacionRealizada = GeneradorMensajesCorreo.EnviarMensaje(
                     encabezado, correoDestino, asunto, mensaje);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             return operacionRealizada;
@@ -195,9 +196,9 @@ namespace Servicios
             {
                 operacionRealizada = GestionSala.CrearNuevaSala(codigoSala);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             if (operacionRealizada)
@@ -411,9 +412,9 @@ namespace Servicios
             {
                 cuentasJugador = GestionAmistades.ObtenerAmigosDeJugador(nombreJugador);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             if (cuentasJugador != null)
@@ -456,9 +457,9 @@ namespace Servicios
                 cuentasJugador = GestionAmistades.ObtenerJugadoresConSolicitudPendiente(
                     nombreJugador);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             if (cuentasJugador != null)
@@ -479,9 +480,9 @@ namespace Servicios
                 operacionRealizada = GestionAmistades.EnviarSolicitudDeAmistad(
                     nombreJugadorOrigen, nombreJugadorDestino);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             if (operacionRealizada)
@@ -509,9 +510,9 @@ namespace Servicios
                 operacionRealizada = GestionAmistades.AceptarSolicitudDeAmistad(
                     nombreJugadorOrigen, nombreJugadorDestino);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             if (operacionRealizada)
@@ -539,9 +540,9 @@ namespace Servicios
                 operacionRealizada = GestionAmistades.EliminarAmistadEntreJugadores(
                     nombreJugadorA, nombreJugadorB);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             if (operacionRealizada)
@@ -568,9 +569,9 @@ namespace Servicios
                 operacionRealizada = GestionAmistades.EliminarSolicitudDeAmistad(
                     nombreJugadorOrigen, nombreJugadorDestino);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             return operacionRealizada;
@@ -586,9 +587,9 @@ namespace Servicios
                 hayExistencias = GestionAmistades.ExisteSolicitudDeAmistad(
                     nombreJugadorOrigen, nombreJugadorDestino);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             return hayExistencias;
@@ -603,9 +604,9 @@ namespace Servicios
                 hayExistencias = GestionAmistades.ExisteAmistadConJugador(
                     nombreJugadorA, nombreJugadorB);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             return hayExistencias;
@@ -641,9 +642,9 @@ namespace Servicios
             {
                 operacionRealizada = GestionPartida.CrearNuevaPartida(codigoSala, dificultad);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             if (operacionRealizada)
@@ -816,9 +817,9 @@ namespace Servicios
                 numeroPartidasJugadas = ConsultasJugador.
                     ObtenerNumeroPartidasJugadasDeJugador(nombreJugador);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             return numeroPartidasJugadas;
@@ -833,9 +834,9 @@ namespace Servicios
                 numeroPartidasGanadas = ConsultasJugador.
                     ObtenerNumeroPartidasGanadas(nombreJugador);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             return numeroPartidasGanadas;

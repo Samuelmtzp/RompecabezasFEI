@@ -30,5 +30,17 @@ namespace RompecabezasFei.Utilidades
 
             return resultado;
         }
+
+        public static bool EnviarInvitacionSalaACorreo(string correoDestino,
+            string asunto, string mensaje, string codigoSala)
+        {
+            CodigoGenerado = GenerarNuevoCodigoConfirmacion();
+            string mensajeBase = $"{mensaje} {codigoSala}";
+            bool resultado = Servicios.ServicioCorreo.EnviarMensajeACorreoElectronico(
+                Properties.Resources.ETIQUETA_GENERAL_ROMPECABEZASFEI, correoDestino,
+                asunto, mensajeBase);
+
+            return resultado;
+        }
     }
 }
