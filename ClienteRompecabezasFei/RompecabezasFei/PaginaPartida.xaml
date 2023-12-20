@@ -7,10 +7,10 @@
       xmlns:p="clr-namespace:RompecabezasFei.Properties"
       mc:Ignorable="d"
       d:DesignHeight="720" d:DesignWidth="1280"
-      Loaded="CargarDatosPartida">
+      Loaded="AgregarEventoDesbloqueoPiezaAlDesactivarVentana">
     <Grid>
-        <Canvas Name="tableroRompecabezas" Margin="30,99,350,81" Width="900" Height="540"/>
-        <Grid Margin="979,243,31,214" ShowGridLines="True">
+        <Canvas Name="tableroRompecabezas" Margin="10,56,370,124" Width="900" Height="540" Background="AliceBlue"/>
+        <Grid Margin="950,180,56,278" ShowGridLines="True">
             <ListView Name="listaJugadoresPartida" VerticalAlignment="Top" Foreground="White" Background="#FF4A4A4A" ItemsSource="{Binding JugadoresEnPartida}" HorizontalContentAlignment="Center" Width="264" Height="260" >
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
@@ -30,6 +30,7 @@
                         <GridView.ColumnHeaderContainerStyle>
                             <Style TargetType="GridViewColumnHeader">
                                 <Setter Property="Visibility" Value="Visible" />
+                                <Setter Property="IsEnabled" Value="false" />
                             </Style>
                         </GridView.ColumnHeaderContainerStyle>
                         <GridViewColumn Width="164" Header="{x:Static p:Resources.ETIQUETA_GENERAL_JUGADORES}">
@@ -50,8 +51,9 @@
                 </ListView.View>
             </ListView>
         </Grid>
-        <Button Name="botonIniciar" Content="{x:Static p:Resources.BOTON_SALA_INICIARPARTIDA}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="270" Click="IniciarJuego" Margin="979,549,0,0" Background="#03A64A" Foreground="White" FontWeight="Bold" FontSize="32"/>
-        <Image Source="/Imagenes/Indicadores/Ajustes.png" HorizontalAlignment="Left" Height="82" Margin="1155,15,0,0" VerticalAlignment="Top" Width="82" MouseDown="IrPaginaAjustesPartida"/>
+        <Button Name="botonIniciarPartida" Content="{x:Static p:Resources.BOTON_SALA_INICIARPARTIDA}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="314" Click="IniciarPartida" Margin="935,471,0,0" Background="#03A64A" Foreground="White" FontWeight="Bold" FontSize="32" Visibility="Visible"/>
+        <Button Name="botonAbandonarPartida" Content="{x:Static p:Resources.BOTON_PARTIDA_ABANDONOPARTIDA}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="314" Click="AbandonarPartida" Margin="935,540,0,0" Background="Red" Foreground="White" FontWeight="Bold" FontSize="32" Visibility="Visible"/>
+        <Image Source="/Imagenes/Indicadores/Ajustes.png" HorizontalAlignment="Left" Height="82" Margin="1155,15,0,0" VerticalAlignment="Top" Width="82" MouseDown="IrAPaginaAjustesPartida"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_AJUSTES}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="1143,97,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Width="106"/>
     </Grid>
 </Page>

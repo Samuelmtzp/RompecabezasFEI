@@ -10,12 +10,22 @@ namespace Dominio
         private Border borde;
 
         private bool estaDentroDeCelda;
+
+        private bool esPiezaBloqueada;
+
+        public int NumeroPieza { get; set; }
         
         public double Ancho { get; set; }
 
         public double Alto { get; set; }
+
+        public double PosicionX { get; set; }
+
+        public double PosicionY { get; set; }
         
         public Image Imagen { get; set; }
+        
+        public CroppedBitmap FuenteImagenRecortada { get; set; }
 
         public Border Borde
         {
@@ -34,18 +44,29 @@ namespace Dominio
             {
                 estaDentroDeCelda = value;
 
-                if (estaDentroDeCelda)
+                if (estaDentroDeCelda && borde != null)
                 {
-                    EstablecerEstiloDePiezaDentroDeCelda();
+                    EstablecerEstiloDePiezaColocada();
                 }
             }
         }
 
-        public int FilaCorrecta { get; set; }
+        public bool EsPiezaBloqueada
+        {
+            get { return esPiezaBloqueada; }
+            set
+            {
+                esPiezaBloqueada = value;
 
-        public int ColumnaCorrecta { get; set; }
-
-        public CroppedBitmap FuenteImagenRecortada { get; set; }
+                if (borde != null)
+                {
+                    if (!esPiezaBloqueada)
+                    {
+                        EstablecerEstiloDePiezaSinBloquear();
+                    }
+                }
+            }
+        }
 
         public void EstablecerFuenteImagen(BitmapImage fuenteImagenOriginal, 
             Int32Rect areaRecorte)
@@ -69,19 +90,25 @@ namespace Dominio
             return borde.ActualHeight - Imagen.Height;
         }
 
-        public void EstablecerEstiloDePiezaSeleccionada()
+        public void EstablecerEstiloDePiezaBloqueadaPorJugadorActual()
         {
             borde.BorderBrush = Brushes.Red;
             borde.BorderThickness = new Thickness(4);
         }
 
-        public void EstablecerEstiloDePiezaSinSeleccionar()
+        public void EstablecerEstiloDePiezaBloqueadaPorAdversario()
         {
-            borde.BorderBrush = Brushes.White;
+            borde.BorderBrush = Brushes.Yellow;
+            borde.BorderThickness = new Thickness(4);
+        }
+
+        public void EstablecerEstiloDePiezaSinBloquear()
+        {
+            borde.BorderBrush = Brushes.Black;
             borde.BorderThickness = new Thickness(2);
         }
 
-        private void EstablecerEstiloDePiezaDentroDeCelda()
+        private void EstablecerEstiloDePiezaColocada()
         {
             borde.BorderBrush = Brushes.Transparent;
             borde.BorderThickness = new Thickness(0);

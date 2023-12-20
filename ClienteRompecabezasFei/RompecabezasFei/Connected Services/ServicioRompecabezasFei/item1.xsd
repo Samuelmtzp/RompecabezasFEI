@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Logica" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Logica" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:8088/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Datos" />
   <xs:complexType name="ArrayOfCuentaJugador">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="CuentaJugador" nillable="true" type="tns:CuentaJugador" />
@@ -11,7 +10,8 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Contrasena" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Correo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EstadoConectividad" type="tns:EstadoConectividadJugador" />
+      <xs:element minOccurs="0" name="EsInvitado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EstadoConectividad" type="tns:ConectividadJugador" />
       <xs:element minOccurs="0" name="IdJugador" type="xs:int" />
       <xs:element minOccurs="0" name="NombreJugador" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="NumeroAvatar" type="xs:int" />
@@ -19,35 +19,20 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CuentaJugador" nillable="true" type="tns:CuentaJugador" />
-  <xs:simpleType name="EstadoConectividadJugador">
+  <xs:simpleType name="ConectividadJugador">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Desconectado" />
-      <xs:enumeration value="Conectado" />
-      <xs:enumeration value="EnPartida" />
+      <xs:enumeration value="Disponible" />
+      <xs:enumeration value="NoDisponible" />
     </xs:restriction>
   </xs:simpleType>
-  <xs:element name="EstadoConectividadJugador" nillable="true" type="tns:EstadoConectividadJugador" />
+  <xs:element name="ConectividadJugador" nillable="true" type="tns:ConectividadJugador" />
   <xs:complexType name="Tablero">
     <xs:sequence>
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Datos" minOccurs="0" name="Dificultad" type="q1:DificultadPartida" />
       <xs:element minOccurs="0" name="NumeroImagenRompecabezas" type="xs:int" />
-      <xs:element minOccurs="0" name="Piezas" nillable="true" type="tns:ArrayOfPieza" />
       <xs:element minOccurs="0" name="TotalColumnas" type="xs:int" />
       <xs:element minOccurs="0" name="TotalFilas" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Tablero" nillable="true" type="tns:Tablero" />
-  <xs:complexType name="ArrayOfPieza">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Pieza" nillable="true" type="tns:Pieza" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfPieza" nillable="true" type="tns:ArrayOfPieza" />
-  <xs:complexType name="Pieza">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="EstaDentroDeCelda" type="xs:boolean" />
-      <xs:element minOccurs="0" name="NumeroPieza" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Pieza" nillable="true" type="tns:Pieza" />
 </xs:schema>

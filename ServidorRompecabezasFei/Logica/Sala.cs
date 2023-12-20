@@ -1,4 +1,5 @@
 ﻿using Datos;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -7,9 +8,9 @@ namespace Logica
     [DataContract]
     public class Sala
     {
-        public const int MaximoJugadores = 4;
+        public const int MaximoJugadoresPorSala = 4;
 
-        public const int MinimoJugadores = 2;
+        public const int MinimoJugadoresParaIniciarPartida = 2;
 
         [DataMember]
         public EstadoSala Estado { get; set; }
@@ -21,14 +22,14 @@ namespace Logica
         public string NombreAnfitrion { get; set; }
         
         [DataMember]
-        public int ContadorJugadoresActuales { get; set; }
+        public int ContadorJugadores { get; set; }
         
         [DataMember]
-        public List<CuentaJugador> Jugadores { get; set; }
+        public ConcurrentDictionary<string, CuentaJugador> Jugadores { get; set; }
 
         public bool EstaVacia()
         {
-            return ContadorJugadoresActuales == 0;
+            return ContadorJugadores == 0;
         }
     }
 }

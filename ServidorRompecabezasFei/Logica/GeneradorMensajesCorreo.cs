@@ -8,11 +8,11 @@ using System.Runtime.InteropServices;
 
 namespace Logica
 {
-    public class GeneradorMensajesCorreo
+    public static class GeneradorMensajesCorreo
     {
         private static readonly ILog Log = Registrador.GetLogger();
 
-        public bool EnviarMensaje(string encabezado, string correoDestino, 
+        public static bool EnviarMensaje(string encabezado, string correoDestino, 
             string asunto, string mensaje)
         {
             bool resultado = true;
@@ -34,7 +34,9 @@ namespace Logica
                 };
                 mensajeCorreo.To.Add(correoDestino);
 
-                clienteSmtp.Credentials = new NetworkCredential(Properties.Settings.Default.Email, Properties.Settings.Default.EmailPassword);
+                clienteSmtp.Credentials = new NetworkCredential(
+                    Properties.Settings.Default.Email, 
+                    Properties.Settings.Default.EmailPassword);
                 clienteSmtp.EnableSsl = true;
                 clienteSmtp.Send(mensajeCorreo);                
             }

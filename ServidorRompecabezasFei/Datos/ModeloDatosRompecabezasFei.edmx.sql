@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/17/2023 13:55:47
--- Generated from EDMX file: C:\Users\samue\OneDrive - Universidad Veracruzana\UV\Semestre 5\Tecnologías\RompecabezasFei\ServidorRompecabezasFei\Datos\ModeloDatosRompecabezasFei.edmx
+-- Date Created: 11/25/2023 21:09:22
+-- Generated from EDMX file: C:\Users\samue\OneDrive\Escritorio\RompecabezasFEI\ServidorRompecabezasFei\Datos\ModeloDatosRompecabezasFei.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -111,8 +111,7 @@ CREATE TABLE [dbo].[Sala] (
     [IdSala] int IDENTITY(1,1) NOT NULL,
     [Codigo] nvarchar(36)  NOT NULL,
     [MaximoJugadores] int  NOT NULL,
-    [MinimoJugadores] int  NOT NULL,
-    [IdAnfitrion] int  NULL
+    [MinimoJugadores] int  NOT NULL
 );
 GO
 
@@ -283,21 +282,6 @@ GO
 CREATE INDEX [IX_FK_PartidaResultadoPartida]
 ON [dbo].[ResultadoPartida]
     ([IdPartida]);
-GO
-
--- Creating foreign key on [IdAnfitrion] in table 'Sala'
-ALTER TABLE [dbo].[Sala]
-ADD CONSTRAINT [FK_JugadorSala]
-    FOREIGN KEY ([IdAnfitrion])
-    REFERENCES [dbo].[Jugador]
-        ([IdJugador])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_JugadorSala'
-CREATE INDEX [IX_FK_JugadorSala]
-ON [dbo].[Sala]
-    ([IdAnfitrion]);
 GO
 
 -- --------------------------------------------------

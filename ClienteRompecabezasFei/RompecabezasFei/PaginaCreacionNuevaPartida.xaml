@@ -26,11 +26,11 @@
                             <DataTemplate>
                                 <Grid>
                                     <Border BorderBrush="{Binding ColorDeBorde}"
-                                BorderThickness="4"
-                                MouseEnter="MostrarPreseleccionDeImagen"
-                                MouseLeave="OcultarPreseleccionDeImagen"
-                                MouseLeftButtonDown="SeleccionarImagen">
-                                        <Image Source="{Binding Ruta}" Width="200" Height="120" Stretch="UniformToFill" />
+                                        BorderThickness="4"
+                                        MouseEnter="MostrarPreseleccionDeImagen"
+                                        MouseLeave="OcultarPreseleccionDeImagen"
+                                        MouseLeftButtonDown="SeleccionarImagen">
+                                        <Image Source="{Binding Ruta}" Width="200" Height="120" Stretch="UniformToFill"/>
                                     </Border>
                                 </Grid>
                             </DataTemplate>

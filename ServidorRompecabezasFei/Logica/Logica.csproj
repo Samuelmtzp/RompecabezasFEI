@@ -63,10 +63,9 @@
     <Compile Include="Autenticacion.cs" />
     <Compile Include="ConsultasJugador.cs" />
     <Compile Include="CuentaJugador.cs" />
-    <Compile Include="EstadoConectividadJugador.cs" />
+    <Compile Include="ConectividadJugador.cs" />
     <Compile Include="EstadoSala.cs" />
     <Compile Include="GeneradorMensajesCorreo.cs" />
-    <Compile Include="GestionContexto.cs" />
     <Compile Include="GestionAmistades.cs" />
     <Compile Include="GestionPartida.cs" />
     <Compile Include="GestionSala.cs" />
@@ -78,6 +77,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="PuntajePieza.cs" />
     <Compile Include="Registro.cs" />
     <Compile Include="Sala.cs" />
     <Compile Include="Tablero.cs" />
