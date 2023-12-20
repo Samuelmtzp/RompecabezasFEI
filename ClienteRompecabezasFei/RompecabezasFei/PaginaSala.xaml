@@ -9,7 +9,7 @@
       d:DesignHeight="720" d:DesignWidth="1280">
     <Grid>
         <Image Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="30,30,1145,598" Height="81" Width="81" MouseDown="IrAPaginaMenuPrincipal"/>
-        <Image Source="/Imagenes/Indicadores/ModificarJugadores.png" Stretch="Fill" Margin="70,520,1116,106" Height="94" Width="94" MouseDown="ModificarJugadoresEnSala"/>
+        <Image Name="imagenModificarJugador" Source="/Imagenes/Indicadores/ModificarJugadores.png" Stretch="Fill" Margin="70,520,1116,106" Height="94" Width="94" MouseDown="ModificarJugadoresEnSala"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_CODIGOSALA}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="240,511,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36" FontWeight="Bold"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_JUGADORES}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="212,109,0,0" VerticalAlignment="Top" Foreground="White" FontSize="40" FontWeight="Bold"/>
         <RichTextBox Name="cuadroTextoMensajes" HorizontalAlignment="Left" Margin="569,88,0,0" VerticalAlignment="Top" Width="667" Height="372" FontSize="18" IsReadOnly="True" Background="#FF4A4A4A" Foreground="White" VerticalScrollBarVisibility="Visible" />
@@ -20,7 +20,7 @@
         <Button Name="botonNuevaPartida" Content="Nueva partida" HorizontalAlignment="Left" Margin="931,579,0,0" VerticalAlignment="Top" Height="72" Width="305" FontSize="36" Background="#FF03A64A" Foreground="White" FontWeight="Bold" Click="IrAPaginaCreacionNuevaPartida">
         </Button>
         <Button Content="{x:Static p:Resources.ETIQUETA_SALA_COPIAR}" HorizontalAlignment="Left" Margin="240,617,0,0" VerticalAlignment="Top" Height="34" Width="128" Background="#FF048ABF" Foreground="White" FontSize="18" FontWeight="Bold" Click="CopiarCodigoDeSalaEnPortapapeles"/>
-        <Label HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="42,619,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20" FontWeight="Bold" Width="150" Height="32" Content="MODIFICAR" MouseDown="ModificarJugadoresEnSala"/>
+        <Label Name="etiquetaModificarJugador" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="42,619,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20" FontWeight="Bold" Width="150" Height="32" Content="MODIFICAR" MouseDown="ModificarJugadoresEnSala"/>
 
         <Grid Width="495" Height="316" Margin="36,177,749,227">
             <ListView Name="listaJugadoresSala" VerticalAlignment="Top" Foreground="White" Background="#FF4A4A4A" ItemsSource="{Binding JugadoresEnSala}" HorizontalContentAlignment="Center" Width="495" Height="316" >
@@ -60,6 +60,175 @@
                     </GridView>
                 </ListView.View>
             </ListView>
+        </Grid>
+
+        <Grid Margin="72,139,640,330" x:Name="panelModificacionJugador" >
+            <Image Source="/CerrarSesion.png" Stretch="Fill" Margin="1091,7,-557,210" Panel.ZIndex="1" MouseDown="CerrarModificacionJugadores"/>
+            <Border BorderBrush="White" BorderThickness="3">
+                <Border.RenderTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                </Border.RenderTransform>
+                <Grid>
+                    <TabControl Background="#FF4A4A4A" Foreground="White" Name="tabModificacionJugadorSala">
+                        <TabControl.Resources>
+                            <Style TargetType="{x:Type TabItem}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type TabItem}">
+                                            <Grid x:Name="panel">
+                                                <ContentPresenter x:Name="contenidoPestana"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            ContentSource="Header"
+                                            Margin="10,2"/>
+                                            </Grid>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsSelected" Value="True">
+                                                    <Setter TargetName="panel" Property="Background" Value="#048ABF" />
+                                                </Trigger>
+                                                <Trigger Property="IsSelected" Value="False">
+                                                    <Setter TargetName="panel" Property="Background" Value="#FF4A4A4A" />
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </TabControl.Resources>
+
+                        <TabItem Width="120" Foreground="White" x:Name="pestañaEnSala" Background="{x:Null}">
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{x:Static p:Resources.ETIQUETA_MODIFICACIONSALA_PESTAÑAENSALA}" FontWeight="Bold"/>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+
+                                <ListView x:Name="listaAmigos" VerticalAlignment="Stretch" Foreground="White" Background="#FF4A4A4A" ItemsSource="{Binding CuentasDeAmigos}" HorizontalContentAlignment="Center" SelectionMode="Single">
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="{x:Type ListViewItem}">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsSelected" Value="True">
+                                                    <Setter Property="Background" Value="#FF048ABF" />
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="#FF1F5367" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridView.ColumnHeaderContainerStyle>
+                                                <Style TargetType="{x:Type GridViewColumnHeader}">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </Style>
+                                            </GridView.ColumnHeaderContainerStyle>
+                                            <GridViewColumn Width="40">
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <Ellipse HorizontalAlignment="Center" Width="20" Height="20" Fill="{Binding ColorEstadoConectividad}" />
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+                                            <GridViewColumn Width="50" Header="Imagen">
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <Image HorizontalAlignment="Center" Width="30" Height="30" Source="{Binding FuenteImagenAvatar}" />
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+                                            <GridViewColumn Width="360" Header="Nombre">
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock HorizontalAlignment="Center" Foreground="White" Text="{Binding NombreJugador}" />
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+                                            <GridViewColumn Width="95" Header="Opciones">
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate/>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Width="120" Foreground="White">
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{x:Static p:Resources.ETIQUETA_MODIFICACIONSALA_PESTAÑAINVITAR}" FontWeight="Bold"/>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+                                <ListView x:Name="listaSolicitudes" VerticalAlignment="Top" Background="#FF4A4A4A" ItemsSource="{Binding CuentasDeSolicitudes}" HorizontalContentAlignment="Center" SelectionMode="Single">
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="{x:Type ListViewItem}">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsSelected" Value="True">
+                                                    <Setter Property="Background" Value="#FF048ABF" />
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="#FF1F5367" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridView.ColumnHeaderContainerStyle>
+                                                <Style TargetType="{x:Type GridViewColumnHeader}">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </Style>
+                                            </GridView.ColumnHeaderContainerStyle>
+                                            <GridViewColumn Width="50" Header="Imagen">
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <Image HorizontalAlignment="Center" Width="30" Height="30" Source="{Binding FuenteImagenAvatar}" />
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+                                            <GridViewColumn Width="310" Header="Nombre">
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock HorizontalAlignment="Center" Foreground="White" Text="{Binding NombreJugador}" />
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+                                            <GridViewColumn Width="95" Header="Opción aceptar">
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate/>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+                                            <GridViewColumn Width="95" Header="Opción rechazar" >
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate/>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Foreground="White" Margin="0,0,-19,0">
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{x:Static p:Resources.ETIQUETA_MODIFICACIONSALA_ENVIARCODIGO}" FontWeight="Bold"/>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+                                <TextBlock TextWrapping="Wrap" Text="{x:Static p:Resources.ETIQUETA_MODIFICACIONSALA_TEXTOENVIARCODIGO}" Margin="66,17,66,152" FontSize="14"/>
+                                <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_CORREO}" Margin="66,64,210,108" FontWeight="Bold" FontSize="20" Foreground="White"/>
+                                <TextBox x:Name="cuadroTextoCorreoElectronico" HorizontalAlignment="Center" Margin="0,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="430" FontSize="16" Height="30"/>
+                                <Button Name="botonEnviarInvitacion" Content="{x:Static p:Resources.ETIQUETA_MODIFICACIONSALA_ENVIARINVITACION}" HorizontalAlignment="Center" Margin="0,173,0,0" VerticalAlignment="Top" Height="34" Width="194" Background="#FF03A64A" FontSize="18" Foreground="White" FontWeight="Bold" Click="EnviarInvitacionPorCorreo"/>
+                                <Label Name="etiquetaTiempoRestante" Content="1:00" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" Margin="421,173,0,0" VerticalAlignment="Top" FontSize="16"/>
+
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </Border>
         </Grid>
     </Grid>
 </Page>

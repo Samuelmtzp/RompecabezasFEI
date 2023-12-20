@@ -531,6 +531,33 @@
   <data name="ETIQUETA_MENUPRINCIPAL_PERFIL" xml:space="preserve">
     <value>Mi perfil</value>
   </data>
+  <data name="ETIQUETA_MODIFICACIONSALA_CORREOINVITACIONASUNTO" xml:space="preserve">
+    <value>Código de sala de juego</value>
+  </data>
+  <data name="ETIQUETA_MODIFICACIONSALA_ENVIARCODIGO" xml:space="preserve">
+    <value>Enviar código a correo</value>
+  </data>
+  <data name="ETIQUETA_MODIFICACIONSALA_ENVIARINVITACION" xml:space="preserve">
+    <value>Enviar invitación</value>
+  </data>
+  <data name="ETIQUETA_MODIFICACIONSALA_INVITACIONENVIADA" xml:space="preserve">
+    <value>Invitación enviada</value>
+  </data>
+  <data name="ETIQUETA_MODIFICACIONSALA_MENSAJECORREOINVITACIONASUNTO" xml:space="preserve">
+    <value>El código de la sala es el siguiente:</value>
+  </data>
+  <data name="ETIQUETA_MODIFICACIONSALA_MENSAJEINVITACIONENVIADA" xml:space="preserve">
+    <value>La invitación de sala ha sido enviada exitosamente</value>
+  </data>
+  <data name="ETIQUETA_MODIFICACIONSALA_PESTAÑAENSALA" xml:space="preserve">
+    <value>En sala</value>
+  </data>
+  <data name="ETIQUETA_MODIFICACIONSALA_PESTAÑAINVITAR" xml:space="preserve">
+    <value>Invitar</value>
+  </data>
+  <data name="ETIQUETA_MODIFICACIONSALA_TEXTOENVIARCODIGO" xml:space="preserve">
+    <value>Para mandar una invitación de sala a un jugador que no está en tu lista de amigos, debes de ingresar su correo electrónico</value>
+  </data>
   <data name="ETIQUETA_OPCIONESSALA_CORREOINVALIDO" xml:space="preserve">
     <value>Correo electrónico inválido</value>
   </data>

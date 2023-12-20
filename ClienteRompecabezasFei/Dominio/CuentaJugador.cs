@@ -8,11 +8,11 @@ namespace Dominio
         public string NombreJugador { get; set; }
 
         public int NumeroAvatar { get; set; }
-        
+
         public string Correo { get; set; }
-        
+
         public string Contrasena { get; set; }
-        
+
         public bool EsInvitado { get; set; }
         
         public int Puntaje { get; set; }

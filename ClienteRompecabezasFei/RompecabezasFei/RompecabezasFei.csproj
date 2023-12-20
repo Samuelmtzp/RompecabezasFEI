@@ -387,6 +387,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Resource Include="CerrarSesion.png" />
     <Content Include="Sonidos\ClicSonido.wav" />
     <Content Include="Sonidos\MusicaRompecabezasFei.wav" />
   </ItemGroup>
