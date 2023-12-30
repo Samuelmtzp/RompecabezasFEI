@@ -121,7 +121,7 @@ namespace Logica.AccesoDatos
             return resultado;
         }
 
-        public static bool ExisteNombreJugador(string nombreJugador)
+        public static bool ExisteNombreJugadorRegistrado(string nombreJugador)
         {
             bool resultado = false;
 
@@ -135,7 +135,7 @@ namespace Logica.AccesoDatos
             return resultado;
         }
 
-        public static bool ExisteCorreo(string correo)
+        public static bool ExisteCorreoRegistrado(string correo)
         {
             bool resultado = false;
             

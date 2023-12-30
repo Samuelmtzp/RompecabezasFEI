@@ -538,11 +538,11 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioRompecabezasFei.IServicioCorreo")]
     public interface IServicioCorreo {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioCorreo/ExisteCorreo", ReplyAction="http://tempuri.org/IServicioCorreo/ExisteCorreoResponse")]
-        bool ExisteCorreo(string correo);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioCorreo/ExisteCorreoRegistrado", ReplyAction="http://tempuri.org/IServicioCorreo/ExisteCorreoRegistradoResponse")]
+        bool ExisteCorreoRegistrado(string correo);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioCorreo/ExisteCorreo", ReplyAction="http://tempuri.org/IServicioCorreo/ExisteCorreoResponse")]
-        System.Threading.Tasks.Task<bool> ExisteCorreoAsync(string correo);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioCorreo/ExisteCorreoRegistrado", ReplyAction="http://tempuri.org/IServicioCorreo/ExisteCorreoRegistradoResponse")]
+        System.Threading.Tasks.Task<bool> ExisteCorreoRegistradoAsync(string correo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioCorreo/EnviarMensajeACorreo", ReplyAction="http://tempuri.org/IServicioCorreo/EnviarMensajeACorreoResponse")]
         bool EnviarMensajeACorreo(string encabezado, string correo, string asunto, string mensaje);
@@ -578,12 +578,12 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
                 base(binding, remoteAddress) {
         }
         
-        public bool ExisteCorreo(string correo) {
-            return base.Channel.ExisteCorreo(correo);
+        public bool ExisteCorreoRegistrado(string correo) {
+            return base.Channel.ExisteCorreoRegistrado(correo);
         }
         
-        public System.Threading.Tasks.Task<bool> ExisteCorreoAsync(string correo) {
-            return base.Channel.ExisteCorreoAsync(correo);
+        public System.Threading.Tasks.Task<bool> ExisteCorreoRegistradoAsync(string correo) {
+            return base.Channel.ExisteCorreoRegistradoAsync(correo);
         }
         
         public bool EnviarMensajeACorreo(string encabezado, string correo, string asunto, string mensaje) {
@@ -730,11 +730,11 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJugador/EsLaMismaContrasenaDeJugador", ReplyAction="http://tempuri.org/IServicioJugador/EsLaMismaContrasenaDeJugadorResponse")]
         System.Threading.Tasks.Task<bool> EsLaMismaContrasenaDeJugadorAsync(string nombreJugador, string contrasena);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJugador/ExisteNombreJugador", ReplyAction="http://tempuri.org/IServicioJugador/ExisteNombreJugadorResponse")]
-        bool ExisteNombreJugador(string nombreJugador);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJugador/ExisteNombreJugadorRegistrado", ReplyAction="http://tempuri.org/IServicioJugador/ExisteNombreJugadorRegistradoResponse")]
+        bool ExisteNombreJugadorRegistrado(string nombreJugador);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJugador/ExisteNombreJugador", ReplyAction="http://tempuri.org/IServicioJugador/ExisteNombreJugadorResponse")]
-        System.Threading.Tasks.Task<bool> ExisteNombreJugadorAsync(string nombreJugador);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJugador/ExisteNombreJugadorRegistrado", ReplyAction="http://tempuri.org/IServicioJugador/ExisteNombreJugadorRegistradoResponse")]
+        System.Threading.Tasks.Task<bool> ExisteNombreJugadorRegistradoAsync(string nombreJugador);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJugador/CambiarEstadoJugador", ReplyAction="http://tempuri.org/IServicioJugador/CambiarEstadoJugadorResponse")]
         void CambiarEstadoJugador(string nombreJugador, RompecabezasFei.ServicioRompecabezasFei.EstadoJugador estado);
@@ -834,12 +834,12 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
             return base.Channel.EsLaMismaContrasenaDeJugadorAsync(nombreJugador, contrasena);
         }
         
-        public bool ExisteNombreJugador(string nombreJugador) {
-            return base.Channel.ExisteNombreJugador(nombreJugador);
+        public bool ExisteNombreJugadorRegistrado(string nombreJugador) {
+            return base.Channel.ExisteNombreJugadorRegistrado(nombreJugador);
         }
         
-        public System.Threading.Tasks.Task<bool> ExisteNombreJugadorAsync(string nombreJugador) {
-            return base.Channel.ExisteNombreJugadorAsync(nombreJugador);
+        public System.Threading.Tasks.Task<bool> ExisteNombreJugadorRegistradoAsync(string nombreJugador) {
+            return base.Channel.ExisteNombreJugadorRegistradoAsync(nombreJugador);
         }
         
         public void CambiarEstadoJugador(string nombreJugador, RompecabezasFei.ServicioRompecabezasFei.EstadoJugador estado) {

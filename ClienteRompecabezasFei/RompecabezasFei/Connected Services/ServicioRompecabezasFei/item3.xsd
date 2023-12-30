@@ -164,17 +164,17 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ExisteCorreo">
+  <xs:element name="ExisteCorreoRegistrado">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="correo" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ExisteCorreoResponse">
+  <xs:element name="ExisteCorreoRegistradoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="ExisteCorreoResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="ExisteCorreoRegistradoResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -341,17 +341,17 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ExisteNombreJugador">
+  <xs:element name="ExisteNombreJugadorRegistrado">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ExisteNombreJugadorResponse">
+  <xs:element name="ExisteNombreJugadorRegistradoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="ExisteNombreJugadorResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="ExisteNombreJugadorRegistradoResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

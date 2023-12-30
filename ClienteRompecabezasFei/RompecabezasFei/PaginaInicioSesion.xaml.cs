@@ -150,7 +150,7 @@ namespace RompecabezasFei
             {
                 var servicio = new ServicioJugador();
                 bool existeNombreJugador = servicio.
-                    ExisteNombreJugador(nombreJugador);
+                    ExisteNombreJugadorRegistrado(nombreJugador);
 
                 switch (servicio.EstadoOperacion)
                 {

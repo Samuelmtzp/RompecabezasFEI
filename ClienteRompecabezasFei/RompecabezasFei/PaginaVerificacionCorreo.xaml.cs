@@ -26,7 +26,7 @@ namespace RompecabezasFei
                 Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ASUNTO,
                 Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJE + " " + 
                 GestorCodigoCorreo.CodigoGenerado);
-            IniciarTemporizador();
+            ComenzarTemporizador();
         }
 
         private void ComenzarTemporizador()
@@ -133,7 +133,7 @@ namespace RompecabezasFei
                 Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ASUNTO,
                 Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJE + " " +
                 GestorCodigoCorreo.CodigoGenerado);
-            IniciarTemporizador();
+            ComenzarTemporizador();
         }
 
         private void HabilitarBotonEnvioCodigo()

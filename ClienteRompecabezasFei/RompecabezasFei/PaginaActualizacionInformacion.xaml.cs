@@ -186,7 +186,7 @@ namespace RompecabezasFei
             {
                 var servicio = new ServicioJugador();
                 bool esNombreDisponible = !servicio.
-                    ExisteNombreJugador(cuadroTextoNombreUsuario.Text);
+                    ExisteNombreJugadorRegistrado(cuadroTextoNombreUsuario.Text);
 
                 if (!esNombreDisponible)
                 {

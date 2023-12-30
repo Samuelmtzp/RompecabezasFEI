@@ -21,7 +21,7 @@ namespace RompecabezasFei
             if (!ValidadorDatos.ExistenCaracteresInvalidosParaCorreo(correo))
             {
                 var servicioCorreo = new Servicios.ServicioCorreo();
-                bool existeCorreo = servicioCorreo.ExisteCorreo(correo);
+                bool existeCorreo = servicioCorreo.ExisteCorreoRegistrado(correo);
 
                 switch (servicioCorreo.EstadoOperacion)
                 {

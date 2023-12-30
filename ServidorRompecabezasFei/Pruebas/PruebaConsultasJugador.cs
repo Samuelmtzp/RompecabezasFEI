@@ -26,7 +26,7 @@ namespace Pruebas
 
             try
             {
-                existeNombreJugador = AccesoJugador.ExisteNombreJugador(nombreJugador);
+                existeNombreJugador = AccesoJugador.ExisteNombreJugadorRegistrado(nombreJugador);
             }
             catch (EntityException)
             {
@@ -44,7 +44,7 @@ namespace Pruebas
 
             try
             {
-                existeNombreJugador = AccesoJugador.ExisteNombreJugador(nombreJugador);
+                existeNombreJugador = AccesoJugador.ExisteNombreJugadorRegistrado(nombreJugador);
             }
             catch (EntityException)
             {
@@ -61,7 +61,7 @@ namespace Pruebas
 
             try
             {
-                existeCorreo = AccesoJugador.ExisteCorreo(correoElectronico);
+                existeCorreo = AccesoJugador.ExisteCorreoRegistrado(correoElectronico);
             }
             catch (EntityException)
             {
@@ -78,7 +78,7 @@ namespace Pruebas
 
             try
             {
-                existeCorreo = AccesoJugador.ExisteCorreo(correoElectronico);
+                existeCorreo = AccesoJugador.ExisteCorreoRegistrado(correoElectronico);
             }
             catch (EntityException)
             {

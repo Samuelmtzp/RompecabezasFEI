@@ -193,7 +193,7 @@ namespace RompecabezasFei
             var servicioJugador = new ServicioJugador();
 
             if (!EsElNombreDelJugadorActual() && 
-                servicioJugador.ExisteNombreJugador(
+                servicioJugador.ExisteNombreJugadorRegistrado(
                 cuadroTextoNombreUsuarioInvitacion.Text) &&
                 !ExisteSolicitudDeAmistad() && 
                 !ExisteAmistadConJugador())

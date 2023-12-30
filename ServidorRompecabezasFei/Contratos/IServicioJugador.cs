@@ -32,7 +32,7 @@ namespace Contratos
         bool EsLaMismaContrasenaDeJugador(string nombreJugador, string contrasena);
 
         [OperationContract]
-        bool ExisteNombreJugador(string nombreJugador);
+        bool ExisteNombreJugadorRegistrado(string nombreJugador);
 
         [OperationContract]
         void CambiarEstadoJugador(string nombreJugador, EstadoJugador estado);

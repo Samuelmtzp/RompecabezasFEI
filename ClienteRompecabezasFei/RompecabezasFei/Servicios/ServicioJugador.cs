@@ -304,14 +304,14 @@ namespace RompecabezasFei.Servicios
             return resultado;
         }
 
-        public bool ExisteNombreJugador(string nombreJugador)
+        public bool ExisteNombreJugadorRegistrado(string nombreJugador)
         {
             var cliente = new ServicioJugadorClient();
             bool resultado = false;
 
             try
             {
-                resultado = cliente.ExisteNombreJugador(nombreJugador);
+                resultado = cliente.ExisteNombreJugadorRegistrado(nombreJugador);
                 cliente.Close();
                 EstadoOperacion = EstadoOperacion.Correcto;
             }

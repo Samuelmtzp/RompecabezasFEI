@@ -2,6 +2,7 @@
 using RompecabezasFei.Servicios;
 using RompecabezasFei.Utilidades;
 using Seguridad;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -32,6 +33,8 @@ namespace RompecabezasFei
         Color colorDesactivado = (Color)ColorConverter.ConvertFromString("#808080");
 
         public ObservableCollection<Dominio.CuentaJugador> JugadoresEnSala { get; set; }
+
+        public ObservableCollection<Dominio.CuentaJugador> JugadoresEnSalaPestana { get; set; }
 
         public string CodigoSala
         {
@@ -243,66 +246,52 @@ namespace RompecabezasFei
 
         private void CargarJugadoresEnPestanaSala()
         {
-            CuentaJugador[] jugadoresRecuperados = Servicios.ServicioSala.
+            var jugadoresRecuperados = servicioSala.
                 ObtenerJugadoresConectadosEnSala(CodigoSala);
 
-            foreach (CuentaJugador jugador in jugadoresRecuperados)
+            switch (servicioSala.EstadoOperacion)
             {
-                    var cuentaJugador = new Dominio.CuentaJugador
+                case EstadoOperacion.Correcto:
+                    
+                    foreach (var jugador in jugadoresRecuperados)
                     {
-                        NombreJugador = jugador.NombreJugador,
-                        FuenteImagenAvatar = GeneradorImagenes.
-                        GenerarFuenteImagenAvatar(jugador.NumeroAvatar)
-                    };
-                    JugadoresEnSalaPestana.Add(cuentaJugador);
+                        var cuentaJugador = new Dominio.CuentaJugador
+                        {
+                            NombreJugador = jugador.NombreJugador,
+                            FuenteImagenAvatar = GeneradorImagenes.
+                            GenerarFuenteImagenAvatar(jugador.NumeroAvatar)
+                        };
+                        JugadoresEnSalaPestana.Add(cuentaJugador);
+                    }
+
+                    break;
             }
         }
 
         private void CargarAmigosJugador()
         {
             CuentasDeAmigos = new ObservableCollection<Dominio.CuentaJugador>();
-            CuentaJugador[] amigosObtenidos = Servicios.ServicioAmistades.
-                ObtenerAmigosDeJugador(Dominio.CuentaJugador.Actual.NombreJugador);
+            var servicioAmistades = new ServicioAmistades();
+            var amigosObtenidos = servicioAmistades.ObtenerAmigosDeJugador(
+                Dominio.CuentaJugador.Actual.NombreJugador);
 
-            if (amigosObtenidos != null && amigosObtenidos.Any())
+            foreach (CuentaJugador amigo in amigosObtenidos)
             {
-                foreach (CuentaJugador amigo in amigosObtenidos)
+                if (amigo.Estado == EstadoJugador.Disponible)
                 {
-                    if (ObtenerEstadoConectividad(amigo.EstadoConectividad))
+                    Dominio.CuentaJugador cuentaAmigo = new Dominio.CuentaJugador
                     {
-                        Dominio.CuentaJugador cuentaAmigo = new Dominio.CuentaJugador
-                        {
-                            NombreJugador = amigo.NombreJugador,
-                            NumeroAvatar = amigo.NumeroAvatar,
-                            FuenteImagenAvatar = Utilidades.GeneradorImagenes.
-                           GenerarFuenteImagenAvatar(amigo.NumeroAvatar),
-                        };
-                        CuentasDeAmigos.Add(cuentaAmigo);
-                    }
+                        NombreJugador = amigo.NombreJugador,
+                        NumeroAvatar = amigo.NumeroAvatar,
+                        FuenteImagenAvatar = GeneradorImagenes.
+                        GenerarFuenteImagenAvatar(amigo.NumeroAvatar),
+                    };
+                    CuentasDeAmigos.Add(cuentaAmigo);
                 }
             }
         }
 
-        private bool ObtenerEstadoConectividad(
-           ConectividadJugador estado)
-        {
-            bool disponibilidadJugador;
-            switch (estado)
-            {
-                case ConectividadJugador.Disponible:
-                    disponibilidadJugador = true;
-                    break;
-                case ConectividadJugador.NoDisponible:
-                    disponibilidadJugador = false;
-                    break;
-                default:
-                    disponibilidadJugador = false;
-                    break;
-            }
-            return disponibilidadJugador;
-        }
-
-        private void CrearNuevaSala()
+        private bool CrearNuevaSala()
         {
             CodigoSala = servicioSala.GenerarCodigoParaNuevaSala();
             bool creacionRealizada = false;
@@ -370,45 +359,34 @@ namespace RompecabezasFei
 
             if (!ValidadorDatos.ExistenCaracteresInvalidosParaCorreo(correoDestino))
             {
-                if (correoDestino!=Dominio.CuentaJugador.Actual.Correo)
+                if (correoDestino != Dominio.CuentaJugador.Actual.Correo)
                 {
-                    if (Servicios.ServicioCorreo.ExisteCorreoElectronico(correoDestino))
-                    {
-                        bool envioDeInvitacionRealizado = GestionadorCodigoCorreo.
-                        EnviarInvitacionSalaACorreo(correoDestino, Properties.Resources.
+                    var servicioCorreo = new ServicioCorreo();
+                    bool envioDeInvitacionRealizado = servicioCorreo.
+                        EnviarMensajeACorreoElectronico(correoDestino, Properties.Resources.
                         ETIQUETA_MODIFICACIONSALA_CORREOINVITACIONASUNTO, Properties.Resources.
                         ETIQUETA_MODIFICACIONSALA_MENSAJECORREOINVITACIONASUNTO, CodigoSala);
 
-                        if (!envioDeInvitacionRealizado)
-                        {
-                            MessageBox.Show(Properties.Resources.
-                                        ETIQUETA_CODIGO_MENSAJENOENVIADO, Properties.Resources.
-                                        ETIQUETA_CODIGO_CODIGONOENVIADO,
-                                        MessageBoxButton.OK, MessageBoxImage.Error);
-                        }
-                        else
-                        {
-                            ComenzarTemporizador();
-                            MessageBox.Show(Properties.Resources.
-                                        ETIQUETA_MODIFICACIONSALA_MENSAJEINVITACIONENVIADA,
-                                        Properties.Resources.
-                                        ETIQUETA_MODIFICACIONSALA_INVITACIONENVIADA,
-                                        MessageBoxButton.OK);
-                        }
+                    if (!envioDeInvitacionRealizado)
+                    {
+                        GestorCuadroDialogo.MostrarError(Properties.Resources.
+                            ETIQUETA_CODIGO_MENSAJENOENVIADO, Properties.Resources.
+                            ETIQUETA_CODIGO_CODIGONOENVIADO);
                     }
                     else
                     {
-                        MessageBox.Show(Properties.Resources.
-                            ETIQUETA_RECUPERACIONCONTRASENA_MENSAJECORREOINEXISTENE, Properties.
-                            Resources.ETIQUETA_RECUPERACIONCONTRASENA_CORREOINEXISTENTE,
-                            MessageBoxButton.OK);
+                        ComenzarTemporizador();
+                        GestorCuadroDialogo.MostrarInformacion(Properties.Resources.
+                            ETIQUETA_MODIFICACIONSALA_MENSAJEINVITACIONENVIADA,
+                            Properties.Resources.
+                            ETIQUETA_MODIFICACIONSALA_INVITACIONENVIADA); 
                     }
                 }
                 else
                 {
                     MessageBox.Show(Properties.Resources.ETIQUETA_SALA_MISMOCORREO,
-                    Properties.Resources.ETIQUETA_VALIDACION_CORREOINVALIDO,
-                    MessageBoxButton.OK);
+                        Properties.Resources.ETIQUETA_VALIDACION_CORREOINVALIDO,
+                        MessageBoxButton.OK);
                 }
             }
             else
@@ -450,7 +428,7 @@ namespace RompecabezasFei
                 if (cuentaJugadorEncontrada != null)
                 {
                     JugadoresEnSala.Remove(cuentaJugadorEncontrada);
-                    JugadoresEnSalaPastana.Remove(cuentaJugadorEncontrada);
+                    JugadoresEnSalaPestana.Remove(cuentaJugadorEncontrada);
                 }
             }
         }
@@ -488,8 +466,8 @@ namespace RompecabezasFei
         public void MostrarFuncionesDeAnfitrionEnSala()
         {
             botonNuevaPartida.Visibility = Visibility.Visible;
-            etiquetaModificarJugadores.Visibility = Visibility.Visible;
-            imagenModificarJugadores.Visibility = Visibility.Visible;
+            etiquetaModificarJugador.Visibility = Visibility.Visible;
+            imagenModificarJugador.Visibility = Visibility.Visible;
         }
 
         public void HabilitarInicioDePartida()

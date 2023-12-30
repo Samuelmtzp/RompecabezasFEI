@@ -62,7 +62,7 @@ namespace RompecabezasFei
             {
                 var servicioJugador = new Servicios.ServicioJugador();
                 bool esNombreJugadorDisponible = !servicioJugador.
-                    ExisteNombreJugador(nombreJugador);
+                    ExisteNombreJugadorRegistrado(nombreJugador);
 
                 switch (servicioJugador.EstadoOperacion)
                 {
@@ -90,7 +90,7 @@ namespace RompecabezasFei
             string correo, string contrasena, int numeroAvatar)
         {
             var servicioCorreo = new Servicios.ServicioCorreo();
-            bool esCorreoDisponible = !servicioCorreo.ExisteCorreo(correo);
+            bool esCorreoDisponible = !servicioCorreo.ExisteCorreoRegistrado(correo);
 
             switch (servicioCorreo.EstadoOperacion)
             {

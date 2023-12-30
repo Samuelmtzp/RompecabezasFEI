@@ -7,7 +7,6 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.ServiceModel;
 
 namespace Servicios
@@ -45,14 +44,14 @@ namespace Servicios
 
             lock (bloqueoParaRegistrarJugador)
             {
-                if (!ExisteNombreJugador(cuentaJugador.NombreJugador))
+                if (!ExisteNombreJugadorRegistrado(cuentaJugador.NombreJugador))
                 {
                     try
                     {
                         operacionRealizada = Logica.AccesoDatos.AccesoJugador.
                             RegistrarJugador(cuentaJugador);
                     }
-                    catch (EntityException)
+                    catch (EntityException excepcion)
                     {
                         Registros.Registrador.EscribirRegistro(excepcion);
                     }
@@ -68,14 +67,14 @@ namespace Servicios
 
             lock (bloqueoParaActualizarNombreJugador)
             {
-                if (!ExisteNombreJugador(nuevoNombre))
+                if (!ExisteNombreJugadorRegistrado(nuevoNombre))
                 {
                     try
                     {
                         operacionRealizada = Logica.AccesoDatos.AccesoJugador.
                             ActualizarNombreJugador(nombreAnterior, nuevoNombre);
                     }
-                    catch (EntityException)
+                    catch (EntityException excepcion)
                     {
                         Registros.Registrador.EscribirRegistro(excepcion);
                     }
@@ -129,7 +128,7 @@ namespace Servicios
                 hayCoincidencias = Logica.AccesoDatos.AccesoJugador.
                     HayCoincidenciasEnContrasenaDeJugador(nombreJugador, contrasena);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
                 Registros.Registrador.EscribirRegistro(excepcion);
             }
@@ -137,14 +136,14 @@ namespace Servicios
             return hayCoincidencias;
         }
 
-        public bool ExisteNombreJugador(string nombreJugador)
+        public bool ExisteNombreJugadorRegistrado(string nombreJugador)
         {
             bool hayExistencias = false;
             
             try
             {
                 hayExistencias = Logica.AccesoDatos.AccesoJugador.
-                    ExisteNombreJugador(nombreJugador);
+                    ExisteNombreJugadorRegistrado(nombreJugador);
             }
             catch (EntityException excepcion)
             {
@@ -161,7 +160,7 @@ namespace Servicios
             
             lock (bloqueoParaIniciarSesionComoJugador)
             {
-                if (ExisteNombreJugador(nombreJugador) && 
+                if (ExisteNombreJugadorRegistrado(nombreJugador) && 
                     !jugadoresActivos.ContainsKey(nombreJugador))
                 {
                     try
@@ -278,13 +277,14 @@ namespace Servicios
     #region IServicioCorreo 
     public partial class ServicioRompecabezasFei : IServicioCorreo
     {
-        public bool ExisteCorreo(string correo)
+        public bool ExisteCorreoRegistrado(string correo)
         {
             bool operacionRealizada = false;
 
             try
             {
-                operacionRealizada = Logica.AccesoDatos.AccesoJugador.ExisteCorreo(correo);
+                operacionRealizada = Logica.AccesoDatos.AccesoJugador.
+                    ExisteCorreoRegistrado(correo);
             }
             catch (EntityException excepcion)
             {
@@ -563,7 +563,7 @@ namespace Servicios
             {
                 operacionRealizada = Logica.AccesoDatos.AccesoSala.CrearNuevaSala(codigoSala);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
                 Registros.Registrador.EscribirRegistro(excepcion);
             }
@@ -638,7 +638,7 @@ namespace Servicios
                                     MostrarNuevoJugadorEnSala(
                                     jugadoresActivos[nombreJugador]);
                             }
-                            catch (CommunicationObjectAbortedException)
+                            catch (CommunicationObjectAbortedException excepcion)
                             {
                                 Registros.Registrador.EscribirRegistro(excepcion);
                                 CerrarSesion(jugadorEnSala.NombreJugador);
@@ -688,7 +688,7 @@ namespace Servicios
                             GetCallbackChannel<IServicioSalaCallback>().
                             MostrarDesconexionDeJugadorEnSala(nombreJugador);
                     }
-                    catch (CommunicationObjectAbortedException) 
+                    catch (CommunicationObjectAbortedException excepcion) 
                     {
                         Registros.Registrador.EscribirRegistro(excepcion);
                         CerrarSesion(jugadorEnSala.NombreJugador);
@@ -714,7 +714,7 @@ namespace Servicios
                         MostrarMensajeDeSala(DateTime.Now.ToShortTimeString() + 
                         $" {nombreJugador}: {mensaje}");
                 }
-                catch(CommunicationObjectAbortedException)
+                catch(CommunicationObjectAbortedException excepcion)
                 {
                     Registros.Registrador.EscribirRegistro(excepcion);
                     CerrarSesion(jugador.NombreJugador);
@@ -736,7 +736,7 @@ namespace Servicios
                     GetCallbackChannel<IServicioSalaCallback>().
                     MostrarFuncionesDeAnfitrionEnSala();
             }
-            catch (CommunicationObjectAbortedException)
+            catch (CommunicationObjectAbortedException excepcion)
             {
                 Registros.Registrador.EscribirRegistro(excepcion);
                 CerrarSesion(nombreJugador);
@@ -758,7 +758,7 @@ namespace Servicios
                         GetCallbackChannel<IServicioInvitacionesCallback>().
                         MostrarInvitacionDeSala(nombreAnfitrion, codigoSala);
                 }
-                catch (CommunicationObjectAbortedException) 
+                catch (CommunicationObjectAbortedException excepcion) 
                 {
                     Registros.Registrador.EscribirRegistro(excepcion);
                     CerrarSesion(nombreJugador);
@@ -775,7 +775,7 @@ namespace Servicios
                     GetCallbackChannel<IServicioSalaCallback>().
                     MostrarMensajeExpulsionDeSala();
             }
-            catch (CommunicationObjectAbortedException)
+            catch (CommunicationObjectAbortedException excepcion)
             {
                 Registros.Registrador.EscribirRegistro(excepcion);
                 CerrarSesion(nombreJugadorExpulsion);
@@ -791,7 +791,7 @@ namespace Servicios
                         GetCallbackChannel<IServicioSalaCallback>().
                         MostrarDesconexionDeJugadorEnSala(nombreJugadorExpulsion);
                 }
-                catch (CommunicationObjectAbortedException)
+                catch (CommunicationObjectAbortedException excepcion)
                 {
                     Registros.Registrador.EscribirRegistro(excepcion);
                     CerrarSesion(jugadorEnSala.NombreJugador);
@@ -847,7 +847,7 @@ namespace Servicios
                         GetCallbackChannel<IServicioPartidaCallback>().
                         MostrarNuevoJugadorEnPartida(jugadoresActivos[nombreJugador]);
                 }
-                catch (CommunicationObjectAbortedException)
+                catch (CommunicationObjectAbortedException excepcion)
                 {
                     Registros.Registrador.EscribirRegistro(excepcion);
                     CerrarSesion(jugadorEnPartida.NombreJugador);
@@ -890,7 +890,7 @@ namespace Servicios
                         GetCallbackChannel<IServicioPartidaCallback>().
                         MostrarTableroDePartida(salas[codigoSala].Partida.Tablero);
                 }
-                catch (CommunicationObjectAbortedException)
+                catch (CommunicationObjectAbortedException excepcion)
                 {
                     Registros.Registrador.EscribirRegistro(excepcion);
                     CerrarSesion(jugador.NombreJugador);
@@ -921,7 +921,7 @@ namespace Servicios
                         Logica.AccesoDatos.AccesoPartida.
                             FinalizarPartida(codigoSala, jugador, esGanador);
                     }
-                    catch (EntityException)
+                    catch (EntityException excepcion)
                     {
                         Registros.Registrador.EscribirRegistro(excepcion);
                     }
@@ -948,7 +948,7 @@ namespace Servicios
                                 GetCallbackChannel<IServicioPartidaCallback>().
                                 MostrarBloqueoDePieza(numeroPieza, nombreJugador);
                         }
-                        catch (CommunicationObjectAbortedException)
+                        catch (CommunicationObjectAbortedException excepcion)
                         {
                             Registros.Registrador.EscribirRegistro(excepcion);
                             CerrarSesion(nombreJugador);
@@ -971,7 +971,7 @@ namespace Servicios
                         GetCallbackChannel<IServicioPartidaCallback>().
                         MostrarDesbloqueoDePieza(numeroPieza, nombreJugador);
                 }
-                catch (CommunicationObjectAbortedException)
+                catch (CommunicationObjectAbortedException excepcion)
                 {
                     Registros.Registrador.EscribirRegistro(excepcion);
                     CerrarSesion(nombreJugador);
@@ -997,7 +997,7 @@ namespace Servicios
                             MostrarColocacionDePieza(numeroPieza, nombreJugador, 
                             puntaje, posicion);
                     }
-                    catch (CommunicationObjectAbortedException)
+                    catch (CommunicationObjectAbortedException excepcion)
                     {
                         Registros.Registrador.EscribirRegistro(excepcion);
                         CerrarSesion(codigoSala);
@@ -1055,7 +1055,7 @@ namespace Servicios
                     GetCallbackChannel<IServicioPartidaCallback>().
                     MostrarMensajeExpulsionDePartida();
             }
-            catch (CommunicationObjectAbortedException)
+            catch (CommunicationObjectAbortedException excepcion)
             {
                 Registros.Registrador.EscribirRegistro(excepcion);
                 CerrarSesion(nombreJugadorExpulsion);
@@ -1072,7 +1072,7 @@ namespace Servicios
                         GetCallbackChannel<IServicioPartidaCallback>().
                         MostrarDesconexionDeJugadorEnPartida(nombreJugadorExpulsion);
                 }
-                catch (CommunicationObjectAbortedException)
+                catch (CommunicationObjectAbortedException excepcion)
                 {
                     Registros.Registrador.EscribirRegistro(excepcion);
                     CerrarSesion(jugadorEnPartida.NombreJugador);
@@ -1089,7 +1089,7 @@ namespace Servicios
                             GetCallbackChannel<IServicioPartidaCallback>().
                             MostrarMensajePartidaCancelada();
                     }
-                    catch (CommunicationObjectAbortedException)
+                    catch (CommunicationObjectAbortedException excepcion)
                     {
                         Registros.Registrador.EscribirRegistro(excepcion);
                         CerrarSesion(nombreJugadorExpulsion);
@@ -1109,7 +1109,7 @@ namespace Servicios
                     GetCallbackChannel<IServicioPartidaCallback>().
                     MostrarFuncionesDeAnfitrionEnPartida();
             }
-            catch (CommunicationObjectAbortedException)
+            catch (CommunicationObjectAbortedException excepcion)
             {
                 Registros.Registrador.EscribirRegistro(excepcion);
                 CerrarSesion(nombreJugador);
@@ -1166,7 +1166,7 @@ namespace Servicios
                             GetCallbackChannel<IServicioSalaCallback>().
                             MostrarDesconexionDeJugadorEnSala(nombreJugador);
                     }
-                    catch (CommunicationObjectAbortedException)
+                    catch (CommunicationObjectAbortedException excepcion)
                     {
                         Registros.Registrador.EscribirRegistro(excepcion);
                         CerrarSesion(jugadorEnSala.NombreJugador);
@@ -1204,7 +1204,7 @@ namespace Servicios
                             GetCallbackChannel<IServicioPartidaCallback>().
                             MostrarDesconexionDeJugadorEnPartida(nombreJugador);
                     }
-                    catch (CommunicationObjectAbortedException)
+                    catch (CommunicationObjectAbortedException excepcion)
                     {
                         Registros.Registrador.EscribirRegistro(excepcion);
                         CerrarSesion(jugadorEnPartida.NombreJugador);
@@ -1240,7 +1240,7 @@ namespace Servicios
                             GetCallbackChannel<IServicioSalaCallback>().
                             MostrarNuevaPartida();
                     }
-                    catch (CommunicationObjectAbortedException)
+                    catch (CommunicationObjectAbortedException excepcion)
                     {
                         Registros.Registrador.EscribirRegistro(excepcion);
                         CerrarSesion(jugadorEnSala.NombreJugador);
@@ -1259,7 +1259,7 @@ namespace Servicios
                         GetCallbackChannel<IServicioPartidaCallback>().
                         MostrarMensajePartidaCancelada();
                 }
-                catch (CommunicationObjectAbortedException)
+                catch (CommunicationObjectAbortedException excepcion)
                 {
                     Registros.Registrador.EscribirRegistro(excepcion);
                     CerrarSesion(jugadorEnPartida.NombreJugador);
@@ -1278,7 +1278,7 @@ namespace Servicios
                     GetCallbackChannel<IServicioSalaCallback>().
                     HabilitarInicioDePartida();
             }
-            catch (CommunicationObjectAbortedException)
+            catch (CommunicationObjectAbortedException excepcion)
             {
                 Registros.Registrador.EscribirRegistro(excepcion);
                 CerrarSesion(salas[codigoSala].NombreAnfitrion);
@@ -1294,7 +1294,7 @@ namespace Servicios
                     GetCallbackChannel<IServicioSalaCallback>().
                     DeshabilitarInicioDePartida();
             }
-            catch (CommunicationObjectAbortedException)
+            catch (CommunicationObjectAbortedException excepcion)
             {
                 Registros.Registrador.EscribirRegistro(excepcion);
                 CerrarSesion(salas[codigoSala].NombreAnfitrion);
@@ -1324,7 +1324,7 @@ namespace Servicios
                             break;
                     }
                 }
-                catch (CommunicationObjectAbortedException)
+                catch (CommunicationObjectAbortedException excepcion)
                 {
                     Registros.Registrador.EscribirRegistro(excepcion);
                     CerrarSesion(nuevoAnfitrion.NombreJugador);
@@ -1345,7 +1345,7 @@ namespace Servicios
                         GetCallbackChannel<IServicioPartidaCallback>().
                         MostrarResultadosDePartida();
                 }
-                catch (CommunicationObjectAbortedException)
+                catch (CommunicationObjectAbortedException excepcion)
                 {
                     Registros.Registrador.EscribirRegistro(excepcion);
                     CerrarSesion(jugador.NombreJugador);
@@ -1406,7 +1406,7 @@ namespace Servicios
                             GetCallbackChannel<IServicioSalaCallback>().
                             MostrarAmigoDisponible(jugadoresActivos[nombreJugador]);
                     }
-                    catch (CommunicationObjectAbortedException) 
+                    catch (CommunicationObjectAbortedException excepcion) 
                     {
                         Registros.Registrador.EscribirRegistro(excepcion);
                         CerrarSesion(nombreAnfitrion);
@@ -1430,7 +1430,7 @@ namespace Servicios
                             GetCallbackChannel<IServicioSalaCallback>().
                             OcultarAmigoNoDisponible(nombreJugador);
                     }
-                    catch (CommunicationObjectAbortedException) 
+                    catch (CommunicationObjectAbortedException excepcion) 
                     {
                         Registros.Registrador.EscribirRegistro(excepcion);
                         CerrarSesion(nombreAnfitrion);
@@ -1452,7 +1452,7 @@ namespace Servicios
                         <IServicioAmistadesCallback>().
                         ActualizarEstadoDeJugador(nombreJugador, estado);
                 }
-                catch (CommunicationObjectAbortedException)
+                catch (CommunicationObjectAbortedException excepcion)
                 {
                     Registros.Registrador.EscribirRegistro(excepcion);
                     CerrarSesion(nombreJugador);

@@ -15,7 +15,7 @@ namespace RompecabezasFei.Servicios
 
             try
             {
-                resultado = cliente.EnviarMensajeCorreo
+                resultado = cliente.EnviarMensajeACorreo
                     (encabezado, correoDestino, asunto, mensaje);
                 cliente.Close();
                 EstadoOperacion = EstadoOperacion.Correcto;
@@ -51,14 +51,14 @@ namespace RompecabezasFei.Servicios
             return resultado;
         }
 
-        public bool ExisteCorreo(string correo)
+        public bool ExisteCorreoRegistrado(string correo)
         {
             ServicioCorreoClient cliente = new ServicioCorreoClient();
             bool resultado = false;
 
             try
             {
-                resultado = cliente.ExisteCorreo(correo);
+                resultado = cliente.ExisteCorreoRegistrado(correo);
                 cliente.Close();
                 EstadoOperacion = EstadoOperacion.Correcto;
             }

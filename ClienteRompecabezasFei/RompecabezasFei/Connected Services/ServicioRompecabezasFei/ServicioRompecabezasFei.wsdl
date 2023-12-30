@@ -123,11 +123,11 @@
   <wsdl:message name="IServicioAmistades_ActualizarEstadoDeJugador_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:ActualizarEstadoDeJugador" />
   </wsdl:message>
-  <wsdl:message name="IServicioCorreo_ExisteCorreo_InputMessage">
-    <wsdl:part name="parameters" element="tns:ExisteCorreo" />
+  <wsdl:message name="IServicioCorreo_ExisteCorreoRegistrado_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteCorreoRegistrado" />
   </wsdl:message>
-  <wsdl:message name="IServicioCorreo_ExisteCorreo_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ExisteCorreoResponse" />
+  <wsdl:message name="IServicioCorreo_ExisteCorreoRegistrado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteCorreoRegistradoResponse" />
   </wsdl:message>
   <wsdl:message name="IServicioCorreo_EnviarMensajeACorreo_InputMessage">
     <wsdl:part name="parameters" element="tns:EnviarMensajeACorreo" />
@@ -195,11 +195,11 @@
   <wsdl:message name="IServicioJugador_EsLaMismaContrasenaDeJugador_OutputMessage">
     <wsdl:part name="parameters" element="tns:EsLaMismaContrasenaDeJugadorResponse" />
   </wsdl:message>
-  <wsdl:message name="IServicioJugador_ExisteNombreJugador_InputMessage">
-    <wsdl:part name="parameters" element="tns:ExisteNombreJugador" />
+  <wsdl:message name="IServicioJugador_ExisteNombreJugadorRegistrado_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteNombreJugadorRegistrado" />
   </wsdl:message>
-  <wsdl:message name="IServicioJugador_ExisteNombreJugador_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ExisteNombreJugadorResponse" />
+  <wsdl:message name="IServicioJugador_ExisteNombreJugadorRegistrado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteNombreJugadorRegistradoResponse" />
   </wsdl:message>
   <wsdl:message name="IServicioJugador_CambiarEstadoJugador_InputMessage">
     <wsdl:part name="parameters" element="tns:CambiarEstadoJugador" />
@@ -443,9 +443,9 @@
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IServicioCorreo">
-    <wsdl:operation name="ExisteCorreo">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioCorreo/ExisteCorreo" message="tns:IServicioCorreo_ExisteCorreo_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioCorreo/ExisteCorreoResponse" message="tns:IServicioCorreo_ExisteCorreo_OutputMessage" />
+    <wsdl:operation name="ExisteCorreoRegistrado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioCorreo/ExisteCorreoRegistrado" message="tns:IServicioCorreo_ExisteCorreoRegistrado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioCorreo/ExisteCorreoRegistradoResponse" message="tns:IServicioCorreo_ExisteCorreoRegistrado_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="EnviarMensajeACorreo">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioCorreo/EnviarMensajeACorreo" message="tns:IServicioCorreo_EnviarMensajeACorreo_InputMessage" />
@@ -499,9 +499,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioJugador/EsLaMismaContrasenaDeJugador" message="tns:IServicioJugador_EsLaMismaContrasenaDeJugador_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioJugador/EsLaMismaContrasenaDeJugadorResponse" message="tns:IServicioJugador_EsLaMismaContrasenaDeJugador_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ExisteNombreJugador">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioJugador/ExisteNombreJugador" message="tns:IServicioJugador_ExisteNombreJugador_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioJugador/ExisteNombreJugadorResponse" message="tns:IServicioJugador_ExisteNombreJugador_OutputMessage" />
+    <wsdl:operation name="ExisteNombreJugadorRegistrado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioJugador/ExisteNombreJugadorRegistrado" message="tns:IServicioJugador_ExisteNombreJugadorRegistrado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioJugador/ExisteNombreJugadorRegistradoResponse" message="tns:IServicioJugador_ExisteNombreJugadorRegistrado_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CambiarEstadoJugador">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioJugador/CambiarEstadoJugador" message="tns:IServicioJugador_CambiarEstadoJugador_InputMessage" />
@@ -778,8 +778,8 @@
   <wsdl:binding name="NetTcpBinding_IServicioCorreo" type="tns:IServicioCorreo">
     <wsp:PolicyReference URI="#NetTcpBinding_IServicioCorreo_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
-    <wsdl:operation name="ExisteCorreo">
-      <soap12:operation soapAction="http://tempuri.org/IServicioCorreo/ExisteCorreo" style="document" />
+    <wsdl:operation name="ExisteCorreoRegistrado">
+      <soap12:operation soapAction="http://tempuri.org/IServicioCorreo/ExisteCorreoRegistrado" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -900,8 +900,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ExisteNombreJugador">
-      <soap12:operation soapAction="http://tempuri.org/IServicioJugador/ExisteNombreJugador" style="document" />
+    <wsdl:operation name="ExisteNombreJugadorRegistrado">
+      <soap12:operation soapAction="http://tempuri.org/IServicioJugador/ExisteNombreJugadorRegistrado" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
