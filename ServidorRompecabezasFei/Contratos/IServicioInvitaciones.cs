@@ -1,4 +1,6 @@
-﻿using System.ServiceModel;
+﻿using Logica;
+using System.Collections.Generic;
+using System.ServiceModel;
 
 namespace Contratos
 {
@@ -6,16 +8,19 @@ namespace Contratos
     public interface IServicioInvitaciones
     {
         [OperationContract(IsOneWay = true)]
-        void SuscribirJugadorAInvitacionesDeSala(string nombreJugador);
+        void ActivarInvitacionesDeSala(string nombreJugador);
 
         [OperationContract(IsOneWay = true)]
-        void DesuscribirJugadorDeInvitacionesDeSala(string nombreJugador);
+        void DesactivarInvitacionesDeSala(string nombreJugador);
+
+        [OperationContract]
+        List<CuentaJugador> ObtenerAmigosDisponibles(string nombreAnfitrion);
     }
 
     [ServiceContract]
     public interface IServicioInvitacionesCallback
     {
-        [OperationContract]
-        void MostrarInvitacionDeSala(string nombreJugador, string codigoSala);
+        [OperationContract(IsOneWay = true)]
+        void MostrarInvitacionDeSala(string nombreJugador, string codigoSala);        
     }
 }

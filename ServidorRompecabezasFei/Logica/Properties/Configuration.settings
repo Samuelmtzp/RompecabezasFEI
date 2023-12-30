@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Logica.Properties" GeneratedClassName="Configuration">
+  <Profiles />
+  <Settings>
+    <Setting Name="Correo" Type="System.String" Scope="User">
+      <Value Profile="(Default)">RompecabezasFEISoporte@gmail.com</Value>
+    </Setting>
+    <Setting Name="ContrasenaCorreo" Type="System.String" Scope="User">
+      <Value Profile="(Default)">swec grwn hpxd xopd</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

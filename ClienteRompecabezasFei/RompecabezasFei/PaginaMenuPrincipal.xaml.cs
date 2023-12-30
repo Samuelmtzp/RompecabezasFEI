@@ -1,4 +1,6 @@
 ﻿using RompecabezasFei.ServicioRompecabezasFei;
+using RompecabezasFei.Servicios;
+using RompecabezasFei.Utilidades;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -28,9 +30,12 @@ namespace RompecabezasFei
 
         private void CrearNuevaSala(object objetoOrigen, RoutedEventArgs evento)
         {
-            PaginaSala paginaSala = new PaginaSala(true);
-            paginaSala.UnirseASala(true);
-            VentanaPrincipal.CambiarPagina(paginaSala);
+            PaginaSala paginaSala = new PaginaSala(true, null);
+
+            if (paginaSala.HayConexionConSala)
+            {
+                VentanaPrincipal.CambiarPagina(paginaSala);
+            }
         }
 
         private void IrAPaginaUnirseSala(object objetoOrigen, RoutedEventArgs evento)
@@ -45,19 +50,15 @@ namespace RompecabezasFei
 
         private void CerrarSesion(object objetoOrigen, MouseButtonEventArgs evento)
         {
-            MessageBoxResult resultadoOpcionCerrarSesion = MessageBox.Show(
+            MessageBoxResult opcionSeleccionada = 
+                GestorCuadroDialogo.MostrarPreguntaConAdvertencia(
                 Properties.Resources.ETIQUETA_CERRARSESION_MENSAJE,
-                Properties.Resources.ETIQUETA_CERRARSESION_TITULO,
-                MessageBoxButton.YesNo, MessageBoxImage.Question);
+                Properties.Resources.ETIQUETA_CERRARSESION_TITULO);
 
-            if (resultadoOpcionCerrarSesion == MessageBoxResult.Yes && 
-                !Dominio.CuentaJugador.Actual.EsInvitado)
+            if (opcionSeleccionada == MessageBoxResult.Yes)
             {
-                Servicios.ServicioJugador.CerrarSesion(Dominio.CuentaJugador.Actual.NombreJugador);
+                VentanaPrincipal.CerrarSesion(true);
             }
-            
-            Dominio.CuentaJugador.Actual = null;
-            VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
         }
 
         private void IrAPaginaInformacionJugador(object objetoOrigen, MouseButtonEventArgs evento)
@@ -72,8 +73,35 @@ namespace RompecabezasFei
 
         public void MostrarInvitacionDeSala(string nombreJugador, string codigoSala)
         {
-            MessageBox.Show($"Invitacion a sala de: {nombreJugador}", "", 
-                MessageBoxButton.YesNo, MessageBoxImage.Information);
+            MessageBoxResult opcionSeleccionada =
+                    GestorCuadroDialogo.MostrarPreguntaNormal(
+                    $"{nombreJugador} te ha invitado a unirte a su sala, ¿Aceptas?", 
+                    "Invitación de sala");
+
+            if (opcionSeleccionada == MessageBoxResult.Yes)
+            {
+                var servicio = new ServicioSala();
+                bool esSalaDisponible = servicio.ExisteSalaDisponible(codigoSala);
+
+                switch (servicio.EstadoOperacion)
+                {
+                    case EstadoOperacion.Correcto:
+
+                        if (esSalaDisponible)
+                        {
+                            PaginaSala paginaSala = new PaginaSala(false, codigoSala);
+                            VentanaPrincipal.CambiarPagina(paginaSala);
+                        }
+                        else
+                        {
+                            GestorCuadroDialogo.MostrarAdvertencia(
+                                "No es posible unirse a la sala debido a que no está disponible", 
+                                "Sala no disponible");
+                        }
+
+                        break;
+                }
+            }
         }
     }
 }

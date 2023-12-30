@@ -11,18 +11,19 @@ namespace Contratos
         bool CrearNuevaSala(string nombreAnfitrion, string codigoSala);
 
         [OperationContract]
-        void ConectarJugadorASala(string nombreNuevoJugador, string codigoSala, 
-            string mensajeBienvenida);
+        bool UnirseASala(string nombreJugador, string codigoSala);
 
         [OperationContract]
-        void RefrescarSesionEnSala(string nombreJugador, string codigoSala);
+        void ActivarNotificacionesDeSala(string nombreJugador);
 
         [OperationContract]
-        void DesconectarJugadorDeSala(string nombreJugadorDesconexion, string codigoSala, 
-            string mensajeDespedida);
+        void DesactivarNotificacionesDeSala(string nombreJugador);
 
         [OperationContract]
-        List<CuentaJugador> ObtenerJugadoresConectadosEnSala(string codigoSala);
+        void AbandonarSala(string nombreJugador, string codigoSala);
+
+        [OperationContract]
+        List<CuentaJugador> ObtenerJugadoresEnSala(string codigoSala);
 
         [OperationContract(IsOneWay = true)]
         void EnviarMensajeDeSala(string nombreJugador, string codigoSala, string mensaje);
@@ -34,31 +35,46 @@ namespace Contratos
         bool ExisteSalaDisponible(string codigoSala);
 
         [OperationContract]
-        bool ConvertirAJugadorEnAnfitrionDeSala(string nombreAntiguoAnfitrion,
-            string nombreNuevoAnfitrion, string codigoSala); 
+        void ConvertirJugadorEnAnfitrionDesdeSala(string nombreJugador, string codigoSala);
 
         [OperationContract(IsOneWay = true)]
-        void InvitarAJugadorASala(string nombreJugador, string nombreAnfitrion,
-            string codigoSala);
+        void InvitarJugador(string nombreJugador, string nombreAnfitrion, string codigoSala);
+
+        [OperationContract(IsOneWay = true)]
+        void ExpulsarJugadorEnSala(string nombreJugadorExpulsion, string codigoSala);
     }
 
     [ServiceContract]
     public interface IServicioSalaCallback
     {
         [OperationContract(IsOneWay = true)]
-        void NotificarCreacionDePartida();
+        void MostrarNuevaPartida();
 
         [OperationContract(IsOneWay = true)]
         void MostrarMensajeDeSala(string mensaje);
 
         [OperationContract(IsOneWay = true)]
-        void NotificarNuevoJugadorConectadoEnSala(CuentaJugador nuevoJugador);
+        void MostrarNuevoJugadorEnSala(CuentaJugador nuevoJugador);
 
         [OperationContract(IsOneWay = true)]
-        void NotificarJugadorDesconectadoDeSala(string nombreJugadorDesconectado);
+        void MostrarMensajeExpulsionDeSala();
 
         [OperationContract(IsOneWay = true)]
-        void MostrarFuncionesDeAnfitrion();
+        void MostrarDesconexionDeJugadorEnSala(string nombreJugadorDesconexion);
 
+        [OperationContract(IsOneWay = true)]
+        void MostrarFuncionesDeAnfitrionEnSala();
+
+        [OperationContract(IsOneWay = true)]
+        void HabilitarInicioDePartida();
+
+        [OperationContract(IsOneWay = true)]
+        void DeshabilitarInicioDePartida();
+
+        [OperationContract(IsOneWay = true)]
+        void MostrarAmigoDisponible(CuentaJugador cuentaAmigo);
+
+        [OperationContract(IsOneWay = true)]
+        void OcultarAmigoNoDisponible(string nombreAmigo);
     }
 }

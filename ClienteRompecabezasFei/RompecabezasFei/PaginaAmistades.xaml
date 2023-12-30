@@ -6,8 +6,7 @@
       xmlns:local="clr-namespace:RompecabezasFei"
       xmlns:p="clr-namespace:RompecabezasFei.Properties"
       mc:Ignorable="d"
-      d:DesignHeight="720" d:DesignWidth="1280"
-      Unloaded="DesuscribirJugadorDeNotificaciones">
+      d:DesignHeight="720" d:DesignWidth="1280">
 
     <Grid>
         <Grid.RowDefinitions>

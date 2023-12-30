@@ -24,15 +24,12 @@ namespace RompecabezasFei
             }
         }
 
-        public bool MusicaActiva { get; set; }
-
         public static new App Current
         {
-            get
-            {
-                return (App)Application.Current;
-            }
+            get { return (App)Application.Current; }
         }
+
+        public bool MusicaActiva { get; set; }
 
         App()
         {

@@ -1,5 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using RompecabezasFei.Utilidades;
+using RompecabezasFei.Servicios;
 using Security;
 using Seguridad;
 
@@ -21,36 +23,43 @@ namespace RompecabezasFei
 
             if (!EsContrasenaInvalida(contrasena))
             {
-                if (ValidadorDatos.ExisteCoincidenciaEnCadenas(cuadroContrasenaNueva.Password,
+                if (cuadroContrasenaNueva.Password.Equals(
                     cuadroConfirmarNuevaContrasena.Password))
                 {
                     string contrasenaCifrada = EncriptadorContrasena.
                         CalcularHashSha512(contrasena);
-                    bool actualizacionRealizada = Servicios.ServicioJugador.
-                        ActualizarContrasena(correo, contrasenaCifrada);
+                    var servicio = new ServicioJugador();
+                    bool actualizacionRealizada = servicio.ActualizarContrasena(
+                        correo, contrasenaCifrada);
 
-                    if (actualizacionRealizada)
+                    switch (servicio.EstadoOperacion)
                     {
-                        MessageBox.Show(Properties.Resources.
-                            ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENAACTUALIZADA, Properties.
-                            Resources.ETIQUETA_RESTABLECIMIENTO_CONTRASENARESTABLECIDA,
-                            MessageBoxButton.OK);
-                        VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
-                    }
-                    else
-                    {
-                        MessageBox.Show(Properties.Resources.
-                            ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENANORESTABLECIDA, Properties.
-                            Resources.ETIQUETA_RESTABLECIMIENTO_CONTRASENANORESTABLECIDA,
-                            MessageBoxButton.OK);
+                        case EstadoOperacion.Correcto:
+                            
+                            if (actualizacionRealizada)
+                            {
+                                GestorCuadroDialogo.MostrarInformacion(Properties.Resources.
+                                    ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENAACTUALIZADA, 
+                                    Properties.Resources.
+                                    ETIQUETA_RESTABLECIMIENTO_CONTRASENARESTABLECIDA);
+                                VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
+                            }
+                            else
+                            {
+                                GestorCuadroDialogo.MostrarError(Properties.Resources.
+                                    ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENANORESTABLECIDA, 
+                                    Properties.Resources.
+                                    ETIQUETA_RESTABLECIMIENTO_CONTRASENANORESTABLECIDA);
+                            }
+
+                            break;
                     }
                 }
                 else
                 {
-                    MessageBox.Show(Properties.Resources.
-                        ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE,
-                        Properties.Resources.ETIQUETA_VALIDACION_CONTRASENADIFERENTE,
-                        MessageBoxButton.OK);
+                    GestorCuadroDialogo.MostrarAdvertencia(
+                        Properties.Resources.ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE,
+                        Properties.Resources.ETIQUETA_VALIDACION_CONTRASENADIFERENTE);
                 }
             }
         }

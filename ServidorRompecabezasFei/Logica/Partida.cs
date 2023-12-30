@@ -1,15 +1,20 @@
 ﻿using Datos;
+using Logica.Enumeraciones;
 using System.Collections.Concurrent;
 
 namespace Logica
 {
     public class Partida
     {
+        public const int CantidadGanadoresPorPartidaPermitidos = 1;
+
         private DificultadPartida dificultad;
+
+        public EstadoPartida Estado { get ; set;}
 
         public Tablero Tablero { get; set; }
 
-        public ConcurrentDictionary<string, int> Puntajes { get; set; }
+        public ConcurrentDictionary<string, int> PuntajesDeJugadores { get; set; }
 
         public DificultadPartida Dificultad
         {
@@ -17,26 +22,23 @@ namespace Logica
             set
             {
                 dificultad = value;
-
-                if (Tablero != null)
-                {
-                    switch (dificultad)
-                    {
-                        case DificultadPartida.Facil:
-                            Tablero.TotalFilas = Tablero.CantidadFilasDificultadFacil;
-                            Tablero.TotalColumnas = Tablero.CantidadColumnasDificultadFacil;
-                            break;
-                        case DificultadPartida.Medio:
-                            Tablero.TotalFilas = Tablero.CantidadFilasDificultadMedia;
-                            Tablero.TotalColumnas = Tablero.CantidadColumnasDificultadMedia;
-                            break;
-                        case DificultadPartida.Dificil:
-                            Tablero.TotalFilas = Tablero.CantidadFilasDificultadDificil;
-                            Tablero.TotalColumnas = Tablero.CantidadColumnasDificultadDificil;
-                            break;
-                    }
-                }
+                Tablero = new Tablero(dificultad);                
             }
+        }
+
+        public Partida()
+        {
+            Estado = EstadoPartida.SinIniciar;
+        }
+
+        public bool AgregarNombreDeJugador(string nombreJugador)
+        {
+            return PuntajesDeJugadores.TryAdd(nombreJugador, Pieza.PuntajeVacio);
+        }
+
+        public bool RemoverNombreDeJugador(string nombreJugador)
+        {
+            return PuntajesDeJugadores.TryRemove(nombreJugador, out _);
         }
     }
 }

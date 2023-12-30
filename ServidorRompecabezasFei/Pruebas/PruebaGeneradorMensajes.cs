@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Logica;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Pruebas
 {
@@ -27,8 +28,7 @@ namespace Pruebas
             string asunto = "Código de verificación para concluir registro";
             string mensaje = "Tu código de verificación es: 561372";
 
-            Logica.GeneradorMensajesCorreo generadorMensajesCorreo = new Logica.GeneradorMensajesCorreo();
-            bool estado = generadorMensajesCorreo.EnviarMensaje(
+            bool estado = GeneradorMensajeCorreo.EnviarMensaje(
                 encabezado, correoDestino, asunto, mensaje);
             Assert.AreEqual(true, estado, "Mensaje enviado a correo electrónico");   
         }
@@ -41,8 +41,7 @@ namespace Pruebas
             string asunto = "";
             string mensaje = "";
 
-            Logica.GeneradorMensajesCorreo generadorMensajesCorreo = new Logica.GeneradorMensajesCorreo();
-            bool estado = generadorMensajesCorreo.EnviarMensaje(
+            bool estado = GeneradorMensajeCorreo.EnviarMensaje(
                 encabezado, correoDestino, asunto, mensaje);
             Assert.AreNotEqual(true, estado, "No se ha enviado el mensaje al correo electrónico");
         }

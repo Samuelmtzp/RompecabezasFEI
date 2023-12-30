@@ -1,6 +1,6 @@
 ﻿namespace Dominio
 {
-    public enum TipoAvatar
+    public enum NumeroAvatar
     {
         Invitado = 0,
         Avatar1 = 1,
