@@ -3,6 +3,7 @@ using RompecabezasFei.Utilidades;
 using Seguridad;
 using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.ServiceModel;
 using System.Windows;
@@ -19,6 +20,8 @@ namespace RompecabezasFei
 
         private Temporizador temporizador;
 
+        public ObservableCollection<Dominio.CuentaJugador> CuentasDeAmigos { get; set; }
+
         public string CodigoSala { get; set; }
 
         private bool esAnfitrion;
@@ -28,27 +31,19 @@ namespace RompecabezasFei
 
         public ObservableCollection<Dominio.CuentaJugador> JugadoresEnSala { get; set; }
 
+        public ObservableCollection<Dominio.CuentaJugador> JugadoresEnSalaPestana { get; set; }
+
         public PaginaSala(bool cargarDatos)
         {
-            InitializeComponent();
-            JugadoresEnSala = new ObservableCollection<Dominio.CuentaJugador>();
-            listaJugadoresSala.DataContext = this;
-            panelModificacionJugador.Visibility = Visibility.Hidden;
-
-            if (EsAnfitrion)
-            {
-                imagenModificarJugador.Visibility = Visibility.Visible;
-                etiquetaModificarJugador.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                imagenModificarJugador.Visibility = Visibility.Hidden;
-                etiquetaModificarJugador.Visibility = Visibility.Hidden;
             if (cargarDatos)
             {
                 InitializeComponent();                
                 JugadoresEnSala = new ObservableCollection<Dominio.CuentaJugador>();
+                JugadoresEnSalaPestana = new ObservableCollection<Dominio.CuentaJugador>();
                 listaJugadoresSala.DataContext = this;
+                listaJugadoresEnSala.DataContext = this;
+                listaAmigosDisponibles.DataContext = this;  
+                panelModificacionJugador.Visibility = Visibility.Hidden;
             }
         }
 
@@ -60,6 +55,7 @@ namespace RompecabezasFei
             clienteServicioSala.RefrescarSesionEnSala(
                 Dominio.CuentaJugador.Actual.NombreJugador, CodigoSala);
             CargarJugadoresEnSala();
+            CargarJugadoresEnPestanaSala();
             etiquetaCodigoSala.Content = CodigoSala;
 
             if (esAnfitrion)
@@ -84,7 +80,7 @@ namespace RompecabezasFei
             else
             {
                 temporizador.DetenerTemporizador();
-                etiquetaTiempoRestante.Content = "00:00";
+                etiquetaTiempoRestante.Content = "01:00";
                 HabilitarBotonEnviarInvitacion();
             }
         }
@@ -101,12 +97,12 @@ namespace RompecabezasFei
             botonEnviarInvitacion.Background = new SolidColorBrush(colorDesactivado);
         }
 
-        private void IniciarTemporizador()
+        private void ComenzarTemporizador()
         {
             DeshabilitarBotonEnviarInvitacion();
             temporizador = new Temporizador();
-            temporizador.Cronometro.Tick += ActualizarTiempoRestante;
-            temporizador.IniciarTemporizador();
+            temporizador.IniciarTemporizador(Temporizador.DuracionSegundosMaximaReenvioDeCorreo);
+            temporizador.DespachadorDeTiempo.Tick += ActualizarTiempoRestante;
         }
 
         private void IrAPaginaMenuPrincipal(object objetoOrigen, MouseButtonEventArgs evento)
@@ -170,6 +166,7 @@ namespace RompecabezasFei
             {
                 MostrarFuncionesDeAnfitrion();
                 CrearNuevaSala();
+                CargarAmigosJugador();  
             }
             else
             {
@@ -222,9 +219,70 @@ namespace RompecabezasFei
                 {
                     NombreJugador = jugador.NombreJugador,
                     FuenteImagenAvatar = GeneradorImagenes.
-                        GenerarFuenteImagenAvatar(jugador.NumeroAvatar)
-                }); 
+                   GenerarFuenteImagenAvatar(jugador.NumeroAvatar)
+                });
             }
+        }
+
+        private void CargarJugadoresEnPestanaSala()
+        {
+            CuentaJugador[] jugadoresRecuperados = Servicios.ServicioSala.
+                ObtenerJugadoresConectadosEnSala(CodigoSala);
+
+            foreach (CuentaJugador jugador in jugadoresRecuperados)
+            {
+                    var cuentaJugador = new Dominio.CuentaJugador
+                    {
+                        NombreJugador = jugador.NombreJugador,
+                        FuenteImagenAvatar = GeneradorImagenes.
+                        GenerarFuenteImagenAvatar(jugador.NumeroAvatar)
+                    };
+                    JugadoresEnSalaPestana.Add(cuentaJugador);
+            }
+        }
+
+        private void CargarAmigosJugador()
+        {
+            CuentasDeAmigos = new ObservableCollection<Dominio.CuentaJugador>();
+            CuentaJugador[] amigosObtenidos = Servicios.ServicioAmistades.
+                ObtenerAmigosDeJugador(Dominio.CuentaJugador.Actual.NombreJugador);
+
+            if (amigosObtenidos != null && amigosObtenidos.Any())
+            {
+                foreach (CuentaJugador amigo in amigosObtenidos)
+                {
+                    if (ObtenerEstadoConectividad(amigo.EstadoConectividad))
+                    {
+                        Dominio.CuentaJugador cuentaAmigo = new Dominio.CuentaJugador
+                        {
+                            NombreJugador = amigo.NombreJugador,
+                            NumeroAvatar = amigo.NumeroAvatar,
+                            FuenteImagenAvatar = Utilidades.GeneradorImagenes.
+                           GenerarFuenteImagenAvatar(amigo.NumeroAvatar),
+                        };
+                        CuentasDeAmigos.Add(cuentaAmigo);
+                    }
+                }
+            }
+        }
+
+        private bool ObtenerEstadoConectividad(
+           ConectividadJugador estado)
+        {
+            bool disponibilidadJugador;
+            switch (estado)
+            {
+                case ConectividadJugador.Disponible:
+                    disponibilidadJugador = true;
+                    break;
+                case ConectividadJugador.NoDisponible:
+                    disponibilidadJugador = false;
+                    break;
+                default:
+                    disponibilidadJugador = false;
+                    break;
+            }
+            return disponibilidadJugador;
         }
 
         private void CrearNuevaSala()
@@ -269,7 +327,7 @@ namespace RompecabezasFei
             clienteServicioSala = null;
         }
 
-        private void ModificarJugadoresEnSala(object objetoOrigen,
+        private void MostrarPanelModificarJugadoresEnSala(object objetoOrigen,
             MouseButtonEventArgs evento)
         {
             panelModificacionJugador.Visibility = Visibility.Visible;  
@@ -283,40 +341,49 @@ namespace RompecabezasFei
 
         private void EnviarInvitacionPorCorreo(object objetoOrigen, RoutedEventArgs evento)
         {
-            string correoDestino = cuadroTextoCorreoElectronico.Text;
+            string correoDestino = cuadroTextoCorreoElectronico.Text.Trim();
 
             if (!ValidadorDatos.ExistenCaracteresInvalidosParaCorreo(correoDestino))
             {
-                if (Servicios.ServicioCorreo.ExisteCorreoElectronico(correoDestino))
+                if (correoDestino!=Dominio.CuentaJugador.Actual.Correo)
                 {
-                    bool envioDeInvitacionRealizado = GestionadorCodigoCorreo.
-                    EnviarInvitacionSalaACorreo(correoDestino, Properties.Resources.
-                    ETIQUETA_MODIFICACIONSALA_CORREOINVITACIONASUNTO, Properties.Resources.
-                    ETIQUETA_MODIFICACIONSALA_MENSAJECORREOINVITACIONASUNTO, CodigoSala);
-
-                    if (!envioDeInvitacionRealizado)
+                    if (Servicios.ServicioCorreo.ExisteCorreoElectronico(correoDestino))
                     {
-                        MessageBox.Show(Properties.Resources.
-                                    ETIQUETA_CODIGO_MENSAJENOENVIADO, Properties.Resources.
-                                    ETIQUETA_CODIGO_CODIGONOENVIADO,
-                                    MessageBoxButton.OK, MessageBoxImage.Error);
+                        bool envioDeInvitacionRealizado = GestionadorCodigoCorreo.
+                        EnviarInvitacionSalaACorreo(correoDestino, Properties.Resources.
+                        ETIQUETA_MODIFICACIONSALA_CORREOINVITACIONASUNTO, Properties.Resources.
+                        ETIQUETA_MODIFICACIONSALA_MENSAJECORREOINVITACIONASUNTO, CodigoSala);
+
+                        if (!envioDeInvitacionRealizado)
+                        {
+                            MessageBox.Show(Properties.Resources.
+                                        ETIQUETA_CODIGO_MENSAJENOENVIADO, Properties.Resources.
+                                        ETIQUETA_CODIGO_CODIGONOENVIADO,
+                                        MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                        else
+                        {
+                            ComenzarTemporizador();
+                            MessageBox.Show(Properties.Resources.
+                                        ETIQUETA_MODIFICACIONSALA_MENSAJEINVITACIONENVIADA,
+                                        Properties.Resources.
+                                        ETIQUETA_MODIFICACIONSALA_INVITACIONENVIADA,
+                                        MessageBoxButton.OK);
+                        }
                     }
                     else
                     {
                         MessageBox.Show(Properties.Resources.
-                                    ETIQUETA_MODIFICACIONSALA_MENSAJEINVITACIONENVIADA, 
-                                    Properties.Resources.
-                                    ETIQUETA_MODIFICACIONSALA_INVITACIONENVIADA,
-                                    MessageBoxButton.OK);
-                        IniciarTemporizador();
+                            ETIQUETA_RECUPERACIONCONTRASENA_MENSAJECORREOINEXISTENE, Properties.
+                            Resources.ETIQUETA_RECUPERACIONCONTRASENA_CORREOINEXISTENTE,
+                            MessageBoxButton.OK);
                     }
                 }
                 else
                 {
-                    MessageBox.Show(Properties.Resources.
-                        ETIQUETA_RECUPERACIONCONTRASENA_MENSAJECORREOINEXISTENE, Properties.
-                        Resources.ETIQUETA_RECUPERACIONCONTRASENA_CORREOINEXISTENTE, 
-                        MessageBoxButton.OK);
+                    MessageBox.Show(Properties.Resources.ETIQUETA_SALA_MISMOCORREO,
+                    Properties.Resources.ETIQUETA_VALIDACION_CORREOINVALIDO,
+                    MessageBoxButton.OK);
                 }
             }
             else
@@ -333,6 +400,17 @@ namespace RompecabezasFei
             cuadroTextoMensajes.AppendText(mensaje + "\n");
         }
 
+        public void NotificarJugadorInvitadoUnido()
+        {
+            if (CuentasDeAmigos != null)
+            {
+                Dominio.CuentaJugador jugadorUnido = new Dominio.CuentaJugador()
+                {
+
+                };
+            }
+        }
+
         public void NotificarNuevoJugadorConectadoEnSala(CuentaJugador nuevoJugador)
         {
             if (JugadoresEnSala != null)
@@ -344,6 +422,7 @@ namespace RompecabezasFei
                     NombreJugador = nuevoJugador.NombreJugador
                 };
                 JugadoresEnSala.Add(nuevaCuentaJugador);
+                JugadoresEnSalaPestana.Add(nuevaCuentaJugador);
             }
         }
 
@@ -360,6 +439,7 @@ namespace RompecabezasFei
                     if (cuentaJugadorEncontrada != null)
                     {
                         JugadoresEnSala.Remove(cuentaJugadorEncontrada);
+                        JugadoresEnSalaPestana.Remove(cuentaJugadorEncontrada);
                     }
                 }
                 else
@@ -378,8 +458,8 @@ namespace RompecabezasFei
 
         public void MostrarFuncionesDeAnfitrion()
         {
-            etiquetaModificarJugadores.Visibility = Visibility.Visible;
-            imagenModificarJugadores.Visibility= Visibility.Visible;
+            etiquetaModificarJugador.Visibility = Visibility.Visible;
+            imagenModificarJugador.Visibility= Visibility.Visible;
             botonNuevaPartida.Visibility= Visibility.Visible;
         }
         #endregion

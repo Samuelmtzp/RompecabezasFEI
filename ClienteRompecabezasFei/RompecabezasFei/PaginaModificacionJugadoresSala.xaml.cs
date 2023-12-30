@@ -12,7 +12,7 @@ namespace RompecabezasFei
 
         private void IrAPaginaSala(object objetoOrigen, MouseButtonEventArgs evento)
         {
-            VentanaPrincipal.CambiarPagina(new PaginaSala());
+            //VentanaPrincipal.CambiarPagina(new PaginaSala());
         }
 
     }

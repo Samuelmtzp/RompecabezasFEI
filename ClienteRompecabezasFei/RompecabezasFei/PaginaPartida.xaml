@@ -10,6 +10,10 @@
       Loaded="AgregarEventoDesbloqueoPiezaAlDesactivarVentana">
     <Grid>
         <Canvas Name="tableroRompecabezas" Margin="10,56,370,124" Width="900" Height="540" Background="AliceBlue"/>
+        <Button Name="botonIniciarPartida" Content="{x:Static p:Resources.BOTON_SALA_INICIARPARTIDA}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="314" Click="IniciarPartida" Margin="935,471,0,0" Background="#03A64A" Foreground="White" FontWeight="Bold" FontSize="32" Visibility="Visible"/>
+        <Button Name="botonAbandonarPartida" Content="{x:Static p:Resources.BOTON_PARTIDA_ABANDONOPARTIDA}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="314" Click="AbandonarPartida" Margin="935,540,0,0" Background="Red" Foreground="White" FontWeight="Bold" FontSize="32" Visibility="Visible"/>
+        <Image Source="/Imagenes/Indicadores/Ajustes.png" HorizontalAlignment="Left" Height="82" Margin="1155,15,0,0" VerticalAlignment="Top" Width="82" MouseDown="IrAPaginaAjustesPartida"/>
+        <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_AJUSTES}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="1143,97,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Width="106"/>
         <Grid Margin="950,180,56,278" ShowGridLines="True">
             <ListView Name="listaJugadoresPartida" VerticalAlignment="Top" Foreground="White" Background="#FF4A4A4A" ItemsSource="{Binding JugadoresEnPartida}" HorizontalContentAlignment="Center" Width="264" Height="260" >
                 <ListView.ItemContainerStyle>
@@ -51,9 +55,106 @@
                 </ListView.View>
             </ListView>
         </Grid>
-        <Button Name="botonIniciarPartida" Content="{x:Static p:Resources.BOTON_SALA_INICIARPARTIDA}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="314" Click="IniciarPartida" Margin="935,471,0,0" Background="#03A64A" Foreground="White" FontWeight="Bold" FontSize="32" Visibility="Visible"/>
-        <Button Name="botonAbandonarPartida" Content="{x:Static p:Resources.BOTON_PARTIDA_ABANDONOPARTIDA}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="314" Click="AbandonarPartida" Margin="935,540,0,0" Background="Red" Foreground="White" FontWeight="Bold" FontSize="32" Visibility="Visible"/>
-        <Image Source="/Imagenes/Indicadores/Ajustes.png" HorizontalAlignment="Left" Height="82" Margin="1155,15,0,0" VerticalAlignment="Top" Width="82" MouseDown="IrAPaginaAjustesPartida"/>
-        <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_AJUSTES}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="1143,97,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Width="106"/>
+
+        <Grid Margin="72,139,640,330" x:Name="panelAjustesPartida">
+            <Grid Background="#3D3E3F">
+                <Grid.RenderTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                </Grid.RenderTransform>
+            </Grid>
+            <Image Source="Imagenes/Indicadores/CerrarSesion.png" Stretch="Fill" Margin="1091,7,-557,210" Panel.ZIndex="1"/>
+            <Border BorderBrush="White" BorderThickness="3">
+                <Border.RenderTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                </Border.RenderTransform>
+                <Grid>
+                    <TabControl Background="#FF4A4A4A" Foreground="White" Name="tabAjustesPartida">
+                        <TabControl.Resources>
+                            <Style TargetType="{x:Type TabItem}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type TabItem}">
+                                            <Grid x:Name="panel">
+                                                <ContentPresenter x:Name="contenidoPestana"
+                                     VerticalAlignment="Center"
+                                     HorizontalAlignment="Center"
+                                     ContentSource="Header"
+                                     Margin="10,2"/>
+                                            </Grid>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsSelected" Value="True">
+                                                    <Setter TargetName="panel" Property="Background" Value="#048ABF" />
+                                                </Trigger>
+                                                <Trigger Property="IsSelected" Value="False">
+                                                    <Setter TargetName="panel" Property="Background" Value="#FF4A4A4A" />
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </TabControl.Resources>
+
+                        <TabItem Width="120" Foreground="White" x:Name="pestañaEnSala" Background="{x:Null}" BorderBrush="#048ABF">
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{x:Static p:Resources.ETIQUETA_AMIGOS_ENPARTIDA}" FontWeight="Bold"/>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+                                <ListView x:Name="listaJugadoresEnSala" Foreground="White" Background="#FF4A4A4A" ItemsSource="{Binding JugadoresEnPartida}" HorizontalContentAlignment="Center" SelectionMode="Single" Margin="0,0,0,47">
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="{x:Type ListViewItem}">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsSelected" Value="True">
+                                                    <Setter Property="Background" Value="#FF048ABF"/>
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="#FF1F5367"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridView.ColumnHeaderContainerStyle>
+                                                <Style TargetType="{x:Type GridViewColumnHeader}">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </Style>
+                                            </GridView.ColumnHeaderContainerStyle>
+                                            <GridViewColumn Width="50" Header="Imagen">
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <Image HorizontalAlignment="Center" Width="30" Height="30" Source="{Binding FuenteImagenAvatar}" />
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+                                            <GridViewColumn Width="290" Header="Nombre">
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock HorizontalAlignment="Center" Foreground="White" Text="{Binding NombreJugador}" />
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+                                            <GridViewColumn Width="190" Header="Opciones">
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <Button Name="botonHacerAnfitrion" Content="{x:Static p:Resources.BOTON_SALA_HACERANFITRION}" Width="85" Height="20" Background="Green" Foreground="White" Margin="5"></Button>
+                                                            <Button Name="botonExpulsarJugador" Content="{x:Static p:Resources.BOTON_SALA_EXPULSAR}" Width="85" Height="20" Background="Red" Foreground="White" Margin="5"></Button>
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+                                <Button x:Name="botonExpulsarJugador" Content="{x:Static p:Resources.BOTON_OPCIONESPARTIDA_FINALIZARPARTIDA}" Background="Red" Foreground="White" Margin="198,175,198,10"/>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </Border>
+        </Grid>
     </Grid>
 </Page>

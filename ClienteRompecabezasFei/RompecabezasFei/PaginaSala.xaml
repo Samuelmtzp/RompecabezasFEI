@@ -9,18 +9,18 @@
       d:DesignHeight="720" d:DesignWidth="1280">
     <Grid>
         <Image Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="30,30,1145,598" Height="81" Width="81" MouseDown="IrAPaginaMenuPrincipal"/>
-        <Image Name="imagenModificarJugador" Source="/Imagenes/Indicadores/ModificarJugadores.png" Stretch="Fill" Margin="70,520,1116,106" Height="94" Width="94" MouseDown="ModificarJugadoresEnSala"/>
+        <Image Name="imagenModificarJugador" Source="/Imagenes/Indicadores/ModificarJugadores.png" Stretch="Fill" Margin="70,520,1116,106" Height="94" Width="94" MouseDown="MostrarPanelModificarJugadoresEnSala" Visibility="Hidden"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_CODIGOSALA}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="240,511,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36" FontWeight="Bold"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_JUGADORES}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="212,109,0,0" VerticalAlignment="Top" Foreground="White" FontSize="40" FontWeight="Bold"/>
         <RichTextBox Name="cuadroTextoMensajes" HorizontalAlignment="Left" Margin="569,88,0,0" VerticalAlignment="Top" Width="667" Height="372" FontSize="18" IsReadOnly="True" Background="#FF4A4A4A" Foreground="White" VerticalScrollBarVisibility="Visible" />
-        <TextBox Name="cuadroTextoMensajeUsuario" HorizontalAlignment="Left" Margin="569,460,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="538" Height="33" FontSize="18"/>
+        <TextBox Name="cuadroTextoMensajeUsuario" HorizontalAlignment="Left" Margin="569,460,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="538" Height="33" FontSize="18" MaxLength="100"/>
         <Button Content="{x:Static p:Resources.BOTON_SALA_ENVIARMENSAJE}" HorizontalAlignment="Left" Margin="1107,460,0,0" VerticalAlignment="Top" Height="33" Width="129" Background="#FF048ABF" Foreground="White" FontSize="18" FontWeight="Bold" Click="EnviarMensajeEnChatDeSala"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_SALA_MENSAJES}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="760,20,0,0" VerticalAlignment="Top" Foreground="White" FontSize="40" FontWeight="Bold" Width="284"/>
         <Label Name="etiquetaCodigoSala" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="240,574,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20" FontWeight="Bold" Width="658" Height="43"/>
         <Button Name="botonNuevaPartida" Content="Nueva partida" HorizontalAlignment="Left" Margin="931,579,0,0" VerticalAlignment="Top" Height="72" Width="305" FontSize="36" Background="#FF03A64A" Foreground="White" FontWeight="Bold" Click="IrAPaginaCreacionNuevaPartida" Visibility="Hidden">
         </Button>
         <Button Content="{x:Static p:Resources.ETIQUETA_SALA_COPIAR}" HorizontalAlignment="Left" Margin="240,617,0,0" VerticalAlignment="Top" Height="34" Width="128" Background="#FF048ABF" Foreground="White" FontSize="18" FontWeight="Bold" Click="CopiarCodigoDeSalaEnPortapapeles"/>
-        <Label Name="etiquetaModificarJugador" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="42,619,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20" FontWeight="Bold" Width="150" Height="32" Content="MODIFICAR" MouseDown="ModificarJugadoresEnSala"/>
+        <Label Name="etiquetaModificarJugador"  HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="20,624,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20" FontWeight="Bold" Width="215" Height="37" Content="{x:Static p:Resources.ETIQUETA_SALA_MODIFICARJUGADORES}" MouseDown="MostrarPanelModificarJugadoresEnSala" Visibility="Hidden"/>
 
         <Grid Width="495" Height="316" Margin="36,177,749,227">
             <ListView Name="listaJugadoresSala" VerticalAlignment="Top" Foreground="White" Background="#FF4A4A4A" ItemsSource="{Binding JugadoresEnSala}" HorizontalContentAlignment="Center" Width="495" Height="316" >
@@ -62,8 +62,13 @@
             </ListView>
         </Grid>
 
-        <Grid Margin="72,139,640,330" x:Name="panelModificacionJugador" >
-            <Image Source="/CerrarSesion.png" Stretch="Fill" Margin="1091,7,-557,210" Panel.ZIndex="1" MouseDown="CerrarModificacionJugadores"/>
+        <Grid Margin="72,139,640,330" x:Name="panelModificacionJugador">
+            <Grid Background="#3D3E3F">
+                <Grid.RenderTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                </Grid.RenderTransform>
+            </Grid>
+            <Image Source="Imagenes/Indicadores/CerrarSesion.png" Stretch="Fill" Margin="1091,7,-557,210" Panel.ZIndex="1" MouseDown="CerrarModificacionJugadores"/>
             <Border BorderBrush="White" BorderThickness="3">
                 <Border.RenderTransform>
                     <ScaleTransform ScaleX="2" ScaleY="2"/>
@@ -103,8 +108,7 @@
                                 </StackPanel>
                             </TabItem.Header>
                             <Grid>
-
-                                <ListView x:Name="listaAmigos" VerticalAlignment="Stretch" Foreground="White" Background="#FF4A4A4A" ItemsSource="{Binding CuentasDeAmigos}" HorizontalContentAlignment="Center" SelectionMode="Single">
+                                <ListView x:Name="listaJugadoresEnSala" VerticalAlignment="Stretch" Foreground="White" Background="#FF4A4A4A" ItemsSource="{Binding JugadoresEnSalaPestana}" HorizontalContentAlignment="Center" SelectionMode="Single">
                                     <ListView.ItemContainerStyle>
                                         <Style TargetType="{x:Type ListViewItem}">
                                             <Style.Triggers>
@@ -124,13 +128,6 @@
                                                     <Setter Property="Visibility" Value="Collapsed" />
                                                 </Style>
                                             </GridView.ColumnHeaderContainerStyle>
-                                            <GridViewColumn Width="40">
-                                                <GridViewColumn.CellTemplate>
-                                                    <DataTemplate>
-                                                        <Ellipse HorizontalAlignment="Center" Width="20" Height="20" Fill="{Binding ColorEstadoConectividad}" />
-                                                    </DataTemplate>
-                                                </GridViewColumn.CellTemplate>
-                                            </GridViewColumn>
                                             <GridViewColumn Width="50" Header="Imagen">
                                                 <GridViewColumn.CellTemplate>
                                                     <DataTemplate>
@@ -138,16 +135,21 @@
                                                     </DataTemplate>
                                                 </GridViewColumn.CellTemplate>
                                             </GridViewColumn>
-                                            <GridViewColumn Width="360" Header="Nombre">
+                                            <GridViewColumn Width="290" Header="Nombre">
                                                 <GridViewColumn.CellTemplate>
                                                     <DataTemplate>
                                                         <TextBlock HorizontalAlignment="Center" Foreground="White" Text="{Binding NombreJugador}" />
                                                     </DataTemplate>
                                                 </GridViewColumn.CellTemplate>
                                             </GridViewColumn>
-                                            <GridViewColumn Width="95" Header="Opciones">
+                                            <GridViewColumn Width="190" Header="Opciones">
                                                 <GridViewColumn.CellTemplate>
-                                                    <DataTemplate/>
+                                                    <DataTemplate>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <Button Name="botonHacerAnfitrion" Content="{x:Static p:Resources.BOTON_SALA_HACERANFITRION}" Width="85" Height="20" Background="Green" Foreground="White" Margin="5"></Button>
+                                                            <Button Name="botonExpulsarJugador" Content="{x:Static p:Resources.BOTON_SALA_EXPULSAR}" Width="85" Height="20" Background="Red" Foreground="White" Margin="5"></Button>
+                                                        </StackPanel>
+                                                    </DataTemplate>
                                                 </GridViewColumn.CellTemplate>
                                             </GridViewColumn>
                                         </GridView>
@@ -162,7 +164,7 @@
                                 </StackPanel>
                             </TabItem.Header>
                             <Grid>
-                                <ListView x:Name="listaSolicitudes" VerticalAlignment="Top" Background="#FF4A4A4A" ItemsSource="{Binding CuentasDeSolicitudes}" HorizontalContentAlignment="Center" SelectionMode="Single">
+                                <ListView x:Name="listaAmigosDisponibles" VerticalAlignment="Top" Background="#FF4A4A4A" ItemsSource="{Binding CuentasDeAmigos}" HorizontalContentAlignment="Center" SelectionMode="Single">
                                     <ListView.ItemContainerStyle>
                                         <Style TargetType="{x:Type ListViewItem}">
                                             <Style.Triggers>
@@ -198,7 +200,9 @@
                                             </GridViewColumn>
                                             <GridViewColumn Width="95" Header="Opción aceptar">
                                                 <GridViewColumn.CellTemplate>
-                                                    <DataTemplate/>
+                                                    <DataTemplate>
+                                                        <Button Name="botonInvitar" Content="{x:Static p:Resources.BOTON_SALA_INVITAR}" Width="85" Height="20" Background="Green" Foreground="White"></Button>
+                                                    </DataTemplate>
                                                 </GridViewColumn.CellTemplate>
                                             </GridViewColumn>
                                             <GridViewColumn Width="95" Header="Opción rechazar" >
@@ -220,7 +224,7 @@
                             <Grid>
                                 <TextBlock TextWrapping="Wrap" Text="{x:Static p:Resources.ETIQUETA_MODIFICACIONSALA_TEXTOENVIARCODIGO}" Margin="66,17,66,152" FontSize="14"/>
                                 <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_CORREO}" Margin="66,64,210,108" FontWeight="Bold" FontSize="20" Foreground="White"/>
-                                <TextBox x:Name="cuadroTextoCorreoElectronico" HorizontalAlignment="Center" Margin="0,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="430" FontSize="16" Height="30"/>
+                                <TextBox x:Name="cuadroTextoCorreoElectronico" HorizontalAlignment="Center" Margin="0,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="430" FontSize="16" Height="30" MaxLength="50"/>
                                 <Button Name="botonEnviarInvitacion" Content="{x:Static p:Resources.ETIQUETA_MODIFICACIONSALA_ENVIARINVITACION}" HorizontalAlignment="Center" Margin="0,173,0,0" VerticalAlignment="Top" Height="34" Width="194" Background="#FF03A64A" FontSize="18" Foreground="White" FontWeight="Bold" Click="EnviarInvitacionPorCorreo"/>
                                 <Label Name="etiquetaTiempoRestante" Content="1:00" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" Margin="421,173,0,0" VerticalAlignment="Top" FontSize="16"/>
 

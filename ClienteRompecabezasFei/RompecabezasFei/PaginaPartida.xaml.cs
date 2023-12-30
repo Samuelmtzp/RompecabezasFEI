@@ -432,6 +432,11 @@ namespace RompecabezasFei
             // Implementar la funcionalidad de mostrar los ajustes de partida
         }
 
+        private void IrAPaginaResultadosPartida()
+        {
+            VentanaPrincipal.CambiarPagina(new PaginaResultados(codigoSala));
+        }
+
         private void IniciarPartida(object objetoOrigen, RoutedEventArgs evento)
         {
             try
@@ -682,6 +687,7 @@ namespace RompecabezasFei
         {
             RemoverEventoDesbloqueoPiezaAlDesactivarVentana();
             MessageBox.Show("Partida finalizada");
+            IrAPaginaResultadosPartida();
         }
 
         public void NotificarJugadorDesconectadoDePartida(string nombreJugadorDesconectado)

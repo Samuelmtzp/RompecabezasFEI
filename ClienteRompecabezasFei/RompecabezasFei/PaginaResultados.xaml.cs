@@ -1,14 +1,24 @@
-﻿using System.Windows;
+﻿using RompecabezasFei.Servicios;
+using RompecabezasFei.Utilidades;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace RompecabezasFei
 {
     public partial class PaginaResultados : Page
     {
+        public ObservableCollection<Dominio.CuentaJugador> JugadoresEnPartida { get; set; }
 
-        public PaginaResultados()
+        private string codigoSala;
+
+        public PaginaResultados(string codigoSala)
         {
             InitializeComponent();
+            listaJugadoresPartida.DataContext = this;
+            this.codigoSala = codigoSala;
+            CargarJugadoresEnPartida();
         }
 
         private void IrAPaginaSala(object objetoOrigen, RoutedEventArgs evento)
@@ -23,6 +33,28 @@ namespace RompecabezasFei
             //- Mostrar qué jugadores van regresando de la página de resultados
             //- Mantener al jugador en la sala hasta que este se salga de la misma,
             //  en caso de que decida salirse decrementar el contador de jugadores conectados en sala
+        }
+
+        public void CargarJugadoresEnPartida()
+        {
+            JugadoresEnPartida = new ObservableCollection<Dominio.CuentaJugador>();
+            ServicioRompecabezasFei.CuentaJugador[] jugadoresObtenidos = ServicioSala.
+                ObtenerJugadoresConectadosEnSala(codigoSala);
+
+            if (jugadoresObtenidos != null && jugadoresObtenidos.Any())
+            {
+                foreach (ServicioRompecabezasFei.CuentaJugador jugador in jugadoresObtenidos)
+                {
+                    Dominio.CuentaJugador cuentaJugador = new Dominio.CuentaJugador
+                    {
+                        NombreJugador = jugador.NombreJugador,
+                        NumeroAvatar = jugador.NumeroAvatar,
+                        FuenteImagenAvatar = GeneradorImagenes.GenerarFuenteImagenAvatar(
+                            jugador.NumeroAvatar),
+                    };
+                    JugadoresEnPartida.Add(cuentaJugador);
+                }
+            }
         }
     }
 }

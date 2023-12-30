@@ -105,9 +105,9 @@ namespace Servicios
                                 ConectividadJugador.Disponible);
                         }
                     }
-                    catch (EntityException)
+                    catch (EntityException ex)
                     {
-
+                        Registros.Registrador.EscribirRegistro(ex);
                     }
                 }
             }
@@ -311,7 +311,7 @@ namespace Servicios
                     {
                         jugador.ContextoOperacion.GetCallbackChannel
                             <IServicioSalaCallback>().NotificarJugadorDesconectadoDeSala(
-                            nombreJugadorDesconexion);
+                            nombreJugadorDesconexion);   
                     }
                 }
 
