@@ -1,9 +1,8 @@
 ﻿using RompecabezasFei.ServicioRompecabezasFei;
 using RompecabezasFei.Utilidades;
-using System;
+using RompecabezasFei.Servicios;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -13,7 +12,7 @@ namespace RompecabezasFei
 {
     public partial class PaginaAmistades : Page, IServicioAmistadesCallback
     {
-        private ServicioAmistadesClient clienteServicioAmistades;
+        private ServicioAmistades servicioAmistades;
 
         public ObservableCollection<Dominio.CuentaJugador> CuentasDeAmigos { get; set; }
 
@@ -24,105 +23,109 @@ namespace RompecabezasFei
             if (inicializarDatos)
             {
                 InitializeComponent();
-                listaAmigos.DataContext = this;
-                listaSolicitudes.DataContext = this;
-                clienteServicioAmistades = new ServicioAmistadesClient(new InstanceContext(this));
-                CargarAmigosJugador();
-                CargarJugadoresConSolicitudPendiente();
-                SuscribirJugadorANotificaciones();
+                ConfigurarDatosIniciales();
             }
         }
 
+        private void ConfigurarDatosIniciales()
+        {
+            listaAmigos.DataContext = this;
+            listaSolicitudes.DataContext = this;
+            servicioAmistades = new ServicioAmistades(this);
+            CuentasDeAmigos = new ObservableCollection<Dominio.CuentaJugador>();
+            CuentasDeSolicitudes = new ObservableCollection<Dominio.CuentaJugador>();
+            
+            CargarAmigosJugador();
+
+            switch (servicioAmistades.EstadoOperacion)
+            {
+                case EstadoOperacion.Correcto:
+                    CargarJugadoresConSolicitudPendiente();
+
+                    switch (servicioAmistades.EstadoOperacion)
+                    {
+                        case EstadoOperacion.Correcto:
+                            ActivarNotificaciones();
+                            break;
+                    }
+
+                    break;
+            }
+        }      
+
         private void CargarAmigosJugador()
         {
-            CuentasDeAmigos = new ObservableCollection<Dominio.CuentaJugador>();
-            CuentaJugador[] amigosObtenidos = Servicios.ServicioAmistades.
-                ObtenerAmigosDeJugador(Dominio.CuentaJugador.Actual.NombreJugador);
+            var amigosDeJugador = servicioAmistades.ObtenerAmigosDeJugador(
+                Dominio.CuentaJugador.Actual.NombreJugador);
 
-            if (amigosObtenidos != null && amigosObtenidos.Any())
+            foreach (var amigo in amigosDeJugador)
             {
-                foreach (CuentaJugador amigo in amigosObtenidos)
+                Dominio.CuentaJugador cuentaDeAmigo = new Dominio.CuentaJugador
                 {
-                    Dominio.CuentaJugador cuentaAmigo = new Dominio.CuentaJugador
-                    {
-                        NombreJugador = amigo.NombreJugador,
-                        NumeroAvatar = amigo.NumeroAvatar,
-                        FuenteImagenAvatar = Utilidades.GeneradorImagenes.
-                            GenerarFuenteImagenAvatar(amigo.NumeroAvatar),
-                        ColorEstadoConectividad = ObtenerColorSegunEstadoConectividad(
-                            amigo.EstadoConectividad),
-                    };
-                    CuentasDeAmigos.Add(cuentaAmigo);
-                }
+                    NombreJugador = amigo.NombreJugador,
+                    NumeroAvatar = amigo.NumeroAvatar,
+                    FuenteImagenAvatar = GeneradorImagenes.
+                        GenerarFuenteImagenAvatar(amigo.NumeroAvatar),
+                    ColorEstadoConectividad = ObtenerColorDeEstadoJugador(
+                        amigo.Estado),
+                };
+                CuentasDeAmigos.Add(cuentaDeAmigo);
             }
         }
 
         private void CargarJugadoresConSolicitudPendiente()
-        {
-            CuentasDeSolicitudes = new ObservableCollection<Dominio.CuentaJugador>();
-            CuentaJugador[] jugadoresObtenidos = Servicios.ServicioAmistades.
-                ObtenerJugadoresConSolicitudPendiente(Dominio.CuentaJugador.Actual.NombreJugador);
+        {            
+            var jugadoresObtenidos = servicioAmistades.
+                ObtenerJugadoresConSolicitudPendiente(
+                Dominio.CuentaJugador.Actual.NombreJugador);
 
-            if (jugadoresObtenidos != null && jugadoresObtenidos.Any())
+            foreach (var jugador in jugadoresObtenidos)
             {
-                foreach (CuentaJugador jugador in jugadoresObtenidos)
+                Dominio.CuentaJugador cuentaSolicitud = new Dominio.CuentaJugador
                 {
-                    Dominio.CuentaJugador cuentaSolicitud = new Dominio.CuentaJugador
-                    {
-                        NombreJugador = jugador.NombreJugador,
-                        NumeroAvatar = jugador.NumeroAvatar,
-                        FuenteImagenAvatar = Utilidades.GeneradorImagenes.
-                            GenerarFuenteImagenAvatar(jugador.NumeroAvatar),
-                        ColorEstadoConectividad = ObtenerColorSegunEstadoConectividad(
-                            jugador.EstadoConectividad),
-                    };
-                    CuentasDeSolicitudes.Add(cuentaSolicitud);
-                }
+                    NombreJugador = jugador.NombreJugador,
+                    NumeroAvatar = jugador.NumeroAvatar,
+                    FuenteImagenAvatar = GeneradorImagenes.
+                        GenerarFuenteImagenAvatar(jugador.NumeroAvatar),
+                    ColorEstadoConectividad = ObtenerColorDeEstadoJugador(
+                        jugador.Estado),
+                };
+                CuentasDeSolicitudes.Add(cuentaSolicitud);
             }
         }
 
-        private void SuscribirJugadorANotificaciones()
+        private void ActivarNotificaciones()
         {
-            try
-            {
-                clienteServicioAmistades.SuscribirJugadorANotificacionesDeAmistades(
-                   Dominio.CuentaJugador.Actual.NombreJugador);
-            }
-            catch (EndpointNotFoundException excepcion)
-            {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                clienteServicioAmistades.Abort();
-            }
-            catch (CommunicationObjectFaultedException excepcion)
-            {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                clienteServicioAmistades.Abort();
-            }
-            catch (TimeoutException excepcion)
-            {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                clienteServicioAmistades.Abort();
-            }
+            servicioAmistades.ActivarNotificaciones(
+                Dominio.CuentaJugador.Actual.NombreJugador);
         }
 
-        private SolidColorBrush ObtenerColorSegunEstadoConectividad(
-            ConectividadJugador estado)
+        private void DesactivarNotificaciones()
         {
-            SolidColorBrush color;
+            servicioAmistades.DesactivarNotificaciones(
+                Dominio.CuentaJugador.Actual.NombreJugador);
+        }
+
+        private SolidColorBrush ObtenerColorDeEstadoJugador(EstadoJugador estado)
+        {
+            SolidColorBrush color = Brushes.Gray;
 
             switch (estado)
             {
-                case ConectividadJugador.Disponible:
-                    color = Brushes.Green;
+                case EstadoJugador.Conectado:
+                    color = Brushes.LawnGreen;
                     break;
-                case ConectividadJugador.NoDisponible:
+
+                case EstadoJugador.Disponible:
+                    color = Brushes.DeepSkyBlue;
+                    break;
+
+                case EstadoJugador.EnSala:
+                    color = Brushes.Orange;
+                    break;
+
+                case EstadoJugador.EnPartida:
                     color = Brushes.Red;
-                    break;
-                default:
-                    color = Brushes.Gray;
                     break;
             }
 
@@ -137,10 +140,9 @@ namespace RompecabezasFei
             if (Dominio.CuentaJugador.Actual.NombreJugador.Equals(nombreJugadorDestino))
             {
                 resultado = true;
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_AMISTADES_SOLICITUDNOENVIADAMISMONOMBRE,Properties.Resources.
-                    ETIQUETA_AMISTADES_ERRORENVIARSOLICITUD,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GestorCuadroDialogo.MostrarAdvertencia(
+                    Properties.Resources.ETIQUETA_AMISTADES_SOLICITUDNOENVIADAMISMONOMBRE,
+                    Properties.Resources.ETIQUETA_AMISTADES_ERRORENVIARSOLICITUD);
             }
 
             return resultado;
@@ -150,33 +152,31 @@ namespace RompecabezasFei
         {
             string nombreJugadorOrigen = Dominio.CuentaJugador.Actual.NombreJugador;
             string nombreJugadorDestino = cuadroTextoNombreUsuarioInvitacion.Text;
-            bool existeSolicitudSinAceptar = Servicios.ServicioAmistades.
-                ExisteSolicitudAmistad(nombreJugadorOrigen, nombreJugadorDestino);
+            bool existeSolicitud = servicioAmistades.ExisteSolicitudAmistad(
+                nombreJugadorOrigen, nombreJugadorDestino);
 
-            if (existeSolicitudSinAceptar)
+            if (existeSolicitud)
             {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_AMISTADES_MENSAJESOLICITUDNOENVIADA,Properties.Resources.
-                    ETIQUETA_AMISTADES_ERRORENVIARSOLICITUD,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GestorCuadroDialogo.MostrarAdvertencia(
+                    Properties.Resources.ETIQUETA_AMISTADES_MENSAJESOLICITUDNOENVIADA,
+                    Properties.Resources.ETIQUETA_AMISTADES_ERRORENVIARSOLICITUD);
             }
 
-            return existeSolicitudSinAceptar;
+            return existeSolicitud;
         }
 
         private bool ExisteAmistadConJugador()
         {
             string nombreJugadorOrigen = Dominio.CuentaJugador.Actual.NombreJugador;
             string nombreJugadorDestino = cuadroTextoNombreUsuarioInvitacion.Text;
-            bool existeAmistad = Servicios.ServicioAmistades.ExisteAmistadConJugador(
+            bool existeAmistad = servicioAmistades.ExisteAmistadConJugador(
                 nombreJugadorOrigen, nombreJugadorDestino);
 
             if (existeAmistad)
             {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_AMISTADES_SOLICITUDNOENVIADAYAESAMIGO,Properties.Resources.
-                    ETIQUETA_AMISTADES_ERRORENVIARSOLICITUD,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                GestorCuadroDialogo.MostrarAdvertencia(
+                    Properties.Resources.ETIQUETA_AMISTADES_SOLICITUDNOENVIADAYAESAMIGO,
+                    Properties.Resources.ETIQUETA_AMISTADES_ERRORENVIARSOLICITUD);
             }
 
             return existeAmistad;
@@ -184,111 +184,81 @@ namespace RompecabezasFei
 
         private void IrAPaginaMenuPrincipal(object objetoOrigen, MouseButtonEventArgs evento)
         {
+            DesactivarNotificaciones();
             VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
         }
 
         private void EnviarSolicitudDeAmistad(object objetoOrigen, RoutedEventArgs evento)
         {
-            if (!EsElNombreDelJugadorActual() && Servicios.ServicioJugador.
-                ExisteNombreJugador(cuadroTextoNombreUsuarioInvitacion.Text) &&
-                !ExisteSolicitudDeAmistad() && !ExisteAmistadConJugador())
+            var servicioJugador = new ServicioJugador();
+
+            if (!EsElNombreDelJugadorActual() && 
+                servicioJugador.ExisteNombreJugador(
+                cuadroTextoNombreUsuarioInvitacion.Text) &&
+                !ExisteSolicitudDeAmistad() && 
+                !ExisteAmistadConJugador())
             {
                 string nombreJugadorOrigen = Dominio.CuentaJugador.Actual.NombreJugador;
                 string nombreJugadorDestino = cuadroTextoNombreUsuarioInvitacion.Text;
-                bool envioSolicitudRealizado = false;
+                bool envioSolicitudRealizado = servicioAmistades.
+                    EnviarSolicitudDeAmistad(nombreJugadorOrigen, nombreJugadorDestino);
 
-                try
+                switch (servicioAmistades.EstadoOperacion)
                 {
-                    envioSolicitudRealizado = clienteServicioAmistades.
-                        EnviarSolicitudDeAmistad(nombreJugadorOrigen, nombreJugadorDestino);
-                }
-                catch (EndpointNotFoundException excepcion)
-                {
-                    Registros.Registrador.EscribirRegistro(excepcion);
-                    GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                    clienteServicioAmistades.Abort();
-                }
-                catch (CommunicationObjectFaultedException excepcion)
-                {
-                    Registros.Registrador.EscribirRegistro(excepcion);
-                    GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                    clienteServicioAmistades.Abort();
-                }
-                catch (TimeoutException excepcion)
-                {
-                    Registros.Registrador.EscribirRegistro(excepcion);
-                    GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                    clienteServicioAmistades.Abort();
-                }
+                    case EstadoOperacion.Correcto:
+                        
+                        if (envioSolicitudRealizado)
+                        {
+                            GestorCuadroDialogo.MostrarInformacion(
+                                Properties.Resources.ETIQUETA_AMISTADES_MENSAJESOLICTUDENVIADA, 
+                                Properties.Resources.ETIQUETA_AMISTADES_SOLICITUDENVIADA);
+                        }
+                        else
+                        {
+                            GestorCuadroDialogo.MostrarError(
+                                Properties.Resources.ETIQUETA_AMISTADES_SOLICITUDNOENVIADA,
+                                Properties.Resources.ETIQUETA_AMISTADES_ERRORENVIARSOLICITUD);
+                        }
 
-                if (envioSolicitudRealizado)
-                {
-                    MessageBox.Show(Properties.Resources.
-                        ETIQUETA_AMISTADES_MENSAJESOLICTUDENVIADA,Properties.Resources.
-                        ETIQUETA_AMISTADES_SOLICITUDENVIADA,
-                        MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                else
-                {
-                    MessageBox.Show(Properties.Resources.
-                        ETIQUETA_AMISTADES_SOLICITUDNOENVIADA,Properties.Resources.
-                        ETIQUETA_AMISTADES_ERRORENVIARSOLICITUD,
-                        MessageBoxButton.OK, MessageBoxImage.Error);
+                        break;
                 }
             }
         }
 
         private void EliminarAmigo(object objetoOrigen, RoutedEventArgs evento)
         {
-            var filaActual = (ListBoxItem)listaAmigos.ContainerFromElement(
-                (Button)objetoOrigen);
+            var filaActual = (ListBoxItem)listaAmigos.
+                ContainerFromElement((Button)objetoOrigen);
             filaActual.IsSelected = true;
             var jugadorSeleccionado = (Dominio.CuentaJugador)listaAmigos.SelectedItem;
-            string nombreJugadorA = Dominio.CuentaJugador.Actual.NombreJugador;
-            string nombreJugadorB = jugadorSeleccionado.NombreJugador;
-            bool eliminacionRealizada = false;
+            bool eliminacionRealizada = servicioAmistades.EliminarAmistad(
+                Dominio.CuentaJugador.Actual.NombreJugador, 
+                jugadorSeleccionado.NombreJugador);
+            
+            switch (servicioAmistades.EstadoOperacion)
+            {
+                case EstadoOperacion.Correcto:
+                    
+                    if (eliminacionRealizada)
+                    {
+                        CuentasDeAmigos.Remove(jugadorSeleccionado);
+                    }
+                    else
+                    {
+                        GestorCuadroDialogo.MostrarError(
+                            Properties.Resources.ETIQUETA_AMISTADES_MENSAJEERRORELIMINARAMIGO,
+                            Properties.Resources.ETIQUETA_AMISTADES_ERRORELIMINARAMIGO);
+                    }
 
-            try
-            {
-                eliminacionRealizada = clienteServicioAmistades.
-                    EliminarAmistadEntreJugadores(nombreJugadorA, nombreJugadorB);
-            }
-            catch (EndpointNotFoundException excepcion)
-            {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                clienteServicioAmistades.Abort();
-            }
-            catch (CommunicationObjectFaultedException excepcion)
-            {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                clienteServicioAmistades.Abort();
-            }
-            catch (TimeoutException excepcion)
-            {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                clienteServicioAmistades.Abort();
-            }
-
-            if (eliminacionRealizada)
-            {
-                CuentasDeAmigos.Remove(jugadorSeleccionado);
-            }
-            else
-            {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_AMISTADES_MENSAJEERRORELIMINARAMIGO,Properties.Resources.
-                    ETIQUETA_AMISTADES_ERRORELIMINARAMIGO,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                    break;
             }
         }
 
         private void AceptarSolicitudDeAmistad(object objetoOrigen,
             RoutedEventArgs evento)
         {
-            var filaActual = (ListBoxItem)listaSolicitudes.ContainerFromElement(
+            var filaActual = (ListBoxItem)listaSolicitudes.
+                ContainerFromElement(
                 (Button)objetoOrigen);
             filaActual.IsSelected = true;
             var jugadorSeleccionado = (Dominio.CuentaJugador)listaSolicitudes.SelectedItem;
@@ -296,134 +266,92 @@ namespace RompecabezasFei
 
             if (jugadorSeleccionado != null)
             {
-                string nombreJugadorOrigen = jugadorSeleccionado.NombreJugador;
-                string nombreJugadorDestino = Dominio.CuentaJugador.Actual.NombreJugador;
-
-                try
-                {
-                    solicitudAceptada = clienteServicioAmistades.AceptarSolicitudDeAmistad(
-                        nombreJugadorOrigen, nombreJugadorDestino);
-                }
-                catch (EndpointNotFoundException excepcion)
-                {
-                    Registros.Registrador.EscribirRegistro(excepcion);
-                    GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                    clienteServicioAmistades.Abort();
-                }
-                catch (CommunicationObjectFaultedException excepcion)
-                {
-                    Registros.Registrador.EscribirRegistro(excepcion);
-                    GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                    clienteServicioAmistades.Abort();
-                }
-                catch (TimeoutException excepcion)
-                {
-                    Registros.Registrador.EscribirRegistro(excepcion);
-                    GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                    clienteServicioAmistades.Abort();
-                }
+                solicitudAceptada = servicioAmistades.
+                    AceptarSolicitudDeAmistad(jugadorSeleccionado.NombreJugador, 
+                    Dominio.CuentaJugador.Actual.NombreJugador);
             }
 
-            if (solicitudAceptada)
+            switch (servicioAmistades.EstadoOperacion)
             {
-                CuentasDeSolicitudes.Remove(jugadorSeleccionado);
-                CuentasDeAmigos.Add(jugadorSeleccionado);
-            }
-            else
-            {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_AMISTADES_MENSAJEERRORACEPTARSOLICITUD,Properties.Resources.
-                    ETIQUETA_AMISTADES_ERRORACEPTARSOLICITUD,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                case EstadoOperacion.Correcto:
+                    
+                    if (solicitudAceptada)
+                    {
+                        CuentasDeSolicitudes.Remove(jugadorSeleccionado);
+                        CuentasDeAmigos.Add(jugadorSeleccionado);
+                    }
+                    else
+                    {
+                        GestorCuadroDialogo.MostrarError(
+                            Properties.Resources.ETIQUETA_AMISTADES_MENSAJEERRORACEPTARSOLICITUD,
+                            Properties.Resources.ETIQUETA_AMISTADES_ERRORACEPTARSOLICITUD);
+                    }
+
+                    break;
             }
         }
 
         private void RechazarSolicitudDeAmistad(object objetoOrigen, RoutedEventArgs evento)
         {
-            var filaActual = (ListBoxItem)listaSolicitudes.ContainerFromElement(
-                (Button)objetoOrigen);
+            var filaActual = (ListBoxItem)listaSolicitudes.
+                ContainerFromElement((Button)objetoOrigen);
             filaActual.IsSelected = true;
             var jugadorSeleccionado = (Dominio.CuentaJugador)listaSolicitudes.SelectedItem;
             string nombreJugadorOrigen = jugadorSeleccionado.NombreJugador;
             string nombreJugadorDestino = Dominio.CuentaJugador.Actual.NombreJugador;
-            bool solicitudRechazada = false;
+            bool solicitudRechazada = servicioAmistades.
+                RechazarSolicitudDeAmistad(nombreJugadorOrigen, nombreJugadorDestino);
 
-            try
+            switch (servicioAmistades.EstadoOperacion)
             {
-                solicitudRechazada = clienteServicioAmistades.RechazarSolicitudDeAmistad(
-                    nombreJugadorOrigen, nombreJugadorDestino);
-            }
-            catch (EndpointNotFoundException excepcion)
-            {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                clienteServicioAmistades.Abort();
-            }
-            catch (CommunicationObjectFaultedException excepcion)
-            {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                clienteServicioAmistades.Abort();
-            }
-            catch (TimeoutException excepcion)
-            {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                clienteServicioAmistades.Abort();
-            }
+                case EstadoOperacion.Correcto:
 
-            if (solicitudRechazada)
-            {
-                CuentasDeSolicitudes.Remove(jugadorSeleccionado);
-            }
-            else
-            {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_AMISTADES_MENSAJEERRORRECHAZARSOLICITUD,Properties.Resources.
-                    ETIQUETA_AMISTADES_ERRORRECHAZARSOLICITUD,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                    if (solicitudRechazada)
+                    {
+                        CuentasDeSolicitudes.Remove(jugadorSeleccionado);
+                    }
+                    else
+                    {
+                        GestorCuadroDialogo.MostrarError(
+                            Properties.Resources.ETIQUETA_AMISTADES_MENSAJEERRORRECHAZARSOLICITUD,
+                            Properties.Resources.ETIQUETA_AMISTADES_ERRORRECHAZARSOLICITUD);
+                    }
+
+                    break;
             }
         }
 
-        public void NotificarEstadoConectividadDeJugador(string nombreJugador,
-            ConectividadJugador estado)
+        public void ActualizarEstadoDeJugador(string nombreJugador,
+            EstadoJugador estado)
         {
-            if (CuentasDeAmigos != null)
+            var cuentaAmigoModificacion = CuentasDeAmigos.FirstOrDefault(amigo =>
+                amigo.NombreJugador == nombreJugador);
+            CuentasDeAmigos.Remove(cuentaAmigoModificacion);
+
+            if (cuentaAmigoModificacion != null)
             {
-                var cuentaAmigoModificacion = CuentasDeAmigos.FirstOrDefault(amigo =>
-                    amigo.NombreJugador == nombreJugador);
-                CuentasDeAmigos.Remove(cuentaAmigoModificacion);
-
-                if (cuentaAmigoModificacion != null)
-                {
-                    cuentaAmigoModificacion.ColorEstadoConectividad =
-                        ObtenerColorSegunEstadoConectividad(estado);
-                }
-
-                CuentasDeAmigos.Insert(0, cuentaAmigoModificacion);
+                cuentaAmigoModificacion.ColorEstadoConectividad =
+                    ObtenerColorDeEstadoJugador(estado);
             }
+
+            CuentasDeAmigos.Insert(0, cuentaAmigoModificacion);
         }
 
-        public void NotificarSolicitudAmistadEnviada(CuentaJugador cuentaNuevaSolicitud)
+        public void MostrarSolicitudDeAmistadRecibida(CuentaJugador cuentaNuevaSolicitud)
         {
-            if (CuentasDeSolicitudes != null)
+            CuentasDeSolicitudes.Add(new Dominio.CuentaJugador
             {
-                CuentasDeSolicitudes.Add(new Dominio.CuentaJugador
-                {
-                    NombreJugador = cuentaNuevaSolicitud.NombreJugador,
-                    NumeroAvatar = cuentaNuevaSolicitud.NumeroAvatar,
-                    FuenteImagenAvatar = Utilidades.GeneradorImagenes.
-                        GenerarFuenteImagenAvatar(cuentaNuevaSolicitud.NumeroAvatar),
-                    ColorEstadoConectividad = ObtenerColorSegunEstadoConectividad(
-                        cuentaNuevaSolicitud.EstadoConectividad)
-                });
-            }
+                NombreJugador = cuentaNuevaSolicitud.NombreJugador,
+                NumeroAvatar = cuentaNuevaSolicitud.NumeroAvatar,
+                FuenteImagenAvatar = GeneradorImagenes.
+                    GenerarFuenteImagenAvatar(cuentaNuevaSolicitud.NumeroAvatar),
+                ColorEstadoConectividad = ObtenerColorDeEstadoJugador(
+                    cuentaNuevaSolicitud.Estado)
+            });
         }
 
-        public void NotificarSolicitudAmistadAceptada(CuentaJugador cuentaNuevoAmigo)
+        public void MostrarNuevoAmigo(CuentaJugador cuentaNuevoAmigo)
         {
-            if (CuentasDeAmigos != null)
-            {
                 var solicitudAmistadResidual = CuentasDeSolicitudes.FirstOrDefault(
                     cuentaSolicitud => cuentaSolicitud.NombreJugador ==
                     cuentaNuevoAmigo.NombreJugador);
@@ -437,54 +365,21 @@ namespace RompecabezasFei
                 {
                     NombreJugador = cuentaNuevoAmigo.NombreJugador,
                     NumeroAvatar = cuentaNuevoAmigo.NumeroAvatar,
-                    FuenteImagenAvatar = Utilidades.GeneradorImagenes.
+                    FuenteImagenAvatar = GeneradorImagenes.
                         GenerarFuenteImagenAvatar(cuentaNuevoAmigo.NumeroAvatar),
-                    ColorEstadoConectividad = ObtenerColorSegunEstadoConectividad(
-                        cuentaNuevoAmigo.EstadoConectividad)
+                    ColorEstadoConectividad = ObtenerColorDeEstadoJugador(
+                        cuentaNuevoAmigo.Estado)
                 });
-            }
         }
 
-        public void NotificarAmistadEliminada(string nombreAmigoEliminacion)
+        public void RemoverAmigoConAmistadCancelada(string nombreJugador)
         {
-            if (CuentasDeAmigos != null)
-            {
-                var cuentaAmigoEliminacion = CuentasDeAmigos.FirstOrDefault(amigo =>
-                    amigo.NombreJugador == nombreAmigoEliminacion);
+            var cuentaAmigoEliminacion = CuentasDeAmigos.
+                FirstOrDefault(amigo => amigo.NombreJugador == nombreJugador);
 
-                if (cuentaAmigoEliminacion != null)
-                {
-                    CuentasDeAmigos.Remove(cuentaAmigoEliminacion);
-                }
-            }
-        }
-
-        private void DesuscribirJugadorDeNotificaciones(object objetoOrigen,
-            RoutedEventArgs evento)
-        {
-            try
+            if (cuentaAmigoEliminacion != null)
             {
-                clienteServicioAmistades.DesuscribirJugadorDeNotificacionesDeAmistades(
-                    Dominio.CuentaJugador.Actual.NombreJugador);
-                clienteServicioAmistades.Close();
-            }
-            catch (EndpointNotFoundException excepcion)
-            {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                clienteServicioAmistades.Abort();
-            }
-            catch (CommunicationObjectFaultedException excepcion)
-            {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                clienteServicioAmistades.Abort();
-            }
-            catch (TimeoutException excepcion)
-            {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                clienteServicioAmistades.Abort();
+                CuentasDeAmigos.Remove(cuentaAmigoEliminacion);
             }
         }
     }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Logica" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Logica" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8088/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Logica.Enumeraciones" />
   <xs:complexType name="ArrayOfCuentaJugador">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="CuentaJugador" nillable="true" type="tns:CuentaJugador" />
@@ -11,7 +12,7 @@
       <xs:element minOccurs="0" name="Contrasena" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Correo" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EsInvitado" type="xs:boolean" />
-      <xs:element minOccurs="0" name="EstadoConectividad" type="tns:ConectividadJugador" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Logica.Enumeraciones" minOccurs="0" name="Estado" type="q1:EstadoJugador" />
       <xs:element minOccurs="0" name="IdJugador" type="xs:int" />
       <xs:element minOccurs="0" name="NombreJugador" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="NumeroAvatar" type="xs:int" />
@@ -19,14 +20,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CuentaJugador" nillable="true" type="tns:CuentaJugador" />
-  <xs:simpleType name="ConectividadJugador">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Desconectado" />
-      <xs:enumeration value="Disponible" />
-      <xs:enumeration value="NoDisponible" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="ConectividadJugador" nillable="true" type="tns:ConectividadJugador" />
+  <xs:complexType name="Posicion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="X" type="xs:double" />
+      <xs:element minOccurs="0" name="Y" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Posicion" nillable="true" type="tns:Posicion" />
   <xs:complexType name="Tablero">
     <xs:sequence>
       <xs:element minOccurs="0" name="NumeroImagenRompecabezas" type="xs:int" />

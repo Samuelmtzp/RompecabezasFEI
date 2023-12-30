@@ -7,16 +7,17 @@ using Registros;
 
 namespace Logica
 {
-    public static class GeneradorMensajesCorreo
+    public static class GeneradorMensajeCorreo
     {
         private static readonly ILog Log = Registrador.GetLogger();
+        private static readonly int NumeroDePuerto = 587;
+        private static readonly string Servidor = "smtp.gmail.com";
 
-        public static bool EnviarMensaje(string encabezado, string correoDestino, 
-            string asunto, string mensaje)
+        public static bool EnviarMensaje(string encabezado, string correo, string asunto, 
+            string mensaje)
         {
             bool resultado = true;
-            int NumeroPuerto = 587;
-            SmtpClient clienteSmtp = new SmtpClient("smtp.gmail.com", NumeroPuerto)
+            SmtpClient clienteSmtp = new SmtpClient(Servidor, NumeroDePuerto)
             {
                 EnableSsl = true
             };
@@ -25,17 +26,17 @@ namespace Logica
             {
                 MailMessage mensajeCorreo = new MailMessage()
                 {
-                    From = new MailAddress(Properties.Settings.Default.Email, encabezado),
+                    From = new MailAddress(Properties.Configuration.Default.Correo, encabezado),
                     Subject = asunto,
                     Body = mensaje,
                     BodyEncoding = Encoding.UTF8,
                     IsBodyHtml = true
                 };
-                mensajeCorreo.To.Add(correoDestino);
+                mensajeCorreo.To.Add(correo);
 
                 clienteSmtp.Credentials = new NetworkCredential(
-                    Properties.Settings.Default.Email, 
-                    Properties.Settings.Default.EmailPassword);
+                    Properties.Configuration.Default.Correo, 
+                    Properties.Configuration.Default.ContrasenaCorreo);
                 clienteSmtp.EnableSsl = true;
                 clienteSmtp.Send(mensajeCorreo);                
             }

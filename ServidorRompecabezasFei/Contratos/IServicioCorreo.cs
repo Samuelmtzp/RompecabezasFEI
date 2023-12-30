@@ -6,10 +6,9 @@ namespace Contratos
     public interface IServicioCorreo
     {
         [OperationContract]
-        bool ExisteCorreoElectronico(string correoElectronico);
+        bool ExisteCorreo(string correo);
 
         [OperationContract]
-        bool EnviarMensajeCorreo(string encabezado, string correoDestino,
-            string asunto, string mensaje);
+        bool EnviarMensajeACorreo(string encabezado, string correo, string asunto, string mensaje);
     }
 }

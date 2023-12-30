@@ -1,4 +1,5 @@
-﻿using Logica;
+﻿using Logica.Enumeraciones;
+using Logica;
 using System.Collections.Generic;
 using System.ServiceModel;
 
@@ -23,8 +24,7 @@ namespace Contratos
         bool RechazarSolicitudDeAmistad(string nombreJugadorOrigen, string nombreJugadorDestino);
 
         [OperationContract]
-        bool ExisteSolicitudDeAmistad(string nombreJugadorOrigen, 
-            string nombreJugadorDestino);
+        bool ExisteSolicitudDeAmistad(string nombreJugadorOrigen, string nombreJugadorDestino);
 
         [OperationContract]
         bool ExisteAmistadConJugador(string nombreJugadorA, string nombreJugadorB);
@@ -33,26 +33,26 @@ namespace Contratos
         bool EliminarAmistadEntreJugadores(string nombreJugadorA, string nombreJugadorB);
 
         [OperationContract(IsOneWay = true)]
-        void SuscribirJugadorANotificacionesDeAmistades(string nombreJugador);
+        void ActivarNotificacionesDeAmistades(string nombreJugador);
 
         [OperationContract(IsOneWay = true)]
-        void DesuscribirJugadorDeNotificacionesDeAmistades(string nombreJugador);
+        void DesactivarNotificacionesDeAmistades(string nombreJugador);
     }
 
     [ServiceContract]
     public interface IServicioAmistadesCallback
     {
         [OperationContract(IsOneWay = true)]
-        void NotificarSolicitudAmistadEnviada(CuentaJugador cuentaNuevaSolicitud);
+        void MostrarSolicitudDeAmistadRecibida(CuentaJugador cuentaNuevaSolicitud);
 
         [OperationContract(IsOneWay = true)]
-        void NotificarSolicitudAmistadAceptada(CuentaJugador cuentaNuevoAmigo);
+        void MostrarNuevoAmigo(CuentaJugador cuentaNuevoAmigo);
 
         [OperationContract(IsOneWay = true)]
-        void NotificarAmistadEliminada(string nombreAmigoEliminacion);
+        void RemoverAmigoConAmistadCancelada(string nombreJugador);
 
         [OperationContract(IsOneWay = true)]
-        void NotificarEstadoConectividadDeJugador(string nombreJugador,
-            ConectividadJugador estado);
+        void ActualizarEstadoDeJugador(string nombreJugador,
+            EstadoJugador estado);
     }
 }

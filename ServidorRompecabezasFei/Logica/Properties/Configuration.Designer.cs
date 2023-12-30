@@ -12,46 +12,39 @@ namespace Logica.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.7.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.8.0.0")]
+    internal sealed partial class Configuration : global::System.Configuration.ApplicationSettingsBase {
         
-        private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
+        private static Configuration defaultInstance = ((Configuration)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Configuration())));
         
-        public static Settings Default {
+        public static Configuration Default {
             get {
                 return defaultInstance;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("RompecabezasFEISoporte@gmail.com")]
-        public string Email
-        {
-            get
-            {
-                return ((string)(this["Email"]));
+        public string Correo {
+            get {
+                return ((string)(this["Correo"]));
             }
-            set
-            {
-                this["Email"] = value;
+            set {
+                this["Correo"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("swec grwn hpxd xopd")]
-        public string EmailPassword
-        {
-            get
-            {
-                return ((string)(this["EmailPassword"]));
+        public string ContrasenaCorreo {
+            get {
+                return ((string)(this["ContrasenaCorreo"]));
             }
-            set
-            {
-                this["EmailPassword"] = value;
+            set {
+                this["ContrasenaCorreo"] = value;
             }
         }
-
     }
 }

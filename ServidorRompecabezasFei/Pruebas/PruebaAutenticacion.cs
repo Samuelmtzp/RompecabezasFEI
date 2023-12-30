@@ -1,4 +1,5 @@
 ﻿using Logica;
+using Logica.AccesoDatos;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Pruebas
@@ -27,8 +28,6 @@ namespace Pruebas
             string contrasena = "537c35589388e5c4eff4a2568b5f27bf9937fc83bbdd168bcbd26b7bbd4fe" +
                 "244c2ef82546217b4cbc1d54c3947654c8f04e70cc96b472d9d69fbc6250ee353dc";
 
-            Autenticacion autenticacion = new Autenticacion();
-
             CuentaJugador cuentaJugadorEsperada = new CuentaJugador()
             {
                 NombreJugador = "Sam",
@@ -37,7 +36,7 @@ namespace Pruebas
                 "244c2ef82546217b4cbc1d54c3947654c8f04e70cc96b472d9d69fbc6250ee353dc",
                 NumeroAvatar = 3,
             };
-            CuentaJugador cuentaJugadorResultado = autenticacion.IniciarSesion(nombreUsuario,
+            CuentaJugador cuentaJugadorResultado = AccesoJugador.IniciarSesion(nombreUsuario,
                 contrasena);
 
             Assert.AreEqual(cuentaJugadorEsperada.ToString(), cuentaJugadorResultado.ToString(),
@@ -50,8 +49,6 @@ namespace Pruebas
             string nombreUsuario = "Sam";
             string contrasena = "";
 
-            Autenticacion servicioAutenticacion = new Autenticacion();
-
             CuentaJugador jugadorEsperado = new CuentaJugador()
             {
                 NombreJugador = "Sam",
@@ -59,7 +56,7 @@ namespace Pruebas
                 Contrasena = "",
                 NumeroAvatar = 3,
             };
-            CuentaJugador jugadorResultado = servicioAutenticacion.IniciarSesion(nombreUsuario,
+            CuentaJugador jugadorResultado = AccesoJugador.IniciarSesion(nombreUsuario,
                 contrasena);
 
             Assert.AreNotEqual(jugadorEsperado.ToString(), jugadorResultado.ToString(),

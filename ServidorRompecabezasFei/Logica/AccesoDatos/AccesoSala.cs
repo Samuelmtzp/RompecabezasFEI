@@ -1,8 +1,8 @@
 ﻿using Datos;
 
-namespace Logica
+namespace Logica.AccesoDatos
 {
-    public static class GestionSala
+    public static class AccesoSala
     {
         public static bool CrearNuevaSala(string codigoSala)
         {
@@ -13,8 +13,8 @@ namespace Logica
                 Datos.Sala nuevaSala = new Datos.Sala
                 {
                     Codigo = codigoSala,
-                    MaximoJugadores = Sala.MaximoJugadoresPorSala,
-                    MinimoJugadores = Sala.MinimoJugadoresParaIniciarPartida,
+                    MaximoJugadores = Sala.CantidadMaximaJugadores,
+                    MinimoJugadores = Sala.CantidadMinimaJugadoresParaPartida,
                 };
                 contexto.Sala.Add(nuevaSala);
                 resultado = contexto.SaveChanges() > 0;

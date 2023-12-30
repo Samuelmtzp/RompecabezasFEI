@@ -1,4 +1,6 @@
-﻿using Seguridad;
+﻿using RompecabezasFei.Utilidades;
+using RompecabezasFei.Servicios;
+using Seguridad;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -8,8 +10,6 @@ namespace RompecabezasFei
 {
     public partial class PaginaActualizacionInformacion : Page
     {
-        private bool nombreModificado;
-
         public PaginaActualizacionInformacion(string nombreJugador, int numeroAvatar)
         {
             InitializeComponent();
@@ -20,7 +20,7 @@ namespace RompecabezasFei
         {
             cuadroTextoNombreUsuario.Text = nombreJugador;
             imagenAvatarActual.Tag = Convert.ToInt16(numeroAvatar);
-            imagenAvatarActual.Source = Utilidades.GeneradorImagenes.
+            imagenAvatarActual.Source = GeneradorImagenes.
                 GenerarFuenteImagenAvatar(numeroAvatar);
         }
 
@@ -30,126 +30,175 @@ namespace RompecabezasFei
             VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
         }
 
-        private void GuardarModificacionesDatosJugador(object objetoOrigen,
+        private void IntentarActualizarInformacion(object objetoOrigen,
             RoutedEventArgs evento)
         {
-            string nombreAnterior = Dominio.CuentaJugador.Actual.NombreJugador;
             string nuevoNombre = cuadroTextoNombreUsuario.Text.Trim();
             int nuevoNumeroAvatar = Convert.ToInt32(imagenAvatarActual.Tag);
-            bool esNombreDiferente = ExistenModificacionesEnNombreJugador(nuevoNombre);
-            bool esAvatarDiferente = ExistenModificacionesEnNumeroAvatar(nuevoNumeroAvatar);
+            bool esNombreDiferente = !HayNombreJugadorSinModificar();
+            bool esAvatarDiferente = !HayNumeroAvatarSinModificar();
 
             if (!esNombreDiferente && !esAvatarDiferente)
             {
                 VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
             }
 
-            if (esNombreDiferente || esAvatarDiferente && 
-                !ExistenDatosInvalidosParaActualizacion())
+            if (!ExistenDatosInvalidosParaActualizacion())
             {
-                if (!Servicios.ServicioJugador.ExisteNombreJugador(nuevoNombre) || 
-                    esAvatarDiferente)
-                {
-                    bool actualizacionRealizada = Servicios.ServicioJugador.
-                        ActualizarInformacion(nombreAnterior, nuevoNombre, nuevoNumeroAvatar);
+                bool actualizacionNombreRealizada = false;
+                bool actualizacionAvatarRealizada = false;
 
-                    if (actualizacionRealizada)
-                    {
-                        MessageBox.Show(Properties.Resources.
-                            ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONREALIZADA,
-                            Properties.Resources.
-                            ETIQUETA_ACTUALIZACIONINFORMACION_MENSAJEACTUALIZACION,
-                            MessageBoxButton.OK);
-                        Dominio.CuentaJugador.Actual.NumeroAvatar = nuevoNumeroAvatar;
-                        Dominio.CuentaJugador.Actual.NombreJugador = nuevoNombre;
-                        Dominio.CuentaJugador.Actual.FuenteImagenAvatar = Utilidades.
-                            GeneradorImagenes.GenerarFuenteImagenAvatar(nuevoNumeroAvatar);
-                        VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
-                    }
-                    else
-                    {
-                        MessageBox.Show(Properties.Resources.
-                            ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONNOREALIZADA,
-                            Properties.Resources.
-                            ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACION,
-                            MessageBoxButton.OK);
-                    }
+                if (esNombreDiferente)
+                {
+                    actualizacionNombreRealizada = 
+                        ActualizarNombreJugador(Dominio.CuentaJugador.
+                        Actual.NombreJugador, nuevoNombre);
+                }
+
+                if (esAvatarDiferente)
+                {
+                    actualizacionAvatarRealizada = 
+                        ActualizarNumeroAvatar(Dominio.CuentaJugador.
+                        Actual.NombreJugador, nuevoNumeroAvatar);
+                }
+
+                if ((esNombreDiferente && !actualizacionNombreRealizada) || 
+                    (esAvatarDiferente && !actualizacionAvatarRealizada))
+                {
+                    GestorCuadroDialogo.MostrarAdvertencia(Properties.Resources.
+                        ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONNOREALIZADA,
+                        Properties.Resources.
+                        ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACION);
+                    VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
                 }
                 else
                 {
-                    MessageBox.Show(
+                    GestorCuadroDialogo.MostrarInformacion(Properties.Resources.
+                        ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONREALIZADA,
                         Properties.Resources.
-                        ETIQUETA_ACTUALIZACIONINFORMACION_NOMBRENODISPONIBLE,
-                        Properties.Resources.
-                        ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACION,
-                        MessageBoxButton.OK);
+                        ETIQUETA_ACTUALIZACIONINFORMACION_MENSAJEACTUALIZACION);
                 }
             }
+        }
+
+        private bool ActualizarNombreJugador(string nombreAnterior, 
+            string nuevoNombre)
+        {
+            var servicioJugador = new ServicioJugador();
+            bool actualizacionRealizada = servicioJugador.
+                ActualizarNombreJugador(nombreAnterior, nuevoNombre);
+
+            switch (servicioJugador.EstadoOperacion)
+            {
+                case EstadoOperacion.Correcto:
+
+                    if (actualizacionRealizada)
+                    {
+                        Dominio.CuentaJugador.Actual.NombreJugador = nuevoNombre;                        
+                    }
+
+                    break;
+            }
+
+            return actualizacionRealizada;
+        }
+
+        private bool ActualizarNumeroAvatar(string nombreJugador, 
+            int nuevoNumeroAvatar)
+        {
+            var servicioJugador = new ServicioJugador();
+            bool actualizacionRealizada = servicioJugador.
+                ActualizarNumeroAvatar(nombreJugador, nuevoNumeroAvatar);
+
+            switch (servicioJugador.EstadoOperacion)
+            {
+                case EstadoOperacion.Correcto:
+
+                    if (actualizacionRealizada)
+                    {
+                        Dominio.CuentaJugador.Actual.
+                            NumeroAvatar = nuevoNumeroAvatar;
+                        Dominio.CuentaJugador.Actual.
+                            FuenteImagenAvatar = GeneradorImagenes.
+                            GenerarFuenteImagenAvatar(nuevoNumeroAvatar);
+                    }
+
+                    break;
+            }
+
+            return actualizacionRealizada;
         }
 
         private void NavegarAPaginaSeleccionAvatar(object objetoOrigen, RoutedEventArgs evento)
         {
-            PaginaSeleccionAvatar paginaSeleccionAvatar = new PaginaSeleccionAvatar(
-                Convert.ToInt32(imagenAvatarActual.Tag), cuadroTextoNombreUsuario.Text);
+            PaginaSeleccionAvatar paginaSeleccionAvatar = 
+                new PaginaSeleccionAvatar(Convert.ToInt32(imagenAvatarActual.Tag), 
+                cuadroTextoNombreUsuario.Text);
             VentanaPrincipal.CambiarPaginaGuardandoAnterior(paginaSeleccionAvatar);
         }
 
-        private bool ExistenModificacionesEnNumeroAvatar(int nuevoNumeroAvatar)
+        private bool HayNumeroAvatarSinModificar()
         {
-            bool resultado = true;
-
-            if (Dominio.CuentaJugador.Actual.NumeroAvatar.Equals(nuevoNumeroAvatar))
-            {
-                resultado = false;
-            }
-
-            return resultado;
+            return Dominio.CuentaJugador.Actual.NumeroAvatar.
+                Equals(Convert.ToInt32(imagenAvatarActual.Tag));
         }
 
-        private bool ExistenModificacionesEnNombreJugador(string nuevoNombreJugador)
+        private bool HayNombreJugadorSinModificar()
         {
-            nombreModificado = true;
-
-            if (Dominio.CuentaJugador.Actual.NombreJugador.Equals(nuevoNombreJugador))
-            {
-                nombreModificado = false;
-            }
-
-            return nombreModificado;
+            return Dominio.CuentaJugador.Actual.NombreJugador.
+                Equals(cuadroTextoNombreUsuario.Text.Trim());
         }
 
         private bool ExistenDatosInvalidosParaActualizacion()
         {
-            bool datosInvalidos = false;
+            bool hayDatosInvalidos = false;
 
-            if (ValidadorDatos.EsCadenaVacia(cuadroTextoNombreUsuario.Text.Trim()))
-            {
-                datosInvalidos = true;
-                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS,
-                    Properties.Resources.ETIQUETA_VALIDACION_CAMPOSVACIOS,
-                    MessageBoxButton.OK);
-            }
-
-            if (ValidadorDatos.ExisteLongitudExcedidaEnNombreJugador(
+            if (ValidadorDatos.EsCadenaVacia(
                 cuadroTextoNombreUsuario.Text.Trim()))
             {
-                datosInvalidos = true;
-                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSEXCEDIDOS,
-                    Properties.Resources.ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS,
-                    MessageBoxButton.OK);
+                GestorCuadroDialogo.MostrarAdvertencia(
+                    Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS,
+                    Properties.Resources.ETIQUETA_VALIDACION_CAMPOSVACIOS);
+                hayDatosInvalidos = true;
             }
 
-            if (ValidadorDatos.ExistenCaracteresInvalidosParaNombreJugador(
+            if (!hayDatosInvalidos && ValidadorDatos.
+                ExisteLongitudExcedidaEnNombreJugador(
                 cuadroTextoNombreUsuario.Text.Trim()))
             {
-                datosInvalidos = true;
-                MessageBox.Show(
+                GestorCuadroDialogo.MostrarAdvertencia(
+                    Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSEXCEDIDOS,
+                    Properties.Resources.ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS);
+                hayDatosInvalidos = true;
+            }
+
+            if (!hayDatosInvalidos && ValidadorDatos.
+                ExistenCaracteresInvalidosParaNombreJugador(
+                cuadroTextoNombreUsuario.Text.Trim()))
+            {
+                GestorCuadroDialogo.MostrarAdvertencia(
                     Properties.Resources.ETIQUETA_VALIDACION_MENSAJENOMBREUSUARIOINVALIDO,
-                    Properties.Resources.ETIQUETA_VALIDACION_NOMBREUSUARIOINVALIDO,
-                    MessageBoxButton.OK);
+                    Properties.Resources.ETIQUETA_VALIDACION_NOMBREUSUARIOINVALIDO);
+                hayDatosInvalidos = true;
             }
 
-            return datosInvalidos;
+            if (!hayDatosInvalidos && !HayNombreJugadorSinModificar())
+            {
+                var servicio = new ServicioJugador();
+                bool esNombreDisponible = !servicio.
+                    ExisteNombreJugador(cuadroTextoNombreUsuario.Text);
+
+                if (!esNombreDisponible)
+                {
+                    GestorCuadroDialogo.MostrarAdvertencia(Properties.Resources.
+                        ETIQUETA_ACTUALIZACIONINFORMACION_NOMBRENODISPONIBLE,
+                        Properties.Resources.
+                        ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACION);
+                    hayDatosInvalidos = true;
+                }
+            }
+
+            return hayDatosInvalidos;
         }
     }
 }

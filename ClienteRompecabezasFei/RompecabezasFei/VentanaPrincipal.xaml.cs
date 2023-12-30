@@ -13,16 +13,16 @@ namespace RompecabezasFei
         public VentanaPrincipal()
         {
             InitializeComponent();
-            Closing += CerrarSesionActual;
+            Closing += CerrarSesionAlCerrarVentana;
             PaginaActual = new PaginaInicioSesion();
             marcoPaginaActual.Navigate(PaginaActual);
         }
 
         public static void CambiarPagina(Page nuevaPagina)
         {
-            VentanaPrincipal ventanaPrincipal = (VentanaPrincipal)GetWindow(PaginaActual);
+            VentanaPrincipal ventanaPrincipal = ObtenerVentanaActual();
             PaginaActual = nuevaPagina;
-            ventanaPrincipal.marcoPaginaActual.Navigate(nuevaPagina);
+            ventanaPrincipal?.marcoPaginaActual.Navigate(nuevaPagina);
         }
 
         public static void CambiarPaginaGuardandoAnterior(Page nuevaPagina)
@@ -31,14 +31,29 @@ namespace RompecabezasFei
             CambiarPagina(nuevaPagina);
         }
 
-        private void CerrarSesionActual(object objetoOrigen, CancelEventArgs evento)
+        public static VentanaPrincipal ObtenerVentanaActual()
         {
-            if (Dominio.CuentaJugador.Actual != null && 
-                !Dominio.CuentaJugador.Actual.EsInvitado)
+            return (VentanaPrincipal)GetWindow(PaginaActual);
+        }
+
+        public static void CerrarSesion(bool realizarDesconexion)
+        {
+            if (Dominio.CuentaJugador.Actual != null)
             {
-                Servicios.ServicioJugador.CerrarSesion(Dominio.CuentaJugador.
-                    Actual.NombreJugador);
+                if (realizarDesconexion)
+                {
+                    var servicio = new Servicios.ServicioJugador();
+                    servicio.CerrarSesion(Dominio.CuentaJugador.Actual.NombreJugador);
+                }
+
+                Dominio.CuentaJugador.Actual = null;
+                CambiarPagina(new PaginaInicioSesion());
             }
+        }
+
+        private void CerrarSesionAlCerrarVentana(object objetoOrigen, CancelEventArgs evento)
+        {
+            CerrarSesion(true);
         }
     }
 }

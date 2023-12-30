@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using RompecabezasFei.Utilidades;
 using Seguridad;
 
 namespace RompecabezasFei
@@ -19,25 +20,34 @@ namespace RompecabezasFei
 
             if (!ValidadorDatos.ExistenCaracteresInvalidosParaCorreo(correo))
             {
-                if (Servicios.ServicioCorreo.ExisteCorreoElectronico(correo))
+                var servicioCorreo = new Servicios.ServicioCorreo();
+                bool existeCorreo = servicioCorreo.ExisteCorreo(correo);
+
+                switch (servicioCorreo.EstadoOperacion)
                 {
-                    PaginaCodigoRestablecimientoContrasena
-                        paginaCodigoRestablecimientoContrasena = new
-                        PaginaCodigoRestablecimientoContrasena(correo);
-                    VentanaPrincipal.CambiarPagina(paginaCodigoRestablecimientoContrasena);
-                }
-                else
-                {
-                    MessageBox.Show(Properties.Resources.
-                        ETIQUETA_RECUPERACIONCONTRASENA_MENSAJECORREOINEXISTENE, Properties.
-                        Resources.ETIQUETA_RECUPERACIONCONTRASENA_CORREOINEXISTENTE,
-                        MessageBoxButton.OK);
+                    case Servicios.EstadoOperacion.Correcto:
+                        
+                        if (existeCorreo)
+                        {
+                            VentanaPrincipal.CambiarPagina(
+                                new PaginaCodigoRestablecimientoContrasena(correo));
+                        }
+                        else
+                        {
+                            GestorCuadroDialogo.MostrarAdvertencia(Properties.Resources.
+                                ETIQUETA_RECUPERACIONCONTRASENA_MENSAJECORREOINEXISTENE, 
+                                Properties.Resources.
+                                ETIQUETA_RECUPERACIONCONTRASENA_CORREOINEXISTENTE);
+                        }
+                        
+                        break;
                 }
             }
             else
             {
-                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECORREOINVALIDO,
-                    Properties.Resources.ETIQUETA_VALIDACION_CORREOINVALIDO, MessageBoxButton.OK);
+                GestorCuadroDialogo.MostrarAdvertencia(
+                    Properties.Resources.ETIQUETA_VALIDACION_MENSAJECORREOINVALIDO,
+                    Properties.Resources.ETIQUETA_VALIDACION_CORREOINVALIDO);
             }
         }
 

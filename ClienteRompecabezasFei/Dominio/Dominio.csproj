@@ -51,7 +51,7 @@
     <Compile Include="Pieza.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tablero.cs" />
-    <Compile Include="TipoAvatar.cs" />
+    <Compile Include="NumeroAvatar.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

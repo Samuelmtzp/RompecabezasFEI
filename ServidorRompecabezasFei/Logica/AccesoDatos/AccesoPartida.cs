@@ -1,11 +1,10 @@
 ﻿using Datos;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Linq;
 
-namespace Logica
+namespace Logica.AccesoDatos
 {
-    public static class GestionPartida
+    public static class AccesoPartida
     {
         public static bool CrearNuevaPartida(string codigoSala, DificultadPartida dificultad)
         {
@@ -38,9 +37,10 @@ namespace Logica
 
             using (var contexto = new EntidadesRompecabezasFei())
             {
-                Datos.Partida partidaEncontrada = contexto.Partida.OrderByDescending(
-                    partida => partida.IdPartida).Where(partida => 
-                    partida.Sala.Codigo == codigoSala).FirstOrDefault();
+                Datos.Partida partidaEncontrada = contexto.Partida.
+                    OrderByDescending(partida => partida.IdPartida).
+                    Where(partida => partida.Sala.Codigo == codigoSala).
+                    FirstOrDefault();
 
                 if (partidaEncontrada != null)
                 {
@@ -59,10 +59,11 @@ namespace Logica
             return resultado;
         }            
 
-        public static ConcurrentDictionary<int, Pieza> GenerarPiezasParaTablero(int numeroFilas, 
-            int numeroColumnas)
+        public static ConcurrentDictionary<int, Pieza> GenerarPiezasParaTablero(
+            int numeroFilas, int numeroColumnas)
         {
-            ConcurrentDictionary<int, Pieza> piezas = new ConcurrentDictionary<int, Pieza>();
+            ConcurrentDictionary<int, Pieza> piezas = 
+                new ConcurrentDictionary<int, Pieza>();
             int totalPiezas = numeroFilas * numeroColumnas;
            
             for (int numeroPieza = 1; numeroPieza <= totalPiezas; numeroPieza++)
@@ -72,7 +73,7 @@ namespace Logica
                     NumeroPieza = numeroPieza,
                     EstaDentroDeCelda = false,
                     EstaBloqueada = false,
-                    ValorEnPuntaje = PuntajePieza.PiezaNormal,
+                    Puntaje = Pieza.PuntajeNormal,
                 };
                 piezas.TryAdd(numeroPieza, pieza);
             }

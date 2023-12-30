@@ -58,12 +58,9 @@ namespace Dominio
             {
                 esPiezaBloqueada = value;
 
-                if (borde != null)
+                if (borde != null && !esPiezaBloqueada)
                 {
-                    if (!esPiezaBloqueada)
-                    {
-                        EstablecerEstiloDePiezaSinBloquear();
-                    }
+                    EstablecerEstiloDePiezaSinBloquear();
                 }
             }
         }

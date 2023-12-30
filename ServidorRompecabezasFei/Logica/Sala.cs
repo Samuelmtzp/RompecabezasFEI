@@ -1,6 +1,4 @@
-﻿using Datos;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
+﻿using System.Collections.Concurrent;
 using System.Runtime.Serialization;
 
 namespace Logica
@@ -8,12 +6,11 @@ namespace Logica
     [DataContract]
     public class Sala
     {
-        public const int MaximoJugadoresPorSala = 4;
-
-        public const int MinimoJugadoresParaIniciarPartida = 2;
-
-        [DataMember]
-        public EstadoSala Estado { get; set; }
+        public const int CantidadMaximaJugadores = 4;
+        
+        public const int CantidadMinimaJugadoresParaPartida = 2;
+        
+        public const int CantidadJugadoresVacia = 0;
 
         [DataMember]
         public string CodigoSala { get; set; }
@@ -24,12 +21,44 @@ namespace Logica
         [DataMember]
         public int ContadorJugadores { get; set; }
         
-        [DataMember]
-        public ConcurrentDictionary<string, CuentaJugador> Jugadores { get; set; }
+        public ConcurrentDictionary<string, string> NombresDeJugadores { get; set; }
+
+        public Partida Partida { get; set; }        
 
         public bool EstaVacia()
         {
-            return ContadorJugadores == 0;
+            return ContadorJugadores == CantidadJugadoresVacia;
+        }
+
+        public bool HayCantidadJugadoresMinimaParaPartida()
+        {
+            return ContadorJugadores >= CantidadMinimaJugadoresParaPartida;
+        }
+
+        public bool AgregarNombreDeJugador(string nombreJugador)
+        {
+            bool esNombreAgregado = NombresDeJugadores.
+                TryAdd(nombreJugador, null);
+
+            if (esNombreAgregado)
+            {
+                ContadorJugadores++;
+            }
+
+            return esNombreAgregado;
+        }
+
+        public bool RemoverNombreDeJugador(string nombreJugador)
+        {
+            bool esNombreRemovido = NombresDeJugadores.
+                TryRemove(nombreJugador, out _);
+
+            if (esNombreRemovido)
+            {
+                ContadorJugadores--;
+            }
+
+            return esNombreRemovido;
         }
     }
 }

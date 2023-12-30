@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:8088/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Logica" />
-  <xs:import schemaLocation="http://localhost:8088/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Datos" />
+  <xs:import schemaLocation="http://localhost:8088/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Logica.Enumeraciones" />
+  <xs:import schemaLocation="http://localhost:8088/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Datos" />
   <xs:element name="ObtenerJugadoresConSolicitudPendiente">
     <xs:complexType>
       <xs:sequence>
@@ -120,91 +121,105 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SuscribirJugadorANotificacionesDeAmistades">
+  <xs:element name="ActivarNotificacionesDeAmistades">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="DesuscribirJugadorDeNotificacionesDeAmistades">
+  <xs:element name="DesactivarNotificacionesDeAmistades">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="NotificarSolicitudAmistadEnviada">
+  <xs:element name="MostrarSolicitudDeAmistadRecibida">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="cuentaNuevaSolicitud" nillable="true" type="q3:CuentaJugador" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="NotificarSolicitudAmistadAceptada">
+  <xs:element name="MostrarNuevoAmigo">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="cuentaNuevoAmigo" nillable="true" type="q4:CuentaJugador" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="NotificarAmistadEliminada">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="nombreAmigoEliminacion" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="NotificarEstadoConectividadDeJugador">
+  <xs:element name="RemoverAmigoConAmistadCancelada">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="estado" type="q5:ConectividadJugador" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ExisteCorreoElectronico">
+  <xs:element name="ActualizarEstadoDeJugador">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="correoElectronico" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Logica.Enumeraciones" minOccurs="0" name="estado" type="q5:EstadoJugador" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ExisteCorreoElectronicoResponse">
+  <xs:element name="ExisteCorreo">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="ExisteCorreoElectronicoResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="correo" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="EnviarMensajeCorreo">
+  <xs:element name="ExisteCorreoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ExisteCorreoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EnviarMensajeACorreo">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="encabezado" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="correoDestino" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="correo" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="asunto" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="mensaje" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="EnviarMensajeCorreoResponse">
+  <xs:element name="EnviarMensajeACorreoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="EnviarMensajeCorreoResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="EnviarMensajeACorreoResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SuscribirJugadorAInvitacionesDeSala">
+  <xs:element name="ActivarInvitacionesDeSala">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="DesuscribirJugadorDeInvitacionesDeSala">
+  <xs:element name="DesactivarInvitacionesDeSala">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerAmigosDisponibles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombreAnfitrion" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerAmigosDisponiblesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="ObtenerAmigosDisponiblesResult" nillable="true" type="q6:ArrayOfCuentaJugador" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -216,40 +231,21 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="MostrarInvitacionDeSalaResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="Registrar">
+  <xs:element name="RegistrarJugador">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="cuentaJugador" nillable="true" type="q6:CuentaJugador" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="cuentaJugador" nillable="true" type="q7:CuentaJugador" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="RegistrarResponse">
+  <xs:element name="RegistrarJugadorResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="RegistrarResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="RegistrarJugadorResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ExisteNombreJugador">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ExisteNombreJugadorResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="ExisteNombreJugadorResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="IniciarSesion">
+  <xs:element name="IniciarSesionComoJugador">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
@@ -257,10 +253,24 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="IniciarSesionResponse">
+  <xs:element name="IniciarSesionComoJugadorResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="IniciarSesionResult" nillable="true" type="q7:CuentaJugador" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="IniciarSesionComoJugadorResult" nillable="true" type="q8:CuentaJugador" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IniciarSesionComoInvitado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombreInvitado" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IniciarSesionComoInvitadoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="IniciarSesionComoInvitadoResult" nillable="true" type="q9:CuentaJugador" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -271,26 +281,33 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="CerrarSesionResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="CerrarSesionResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ActualizarInformacion">
+  <xs:element name="ActualizarNombreJugador">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="nombreAnterior" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="nuevoNombre" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActualizarNombreJugadorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ActualizarNombreJugadorResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActualizarNumeroAvatar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="nuevoNumeroAvatar" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ActualizarInformacionResponse">
+  <xs:element name="ActualizarNumeroAvatarResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="ActualizarInformacionResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="ActualizarNumeroAvatarResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -309,11 +326,53 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="EsLaMismaContrasenaDeJugador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="contrasena" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EsLaMismaContrasenaDeJugadorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EsLaMismaContrasenaDeJugadorResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExisteNombreJugador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExisteNombreJugadorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ExisteNombreJugadorResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CambiarEstadoJugador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Logica.Enumeraciones" minOccurs="0" name="estado" type="q10:EstadoJugador" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CambiarEstadoJugadorResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="CrearNuevaPartida">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="codigoSala" nillable="true" type="xs:string" />
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Datos" minOccurs="0" name="dificultad" type="q8:DificultadPartida" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Datos" minOccurs="0" name="dificultad" type="q11:DificultadPartida" />
         <xs:element minOccurs="0" name="numeroImagen" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -325,7 +384,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ConectarJugadorAPartida">
+  <xs:element name="UnirseAPartida">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="codigoSala" nillable="true" type="xs:string" />
@@ -333,20 +392,22 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ConectarJugadorAPartidaResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DesconectarJugadorDePartida">
+  <xs:element name="UnirseAPartidaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="codigoSala" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="nombreJugadorDesconexion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UnirseAPartidaResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="DesconectarJugadorDePartidaResponse">
+  <xs:element name="AbandonarPartida">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoSala" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AbandonarPartidaResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -382,40 +443,39 @@
         <xs:element minOccurs="0" name="codigoSala" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="numeroPieza" type="xs:int" />
         <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="posicionX" type="xs:double" />
-        <xs:element minOccurs="0" name="posicionY" type="xs:double" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="posicion" nillable="true" type="q12:Posicion" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ObtenerNumeroPartidasJugadas">
+  <xs:element name="ObtenerNumeroDePartidasJugadas">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ObtenerNumeroPartidasJugadasResponse">
+  <xs:element name="ObtenerNumeroDePartidasJugadasResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="ObtenerNumeroPartidasJugadasResult" type="xs:int" />
+        <xs:element minOccurs="0" name="ObtenerNumeroDePartidasJugadasResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ObtenerNumeroPartidasGanadas">
+  <xs:element name="ObtenerNumeroDePartidasGanadas">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ObtenerNumeroPartidasGanadasResponse">
+  <xs:element name="ObtenerNumeroDePartidasGanadasResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="ObtenerNumeroPartidasGanadasResult" type="xs:int" />
+        <xs:element minOccurs="0" name="ObtenerNumeroDePartidasGanadasResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ExpulsarAJugadorDePartida">
+  <xs:element name="ExpulsarJugadorEnPartida">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="nombreJugadorExpulsion" nillable="true" type="xs:string" />
@@ -423,14 +483,41 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="NotificarInicioDePartida">
+  <xs:element name="ObtenerJugadoresEnPartida">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="tablero" nillable="true" type="q9:Tablero" />
+        <xs:element minOccurs="0" name="codigoSala" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="NotificarBloqueoDePieza">
+  <xs:element name="ObtenerJugadoresEnPartidaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="ObtenerJugadoresEnPartidaResult" nillable="true" type="q13:ArrayOfCuentaJugador" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConvertirJugadorEnAnfitrionDesdePartida">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codigoSala" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConvertirJugadorEnAnfitrionDesdePartidaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MostrarTableroDePartida">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="tablero" nillable="true" type="q14:Tablero" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MostrarBloqueoDePieza">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="numeroPieza" type="xs:int" />
@@ -438,7 +525,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="NotificarDesbloqueoDePieza">
+  <xs:element name="MostrarDesbloqueoDePieza">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="numeroPieza" type="xs:int" />
@@ -446,27 +533,53 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="NotificarColocacionDePieza">
+  <xs:element name="MostrarColocacionDePieza">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="numeroPieza" type="xs:int" />
         <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="puntaje" type="xs:int" />
-        <xs:element minOccurs="0" name="posicionX" type="xs:double" />
-        <xs:element minOccurs="0" name="posicionY" type="xs:double" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="posicion" nillable="true" type="q15:Posicion" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="NotificarFinDePartida">
+  <xs:element name="MostrarResultadosDePartida">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="NotificarJugadorDesconectadoDePartida">
+  <xs:element name="HabilitarOpcionDeRegresoASala">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MostrarDesconexionDeJugadorEnPartida">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="nombreJugadorDesconectado" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nombreJugadorDesconexion" nillable="true" type="xs:string" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MostrarNuevoJugadorEnPartida">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="jugador" nillable="true" type="q16:CuentaJugador" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MostrarMensajePartidaCancelada">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MostrarMensajeExpulsionDePartida">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MostrarFuncionesDeAnfitrionEnPartida">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="CrearNuevaSala">
@@ -484,21 +597,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ConectarJugadorASala">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="nombreNuevoJugador" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="codigoSala" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="mensajeBienvenida" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ConectarJugadorASalaResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RefrescarSesionEnSala">
+  <xs:element name="UnirseASala">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
@@ -506,36 +605,61 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="RefrescarSesionEnSalaResponse">
+  <xs:element name="UnirseASalaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UnirseASalaResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActivarNotificacionesDeSala">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActivarNotificacionesDeSalaResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="DesconectarJugadorDeSala">
+  <xs:element name="DesactivarNotificacionesDeSala">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="nombreJugadorDesconexion" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="codigoSala" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="mensajeDespedida" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="DesconectarJugadorDeSalaResponse">
+  <xs:element name="DesactivarNotificacionesDeSalaResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="ObtenerJugadoresConectadosEnSala">
+  <xs:element name="AbandonarSala">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codigoSala" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AbandonarSalaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerJugadoresEnSala">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="codigoSala" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ObtenerJugadoresConectadosEnSalaResponse">
+  <xs:element name="ObtenerJugadoresEnSalaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="ObtenerJugadoresConectadosEnSalaResult" nillable="true" type="q10:ArrayOfCuentaJugador" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="ObtenerJugadoresEnSalaResult" nillable="true" type="q17:ArrayOfCuentaJugador" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -574,23 +698,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ConvertirAJugadorEnAnfitrionDeSala">
+  <xs:element name="ConvertirJugadorEnAnfitrionDesdeSala">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="nombreAntiguoAnfitrion" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="nombreNuevoAnfitrion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="codigoSala" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ConvertirAJugadorEnAnfitrionDeSalaResponse">
+  <xs:element name="ConvertirJugadorEnAnfitrionDesdeSalaResponse">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="ConvertirAJugadorEnAnfitrionDeSalaResult" type="xs:boolean" />
-      </xs:sequence>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="InvitarAJugadorASala">
+  <xs:element name="InvitarJugador">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
@@ -599,7 +720,15 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="NotificarCreacionDePartida">
+  <xs:element name="ExpulsarJugadorEnSala">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombreJugadorExpulsion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codigoSala" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MostrarNuevaPartida">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -611,23 +740,52 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="NotificarNuevoJugadorConectadoEnSala">
+  <xs:element name="MostrarNuevoJugadorEnSala">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="nuevoJugador" nillable="true" type="q11:CuentaJugador" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="nuevoJugador" nillable="true" type="q18:CuentaJugador" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="NotificarJugadorDesconectadoDeSala">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="nombreJugadorDesconectado" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="MostrarFuncionesDeAnfitrion">
+  <xs:element name="MostrarMensajeExpulsionDeSala">
     <xs:complexType>
       <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MostrarDesconexionDeJugadorEnSala">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombreJugadorDesconexion" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MostrarFuncionesDeAnfitrionEnSala">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HabilitarInicioDePartida">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeshabilitarInicioDePartida">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MostrarAmigoDisponible">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="cuentaAmigo" nillable="true" type="q19:CuentaJugador" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OcultarAmigoNoDisponible">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombreAmigo" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
 </xs:schema>

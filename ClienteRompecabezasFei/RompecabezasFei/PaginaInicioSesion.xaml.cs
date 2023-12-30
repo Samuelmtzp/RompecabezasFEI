@@ -5,6 +5,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Dominio;
+using RompecabezasFei.Utilidades;
+using RompecabezasFei.Servicios;
 
 namespace RompecabezasFei
 {
@@ -17,18 +19,86 @@ namespace RompecabezasFei
 
         private void IniciarSesionComoInvitado(object objetoOrigen, RoutedEventArgs evento)
         {
-            int numeroAleatorio = new Random().Next();
-
-            Dominio.CuentaJugador.Actual = new Dominio.CuentaJugador()
+            string nombreInvitado = Properties.Resources.
+                ETIQUETA_GENERAL_INVITADO + new Random().Next();
+            var servicio = new ServicioJugador();
+            var cuentaInvitado = servicio.IniciarSesionComoInvitado(nombreInvitado);
+            
+            switch (servicio.EstadoOperacion)
             {
-                NombreJugador = Properties.Resources.ETIQUETA_GENERAL_INVITADO +
-                    numeroAleatorio,
-                EsInvitado = true,
-                NumeroAvatar = (int)TipoAvatar.Invitado,
-                FuenteImagenAvatar = Utilidades.GeneradorImagenes.
-                    GenerarFuenteImagenAvatar((int)TipoAvatar.Invitado)
-            };
-            VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
+                case EstadoOperacion.Correcto:
+                    
+                    if (cuentaInvitado != null)
+                    {
+                        CuentaJugador.Actual = new CuentaJugador()
+                        {
+                            NombreJugador = nombreInvitado,
+                            EsInvitado = true,
+                            NumeroAvatar = cuentaInvitado.NumeroAvatar,
+                            FuenteImagenAvatar = GeneradorImagenes.
+                                GenerarFuenteImagenAvatar(cuentaInvitado.NumeroAvatar)
+                        };
+                        VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
+                    }
+                    else
+                    {
+                        GestorCuadroDialogo.MostrarAdvertencia(
+                            Properties.Resources.ETIQUETA_INICIOSESION_MENSAJEINICIOSESIONERROR,
+                            Properties.Resources.ETIQUETA_INICIOSESION_INICIOSESIONCANCELADO);
+                    }
+                    
+                    break;
+            }
+        }
+
+        private void IniciarSesionComoJugador(object objetoOrigen, RoutedEventArgs evento)
+        {
+            string nombreJugador = cuadroTextoNombreUsuario.Text;
+            string contrasena = cuadroContrasenaContrasena.Password;
+
+            if (!ValidadorDatos.EsCadenaVacia(nombreJugador) &&
+                !ValidadorDatos.EsCadenaVacia(contrasena))
+            {
+                if (!ExistenDatosInvalidos(nombreJugador, contrasena))
+                {
+                    var servicio = new ServicioJugador();
+                    var cuentaJugador = servicio.IniciarSesionComoJugador(nombreJugador,
+                        EncriptadorContrasena.CalcularHashSha512(contrasena));
+
+                    switch (servicio.EstadoOperacion)
+                    {
+                        case EstadoOperacion.Correcto:
+                    
+                            if (cuentaJugador != null)
+                            {
+                                CuentaJugador.Actual = new CuentaJugador
+                                {
+                                    Correo = cuentaJugador.Correo,
+                                    NombreJugador = cuentaJugador.NombreJugador,
+                                    NumeroAvatar = cuentaJugador.NumeroAvatar,
+                                    EsInvitado = false,
+                                    FuenteImagenAvatar = GeneradorImagenes.
+                                        GenerarFuenteImagenAvatar(cuentaJugador.NumeroAvatar)
+                                };
+                                VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
+                            }
+                            else
+                            {
+                                GestorCuadroDialogo.MostrarAdvertencia(Properties.Resources.
+                                    ETIQUETA_INICIOSESION_MENSAJEINICIOSESIONERROR,
+                                    Properties.Resources.ETIQUETA_INICIOSESION_INICIOSESIONCANCELADO);
+                            }
+                            
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                GestorCuadroDialogo.MostrarAdvertencia(
+                    Properties.Resources.ETIQUETA_GENERAL_MENSAJECAMPOSVACIOS,
+                    Properties.Resources.ETIQUETA_VALIDACION_CAMPOSVACIOS);
+            }
         }
 
         private void IrAPaginaRecuperacionContrasena(object objetoOrigen,
@@ -47,82 +117,78 @@ namespace RompecabezasFei
             VentanaPrincipal.CambiarPaginaGuardandoAnterior(new PaginaAjustes());
         }
 
-        private void IniciarSesion(object objetoOrigen, RoutedEventArgs evento)
-        {
-            string nombreJugador = cuadroTextoNombreUsuario.Text;
-            string contrasena = cuadroContrasenaContrasena.Password;
-
-            if (!ValidadorDatos.EsCadenaVacia(nombreJugador) &&
-                !ValidadorDatos.EsCadenaVacia(contrasena))
-            {
-                if (!ExistenDatosInvalidos(nombreJugador, contrasena))
-                {
-                    ServicioRompecabezasFei.CuentaJugador cuentaJugadorAutenticada =
-                        Servicios.ServicioJugador.IniciarSesion(nombreJugador,
-                        EncriptadorContrasena.CalcularHashSha512(contrasena));
-
-                    if (cuentaJugadorAutenticada != null)
-                    {
-                        Dominio.CuentaJugador.Actual = new Dominio.CuentaJugador
-                        {
-                            Contrasena = cuentaJugadorAutenticada.Contrasena,
-                            Correo = cuentaJugadorAutenticada.Correo,
-                            NombreJugador = cuentaJugadorAutenticada.NombreJugador,
-                            NumeroAvatar = cuentaJugadorAutenticada.NumeroAvatar,
-                            EsInvitado = false,
-                            FuenteImagenAvatar = Utilidades.GeneradorImagenes.
-                                GenerarFuenteImagenAvatar(cuentaJugadorAutenticada.NumeroAvatar)
-                        };
-                        VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
-                    }
-                    else
-                    {
-                        MessageBox.Show(Properties.Resources.
-                            ETIQUETA_INICIOSESION_MENSAJEINICIOSESIONERROR,
-                            Properties.Resources.ETIQUETA_INICIOSESION_INICIOSESIONCANCELADO,
-                            MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show(Properties.Resources.
-                        ETIQUETA_VALIDACION_MENSAJECAMPOSINVALIDOS, Properties.Resources.
-                        ETIQUETA_VALIDACION_CAMPOSINVALIDOS, MessageBoxButton.OK,
-                        MessageBoxImage.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show(Properties.Resources.ETIQUETA_GENERAL_MENSAJECAMPOSVACIOS,
-                    Properties.Resources.ETIQUETA_VALIDACION_CAMPOSVACIOS,
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
         private bool ExistenDatosInvalidos(string nombreJugador, string contrasena)
         {
             bool hayCamposInvalidos = false;
 
             if (ValidadorDatos.ExistenCaracteresInvalidosParaContrasena(contrasena))
             {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_VALIDACION_MENSAJECONTRASENAINVALIDA, Properties.Resources.
-                    ETIQUETA_VALIDACION_CONTRASENAINVALIDA, MessageBoxButton.OK);
+                GestorCuadroDialogo.MostrarAdvertencia(
+                    Properties.Resources.ETIQUETA_VALIDACION_MENSAJECONTRASENAINVALIDA, 
+                    Properties.Resources.ETIQUETA_VALIDACION_CONTRASENAINVALIDA);
+                hayCamposInvalidos = true;
+            }
+            
+            if (!hayCamposInvalidos && ValidadorDatos.
+                ExistenCaracteresInvalidosParaNombreJugador(nombreJugador))
+            {
+                GestorCuadroDialogo.MostrarAdvertencia(
+                    Properties.Resources.ETIQUETA_VALIDACION_MENSAJENOMBREUSUARIOINVALIDO, 
+                    Properties.Resources.ETIQUETA_VALIDACION_NOMBREUSUARIOINVALIDO);
+                hayCamposInvalidos = true;
+            } 
+            
+            if (!hayCamposInvalidos && ExistenLongitudesExcedidas(nombreJugador, contrasena))
+            {
+                GestorCuadroDialogo.MostrarAdvertencia(
+                    Properties.Resources.ETIQUETA_VALIDACION_MENSAJELONGITUDEXCEDIDA,
+                   Properties.Resources.ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS);
                 hayCamposInvalidos = true;
             }
 
-            if (ValidadorDatos.ExistenCaracteresInvalidosParaNombreJugador(nombreJugador))
+            if (!hayCamposInvalidos)
             {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_VALIDACION_MENSAJENOMBREUSUARIOINVALIDO, Properties.Resources.
-                    ETIQUETA_VALIDACION_NOMBREUSUARIOINVALIDO, MessageBoxButton.OK);
-                hayCamposInvalidos = true;
+                var servicio = new ServicioJugador();
+                bool existeNombreJugador = servicio.
+                    ExisteNombreJugador(nombreJugador);
+
+                switch (servicio.EstadoOperacion)
+                {
+                    case EstadoOperacion.Correcto:
+
+                        if (!existeNombreJugador)
+                        {
+                            GestorCuadroDialogo.MostrarAdvertencia(
+                                "El nombre de jugador ingresado no existe",
+                                "No se pudo iniciar sesión");
+                            hayCamposInvalidos = true;
+                        }
+
+                        break;
+                }
             }
 
-            if (ExistenLongitudesExcedidas(nombreJugador, contrasena))
+            if (!hayCamposInvalidos)
             {
-                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJELONGITUDEXCEDIDA,
-                   Properties.Resources.ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS, MessageBoxButton.OK);
+                var servicio = new ServicioJugador();
+                bool esMismaContrasena = servicio.
+                    EsLaMismaContrasenaDeJugador(nombreJugador, 
+                    EncriptadorContrasena.CalcularHashSha512(contrasena));
+
+                switch (servicio.EstadoOperacion)
+                {
+                    case EstadoOperacion.Correcto:
+                        
+                        if (!esMismaContrasena)
+                        {
+                            GestorCuadroDialogo.MostrarAdvertencia(
+                                "La contraseña no coincide",
+                                "Contraseña incorrecta");
+                            hayCamposInvalidos = true;
+                        }
+
+                        break;
+                }
             }
 
             return hayCamposInvalidos;

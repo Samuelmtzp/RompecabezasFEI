@@ -1,4 +1,5 @@
 ﻿using Logica;
+using Logica.AccesoDatos;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Data.Entity.Core;
 
@@ -21,12 +22,11 @@ namespace Pruebas
         public void ExisteNombreJugador_CuandoElNombreExiste_DebeIndicarExistencias(
             string nombreJugador)
         {
-            ConsultasJugador consultasJugador = new ConsultasJugador();
             bool existeNombreJugador;
 
             try
             {
-                existeNombreJugador = consultasJugador.ExisteNombreJugador(nombreJugador);
+                existeNombreJugador = AccesoJugador.ExisteNombreJugador(nombreJugador);
             }
             catch (EntityException)
             {
@@ -40,12 +40,11 @@ namespace Pruebas
         public void ExisteNombreJugadorFallo()
         {
             string nombreJugador = "";
-            ConsultasJugador consultasJugador = new ConsultasJugador();
             bool existeNombreJugador;
 
             try
             {
-                existeNombreJugador = consultasJugador.ExisteNombreJugador(nombreJugador);
+                existeNombreJugador = AccesoJugador.ExisteNombreJugador(nombreJugador);
             }
             catch (EntityException)
             {
@@ -58,12 +57,11 @@ namespace Pruebas
         public void ExisteCorreoElectronicoExito()
         {
             string correoElectronico = "zs21013902@estudiantes.uv.mx";
-            ConsultasJugador consultasJugador = new ConsultasJugador();
             bool existeCorreo;
 
             try
             {
-                existeCorreo = consultasJugador.ExisteCorreoElectronico(correoElectronico);
+                existeCorreo = AccesoJugador.ExisteCorreo(correoElectronico);
             }
             catch (EntityException)
             {
@@ -76,12 +74,11 @@ namespace Pruebas
         public void ExisteCorreoElectronicoFallo()
         {
             string correoElectronico = "";
-            ConsultasJugador consultasJugador = new ConsultasJugador();
             bool existeCorreo;
 
             try
             {
-                existeCorreo = consultasJugador.ExisteCorreoElectronico(correoElectronico);
+                existeCorreo = AccesoJugador.ExisteCorreo(correoElectronico);
             }
             catch (EntityException)
             {
@@ -94,8 +91,7 @@ namespace Pruebas
         public void ObtenerNumeroPartidasJugadasExito()
         {
             string nombreJugador = "Sam";
-            ConsultasJugador consultasJugador = new ConsultasJugador();
-            int numeroPartidasJugadas = consultasJugador.
+            int numeroPartidasJugadas = AccesoJugador.
                  ObtenerNumeroPartidasJugadasDeJugador(nombreJugador);
             Assert.AreEqual(0, numeroPartidasJugadas, "Se ha obtenido el número de partidas");
         }
@@ -104,8 +100,7 @@ namespace Pruebas
         public void ObtenerNumeroPartidasJugadasFallo()
         {
             string nombreJugador = "";
-            ConsultasJugador consultasJugador = new ConsultasJugador();
-            int numeroPartidasJugadas = consultasJugador.
+            int numeroPartidasJugadas = AccesoJugador.
                  ObtenerNumeroPartidasJugadasDeJugador(nombreJugador);
             Assert.AreNotEqual(10, numeroPartidasJugadas, "No se ha obtenido el número de partidas");
         }

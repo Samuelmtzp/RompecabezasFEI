@@ -1,4 +1,6 @@
-﻿using Seguridad;
+﻿using Dominio;
+using RompecabezasFei.Utilidades;
+using Seguridad;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -28,7 +30,7 @@ namespace RompecabezasFei
             cuadroTextoCorreoElectronico.Text = correo;
             cuadroContrasenaContrasena.Password = contrasena;
             cuadroContrasenaConfirmacionContrasena.Password = confirmacionContrasena;
-            imagenAvatarActual.Source = Utilidades.GeneradorImagenes.
+            imagenAvatarActual.Source = GeneradorImagenes.
                 GenerarFuenteImagenAvatar(numeroAvatar);
             imagenAvatarActual.Tag = Convert.ToInt16(numeroAvatar);
         }
@@ -40,13 +42,16 @@ namespace RompecabezasFei
 
         private void IrAPaginaSeleccionAvatar(object objetoOrigen, RoutedEventArgs evento)
         {
-            VentanaPrincipal.CambiarPaginaGuardandoAnterior(new PaginaSeleccionAvatar(
-                Convert.ToInt32(imagenAvatarActual.Tag), cuadroTextoNombreJugador.Text,
-                cuadroTextoCorreoElectronico.Text, cuadroContrasenaContrasena.Password,
+            VentanaPrincipal.CambiarPaginaGuardandoAnterior(
+                new PaginaSeleccionAvatar(
+                Convert.ToInt32(imagenAvatarActual.Tag), 
+                cuadroTextoNombreJugador.Text,
+                cuadroTextoCorreoElectronico.Text, 
+                cuadroContrasenaContrasena.Password,
                 cuadroContrasenaConfirmacionContrasena.Password));
         }
 
-        private void IrAPaginaVerificacionCorreo(object objetoOrigen, RoutedEventArgs evento)
+        private void IniciarRegistro(object objetoOrigen, RoutedEventArgs evento)
         {
             string nombreJugador = cuadroTextoNombreJugador.Text;
             string correo = cuadroTextoCorreoElectronico.Text.ToLower();
@@ -55,29 +60,62 @@ namespace RompecabezasFei
 
             if (!ExistenCamposInvalidos())
             {
-                if (!Servicios.ServicioJugador.ExisteNombreJugador(nombreJugador))
+                var servicioJugador = new Servicios.ServicioJugador();
+                bool esNombreJugadorDisponible = !servicioJugador.
+                    ExisteNombreJugador(nombreJugador);
+
+                switch (servicioJugador.EstadoOperacion)
                 {
-                    if (!Servicios.ServicioCorreo.ExisteCorreoElectronico(correo))
+                    case Servicios.EstadoOperacion.Correcto:
+
+                        if (esNombreJugadorDisponible)
+                        {
+                            IrAPaginaVerificacionCorreo(nombreJugador, 
+                                correo, contrasena, numeroAvatar);
+                        }
+                        else
+                        {
+                            GestorCuadroDialogo.MostrarAdvertencia(
+                                "El nombre del jugador que deseas registrar ya está registrado",
+                                "Nombre de jugador no disponible");
+                        }
+                        
+                        break;
+                }
+
+            }
+        }
+
+        private void IrAPaginaVerificacionCorreo(string nombreJugador, 
+            string correo, string contrasena, int numeroAvatar)
+        {
+            var servicioCorreo = new Servicios.ServicioCorreo();
+            bool esCorreoDisponible = !servicioCorreo.ExisteCorreo(correo);
+
+            switch (servicioCorreo.EstadoOperacion)
+            {
+                case Servicios.EstadoOperacion.Correcto:
+
+                    if (!esCorreoDisponible)
                     {
-                        Dominio.CuentaJugador jugadorRegistro = new Dominio.CuentaJugador
+                        var jugadorRegistro = new CuentaJugador
                         {
                             NombreJugador = nombreJugador,
                             Correo = correo,
                             Contrasena = contrasena,
                             NumeroAvatar = numeroAvatar,
                         };
-                        VentanaPrincipal.CambiarPagina(new PaginaVerificacionCorreo(
-                            jugadorRegistro));
+                        VentanaPrincipal.CambiarPagina(
+                            new PaginaVerificacionCorreo(jugadorRegistro));
                     }
                     else
                     {
-                        // colocar mensaje de error en caso de que exista el correo electrónico
+                        GestorCuadroDialogo.MostrarAdvertencia(
+                            "El correo electrónico que deseas registrar ya está registrado",
+                            "Correo no disponible");
                     }
-                }
-                else
-                {
-                    // colocar mensaje de error en caso de que exista el nombre del jugador
-                }
+
+                    break;
             }
         }
 
@@ -87,53 +125,53 @@ namespace RompecabezasFei
 
             if (ExistenCamposVacios())
             {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS, Properties.Resources.
-                    ETIQUETA_VALIDACION_CAMPOSVACIOS, MessageBoxButton.OK);
+                GestorCuadroDialogo.MostrarAdvertencia(
+                    Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS, 
+                    Properties.Resources.ETIQUETA_VALIDACION_CAMPOSVACIOS);
                 hayCamposInvalidos = true;
             }
 
-            if (ValidadorDatos.ExistenCaracteresInvalidosParaNombreJugador(
-                cuadroTextoNombreJugador.Text))
+            if (!hayCamposInvalidos && ValidadorDatos.
+                ExistenCaracteresInvalidosParaNombreJugador(cuadroTextoNombreJugador.Text))
             {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_VALIDACION_MENSAJENOMBREUSUARIOINVALIDO, Properties.Resources.
-                    ETIQUETA_VALIDACION_NOMBREUSUARIOINVALIDO, MessageBoxButton.OK);
+                GestorCuadroDialogo.MostrarAdvertencia(
+                    Properties.Resources.ETIQUETA_VALIDACION_MENSAJENOMBREUSUARIOINVALIDO, 
+                    Properties.Resources.ETIQUETA_VALIDACION_NOMBREUSUARIOINVALIDO);
                 hayCamposInvalidos = true;
             }
 
-            if (ValidadorDatos.ExistenCaracteresInvalidosParaCorreo(
-                cuadroTextoCorreoElectronico.Text))
+            if (!hayCamposInvalidos && ValidadorDatos.
+                ExistenCaracteresInvalidosParaCorreo(cuadroTextoCorreoElectronico.Text))
             {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_VALIDACION_MENSAJECORREOINVALIDO, Properties.Resources.
-                    ETIQUETA_VALIDACION_CORREOINVALIDO, MessageBoxButton.OK);
+                GestorCuadroDialogo.MostrarAdvertencia(
+                    Properties.Resources.ETIQUETA_VALIDACION_MENSAJECORREOINVALIDO, 
+                    Properties.Resources.ETIQUETA_VALIDACION_CORREOINVALIDO);
                 hayCamposInvalidos = true;
             }
 
-            if (ValidadorDatos.ExistenCaracteresInvalidosParaContrasena(
-                cuadroContrasenaContrasena.Password))
+            if (!hayCamposInvalidos && ValidadorDatos.
+                ExistenCaracteresInvalidosParaContrasena(cuadroContrasenaContrasena.Password))
             {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_VALIDACION_MENSAJECONTRASENAINVALIDA, Properties.Resources.
-                    ETIQUETA_VALIDACION_CONTRASENAINVALIDA, MessageBoxButton.OK);
+                GestorCuadroDialogo.MostrarAdvertencia(
+                    Properties.Resources.ETIQUETA_VALIDACION_MENSAJECONTRASENAINVALIDA, 
+                    Properties.Resources.ETIQUETA_VALIDACION_CONTRASENAINVALIDA);
                 hayCamposInvalidos = true;
             }
 
-            if (ExistenLongitudesExcedidas())
+            if (!hayCamposInvalidos && ExistenLongitudesExcedidas())
             {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_VALIDACION_MENSAJECAMPOSEXCEDIDOS, Properties.Resources.
-                    ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS, MessageBoxButton.OK);
+                GestorCuadroDialogo.MostrarAdvertencia(
+                    Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSEXCEDIDOS, 
+                    Properties.Resources.ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS);
                 hayCamposInvalidos = true;
             }
 
-            if (!ValidadorDatos.ExisteCoincidenciaEnCadenas(cuadroContrasenaContrasena.Password,
-                cuadroContrasenaConfirmacionContrasena.Password))
+            if (!hayCamposInvalidos && !cuadroContrasenaContrasena.Password.
+                Equals(cuadroContrasenaConfirmacionContrasena.Password))
             {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE, Properties.Resources.
-                    ETIQUETA_VALIDACION_CONTRASENADIFERENTE, MessageBoxButton.OK);
+                GestorCuadroDialogo.MostrarAdvertencia(
+                    Properties.Resources.ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE, 
+                    Properties.Resources.ETIQUETA_VALIDACION_CONTRASENADIFERENTE);
                 hayCamposInvalidos = true;
             }
 

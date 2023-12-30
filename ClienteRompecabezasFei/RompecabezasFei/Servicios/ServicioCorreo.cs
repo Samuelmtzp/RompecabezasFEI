@@ -1,14 +1,13 @@
 ﻿using RompecabezasFei.ServicioRompecabezasFei;
-using RompecabezasFei.Utilidades;
 using System;
+using System.Net.Sockets;
 using System.ServiceModel;
-using System.Windows;
 
 namespace RompecabezasFei.Servicios
 {
-    public static class ServicioCorreo
+    public class ServicioCorreo : Servicio
     {
-        public static bool EnviarMensajeACorreoElectronico(string encabezado, 
+        public bool EnviarMensajeACorreoElectronico(string encabezado, 
             string correoDestino, string asunto, string mensaje)
         {
             ServicioCorreoClient cliente = new ServicioCorreoClient();
@@ -16,58 +15,78 @@ namespace RompecabezasFei.Servicios
 
             try
             {
-                cliente.EnviarMensajeCorreo(encabezado, correoDestino, asunto, mensaje);
+                cliente.EnviarMensajeACorreo(encabezado, correoDestino, asunto, mensaje);
                 cliente.Close();
+                EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
             {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                cliente.Abort();
+                ManejarExcepcionDeServidor(excepcion, true);
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                cliente.Abort();
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (SocketException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, false);
             }
             catch (TimeoutException excepcion)
             {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                cliente.Abort();
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    cliente.Abort();
+                }
             }
 
             return resultado;
         }
 
-        public static bool ExisteCorreoElectronico(string correoElectronico)
+        public bool ExisteCorreo(string correo)
         {
             ServicioCorreoClient cliente = new ServicioCorreoClient();
             bool resultado = false;
 
             try
             {
-                resultado = cliente.ExisteCorreoElectronico(correoElectronico);
+                resultado = cliente.ExisteCorreo(correo);
                 cliente.Close();
+                EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
             {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                cliente.Abort();
+                ManejarExcepcionDeServidor(excepcion, true);
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                cliente.Abort();
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (SocketException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, false);
             }
             catch (TimeoutException excepcion)
             {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                cliente.Abort();
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    cliente.Abort();
+                }
             }
 
             return resultado;

@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using RompecabezasFei.ServicioRompecabezasFei;
+using RompecabezasFei.Servicios;
 using RompecabezasFei.Utilidades;
 using Security;
 using Seguridad;
@@ -20,10 +21,11 @@ namespace RompecabezasFei
         {
             InitializeComponent();
             this.jugadorRegistro = jugadorRegistro;
-            GestionadorCodigoCorreo.EnviarNuevoCodigoDeVerificacionACorreo(
-                jugadorRegistro.Correo, Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ASUNTO,
+            GestorCodigoCorreo.EnviarNuevoCodigoDeVerificacionACorreo(
+                jugadorRegistro.Correo, 
+                Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ASUNTO,
                 Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJE + " " + 
-                GestionadorCodigoCorreo.CodigoGenerado);
+                GestorCodigoCorreo.CodigoGenerado);
             IniciarTemporizador();
         }
 
@@ -32,7 +34,8 @@ namespace RompecabezasFei
             DeshabilitarBotonEnvioCodigo();
             temporizador = new Temporizador();
             temporizador.DespachadorDeTiempo.Tick += ActualizarTiempoRestante;
-            temporizador.IniciarTemporizador(Temporizador.DuracionSegundosMaximaReenvioDeCorreo);
+            temporizador.IniciarTemporizador(Temporizador.
+                DuracionSegundosMaximaReenvioDeCorreo);
         }
 
         public void ActualizarTiempoRestante(object objetoOrigen, EventArgs evento)
@@ -40,8 +43,10 @@ namespace RompecabezasFei
             if (temporizador.SegundosRestantes > Temporizador.MinimoSegundosRestantes)
             {
                 temporizador.SegundosRestantes--;
-                TimeSpan tiempoRestante = TimeSpan.FromSeconds(temporizador.SegundosRestantes);
-                etiquetaTiempoRestante.Content = $"{tiempoRestante.Minutes:00}:" +
+                TimeSpan tiempoRestante = TimeSpan.
+                    FromSeconds(temporizador.SegundosRestantes);
+                etiquetaTiempoRestante.Content = 
+                    $"{tiempoRestante.Minutes:00}:" +
                     $"{tiempoRestante.Seconds:00}";
             }
             else
@@ -59,47 +64,50 @@ namespace RompecabezasFei
 
             if (!ValidadorDatos.EsCadenaVacia(codigoVerificacion))
             {
-                bool esElMismoCodigoDeVerificacion = ValidadorDatos.
-                    ExisteCoincidenciaEnCadenas(codigoVerificacion, 
-                    GestionadorCodigoCorreo.CodigoGenerado);
+                bool coincideCodigoVerificacion = codigoVerificacion.
+                    Equals(GestorCodigoCorreo.CodigoGenerado);
 
-                if (esElMismoCodigoDeVerificacion)
+                if (coincideCodigoVerificacion)
                 {
-                    string contrasenaCifrada = EncriptadorContrasena.CalcularHashSha512(
-                        jugadorRegistro.Contrasena);
                     CuentaJugador nuevoJugador = new CuentaJugador
                     {
                         NombreJugador = jugadorRegistro.NombreJugador,
                         NumeroAvatar = jugadorRegistro.NumeroAvatar,
-                        Contrasena = contrasenaCifrada,
+                        Contrasena = EncriptadorContrasena.
+                            CalcularHashSha512(jugadorRegistro.Contrasena),
                         Correo = jugadorRegistro.Correo
                     };
-                    bool registroRealizado = Servicios.ServicioJugador.RegistrarJugador(
-                        nuevoJugador);
+                    var servicio = new ServicioJugador();
+                    bool registroRealizado = servicio.RegistrarJugador(nuevoJugador);
 
-                    if (registroRealizado)
+                    switch (servicio.EstadoOperacion)
                     {
-                        temporizador.DetenerTemporizador();
-                        MessageBox.Show(Properties.Resources.
-                            ETIQUETA_VERIFICACIONCORREO_MENSAJEUSUARIOREGISTRADO, Properties.
-                            Resources.ETIQUETA_VERIFICACIONCORREO_REGISTROREALIZADO,
-                            MessageBoxButton.OK);
-                        VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
+                        case EstadoOperacion.Correcto:
+                            
+                            if (registroRealizado)
+                            {
+                                temporizador.DetenerTemporizador();
+                                GestorCuadroDialogo.MostrarInformacion(Properties.Resources.
+                                    ETIQUETA_VERIFICACIONCORREO_MENSAJEUSUARIOREGISTRADO, 
+                                    Properties.Resources.ETIQUETA_VERIFICACIONCORREO_REGISTROREALIZADO);
+                                VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
+                            }
+                            else
+                            {
+                                GestorCuadroDialogo.MostrarError(Properties.Resources.
+                                    ETIQUETA_VERIFICACIONCORREO_MENSAJEREGISTRONOREALIZADO,
+                                    Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ERRORREGISTRO);
+                            }
+
+                            break;
                     }
-                    else
-                    {
-                        MessageBox.Show(Properties.Resources.
-                            ETIQUETA_VERIFICACIONCORREO_MENSAJEREGISTRONOREALIZADO,
-                            Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ERRORREGISTRO,
-                            MessageBoxButton.OK);
-                    }
+
                 }
                 else
                 {
-                    MessageBox.Show(Properties.Resources.
+                    GestorCuadroDialogo.MostrarAdvertencia(Properties.Resources.
                         ETIQUETA_VERIFICACIONCORREO_MENSAJECODIGOINCORRECTO,
-                        Properties.Resources.ETIQUETA_VERIFICACIONCORREO_CODIGOINCORRECTO,
-                        MessageBoxButton.OK);
+                        Properties.Resources.ETIQUETA_VERIFICACIONCORREO_CODIGOINCORRECTO);
                 }
             }
         }
@@ -107,9 +115,7 @@ namespace RompecabezasFei
         private void AceptarSoloCaracteresNumericos(object objetoOrigen,
             TextChangedEventArgs evento)
         {
-            TextBox cuadroTexto = objetoOrigen as TextBox;
-
-            if (cuadroTexto != null)
+            if (objetoOrigen is TextBox cuadroTexto)
             {
                 string texto = cuadroTexto.Text = new string(cuadroTexto.Text.Where(
                     char.IsDigit).ToArray());
@@ -121,10 +127,11 @@ namespace RompecabezasFei
         public void EnviarNuevoCodigoDeConfirmacionACorreo(object objetoOrigen, 
             RoutedEventArgs evento)
         {
-            GestionadorCodigoCorreo.EnviarNuevoCodigoDeVerificacionACorreo(
-                jugadorRegistro.Correo, Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ASUNTO,
+            GestorCodigoCorreo.EnviarNuevoCodigoDeVerificacionACorreo(
+                jugadorRegistro.Correo, 
+                Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ASUNTO,
                 Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJE + " " +
-                GestionadorCodigoCorreo.CodigoGenerado);
+                GestorCodigoCorreo.CodigoGenerado);
             IniciarTemporizador();
         }
 

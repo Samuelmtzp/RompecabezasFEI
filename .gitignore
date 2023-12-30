@@ -1,0 +1,19 @@
+﻿################################################################################
+# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
+################################################################################
+
+/ServidorRompecabezasFei/Datos/configuration.Designer.cs
+/ServidorRompecabezasFei/Datos/configuration.settings
+/ServidorRompecabezasFei/Datos/Configuration.settings
+/ServidorRompecabezasFei/Datos/Configuration1.Designer.cs
+/ServidorRompecabezasFei/Servicios/Configuration.settings
+/ServidorRompecabezasFei/Servicios/Configuration1.Designer.cs
+/ServidorRompecabezasFei/Logica/Configuration.settings
+/ServidorRompecabezasFei/Logica/Configuration1.Designer.cs
+/ServidorRompecabezasFei/Pruebas/Configuration.settings
+/ServidorRompecabezasFei/Pruebas/Configuration1.Designer.cs
+/ServidorRompecabezasFei/Logica/Conexion.config
+/ServidorRompecabezasFei/Pruebas/Conexion.config
+/ServidorRompecabezasFei/Servicios/Conexion.config
+/ServidorRompecabezasFei/Datos/Conexion.config
+/ServidorRompecabezasFei/Servidor/Conexion.config

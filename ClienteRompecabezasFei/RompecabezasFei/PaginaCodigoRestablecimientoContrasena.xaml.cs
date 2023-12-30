@@ -19,17 +19,17 @@ namespace RompecabezasFei
 
         private void EnviarCodigo()
         {
-            bool envioDeCodigoRealizado = GestionadorCodigoCorreo.
-                EnviarNuevoCodigoDeVerificacionACorreo(correoDestino, Properties.Resources.
-                ETIQUETA_CODIGO_CODIGORESTABLECIMIENTO, Properties.Resources.
-                ETIQUETA_RECUPERACION_MENSAJE + $" {GestionadorCodigoCorreo.CodigoGenerado}");
+            bool envioDeCodigoRealizado = GestorCodigoCorreo.
+                EnviarNuevoCodigoDeVerificacionACorreo(correoDestino, 
+                Properties.Resources.ETIQUETA_CODIGO_CODIGORESTABLECIMIENTO, 
+                Properties.Resources.ETIQUETA_RECUPERACION_MENSAJE + 
+                $" {GestorCodigoCorreo.CodigoGenerado}");
 
             if (!envioDeCodigoRealizado)
             {
-                MessageBox.Show(Properties.Resources.
-                            ETIQUETA_CODIGO_MENSAJENOENVIADO, Properties.Resources.
-                            ETIQUETA_CODIGO_CODIGONOENVIADO,
-                            MessageBoxButton.OK, MessageBoxImage.Error);
+                GestorCuadroDialogo.MostrarError(
+                    Properties.Resources.ETIQUETA_CODIGO_MENSAJENOENVIADO, 
+                    Properties.Resources.ETIQUETA_CODIGO_CODIGONOENVIADO);
             }
         }
 
@@ -45,19 +45,19 @@ namespace RompecabezasFei
 
             if (!ValidadorDatos.EsCadenaVacia(codigoVerificacion))
             {
-                bool codigoVerificacionCoincide = ValidadorDatos.ExisteCoincidenciaEnCadenas(
-                    codigoVerificacion, GestionadorCodigoCorreo.CodigoGenerado);
+                bool codigoVerificacionCoincide = codigoVerificacion.
+                    Equals(GestorCodigoCorreo.CodigoGenerado);
 
                 if (codigoVerificacionCoincide)
                 {
-                    VentanaPrincipal.CambiarPagina(new PaginaRestablecimientoContrasena(
-                        correoDestino));
+                    VentanaPrincipal.CambiarPagina(
+                        new PaginaRestablecimientoContrasena(correoDestino));
                 }
                 else
                 {
-                    MessageBox.Show(Properties.Resources.ETIQUETA_CODIGO_MENSAJECODIGONOCOINCIDE,
-                        Properties.Resources.ETIQUETA_CODIGO_CODIGONOCOINCIDE,
-                        MessageBoxButton.OK);
+                    GestorCuadroDialogo.MostrarAdvertencia(
+                        Properties.Resources.ETIQUETA_CODIGO_MENSAJECODIGONOCOINCIDE,
+                        Properties.Resources.ETIQUETA_CODIGO_CODIGONOCOINCIDE);
                 }
             }
         }
@@ -65,12 +65,10 @@ namespace RompecabezasFei
         private void AceptarSoloCaracteresNumericos(object objetoOrigen,
             TextChangedEventArgs evento)
         {
-            TextBox cuadroTexto = objetoOrigen as TextBox;
-
-            if (cuadroTexto != null)
+            if (objetoOrigen is TextBox cuadroTexto)
             {
-                string texto = cuadroTexto.Text = new string(cuadroTexto.Text.Where(
-                    char.IsDigit).ToArray());
+                string texto = cuadroTexto.Text = new string(
+                    cuadroTexto.Text.Where(char.IsDigit).ToArray());
                 cuadroTexto.CaretIndex = cuadroTexto.Text.Length;
                 cuadroTexto.Text = texto;
             }

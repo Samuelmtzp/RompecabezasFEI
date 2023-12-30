@@ -68,9 +68,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="PaginaAjustesPartida.xaml.cs">
-      <DependentUpon>PaginaAjustesPartida.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Servicios\EstadoOperacion.cs" />
+    <Compile Include="Servicios\Servicio.cs" />
     <Compile Include="Servicios\ServicioAmistades.cs" />
     <Compile Include="Servicios\ServicioCorreo.cs" />
     <Compile Include="Servicios\ServicioJugador.cs" />
@@ -94,9 +93,6 @@
     <Compile Include="PaginaAmistades.xaml.cs">
       <DependentUpon>PaginaAmistades.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PaginaModificacionJugadoresSala.xaml.cs">
-      <DependentUpon>PaginaModificacionJugadoresSala.xaml</DependentUpon>
-    </Compile>
     <Compile Include="PaginaCodigoRestablecimientoContrasena.xaml.cs">
       <DependentUpon>PaginaCodigoRestablecimientoContrasena.xaml</DependentUpon>
     </Compile>
@@ -117,9 +113,6 @@
     </Compile>
     <Compile Include="PaginaRegistroJugador.xaml.cs">
       <DependentUpon>PaginaRegistroJugador.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PaginaResultados.xaml.cs">
-      <DependentUpon>PaginaResultados.xaml</DependentUpon>
     </Compile>
     <Compile Include="PaginaRestablecimientoContrasena.xaml.cs">
       <DependentUpon>PaginaRestablecimientoContrasena.xaml</DependentUpon>
@@ -159,10 +152,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ResourceSonidos.resx</DependentUpon>
     </Compile>
-    <Compile Include="Utilidades\GeneradorMensajes.cs" />
+    <Compile Include="Utilidades\GestorCuadroDialogo.cs" />
     <Compile Include="Utilidades\GeneradorImagenes.cs" />
     <Compile Include="Utilidades\Temporizador.cs" />
-    <Compile Include="Utilidades\GestionadorCodigoCorreo.cs" />
+    <Compile Include="Utilidades\GestorCodigoCorreo.cs" />
     <Compile Include="VentanaPrincipal.xaml.cs">
       <DependentUpon>VentanaPrincipal.xaml</DependentUpon>
     </Compile>
@@ -181,6 +174,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServicioRompecabezasFei\item21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServicioRompecabezasFei\item22.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServicioRompecabezasFei\item3.xsd">
@@ -212,15 +208,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PaginaAjustesPartida.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="PaginaAmistades.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="PaginaModificacionJugadoresSala.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -249,10 +237,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PaginaRegistroJugador.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="PaginaResultados.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
