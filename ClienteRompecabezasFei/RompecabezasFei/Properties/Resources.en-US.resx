@@ -165,17 +165,20 @@
   <data name="BOTON_MENUPRINCIPAL_UNIRSESALA" xml:space="preserve">
     <value>Join room</value>
   </data>
+  <data name="BOTON_OPCIONESPARTIDA_FINALIZARPARTIDA" xml:space="preserve">
+    <value>End game</value>
+  </data>
+  <data name="BOTON_OPCIONESRESULTADOS_IRMENUPRINCIPAL" xml:space="preserve">
+    <value>Go to main menu</value>
+  </data>
+  <data name="BOTON_OPCIONESRESULTADOS_REGRESARASALA" xml:space="preserve">
+    <value>Return to the lobby</value>
+  </data>
   <data name="BOTON_OPCIONESSALA_AJUSTESPARTIDA" xml:space="preserve">
     <value>Game settings</value>
   </data>
-  <data name="BOTON_OPCIONESSALA_CONVERTIRANFITRION" xml:space="preserve">
-    <value>Convert to host</value>
-  </data>
   <data name="BOTON_OPCIONESSALA_DIFICIL" xml:space="preserve">
     <value>Hard</value>
-  </data>
-  <data name="BOTON_OPCIONESSALA_EXPULSAR" xml:space="preserve">
-    <value>Expel</value>
   </data>
   <data name="BOTON_OPCIONESSALA_FACIL" xml:space="preserve">
     <value>Easy</value>
@@ -204,8 +207,17 @@
   <data name="BOTON_SALA_ENVIARMENSAJE" xml:space="preserve">
     <value>Send</value>
   </data>
+  <data name="BOTON_SALA_EXPULSAR" xml:space="preserve">
+    <value>Kick</value>
+  </data>
+  <data name="BOTON_SALA_HACERANFITRION" xml:space="preserve">
+    <value>Assigns host</value>
+  </data>
   <data name="BOTON_SALA_INICIARPARTIDA" xml:space="preserve">
     <value>Start game</value>
+  </data>
+  <data name="BOTON_SALA_INVITAR" xml:space="preserve">
+    <value>Invite</value>
   </data>
   <data name="BOTON_SALA_OPCIONESSALA" xml:space="preserve">
     <value>Room options</value>
@@ -588,6 +600,9 @@
   <data name="ETIQUETA_PARTIDA_JUEGOFINALIZADO" xml:space="preserve">
     <value>Game over</value>
   </data>
+  <data name="ETIQUETA_PARTIDA_PUNTAJE" xml:space="preserve">
+    <value>Score</value>
+  </data>
   <data name="ETIQUETA_PARTIDA_TIEMPORESTANTE" xml:space="preserve">
     <value>Time left</value>
   </data>
@@ -668,6 +683,12 @@
   </data>
   <data name="ETIQUETA_SALA_MENSAJES" xml:space="preserve">
     <value>Messages</value>
+  </data>
+  <data name="ETIQUETA_SALA_MISMOCORREO" xml:space="preserve">
+    <value>The email entered is the one that corresponds to you. Please enter an email address other than yours.</value>
+  </data>
+  <data name="ETIQUETA_SALA_MODIFICARJUGADORES" xml:space="preserve">
+    <value>Modify players</value>
   </data>
   <data name="ETIQUETA_SOLICITUDAMISTADENVIADA_MENSAJE" xml:space="preserve">
     <value>Friend request has been sent successfully</value>

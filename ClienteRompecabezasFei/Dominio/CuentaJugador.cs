@@ -3,7 +3,7 @@ using System.Windows.Media.Imaging;
 
 namespace Dominio
 {
-    public class CuentaJugador
+    public class CuentaJugador 
     {
         public string NombreJugador { get; set; }
 
@@ -20,7 +20,7 @@ namespace Dominio
         public SolidColorBrush ColorEstadoConectividad { get; set; }
         
         public BitmapImage FuenteImagenAvatar { get; set; }
-        
+
         public static CuentaJugador Actual { get; set; }
     }
 }
