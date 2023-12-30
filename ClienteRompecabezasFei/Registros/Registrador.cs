@@ -12,7 +12,7 @@ namespace Registros
         public static ILog GetLogger([CallerFilePath] string nombreArchivo = "")
         {
             return LogManager.GetLogger(nombreArchivo);
-        }
+        } 
 
         public static void EscribirRegistro(Exception ex)
         {
@@ -35,8 +35,8 @@ namespace Registros
             using (StreamWriter escritorTextoPlano = new StreamWriter(rutaArchivo, true))
             {
                 string mensajeFinal = $"{Environment.NewLine}{DateTime.Now} " +
-                    $": Archivo: {rutaArchivoActual}, " +
-                    $"Excepción: {nombreExcepcion}, Mensaje: {ex.Message}";
+                    $"- Archivo: [{rutaArchivoActual}], " +
+                    $"- Excepción: {nombreExcepcion}, Mensaje: {ex.Message}";
                 escritorTextoPlano.WriteLine(mensajeFinal);
             }
         }

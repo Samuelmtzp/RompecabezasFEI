@@ -29,7 +29,7 @@ namespace RompecabezasFei
             IniciarTemporizador();
         }
 
-        private void IniciarTemporizador()
+        private void ComenzarTemporizador()
         {
             DeshabilitarBotonEnvioCodigo();
             temporizador = new Temporizador();
@@ -37,6 +37,7 @@ namespace RompecabezasFei
             temporizador.IniciarTemporizador(Temporizador.
                 DuracionSegundosMaximaReenvioDeCorreo);
         }
+
 
         public void ActualizarTiempoRestante(object objetoOrigen, EventArgs evento)
         {
@@ -52,7 +53,7 @@ namespace RompecabezasFei
             else
             {
                 temporizador.DetenerTemporizador();
-                etiquetaTiempoRestante.Content = "00:00";
+                etiquetaTiempoRestante.Content = "01:00";
                 HabilitarBotonEnvioCodigo();
             }
         }

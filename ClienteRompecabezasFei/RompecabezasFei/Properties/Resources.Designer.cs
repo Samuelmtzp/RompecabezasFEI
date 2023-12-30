@@ -205,6 +205,33 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Finalizar partida.
+        /// </summary>
+        public static string BOTON_OPCIONESPARTIDA_FINALIZARPARTIDA {
+            get {
+                return ResourceManager.GetString("BOTON_OPCIONESPARTIDA_FINALIZARPARTIDA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ir al menu principal.
+        /// </summary>
+        public static string BOTON_OPCIONESRESULTADOS_IRMENUPRINCIPAL {
+            get {
+                return ResourceManager.GetString("BOTON_OPCIONESRESULTADOS_IRMENUPRINCIPAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Regresar a la sala.
+        /// </summary>
+        public static string BOTON_OPCIONESRESULTADOS_REGRESARASALA {
+            get {
+                return ResourceManager.GetString("BOTON_OPCIONESRESULTADOS_REGRESARASALA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Ajustes de partida.
         /// </summary>
         public static string BOTON_OPCIONESSALA_AJUSTESPARTIDA {
@@ -214,29 +241,11 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Convertir en anfitrión.
-        /// </summary>
-        public static string BOTON_OPCIONESSALA_CONVERTIRANFITRION {
-            get {
-                return ResourceManager.GetString("BOTON_OPCIONESSALA_CONVERTIRANFITRION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a Difícil.
         /// </summary>
         public static string BOTON_OPCIONESSALA_DIFICIL {
             get {
                 return ResourceManager.GetString("BOTON_OPCIONESSALA_DIFICIL", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Expulsar.
-        /// </summary>
-        public static string BOTON_OPCIONESSALA_EXPULSAR {
-            get {
-                return ResourceManager.GetString("BOTON_OPCIONESSALA_EXPULSAR", resourceCulture);
             }
         }
         
@@ -322,11 +331,38 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Expulsar.
+        /// </summary>
+        public static string BOTON_SALA_EXPULSAR {
+            get {
+                return ResourceManager.GetString("BOTON_SALA_EXPULSAR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Hacer anfitrión.
+        /// </summary>
+        public static string BOTON_SALA_HACERANFITRION {
+            get {
+                return ResourceManager.GetString("BOTON_SALA_HACERANFITRION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Iniciar partida.
         /// </summary>
         public static string BOTON_SALA_INICIARPARTIDA {
             get {
                 return ResourceManager.GetString("BOTON_SALA_INICIARPARTIDA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Invitar.
+        /// </summary>
+        public static string BOTON_SALA_INVITAR {
+            get {
+                return ResourceManager.GetString("BOTON_SALA_INVITAR", resourceCulture);
             }
         }
         
@@ -1276,6 +1312,87 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Código de sala de juego.
+        /// </summary>
+        public static string ETIQUETA_MODIFICACIONSALA_CORREOINVITACIONASUNTO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_MODIFICACIONSALA_CORREOINVITACIONASUNTO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Enviar código a correo.
+        /// </summary>
+        public static string ETIQUETA_MODIFICACIONSALA_ENVIARCODIGO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_MODIFICACIONSALA_ENVIARCODIGO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Enviar invitación.
+        /// </summary>
+        public static string ETIQUETA_MODIFICACIONSALA_ENVIARINVITACION {
+            get {
+                return ResourceManager.GetString("ETIQUETA_MODIFICACIONSALA_ENVIARINVITACION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Invitación enviada.
+        /// </summary>
+        public static string ETIQUETA_MODIFICACIONSALA_INVITACIONENVIADA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_MODIFICACIONSALA_INVITACIONENVIADA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El código de la sala es el siguiente:.
+        /// </summary>
+        public static string ETIQUETA_MODIFICACIONSALA_MENSAJECORREOINVITACIONASUNTO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_MODIFICACIONSALA_MENSAJECORREOINVITACIONASUNTO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La invitación de sala ha sido enviada exitosamente.
+        /// </summary>
+        public static string ETIQUETA_MODIFICACIONSALA_MENSAJEINVITACIONENVIADA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_MODIFICACIONSALA_MENSAJEINVITACIONENVIADA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a En sala.
+        /// </summary>
+        public static string ETIQUETA_MODIFICACIONSALA_PESTAÑAENSALA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_MODIFICACIONSALA_PESTAÑAENSALA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Invitar.
+        /// </summary>
+        public static string ETIQUETA_MODIFICACIONSALA_PESTAÑAINVITAR {
+            get {
+                return ResourceManager.GetString("ETIQUETA_MODIFICACIONSALA_PESTAÑAINVITAR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Para mandar una invitación de sala a un jugador que no está en tu lista de amigos, debes de ingresar su correo electrónico.
+        /// </summary>
+        public static string ETIQUETA_MODIFICACIONSALA_TEXTOENVIARCODIGO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_MODIFICACIONSALA_TEXTOENVIARCODIGO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Correo electrónico inválido.
         /// </summary>
         public static string ETIQUETA_OPCIONESSALA_CORREOINVALIDO {
@@ -1317,6 +1434,15 @@ namespace RompecabezasFei.Properties {
         public static string ETIQUETA_PARTIDA_JUEGOFINALIZADO {
             get {
                 return ResourceManager.GetString("ETIQUETA_PARTIDA_JUEGOFINALIZADO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Puntaje.
+        /// </summary>
+        public static string ETIQUETA_PARTIDA_PUNTAJE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_PARTIDA_PUNTAJE", resourceCulture);
             }
         }
         
@@ -1560,6 +1686,24 @@ namespace RompecabezasFei.Properties {
         public static string ETIQUETA_SALA_MENSAJES {
             get {
                 return ResourceManager.GetString("ETIQUETA_SALA_MENSAJES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El correo ingresado es el que te corresponde. Por favor, ingresa un correo distinto al tuyo. .
+        /// </summary>
+        public static string ETIQUETA_SALA_MISMOCORREO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_SALA_MISMOCORREO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Modificar jugadores.
+        /// </summary>
+        public static string ETIQUETA_SALA_MODIFICARJUGADORES {
+            get {
+                return ResourceManager.GetString("ETIQUETA_SALA_MODIFICARJUGADORES", resourceCulture);
             }
         }
         

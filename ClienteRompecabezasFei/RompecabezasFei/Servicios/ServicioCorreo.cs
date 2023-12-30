@@ -15,7 +15,8 @@ namespace RompecabezasFei.Servicios
 
             try
             {
-                cliente.EnviarMensajeACorreo(encabezado, correoDestino, asunto, mensaje);
+                resultado = cliente.EnviarMensajeCorreo
+                    (encabezado, correoDestino, asunto, mensaje);
                 cliente.Close();
                 EstadoOperacion = EstadoOperacion.Correcto;
             }

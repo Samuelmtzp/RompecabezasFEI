@@ -7,6 +7,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.ServiceModel;
 
 namespace Servicios
@@ -53,7 +54,7 @@ namespace Servicios
                     }
                     catch (EntityException)
                     {
-                        // log
+                        Registros.Registrador.EscribirRegistro(excepcion);
                     }
                 }
             }
@@ -76,7 +77,7 @@ namespace Servicios
                     }
                     catch (EntityException)
                     {
-                        // log
+                        Registros.Registrador.EscribirRegistro(excepcion);
                     }
                 }
             }
@@ -93,9 +94,9 @@ namespace Servicios
                 operacionRealizada = Logica.AccesoDatos.AccesoJugador.
                     ActualizarNumeroAvatar(nombreJugador, nuevoNumeroAvatar);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-                // log
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             return operacionRealizada;
@@ -110,9 +111,9 @@ namespace Servicios
                 operacionRealizada = Logica.AccesoDatos.AccesoJugador.
                     ActualizarContrasena(correo, contrasena);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-                // log
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             return operacionRealizada;
@@ -130,7 +131,7 @@ namespace Servicios
             }
             catch (EntityException)
             {
-                // log
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             return hayCoincidencias;
@@ -145,9 +146,9 @@ namespace Servicios
                 hayExistencias = Logica.AccesoDatos.AccesoJugador.
                     ExisteNombreJugador(nombreJugador);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-                // log
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             return hayExistencias;
@@ -168,9 +169,9 @@ namespace Servicios
                         cuentaRecuperada = Logica.AccesoDatos.AccesoJugador.
                             IniciarSesion(nombreJugador, contrasena);
                     }
-                    catch (EntityException)
+                    catch (EntityException excepcion)
                     {
-                        // log
+                        Registros.Registrador.EscribirRegistro(excepcion);
                     }
                 }
 
@@ -285,9 +286,9 @@ namespace Servicios
             {
                 operacionRealizada = Logica.AccesoDatos.AccesoJugador.ExisteCorreo(correo);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-                // log
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             return operacionRealizada;
@@ -303,9 +304,9 @@ namespace Servicios
                 operacionRealizada = GeneradorMensajeCorreo.EnviarMensaje(
                     encabezado, correo, asunto, mensaje);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-                // log
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             return operacionRealizada;
@@ -325,9 +326,9 @@ namespace Servicios
                 cuentasJugador = Logica.AccesoDatos.AccesoAmistades.
                     ObtenerAmigosDeJugador(nombreJugador);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-                // log
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             if (cuentasJugador.Any())
@@ -348,9 +349,9 @@ namespace Servicios
                 cuentasJugador = Logica.AccesoDatos.AccesoAmistades.
                     ObtenerJugadoresConSolicitudPendiente(nombreJugador);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-                // log
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             if (cuentasJugador.Any())
@@ -371,9 +372,9 @@ namespace Servicios
                 operacionRealizada = Logica.AccesoDatos.AccesoAmistades.
                     EnviarSolicitudDeAmistad(nombreJugadorOrigen, nombreJugadorDestino);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-                // log
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             if (operacionRealizada && jugadoresActivos[nombreJugadorDestino].
@@ -386,9 +387,9 @@ namespace Servicios
                         MostrarSolicitudDeAmistadRecibida(
                         jugadoresActivos[nombreJugadorOrigen]);
                 }
-                catch (CommunicationObjectAbortedException)
+                catch (CommunicationObjectAbortedException excepcion)
                 {
-                    // log
+                    Registros.Registrador.EscribirRegistro(excepcion);
                     CerrarSesion(nombreJugadorDestino);
                 }
             }
@@ -406,9 +407,9 @@ namespace Servicios
                 operacionRealizada = Logica.AccesoDatos.AccesoAmistades.
                     AceptarSolicitudDeAmistad(nombreJugadorOrigen, nombreJugadorDestino);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-                // log
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             if (operacionRealizada && jugadoresActivos[nombreJugadorOrigen].
@@ -420,9 +421,9 @@ namespace Servicios
                         GetCallbackChannel<IServicioAmistadesCallback>().
                         MostrarNuevoAmigo(jugadoresActivos[nombreJugadorDestino]);
                 }
-                catch (CommunicationObjectAbortedException)
+                catch (CommunicationObjectAbortedException excepcion)
                 {
-                    // log
+                    Registros.Registrador.EscribirRegistro(excepcion);
                     CerrarSesion(nombreJugadorOrigen);
                 }
             }
@@ -440,9 +441,9 @@ namespace Servicios
                 operacionRealizada = Logica.AccesoDatos.AccesoAmistades.
                     EliminarAmistadEntreJugadores(nombreJugadorA, nombreJugadorB);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-                // log
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             if (operacionRealizada && jugadoresActivos[nombreJugadorB].
@@ -454,9 +455,9 @@ namespace Servicios
                         GetCallbackChannel<IServicioAmistadesCallback>().
                         RemoverAmigoConAmistadCancelada(nombreJugadorA);
                 }
-                catch (CommunicationObjectAbortedException)
+                catch (CommunicationObjectAbortedException excepcion)
                 {
-                    // log
+                    Registros.Registrador.EscribirRegistro(excepcion);
                     CerrarSesion(nombreJugadorB);
                 }
             }
@@ -474,9 +475,9 @@ namespace Servicios
                 operacionRealizada = Logica.AccesoDatos.AccesoAmistades.
                     EliminarSolicitudDeAmistad(nombreJugadorOrigen, nombreJugadorDestino);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-                // log
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             return operacionRealizada;
@@ -492,9 +493,9 @@ namespace Servicios
                 hayExistencias = Logica.AccesoDatos.AccesoAmistades.
                     ExisteSolicitudDeAmistad(nombreJugadorOrigen, nombreJugadorDestino);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-                // log
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             return hayExistencias;
@@ -509,9 +510,9 @@ namespace Servicios
                 hayExistencias = Logica.AccesoDatos.AccesoAmistades.
                     ExisteAmistadConJugador(nombreJugadorA, nombreJugadorB);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-                // log
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             return hayExistencias;
@@ -564,7 +565,7 @@ namespace Servicios
             }
             catch (EntityException)
             {
-                // log
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             if (operacionRealizada)
@@ -577,7 +578,7 @@ namespace Servicios
                     ContadorJugadores = Logica.Sala.CantidadJugadoresVacia,
                     NombresDeJugadores = new ConcurrentDictionary<string, string>(),                    
                 };
-                salas.TryAdd(codigoSala, nuevaSala);
+                operacionRealizada = salas.TryAdd(codigoSala, nuevaSala);
             }
 
             return operacionRealizada;
@@ -639,7 +640,7 @@ namespace Servicios
                             }
                             catch (CommunicationObjectAbortedException)
                             {
-                                // log
+                                Registros.Registrador.EscribirRegistro(excepcion);
                                 CerrarSesion(jugadorEnSala.NombreJugador);
                             }
                         }
@@ -689,7 +690,7 @@ namespace Servicios
                     }
                     catch (CommunicationObjectAbortedException) 
                     {
-                        // log
+                        Registros.Registrador.EscribirRegistro(excepcion);
                         CerrarSesion(jugadorEnSala.NombreJugador);
                     }
                 }
@@ -715,7 +716,7 @@ namespace Servicios
                 }
                 catch(CommunicationObjectAbortedException)
                 {
-                    // log
+                    Registros.Registrador.EscribirRegistro(excepcion);
                     CerrarSesion(jugador.NombreJugador);
                 }
             }
@@ -737,7 +738,7 @@ namespace Servicios
             }
             catch (CommunicationObjectAbortedException)
             {
-                // log
+                Registros.Registrador.EscribirRegistro(excepcion);
                 CerrarSesion(nombreJugador);
                 ElegirNuevoAnfitrion(codigoSala);
             }
@@ -759,7 +760,7 @@ namespace Servicios
                 }
                 catch (CommunicationObjectAbortedException) 
                 {
-                    // log
+                    Registros.Registrador.EscribirRegistro(excepcion);
                     CerrarSesion(nombreJugador);
                 }
             }
@@ -776,7 +777,7 @@ namespace Servicios
             }
             catch (CommunicationObjectAbortedException)
             {
-                // log
+                Registros.Registrador.EscribirRegistro(excepcion);
                 CerrarSesion(nombreJugadorExpulsion);
             }
 
@@ -792,7 +793,7 @@ namespace Servicios
                 }
                 catch (CommunicationObjectAbortedException)
                 {
-                    // log
+                    Registros.Registrador.EscribirRegistro(excepcion);
                     CerrarSesion(jugadorEnSala.NombreJugador);
                 }
             }
@@ -813,9 +814,9 @@ namespace Servicios
                 operacionRealizada = Logica.AccesoDatos.AccesoPartida.
                     CrearNuevaPartida(codigoSala, dificultad);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-                // log
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             if (operacionRealizada)
@@ -848,7 +849,7 @@ namespace Servicios
                 }
                 catch (CommunicationObjectAbortedException)
                 {
-                    // log
+                    Registros.Registrador.EscribirRegistro(excepcion);
                     CerrarSesion(jugadorEnPartida.NombreJugador);
                 }
             }
@@ -891,7 +892,7 @@ namespace Servicios
                 }
                 catch (CommunicationObjectAbortedException)
                 {
-                    // log
+                    Registros.Registrador.EscribirRegistro(excepcion);
                     CerrarSesion(jugador.NombreJugador);
                 }
             }
@@ -922,7 +923,7 @@ namespace Servicios
                     }
                     catch (EntityException)
                     {
-                        // log
+                        Registros.Registrador.EscribirRegistro(excepcion);
                     }
                 }
 
@@ -949,7 +950,7 @@ namespace Servicios
                         }
                         catch (CommunicationObjectAbortedException)
                         {
-                            // log
+                            Registros.Registrador.EscribirRegistro(excepcion);
                             CerrarSesion(nombreJugador);
                         }
                     }
@@ -972,7 +973,7 @@ namespace Servicios
                 }
                 catch (CommunicationObjectAbortedException)
                 {
-                    // log
+                    Registros.Registrador.EscribirRegistro(excepcion);
                     CerrarSesion(nombreJugador);
                 }
             }
@@ -998,7 +999,7 @@ namespace Servicios
                     }
                     catch (CommunicationObjectAbortedException)
                     {
-                        // log
+                        Registros.Registrador.EscribirRegistro(excepcion);
                         CerrarSesion(codigoSala);
                     }
                 }
@@ -1020,9 +1021,9 @@ namespace Servicios
                 numeroPartidasJugadas = Logica.AccesoDatos.AccesoJugador.
                     ObtenerNumeroPartidasJugadasDeJugador(nombreJugador);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-                // log
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             return numeroPartidasJugadas;
@@ -1037,9 +1038,9 @@ namespace Servicios
                 numeroPartidasGanadas = Logica.AccesoDatos.AccesoJugador.
                     ObtenerNumeroPartidasGanadas(nombreJugador);
             }
-            catch (EntityException)
+            catch (EntityException excepcion)
             {
-                // log
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             return numeroPartidasGanadas;
@@ -1056,7 +1057,7 @@ namespace Servicios
             }
             catch (CommunicationObjectAbortedException)
             {
-                // log
+                Registros.Registrador.EscribirRegistro(excepcion);
                 CerrarSesion(nombreJugadorExpulsion);
             }
 
@@ -1073,7 +1074,7 @@ namespace Servicios
                 }
                 catch (CommunicationObjectAbortedException)
                 {
-                    // log
+                    Registros.Registrador.EscribirRegistro(excepcion);
                     CerrarSesion(jugadorEnPartida.NombreJugador);
                 }
             }
@@ -1090,7 +1091,7 @@ namespace Servicios
                     }
                     catch (CommunicationObjectAbortedException)
                     {
-                        // log
+                        Registros.Registrador.EscribirRegistro(excepcion);
                         CerrarSesion(nombreJugadorExpulsion);
                     }
                 }
@@ -1110,7 +1111,7 @@ namespace Servicios
             }
             catch (CommunicationObjectAbortedException)
             {
-                // log
+                Registros.Registrador.EscribirRegistro(excepcion);
                 CerrarSesion(nombreJugador);
                 ElegirNuevoAnfitrion(codigoSala);
             }
@@ -1167,7 +1168,7 @@ namespace Servicios
                     }
                     catch (CommunicationObjectAbortedException)
                     {
-                        // log
+                        Registros.Registrador.EscribirRegistro(excepcion);
                         CerrarSesion(jugadorEnSala.NombreJugador);
                     }
                 }
@@ -1205,7 +1206,7 @@ namespace Servicios
                     }
                     catch (CommunicationObjectAbortedException)
                     {
-                        // log
+                        Registros.Registrador.EscribirRegistro(excepcion);
                         CerrarSesion(jugadorEnPartida.NombreJugador);
                     }
                 }
@@ -1241,7 +1242,7 @@ namespace Servicios
                     }
                     catch (CommunicationObjectAbortedException)
                     {
-                        // log
+                        Registros.Registrador.EscribirRegistro(excepcion);
                         CerrarSesion(jugadorEnSala.NombreJugador);
                     }
                 }
@@ -1260,7 +1261,7 @@ namespace Servicios
                 }
                 catch (CommunicationObjectAbortedException)
                 {
-                    // log
+                    Registros.Registrador.EscribirRegistro(excepcion);
                     CerrarSesion(jugadorEnPartida.NombreJugador);
                 }
             }
@@ -1279,7 +1280,7 @@ namespace Servicios
             }
             catch (CommunicationObjectAbortedException)
             {
-                // log
+                Registros.Registrador.EscribirRegistro(excepcion);
                 CerrarSesion(salas[codigoSala].NombreAnfitrion);
             }
         }
@@ -1295,7 +1296,7 @@ namespace Servicios
             }
             catch (CommunicationObjectAbortedException)
             {
-                // log
+                Registros.Registrador.EscribirRegistro(excepcion);
                 CerrarSesion(salas[codigoSala].NombreAnfitrion);
             }
         }
@@ -1325,7 +1326,7 @@ namespace Servicios
                 }
                 catch (CommunicationObjectAbortedException)
                 {
-                    // log
+                    Registros.Registrador.EscribirRegistro(excepcion);
                     CerrarSesion(nuevoAnfitrion.NombreJugador);
                     ElegirNuevoAnfitrion(codigoSala);
                 }
@@ -1346,7 +1347,7 @@ namespace Servicios
                 }
                 catch (CommunicationObjectAbortedException)
                 {
-                    // log
+                    Registros.Registrador.EscribirRegistro(excepcion);
                     CerrarSesion(jugador.NombreJugador);
                 }
             }
@@ -1407,7 +1408,7 @@ namespace Servicios
                     }
                     catch (CommunicationObjectAbortedException) 
                     {
-                        // log
+                        Registros.Registrador.EscribirRegistro(excepcion);
                         CerrarSesion(nombreAnfitrion);
                     }
                 }
@@ -1431,7 +1432,7 @@ namespace Servicios
                     }
                     catch (CommunicationObjectAbortedException) 
                     {
-                        // log
+                        Registros.Registrador.EscribirRegistro(excepcion);
                         CerrarSesion(nombreAnfitrion);
                     }
                 }
@@ -1453,7 +1454,7 @@ namespace Servicios
                 }
                 catch (CommunicationObjectAbortedException)
                 {
-                    // log
+                    Registros.Registrador.EscribirRegistro(excepcion);
                     CerrarSesion(nombreJugador);
                 }
             }

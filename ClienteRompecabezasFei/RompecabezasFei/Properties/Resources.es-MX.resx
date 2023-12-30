@@ -165,17 +165,20 @@
   <data name="BOTON_MENUPRINCIPAL_UNIRSESALA" xml:space="preserve">
     <value>Unirse a sala</value>
   </data>
+  <data name="BOTON_OPCIONESPARTIDA_FINALIZARPARTIDA" xml:space="preserve">
+    <value>Finalizar partida</value>
+  </data>
+  <data name="BOTON_OPCIONESRESULTADOS_IRMENUPRINCIPAL" xml:space="preserve">
+    <value>Ir al menu principal</value>
+  </data>
+  <data name="BOTON_OPCIONESRESULTADOS_REGRESARASALA" xml:space="preserve">
+    <value>Regresar a la sala</value>
+  </data>
   <data name="BOTON_OPCIONESSALA_AJUSTESPARTIDA" xml:space="preserve">
     <value>Ajustes de partida</value>
   </data>
-  <data name="BOTON_OPCIONESSALA_CONVERTIRANFITRION" xml:space="preserve">
-    <value>Convertir en anfitrión</value>
-  </data>
   <data name="BOTON_OPCIONESSALA_DIFICIL" xml:space="preserve">
     <value>Difícil</value>
-  </data>
-  <data name="BOTON_OPCIONESSALA_EXPULSAR" xml:space="preserve">
-    <value>Expulsar</value>
   </data>
   <data name="BOTON_OPCIONESSALA_FACIL" xml:space="preserve">
     <value>Fácil</value>
@@ -204,8 +207,17 @@
   <data name="BOTON_SALA_ENVIARMENSAJE" xml:space="preserve">
     <value>Enviar</value>
   </data>
+  <data name="BOTON_SALA_EXPULSAR" xml:space="preserve">
+    <value>Expulsar</value>
+  </data>
+  <data name="BOTON_SALA_HACERANFITRION" xml:space="preserve">
+    <value>Hacer anfitrión</value>
+  </data>
   <data name="BOTON_SALA_INICIARPARTIDA" xml:space="preserve">
     <value>Iniciar partida</value>
+  </data>
+  <data name="BOTON_SALA_INVITAR" xml:space="preserve">
+    <value>Invitar</value>
   </data>
   <data name="BOTON_SALA_OPCIONESSALA" xml:space="preserve">
     <value>Opciones sala</value>
@@ -531,6 +543,33 @@
   <data name="ETIQUETA_MENUPRINCIPAL_PERFIL" xml:space="preserve">
     <value>Mi perfil</value>
   </data>
+  <data name="ETIQUETA_MODIFICACIONSALA_CORREOINVITACIONASUNTO" xml:space="preserve">
+    <value>Código de sala de juego</value>
+  </data>
+  <data name="ETIQUETA_MODIFICACIONSALA_ENVIARCODIGO" xml:space="preserve">
+    <value>Enviar código a correo</value>
+  </data>
+  <data name="ETIQUETA_MODIFICACIONSALA_ENVIARINVITACION" xml:space="preserve">
+    <value>Enviar invitación</value>
+  </data>
+  <data name="ETIQUETA_MODIFICACIONSALA_INVITACIONENVIADA" xml:space="preserve">
+    <value>Invitación enviada</value>
+  </data>
+  <data name="ETIQUETA_MODIFICACIONSALA_MENSAJECORREOINVITACIONASUNTO" xml:space="preserve">
+    <value>El código de la sala es el siguiente:</value>
+  </data>
+  <data name="ETIQUETA_MODIFICACIONSALA_MENSAJEINVITACIONENVIADA" xml:space="preserve">
+    <value>La invitación de sala ha sido enviada exitosamente</value>
+  </data>
+  <data name="ETIQUETA_MODIFICACIONSALA_PESTAÑAENSALA" xml:space="preserve">
+    <value>En sala</value>
+  </data>
+  <data name="ETIQUETA_MODIFICACIONSALA_PESTAÑAINVITAR" xml:space="preserve">
+    <value>Invitar</value>
+  </data>
+  <data name="ETIQUETA_MODIFICACIONSALA_TEXTOENVIARCODIGO" xml:space="preserve">
+    <value>Para mandar una invitación de sala a un jugador que no está en tu lista de amigos, debes de ingresar su correo electrónico</value>
+  </data>
   <data name="ETIQUETA_OPCIONESSALA_CORREOINVALIDO" xml:space="preserve">
     <value>Correo electrónico inválido</value>
   </data>
@@ -551,6 +590,9 @@
   </data>
   <data name="ETIQUETA_PARTIDA_JUEGOFINALIZADO" xml:space="preserve">
     <value>Fin del juego</value>
+  </data>
+  <data name="ETIQUETA_PARTIDA_PUNTAJE" xml:space="preserve">
+    <value>Puntaje</value>
   </data>
   <data name="ETIQUETA_PARTIDA_TIEMPORESTANTE" xml:space="preserve">
     <value>Tiempo restante</value>
@@ -629,6 +671,12 @@
   </data>
   <data name="ETIQUETA_SALA_MENSAJES" xml:space="preserve">
     <value>Mensajes</value>
+  </data>
+  <data name="ETIQUETA_SALA_MISMOCORREO" xml:space="preserve">
+    <value>El correo ingresado es el que te corresponde. Por favor, ingresa un correo distinto al tuyo.</value>
+  </data>
+  <data name="ETIQUETA_SALA_MODIFICARJUGADORES" xml:space="preserve">
+    <value>Modificar jugadores</value>
   </data>
   <data name="ETIQUETA_SOLICITUDAMISTADENVIADA_MENSAJE" xml:space="preserve">
     <value>La solicitud de amistad se ha enviado correctamente</value>

@@ -4,6 +4,7 @@ using System.Net;
 using System.Text;
 using log4net;
 using Registros;
+using System.Runtime.InteropServices;
 
 namespace Logica
 {
@@ -40,14 +41,14 @@ namespace Logica
                 clienteSmtp.EnableSsl = true;
                 clienteSmtp.Send(mensajeCorreo);                
             }
-            catch (ArgumentException ex)
+            catch (ArgumentException excepcion)
             {
-                Log.Error($"{ex.Message}");
+                Registros.Registrador.EscribirRegistro(excepcion);
                 resultado = false;
             }
-            catch (SmtpException ex)
+            catch (SmtpException excepcion)
             {
-                Log.Error($"{ex.Message}");
+                Registros.Registrador.EscribirRegistro(excepcion);
                 resultado = false;
             }
             finally
