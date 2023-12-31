@@ -1,4 +1,6 @@
-﻿using Security;
+﻿using RompecabezasFei.Servicios;
+using RompecabezasFei.Utilidades;
+using Security;
 using Seguridad;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,36 +22,41 @@ namespace RompecabezasFei
 
         private void ActualizarContrasena(object objetoOrigen, RoutedEventArgs evento)
         {
-            string contrasenaActual = Dominio.CuentaJugador.Actual.Contrasena;
-            string contrasenaAnterior = cuadroContrasenaActual.Password;
             string nuevaContrasena = cuadroNuevaContrasena.Password;
             string confirmacionContrasena = cuadroConfirmacionContrasena.Password;
 
-            if (!ValidadorDatos.ExisteCoincidenciaEnCadenas(contrasenaAnterior, nuevaContrasena) && 
-                !ExistenDatosInvalidos(nuevaContrasena, confirmacionContrasena))
+            if (!ExistenDatosInvalidos(nuevaContrasena, confirmacionContrasena))
             {
                 string correoJugador = Dominio.CuentaJugador.Actual.Correo;
                 string nuevaContrasenaCifrada = EncriptadorContrasena.
                     CalcularHashSha512(nuevaContrasena);
-                bool actualizacionRealizada = Servicios.ServicioJugador.
+                var servicioJugador = new ServicioJugador();
+                bool actualizacionRealizada = servicioJugador.
                     ActualizarContrasena(correoJugador, nuevaContrasenaCifrada);
 
-                if (actualizacionRealizada)
+                switch (servicioJugador.EstadoOperacion)
                 {
-                    MessageBox.Show(Properties.Resources.
-                       ETIQUETA_CONTRASENAACTUALIZADA_MENSAJE,Properties.Resources.
-                       ETIQUETA_ACTUALIZACIONINFORMACION_MENSAJEACTUALIZACION,
-                       MessageBoxButton.OK);
-                    Dominio.CuentaJugador.Actual.Contrasena = nuevaContrasena;
-                    VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
+                    case EstadoOperacion.Correcto:
+                        
+                        if (actualizacionRealizada)
+                        {
+                            GestorCuadroDialogo.MostrarInformacion(Properties.Resources.
+                                ETIQUETA_ACTUALIZACIONINFORMACION_MENSAJEACTUALIZACION, 
+                                Properties.Resources.ETIQUETA_CONTRASENAACTUALIZADA_MENSAJE);
+                            Dominio.CuentaJugador.Actual.Contrasena = nuevaContrasena;
+                            VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
+                        }
+                        else
+                        {
+                            GestorCuadroDialogo.MostrarError(Properties.Resources.
+                                ETIQUETA_ACTUALIZARCONTRASENA_CONTRASENANOACTUALIZADA, 
+                                Properties.Resources.
+                                ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACION);
+                        }
+                        
+                        break;
                 }
-                else
-                {
-                    MessageBox.Show(Properties.Resources.
-                        ETIQUETA_ACTUALIZARCONTRASENA_CONTRASENANOACTUALIZADA,Properties.Resources.
-                        ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACION, 
-                        MessageBoxButton.OK);
-                }
+
             }
         }
 
@@ -58,37 +65,63 @@ namespace RompecabezasFei
         {
             bool hayDatosInvalidos = false;
 
-            if (ValidadorDatos.ExistenCaracteresInvalidosParaContrasena(nuevaContrasena))
+            if (!hayDatosInvalidos && ExistenCamposVacios())
             {
-                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECONTRASENANUEVA,
-                    Properties.Resources.ETIQUETA_VALIDACION_CONTRASENAINVALIDA,
-                    MessageBoxButton.OK);
+                GestorCuadroDialogo.MostrarAdvertencia(
+                    Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS,
+                    Properties.Resources.ETIQUETA_VALIDACION_CAMPOSVACIOS);
                 hayDatosInvalidos = true;
             }
 
-            if (ValidadorDatos.ExisteLongitudExcedidaEnContrasena(
-                cuadroContrasenaActual.Password))
+            if (!hayDatosInvalidos && ValidadorDatos.
+                ExistenCaracteresInvalidosParaContrasena(nuevaContrasena))
             {
-                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_CONTRASENAEXCEDIDA,
-                     Properties.Resources.ETIQUETA_VALIDACION_LONGITUDEXCEDIDA,
-                     MessageBoxButton.OK);
+                GestorCuadroDialogo.MostrarAdvertencia(
+                    Properties.Resources.ETIQUETA_VALIDACION_MENSAJECONTRASENANUEVA,
+                    Properties.Resources.ETIQUETA_VALIDACION_CONTRASENAINVALIDA);
                 hayDatosInvalidos = true;
             }
 
-            if (ExistenCamposVacios())
+            if (!hayDatosInvalidos && ValidadorDatos.
+                ExisteLongitudExcedidaEnContrasena(cuadroContrasenaActual.Password))
             {
-                MessageBox.Show(Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS,
-                   Properties.Resources.ETIQUETA_VALIDACION_CAMPOSVACIOS,
-                   MessageBoxButton.OK);
+                GestorCuadroDialogo.MostrarAdvertencia(
+                    Properties.Resources.ETIQUETA_VALIDACION_CONTRASENAEXCEDIDA,
+                    Properties.Resources.ETIQUETA_VALIDACION_LONGITUDEXCEDIDA);
                 hayDatosInvalidos = true;
             }
 
-            if (!ValidadorDatos.ExisteCoincidenciaEnCadenas(nuevaContrasena,
-                confirmacionContrasena))
+            if (!hayDatosInvalidos && !nuevaContrasena.
+                Equals(confirmacionContrasena))
             {
-                MessageBox.Show(Properties.Resources.
-                    ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE, Properties.Resources.
-                    ETIQUETA_VALIDACION_CONTRASENADIFERENTE, MessageBoxButton.OK);
+                GestorCuadroDialogo.MostrarAdvertencia(
+                    Properties.Resources.ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE, 
+                    Properties.Resources.ETIQUETA_VALIDACION_CONTRASENADIFERENTE);
+                hayDatosInvalidos = true;
+            }
+
+            if (!hayDatosInvalidos)
+            {
+                var servicioJugador = new ServicioJugador();
+                bool esContrasenaActualCorrecta = servicioJugador.
+                    EsLaMismaContrasenaDeJugador(Dominio.CuentaJugador.
+                    Actual.NombreJugador, EncriptadorContrasena.CalcularHashSha512(
+                        cuadroContrasenaActual.Password));
+
+                switch (servicioJugador.EstadoOperacion)
+                {
+                    case EstadoOperacion.Correcto:
+
+                        if (!esContrasenaActualCorrecta)
+                        {
+                            GestorCuadroDialogo.MostrarAdvertencia(
+                                "El campo de contraseña actual es incorrecto", 
+                                "Contraseña actual no coincide");
+                            hayDatosInvalidos = true;
+                        }
+
+                        break;
+                }
             }
 
             return hayDatosInvalidos;

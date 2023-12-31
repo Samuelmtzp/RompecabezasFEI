@@ -6,13 +6,14 @@
       xmlns:local="clr-namespace:RompecabezasFei"
       xmlns:p="clr-namespace:RompecabezasFei.Properties"
       mc:Ignorable="d"
-      d:DesignHeight="720" d:DesignWidth="1280"
-      Loaded="AgregarEventoDesbloqueoPiezaAlDesactivarVentana">
+      Loaded="AgregarEventoSoltarPiezaAlDesactivarVentana"
+      Unloaded="RemoverEventoSoltarPiezaAlDesactivarVentana"
+      d:DesignHeight="720" d:DesignWidth="1280">
     <Grid>
         <Canvas Name="tableroRompecabezas" Margin="10,56,370,124" Width="900" Height="540" Background="AliceBlue"/>
         <Button Name="botonIniciarPartida" Content="{x:Static p:Resources.BOTON_SALA_INICIARPARTIDA}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="314" Click="IniciarPartida" Margin="935,471,0,0" Background="#03A64A" Foreground="White" FontWeight="Bold" FontSize="32" Visibility="Visible"/>
         <Button Name="botonAbandonarPartida" Content="{x:Static p:Resources.BOTON_PARTIDA_ABANDONOPARTIDA}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="314" Click="AbandonarPartida" Margin="935,540,0,0" Background="Red" Foreground="White" FontWeight="Bold" FontSize="32" Visibility="Visible"/>
-        <Image Source="/Imagenes/Indicadores/Ajustes.png" HorizontalAlignment="Left" Height="82" Margin="1155,15,0,0" VerticalAlignment="Top" Width="82" MouseDown="IrAPaginaAjustesPartida"/>
+        <Image Source="/Imagenes/Indicadores/Ajustes.png" HorizontalAlignment="Left" Height="82" Margin="1155,15,0,0" VerticalAlignment="Top" Width="82" MouseDown="DesplegarMenuAnfitrion"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_AJUSTES}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="1143,97,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Width="106"/>
         <Grid Margin="950,180,56,278" ShowGridLines="True">
             <ListView Name="listaJugadoresPartida" VerticalAlignment="Top" Foreground="White" Background="#FF4A4A4A" ItemsSource="{Binding JugadoresEnPartida}" HorizontalContentAlignment="Center" Width="264" Height="260" >

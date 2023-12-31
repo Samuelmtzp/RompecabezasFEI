@@ -25,6 +25,7 @@
     <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="b0d4d435-b32d-48fe-9b32-724224291160" SourceId="1" SourceUrl="http://localhost:8088/?xsd=xsd1" />
     <MetadataFile FileName="item.disco" MetadataType="Disco" ID="60668c11-21cf-4f91-b93a-bda3f5ccbb64" SourceId="1" SourceUrl="http://localhost:8088/?disco" />
     <MetadataFile FileName="ServicioRompecabezasFei.wsdl" MetadataType="Wsdl" ID="0fec3926-305e-4bf2-87c0-db772abf3c70" SourceId="1" SourceUrl="http://localhost:8088/?wsdl" />
+    <MetadataFile FileName="item22.xsd" MetadataType="Schema" ID="97e978de-fb58-425f-89cb-0760f4bc158b" SourceId="1" SourceUrl="http://localhost:8088/?xsd=xsd4" />
     <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="f5e5250e-d898-4add-90a8-578c51d7365f" SourceId="1" SourceUrl="http://localhost:8088/?xsd=xsd2" />
     <MetadataFile FileName="item21.xsd" MetadataType="Schema" ID="95a67459-51bc-4955-9e5e-50656e2df839" SourceId="1" SourceUrl="http://localhost:8088/?xsd=xsd3" />
     <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="92172670-592e-46f3-a728-61661a351d89" SourceId="1" SourceUrl="http://localhost:8088/?xsd=xsd0" />

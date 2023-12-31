@@ -1,5 +1,6 @@
 ﻿using System.ServiceModel;
 using Logica;
+using Logica.Enumeraciones;
 
 namespace Contratos
 {
@@ -7,22 +8,33 @@ namespace Contratos
     public interface IServicioJugador
     {
         [OperationContract]
-        bool Registrar(CuentaJugador cuentaJugador);
+        bool RegistrarJugador(CuentaJugador cuentaJugador);
         
         [OperationContract]
-        bool ExisteNombreJugador(string nombreJugador);
-        
-        [OperationContract]
-        CuentaJugador IniciarSesion(string nombreJugador, string contrasena);
+        CuentaJugador IniciarSesionComoJugador(string nombreJugador, string contrasena);
 
         [OperationContract]
-        bool CerrarSesion(string nombreJugador);               
-        
+        CuentaJugador IniciarSesionComoInvitado(string nombreInvitado);
+
+        [OperationContract(IsOneWay = true)]
+        void CerrarSesion(string nombreJugador);
+
         [OperationContract]
-        bool ActualizarInformacion(string nombreAnterior, string nuevoNombre, 
-            int nuevoNumeroAvatar);
+        bool ActualizarNombreJugador(string nombreAnterior, string nuevoNombre);
         
+        [OperationContract]        
+        bool ActualizarNumeroAvatar(string nombreJugador, int nuevoNumeroAvatar);
+
         [OperationContract]
         bool ActualizarContrasena(string correo, string contrasena);
+
+        [OperationContract]
+        bool EsLaMismaContrasenaDeJugador(string nombreJugador, string contrasena);
+
+        [OperationContract]
+        bool ExisteNombreJugadorRegistrado(string nombreJugador);
+
+        [OperationContract]
+        void CambiarEstadoJugador(string nombreJugador, EstadoJugador estado);
     }
 }

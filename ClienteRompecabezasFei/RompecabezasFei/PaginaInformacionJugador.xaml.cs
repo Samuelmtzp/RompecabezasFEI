@@ -2,11 +2,14 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using RompecabezasFei.Servicios;
 
 namespace RompecabezasFei
 {
     public partial class PaginaInformacionJugador : Page
     {
+        private ServicioPartida servicioPartida;
+
         public PaginaInformacionJugador()
         {
             InitializeComponent();
@@ -15,37 +18,63 @@ namespace RompecabezasFei
 
         public void CargarDatosJugador()
         {
-            etiquetaNombreJugador.Content = Dominio.CuentaJugador.Actual.NombreJugador;
-            imagenAvatarJugador.Source = Dominio.CuentaJugador.Actual.FuenteImagenAvatar;
-            MostrarPartidasJugadas();
-            MostrarPartidasGanadas();
+            etiquetaNombreJugador.Content = Dominio.
+                CuentaJugador.Actual.NombreJugador;
+            imagenAvatarJugador.Source = Dominio.
+                CuentaJugador.Actual.FuenteImagenAvatar;
+            CargarNumeroDePartidasJugadas();
         }
 
-        private void MostrarPartidasJugadas()
+        public void CargarNumeroDePartidasJugadas()
         {
-            cuadroTextoPartidasJugadas.Text = Convert.ToString(Servicios.ServicioPartida.
-                ObtenerNumeroPartidasJugadas(Dominio.CuentaJugador.Actual.NombreJugador));
+            servicioPartida = new ServicioPartida();
+            int numeroPartidasJugadas = servicioPartida.
+                ObtenerNumeroPartidasJugadas(Dominio.
+                CuentaJugador.Actual.NombreJugador);
+
+            switch (servicioPartida.EstadoOperacion)
+            {
+                case EstadoOperacion.Correcto:
+                    cuadroTextoPartidasJugadas.Text = 
+                        Convert.ToString(numeroPartidasJugadas);
+                    CargarNumeroDePartidasGanadas();
+                    break;
+            }
+
         }
 
-        private void MostrarPartidasGanadas()
+        public void CargarNumeroDePartidasGanadas()
         {
-            cuadroTextoPartidasGanadas.Text = Convert.ToString(Servicios.ServicioPartida.
-                ObtenerNumeroPartidasGanadas(Dominio.CuentaJugador.Actual.NombreJugador));
+            int numeroPartidasGanadas = servicioPartida.
+                ObtenerNumeroPartidasGanadas(Dominio.
+                CuentaJugador.Actual.NombreJugador);
+
+            switch (servicioPartida.EstadoOperacion)
+            {
+                case EstadoOperacion.Correcto:
+                    cuadroTextoPartidasGanadas.Text = 
+                        Convert.ToString(numeroPartidasGanadas);
+                    servicioPartida.CerrarConexion();
+                    break;
+            }
         }
 
-        private void IrAPaginaActualizacionContrasena(object objetoOrigen, RoutedEventArgs evento)
+        private void IrAPaginaActualizacionContrasena(object objetoOrigen, 
+            RoutedEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaActualizacionContrasena());
         }
 
-        private void IrAPaginaActualizacionInformacion(object objetoOrigen, RoutedEventArgs evento)
+        private void IrAPaginaActualizacionInformacion(object objetoOrigen, 
+            RoutedEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaActualizacionInformacion(
                 Dominio.CuentaJugador.Actual.NombreJugador,
                 Dominio.CuentaJugador.Actual.NumeroAvatar));
         }
 
-        private void IrAPaginaMenuPrincipal(object objetoOrigen, MouseButtonEventArgs evento)
+        private void IrAPaginaMenuPrincipal(object objetoOrigen, 
+            MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
         }

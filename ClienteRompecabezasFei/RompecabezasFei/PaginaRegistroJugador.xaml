@@ -20,7 +20,7 @@
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_CONFIRMACIONCONTRASENA}" HorizontalAlignment="Left" Margin="654,462,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32"/>
         <PasswordBox Name="cuadroContrasenaConfirmacionContrasena" HorizontalAlignment="Left" Margin="654,520,0,0" VerticalAlignment="Top" Width="554" Height="42" FontSize="24"/>
 
-        <Button Content="{x:Static p:Resources.ETIQUETA_GENERAL_SIGUIENTE}" HorizontalAlignment="Left" Margin="940,595,0,0" VerticalAlignment="Top" Height="73" Width="268" FontSize="36" Background="#FF03A64A" Foreground="White" FontWeight="Bold" Click="IrAPaginaVerificacionCorreo">
+        <Button Content="{x:Static p:Resources.ETIQUETA_GENERAL_SIGUIENTE}" HorizontalAlignment="Left" Margin="940,595,0,0" VerticalAlignment="Top" Height="73" Width="268" FontSize="36" Background="#FF03A64A" Foreground="White" FontWeight="Bold" Click="IniciarRegistro">
         </Button>
         <Button Content="{x:Static p:Resources.ETIQUETA_REGISTRO_SELECCIONAVATAR}" HorizontalAlignment="Left" Margin="654,238,0,0" VerticalAlignment="Top" Height="52" Width="313" FontSize="24" Background="#FF03A64A" Foreground="White" FontWeight="Bold" Click="IrAPaginaSeleccionAvatar">
         </Button>

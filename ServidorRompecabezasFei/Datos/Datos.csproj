@@ -100,6 +100,9 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModeloDatosRompecabezasFei.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Conexion.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="ModeloDatosRompecabezasFei.edmx.diagram">
       <DependentUpon>ModeloDatosRompecabezasFei.edmx</DependentUpon>
     </None>

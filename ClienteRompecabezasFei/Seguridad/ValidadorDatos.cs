@@ -105,17 +105,5 @@ namespace Seguridad
 
             return resultado;
         }
-
-        public static bool ExisteCoincidenciaEnCadenas(string cadenaA, string cadenaB)
-        {
-            bool resultado = false;
-
-            if (cadenaA == cadenaB)
-            {
-                resultado = true;
-            }
-
-            return resultado;
-        }
     }
 }

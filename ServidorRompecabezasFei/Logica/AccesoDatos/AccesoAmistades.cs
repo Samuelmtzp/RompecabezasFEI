@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Logica
+namespace Logica.AccesoDatos
 {
-    public static class GestionAmistades
+    public static class AccesoAmistades
     {
-        public static List<CuentaJugador> ObtenerAmigosDeJugador(string nombreJugador)
+        public static List<CuentaJugador> ObtenerAmigosDeJugador(
+            string nombreJugador)
         {
             List<CuentaJugador> amigos = new List<CuentaJugador>();
 
@@ -41,7 +42,8 @@ namespace Logica
         public static List<CuentaJugador> ObtenerJugadoresConSolicitudPendiente(
             string nombreJugador)
         {
-            List<CuentaJugador> jugadoresConSolicitudPendiente = new List<CuentaJugador>();
+            List<CuentaJugador> jugadoresConSolicitudPendiente = 
+                new List<CuentaJugador>();
 
             using (var contexto = new EntidadesRompecabezasFei())
             {
@@ -141,7 +143,8 @@ namespace Logica
             return resultado;
         }
 
-        public static bool EliminarAmistadEntreJugadores(string nombreJugadorA, string nombreJugadorB)
+        public static bool EliminarAmistadEntreJugadores(string nombreJugadorA, 
+            string nombreJugadorB)
         {
             bool resultado = false;
 
@@ -208,7 +211,8 @@ namespace Logica
             return resultado;
         }
 
-        public static bool ExisteAmistadConJugador(string nombreJugadorA, string nombreJugadorB)
+        public static bool ExisteAmistadConJugador(string nombreJugadorA, 
+            string nombreJugadorB)
         {
             bool resultado = false;
 

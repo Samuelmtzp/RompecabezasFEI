@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RompecabezasFei"
       xmlns:p="clr-namespace:RompecabezasFei.Properties"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
       d:DesignHeight="720" d:DesignWidth="1280">
     <Grid>
         <Image Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="30,30,1145,598" Height="81" Width="81" MouseDown="IrAPaginaMenuPrincipal"/>

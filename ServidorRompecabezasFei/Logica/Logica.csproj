@@ -60,34 +60,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Autenticacion.cs" />
-    <Compile Include="ConsultasJugador.cs" />
+    <Compile Include="AccesoDatos\AccesoJugador.cs" />
     <Compile Include="CuentaJugador.cs" />
-    <Compile Include="ConectividadJugador.cs" />
-    <Compile Include="EstadoSala.cs" />
-    <Compile Include="GeneradorMensajesCorreo.cs" />
-    <Compile Include="GestionAmistades.cs" />
-    <Compile Include="GestionPartida.cs" />
-    <Compile Include="GestionSala.cs" />
+    <Compile Include="Posicion.cs" />
+    <Compile Include="Enumeraciones\EstadoJugador.cs" />
+    <Compile Include="Enumeraciones\EstadoPartida.cs" />
+    <Compile Include="Enumeraciones\NumeroAvatar.cs" />
+    <Compile Include="GeneradorMensajeCorreo.cs" />
+    <Compile Include="AccesoDatos\AccesoAmistades.cs" />
+    <Compile Include="AccesoDatos\AccesoPartida.cs" />
+    <Compile Include="AccesoDatos\AccesoSala.cs" />
     <Compile Include="Partida.cs" />
     <Compile Include="Pieza.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Settings.Designer.cs">
+    <Compile Include="Properties\Configuration.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
+      <DependentUpon>Configuration.settings</DependentUpon>
     </Compile>
-    <Compile Include="PuntajePieza.cs" />
-    <Compile Include="Registro.cs" />
     <Compile Include="Sala.cs" />
     <Compile Include="Tablero.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Conexion.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
+    <None Include="Properties\Configuration.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <LastGenOutput>Configuration.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

@@ -1,181 +1,473 @@
 ﻿using RompecabezasFei.ServicioRompecabezasFei;
-using RompecabezasFei.Utilidades;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Sockets;
 using System.ServiceModel;
 
 namespace RompecabezasFei.Servicios
 {
-    public static class ServicioAmistades
+    public class ServicioAmistades : Servicio
     {
-        public static CuentaJugador[] ObtenerAmigosDeJugador(string nombreJugador)
+        private ServicioAmistadesClient clienteServicioAmistades;
+
+        public ServicioAmistades()
         {
-            ServicioAmistadesClient cliente = new ServicioAmistadesClient(
+            clienteServicioAmistades = new ServicioAmistadesClient(
                 new InstanceContext(new PaginaAmistades(false)));
-            CuentaJugador[] amigosObtenidos = null;
+            clienteServicioAmistades.Open();
+        }
+
+        public ServicioAmistades(PaginaAmistades paginaPartida)
+        {
+            clienteServicioAmistades = new ServicioAmistadesClient(
+                new InstanceContext(paginaPartida));
+            clienteServicioAmistades.Open();
+        }
+
+        public void CerrarConexion()
+        {
+            if (clienteServicioAmistades.State == CommunicationState.Opened)
+            {
+                try
+                {
+                    clienteServicioAmistades.Close();
+                }
+                catch (CommunicationException excepcion)
+                {
+                    ManejarExcepcionDeServidor(excepcion, true);
+                }
+                catch (TimeoutException excepcion)
+                {
+                    ManejarExcepcionDeServidor(excepcion, true);
+                }
+            }
+        }
+
+
+        public List<CuentaJugador> ObtenerAmigosDeJugador(string nombreJugador)
+        {
+            var amigosDeJugador = new List<CuentaJugador>();
 
             try
             {
-                amigosObtenidos = cliente.ObtenerAmigosDeJugador(nombreJugador);
-                cliente.Close();
+                var amigosObtenidos = clienteServicioAmistades.
+                    ObtenerAmigosDeJugador(nombreJugador);
+                
+                if (amigosObtenidos.Any())
+                {
+                    foreach (var amigo in amigosObtenidos)
+                    {
+                        amigosDeJugador.Add(amigo);
+                    }
+                }
+
+                EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
             {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                cliente.Abort();
+                ManejarExcepcionDeServidor(excepcion, true);
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                cliente.Abort();
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (SocketException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, false);
             }
             catch (TimeoutException excepcion)
             {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                cliente.Abort();
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioAmistades.Abort();
+                }
             }
 
-            return amigosObtenidos;
+            return amigosDeJugador;
         }
 
-        public static CuentaJugador[] ObtenerJugadoresConSolicitudPendiente(string nombreJugador)
+        public List<CuentaJugador> ObtenerJugadoresConSolicitudPendiente(
+            string nombreJugador)
         {
-            ServicioAmistadesClient cliente = new ServicioAmistadesClient(
-                new InstanceContext(new PaginaAmistades(false)));
-            CuentaJugador[] amigosObtenidos = null;
+            var jugadoresConSolicitud = new List<CuentaJugador>();
 
             try
             {
-                amigosObtenidos = cliente.ObtenerJugadoresConSolicitudPendiente(
-                    nombreJugador);
-                cliente.Close();
+                var jugadoresObtenidos = clienteServicioAmistades.
+                    ObtenerJugadoresConSolicitudPendiente(nombreJugador);
+
+                if (jugadoresObtenidos.Any())
+                {
+                    foreach (var jugador in jugadoresObtenidos)
+                    {
+                        jugadoresConSolicitud.Add(jugador);
+                    }
+                }
+
+                EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
             {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                cliente.Abort();
+                ManejarExcepcionDeServidor(excepcion, true);
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                cliente.Abort();
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (SocketException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, false);
             }
             catch (TimeoutException excepcion)
             {
-                Registros.Registrador.EscribirRegistro(excepcion);     
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                cliente.Abort();
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioAmistades.Abort();
+                }
             }
 
-            return amigosObtenidos;
+            return jugadoresConSolicitud;
         }
 
-        public static bool ExisteSolicitudAmistad(string nombreJugadorOrigen, 
+        public bool ExisteSolicitudAmistad(string nombreJugadorOrigen, 
             string nombreJugadorDestino)
         {
-            ServicioAmistadesClient cliente = new ServicioAmistadesClient(
-                new InstanceContext(new PaginaAmistades(false)));
             bool existeSolicitudAmistad = false;
 
             try
             {
-                existeSolicitudAmistad = cliente.ExisteSolicitudDeAmistad(
-                    nombreJugadorOrigen, nombreJugadorDestino);
-                cliente.Close();
+                existeSolicitudAmistad = clienteServicioAmistades.
+                    ExisteSolicitudDeAmistad(nombreJugadorOrigen, 
+                    nombreJugadorDestino);
+                EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
             {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                cliente.Abort();
+                ManejarExcepcionDeServidor(excepcion, true);
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                cliente.Abort();
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (SocketException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, false);
             }
             catch (TimeoutException excepcion)
             {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                cliente.Abort();
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioAmistades.Abort();
+                }
             }
 
             return existeSolicitudAmistad;
         }
 
-        public static bool ExisteAmistadConJugador(string nombreJugadorA, string nombreJugadorB)
+        public bool ExisteAmistadConJugador(string nombreJugadorA, 
+            string nombreJugadorB)
         {
-            ServicioAmistadesClient cliente = new ServicioAmistadesClient(
-                new InstanceContext(new PaginaAmistades(false)));
             bool existeSolicitudAmistad = false;
 
             try
             {
-                existeSolicitudAmistad = cliente.ExisteSolicitudDeAmistad(
-                    nombreJugadorA, nombreJugadorB);
-                cliente.Close();
+                existeSolicitudAmistad = clienteServicioAmistades.
+                    ExisteSolicitudDeAmistad(nombreJugadorA, nombreJugadorB);
+                EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
             {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                cliente.Abort();
+                ManejarExcepcionDeServidor(excepcion, true);
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                cliente.Abort();
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (SocketException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, false);
             }
             catch (TimeoutException excepcion)
             {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                cliente.Abort();
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioAmistades.Abort();
+                }
             }
 
             return existeSolicitudAmistad;
         }
 
-        public static bool RechazarSolicitudDeAmistad(string nombreJugadorOrigen, 
+        public bool RechazarSolicitudDeAmistad(string nombreJugadorOrigen, 
             string nombreJugadorDestino)
         {
-            ServicioAmistadesClient cliente = new ServicioAmistadesClient(
-                new InstanceContext(new PaginaAmistades(false)));
             bool solicitudRechazada = false;
 
             try
             {
-                solicitudRechazada = cliente.RechazarSolicitudDeAmistad(
-                    nombreJugadorOrigen, nombreJugadorDestino);
-                cliente.Close();
+                solicitudRechazada = clienteServicioAmistades.
+                    RechazarSolicitudDeAmistad(nombreJugadorOrigen, nombreJugadorDestino);
+                EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
             {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                cliente.Abort();
+                ManejarExcepcionDeServidor(excepcion, true);
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                cliente.Abort();
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (SocketException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, false);
             }
             catch (TimeoutException excepcion)
             {
-                Registros.Registrador.EscribirRegistro(excepcion);
-                GeneradorMensajes.MostrarMensajeErrorConexionServidor();
-                cliente.Abort();
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioAmistades.Abort();
+                }
             }
 
             return solicitudRechazada;
+        }
+
+        public void ActivarNotificaciones(string nombreJugador)
+        {
+            try
+            {
+                clienteServicioAmistades.ActivarNotificacionesDeAmistades(nombreJugador);
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (SocketException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, false);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioAmistades.Abort();
+                }
+            }
+        }
+
+        public void DesactivarNotificaciones(string nombreJugador)
+        {
+            try
+            {
+                clienteServicioAmistades.DesactivarNotificacionesDeAmistades(nombreJugador);
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (SocketException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, false);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioAmistades.Abort();
+                }
+            }
+        }
+
+        public bool EnviarSolicitudDeAmistad(string nombreJugadorOrigen, 
+            string nombreJugadorDestino)
+        {
+            bool operacionRealizada = false;
+
+            try
+            {
+                operacionRealizada = clienteServicioAmistades.
+                    EnviarSolicitudDeAmistad(nombreJugadorOrigen, nombreJugadorDestino);
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (SocketException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, false);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioAmistades.Abort();
+                }
+            }
+
+            return operacionRealizada;
+        }
+
+        public bool EliminarAmistad(string nombreJugadorA, string nombreJugadorB)
+        {
+            bool operacionRealizada = false;
+
+            try
+            {
+                operacionRealizada = clienteServicioAmistades.
+                    EnviarSolicitudDeAmistad(nombreJugadorA, nombreJugadorB);
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (SocketException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, false);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioAmistades.Abort();
+                }
+            }
+
+            return operacionRealizada;
+        }
+
+        public bool AceptarSolicitudDeAmistad(string nombreJugadorA, 
+            string nombreJugadorB)
+        {
+            bool operacionRealizada = false;
+
+            try
+            {
+                operacionRealizada = clienteServicioAmistades.
+                    AceptarSolicitudDeAmistad(nombreJugadorA, nombreJugadorB);
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (SocketException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, false);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioAmistades.Abort();
+                }
+            }
+
+            return operacionRealizada;
         }
     }
 }

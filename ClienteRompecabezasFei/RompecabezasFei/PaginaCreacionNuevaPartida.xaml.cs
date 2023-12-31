@@ -10,38 +10,36 @@ namespace RompecabezasFei
 {
     public partial class PaginaCreacionNuevaPartida : Page
     {
-        private Border bordeImagenSeleccionada;
-
-        private DificultadPartida dificultadSeleccionada;
-        
-        private int numeroImagenSeleccionada;
-        
         private const int TotalImagenes = 16;
 
         private const int NumeroImagenInicial = 1;
+        
+        private int numeroImagenSeleccionada;
+        
+        private readonly string codigoSala;
+        
+        private Border bordeImagenSeleccionada;
+
+        private DificultadPartida dificultadSeleccionada;
 
         public ObservableCollection<ImagenRompecabezas> ImagenesRompecabezas { get; set; }
 
-        public string CodigoSala { get; set; }
-
-        public ServicioSalaClient ClienteServicioSala { get; set; }
-
-        public PaginaCreacionNuevaPartida()
+        public PaginaCreacionNuevaPartida(string codigoSala)
         {
             InitializeComponent();
+            ImagenesRompecabezas = new ObservableCollection<ImagenRompecabezas>();
             MostrarImagenesDeRompecabezas();
             dificultadSeleccionada = DificultadPartida.Facil;
             cuadroSeleccionDificultad.SelectedIndex = (int)dificultadSeleccionada;
             numeroImagenSeleccionada = NumeroImagenInicial;
             galeriaImagenesRompecabezas.DataContext = this;
+            this.codigoSala = codigoSala;
         }
 
         private void MostrarImagenesDeRompecabezas()
         {
-            ImagenesRompecabezas = new ObservableCollection<ImagenRompecabezas>();
-
-            for (int indiceImagen = NumeroImagenInicial; indiceImagen <= TotalImagenes;  
-                indiceImagen++)
+            for (int indiceImagen = NumeroImagenInicial; 
+                indiceImagen <= TotalImagenes;  indiceImagen++)
             {
                 var nuevaImagen = new ImagenRompecabezas
                 {
@@ -91,11 +89,7 @@ namespace RompecabezasFei
 
         private void IrAPaginaSala(object objetoOrigen, MouseButtonEventArgs evento)
         {
-            PaginaSala paginaSala = new PaginaSala(true)
-            {
-                CodigoSala = CodigoSala,
-            };
-            paginaSala.RecargarSala(true);
+            PaginaSala paginaSala = new PaginaSala(true, codigoSala);
             VentanaPrincipal.CambiarPagina(paginaSala);
         }
 
@@ -107,9 +101,8 @@ namespace RompecabezasFei
 
         private void IrAPaginaPartida(object objetoOrigen, RoutedEventArgs evento)
         {
-            PaginaPartida paginaPartida = new PaginaPartida(CodigoSala, 
+            PaginaPartida paginaPartida = new PaginaPartida(codigoSala, 
                 dificultadSeleccionada, numeroImagenSeleccionada);
-            paginaPartida.EsAnfitrion = true;
             VentanaPrincipal.CambiarPagina(paginaPartida);
         }
     }

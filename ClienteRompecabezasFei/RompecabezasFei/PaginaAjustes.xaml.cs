@@ -8,7 +8,7 @@ namespace RompecabezasFei
 {
     public partial class PaginaAjustes : Page
     {
-        private string idioma;
+        private string idiomaActual;
 
         private bool hayMusicaActivadaInicialmente;
         
@@ -62,11 +62,11 @@ namespace RompecabezasFei
         {
             if (cajaOpcionesIdioma.SelectedIndex == (int)Idioma.Ingles)
             {
-                idioma = IdiomaIngles;
+                idiomaActual = IdiomaIngles;
             }
             else
             {
-                idioma = IdiomaEspanol;
+                idiomaActual = IdiomaEspanol;
             }
         }
 
@@ -84,7 +84,7 @@ namespace RompecabezasFei
 
         private void CajaDeOpcionesDeIdiomaCerrada(object objetoOrigen, EventArgs evento)
         {
-            App.Current.CambiarIdioma(idioma);
+            App.Current.CambiarIdioma(idiomaActual);
             RefrescarPaginaActual();
         }
 
