@@ -61,8 +61,10 @@ namespace RompecabezasFei
             if (!ExistenCamposInvalidos())
             {
                 var servicioJugador = new Servicios.ServicioJugador();
+                servicioJugador.AbrirNuevaConexion();
                 bool esNombreJugadorDisponible = !servicioJugador.
                     ExisteNombreJugadorRegistrado(nombreJugador);
+                servicioJugador.CerrarConexion();
 
                 switch (servicioJugador.EstadoOperacion)
                 {

@@ -79,7 +79,9 @@ namespace RompecabezasFei
                         Correo = jugadorRegistro.Correo
                     };
                     var servicio = new ServicioJugador();
+                    servicio.AbrirNuevaConexion();
                     bool registroRealizado = servicio.RegistrarJugador(nuevoJugador);
+                    servicio.CerrarConexion();
 
                     switch (servicio.EstadoOperacion)
                     {

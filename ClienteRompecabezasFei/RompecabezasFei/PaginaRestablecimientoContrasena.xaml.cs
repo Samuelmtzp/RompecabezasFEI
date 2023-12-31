@@ -29,8 +29,10 @@ namespace RompecabezasFei
                     string contrasenaCifrada = EncriptadorContrasena.
                         CalcularHashSha512(contrasena);
                     var servicio = new ServicioJugador();
+                    servicio.AbrirNuevaConexion();
                     bool actualizacionRealizada = servicio.ActualizarContrasena(
                         correo, contrasenaCifrada);
+                    servicio.CerrarConexion();
 
                     switch (servicio.EstadoOperacion)
                     {

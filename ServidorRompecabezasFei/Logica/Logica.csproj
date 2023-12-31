@@ -62,6 +62,8 @@
   <ItemGroup>
     <Compile Include="AccesoDatos\AccesoJugador.cs" />
     <Compile Include="CuentaJugador.cs" />
+    <Compile Include="Enumeraciones\TipoBloqueo.cs" />
+    <Compile Include="Bloqueador.cs" />
     <Compile Include="Posicion.cs" />
     <Compile Include="Enumeraciones\EstadoJugador.cs" />
     <Compile Include="Enumeraciones\EstadoPartida.cs" />

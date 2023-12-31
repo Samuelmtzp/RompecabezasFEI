@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.ServiceModel;
+using System.Threading;
 
 namespace Servicios
 {    
@@ -16,33 +17,21 @@ namespace Servicios
         InstanceContextMode = InstanceContextMode.Single)]
     public partial class ServicioRompecabezasFei : IServicioJugador
     {
+        private const int IntervaloSegundosTemporizador = 10;
+        
+        private bool hayTemporizadorIniciado = false;
+
         private readonly ConcurrentDictionary<string, CuentaJugador> jugadoresActivos = 
             new ConcurrentDictionary<string, CuentaJugador>();
 
         private readonly ConcurrentDictionary<string, Logica.Sala> salas = 
             new ConcurrentDictionary<string, Logica.Sala>();
 
-        private readonly object bloqueoParaBloquearPieza = new object();
-
-        private readonly object bloqueoParaRegistrarJugador = new object();
-        
-        private readonly object bloqueoParaIniciarSesionComoJugador = new object();
-        
-        private readonly object bloqueoParaIniciarSesionComoInvitado = new object();
-        
-        private readonly object bloqueoParaColocarPieza = new object();
-        
-        private readonly object bloqueoParaUnirseASala = new object();
-        
-        private readonly object bloqueoParaActualizarNombreJugador = new object();
-        
-        private readonly object bloqueoParaCerrarSesion = new object();
-
         public bool RegistrarJugador(CuentaJugador cuentaJugador)
         {
             bool operacionRealizada = false;
 
-            lock (bloqueoParaRegistrarJugador)
+            lock (Bloqueador.BloqueoParaRegistrarJugador)
             {
                 if (!ExisteNombreJugadorRegistrado(cuentaJugador.NombreJugador))
                 {
@@ -65,7 +54,7 @@ namespace Servicios
         {
             bool operacionRealizada = false;
 
-            lock (bloqueoParaActualizarNombreJugador)
+            lock (Bloqueador.BloqueoParaActualizarNombreJugador)
             {
                 if (!ExisteNombreJugadorRegistrado(nuevoNombre))
                 {
@@ -155,10 +144,10 @@ namespace Servicios
 
         public CuentaJugador IniciarSesionComoJugador(string nombreJugador, 
             string contrasena)
-        {
+        {            
             CuentaJugador cuentaRecuperada = null;
             
-            lock (bloqueoParaIniciarSesionComoJugador)
+            lock (Bloqueador.BloqueoParaIniciarSesionComoJugador)
             {
                 if (ExisteNombreJugadorRegistrado(nombreJugador) && 
                     !jugadoresActivos.ContainsKey(nombreJugador))
@@ -174,9 +163,12 @@ namespace Servicios
                     }
                 }
 
-                if (cuentaRecuperada != null && jugadoresActivos.
-                    TryAdd(cuentaRecuperada.NombreJugador, cuentaRecuperada))
+                if (cuentaRecuperada != null)
                 {
+                    cuentaRecuperada.ContextoOperacionConexion = 
+                        OperationContext.Current;
+                    jugadoresActivos.TryAdd(cuentaRecuperada.
+                        NombreJugador, cuentaRecuperada);
                     CambiarEstadoJugador(cuentaRecuperada.NombreJugador, 
                         EstadoJugador.Conectado);
                 }
@@ -189,7 +181,7 @@ namespace Servicios
         {
             CuentaJugador cuentaInvitado = null;
 
-            lock (bloqueoParaIniciarSesionComoInvitado)
+            lock (Bloqueador.BloqueoParaIniciarSesionComoInvitado)
             {
                 if (!jugadoresActivos.ContainsKey(nombreInvitado))
                 {
@@ -199,10 +191,12 @@ namespace Servicios
                         NumeroAvatar = (int)NumeroAvatar.Invitado,
                         EsInvitado = true,
                         Puntaje = Pieza.PuntajeVacio,
-                        Estado = EstadoJugador.Conectado
+                        Estado = EstadoJugador.Conectado,
+                        ContextoOperacionConexion = OperationContext.Current,
                     };
-
                     jugadoresActivos.TryAdd(cuentaInvitado.NombreJugador, cuentaInvitado);
+                    CambiarEstadoJugador(cuentaInvitado.NombreJugador, 
+                        EstadoJugador.Conectado);
                 }
             }
 
@@ -211,7 +205,7 @@ namespace Servicios
 
         public void CerrarSesion(string nombreJugador)
         {
-            lock (bloqueoParaCerrarSesion)
+            lock (Bloqueador.BloqueoParaCerrarSesion)
             {
                 if (jugadoresActivos.ContainsKey(nombreJugador))
                 {
@@ -270,6 +264,17 @@ namespace Servicios
                     jugadoresActivos[nombreJugador].Estado = estado;
                 }
             }
+
+            if (jugadoresActivos.Any() && !hayTemporizadorIniciado)
+            {
+                IniciarTemporizador();
+            }
+        }
+
+        public void ProbarConexionServidor()
+        {
+            // Método no implementado debido a que es utilizado únicamente
+            // para que el cliente verifique si sigue conectado con el servidor
         }
     }
     #endregion
@@ -603,7 +608,7 @@ namespace Servicios
         {
             bool operacionRealizada = false;
 
-            lock (bloqueoParaUnirseASala)
+            lock (Bloqueador.BloqueoParaUnirseASala)
             {
                 if (salas.ContainsKey(codigoSala))
                 {
@@ -934,7 +939,7 @@ namespace Servicios
         public void BloquearPieza(string codigoSala, int numeroPieza, 
             string nombreJugador)
         {
-            lock (bloqueoParaBloquearPieza)
+            lock (Bloqueador.BloqueoParaBloquearPieza)
             {
                 if (!salas[codigoSala].Partida.Tablero.Piezas[numeroPieza].EstaBloqueada)
                 {
@@ -982,7 +987,7 @@ namespace Servicios
         public void ColocarPieza(string codigoSala, int numeroPieza, 
             string nombreJugador, Posicion posicion)
         {
-            lock (bloqueoParaColocarPieza)
+            lock (Bloqueador.BloqueoParaColocarPieza)
             {
                 int puntaje = salas[codigoSala].Partida.Tablero.Piezas[numeroPieza].Puntaje;
                 salas[codigoSala].Partida.PuntajesDeJugadores[nombreJugador] += puntaje;
@@ -1456,6 +1461,31 @@ namespace Servicios
                 {
                     Registros.Registrador.EscribirRegistro(excepcion);
                     CerrarSesion(nombreJugador);
+                }
+            }
+        }
+
+        public void IniciarTemporizador()
+        {
+            Timer temporizador = new Timer(ConfirmarConexionJugadoresConectados, null, 
+                TimeSpan.Zero, TimeSpan.FromSeconds(IntervaloSegundosTemporizador));
+            hayTemporizadorIniciado = true;
+        }
+
+        private void ConfirmarConexionJugadoresConectados(object estado)
+        {
+            foreach (var jugadorActivo in jugadoresActivos.Values)
+            {
+                try
+                {
+                    jugadorActivo.ContextoOperacionConexion.
+                        GetCallbackChannel<IServicioJugadorCallback>().
+                        ProbarConexionJugador();
+                }
+                catch (CommunicationObjectAbortedException excepcion)
+                {
+                    //Registros.Registrador.EscribirRegistro(excepcion);
+                    CerrarSesion(jugadorActivo.NombreJugador);
                 }
             }
         }

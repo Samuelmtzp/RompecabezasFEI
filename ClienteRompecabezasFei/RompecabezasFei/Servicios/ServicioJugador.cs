@@ -2,20 +2,106 @@
 using System;
 using System.Net.Sockets;
 using System.ServiceModel;
+using System.Timers;
+using System.Windows;
 
 namespace RompecabezasFei.Servicios
 {
     public class ServicioJugador : Servicio
     {
+        private const int IntervaloMilisegundosTemporizador = 1000;
+        
+        private static Timer temporizador;
+        
+        public static ServicioJugadorClient ClienteServicioJugador { get; set; }
+
+        public void IniciarTemporizador()
+        {
+            temporizador = new Timer();
+            temporizador.Interval = IntervaloMilisegundosTemporizador;
+            temporizador.Elapsed += ProbarConexionServidor;
+            temporizador.Start();
+        }
+
+        public void DetenerTemporizador()
+        {
+            temporizador.Stop();
+        }
+
+        public bool HayTemporizadorActivo()
+        {
+            return temporizador.Enabled;
+        }
+
+        public void AbrirNuevaConexion()
+        {
+            ClienteServicioJugador = new ServicioJugadorClient(
+                new InstanceContext(VentanaPrincipal.ObtenerVentanaActual()));
+            
+            try
+            {
+                ClienteServicioJugador.Open();
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, false);
+            }
+            catch (SocketException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, false);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, false);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    ClienteServicioJugador.Abort();
+                }
+            }
+        }
+
+        public void CerrarConexion()
+        {
+            try
+            {
+                if (ClienteServicioJugador.State == CommunicationState.Opened)
+                {
+                    ClienteServicioJugador.Close();
+                }
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, false);
+            }
+            catch (SocketException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion, true);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    ClienteServicioJugador.Abort();
+                }
+            }
+        }
+
         public bool RegistrarJugador(CuentaJugador cuentaJugador)
         {
-            var cliente = new ServicioJugadorClient();
             bool resultado = false;
 
             try
             {
-                resultado = cliente.RegistrarJugador(cuentaJugador);
-                cliente.Close();
+                resultado = ClienteServicioJugador.
+                    RegistrarJugador(cuentaJugador);
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
@@ -42,7 +128,7 @@ namespace RompecabezasFei.Servicios
             {
                 if (EstadoOperacion == EstadoOperacion.Error)
                 {
-                    cliente.Abort();
+                    ClienteServicioJugador.Abort();
                 }
             }
 
@@ -52,14 +138,12 @@ namespace RompecabezasFei.Servicios
         public CuentaJugador IniciarSesionComoJugador(
             string nombreJugador, string contrasena)
         {
-            var cliente = new ServicioJugadorClient();
             CuentaJugador cuentaJugador = null;
 
             try
             {
-                cuentaJugador = cliente.IniciarSesionComoJugador(
-                    nombreJugador, contrasena);
-                cliente.Close();
+                cuentaJugador = ClienteServicioJugador.
+                    IniciarSesionComoJugador(nombreJugador, contrasena);
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
@@ -86,7 +170,7 @@ namespace RompecabezasFei.Servicios
             {
                 if (EstadoOperacion == EstadoOperacion.Error)
                 {
-                    cliente.Abort();
+                    ClienteServicioJugador.Abort();
                 }
             }
 
@@ -95,13 +179,12 @@ namespace RompecabezasFei.Servicios
 
         public CuentaJugador IniciarSesionComoInvitado(string nombreJugador)
         {
-            var cliente = new ServicioJugadorClient();
             CuentaJugador cuentaInvitado = null;
 
             try
             {
-                cuentaInvitado = cliente.IniciarSesionComoInvitado(nombreJugador);
-                cliente.Close();
+                cuentaInvitado = ClienteServicioJugador.
+                    IniciarSesionComoInvitado(nombreJugador);
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
@@ -128,7 +211,7 @@ namespace RompecabezasFei.Servicios
             {
                 if (EstadoOperacion == EstadoOperacion.Error)
                 {
-                    cliente.Abort();
+                    ClienteServicioJugador.Abort();
                 }
             }
 
@@ -137,12 +220,9 @@ namespace RompecabezasFei.Servicios
 
         public void CerrarSesion(string nombreJugador)
         {
-            var cliente = new ServicioJugadorClient();
-
             try
             {
-                cliente.CerrarSesion(nombreJugador);
-                cliente.Close();
+                ClienteServicioJugador.CerrarSesion(nombreJugador);
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
@@ -169,20 +249,19 @@ namespace RompecabezasFei.Servicios
             {
                 if (EstadoOperacion == EstadoOperacion.Error)
                 {
-                    cliente.Abort();
+                    ClienteServicioJugador.Abort();
                 }
             }
         }
 
         public bool ActualizarContrasena(string correo, string nuevaContrasena)
         {
-            var cliente = new ServicioJugadorClient(); 
             bool resultado = false;
 
             try
             {
-                resultado = cliente.ActualizarContrasena(correo, nuevaContrasena);
-                cliente.Close();
+                resultado = ClienteServicioJugador.
+                    ActualizarContrasena(correo, nuevaContrasena);
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
@@ -209,7 +288,7 @@ namespace RompecabezasFei.Servicios
             {
                 if (EstadoOperacion == EstadoOperacion.Error)
                 {
-                    cliente.Abort();
+                    ClienteServicioJugador.Abort();
                 }
             }
 
@@ -219,14 +298,12 @@ namespace RompecabezasFei.Servicios
         public bool ActualizarNombreJugador(string nombreAnterior, 
             string nuevoNombre)
         {
-            var cliente = new ServicioJugadorClient();
             bool resultado = false;
 
             try
             {
-                resultado = cliente.ActualizarNombreJugador(
-                    nombreAnterior,nuevoNombre);
-                cliente.Close();
+                resultado = ClienteServicioJugador.
+                    ActualizarNombreJugador(nombreAnterior,nuevoNombre);
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
@@ -253,7 +330,7 @@ namespace RompecabezasFei.Servicios
             {
                 if (EstadoOperacion == EstadoOperacion.Error)
                 {
-                    cliente.Abort();
+                    ClienteServicioJugador.Abort();
                 }
             }
 
@@ -263,14 +340,12 @@ namespace RompecabezasFei.Servicios
         public bool ActualizarNumeroAvatar(string nombreJugador, 
             int nuevoNumeroAvatar)
         {
-            var cliente = new ServicioJugadorClient();
             bool resultado = false;
 
             try
             {
-                resultado = cliente.ActualizarNumeroAvatar(
-                    nombreJugador, nuevoNumeroAvatar);
-                cliente.Close();
+                resultado = ClienteServicioJugador.
+                    ActualizarNumeroAvatar(nombreJugador, nuevoNumeroAvatar);                
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
@@ -297,7 +372,7 @@ namespace RompecabezasFei.Servicios
             {
                 if (EstadoOperacion == EstadoOperacion.Error)
                 {
-                    cliente.Abort();
+                    ClienteServicioJugador.Abort();
                 }
             }
 
@@ -306,13 +381,12 @@ namespace RompecabezasFei.Servicios
 
         public bool ExisteNombreJugadorRegistrado(string nombreJugador)
         {
-            var cliente = new ServicioJugadorClient();
             bool resultado = false;
 
             try
             {
-                resultado = cliente.ExisteNombreJugadorRegistrado(nombreJugador);
-                cliente.Close();
+                resultado = ClienteServicioJugador.
+                    ExisteNombreJugadorRegistrado(nombreJugador);
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
@@ -339,7 +413,7 @@ namespace RompecabezasFei.Servicios
             {
                 if (EstadoOperacion == EstadoOperacion.Error)
                 {
-                    cliente.Abort();
+                    ClienteServicioJugador.Abort();
                 }
             }
 
@@ -348,14 +422,12 @@ namespace RompecabezasFei.Servicios
 
         public bool EsLaMismaContrasenaDeJugador(string nombreJugador, string contrasena)
         {
-            var cliente = new ServicioJugadorClient();
             bool resultado = false;
 
             try
             {
-                resultado = cliente.EsLaMismaContrasenaDeJugador(
-                    nombreJugador, contrasena);
-                cliente.Close();
+                resultado = ClienteServicioJugador.
+                    EsLaMismaContrasenaDeJugador(nombreJugador, contrasena);
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
@@ -382,11 +454,52 @@ namespace RompecabezasFei.Servicios
             {
                 if (EstadoOperacion == EstadoOperacion.Error)
                 {
-                    cliente.Abort();
+                    ClienteServicioJugador.Abort();
                 }
             }
 
             return resultado;
+        }
+
+        public void ProbarConexionServidor(object sender, ElapsedEventArgs e)
+        {
+            Application.Current.Dispatcher.Invoke((Action)delegate 
+            {
+                try
+                {
+                    DetenerTemporizador();
+                    ClienteServicioJugador.ProbarConexionServidor();
+                    IniciarTemporizador();
+                    EstadoOperacion = EstadoOperacion.Correcto;
+                }
+                catch (EndpointNotFoundException excepcion)
+                {
+                    ManejarExcepcionDeServidor(excepcion, true);
+                }
+                catch (CommunicationObjectFaultedException excepcion)
+                {
+                    ManejarExcepcionDeServidor(excepcion, true);
+                }
+                catch (CommunicationObjectAbortedException excepcion)
+                {
+                    ManejarExcepcionDeServidor(excepcion, true);
+                }
+                catch (SocketException excepcion)
+                {
+                    ManejarExcepcionDeServidor(excepcion, true);
+                }
+                catch (TimeoutException excepcion)
+                {
+                    ManejarExcepcionDeServidor(excepcion, true);
+                }
+                finally
+                {
+                    if (EstadoOperacion == EstadoOperacion.Error)
+                    {
+                        ClienteServicioJugador.Abort();
+                    }
+                }
+            });
         }
     }
 }

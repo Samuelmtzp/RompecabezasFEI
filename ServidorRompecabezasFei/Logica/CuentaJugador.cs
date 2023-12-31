@@ -30,9 +30,14 @@ namespace Logica
         [DataMember]
         public Enumeraciones.EstadoJugador Estado { get; set; }
 
-        // Contexto de operación para manejo de callbacks
-        public OperationContext ContextoOperacion { get; set; }
+        // Este OperationContext está reservado para mantener el canal de comunicación
+        // necesario durante todo el tiempo de vida del jugador
+        public OperationContext ContextoOperacionConexion { get; set; }
 
+        // Este OperationContext puede utilizarse para manejo de interfaces de callbacks que
+        // no requieran mantener la conexión del jugador durante todo su tiempo de vida
+        public OperationContext ContextoOperacion { get; set; }
+        
         public override string ToString()
         {
             return $"NombreJugador = {NombreJugador}\n" +
