@@ -207,6 +207,12 @@
   <wsdl:message name="IServicioJugador_CambiarEstadoJugador_OutputMessage">
     <wsdl:part name="parameters" element="tns:CambiarEstadoJugadorResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioJugador_ProbarConexionServidor_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProbarConexionServidor" />
+  </wsdl:message>
+  <wsdl:message name="IServicioJugador_ProbarConexionJugador_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ProbarConexionJugador" />
+  </wsdl:message>
   <wsdl:message name="IServicioPartida_CrearNuevaPartida_InputMessage">
     <wsdl:part name="parameters" element="tns:CrearNuevaPartida" />
   </wsdl:message>
@@ -506,6 +512,12 @@
     <wsdl:operation name="CambiarEstadoJugador">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioJugador/CambiarEstadoJugador" message="tns:IServicioJugador_CambiarEstadoJugador_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioJugador/CambiarEstadoJugadorResponse" message="tns:IServicioJugador_CambiarEstadoJugador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProbarConexionServidor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioJugador/ProbarConexionServidor" message="tns:IServicioJugador_ProbarConexionServidor_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProbarConexionJugador">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioJugador/ProbarConexionJugador" message="tns:IServicioJugador_ProbarConexionJugador_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IServicioPartida">
@@ -914,6 +926,18 @@
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProbarConexionServidor">
+      <soap12:operation soapAction="http://tempuri.org/IServicioJugador/ProbarConexionServidor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ProbarConexionJugador">
+      <soap12:operation soapAction="http://tempuri.org/IServicioJugador/ProbarConexionJugador" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

@@ -4,7 +4,7 @@ using Logica.Enumeraciones;
 
 namespace Contratos
 {
-    [ServiceContract]
+    [ServiceContract(CallbackContract = typeof(IServicioJugadorCallback))]
     public interface IServicioJugador
     {
         [OperationContract]
@@ -36,5 +36,15 @@ namespace Contratos
 
         [OperationContract]
         void CambiarEstadoJugador(string nombreJugador, EstadoJugador estado);
+
+        [OperationContract(IsOneWay = true)]
+        void ProbarConexionServidor();
+    }
+
+    [ServiceContract]
+    public interface IServicioJugadorCallback
+    {
+        [OperationContract(IsOneWay = true)]
+        void ProbarConexionJugador();
     }
 }

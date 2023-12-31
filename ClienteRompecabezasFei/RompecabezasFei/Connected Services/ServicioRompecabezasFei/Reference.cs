@@ -679,7 +679,7 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioRompecabezasFei.IServicioJugador")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioRompecabezasFei.IServicioJugador", CallbackContract=typeof(RompecabezasFei.ServicioRompecabezasFei.IServicioJugadorCallback))]
     public interface IServicioJugador {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJugador/RegistrarJugador", ReplyAction="http://tempuri.org/IServicioJugador/RegistrarJugadorResponse")]
@@ -741,6 +741,19 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJugador/CambiarEstadoJugador", ReplyAction="http://tempuri.org/IServicioJugador/CambiarEstadoJugadorResponse")]
         System.Threading.Tasks.Task CambiarEstadoJugadorAsync(string nombreJugador, RompecabezasFei.ServicioRompecabezasFei.EstadoJugador estado);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioJugador/ProbarConexionServidor")]
+        void ProbarConexionServidor();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioJugador/ProbarConexionServidor")]
+        System.Threading.Tasks.Task ProbarConexionServidorAsync();
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IServicioJugadorCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioJugador/ProbarConexionJugador")]
+        void ProbarConexionJugador();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -749,25 +762,26 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServicioJugadorClient : System.ServiceModel.ClientBase<RompecabezasFei.ServicioRompecabezasFei.IServicioJugador>, RompecabezasFei.ServicioRompecabezasFei.IServicioJugador {
+    public partial class ServicioJugadorClient : System.ServiceModel.DuplexClientBase<RompecabezasFei.ServicioRompecabezasFei.IServicioJugador>, RompecabezasFei.ServicioRompecabezasFei.IServicioJugador {
         
-        public ServicioJugadorClient() {
+        public ServicioJugadorClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
         }
         
-        public ServicioJugadorClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
+        public ServicioJugadorClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
         }
         
-        public ServicioJugadorClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public ServicioJugadorClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public ServicioJugadorClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public ServicioJugadorClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public ServicioJugadorClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress) {
+        public ServicioJugadorClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
         }
         
         public bool RegistrarJugador(RompecabezasFei.ServicioRompecabezasFei.CuentaJugador cuentaJugador) {
@@ -848,6 +862,14 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         
         public System.Threading.Tasks.Task CambiarEstadoJugadorAsync(string nombreJugador, RompecabezasFei.ServicioRompecabezasFei.EstadoJugador estado) {
             return base.Channel.CambiarEstadoJugadorAsync(nombreJugador, estado);
+        }
+        
+        public void ProbarConexionServidor() {
+            base.Channel.ProbarConexionServidor();
+        }
+        
+        public System.Threading.Tasks.Task ProbarConexionServidorAsync() {
+            return base.Channel.ProbarConexionServidorAsync();
         }
     }
     

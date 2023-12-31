@@ -368,6 +368,16 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="ProbarConexionServidor">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProbarConexionJugador">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="CrearNuevaPartida">
     <xs:complexType>
       <xs:sequence>

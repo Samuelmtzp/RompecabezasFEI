@@ -1,10 +1,12 @@
-﻿using System.ComponentModel;
+﻿using RompecabezasFei.ServicioRompecabezasFei;
+using RompecabezasFei.Servicios;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 
 namespace RompecabezasFei
 {
-    public partial class VentanaPrincipal : Window
+    public partial class VentanaPrincipal : Window, IServicioJugadorCallback
     {
         private static Page PaginaActual { get; set; }
 
@@ -40,10 +42,17 @@ namespace RompecabezasFei
         {
             if (Dominio.CuentaJugador.Actual != null)
             {
+                var servicioJugador = new ServicioJugador();
+                
                 if (realizarDesconexion)
                 {
-                    var servicio = new Servicios.ServicioJugador();
-                    servicio.CerrarSesion(Dominio.CuentaJugador.Actual.NombreJugador);
+                    servicioJugador.CerrarSesion(
+                        Dominio.CuentaJugador.Actual.NombreJugador);
+                }
+
+                if (servicioJugador.HayTemporizadorActivo())
+                {
+                    servicioJugador.DetenerTemporizador();
                 }
 
                 Dominio.CuentaJugador.Actual = null;
@@ -51,9 +60,16 @@ namespace RompecabezasFei
             }
         }
 
-        private void CerrarSesionAlCerrarVentana(object objetoOrigen, CancelEventArgs evento)
+        private void CerrarSesionAlCerrarVentana(object objetoOrigen, 
+            CancelEventArgs evento)
         {
             CerrarSesion(true);
+        }
+
+        public void ProbarConexionJugador()
+        {
+            // Método de callback no implementado debido a que es utilizado
+            // únicamente para que el servidor verifique si el jugador sigue conectado
         }
     }
 }
