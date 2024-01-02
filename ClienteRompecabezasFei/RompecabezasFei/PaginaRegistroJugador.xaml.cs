@@ -1,4 +1,5 @@
 ﻿using Dominio;
+using RompecabezasFei.Servicios;
 using RompecabezasFei.Utilidades;
 using Seguridad;
 using System;
@@ -59,20 +60,22 @@ namespace RompecabezasFei
             int numeroAvatar = Convert.ToInt32(imagenAvatarActual.Tag);
 
             if (!ExistenCamposInvalidos())
-            {
-                var servicioJugador = new Servicios.ServicioJugador();
-                servicioJugador.AbrirNuevaConexion();
-                bool esNombreJugadorDisponible = !servicioJugador.
-                    ExisteNombreJugadorRegistrado(nombreJugador);
-                servicioJugador.CerrarConexion();
+            {                
+                VentanaPrincipal.ServicioJugador.AbrirConexion();
 
-                switch (servicioJugador.EstadoOperacion)
+                if (VentanaPrincipal.ServicioJugador.EstadoOperacion == 
+                    EstadoOperacion.Correcto)
                 {
-                    case Servicios.EstadoOperacion.Correcto:
+                    bool esNombreJugadorDisponible = !VentanaPrincipal.ServicioJugador.
+                        ExisteNombreJugadorRegistrado(nombreJugador);
+                    VentanaPrincipal.ServicioJugador.CerrarConexion();
 
+                    if (VentanaPrincipal.ServicioJugador.EstadoOperacion == 
+                        EstadoOperacion.Correcto)
+                    {
                         if (esNombreJugadorDisponible)
                         {
-                            IrAPaginaVerificacionCorreo(nombreJugador, 
+                            IrAPaginaVerificacionCorreo(nombreJugador,
                                 correo, contrasena, numeroAvatar);
                         }
                         else
@@ -81,23 +84,24 @@ namespace RompecabezasFei
                                 "El nombre del jugador que deseas registrar ya está registrado",
                                 "Nombre de jugador no disponible");
                         }
-                        
-                        break;
+                    }
                 }
-
             }
         }
 
         private void IrAPaginaVerificacionCorreo(string nombreJugador, 
             string correo, string contrasena, int numeroAvatar)
         {
-            var servicioCorreo = new Servicios.ServicioCorreo();
-            bool esCorreoDisponible = !servicioCorreo.ExisteCorreoRegistrado(correo);
+            var servicioCorreo = new ServicioCorreo();
 
-            switch (servicioCorreo.EstadoOperacion)
+            if (servicioCorreo.EstadoOperacion == EstadoOperacion.Correcto)
             {
-                case Servicios.EstadoOperacion.Correcto:
+                bool esCorreoDisponible = !servicioCorreo.
+                    ExisteCorreoRegistrado(correo);
+                servicioCorreo.CerrarConexion();
 
+                if (servicioCorreo.EstadoOperacion == EstadoOperacion.Correcto)
+                {
                     if (!esCorreoDisponible)
                     {
                         var jugadorRegistro = new CuentaJugador
@@ -116,8 +120,7 @@ namespace RompecabezasFei
                             "El correo electrónico que deseas registrar ya está registrado",
                             "Correo no disponible");
                     }
-
-                    break;
+                }
             }
         }
 

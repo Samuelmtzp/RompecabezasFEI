@@ -12,10 +12,13 @@ namespace RompecabezasFei
 
         public static Page PaginaAnterior { get; set; }
 
+        public static ServicioJugador ServicioJugador { get; set; }
+
         public VentanaPrincipal()
         {
             InitializeComponent();
-            Closing += CerrarSesionAlCerrarVentana;
+            Closing += (objetoOrigen, evento) => CerrarSesion();
+            ServicioJugador = new ServicioJugador();
             PaginaActual = new PaginaInicioSesion();
             marcoPaginaActual.Navigate(PaginaActual);
         }
@@ -38,38 +41,32 @@ namespace RompecabezasFei
             return (VentanaPrincipal)GetWindow(PaginaActual);
         }
 
-        public static void CerrarSesion(bool realizarDesconexion)
+        public void DeshabilitarMarcoPaginaActual()
+        {
+            marcoPaginaActual.IsEnabled = false;
+        }
+
+        public void HabilitarMarcoPaginaActual()
+        {
+            marcoPaginaActual.IsEnabled = true;
+            marcoPaginaActual.Navigate(PaginaActual);
+        }
+
+        public static void CerrarSesion()
         {
             if (Dominio.CuentaJugador.Actual != null)
             {
-                var servicioJugador = new ServicioJugador();
-                
-                if (realizarDesconexion)
-                {
-                    servicioJugador.CerrarSesion(
-                        Dominio.CuentaJugador.Actual.NombreJugador);
-                }
-
-                if (servicioJugador.HayTemporizadorActivo())
-                {
-                    servicioJugador.DetenerTemporizador();
-                }
-
+                ServicioJugador.CerrarSesion(Dominio.
+                    CuentaJugador.Actual.NombreJugador);
+                ServicioJugador.CerrarConexion();
                 Dominio.CuentaJugador.Actual = null;
                 CambiarPagina(new PaginaInicioSesion());
             }
         }
 
-        private void CerrarSesionAlCerrarVentana(object objetoOrigen, 
-            CancelEventArgs evento)
-        {
-            CerrarSesion(true);
-        }
-
+        // Este método no se implementó debido a que el servidor nunca lo utiliza
         public void ProbarConexionJugador()
         {
-            // Método de callback no implementado debido a que es utilizado
-            // únicamente para que el servidor verifique si el jugador sigue conectado
         }
     }
 }

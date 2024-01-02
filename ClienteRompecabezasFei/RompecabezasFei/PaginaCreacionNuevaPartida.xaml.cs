@@ -51,7 +51,8 @@ namespace RompecabezasFei
             }
         }
 
-        private void MostrarPreseleccionDeImagen(object objetoOrigen, MouseEventArgs evento)
+        private void MostrarPreseleccionDeImagen(object objetoOrigen, 
+            MouseEventArgs evento)
         {
             Border borde = objetoOrigen as Border;
 
@@ -61,33 +62,38 @@ namespace RompecabezasFei
             }
         }
 
-        private void OcultarPreseleccionDeImagen(object objetoOrigen, MouseEventArgs evento)
+        private void OcultarPreseleccionDeImagen(object objetoOrigen, 
+            MouseEventArgs evento)
         {
             Border borde = objetoOrigen as Border;
 
             if (borde != bordeImagenSeleccionada)
             {
-                ImagenRompecabezas imagen = borde.DataContext as ImagenRompecabezas;
+                ImagenRompecabezas imagen = 
+                    borde.DataContext as ImagenRompecabezas;
                 borde.BorderBrush = new SolidColorBrush(imagen.ColorDeBorde);
             }
         }
 
-        private void SeleccionarImagen(object objetoOrigen, MouseButtonEventArgs evento)
+        private void SeleccionarImagen(object objetoOrigen, 
+            MouseButtonEventArgs evento)
         {
             Border borde = objetoOrigen as Border;
 
             if (bordeImagenSeleccionada != null)
             {
-                bordeImagenSeleccionada.BorderBrush = new SolidColorBrush(Colors.Transparent);
+                bordeImagenSeleccionada.BorderBrush = 
+                    new SolidColorBrush(Colors.Transparent);
             }
 
-            ImagenRompecabezas imagen = borde.DataContext as ImagenRompecabezas;
+            var imagen = borde.DataContext as ImagenRompecabezas;
             numeroImagenSeleccionada = imagen.NumeroImagen;
             bordeImagenSeleccionada = borde;
             borde.BorderBrush = new SolidColorBrush(Colors.Green);
         }
 
-        private void IrAPaginaSala(object objetoOrigen, MouseButtonEventArgs evento)
+        private void IrAPaginaSala(object objetoOrigen, 
+            MouseButtonEventArgs evento)
         {
             PaginaSala paginaSala = new PaginaSala(true, codigoSala);
             VentanaPrincipal.CambiarPagina(paginaSala);
@@ -96,10 +102,12 @@ namespace RompecabezasFei
         private void SeleccionarDificultad(object objetoOrigen,
             SelectionChangedEventArgs evento)
         {
-            dificultadSeleccionada = (DificultadPartida)cuadroSeleccionDificultad.SelectedIndex;
+            dificultadSeleccionada = (DificultadPartida)
+                cuadroSeleccionDificultad.SelectedIndex;
         }
 
-        private void IrAPaginaPartida(object objetoOrigen, RoutedEventArgs evento)
+        private void IrAPaginaPartida(object objetoOrigen, 
+            RoutedEventArgs evento)
         {
             PaginaPartida paginaPartida = new PaginaPartida(codigoSala, 
                 dificultadSeleccionada, numeroImagenSeleccionada);

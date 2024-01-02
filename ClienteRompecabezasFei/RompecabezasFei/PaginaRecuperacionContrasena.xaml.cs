@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using RompecabezasFei.Servicios;
 using RompecabezasFei.Utilidades;
 using Seguridad;
 
@@ -20,13 +21,15 @@ namespace RompecabezasFei
 
             if (!ValidadorDatos.ExistenCaracteresInvalidosParaCorreo(correo))
             {
-                var servicioCorreo = new Servicios.ServicioCorreo();
-                bool existeCorreo = servicioCorreo.ExisteCorreoRegistrado(correo);
+                var servicioCorreo = new ServicioCorreo();
 
-                switch (servicioCorreo.EstadoOperacion)
+                if (servicioCorreo.EstadoOperacion == EstadoOperacion.Correcto)
                 {
-                    case Servicios.EstadoOperacion.Correcto:
-                        
+                    bool existeCorreo = servicioCorreo.ExisteCorreoRegistrado(correo);
+                    servicioCorreo.CerrarConexion();
+
+                    if (servicioCorreo.EstadoOperacion == EstadoOperacion.Correcto)
+                    {
                         if (existeCorreo)
                         {
                             VentanaPrincipal.CambiarPagina(
@@ -39,8 +42,7 @@ namespace RompecabezasFei
                                 Properties.Resources.
                                 ETIQUETA_RECUPERACIONCONTRASENA_CORREOINEXISTENTE);
                         }
-                        
-                        break;
+                    }
                 }
             }
             else

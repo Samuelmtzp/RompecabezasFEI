@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.ServiceModel;
-using System.Threading;
 
 namespace Servicios
 {    
@@ -17,10 +16,6 @@ namespace Servicios
         InstanceContextMode = InstanceContextMode.Single)]
     public partial class ServicioRompecabezasFei : IServicioJugador
     {
-        private const int IntervaloSegundosTemporizador = 10;
-        
-        private bool hayTemporizadorIniciado = false;
-
         private readonly ConcurrentDictionary<string, CuentaJugador> jugadoresActivos = 
             new ConcurrentDictionary<string, CuentaJugador>();
 
@@ -167,6 +162,9 @@ namespace Servicios
                 {
                     cuentaRecuperada.ContextoOperacionConexion = 
                         OperationContext.Current;
+                    cuentaRecuperada.ContextoOperacionConexion.Channel.Faulted += 
+                        (objetoOrigen, evento) => 
+                        CerrarSesion(cuentaRecuperada.NombreJugador);
                     jugadoresActivos.TryAdd(cuentaRecuperada.
                         NombreJugador, cuentaRecuperada);
                     CambiarEstadoJugador(cuentaRecuperada.NombreJugador, 
@@ -194,6 +192,9 @@ namespace Servicios
                         Estado = EstadoJugador.Conectado,
                         ContextoOperacionConexion = OperationContext.Current,
                     };
+                    cuentaInvitado.ContextoOperacionConexion.
+                        Channel.Faulted +=(objetoOrigen, evento) =>
+                        CerrarSesion(cuentaInvitado.NombreJugador);
                     jugadoresActivos.TryAdd(cuentaInvitado.NombreJugador, cuentaInvitado);
                     CambiarEstadoJugador(cuentaInvitado.NombreJugador, 
                         EstadoJugador.Conectado);
@@ -225,57 +226,7 @@ namespace Servicios
                     CambiarEstadoJugador(nombreJugador, EstadoJugador.Desconectado);
                 }
             }
-        }
-
-        public void CambiarEstadoJugador(string nombreJugador, EstadoJugador estado)
-        {
-            if (jugadoresActivos.ContainsKey(nombreJugador))
-            {
-                EstadoJugador estadoAnterior = jugadoresActivos[nombreJugador].Estado;
-
-                switch (estado)
-                {
-                    case EstadoJugador.Conectado:
-                    case EstadoJugador.EnSala:
-                    case EstadoJugador.EnPartida:
-                        
-                        if (estadoAnterior == EstadoJugador.Disponible)
-                        {
-                            NotificarAnfitrionesDeSalaSobreAmigoNoDisponible(nombreJugador);
-                        }
-                        else
-                        {
-                            NotificarAmigosSobreCambioEstadoDeJugador(nombreJugador, estado);
-                        }
-
-                        break;
-
-                    case EstadoJugador.Desconectado:
-                        jugadoresActivos.TryRemove(nombreJugador, out _);
-                        break;
-
-                    case EstadoJugador.Disponible:
-                        NotificarAnfitrionesDeSalaSobreAmigoDisponible(nombreJugador);
-                        break;
-                }
-
-                if (estado != EstadoJugador.Desconectado)
-                {
-                    jugadoresActivos[nombreJugador].Estado = estado;
-                }
-            }
-
-            if (jugadoresActivos.Any() && !hayTemporizadorIniciado)
-            {
-                IniciarTemporizador();
-            }
-        }
-
-        public void ProbarConexionServidor()
-        {
-            // Método no implementado debido a que es utilizado únicamente
-            // para que el cliente verifique si sigue conectado con el servidor
-        }
+        }        
     }
     #endregion
 
@@ -407,14 +358,17 @@ namespace Servicios
         {
             bool operacionRealizada = false;
 
-            try
+            lock (Bloqueador.BloqueoParaAceptarSolicitudDeAmistad)
             {
-                operacionRealizada = Logica.AccesoDatos.AccesoAmistades.
-                    AceptarSolicitudDeAmistad(nombreJugadorOrigen, nombreJugadorDestino);
-            }
-            catch (EntityException excepcion)
-            {
-                Registros.Registrador.EscribirRegistro(excepcion);
+                try
+                {
+                    operacionRealizada = Logica.AccesoDatos.AccesoAmistades.
+                        AceptarSolicitudDeAmistad(nombreJugadorOrigen, nombreJugadorDestino);
+                }
+                catch (EntityException excepcion)
+                {
+                    Registros.Registrador.EscribirRegistro(excepcion);
+                }
             }
 
             if (operacionRealizada && jugadoresActivos[nombreJugadorOrigen].
@@ -541,11 +495,13 @@ namespace Servicios
         public void ActivarInvitacionesDeSala(string nombreJugador)
         {
             jugadoresActivos[nombreJugador].ContextoOperacion = OperationContext.Current;
+            CambiarEstadoJugador(nombreJugador, EstadoJugador.Disponible);
         }
         
-        public void DesactivarInvitacionesDeSala(string nombreJugador)
+        public void DesactivarInvitacionesDeSala(string nombreJugador, EstadoJugador estado)
         {
             jugadoresActivos[nombreJugador].ContextoOperacion = null;
+            CambiarEstadoJugador(nombreJugador, estado);
         }
 
         public List<CuentaJugador> ObtenerAmigosDisponibles(string nombreAnfitrion)
@@ -676,34 +632,9 @@ namespace Servicios
 
         public void AbandonarSala(string nombreJugador, string codigoSala)
         {
-            CambiarEstadoJugador(nombreJugador, EstadoJugador.Disponible);
-            salas[codigoSala].RemoverNombreDeJugador(nombreJugador);
-
-            if (salas[codigoSala].EstaVacia())
+            if (RemoverJugadorDeSala(nombreJugador, codigoSala))
             {
-                salas.TryRemove(codigoSala, out _);
-            }
-            else
-            {
-                foreach (var jugadorEnSala in ObtenerJugadoresEnSala(codigoSala))
-                {
-                    try
-                    {
-                        jugadorEnSala.ContextoOperacion?.
-                            GetCallbackChannel<IServicioSalaCallback>().
-                            MostrarDesconexionDeJugadorEnSala(nombreJugador);
-                    }
-                    catch (CommunicationObjectAbortedException excepcion) 
-                    {
-                        Registros.Registrador.EscribirRegistro(excepcion);
-                        CerrarSesion(jugadorEnSala.NombreJugador);
-                    }
-                }
-
-                if (!salas[codigoSala].HayCantidadJugadoresMinimaParaPartida())
-                {
-                    DeshabilitarInicioDePartida(codigoSala);
-                }
+                CambiarEstadoJugador(nombreJugador, EstadoJugador.Disponible);
             }
         }
 
@@ -1129,6 +1060,45 @@ namespace Servicios
     #region Métodos privados
     public partial class ServicioRompecabezasFei
     {
+        private void CambiarEstadoJugador(string nombreJugador, EstadoJugador estado)
+        {
+            if (jugadoresActivos.ContainsKey(nombreJugador))
+            {
+                EstadoJugador estadoAnterior = jugadoresActivos[nombreJugador].Estado;
+
+                switch (estado)
+                {
+                    case EstadoJugador.Conectado:
+                    case EstadoJugador.EnSala:
+                    case EstadoJugador.EnPartida:
+
+                        if (estadoAnterior == EstadoJugador.Disponible)
+                        {
+                            NotificarAnfitrionesDeSalaSobreAmigoNoDisponible(nombreJugador);
+                        }
+                        else
+                        {
+                            NotificarAmigosSobreCambioEstadoDeJugador(nombreJugador, estado);
+                        }
+
+                        break;
+
+                    case EstadoJugador.Desconectado:
+                        jugadoresActivos.TryRemove(nombreJugador, out _);
+                        break;
+
+                    case EstadoJugador.Disponible:
+                        NotificarAnfitrionesDeSalaSobreAmigoDisponible(nombreJugador);
+                        break;
+                }
+
+                if (estado != EstadoJugador.Desconectado)
+                {
+                    jugadoresActivos[nombreJugador].Estado = estado;
+                }
+            }
+        }
+
         private List<CuentaJugador> AgregarConectividadAJugadores(
             List<CuentaJugador> cuentasJugador)
         {
@@ -1158,11 +1128,15 @@ namespace Servicios
                 ExisteAmistadConJugador(nombreJugador, jugador.NombreJugador)).ToList();
         }
 
-        private void RemoverJugadorDeSala(string nombreJugador, string codigoSala)
+        private bool RemoverJugadorDeSala(string nombreJugador, string codigoSala)
         {
+            bool operacionRealizada = false;
+
             if (salas.ContainsKey(codigoSala) && salas[codigoSala].
                 RemoverNombreDeJugador(nombreJugador))
             {
+                operacionRealizada = true;
+
                 foreach (var jugadorEnSala in ObtenerJugadoresEnSala(codigoSala))
                 {
                     try
@@ -1194,12 +1168,14 @@ namespace Servicios
                     }
                 }
             }
+
+            return operacionRealizada;
         }
 
         private void RemoverJugadorDePartida(string nombreJugador, string codigoSala)
         {
-            if (salas.ContainsKey(codigoSala) && 
-                salas[codigoSala].Partida.RemoverNombreDeJugador(nombreJugador))
+            if (salas.ContainsKey(codigoSala) && salas[codigoSala].
+                Partida.RemoverNombreDeJugador(nombreJugador))
             {
                 foreach (var jugadorEnPartida in ObtenerJugadoresEnPartida(codigoSala))
                 {
@@ -1461,31 +1437,6 @@ namespace Servicios
                 {
                     Registros.Registrador.EscribirRegistro(excepcion);
                     CerrarSesion(nombreJugador);
-                }
-            }
-        }
-
-        public void IniciarTemporizador()
-        {
-            Timer temporizador = new Timer(ConfirmarConexionJugadoresConectados, null, 
-                TimeSpan.Zero, TimeSpan.FromSeconds(IntervaloSegundosTemporizador));
-            hayTemporizadorIniciado = true;
-        }
-
-        private void ConfirmarConexionJugadoresConectados(object estado)
-        {
-            foreach (var jugadorActivo in jugadoresActivos.Values)
-            {
-                try
-                {
-                    jugadorActivo.ContextoOperacionConexion.
-                        GetCallbackChannel<IServicioJugadorCallback>().
-                        ProbarConexionJugador();
-                }
-                catch (CommunicationObjectAbortedException excepcion)
-                {
-                    //Registros.Registrador.EscribirRegistro(excepcion);
-                    CerrarSesion(jugadorActivo.NombreJugador);
                 }
             }
         }

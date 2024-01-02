@@ -32,18 +32,16 @@ namespace Contratos
         bool EsLaMismaContrasenaDeJugador(string nombreJugador, string contrasena);
 
         [OperationContract]
-        bool ExisteNombreJugadorRegistrado(string nombreJugador);
-
-        [OperationContract]
-        void CambiarEstadoJugador(string nombreJugador, EstadoJugador estado);
-
-        [OperationContract(IsOneWay = true)]
-        void ProbarConexionServidor();
+        bool ExisteNombreJugadorRegistrado(string nombreJugador);        
     }
-
+    
     [ServiceContract]
     public interface IServicioJugadorCallback
     {
+        // El método ProbarConexionJugador no es utilizado explícitamente,
+        // solamente se creó para definir una interfaz de callback para la
+        // interfaz IServicioJugador, la cual notifica al jugador sobre
+        // los eventos de cierre o fallo en el servidor en tiempo real
         [OperationContract(IsOneWay = true)]
         void ProbarConexionJugador();
     }

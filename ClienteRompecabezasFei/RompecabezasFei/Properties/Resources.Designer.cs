@@ -907,20 +907,20 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a No se pudo establecer una conexión con la base de datos. Por favor, inténtelo más tarde..
+        ///   Busca una cadena traducida similar a Se perdió la conexión con el servidor. Serás redirigido a la página de inicio de sesión..
         /// </summary>
-        public static string ETIQUETA_ERRORCONEXIONBASEDEDATOS_MENSAJE {
+        public static string ETIQUETA_ERRORCONEXIONPERDIDASERVIDOR_MENSAJE {
             get {
-                return ResourceManager.GetString("ETIQUETA_ERRORCONEXIONBASEDEDATOS_MENSAJE", resourceCulture);
+                return ResourceManager.GetString("ETIQUETA_ERRORCONEXIONPERDIDASERVIDOR_MENSAJE", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Error de conexión base de datos.
+        ///   Busca una cadena traducida similar a Sin conexión.
         /// </summary>
-        public static string ETIQUETA_ERRORCONEXIONBASEDEDATOS_TITULO {
+        public static string ETIQUETA_ERRORCONEXIONPERDIDASERVIDOR_TITULO {
             get {
-                return ResourceManager.GetString("ETIQUETA_ERRORCONEXIONBASEDEDATOS_TITULO", resourceCulture);
+                return ResourceManager.GetString("ETIQUETA_ERRORCONEXIONPERDIDASERVIDOR_TITULO", resourceCulture);
             }
         }
         

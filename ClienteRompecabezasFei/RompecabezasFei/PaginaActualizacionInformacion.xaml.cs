@@ -30,7 +30,7 @@ namespace RompecabezasFei
             VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
         }
 
-        private void IntentarActualizarInformacion(object objetoOrigen,
+        private void ActualizarInformacion(object objetoOrigen,
             RoutedEventArgs evento)
         {
             string nuevoNombre = cuadroTextoNombreUsuario.Text.Trim();
@@ -55,7 +55,8 @@ namespace RompecabezasFei
                         Actual.NombreJugador, nuevoNombre);
                 }
 
-                if (esAvatarDiferente)
+                if (VentanaPrincipal.ServicioJugador.EstadoOperacion == 
+                    EstadoOperacion.Correcto && esAvatarDiferente)
                 {
                     actualizacionAvatarRealizada = 
                         ActualizarNumeroAvatar(Dominio.CuentaJugador.
@@ -84,57 +85,42 @@ namespace RompecabezasFei
         private bool ActualizarNombreJugador(string nombreAnterior, 
             string nuevoNombre)
         {
-            var servicioJugador = new ServicioJugador();
-            bool actualizacionRealizada = servicioJugador.
+            bool actualizacionRealizada = VentanaPrincipal.ServicioJugador.
                 ActualizarNombreJugador(nombreAnterior, nuevoNombre);
 
-            switch (servicioJugador.EstadoOperacion)
+            if (VentanaPrincipal.ServicioJugador.EstadoOperacion == 
+                EstadoOperacion.Correcto && actualizacionRealizada)
             {
-                case EstadoOperacion.Correcto:
-
-                    if (actualizacionRealizada)
-                    {
-                        Dominio.CuentaJugador.Actual.NombreJugador = nuevoNombre;                        
-                    }
-
-                    break;
+                Dominio.CuentaJugador.Actual.NombreJugador = nuevoNombre;                        
             }
 
             return actualizacionRealizada;
         }
 
-        private bool ActualizarNumeroAvatar(string nombreJugador, 
-            int nuevoNumeroAvatar)
-        {
-            var servicioJugador = new ServicioJugador();
-            bool actualizacionRealizada = servicioJugador.
+        private bool ActualizarNumeroAvatar(string nombreJugador, int nuevoNumeroAvatar)
+        {           
+            bool actualizacionRealizada = VentanaPrincipal.ServicioJugador.
                 ActualizarNumeroAvatar(nombreJugador, nuevoNumeroAvatar);
 
-            switch (servicioJugador.EstadoOperacion)
+            if (VentanaPrincipal.ServicioJugador.EstadoOperacion == 
+                EstadoOperacion.Correcto && actualizacionRealizada)
             {
-                case EstadoOperacion.Correcto:
-
-                    if (actualizacionRealizada)
-                    {
-                        Dominio.CuentaJugador.Actual.
-                            NumeroAvatar = nuevoNumeroAvatar;
-                        Dominio.CuentaJugador.Actual.
-                            FuenteImagenAvatar = GeneradorImagenes.
-                            GenerarFuenteImagenAvatar(nuevoNumeroAvatar);
-                    }
-
-                    break;
+                Dominio.CuentaJugador.Actual.
+                    NumeroAvatar = nuevoNumeroAvatar;
+                Dominio.CuentaJugador.Actual.
+                    FuenteImagenAvatar = GeneradorImagenes.
+                    GenerarFuenteImagenAvatar(nuevoNumeroAvatar);
             }
 
             return actualizacionRealizada;
         }
 
-        private void NavegarAPaginaSeleccionAvatar(object objetoOrigen, RoutedEventArgs evento)
+        private void IrAPaginaSeleccionAvatar(object objetoOrigen, 
+            RoutedEventArgs evento)
         {
-            PaginaSeleccionAvatar paginaSeleccionAvatar = 
+            VentanaPrincipal.CambiarPaginaGuardandoAnterior(
                 new PaginaSeleccionAvatar(Convert.ToInt32(imagenAvatarActual.Tag), 
-                cuadroTextoNombreUsuario.Text);
-            VentanaPrincipal.CambiarPaginaGuardandoAnterior(paginaSeleccionAvatar);
+                cuadroTextoNombreUsuario.Text));
         }
 
         private bool HayNumeroAvatarSinModificar()
@@ -152,9 +138,9 @@ namespace RompecabezasFei
         private bool ExistenDatosInvalidosParaActualizacion()
         {
             bool hayDatosInvalidos = false;
+            string nombreJugador = cuadroTextoNombreUsuario.Text;
 
-            if (ValidadorDatos.EsCadenaVacia(
-                cuadroTextoNombreUsuario.Text.Trim()))
+            if (ValidadorDatos.EsCadenaVacia(nombreJugador))
             {
                 GestorCuadroDialogo.MostrarAdvertencia(
                     Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS,
@@ -163,8 +149,7 @@ namespace RompecabezasFei
             }
 
             if (!hayDatosInvalidos && ValidadorDatos.
-                ExisteLongitudExcedidaEnNombreJugador(
-                cuadroTextoNombreUsuario.Text.Trim()))
+                ExisteLongitudExcedidaEnNombreJugador(nombreJugador))
             {
                 GestorCuadroDialogo.MostrarAdvertencia(
                     Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSEXCEDIDOS,
@@ -173,8 +158,7 @@ namespace RompecabezasFei
             }
 
             if (!hayDatosInvalidos && ValidadorDatos.
-                ExistenCaracteresInvalidosParaNombreJugador(
-                cuadroTextoNombreUsuario.Text.Trim()))
+                ExistenCaracteresInvalidosParaNombreJugador(nombreJugador))
             {
                 GestorCuadroDialogo.MostrarAdvertencia(
                     Properties.Resources.ETIQUETA_VALIDACION_MENSAJENOMBREUSUARIOINVALIDO,
@@ -184,12 +168,12 @@ namespace RompecabezasFei
 
             if (!hayDatosInvalidos && !HayNombreJugadorSinModificar())
             {
-                var servicio = new ServicioJugador();
-                bool esNombreDisponible = !servicio.
-                    ExisteNombreJugadorRegistrado(cuadroTextoNombreUsuario.Text);
+                bool esNombreDisponible = !VentanaPrincipal.ServicioJugador.
+                    ExisteNombreJugadorRegistrado(nombreJugador);
 
-                if (!esNombreDisponible)
-                {
+                if (VentanaPrincipal.ServicioJugador.EstadoOperacion == 
+                    EstadoOperacion.Correcto && !esNombreDisponible)
+                { 
                     GestorCuadroDialogo.MostrarAdvertencia(Properties.Resources.
                         ETIQUETA_ACTUALIZACIONINFORMACION_NOMBRENODISPONIBLE,
                         Properties.Resources.

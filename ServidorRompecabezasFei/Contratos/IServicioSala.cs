@@ -13,13 +13,13 @@ namespace Contratos
         [OperationContract]
         bool UnirseASala(string nombreJugador, string codigoSala);
 
-        [OperationContract]
+        [OperationContract(IsOneWay = true)]
         void ActivarNotificacionesDeSala(string nombreJugador);
 
-        [OperationContract]
+        [OperationContract(IsOneWay = true)]
         void DesactivarNotificacionesDeSala(string nombreJugador);
 
-        [OperationContract]
+        [OperationContract(IsOneWay = true)]
         void AbandonarSala(string nombreJugador, string codigoSala);
 
         [OperationContract]
@@ -34,7 +34,7 @@ namespace Contratos
         [OperationContract]
         bool ExisteSalaDisponible(string codigoSala);
 
-        [OperationContract]
+        [OperationContract(IsOneWay = true)]
         void ConvertirJugadorEnAnfitrionDesdeSala(string nombreJugador, string codigoSala);
 
         [OperationContract(IsOneWay = true)]

@@ -399,11 +399,11 @@
   <data name="ETIQUETA_ELIMINACIONAMIGO_TITULO" xml:space="preserve">
     <value>Confirmación eliminación amigo</value>
   </data>
-  <data name="ETIQUETA_ERRORCONEXIONBASEDEDATOS_MENSAJE" xml:space="preserve">
-    <value>No se pudo establecer una conexión con la base de datos. Por favor, inténtelo más tarde.</value>
+  <data name="ETIQUETA_ERRORCONEXIONPERDIDASERVIDOR_MENSAJE" xml:space="preserve">
+    <value>Se perdió la conexión con el servidor. Serás redirigido a la página de inicio de sesión.</value>
   </data>
-  <data name="ETIQUETA_ERRORCONEXIONBASEDEDATOS_TITULO" xml:space="preserve">
-    <value>Error de conexión base de datos</value>
+  <data name="ETIQUETA_ERRORCONEXIONPERDIDASERVIDOR_TITULO" xml:space="preserve">
+    <value>Sin conexión</value>
   </data>
   <data name="ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE" xml:space="preserve">
     <value>No se pudo establecer una conexión con el servidor. Por favor, inténtelo más tarde.</value>

@@ -8,80 +8,65 @@ namespace RompecabezasFei.Servicios
 {
     public class ServicioSala : Servicio
     {
-        private ServicioSalaClient clienteServicioSala;
+        private readonly ServicioSalaClient clienteServicioSala;
 
         public ServicioSala()
         {
             clienteServicioSala = new ServicioSalaClient(
                 new InstanceContext(new PaginaSala()));
-            clienteServicioSala.Open();
+            AbrirConexion();
         }
 
         public ServicioSala(PaginaSala paginaSala)
         {
             clienteServicioSala = new ServicioSalaClient(
                 new InstanceContext(paginaSala));
-            clienteServicioSala.Open();
+            AbrirConexion();
         }
 
-        public void CerrarConexion()
+        public override void AbrirConexion()
+        {
+            try
+            {
+                clienteServicioSala.Open();
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (InvalidOperationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+        }
+
+        public override void CerrarConexion()
         {
             if (clienteServicioSala.State == CommunicationState.Opened)
             {
                 try
                 {
                     clienteServicioSala.Close();
+                    EstadoOperacion = EstadoOperacion.Correcto;
                 }
                 catch (CommunicationException excepcion)
                 {
-                    ManejarExcepcionDeServidor(excepcion, true);
+                    ManejarExcepcionDeServidor(excepcion);
                 }
                 catch (TimeoutException excepcion)
                 {
-                    ManejarExcepcionDeServidor(excepcion, true);
+                    ManejarExcepcionDeServidor(excepcion);
                 }
-            }
-        }
-
-        public bool ExisteSalaDisponible(string codigoSala)
-        {
-            bool hayDisponibilidad = false;
-
-            try
-            {
-                hayDisponibilidad = clienteServicioSala.
-                    ExisteSalaDisponible(codigoSala);
-                EstadoOperacion = EstadoOperacion.Correcto;
-            }
-            catch (EndpointNotFoundException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (CommunicationObjectFaultedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (CommunicationObjectAbortedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (SocketException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
-            }
-            catch (TimeoutException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            finally
-            {
-                if (EstadoOperacion == EstadoOperacion.Error)
+                catch (InvalidOperationException excepcion)
                 {
-                    clienteServicioSala.Abort();
+                    ManejarExcepcionDeServidor(excepcion);                        
                 }
             }
-
-            return hayDisponibilidad;
         }
 
         public bool CrearNuevaSala(string nombreAnfitrion, string codigoSala)
@@ -96,23 +81,23 @@ namespace RompecabezasFei.Servicios
             }
             catch (EndpointNotFoundException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectAbortedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
-            catch (SocketException excepcion)
+            catch (CommunicationException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (TimeoutException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             finally
             {
@@ -125,123 +110,35 @@ namespace RompecabezasFei.Servicios
             return resultado;
         }
 
-        public string GenerarCodigoParaNuevaSala()
-        {
-            string codigoSala = "";
-
-            try
-            {
-                codigoSala = clienteServicioSala.GenerarCodigoParaNuevaSala();
-                EstadoOperacion = EstadoOperacion.Correcto;
-            }
-            catch (EndpointNotFoundException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (CommunicationObjectFaultedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (CommunicationObjectAbortedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (SocketException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
-            }
-            catch (TimeoutException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            finally
-            {
-                if (EstadoOperacion == EstadoOperacion.Error)
-                {
-                    clienteServicioSala.Abort();
-                }
-            }
-
-            return codigoSala;
-        }
-
-        public List<CuentaJugador> ObtenerJugadoresConectadosEnSala(
-            string codigoSala)
-        {
-            List<CuentaJugador> jugadoresEnSala = new List<CuentaJugador>();
-
-            try
-            {
-                var jugadoresObtenidos = clienteServicioSala.
-                    ObtenerJugadoresEnSala(codigoSala);
-                
-                foreach (var jugadorObtenido in jugadoresObtenidos)
-                {
-                    jugadoresEnSala.Add(jugadorObtenido);
-                }
-
-                EstadoOperacion = EstadoOperacion.Correcto;
-            }
-            catch (EndpointNotFoundException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (CommunicationObjectFaultedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (CommunicationObjectAbortedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (SocketException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
-            }
-            catch (TimeoutException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            finally
-            {
-                if (EstadoOperacion == EstadoOperacion.Error)
-                {
-                    clienteServicioSala.Abort();
-                }
-            }
-
-            return jugadoresEnSala;
-        }
-
-        public bool ActivarNotificacionesDeSala(string nombreJugador)
+        public bool UnirseASala(string nombreJugador, string codigoSala)
         {
             bool operacionRealizada = false;
 
             try
             {
-                clienteServicioSala.ActivarNotificacionesDeSala(nombreJugador);
+                operacionRealizada = clienteServicioSala.
+                    UnirseASala(nombreJugador, codigoSala);
                 EstadoOperacion = EstadoOperacion.Correcto;
-                operacionRealizada = true;
             }
             catch (EndpointNotFoundException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectAbortedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
-            catch (SocketException excepcion)
+            catch (CommunicationException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (TimeoutException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             finally
             {
@@ -252,35 +149,34 @@ namespace RompecabezasFei.Servicios
             }
 
             return operacionRealizada;
-        }        
+        }
 
-        public void EnviarMensajeEnChatDeSala(string mensaje, string codigoSala)
+        public void ActivarNotificacionesDeSala(string nombreJugador)
         {
             try
             {
-                clienteServicioSala.EnviarMensajeDeSala(Dominio.CuentaJugador.
-                    Actual.NombreJugador, codigoSala, mensaje);
+                clienteServicioSala.ActivarNotificacionesDeSala(nombreJugador);
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectAbortedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
-            catch (SocketException excepcion)
+            catch (CommunicationException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (TimeoutException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             finally
             {
@@ -300,23 +196,23 @@ namespace RompecabezasFei.Servicios
             }
             catch (EndpointNotFoundException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectAbortedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
-            catch (SocketException excepcion)
+            catch (CommunicationException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (TimeoutException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             finally
             {
@@ -327,51 +223,8 @@ namespace RompecabezasFei.Servicios
             }
         }
 
-        public bool UnirseASala(string nombreJugador, string codigoSala)
+        public void AbandonarSala(string nombreJugador, string codigoSala)
         {
-            bool operacionRealizada = false;
-
-            try
-            {
-                operacionRealizada = clienteServicioSala.
-                    UnirseASala(nombreJugador, codigoSala);
-                EstadoOperacion = EstadoOperacion.Correcto;
-            }
-            catch (EndpointNotFoundException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (CommunicationObjectFaultedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (CommunicationObjectAbortedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (SocketException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
-            }
-            catch (TimeoutException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            finally
-            {
-                if (EstadoOperacion == EstadoOperacion.Error)
-                {
-                    clienteServicioSala.Abort();
-                }
-            }
-
-            return operacionRealizada;
-        }
-
-        public bool AbandonarSala(string nombreJugador, string codigoSala)
-        {
-            bool operacionRealizada = false;
-
             try
             {
                 clienteServicioSala.AbandonarSala(nombreJugador, codigoSala);
@@ -379,23 +232,68 @@ namespace RompecabezasFei.Servicios
             }
             catch (EndpointNotFoundException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectAbortedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
-            catch (SocketException excepcion)
+            catch (CommunicationException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (TimeoutException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioSala.Abort();
+                }
+            }
+        }
+
+        public List<CuentaJugador> ObtenerJugadoresEnSala(string codigoSala)
+        {
+            List<CuentaJugador> jugadoresEnSala = new List<CuentaJugador>();
+
+            try
+            {
+                var jugadoresObtenidos = clienteServicioSala.
+                    ObtenerJugadoresEnSala(codigoSala);
+
+                foreach (var jugadorObtenido in jugadoresObtenidos)
+                {
+                    jugadoresEnSala.Add(jugadorObtenido);
+                }
+
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
             }
             finally
             {
@@ -405,7 +303,239 @@ namespace RompecabezasFei.Servicios
                 }
             }
 
-            return operacionRealizada;
-        }        
+            return jugadoresEnSala;
+        }
+
+        public void EnviarMensajeDeSala(string mensaje, string codigoSala)
+        {
+            try
+            {
+                clienteServicioSala.EnviarMensajeDeSala(Dominio.CuentaJugador.
+                    Actual.NombreJugador, codigoSala, mensaje);
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioSala.Abort();
+                }
+            }
+        }
+
+        public string GenerarCodigoParaNuevaSala()
+        {
+            string codigoSala = "";
+
+            try
+            {
+                codigoSala = clienteServicioSala.GenerarCodigoParaNuevaSala();
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioSala.Abort();
+                }
+            }
+
+            return codigoSala;
+        }
+
+        public bool ExisteSalaDisponible(string codigoSala)
+        {
+            bool hayDisponibilidad = false;
+
+            try
+            {
+                hayDisponibilidad = clienteServicioSala.
+                    ExisteSalaDisponible(codigoSala);
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioSala.Abort();
+                }
+            }
+
+            return hayDisponibilidad;
+        }
+
+        public void ConvertirJugadorEnAnfitrionDesdeSala(
+            string nombreJugador, string codigoSala)
+        {
+            try
+            {
+                clienteServicioSala.ConvertirJugadorEnAnfitrionDesdeSala(
+                    nombreJugador, codigoSala);
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioSala.Abort();
+                }
+            }
+        }
+
+        public void InvitarJugador(string nombreJugador, 
+            string nombreAnfitrion, string codigoSala)
+        {
+            try
+            {
+                clienteServicioSala.InvitarJugador(nombreJugador, 
+                    nombreAnfitrion, codigoSala);
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioSala.Abort();
+                }
+            }
+        }
+
+        public void ExpulsarJugadorEnSala(string nombreJugadorExpulsion, 
+            string codigoSala)
+        {
+            try
+            {
+                clienteServicioSala.ExpulsarJugadorEnSala(
+                    nombreJugadorExpulsion, codigoSala);
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioSala.Abort();
+                }
+            }
+        }
     }
 }

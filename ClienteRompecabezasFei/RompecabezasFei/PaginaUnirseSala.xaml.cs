@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using RompecabezasFei.Servicios;
+using RompecabezasFei.Utilidades;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -13,11 +15,33 @@ namespace RompecabezasFei
 
         private void IntentarUnirJugadorASala(object objetoOrigen, RoutedEventArgs evento)
         {
-            if (new Servicios.ServicioSala().
-                ExisteSalaDisponible(cuadroTextoCodigoSala.Text))
+            var servicioSala = new ServicioSala();
+
+            if (servicioSala.EstadoOperacion == EstadoOperacion.Correcto)
             {
-                PaginaSala paginaSala = new PaginaSala(false, cuadroTextoCodigoSala.Text);
-                VentanaPrincipal.CambiarPagina(paginaSala);
+                bool existeSalaDisponible = servicioSala.
+                    ExisteSalaDisponible(cuadroTextoCodigoSala.Text);
+                servicioSala.CerrarConexion();
+
+                if (servicioSala.EstadoOperacion == EstadoOperacion.Correcto)
+                {
+                    if (existeSalaDisponible)
+                    {
+                        PaginaSala paginaSala = new PaginaSala(false, 
+                            cuadroTextoCodigoSala.Text);
+                        
+                        if (paginaSala.HayConexionConSala)
+                        {
+                            VentanaPrincipal.CambiarPagina(paginaSala);
+                        }
+                    }
+                    else
+                    {
+                        GestorCuadroDialogo.MostrarAdvertencia(
+                            "No se ha podido conectar al jugador a la sala debido a que la sala no está disponible",
+                            "Sala no disponible");
+                    }
+                }
             }
         }
 
