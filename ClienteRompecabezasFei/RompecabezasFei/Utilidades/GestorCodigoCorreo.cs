@@ -23,24 +23,22 @@ namespace RompecabezasFei.Utilidades
             string asunto, string mensaje)
         {
             CodigoGenerado = GenerarNuevoCodigoConfirmacion();
-            var servicio = new ServicioCorreo();
+            var servicioCorreo = new ServicioCorreo();
+            bool esMensajeEnviado = false;
             
-            bool esMensajeEnviado = servicio.EnviarMensajeACorreoElectronico(
-                Properties.Resources.ETIQUETA_GENERAL_ROMPECABEZASFEI, 
-                correoDestino, asunto, mensaje);
-
-            switch (servicio.EstadoOperacion) 
+            if (servicioCorreo.EstadoOperacion == EstadoOperacion.Correcto)
             {
-                case EstadoOperacion.Correcto:
-                    
-                    if (!esMensajeEnviado)
-                    {
-                        GestorCuadroDialogo.MostrarError(
-                            "No fue posible enviar el código de verificación al correo, por favor, vuelve a intentarlo", 
-                            "Error al enviar el código de verificación");
-                    }
+                esMensajeEnviado = servicioCorreo.EnviarMensajeACorreoElectronico(
+                    Properties.Resources.ETIQUETA_GENERAL_ROMPECABEZASFEI, 
+                    correoDestino, asunto, mensaje);
 
-                    break;
+                if (servicioCorreo.EstadoOperacion == EstadoOperacion.Correcto && 
+                    !esMensajeEnviado)
+                {
+                    GestorCuadroDialogo.MostrarAdvertencia(
+                        Properties.Resources.ETIQUETA_CODIGO_MENSAJENOENVIADO,
+                        Properties.Resources.ETIQUETA_CODIGO_CODIGONOENVIADO);
+                }
             }
 
             return esMensajeEnviado;

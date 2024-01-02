@@ -72,6 +72,7 @@
     <Compile Include="Servicios\Servicio.cs" />
     <Compile Include="Servicios\ServicioAmistades.cs" />
     <Compile Include="Servicios\ServicioCorreo.cs" />
+    <Compile Include="Servicios\ServicioInvitaciones.cs" />
     <Compile Include="Servicios\ServicioJugador.cs" />
     <Compile Include="Servicios\ServicioSala.cs" />
     <Compile Include="Servicios\ServicioPartida.cs" />

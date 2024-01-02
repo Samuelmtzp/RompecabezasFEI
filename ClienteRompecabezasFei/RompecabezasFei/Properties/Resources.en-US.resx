@@ -405,6 +405,12 @@
   <data name="ETIQUETA_ERRORCONEXIONBASEDEDATOS_TITULO" xml:space="preserve">
     <value>Database connection error</value>
   </data>
+  <data name="ETIQUETA_ERRORCONEXIONPERDIDASERVIDOR_MENSAJE" xml:space="preserve">
+    <value>Connection to the server was lost. You will be redirected to the login page.</value>
+  </data>
+  <data name="ETIQUETA_ERRORCONEXIONPERDIDASERVIDOR_TITULO" xml:space="preserve">
+    <value>Lost connection</value>
+  </data>
   <data name="ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE" xml:space="preserve">
     <value>A connection to the server could not be established. Please try again later.</value>
   </data>

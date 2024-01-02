@@ -22,25 +22,26 @@ namespace RompecabezasFei
                 CuentaJugador.Actual.NombreJugador;
             imagenAvatarJugador.Source = Dominio.
                 CuentaJugador.Actual.FuenteImagenAvatar;
-            CargarNumeroDePartidasJugadas();
-        }
+            servicioPartida = new ServicioPartida();
+
+            if (servicioPartida.EstadoOperacion == EstadoOperacion.Correcto)
+            {
+                CargarNumeroDePartidasJugadas();
+            }
+        }        
 
         public void CargarNumeroDePartidasJugadas()
         {
-            servicioPartida = new ServicioPartida();
             int numeroPartidasJugadas = servicioPartida.
                 ObtenerNumeroPartidasJugadas(Dominio.
                 CuentaJugador.Actual.NombreJugador);
-
-            switch (servicioPartida.EstadoOperacion)
+                
+            if (servicioPartida.EstadoOperacion == EstadoOperacion.Correcto)
             {
-                case EstadoOperacion.Correcto:
-                    cuadroTextoPartidasJugadas.Text = 
-                        Convert.ToString(numeroPartidasJugadas);
-                    CargarNumeroDePartidasGanadas();
-                    break;
+                cuadroTextoPartidasJugadas.Text = Convert.
+                    ToString(numeroPartidasJugadas);
+                CargarNumeroDePartidasGanadas();
             }
-
         }
 
         public void CargarNumeroDePartidasGanadas()
@@ -49,13 +50,11 @@ namespace RompecabezasFei
                 ObtenerNumeroPartidasGanadas(Dominio.
                 CuentaJugador.Actual.NombreJugador);
 
-            switch (servicioPartida.EstadoOperacion)
+            if (servicioPartida.EstadoOperacion == EstadoOperacion.Correcto)
             {
-                case EstadoOperacion.Correcto:
-                    cuadroTextoPartidasGanadas.Text = 
-                        Convert.ToString(numeroPartidasGanadas);
-                    servicioPartida.CerrarConexion();
-                    break;
+                cuadroTextoPartidasGanadas.Text = 
+                    Convert.ToString(numeroPartidasGanadas);
+                servicioPartida.CerrarConexion();
             }
         }
 

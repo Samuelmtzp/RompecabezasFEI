@@ -38,7 +38,6 @@ namespace RompecabezasFei
                 DuracionSegundosMaximaReenvioDeCorreo);
         }
 
-
         public void ActualizarTiempoRestante(object objetoOrigen, EventArgs evento)
         {
             if (temporizador.SegundosRestantes > Temporizador.MinimoSegundosRestantes)
@@ -78,33 +77,36 @@ namespace RompecabezasFei
                             CalcularHashSha512(jugadorRegistro.Contrasena),
                         Correo = jugadorRegistro.Correo
                     };
-                    var servicio = new ServicioJugador();
-                    servicio.AbrirNuevaConexion();
-                    bool registroRealizado = servicio.RegistrarJugador(nuevoJugador);
-                    servicio.CerrarConexion();
+                    VentanaPrincipal.ServicioJugador.AbrirConexion();
 
-                    switch (servicio.EstadoOperacion)
+                    if (VentanaPrincipal.ServicioJugador.EstadoOperacion == 
+                        EstadoOperacion.Correcto)
                     {
-                        case EstadoOperacion.Correcto:
+                        bool registroRealizado = VentanaPrincipal.ServicioJugador.
+                            RegistrarJugador(nuevoJugador);
+                        VentanaPrincipal.ServicioJugador.CerrarConexion();
                             
+                        if (VentanaPrincipal.ServicioJugador.EstadoOperacion == 
+                            EstadoOperacion.Correcto) 
+                        {
                             if (registroRealizado)
                             {
                                 temporizador.DetenerTemporizador();
                                 GestorCuadroDialogo.MostrarInformacion(Properties.Resources.
                                     ETIQUETA_VERIFICACIONCORREO_MENSAJEUSUARIOREGISTRADO, 
-                                    Properties.Resources.ETIQUETA_VERIFICACIONCORREO_REGISTROREALIZADO);
+                                    Properties.Resources.
+                                    ETIQUETA_VERIFICACIONCORREO_REGISTROREALIZADO);
                                 VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
                             }
                             else
                             {
-                                GestorCuadroDialogo.MostrarError(Properties.Resources.
+                                GestorCuadroDialogo.MostrarAdvertencia(Properties.Resources.
                                     ETIQUETA_VERIFICACIONCORREO_MENSAJEREGISTRONOREALIZADO,
-                                    Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ERRORREGISTRO);
+                                    Properties.Resources.
+                                    ETIQUETA_VERIFICACIONCORREO_ERRORREGISTRO);
                             }
-
-                            break;
+                        }
                     }
-
                 }
                 else
                 {
@@ -120,8 +122,8 @@ namespace RompecabezasFei
         {
             if (objetoOrigen is TextBox cuadroTexto)
             {
-                string texto = cuadroTexto.Text = new string(cuadroTexto.Text.Where(
-                    char.IsDigit).ToArray());
+                string texto = cuadroTexto.Text = new string(cuadroTexto.Text.
+                    Where(char.IsDigit).ToArray());
                 cuadroTexto.CaretIndex = cuadroTexto.Text.Length;
                 cuadroTexto.Text = texto;
             }
@@ -140,14 +142,14 @@ namespace RompecabezasFei
 
         private void HabilitarBotonEnvioCodigo()
         {
-            BotonEnviarCodigo.IsEnabled = true;
-            BotonEnviarCodigo.Foreground = Brushes.White;
+            botonEnviarCodigo.IsEnabled = true;
+            botonEnviarCodigo.Foreground = Brushes.White;
         }
 
         private void DeshabilitarBotonEnvioCodigo()
         {
-            BotonEnviarCodigo.IsEnabled = false;
-            BotonEnviarCodigo.Foreground = Brushes.Black;
+            botonEnviarCodigo.IsEnabled = false;
+            botonEnviarCodigo.Foreground = Brushes.Black;
         }
     }
 }

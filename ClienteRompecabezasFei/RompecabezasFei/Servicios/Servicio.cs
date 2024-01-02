@@ -5,13 +5,12 @@ using System.ServiceModel;
 
 namespace RompecabezasFei.Servicios
 {
-    public class Servicio
+    public abstract class Servicio
     {
         // Permite identificar el estado después de invocar un método de cualquier servicio
         public EstadoOperacion EstadoOperacion { get; set; }
 
-        public void ManejarExcepcionDeServidor(Exception excepcionGeneral, 
-            bool cerrarSesion)
+        public void ManejarExcepcionDeServidor(Exception excepcionGeneral)
         {
             if (excepcionGeneral is EndpointNotFoundException excepcionA)
             {
@@ -25,13 +24,17 @@ namespace RompecabezasFei.Servicios
             {
                 Registros.Registrador.EscribirRegistro(excepcionC);
             }
-            else if (excepcionGeneral is SocketException excepcionD)
+            else if (excepcionGeneral is CommunicationException excepcionD)
             {
                 Registros.Registrador.EscribirRegistro(excepcionD);
             }
             else if (excepcionGeneral is TimeoutException excepcionE)
             {
                 Registros.Registrador.EscribirRegistro(excepcionE);
+            }
+            else if (excepcionGeneral is InvalidOperationException excepcionF)
+            {
+                Registros.Registrador.EscribirRegistro(excepcionF);
             }
             else
             {
@@ -42,11 +45,10 @@ namespace RompecabezasFei.Servicios
                 Properties.Resources.ETIQUETA_ERRORCONEXIONSERVIDOR_MENSAJE,
                 Properties.Resources.ETIQUETA_ERRORCONEXIONSERVIDOR_TITULO);            
             EstadoOperacion = EstadoOperacion.Error;
-
-            if (cerrarSesion)
-            {
-                VentanaPrincipal.CerrarSesion(false);
-            }
         }
+
+        public abstract void AbrirConexion();
+
+        public abstract void CerrarConexion();
     }
 }

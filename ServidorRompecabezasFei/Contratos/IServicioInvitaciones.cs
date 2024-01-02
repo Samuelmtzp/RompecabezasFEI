@@ -1,4 +1,5 @@
 ﻿using Logica;
+using Logica.Enumeraciones;
 using System.Collections.Generic;
 using System.ServiceModel;
 
@@ -11,7 +12,7 @@ namespace Contratos
         void ActivarInvitacionesDeSala(string nombreJugador);
 
         [OperationContract(IsOneWay = true)]
-        void DesactivarInvitacionesDeSala(string nombreJugador);
+        void DesactivarInvitacionesDeSala(string nombreJugador, EstadoJugador estado);
 
         [OperationContract]
         List<CuentaJugador> ObtenerAmigosDisponibles(string nombreAnfitrion);

@@ -35,16 +35,23 @@ namespace RompecabezasFei
 
         private ServicioPartida servicioPartida;
 
+        public bool HayConexionConPartida { get; set; }
+
         public ObservableCollection<Dominio.CuentaJugador> JugadoresEnPartida { get; set; }
 
-        public PaginaPartida () { }
+        public PaginaPartida () 
+        { 
+        }
 
         public PaginaPartida(string codigoSala)
         {
-            InitializeComponent();
+            InitializeComponent();            
             ConfigurarDatosIniciales(false, codigoSala);
-            UnirseAPartida(Dominio.CuentaJugador.Actual.NombreJugador);
-            CargarJugadoresEnPartida();
+            
+            if (servicioPartida.EstadoOperacion == EstadoOperacion.Correcto)
+            {
+                UnirseAPartida(Dominio.CuentaJugador.Actual.NombreJugador);                
+            }
         }
 
         public PaginaPartida(string codigoSala, 
@@ -58,12 +65,13 @@ namespace RompecabezasFei
         private void ConfigurarDatosIniciales(bool esAnfitrion, 
             string codigoSala)
         {
+            JugadoresEnPartida = new ObservableCollection<Dominio.CuentaJugador>();
             listaJugadoresPartida.DataContext = this;
             this.esAnfitrion = esAnfitrion;
             this.codigoSala = codigoSala;
             hayPartidaEnCurso = false;
+            HayConexionConPartida = false;
             servicioPartida = new ServicioPartida(this);
-            JugadoresEnPartida = new ObservableCollection<Dominio.CuentaJugador>();
 
             if (esAnfitrion)
             {
@@ -83,73 +91,60 @@ namespace RompecabezasFei
                     
                     if (hayPartidaCreada)
                     {
-                        if (UnirseAPartida(Dominio.CuentaJugador.
-                            Actual.NombreJugador))
-                        {
-                            CargarJugadoresEnPartida();
-                        }
-
+                        UnirseAPartida(Dominio.CuentaJugador.Actual.NombreJugador);                        
                     }
                     else
                     {
-                        GestorCuadroDialogo.MostrarError(
-                            "La partida no pudo ser creada correctamente", 
+                        GestorCuadroDialogo.MostrarAdvertencia(
+                            "La partida no pudo ser creada correctamente",
                             "Error de creación de partida");
+                        servicioPartida.CerrarConexion();
                     }
 
                     break;
             }
         }
 
-        private bool UnirseAPartida(string nombreJugador)
+        private void UnirseAPartida(string nombreJugador)
         {
             bool estaUnidoEnPartida = servicioPartida.
                 UnirseAPartida(codigoSala, nombreJugador);
 
-            switch (servicioPartida.EstadoOperacion)
+            if (servicioPartida.EstadoOperacion == EstadoOperacion.Correcto)
             {
-                case EstadoOperacion.Correcto:
-                    
-                    if (!estaUnidoEnPartida)
-                    {
-                        GestorCuadroDialogo.MostrarError(
-                            "No fue posible unirse a la partida",
-                            "Error al unirse en la partida");
-                    }
-
-                    break;
+                if (estaUnidoEnPartida)
+                {
+                    CargarJugadoresEnPartida();
+                }
+                else
+                {
+                    GestorCuadroDialogo.MostrarAdvertencia(
+                        "No fue posible unirse a la partida",
+                        "Error al unirse en la partida");
+                    servicioPartida.CerrarConexion();
+                }
             }
-
-            return estaUnidoEnPartida;
         }
 
         public void CargarJugadoresEnPartida()
         {            
             var jugadoresEnPartida = servicioPartida.
-                ObtenerJugadoresConectadosEnPartida(codigoSala);
+                ObtenerJugadoresEnPartida(codigoSala);
 
-            switch (servicioPartida.EstadoOperacion)
+            if (servicioPartida.EstadoOperacion == EstadoOperacion.Correcto)
             {
-                case EstadoOperacion.Correcto:
-                    
-                    if (jugadoresEnPartida != null && 
-                        jugadoresEnPartida.Any())
+                foreach (var jugadorEnPartida in jugadoresEnPartida)
+                {
+                    var cuentaJugador = new Dominio.CuentaJugador
                     {
-                        foreach (var jugadorEnPartida in jugadoresEnPartida)
-                        {
-                            var cuentaJugador = new Dominio.CuentaJugador
-                            {
-                                NombreJugador = jugadorEnPartida.NombreJugador,
-                                NumeroAvatar = jugadorEnPartida.NumeroAvatar,
-                                FuenteImagenAvatar = GeneradorImagenes.
-                                    GenerarFuenteImagenAvatar(
-                                    jugadorEnPartida.NumeroAvatar),
-                            };
-                            JugadoresEnPartida.Add(cuentaJugador);
-                        }
-                    }     
-                    
-                    break;
+                        NombreJugador = jugadorEnPartida.NombreJugador,
+                        NumeroAvatar = jugadorEnPartida.NumeroAvatar,
+                        FuenteImagenAvatar = GeneradorImagenes.
+                            GenerarFuenteImagenAvatar(
+                            jugadorEnPartida.NumeroAvatar),
+                    };
+                    JugadoresEnPartida.Add(cuentaJugador);
+                }
             }
         }
         
@@ -381,6 +376,11 @@ namespace RompecabezasFei
             servicioPartida.AbandonarPartida(codigoSala, 
                 Dominio.CuentaJugador.Actual.NombreJugador);
             servicioPartida.CerrarConexion();
+
+            if (servicioPartida.EstadoOperacion == EstadoOperacion.Correcto)
+            {
+                VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
+            }
         }
 
         private void SoltarPiezaAlDesactivarVentana(object objetoOrigen, EventArgs evento)
@@ -397,11 +397,10 @@ namespace RompecabezasFei
         {
             servicioPartida.IniciarPartida(codigoSala);
 
-            switch (servicioPartida.EstadoOperacion)
+            if (servicioPartida.EstadoOperacion == EstadoOperacion.Correcto)
             {
-                case EstadoOperacion.Correcto:
-                    botonIniciarPartida.Visibility = Visibility.Hidden;
-                    break;
+                hayPartidaEnCurso = true;
+                botonIniciarPartida.Visibility = Visibility.Hidden;
             }
         }
 
@@ -415,8 +414,7 @@ namespace RompecabezasFei
         {
             piezaActual = BuscarPiezaPertenecienteABorde((Border)objetoOrigen);
 
-            if (!piezaActual.EstaDentroDeCelda && 
-                !piezaActual.EsPiezaBloqueada)
+            if (!piezaActual.EstaDentroDeCelda && !piezaActual.EsPiezaBloqueada)
             {
                 posicionActualCursor = evento.GetPosition(tableroRompecabezas);
                 servicioPartida.BloquearPieza(codigoSala, piezaActual.NumeroPieza, 
@@ -478,11 +476,9 @@ namespace RompecabezasFei
                 piezaActual.NumeroPieza, Dominio.CuentaJugador.
                 Actual.NombreJugador);
 
-            switch (servicioPartida.EstadoOperacion)
+            if (servicioPartida.EstadoOperacion == EstadoOperacion.Correcto)
             {
-                case EstadoOperacion.Correcto:
-                    piezaActual.EsPiezaBloqueada = false;
-                    break;
+                piezaActual.EsPiezaBloqueada = false;
             }
         }
 
@@ -584,16 +580,24 @@ namespace RompecabezasFei
 
         public void MostrarDesconexionDeJugadorEnPartida(string nombreJugadorDesconexion)
         {
-            if (JugadoresEnPartida != null)
-            {
-                Dominio.CuentaJugador cuentaJugadorEncontrada = 
-                    JugadoresEnPartida.FirstOrDefault(jugador => 
-                    jugador.NombreJugador == nombreJugadorDesconexion);
+            Dominio.CuentaJugador cuentaJugadorEncontrada = 
+                JugadoresEnPartida.FirstOrDefault(jugador => 
+                jugador.NombreJugador == nombreJugadorDesconexion);
 
-                if (cuentaJugadorEncontrada != null)
-                {
-                    JugadoresEnPartida.Remove(cuentaJugadorEncontrada);
-                }
+            if (cuentaJugadorEncontrada != null)
+            {
+                JugadoresEnPartida.Remove(cuentaJugadorEncontrada);
+            }
+        }
+
+        public void ConvertirJugadorEnAnfitrionDesdePartida(string nombreJugador)
+        {
+            servicioPartida.ConvertirJugadorEnAnfitrionDesdePartida(
+                nombreJugador, codigoSala);
+            
+            if (servicioPartida.EstadoOperacion == EstadoOperacion.Correcto)
+            {
+                MostrarFuncionesDeAnfitrionEnPartida();
             }
         }
 
@@ -610,7 +614,8 @@ namespace RompecabezasFei
 
         public void MostrarMensajePartidaCancelada()
         {
-            GestorCuadroDialogo.MostrarError(
+            servicioPartida.CerrarConexion();
+            GestorCuadroDialogo.MostrarAdvertencia(
                 "Se ha cancelado la partida, por lo que serás redirigido al menú principal",
                 "Partida cancelada");
             IrPaginaMenuPrincipal();
@@ -618,7 +623,8 @@ namespace RompecabezasFei
 
         public void MostrarMensajeExpulsionDePartida()
         {
-            GestorCuadroDialogo.MostrarError(
+            servicioPartida.CerrarConexion();
+            GestorCuadroDialogo.MostrarAdvertencia(
                 "El anfitrión te ha expulsado de la partida",
                 "Expulsión de partida");
             IrPaginaMenuPrincipal();
@@ -627,9 +633,24 @@ namespace RompecabezasFei
         public void MostrarFuncionesDeAnfitrionEnPartida()
         {
             // habilitar las funciones de anfitrión
+
+            MessageBox.Show("Ahora eres anfitrión");
+
             if (!hayPartidaEnCurso)
             {
                 botonIniciarPartida.Visibility = Visibility.Visible;
+            }
+        }
+
+        public void OcultarFuncionesDeAnfitrionEnPartida()
+        {
+            // ocultar las funciones de anfitrión
+
+            MessageBox.Show("Ya no eres anfitrión");
+
+            if (!hayPartidaEnCurso)
+            {
+                botonIniciarPartida.Visibility = Visibility.Hidden;
             }
         }
 

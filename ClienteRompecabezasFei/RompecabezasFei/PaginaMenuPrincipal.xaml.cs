@@ -17,6 +17,15 @@ namespace RompecabezasFei
             {
                 MostrarOpcionesJugadorRegistrado();
             }
+
+            var servicioInvitaciones = new ServicioInvitaciones(this);
+
+            if (servicioInvitaciones.EstadoOperacion == EstadoOperacion.Correcto)
+            {
+                servicioInvitaciones.ActivarInvitacionesDeSala(
+                    Dominio.CuentaJugador.Actual.NombreJugador);
+
+            }
         }
 
         private void MostrarOpcionesJugadorRegistrado()
@@ -48,7 +57,7 @@ namespace RompecabezasFei
             VentanaPrincipal.CambiarPagina(new PaginaAmistades(true));
         }
 
-        private void CerrarSesion(object objetoOrigen, MouseButtonEventArgs evento)
+        private void ConfirmarCierreDeSesion(object objetoOrigen, MouseButtonEventArgs evento)
         {
             MessageBoxResult opcionSeleccionada = 
                 GestorCuadroDialogo.MostrarPreguntaConAdvertencia(
@@ -57,7 +66,7 @@ namespace RompecabezasFei
 
             if (opcionSeleccionada == MessageBoxResult.Yes)
             {
-                VentanaPrincipal.CerrarSesion(true);
+                VentanaPrincipal.CerrarSesion();
             }
         }
 
@@ -80,26 +89,35 @@ namespace RompecabezasFei
 
             if (opcionSeleccionada == MessageBoxResult.Yes)
             {
-                var servicio = new ServicioSala();
-                bool esSalaDisponible = servicio.ExisteSalaDisponible(codigoSala);
+                UnirseASala(codigoSala);
+            }
+        }
 
-                switch (servicio.EstadoOperacion)
+        private void UnirseASala(string codigoSala)
+        {
+            var servicioSala = new ServicioSala();
+
+            if (servicioSala.EstadoOperacion == EstadoOperacion.Correcto)
+            {
+                bool esSalaDisponible = servicioSala.ExisteSalaDisponible(codigoSala);
+
+                if (servicioSala.EstadoOperacion == EstadoOperacion.Correcto)
                 {
-                    case EstadoOperacion.Correcto:
+                    if (esSalaDisponible)
+                    {
+                        PaginaSala paginaSala = new PaginaSala(false, codigoSala);
 
-                        if (esSalaDisponible)
+                        if (paginaSala.HayConexionConSala)
                         {
-                            PaginaSala paginaSala = new PaginaSala(false, codigoSala);
                             VentanaPrincipal.CambiarPagina(paginaSala);
                         }
-                        else
-                        {
-                            GestorCuadroDialogo.MostrarAdvertencia(
-                                "No es posible unirse a la sala debido a que no está disponible", 
-                                "Sala no disponible");
-                        }
-
-                        break;
+                    }
+                    else
+                    {
+                        GestorCuadroDialogo.MostrarAdvertencia(
+                            "No es posible unirse a la sala debido a que está llena o hay una partida en curso",
+                            "Sala no disponible");
+                    }
                 }
             }
         }
