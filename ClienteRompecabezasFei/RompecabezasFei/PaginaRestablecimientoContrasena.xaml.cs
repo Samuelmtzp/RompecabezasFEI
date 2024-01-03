@@ -65,6 +65,12 @@ namespace RompecabezasFei
                         Properties.Resources.ETIQUETA_VALIDACION_CONTRASENADIFERENTE);
                 }
             }
+            else
+            {
+                GestorCuadroDialogo.MostrarAdvertencia(
+                       Properties.Resources.ETIQUETA_VALIDACION_MENSAJECONTRASENAINVALIDA,
+                       Properties.Resources.ETIQUETA_VALIDACION_CONTRASENAINVALIDA);
+            }
         }
 
         private bool EsContrasenaInvalida(string contrasena)
