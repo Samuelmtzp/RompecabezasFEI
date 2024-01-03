@@ -9,23 +9,34 @@ namespace RompecabezasFei
 {
     public partial class PaginaMenuPrincipal : Page, IServicioInvitacionesCallback
     {
+        private ServicioInvitaciones servicioInvitaciones;
+
         public PaginaMenuPrincipal()
         {
             InitializeComponent();
+            servicioInvitaciones = new ServicioInvitaciones(this);
+
+            if (servicioInvitaciones.EstadoOperacion == EstadoOperacion.Correcto)
+            {
+                ActivarInvitacionesDeSala();
+            }
 
             if (!Dominio.CuentaJugador.Actual.EsInvitado)
             {
                 MostrarOpcionesJugadorRegistrado();
             }
+        }
 
-            var servicioInvitaciones = new ServicioInvitaciones(this);
+        private void ActivarInvitacionesDeSala()
+        {
+            servicioInvitaciones.ActivarInvitacionesDeSala(
+                Dominio.CuentaJugador.Actual.NombreJugador);
+        }
 
-            if (servicioInvitaciones.EstadoOperacion == EstadoOperacion.Correcto)
-            {
-                servicioInvitaciones.ActivarInvitacionesDeSala(
-                    Dominio.CuentaJugador.Actual.NombreJugador);
-
-            }
+        private void DesactivarInvitacionesDeSala(EstadoJugador nuevoEstado)
+        {
+            servicioInvitaciones.DesactivarInvitacionesDeSala(
+                Dominio.CuentaJugador.Actual.NombreJugador, nuevoEstado);
         }
 
         private void MostrarOpcionesJugadorRegistrado()
@@ -49,11 +60,12 @@ namespace RompecabezasFei
 
         private void IrAPaginaUnirseSala(object objetoOrigen, RoutedEventArgs evento)
         {
+            DesactivarInvitacionesDeSala(EstadoJugador.Conectado);
             VentanaPrincipal.CambiarPagina(new PaginaUnirseSala());
         }
 
         private void IrAPaginaAmistades(object objetoOrigen, MouseButtonEventArgs evento)
-        {
+        {            
             VentanaPrincipal.CambiarPagina(new PaginaAmistades(true));
         }
 
@@ -66,26 +78,32 @@ namespace RompecabezasFei
 
             if (opcionSeleccionada == MessageBoxResult.Yes)
             {
-                VentanaPrincipal.CerrarSesion();
+                // No es necesario cerrar sesión explícitamente,
+                // el servidor desconecta al jugador si pasa al estado desconectado
+                DesactivarInvitacionesDeSala(EstadoJugador.Desconectado);
+                Dominio.CuentaJugador.Actual = null;
+                VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
             }
         }
 
         private void IrAPaginaInformacionJugador(object objetoOrigen, MouseButtonEventArgs evento)
         {
+            DesactivarInvitacionesDeSala(EstadoJugador.Conectado);
             VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
         }
 
         private void IrAPaginaAjustes(object objetoOrigen, MouseButtonEventArgs evento)
         {
+            DesactivarInvitacionesDeSala(EstadoJugador.Conectado);
             VentanaPrincipal.CambiarPaginaGuardandoAnterior(new PaginaAjustes());
         }
 
         public void MostrarInvitacionDeSala(string nombreJugador, string codigoSala)
         {
             MessageBoxResult opcionSeleccionada =
-                    GestorCuadroDialogo.MostrarPreguntaNormal(
-                    $"{nombreJugador} te ha invitado a unirte a su sala, ¿Aceptas?", 
-                    "Invitación de sala");
+                GestorCuadroDialogo.MostrarPreguntaNormal(
+                $"{nombreJugador} te ha invitado a unirte a su sala, ¿Aceptas?", 
+                "Invitación de sala");
 
             if (opcionSeleccionada == MessageBoxResult.Yes)
             {
@@ -108,7 +126,7 @@ namespace RompecabezasFei
                         PaginaSala paginaSala = new PaginaSala(false, codigoSala);
 
                         if (paginaSala.HayConexionConSala)
-                        {
+                        {                            
                             VentanaPrincipal.CambiarPagina(paginaSala);
                         }
                     }

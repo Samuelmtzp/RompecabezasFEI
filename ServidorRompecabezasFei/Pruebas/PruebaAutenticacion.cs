@@ -36,7 +36,7 @@ namespace Pruebas
                 "244c2ef82546217b4cbc1d54c3947654c8f04e70cc96b472d9d69fbc6250ee353dc",
                 NumeroAvatar = 3,
             };
-            CuentaJugador cuentaJugadorResultado = AccesoJugador.IniciarSesion(nombreUsuario,
+            CuentaJugador cuentaJugadorResultado = AccesoCuentaJugador.IniciarSesion(nombreUsuario,
                 contrasena);
 
             Assert.AreEqual(cuentaJugadorEsperada.ToString(), cuentaJugadorResultado.ToString(),
@@ -56,7 +56,7 @@ namespace Pruebas
                 Contrasena = "",
                 NumeroAvatar = 3,
             };
-            CuentaJugador jugadorResultado = AccesoJugador.IniciarSesion(nombreUsuario,
+            CuentaJugador jugadorResultado = AccesoCuentaJugador.IniciarSesion(nombreUsuario,
                 contrasena);
 
             Assert.AreNotEqual(jugadorEsperado.ToString(), jugadorResultado.ToString(),

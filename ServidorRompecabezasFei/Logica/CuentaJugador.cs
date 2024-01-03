@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Runtime.Serialization;
 using System.ServiceModel;
 
 namespace Logica
@@ -37,6 +38,8 @@ namespace Logica
         // Este OperationContext puede utilizarse para manejo de interfaces de callbacks que
         // no requieran mantener la conexión del jugador durante todo su tiempo de vida
         public OperationContext ContextoOperacion { get; set; }
+
+        public Type TipoInterfazCallback { get; set; }
         
         public override string ToString()
         {

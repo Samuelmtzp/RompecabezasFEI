@@ -222,10 +222,5 @@ namespace RompecabezasFei
 
             return resultado;
         }
-
-        public void DeshabilitarControles()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

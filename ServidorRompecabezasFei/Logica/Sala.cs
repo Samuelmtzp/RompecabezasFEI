@@ -12,6 +12,8 @@ namespace Logica
         
         public const int CantidadJugadoresVacia = 0;
 
+        public bool HayPartidaCreada { get; set; }
+
         [DataMember]
         public string CodigoSala { get; set; }
 

@@ -2,10 +2,12 @@
 {
     public enum EstadoPartida
     {
-        SinIniciar = 0,
+        SinIniciar = 1,
 
-        EnCurso = 1,
+        EnCurso = 2,
         
-        Finalizada = 2,
+        Finalizada = 3,
+
+        Cancelada = 4,
     }
 }

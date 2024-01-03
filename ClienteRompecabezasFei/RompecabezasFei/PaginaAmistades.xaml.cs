@@ -112,17 +112,11 @@ namespace RompecabezasFei
             switch (estado)
             {
                 case EstadoJugador.Conectado:
-                    color = Brushes.LawnGreen;
-                    break;
-
                 case EstadoJugador.Disponible:
-                    color = Brushes.DeepSkyBlue;
+                    color = Brushes.Green;
                     break;
 
                 case EstadoJugador.EnSala:
-                    color = Brushes.Orange;
-                    break;
-
                 case EstadoJugador.EnPartida:
                     color = Brushes.Red;
                     break;
@@ -201,8 +195,7 @@ namespace RompecabezasFei
         }
 
         private void IrAPaginaMenuPrincipal(object objetoOrigen, MouseButtonEventArgs evento)
-        {
-            DesactivarNotificaciones();
+        {            
             VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
         }
 

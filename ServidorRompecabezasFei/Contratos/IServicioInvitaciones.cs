@@ -12,7 +12,7 @@ namespace Contratos
         void ActivarInvitacionesDeSala(string nombreJugador);
 
         [OperationContract(IsOneWay = true)]
-        void DesactivarInvitacionesDeSala(string nombreJugador, EstadoJugador estado);
+        void DesactivarInvitacionesDeSala(string nombreJugador, EstadoJugador nuevoEstado);
 
         [OperationContract]
         List<CuentaJugador> ObtenerAmigosDisponibles(string nombreAnfitrion);

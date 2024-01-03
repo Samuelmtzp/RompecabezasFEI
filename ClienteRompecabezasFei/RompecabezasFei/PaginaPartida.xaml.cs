@@ -82,52 +82,38 @@ namespace RompecabezasFei
         private void CrearNuevaPartida(DificultadPartida dificultadPartida, 
             int numeroImagen)
         {
-            bool hayPartidaCreada = servicioPartida.CrearNuevaPartida(codigoSala, 
-                dificultadPartida, numeroImagen);
-
-            switch (servicioPartida.EstadoOperacion)
-            {
-                case EstadoOperacion.Correcto:
-                    
-                    if (hayPartidaCreada)
-                    {
-                        UnirseAPartida(Dominio.CuentaJugador.Actual.NombreJugador);                        
-                    }
-                    else
-                    {
-                        GestorCuadroDialogo.MostrarAdvertencia(
-                            "La partida no pudo ser creada correctamente",
-                            "Error de creación de partida");
-                        servicioPartida.CerrarConexion();
-                    }
-
-                    break;
-            }
-        }
-
-        private void UnirseAPartida(string nombreJugador)
-        {
-            bool estaUnidoEnPartida = servicioPartida.
-                UnirseAPartida(codigoSala, nombreJugador);
+            bool hayPartidaCreada = servicioPartida.
+                CrearNuevaPartida(codigoSala, dificultadPartida, numeroImagen);
 
             if (servicioPartida.EstadoOperacion == EstadoOperacion.Correcto)
             {
-                if (estaUnidoEnPartida)
+                if (hayPartidaCreada)
                 {
-                    CargarJugadoresEnPartida();
+                    UnirseAPartida(Dominio.CuentaJugador.Actual.NombreJugador);                        
                 }
                 else
                 {
                     GestorCuadroDialogo.MostrarAdvertencia(
-                        "No fue posible unirse a la partida",
-                        "Error al unirse en la partida");
+                        "La partida no pudo ser creada correctamente",
+                        "Error de creación de partida");
                     servicioPartida.CerrarConexion();
                 }
             }
         }
 
+        private void UnirseAPartida(string nombreJugador)
+        {
+            servicioPartida.UnirseAPartida(codigoSala, nombreJugador);
+
+            if (servicioPartida.EstadoOperacion == 
+                EstadoOperacion.Correcto)
+            {
+                CargarJugadoresEnPartida();
+            }
+        }
+
         public void CargarJugadoresEnPartida()
-        {            
+        {
             var jugadoresEnPartida = servicioPartida.
                 ObtenerJugadoresEnPartida(codigoSala);
 
@@ -360,15 +346,21 @@ namespace RompecabezasFei
         private void AgregarEventoSoltarPiezaAlDesactivarVentana(object objetoOrigen, 
             RoutedEventArgs evento)
         {
-            VentanaPrincipal.ObtenerVentanaActual().Deactivated +=
-                SoltarPiezaAlDesactivarVentana;
+            if (VentanaPrincipal.ObtenerVentanaActual() != null)
+            {
+                VentanaPrincipal.ObtenerVentanaActual().Deactivated +=
+                    SoltarPiezaAlDesactivarVentana;
+            }
         }
 
         private void RemoverEventoSoltarPiezaAlDesactivarVentana(object objetoOrigen, 
             RoutedEventArgs evento)
         {
-            VentanaPrincipal.ObtenerVentanaActual().Deactivated -=
-                SoltarPiezaAlDesactivarVentana;
+            if (VentanaPrincipal.ObtenerVentanaActual() != null)
+            {
+                VentanaPrincipal.ObtenerVentanaActual().Deactivated -=
+                    SoltarPiezaAlDesactivarVentana;
+            }
         }
 
         private void AbandonarPartida(object objetoOrigen, RoutedEventArgs evento)
@@ -597,60 +589,66 @@ namespace RompecabezasFei
             
             if (servicioPartida.EstadoOperacion == EstadoOperacion.Correcto)
             {
-                MostrarFuncionesDeAnfitrionEnPartida();
+                OcultarFuncionesDeAnfitrionEnPartida();
             }
-        }
-
-        public void MostrarNuevoJugadorEnPartida(ServicioRompecabezasFei.CuentaJugador jugador)
-        {
-            var nuevaCuentaJugador = new Dominio.CuentaJugador
-            {
-                FuenteImagenAvatar = GeneradorImagenes.
-                    GenerarFuenteImagenAvatar(jugador.NumeroAvatar),
-                NombreJugador = jugador.NombreJugador
-            };
-            JugadoresEnPartida.Add(nuevaCuentaJugador);
         }
 
         public void MostrarMensajePartidaCancelada()
         {
+            GestorControlesVentana.DeshabilitarControlesDeVentana();
             servicioPartida.CerrarConexion();
             GestorCuadroDialogo.MostrarAdvertencia(
                 "Se ha cancelado la partida, por lo que serás redirigido al menú principal",
                 "Partida cancelada");
-            IrPaginaMenuPrincipal();
+
+            if (VentanaPrincipal.ServicioJugador.
+                EstadoOperacion == EstadoOperacion.Correcto)
+            {
+                GestorControlesVentana.HabilitarControlesDeVentana();
+                IrPaginaMenuPrincipal();
+            }
         }
 
         public void MostrarMensajeExpulsionDePartida()
         {
+            GestorControlesVentana.DeshabilitarControlesDeVentana();
             servicioPartida.CerrarConexion();
             GestorCuadroDialogo.MostrarAdvertencia(
                 "El anfitrión te ha expulsado de la partida",
                 "Expulsión de partida");
-            IrPaginaMenuPrincipal();
+            
+            if (VentanaPrincipal.ServicioJugador.
+                EstadoOperacion == EstadoOperacion.Correcto)
+            {
+                GestorControlesVentana.HabilitarControlesDeVentana();
+                IrPaginaMenuPrincipal();
+            }
         }
 
         public void MostrarFuncionesDeAnfitrionEnPartida()
         {
-            // habilitar las funciones de anfitrión
-
-            MessageBox.Show("Ahora eres anfitrión");
-
             if (!hayPartidaEnCurso)
             {
                 botonIniciarPartida.Visibility = Visibility.Visible;
             }
+
+            imagenAjustesPartida.Visibility = Visibility.Visible;
+            etiquetaAJustesPartida.Visibility = Visibility.Visible;
         }
 
         public void OcultarFuncionesDeAnfitrionEnPartida()
         {
-            // ocultar las funciones de anfitrión
-
-            MessageBox.Show("Ya no eres anfitrión");
-
             if (!hayPartidaEnCurso)
             {
                 botonIniciarPartida.Visibility = Visibility.Hidden;
+            }
+
+            imagenAjustesPartida.Visibility = Visibility.Visible;
+            etiquetaAJustesPartida.Visibility = Visibility.Visible;
+
+            if (panelAjustesPartida.IsVisible)
+            {
+                panelAjustesPartida.Visibility = Visibility.Hidden;
             }
         }
 
@@ -659,9 +657,16 @@ namespace RompecabezasFei
             // habilitar el botón de regreso a la sala
         }
 
-        private void DesplegarMenuAnfitrion(object objetoOrigen, MouseButtonEventArgs evento)
+        private void MostrarAjustesPartida(object objetoOrigen, 
+            MouseButtonEventArgs evento)
+        {            
+            panelAjustesPartida.Visibility = Visibility.Visible;
+        }
+
+        private void CerrarPanelAjustesPartida(object objetoOrigen, 
+            MouseButtonEventArgs evento)
         {
-            // mostrar las funciones del anfitrion
-        }        
+            panelAjustesPartida.Visibility = Visibility.Hidden;
+        }
     }
 }

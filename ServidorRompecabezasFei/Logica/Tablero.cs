@@ -51,8 +51,7 @@ namespace Logica
                     break;
             }
 
-            Piezas = AccesoDatos.AccesoPartida.
-                GenerarPiezasParaTablero(TotalFilas, TotalColumnas);
+            Piezas = GenerarPiezasParaTablero(TotalFilas, TotalColumnas);
         }
 
         public bool EsRompecabezasCompletado()
@@ -68,6 +67,28 @@ namespace Logica
             }
 
             return resultado;
+        }
+
+        private ConcurrentDictionary<int, Pieza> GenerarPiezasParaTablero(
+            int numeroFilas, int numeroColumnas)
+        {
+            ConcurrentDictionary<int, Pieza> piezas =
+                new ConcurrentDictionary<int, Pieza>();
+            int totalPiezas = numeroFilas * numeroColumnas;
+
+            for (int numeroPieza = 1; numeroPieza <= totalPiezas; numeroPieza++)
+            {
+                Pieza pieza = new Pieza()
+                {
+                    NumeroPieza = numeroPieza,
+                    EstaDentroDeCelda = false,
+                    EstaBloqueada = false,
+                    Puntaje = Pieza.PuntajeNormal,
+                };
+                piezas.TryAdd(numeroPieza, pieza);
+            }
+
+            return piezas;
         }
     }
 }

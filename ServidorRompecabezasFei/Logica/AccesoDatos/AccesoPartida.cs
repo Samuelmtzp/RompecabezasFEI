@@ -1,5 +1,4 @@
 ﻿using Datos;
-using System.Collections.Concurrent;
 using System.Linq;
 
 namespace Logica.AccesoDatos
@@ -30,55 +29,35 @@ namespace Logica.AccesoDatos
             return operacionRealizada;
         }
 
-        public static bool FinalizarPartida(string codigoSala, 
-            CuentaJugador cuentaJugador, bool esGanador)
+        public static int ObtenerNumeroPartidasJugadas(string nombreJugador)
         {
-            bool resultado = false;
+            int partidasJugadas;
 
             using (var contexto = new EntidadesRompecabezasFei())
             {
-                Datos.Partida partidaEncontrada = contexto.Partida.
-                    OrderByDescending(partida => partida.IdPartida).
-                    Where(partida => partida.Sala.Codigo == codigoSala).
-                    FirstOrDefault();
-
-                if (partidaEncontrada != null)
-                {
-                    ResultadoPartida resultadoPartida = new ResultadoPartida
-                    {
-                        IdPartida = partidaEncontrada.IdPartida,
-                        IdJugador = cuentaJugador.IdJugador,
-                        EsGanador = esGanador,
-                        Puntaje = cuentaJugador.Puntaje,
-                    };
-                    contexto.ResultadoPartida.Add(resultadoPartida);
-                    resultado = contexto.SaveChanges() > 0;
-                }
+                partidasJugadas = (from jugador in contexto.Jugador
+                                   from partidaJugada in contexto.ResultadoPartida
+                                   where partidaJugada.Jugador.Equals(jugador) &&
+                                   jugador.NombreJugador.Equals(nombreJugador)
+                                   select jugador).Count();
             }
 
-            return resultado;
-        }            
+            return partidasJugadas;
+        }
 
-        public static ConcurrentDictionary<int, Pieza> GenerarPiezasParaTablero(
-            int numeroFilas, int numeroColumnas)
+        public static int ObtenerNumeroPartidasGanadas(string nombreJugador)
         {
-            ConcurrentDictionary<int, Pieza> piezas = 
-                new ConcurrentDictionary<int, Pieza>();
-            int totalPiezas = numeroFilas * numeroColumnas;
-           
-            for (int numeroPieza = 1; numeroPieza <= totalPiezas; numeroPieza++)
+            int partidasGanadas;
+
+            using (var contexto = new EntidadesRompecabezasFei())
             {
-                Pieza pieza = new Pieza()
-                {
-                    NumeroPieza = numeroPieza,
-                    EstaDentroDeCelda = false,
-                    EstaBloqueada = false,
-                    Puntaje = Pieza.PuntajeNormal,
-                };
-                piezas.TryAdd(numeroPieza, pieza);
+                partidasGanadas = (from partidaJugada in contexto.ResultadoPartida
+                                   where partidaJugada.Jugador.NombreJugador.
+                                   Equals(nombreJugador) && partidaJugada.EsGanador
+                                   select partidaJugada).Count();
             }
 
-            return piezas;
+            return partidasGanadas;
         }
     }
 }

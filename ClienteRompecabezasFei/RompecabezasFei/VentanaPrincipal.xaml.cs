@@ -1,6 +1,5 @@
 ﻿using RompecabezasFei.ServicioRompecabezasFei;
 using RompecabezasFei.Servicios;
-using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -41,14 +40,8 @@ namespace RompecabezasFei
             return (VentanaPrincipal)GetWindow(PaginaActual);
         }
 
-        public void DeshabilitarMarcoPaginaActual()
+        public void RecargarPaginaActual()
         {
-            marcoPaginaActual.IsEnabled = false;
-        }
-
-        public void HabilitarMarcoPaginaActual()
-        {
-            marcoPaginaActual.IsEnabled = true;
             marcoPaginaActual.Navigate(PaginaActual);
         }
 
@@ -64,7 +57,7 @@ namespace RompecabezasFei
             }
         }
 
-        // Este método no se implementó debido a que el servidor nunca lo utiliza
+        // Método de callback no implementado debido a que el servidor nunca lo utiliza
         public void ProbarConexionJugador()
         {
         }

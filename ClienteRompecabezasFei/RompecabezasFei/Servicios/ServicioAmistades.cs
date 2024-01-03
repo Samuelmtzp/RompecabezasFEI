@@ -106,6 +106,10 @@ namespace RompecabezasFei.Servicios
             {
                 ManejarExcepcionDeServidor(excepcion);
             }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
             catch (TimeoutException excepcion)
             {
                 ManejarExcepcionDeServidor(excepcion);
@@ -156,6 +160,10 @@ namespace RompecabezasFei.Servicios
             {
                 ManejarExcepcionDeServidor(excepcion);
             }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
             catch (TimeoutException excepcion)
             {
                 ManejarExcepcionDeServidor(excepcion);
@@ -195,6 +203,10 @@ namespace RompecabezasFei.Servicios
                 ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
             {
                 ManejarExcepcionDeServidor(excepcion);
             }
@@ -240,6 +252,10 @@ namespace RompecabezasFei.Servicios
             {
                 ManejarExcepcionDeServidor(excepcion);
             }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
             catch (TimeoutException excepcion)
             {
                 ManejarExcepcionDeServidor(excepcion);
@@ -279,6 +295,10 @@ namespace RompecabezasFei.Servicios
                 ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
             {
                 ManejarExcepcionDeServidor(excepcion);
             }
@@ -325,6 +345,10 @@ namespace RompecabezasFei.Servicios
             {
                 ManejarExcepcionDeServidor(excepcion);
             }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
             catch (TimeoutException excepcion)
             {
                 ManejarExcepcionDeServidor(excepcion);
@@ -348,7 +372,7 @@ namespace RompecabezasFei.Servicios
             try
             {
                 existeSolicitudAmistad = clienteServicioAmistades.
-                    ExisteSolicitudDeAmistad(nombreJugadorA, nombreJugadorB);
+                    ExisteAmistadConJugador(nombreJugadorA, nombreJugadorB);
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
@@ -364,6 +388,10 @@ namespace RompecabezasFei.Servicios
                 ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
             {
                 ManejarExcepcionDeServidor(excepcion);
             }
@@ -390,7 +418,7 @@ namespace RompecabezasFei.Servicios
             try
             {
                 operacionRealizada = clienteServicioAmistades.
-                    EnviarSolicitudDeAmistad(nombreJugadorA, nombreJugadorB);
+                    EliminarAmistadEntreJugadores(nombreJugadorA, nombreJugadorB);
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
@@ -406,6 +434,10 @@ namespace RompecabezasFei.Servicios
                 ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
             {
                 ManejarExcepcionDeServidor(excepcion);
             }
@@ -448,6 +480,10 @@ namespace RompecabezasFei.Servicios
             {
                 ManejarExcepcionDeServidor(excepcion);
             }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
             catch (TimeoutException excepcion)
             {
                 ManejarExcepcionDeServidor(excepcion);
@@ -482,6 +518,10 @@ namespace RompecabezasFei.Servicios
                 ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
             {
                 ManejarExcepcionDeServidor(excepcion);
             }
