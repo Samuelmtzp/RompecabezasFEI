@@ -1,19 +1,23 @@
-﻿using System.ComponentModel;
+﻿using RompecabezasFei.ServicioRompecabezasFei;
+using RompecabezasFei.Servicios;
 using System.Windows;
 using System.Windows.Controls;
 
 namespace RompecabezasFei
 {
-    public partial class VentanaPrincipal : Window
+    public partial class VentanaPrincipal : Window, IServicioJugadorCallback
     {
         private static Page PaginaActual { get; set; }
 
         public static Page PaginaAnterior { get; set; }
 
+        public static ServicioJugador ServicioJugador { get; set; }
+
         public VentanaPrincipal()
         {
             InitializeComponent();
-            Closing += CerrarSesionAlCerrarVentana;
+            Closing += (objetoOrigen, evento) => CerrarSesion();
+            ServicioJugador = new ServicioJugador();
             PaginaActual = new PaginaInicioSesion();
             marcoPaginaActual.Navigate(PaginaActual);
         }
@@ -36,24 +40,26 @@ namespace RompecabezasFei
             return (VentanaPrincipal)GetWindow(PaginaActual);
         }
 
-        public static void CerrarSesion(bool realizarDesconexion)
+        public void RecargarPaginaActual()
+        {
+            marcoPaginaActual.Navigate(PaginaActual);
+        }
+
+        public static void CerrarSesion()
         {
             if (Dominio.CuentaJugador.Actual != null)
             {
-                if (realizarDesconexion)
-                {
-                    var servicio = new Servicios.ServicioJugador();
-                    servicio.CerrarSesion(Dominio.CuentaJugador.Actual.NombreJugador);
-                }
-
+                ServicioJugador.CerrarSesion(Dominio.
+                    CuentaJugador.Actual.NombreJugador);
+                ServicioJugador.CerrarConexion();
                 Dominio.CuentaJugador.Actual = null;
                 CambiarPagina(new PaginaInicioSesion());
             }
         }
 
-        private void CerrarSesionAlCerrarVentana(object objetoOrigen, CancelEventArgs evento)
+        // Método de callback no implementado debido a que el servidor nunca lo utiliza
+        public void ProbarConexionJugador()
         {
-            CerrarSesion(true);
         }
     }
 }

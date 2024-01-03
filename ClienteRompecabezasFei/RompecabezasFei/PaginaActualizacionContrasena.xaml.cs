@@ -15,7 +15,8 @@ namespace RompecabezasFei
             InitializeComponent();
         }
 
-        private void IrAPaginaInformacionJugador(object objetoOrigen, MouseButtonEventArgs evento)
+        private void IrAPaginaInformacionJugador(object objetoOrigen, 
+            MouseButtonEventArgs evento)
         {
             VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
         }
@@ -30,33 +31,26 @@ namespace RompecabezasFei
                 string correoJugador = Dominio.CuentaJugador.Actual.Correo;
                 string nuevaContrasenaCifrada = EncriptadorContrasena.
                     CalcularHashSha512(nuevaContrasena);
-                var servicioJugador = new ServicioJugador();
-                bool actualizacionRealizada = servicioJugador.
+                bool actualizacionRealizada = VentanaPrincipal.ServicioJugador.
                     ActualizarContrasena(correoJugador, nuevaContrasenaCifrada);
 
-                switch (servicioJugador.EstadoOperacion)
+                if (VentanaPrincipal.ServicioJugador.
+                    EstadoOperacion == EstadoOperacion.Correcto && 
+                    actualizacionRealizada)
                 {
-                    case EstadoOperacion.Correcto:
-                        
-                        if (actualizacionRealizada)
-                        {
-                            GestorCuadroDialogo.MostrarInformacion(Properties.Resources.
-                                ETIQUETA_ACTUALIZACIONINFORMACION_MENSAJEACTUALIZACION, 
-                                Properties.Resources.ETIQUETA_CONTRASENAACTUALIZADA_MENSAJE);
-                            Dominio.CuentaJugador.Actual.Contrasena = nuevaContrasena;
-                            VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
-                        }
-                        else
-                        {
-                            GestorCuadroDialogo.MostrarError(Properties.Resources.
-                                ETIQUETA_ACTUALIZARCONTRASENA_CONTRASENANOACTUALIZADA, 
-                                Properties.Resources.
-                                ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACION);
-                        }
-                        
-                        break;
+                    GestorCuadroDialogo.MostrarInformacion(Properties.Resources.
+                        ETIQUETA_ACTUALIZACIONINFORMACION_MENSAJEACTUALIZACION, 
+                        Properties.Resources.ETIQUETA_CONTRASENAACTUALIZADA_MENSAJE);
+                    Dominio.CuentaJugador.Actual.Contrasena = nuevaContrasena;
+                    VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
                 }
-
+                else
+                {
+                    GestorCuadroDialogo.MostrarAdvertencia(Properties.Resources.
+                        ETIQUETA_ACTUALIZARCONTRASENA_CONTRASENANOACTUALIZADA, 
+                        Properties.Resources.
+                        ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACION);
+                }
             }
         }
 
@@ -102,25 +96,21 @@ namespace RompecabezasFei
 
             if (!hayDatosInvalidos)
             {
-                var servicioJugador = new ServicioJugador();
-                bool esContrasenaActualCorrecta = servicioJugador.
-                    EsLaMismaContrasenaDeJugador(Dominio.CuentaJugador.
-                    Actual.NombreJugador, EncriptadorContrasena.CalcularHashSha512(
-                        cuadroContrasenaActual.Password));
+                bool esContrasenaActualCorrecta = VentanaPrincipal.ServicioJugador.
+                    EsLaMismaContrasenaDeJugador(Dominio.CuentaJugador.Actual.
+                    NombreJugador, EncriptadorContrasena.
+                    CalcularHashSha512(cuadroContrasenaActual.Password));
 
-                switch (servicioJugador.EstadoOperacion)
+                if (VentanaPrincipal.ServicioJugador.
+                    EstadoOperacion == EstadoOperacion.Correcto)
                 {
-                    case EstadoOperacion.Correcto:
-
-                        if (!esContrasenaActualCorrecta)
-                        {
-                            GestorCuadroDialogo.MostrarAdvertencia(
-                                "El campo de contraseña actual es incorrecto", 
-                                "Contraseña actual no coincide");
-                            hayDatosInvalidos = true;
-                        }
-
-                        break;
+                    if (!esContrasenaActualCorrecta)
+                    {
+                        GestorCuadroDialogo.MostrarAdvertencia(
+                            "El campo de contraseña actual es incorrecto", 
+                            "Contraseña actual no coincide");
+                        hayDatosInvalidos = true;
+                    }
                 }
             }
 

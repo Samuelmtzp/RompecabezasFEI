@@ -8,37 +8,356 @@ namespace RompecabezasFei.Servicios
 {
     public class ServicioPartida : Servicio
     {
-        private ServicioPartidaClient clienteServicioPartida;
+        private readonly ServicioPartidaClient clienteServicioPartida;
 
         public ServicioPartida()
         {
             clienteServicioPartida = new ServicioPartidaClient(
                 new InstanceContext(new PaginaPartida()));
-            clienteServicioPartida.Open();
+            AbrirConexion();
         }
 
         public ServicioPartida(PaginaPartida paginaPartida)
         {
             clienteServicioPartida = new ServicioPartidaClient(
                 new InstanceContext(paginaPartida));
-            clienteServicioPartida.Open();
+            AbrirConexion();
         }
 
-        public void CerrarConexion()
+        public override void AbrirConexion()
+        {
+            try
+            {
+                clienteServicioPartida.Open();
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (InvalidOperationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+        }
+
+        public override void CerrarConexion()
         {
             if (clienteServicioPartida.State == CommunicationState.Opened)
             {
                 try
                 {
                     clienteServicioPartida.Close();
+                    EstadoOperacion = EstadoOperacion.Correcto;
                 }
                 catch (CommunicationException excepcion)
                 {
-                    ManejarExcepcionDeServidor(excepcion, true);
+                    ManejarExcepcionDeServidor(excepcion);
                 }
                 catch (TimeoutException excepcion)
                 {
-                    ManejarExcepcionDeServidor(excepcion, true);
+                    ManejarExcepcionDeServidor(excepcion);
+                }
+                catch (InvalidOperationException excepcion)
+                {
+                    ManejarExcepcionDeServidor(excepcion);
+                }
+            }
+        }
+
+        public bool CrearNuevaPartida(string codigoSala,
+            DificultadPartida dificultadPartida, int numeroImagen)
+        {
+            bool operacionRealizada = false;
+
+            try
+            {
+                operacionRealizada = clienteServicioPartida.CrearNuevaPartida(
+                    codigoSala, dificultadPartida, numeroImagen);
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioPartida.Abort();
+                }
+            }
+
+            return operacionRealizada;
+        }
+
+        public void UnirseAPartida(string codigoSala, string nombreJugador)
+        {
+            try
+            {
+                clienteServicioPartida.UnirseAPartida(
+                    codigoSala, nombreJugador);
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioPartida.Abort();
+                }
+            }
+        }
+
+        public void AbandonarPartida(string codigoSala, string nombreJugador)
+        {
+            try
+            {
+                clienteServicioPartida.AbandonarPartida(codigoSala, nombreJugador);
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioPartida.Abort();
+                }
+            }
+        }
+
+        public void IniciarPartida(string codigoSala)
+        {
+            try
+            {
+                clienteServicioPartida.IniciarPartida(codigoSala);
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioPartida.Abort();
+                }
+            }
+        }
+
+        public void BloquearPieza(string codigoSala,
+            int numeroPieza, string nombreJugador)
+        {
+            try
+            {
+                clienteServicioPartida.BloquearPieza(
+                    codigoSala, numeroPieza, nombreJugador);
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioPartida.Abort();
+                }
+            }
+        }
+
+        public void DesbloquearPieza(string codigoSala,
+            int numeroPieza, string nombreJugador)
+        {
+            try
+            {
+                clienteServicioPartida.DesbloquearPieza(
+                    codigoSala, numeroPieza, nombreJugador);
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioPartida.Abort();
+                }
+            }
+        }
+
+        public void ColocarPieza(string codigoSala, int numeroPieza,
+            string nombreJugador, Posicion posicion)
+        {
+            try
+            {
+                clienteServicioPartida.ColocarPieza(
+                    codigoSala, numeroPieza, nombreJugador, posicion);
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioPartida.Abort();
                 }
             }
         }
@@ -55,23 +374,27 @@ namespace RompecabezasFei.Servicios
             }
             catch (EndpointNotFoundException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectAbortedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
-            catch (SocketException excepcion)
+            catch (CommunicationException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (TimeoutException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             finally
             {
@@ -96,23 +419,27 @@ namespace RompecabezasFei.Servicios
             }
             catch (EndpointNotFoundException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectAbortedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
-            catch (SocketException excepcion)
+            catch (CommunicationException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (TimeoutException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             finally
             {
@@ -125,8 +452,49 @@ namespace RompecabezasFei.Servicios
             return resultado;
         }
 
-        public List<CuentaJugador> ObtenerJugadoresConectadosEnPartida(
+        public void ExpulsarJugadorEnPartida(string nombreJugadorExpulsion, 
             string codigoSala)
+        {
+            try
+            {
+                clienteServicioPartida.ExpulsarJugadorEnPartida(
+                    nombreJugadorExpulsion, codigoSala);
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioPartida.Abort();
+                }
+            }
+        }
+
+        public List<CuentaJugador> ObtenerJugadoresEnPartida(string codigoSala)
         {
             List<CuentaJugador> jugadoresEnPartida = new List<CuentaJugador>();
 
@@ -144,23 +512,27 @@ namespace RompecabezasFei.Servicios
             }
             catch (EndpointNotFoundException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectAbortedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
-            catch (SocketException excepcion)
+            catch (CommunicationException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (TimeoutException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             finally
             {
@@ -173,265 +545,39 @@ namespace RompecabezasFei.Servicios
             return jugadoresEnPartida;
         }
 
-        public bool CrearNuevaPartida(string codigoSala, 
-            DificultadPartida dificultadPartida, int numeroImagen)
+        public void ConvertirJugadorEnAnfitrionDesdePartida(
+            string nombreJugador, string codigoSala)
         {
-            bool operacionRealizada = false;
-
             try
             {
-                operacionRealizada = clienteServicioPartida.CrearNuevaPartida(
-                    codigoSala, dificultadPartida, numeroImagen);
+                clienteServicioPartida.
+                    ConvertirJugadorEnAnfitrionDesdePartida(
+                    nombreJugador, codigoSala);
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectAbortedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
-            catch (SocketException excepcion)
+            catch (CommunicationException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
-            catch (TimeoutException excepcion)
+            catch (ObjectDisposedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            finally
-            {
-                if (EstadoOperacion == EstadoOperacion.Error)
-                {
-                    clienteServicioPartida.Abort();
-                }
-            }
-
-            return operacionRealizada;
-        }
-
-        public bool UnirseAPartida(string codigoSala, string nombreJugador)
-        {
-            bool operacionRealizada = false;
-
-            try
-            {
-                operacionRealizada = clienteServicioPartida.
-                    UnirseAPartida(codigoSala, nombreJugador);
-                EstadoOperacion = EstadoOperacion.Correcto;
-            }
-            catch (EndpointNotFoundException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (CommunicationObjectFaultedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (CommunicationObjectAbortedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (SocketException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (TimeoutException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            finally
-            {
-                if (EstadoOperacion == EstadoOperacion.Error)
-                {
-                    clienteServicioPartida.Abort();
-                }
-            }
-
-            return operacionRealizada;
-        }
-
-        public void AbandonarPartida(string codigoSala, string nombreJugador)
-        {
-            try
-            {
-                clienteServicioPartida.AbandonarPartida(codigoSala, nombreJugador);
-                EstadoOperacion = EstadoOperacion.Correcto;
-            }
-            catch (EndpointNotFoundException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (CommunicationObjectFaultedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (CommunicationObjectAbortedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (SocketException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
-            }
-            catch (TimeoutException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            finally
-            {
-                if (EstadoOperacion == EstadoOperacion.Error)
-                {
-                    clienteServicioPartida.Abort();
-                }
-            }
-        }
-
-        public void IniciarPartida(string codigoSala)
-        {
-            try
-            {
-                clienteServicioPartida.IniciarPartida(codigoSala);
-                EstadoOperacion = EstadoOperacion.Correcto;
-            }
-            catch (EndpointNotFoundException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (CommunicationObjectFaultedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (CommunicationObjectAbortedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (SocketException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
-            }
-            catch (TimeoutException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            finally
-            {
-                if (EstadoOperacion == EstadoOperacion.Error)
-                {
-                    clienteServicioPartida.Abort();
-                }
-            }
-        }
-
-        public void BloquearPieza(string codigoSala, 
-            int numeroPieza, string nombreJugador)
-        {
-            try
-            {
-                clienteServicioPartida.BloquearPieza(
-                    codigoSala, numeroPieza, nombreJugador);
-                EstadoOperacion = EstadoOperacion.Correcto;
-            }
-            catch (EndpointNotFoundException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (CommunicationObjectFaultedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (CommunicationObjectAbortedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (SocketException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
-            }
-            catch (TimeoutException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            finally
-            {
-                if (EstadoOperacion == EstadoOperacion.Error)
-                {
-                    clienteServicioPartida.Abort();
-                }
-            }
-        }
-
-        public void DesbloquearPieza(string codigoSala,
-            int numeroPieza, string nombreJugador)
-        {
-            try
-            {
-                clienteServicioPartida.DesbloquearPieza(
-                    codigoSala, numeroPieza, nombreJugador);
-                EstadoOperacion = EstadoOperacion.Correcto;
-            }
-            catch (EndpointNotFoundException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (CommunicationObjectFaultedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (CommunicationObjectAbortedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (SocketException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
-            }
-            catch (TimeoutException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            finally
-            {
-                if (EstadoOperacion == EstadoOperacion.Error)
-                {
-                    clienteServicioPartida.Abort();
-                }
-            }
-        }
-
-        public void ColocarPieza(string codigoSala, int numeroPieza, 
-            string nombreJugador, Posicion posicion)
-        {
-            try
-            {
-                clienteServicioPartida.ColocarPieza(
-                    codigoSala, numeroPieza, nombreJugador, posicion);
-                EstadoOperacion = EstadoOperacion.Correcto;
-            }
-            catch (EndpointNotFoundException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (CommunicationObjectFaultedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (CommunicationObjectAbortedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (SocketException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
-            }
-            catch (TimeoutException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             finally
             {

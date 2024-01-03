@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Logica.AccesoDatos
 {
-    public static class AccesoJugador
+    public static class AccesoCuentaJugador
     {
         public static CuentaJugador IniciarSesion(string nombreJugador, 
             string contrasena)
@@ -26,7 +26,7 @@ namespace Logica.AccesoDatos
                                      Correo = cuenta.Correo,
                                      EsInvitado = false,
                                      Puntaje = Pieza.PuntajeVacio,
-                                     Estado = Enumeraciones.EstadoJugador.Conectado,
+                                     Estado = Enumeraciones.EstadoJugador.Disponible,
                                  }).FirstOrDefault();
             }
 
@@ -149,7 +149,8 @@ namespace Logica.AccesoDatos
             return resultado;
         }
 
-        public static bool HayCoincidenciasEnContrasenaDeJugador(string nombreJugador, string contrasena)
+        public static bool HayCoincidenciasEnContrasenaDeJugador(
+            string nombreJugador, string contrasena)
         {
             bool resultado = false;
 
@@ -165,37 +166,6 @@ namespace Logica.AccesoDatos
             }
 
             return resultado;
-        }
-
-        public static int ObtenerNumeroPartidasJugadasDeJugador(string nombreJugador)
-        {
-            int partidasJugadas;
-            
-            using (var contexto = new EntidadesRompecabezasFei())
-            {
-                partidasJugadas = (from jugador in contexto.Jugador 
-                                   from partidaJugada in contexto.ResultadoPartida 
-                                   where partidaJugada.Jugador.Equals(jugador) &&
-                                   jugador.NombreJugador.Equals(nombreJugador) 
-                                   select jugador).Count();
-            }
-
-            return partidasJugadas;
-        }
-
-        public static int ObtenerNumeroPartidasGanadas(string nombreJugador)
-        {
-            int partidasGanadas;
-
-            using (var contexto = new EntidadesRompecabezasFei())
-            {
-                partidasGanadas = (from partidaJugada in contexto.ResultadoPartida
-                                   where partidaJugada.Jugador.NombreJugador.
-                                   Equals(nombreJugador) && partidaJugada.EsGanador
-                                   select partidaJugada).Count();
-            }
-
-            return partidasGanadas;
         }        
     }
 }

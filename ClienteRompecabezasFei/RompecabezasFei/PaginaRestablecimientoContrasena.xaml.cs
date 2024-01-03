@@ -19,40 +19,43 @@ namespace RompecabezasFei
 
         private void ActualizarContrasena(object objetoOrigen, RoutedEventArgs evento)
         {
-            string contrasena = cuadroContrasenaNueva.Password.ToString();
+            string nuevaContrasena = cuadroContrasenaNueva.Password.ToString();
 
-            if (!EsContrasenaInvalida(contrasena))
+            if (!EsContrasenaInvalida(nuevaContrasena))
             {
                 if (cuadroContrasenaNueva.Password.Equals(
                     cuadroConfirmarNuevaContrasena.Password))
                 {
                     string contrasenaCifrada = EncriptadorContrasena.
-                        CalcularHashSha512(contrasena);
-                    var servicio = new ServicioJugador();
-                    bool actualizacionRealizada = servicio.ActualizarContrasena(
-                        correo, contrasenaCifrada);
+                        CalcularHashSha512(nuevaContrasena);
+                    VentanaPrincipal.ServicioJugador.AbrirConexion();
 
-                    switch (servicio.EstadoOperacion)
+                    if (VentanaPrincipal.ServicioJugador.
+                        EstadoOperacion == EstadoOperacion.Correcto)
                     {
-                        case EstadoOperacion.Correcto:
-                            
+                        bool actualizacionRealizada = VentanaPrincipal.ServicioJugador.
+                            ActualizarContrasena(correo, contrasenaCifrada);
+                        VentanaPrincipal.ServicioJugador.CerrarConexion();
+
+                        if (VentanaPrincipal.ServicioJugador.
+                            EstadoOperacion == EstadoOperacion.Correcto)
+                        {
                             if (actualizacionRealizada)
                             {
                                 GestorCuadroDialogo.MostrarInformacion(Properties.Resources.
-                                    ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENAACTUALIZADA, 
+                                    ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENAACTUALIZADA,
                                     Properties.Resources.
                                     ETIQUETA_RESTABLECIMIENTO_CONTRASENARESTABLECIDA);
                                 VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
                             }
                             else
                             {
-                                GestorCuadroDialogo.MostrarError(Properties.Resources.
-                                    ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENANORESTABLECIDA, 
+                                GestorCuadroDialogo.MostrarAdvertencia(Properties.Resources.
+                                    ETIQUETA_RESTABLECIMIENTO_MENSAJECONTRASENANORESTABLECIDA,
                                     Properties.Resources.
                                     ETIQUETA_RESTABLECIMIENTO_CONTRASENANORESTABLECIDA);
                             }
-
-                            break;
+                        }
                     }
                 }
                 else

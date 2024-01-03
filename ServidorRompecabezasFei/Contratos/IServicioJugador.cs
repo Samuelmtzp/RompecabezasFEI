@@ -4,7 +4,7 @@ using Logica.Enumeraciones;
 
 namespace Contratos
 {
-    [ServiceContract]
+    [ServiceContract(CallbackContract = typeof(IServicioJugadorCallback))]
     public interface IServicioJugador
     {
         [OperationContract]
@@ -33,8 +33,16 @@ namespace Contratos
 
         [OperationContract]
         bool ExisteNombreJugadorRegistrado(string nombreJugador);
-
-        [OperationContract]
-        void CambiarEstadoJugador(string nombreJugador, EstadoJugador estado);
+    }
+    
+    [ServiceContract]
+    public interface IServicioJugadorCallback
+    {
+        // El método ProbarConexionJugador no es utilizado explícitamente,
+        // solamente se creó para definir una interfaz de callback para la
+        // interfaz IServicioJugador, la cual notifica al jugador sobre
+        // los eventos de cierre o fallo en el servidor en tiempo real
+        [OperationContract(IsOneWay = true)]
+        void ProbarConexionJugador();
     }
 }

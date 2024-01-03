@@ -1,48 +1,133 @@
 ﻿using RompecabezasFei.ServicioRompecabezasFei;
+using RompecabezasFei.Utilidades;
 using System;
-using System.Net.Sockets;
 using System.ServiceModel;
+using System.Windows;
 
 namespace RompecabezasFei.Servicios
 {
     public class ServicioJugador : Servicio
     {
+        private static ServicioJugadorClient clienteServicioJugador;
+
+        private static bool esConexionCerradaPorCliente = false;
+
+        public override void AbrirConexion()
+        {
+            try
+            {
+                clienteServicioJugador = new ServicioJugadorClient(
+                    new InstanceContext(VentanaPrincipal.ObtenerVentanaActual()));
+                clienteServicioJugador.Open();
+                clienteServicioJugador.InnerChannel.Closed +=
+                    (objetoOrigen, evento) =>
+                    ManejarConexionConServidorCerrada(); 
+                clienteServicioJugador.InnerChannel.Faulted +=
+                    (objetoOrigen, evento) =>
+                    MostrarMensajeConexionPerdida();
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (InvalidOperationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+        }
+
+        private void MostrarMensajeConexionPerdida()
+        {
+            EstadoOperacion = EstadoOperacion.Error;
+            GestorControlesVentana.DeshabilitarControlesDeVentana();
+            GestorCuadroDialogo.MostrarError(
+                Properties.Resources.ETIQUETA_ERRORCONEXIONPERDIDASERVIDOR_MENSAJE,
+                Properties.Resources.ETIQUETA_ERRORCONEXIONPERDIDASERVIDOR_TITULO);
+            Dominio.CuentaJugador.Actual = null;
+            GestorControlesVentana.HabilitarControlesDeVentana();
+            Application.Current.Dispatcher.Invoke(new Action(() =>
+            {
+                VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
+            }));
+        }
+
+        private void ManejarConexionConServidorCerrada()
+        {
+            if (!esConexionCerradaPorCliente)
+            {
+                MostrarMensajeConexionPerdida();
+            }
+        }
+
+        public override void CerrarConexion()
+        {
+            if (clienteServicioJugador.State == CommunicationState.Opened)
+            {
+                try
+                {
+                    esConexionCerradaPorCliente = true;
+                    clienteServicioJugador.Close();
+                    EstadoOperacion = EstadoOperacion.Correcto;
+                }
+                catch (CommunicationException excepcion)
+                {
+                    ManejarExcepcionDeServidor(excepcion);
+                }
+                catch (TimeoutException excepcion)
+                {
+                    ManejarExcepcionDeServidor(excepcion);
+                }
+                catch (InvalidOperationException excepcion)
+                {
+                    ManejarExcepcionDeServidor(excepcion);
+                }
+            }
+        }
+
         public bool RegistrarJugador(CuentaJugador cuentaJugador)
         {
-            var cliente = new ServicioJugadorClient();
             bool resultado = false;
 
             try
             {
-                resultado = cliente.RegistrarJugador(cuentaJugador);
-                cliente.Close();
+                resultado = clienteServicioJugador.
+                    RegistrarJugador(cuentaJugador);
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectAbortedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
-            catch (SocketException excepcion)
+            catch (CommunicationException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (TimeoutException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
             finally
             {
                 if (EstadoOperacion == EstadoOperacion.Error)
                 {
-                    cliente.Abort();
+                    clienteServicioJugador.Abort();
                 }
             }
 
@@ -52,41 +137,43 @@ namespace RompecabezasFei.Servicios
         public CuentaJugador IniciarSesionComoJugador(
             string nombreJugador, string contrasena)
         {
-            var cliente = new ServicioJugadorClient();
             CuentaJugador cuentaJugador = null;
 
             try
             {
-                cuentaJugador = cliente.IniciarSesionComoJugador(
-                    nombreJugador, contrasena);
-                cliente.Close();
+                cuentaJugador = clienteServicioJugador.
+                    IniciarSesionComoJugador(nombreJugador, contrasena);
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectAbortedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
-            catch (SocketException excepcion)
+            catch (CommunicationException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (TimeoutException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
             finally
             {
                 if (EstadoOperacion == EstadoOperacion.Error)
                 {
-                    cliente.Abort();
+                    clienteServicioJugador.Abort();
                 }
             }
 
@@ -95,40 +182,43 @@ namespace RompecabezasFei.Servicios
 
         public CuentaJugador IniciarSesionComoInvitado(string nombreJugador)
         {
-            var cliente = new ServicioJugadorClient();
             CuentaJugador cuentaInvitado = null;
 
             try
             {
-                cuentaInvitado = cliente.IniciarSesionComoInvitado(nombreJugador);
-                cliente.Close();
+                cuentaInvitado = clienteServicioJugador.
+                    IniciarSesionComoInvitado(nombreJugador);
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectAbortedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
-            catch (SocketException excepcion)
+            catch (CommunicationException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (TimeoutException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
             finally
             {
                 if (EstadoOperacion == EstadoOperacion.Error)
                 {
-                    cliente.Abort();
+                    clienteServicioJugador.Abort();
                 }
             }
 
@@ -137,209 +227,178 @@ namespace RompecabezasFei.Servicios
 
         public void CerrarSesion(string nombreJugador)
         {
-            var cliente = new ServicioJugadorClient();
+            if (clienteServicioJugador.State == CommunicationState.Opened)
+            {
+                try
+                {
+                    clienteServicioJugador.CerrarSesion(nombreJugador);
+                    EstadoOperacion = EstadoOperacion.Correcto;
+                }
+                catch (EndpointNotFoundException excepcion)
+                {
+                    ManejarExcepcionDeServidor(excepcion);
+                }
+                catch (CommunicationObjectFaultedException excepcion)
+                {
+                    ManejarExcepcionDeServidor(excepcion);
+                }
+                catch (CommunicationObjectAbortedException excepcion)
+                {
+                    ManejarExcepcionDeServidor(excepcion);
+                }
+                catch (CommunicationException excepcion)
+                {
+                    ManejarExcepcionDeServidor(excepcion);
+                }
+                catch (ObjectDisposedException excepcion)
+                {
+                    ManejarExcepcionDeServidor(excepcion);
+                }
+                catch (TimeoutException excepcion)
+                {
+                    ManejarExcepcionDeServidor(excepcion);
+                }
+                finally
+                {
+                    if (EstadoOperacion == EstadoOperacion.Error)
+                    {
+                        clienteServicioJugador.Abort();
+                    }
+                }
+            }
+        }
+
+        public bool ActualizarNombreJugador(string nombreAnterior,
+            string nuevoNombre)
+        {
+            bool resultado = false;
 
             try
             {
-                cliente.CerrarSesion(nombreJugador);
-                cliente.Close();
+                resultado = clienteServicioJugador.
+                    ActualizarNombreJugador(nombreAnterior, nuevoNombre);
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectAbortedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
-            catch (SocketException excepcion)
+            catch (CommunicationException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (TimeoutException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
             finally
             {
                 if (EstadoOperacion == EstadoOperacion.Error)
                 {
-                    cliente.Abort();
+                    clienteServicioJugador.Abort();
                 }
             }
+
+            return resultado;
+        }
+
+        public bool ActualizarNumeroAvatar(string nombreJugador,
+            int nuevoNumeroAvatar)
+        {
+            bool resultado = false;
+
+            try
+            {
+                resultado = clienteServicioJugador.
+                    ActualizarNumeroAvatar(nombreJugador, nuevoNumeroAvatar);
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioJugador.Abort();
+                }
+            }
+
+            return resultado;
         }
 
         public bool ActualizarContrasena(string correo, string nuevaContrasena)
         {
-            var cliente = new ServicioJugadorClient(); 
             bool resultado = false;
 
             try
             {
-                resultado = cliente.ActualizarContrasena(correo, nuevaContrasena);
-                cliente.Close();
+                resultado = clienteServicioJugador.
+                    ActualizarContrasena(correo, nuevaContrasena);
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectAbortedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
-            catch (SocketException excepcion)
+            catch (CommunicationException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (TimeoutException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
             finally
             {
                 if (EstadoOperacion == EstadoOperacion.Error)
                 {
-                    cliente.Abort();
-                }
-            }
-
-            return resultado;
-        }
-
-        public bool ActualizarNombreJugador(string nombreAnterior, 
-            string nuevoNombre)
-        {
-            var cliente = new ServicioJugadorClient();
-            bool resultado = false;
-
-            try
-            {
-                resultado = cliente.ActualizarNombreJugador(
-                    nombreAnterior,nuevoNombre);
-                cliente.Close();
-                EstadoOperacion = EstadoOperacion.Correcto;
-            }
-            catch (EndpointNotFoundException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
-            }
-            catch (CommunicationObjectFaultedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
-            }
-            catch (CommunicationObjectAbortedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
-            }
-            catch (SocketException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
-            }
-            catch (TimeoutException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
-            }
-            finally
-            {
-                if (EstadoOperacion == EstadoOperacion.Error)
-                {
-                    cliente.Abort();
-                }
-            }
-
-            return resultado;
-        }
-
-        public bool ActualizarNumeroAvatar(string nombreJugador, 
-            int nuevoNumeroAvatar)
-        {
-            var cliente = new ServicioJugadorClient();
-            bool resultado = false;
-
-            try
-            {
-                resultado = cliente.ActualizarNumeroAvatar(
-                    nombreJugador, nuevoNumeroAvatar);
-                cliente.Close();
-                EstadoOperacion = EstadoOperacion.Correcto;
-            }
-            catch (EndpointNotFoundException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
-            }
-            catch (CommunicationObjectFaultedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
-            }
-            catch (CommunicationObjectAbortedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
-            }
-            catch (SocketException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
-            }
-            catch (TimeoutException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
-            }
-            finally
-            {
-                if (EstadoOperacion == EstadoOperacion.Error)
-                {
-                    cliente.Abort();
-                }
-            }
-
-            return resultado;
-        }
-
-        public bool ExisteNombreJugadorRegistrado(string nombreJugador)
-        {
-            var cliente = new ServicioJugadorClient();
-            bool resultado = false;
-
-            try
-            {
-                resultado = cliente.ExisteNombreJugadorRegistrado(nombreJugador);
-                cliente.Close();
-                EstadoOperacion = EstadoOperacion.Correcto;
-            }
-            catch (EndpointNotFoundException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
-            }
-            catch (CommunicationObjectFaultedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
-            }
-            catch (CommunicationObjectAbortedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
-            }
-            catch (SocketException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
-            }
-            catch (TimeoutException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
-            }
-            finally
-            {
-                if (EstadoOperacion == EstadoOperacion.Error)
-                {
-                    cliente.Abort();
+                    clienteServicioJugador.Abort();
                 }
             }
 
@@ -348,41 +407,88 @@ namespace RompecabezasFei.Servicios
 
         public bool EsLaMismaContrasenaDeJugador(string nombreJugador, string contrasena)
         {
-            var cliente = new ServicioJugadorClient();
             bool resultado = false;
 
             try
             {
-                resultado = cliente.EsLaMismaContrasenaDeJugador(
-                    nombreJugador, contrasena);
-                cliente.Close();
+                resultado = clienteServicioJugador.
+                    EsLaMismaContrasenaDeJugador(nombreJugador, contrasena);
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectAbortedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
-            catch (SocketException excepcion)
+            catch (CommunicationException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (TimeoutException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
             }
             finally
             {
                 if (EstadoOperacion == EstadoOperacion.Error)
                 {
-                    cliente.Abort();
+                    clienteServicioJugador.Abort();
+                }
+            }
+
+            return resultado;
+        }
+
+        public bool ExisteNombreJugadorRegistrado(string nombreJugador)
+        {
+            bool resultado = false;
+
+            try
+            {
+                resultado = clienteServicioJugador.
+                    ExisteNombreJugadorRegistrado(nombreJugador);
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioJugador.Abort();
                 }
             }
 

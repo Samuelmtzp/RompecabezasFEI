@@ -19,18 +19,10 @@ namespace RompecabezasFei
 
         private void EnviarCodigo()
         {
-            bool envioDeCodigoRealizado = GestorCodigoCorreo.
-                EnviarNuevoCodigoDeVerificacionACorreo(correoDestino, 
+            GestorCodigoCorreo.EnviarNuevoCodigoDeVerificacionACorreo(correoDestino,
                 Properties.Resources.ETIQUETA_CODIGO_CODIGORESTABLECIMIENTO, 
                 Properties.Resources.ETIQUETA_RECUPERACION_MENSAJE + 
                 $" {GestorCodigoCorreo.CodigoGenerado}");
-
-            if (!envioDeCodigoRealizado)
-            {
-                GestorCuadroDialogo.MostrarError(
-                    Properties.Resources.ETIQUETA_CODIGO_MENSAJENOENVIADO, 
-                    Properties.Resources.ETIQUETA_CODIGO_CODIGONOENVIADO);
-            }
         }
 
         private void IrAPaginaInicioSesion(object objetoOrigen, RoutedEventArgs evento)
@@ -45,10 +37,10 @@ namespace RompecabezasFei
 
             if (!ValidadorDatos.EsCadenaVacia(codigoVerificacion))
             {
-                bool codigoVerificacionCoincide = codigoVerificacion.
+                bool esMismoCodigoDeVerificacion = codigoVerificacion.
                     Equals(GestorCodigoCorreo.CodigoGenerado);
 
-                if (codigoVerificacionCoincide)
+                if (esMismoCodigoDeVerificacion)
                 {
                     VentanaPrincipal.CambiarPagina(
                         new PaginaRestablecimientoContrasena(correoDestino));

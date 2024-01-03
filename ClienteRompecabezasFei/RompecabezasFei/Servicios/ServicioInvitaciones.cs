@@ -1,16 +1,26 @@
 ﻿using RompecabezasFei.ServicioRompecabezasFei;
-using System;
+using System.Net.Sockets;
 using System.ServiceModel;
+using System;
+using System.Collections.Generic;
 
 namespace RompecabezasFei.Servicios
 {
-    public class ServicioCorreo : Servicio
+    public class ServicioInvitaciones : Servicio
     {
-        private readonly ServicioCorreoClient clienteServicioCorreo = 
-            new ServicioCorreoClient();
+        private readonly ServicioInvitacionesClient clienteServicioInvitaciones;
 
-        public ServicioCorreo()
+        public ServicioInvitaciones()
         {
+            clienteServicioInvitaciones = new ServicioInvitacionesClient(
+                new InstanceContext(new PaginaMenuPrincipal()));
+            AbrirConexion();
+        }
+
+        public ServicioInvitaciones(PaginaMenuPrincipal paginaMenuPrincipal)
+        {
+            clienteServicioInvitaciones = new ServicioInvitacionesClient(
+                new InstanceContext(paginaMenuPrincipal));
             AbrirConexion();
         }
 
@@ -18,7 +28,7 @@ namespace RompecabezasFei.Servicios
         {
             try
             {
-                clienteServicioCorreo.Open();
+                clienteServicioInvitaciones.Open();
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (CommunicationException excepcion)
@@ -37,11 +47,11 @@ namespace RompecabezasFei.Servicios
 
         public override void CerrarConexion()
         {
-            if (clienteServicioCorreo.State == CommunicationState.Opened)
+            if (clienteServicioInvitaciones.State == CommunicationState.Opened)
             {
                 try
                 {
-                    clienteServicioCorreo.Close();
+                    clienteServicioInvitaciones.Close();
                     EstadoOperacion = EstadoOperacion.Correcto;
                 }
                 catch (CommunicationException excepcion)
@@ -59,15 +69,12 @@ namespace RompecabezasFei.Servicios
             }
         }
 
-        public bool EnviarMensajeACorreoElectronico(string encabezado, 
-            string correoDestino, string asunto, string mensaje)
+        public void ActivarInvitacionesDeSala(string nombreJugador)
         {
-            bool resultado = false;
-
             try
             {
-                resultado = clienteServicioCorreo.EnviarMensajeACorreo
-                    (encabezado, correoDestino, asunto, mensaje);
+                clienteServicioInvitaciones.
+                    ActivarInvitacionesDeSala(nombreJugador);
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
@@ -98,20 +105,18 @@ namespace RompecabezasFei.Servicios
             {
                 if (EstadoOperacion == EstadoOperacion.Error)
                 {
-                    clienteServicioCorreo.Abort();
+                    clienteServicioInvitaciones.Abort();
                 }
             }
-
-            return resultado;
         }
 
-        public bool ExisteCorreoRegistrado(string correo)
+        public void DesactivarInvitacionesDeSala(string nombreJugador, 
+            EstadoJugador nuevoEstado)
         {
-            bool resultado = false;
-
             try
             {
-                resultado = clienteServicioCorreo.ExisteCorreoRegistrado(correo);
+                clienteServicioInvitaciones.
+                    DesactivarInvitacionesDeSala(nombreJugador, nuevoEstado);
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
@@ -142,11 +147,60 @@ namespace RompecabezasFei.Servicios
             {
                 if (EstadoOperacion == EstadoOperacion.Error)
                 {
-                    clienteServicioCorreo.Abort();
+                    clienteServicioInvitaciones.Abort();
+                }
+            }
+        }
+
+        public List<CuentaJugador> ObtenerAmigosDisponibles(string nombreAnfitrion)
+        {
+            var amigosDisponibles = new List<CuentaJugador>();
+
+            try
+            {
+                var amigosObtenidos = clienteServicioInvitaciones.
+                    ObtenerAmigosDisponibles(nombreAnfitrion);
+
+                foreach (var amigoObtenido in amigosObtenidos)
+                {
+                    amigosDisponibles.Add(amigoObtenido);
+                }
+
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioInvitaciones.Abort();
                 }
             }
 
-            return resultado;
+            return amigosDisponibles;
         }
     }
 }

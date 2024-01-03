@@ -7,8 +7,6 @@ namespace RompecabezasFei.Utilidades
     {
         public const int DuracionSegundosMaximaReenvioDeCorreo = 60;
 
-        public const int DuracionSegundosMaximaBloqueoDePiezaRompecabezas = 15;
-
         public const int MinimoSegundosRestantes = 0;
         
         public const int IntervaloEnSegundos = 1;

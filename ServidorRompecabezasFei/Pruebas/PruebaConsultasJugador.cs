@@ -26,7 +26,7 @@ namespace Pruebas
 
             try
             {
-                existeNombreJugador = AccesoJugador.ExisteNombreJugadorRegistrado(nombreJugador);
+                existeNombreJugador = AccesoCuentaJugador.ExisteNombreJugadorRegistrado(nombreJugador);
             }
             catch (EntityException)
             {
@@ -44,7 +44,7 @@ namespace Pruebas
 
             try
             {
-                existeNombreJugador = AccesoJugador.ExisteNombreJugadorRegistrado(nombreJugador);
+                existeNombreJugador = AccesoCuentaJugador.ExisteNombreJugadorRegistrado(nombreJugador);
             }
             catch (EntityException)
             {
@@ -61,7 +61,7 @@ namespace Pruebas
 
             try
             {
-                existeCorreo = AccesoJugador.ExisteCorreoRegistrado(correoElectronico);
+                existeCorreo = AccesoCuentaJugador.ExisteCorreoRegistrado(correoElectronico);
             }
             catch (EntityException)
             {
@@ -78,7 +78,7 @@ namespace Pruebas
 
             try
             {
-                existeCorreo = AccesoJugador.ExisteCorreoRegistrado(correoElectronico);
+                existeCorreo = AccesoCuentaJugador.ExisteCorreoRegistrado(correoElectronico);
             }
             catch (EntityException)
             {
@@ -91,8 +91,8 @@ namespace Pruebas
         public void ObtenerNumeroPartidasJugadasExito()
         {
             string nombreJugador = "Sam";
-            int numeroPartidasJugadas = AccesoJugador.
-                 ObtenerNumeroPartidasJugadasDeJugador(nombreJugador);
+            int numeroPartidasJugadas = AccesoCuentaJugador.
+                 ObtenerNumeroPartidasJugadas(nombreJugador);
             Assert.AreEqual(0, numeroPartidasJugadas, "Se ha obtenido el número de partidas");
         }
 
@@ -100,8 +100,8 @@ namespace Pruebas
         public void ObtenerNumeroPartidasJugadasFallo()
         {
             string nombreJugador = "";
-            int numeroPartidasJugadas = AccesoJugador.
-                 ObtenerNumeroPartidasJugadasDeJugador(nombreJugador);
+            int numeroPartidasJugadas = AccesoCuentaJugador.
+                 ObtenerNumeroPartidasJugadas(nombreJugador);
             Assert.AreNotEqual(10, numeroPartidasJugadas, "No se ha obtenido el número de partidas");
         }
     }

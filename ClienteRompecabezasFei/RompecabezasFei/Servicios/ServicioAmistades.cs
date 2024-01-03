@@ -9,90 +9,65 @@ namespace RompecabezasFei.Servicios
 {
     public class ServicioAmistades : Servicio
     {
-        private ServicioAmistadesClient clienteServicioAmistades;
+        private readonly ServicioAmistadesClient clienteServicioAmistades;
 
         public ServicioAmistades()
         {
             clienteServicioAmistades = new ServicioAmistadesClient(
                 new InstanceContext(new PaginaAmistades(false)));
-            clienteServicioAmistades.Open();
+            AbrirConexion();
         }
 
         public ServicioAmistades(PaginaAmistades paginaPartida)
         {
             clienteServicioAmistades = new ServicioAmistadesClient(
                 new InstanceContext(paginaPartida));
-            clienteServicioAmistades.Open();
+            AbrirConexion();
         }
 
-        public void CerrarConexion()
+        public override void AbrirConexion()
+        {
+            try
+            {
+                clienteServicioAmistades.Open();
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (InvalidOperationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+        }
+
+        public override void CerrarConexion()
         {
             if (clienteServicioAmistades.State == CommunicationState.Opened)
             {
                 try
                 {
                     clienteServicioAmistades.Close();
+                    EstadoOperacion = EstadoOperacion.Correcto;
                 }
                 catch (CommunicationException excepcion)
                 {
-                    ManejarExcepcionDeServidor(excepcion, true);
+                    ManejarExcepcionDeServidor(excepcion);
                 }
                 catch (TimeoutException excepcion)
                 {
-                    ManejarExcepcionDeServidor(excepcion, true);
+                    ManejarExcepcionDeServidor(excepcion);
                 }
-            }
-        }
-
-
-        public List<CuentaJugador> ObtenerAmigosDeJugador(string nombreJugador)
-        {
-            var amigosDeJugador = new List<CuentaJugador>();
-
-            try
-            {
-                var amigosObtenidos = clienteServicioAmistades.
-                    ObtenerAmigosDeJugador(nombreJugador);
-                
-                if (amigosObtenidos.Any())
+                catch (InvalidOperationException excepcion)
                 {
-                    foreach (var amigo in amigosObtenidos)
-                    {
-                        amigosDeJugador.Add(amigo);
-                    }
-                }
-
-                EstadoOperacion = EstadoOperacion.Correcto;
-            }
-            catch (EndpointNotFoundException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (CommunicationObjectFaultedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (CommunicationObjectAbortedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (SocketException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
-            }
-            catch (TimeoutException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            finally
-            {
-                if (EstadoOperacion == EstadoOperacion.Error)
-                {
-                    clienteServicioAmistades.Abort();
+                    ManejarExcepcionDeServidor(excepcion);
                 }
             }
-
-            return amigosDeJugador;
         }
 
         public List<CuentaJugador> ObtenerJugadoresConSolicitudPendiente(
@@ -117,23 +92,27 @@ namespace RompecabezasFei.Servicios
             }
             catch (EndpointNotFoundException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectAbortedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
-            catch (SocketException excepcion)
+            catch (CommunicationException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (TimeoutException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             finally
             {
@@ -144,6 +123,198 @@ namespace RompecabezasFei.Servicios
             }
 
             return jugadoresConSolicitud;
+        }
+        
+        public List<CuentaJugador> ObtenerAmigosDeJugador(string nombreJugador)
+        {
+            var amigosDeJugador = new List<CuentaJugador>();
+
+            try
+            {
+                var amigosObtenidos = clienteServicioAmistades.
+                    ObtenerAmigosDeJugador(nombreJugador);
+                
+                if (amigosObtenidos.Any())
+                {
+                    foreach (var amigo in amigosObtenidos)
+                    {
+                        amigosDeJugador.Add(amigo);
+                    }
+                }
+
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioAmistades.Abort();
+                }
+            }
+
+            return amigosDeJugador;
+        }
+
+        public bool EnviarSolicitudDeAmistad(string nombreJugadorOrigen, 
+            string nombreJugadorDestino)
+        {
+            bool operacionRealizada = false;
+
+            try
+            {
+                operacionRealizada = clienteServicioAmistades.
+                    EnviarSolicitudDeAmistad(nombreJugadorOrigen, nombreJugadorDestino);
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioAmistades.Abort();
+                }
+            }
+
+            return operacionRealizada;
+        }
+
+        public bool AceptarSolicitudDeAmistad(string nombreJugadorA,
+            string nombreJugadorB)
+        {
+            bool operacionRealizada = false;
+
+            try
+            {
+                operacionRealizada = clienteServicioAmistades.
+                    AceptarSolicitudDeAmistad(nombreJugadorA, nombreJugadorB);
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioAmistades.Abort();
+                }
+            }
+
+            return operacionRealizada;
+        }
+
+        public bool RechazarSolicitudDeAmistad(string nombreJugadorOrigen, 
+            string nombreJugadorDestino)
+        {
+            bool solicitudRechazada = false;
+
+            try
+            {
+                solicitudRechazada = clienteServicioAmistades.
+                    RechazarSolicitudDeAmistad(nombreJugadorOrigen, nombreJugadorDestino);
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioAmistades.Abort();
+                }
+            }
+
+            return solicitudRechazada;
         }
 
         public bool ExisteSolicitudAmistad(string nombreJugadorOrigen, 
@@ -160,23 +331,27 @@ namespace RompecabezasFei.Servicios
             }
             catch (EndpointNotFoundException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectAbortedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
-            catch (SocketException excepcion)
+            catch (CommunicationException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (TimeoutException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             finally
             {
@@ -197,28 +372,32 @@ namespace RompecabezasFei.Servicios
             try
             {
                 existeSolicitudAmistad = clienteServicioAmistades.
-                    ExisteSolicitudDeAmistad(nombreJugadorA, nombreJugadorB);
+                    ExisteAmistadConJugador(nombreJugadorA, nombreJugadorB);
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectAbortedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
-            catch (SocketException excepcion)
+            catch (CommunicationException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (TimeoutException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             finally
             {
@@ -230,37 +409,41 @@ namespace RompecabezasFei.Servicios
 
             return existeSolicitudAmistad;
         }
-
-        public bool RechazarSolicitudDeAmistad(string nombreJugadorOrigen, 
-            string nombreJugadorDestino)
+        
+        public bool EliminarAmistadEntreJugadores(string nombreJugadorA, 
+            string nombreJugadorB)
         {
-            bool solicitudRechazada = false;
+            bool operacionRealizada = false;
 
             try
             {
-                solicitudRechazada = clienteServicioAmistades.
-                    RechazarSolicitudDeAmistad(nombreJugadorOrigen, nombreJugadorDestino);
+                operacionRealizada = clienteServicioAmistades.
+                    EliminarAmistadEntreJugadores(nombreJugadorA, nombreJugadorB);
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectAbortedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
-            catch (SocketException excepcion)
+            catch (CommunicationException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (TimeoutException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             finally
             {
@@ -270,35 +453,40 @@ namespace RompecabezasFei.Servicios
                 }
             }
 
-            return solicitudRechazada;
+            return operacionRealizada;
         }
 
         public void ActivarNotificaciones(string nombreJugador)
         {
             try
             {
-                clienteServicioAmistades.ActivarNotificacionesDeAmistades(nombreJugador);
+                clienteServicioAmistades.
+                    ActivarNotificacionesDeAmistades(nombreJugador);
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectAbortedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
-            catch (SocketException excepcion)
+            catch (CommunicationException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (TimeoutException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             finally
             {
@@ -313,28 +501,33 @@ namespace RompecabezasFei.Servicios
         {
             try
             {
-                clienteServicioAmistades.DesactivarNotificacionesDeAmistades(nombreJugador);
+                clienteServicioAmistades.
+                    DesactivarNotificacionesDeAmistades(nombreJugador);
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectFaultedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationObjectAbortedException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
-            catch (SocketException excepcion)
+            catch (CommunicationException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, false);
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
             }
             catch (TimeoutException excepcion)
             {
-                ManejarExcepcionDeServidor(excepcion, true);
+                ManejarExcepcionDeServidor(excepcion);
             }
             finally
             {
@@ -343,131 +536,6 @@ namespace RompecabezasFei.Servicios
                     clienteServicioAmistades.Abort();
                 }
             }
-        }
-
-        public bool EnviarSolicitudDeAmistad(string nombreJugadorOrigen, 
-            string nombreJugadorDestino)
-        {
-            bool operacionRealizada = false;
-
-            try
-            {
-                operacionRealizada = clienteServicioAmistades.
-                    EnviarSolicitudDeAmistad(nombreJugadorOrigen, nombreJugadorDestino);
-                EstadoOperacion = EstadoOperacion.Correcto;
-            }
-            catch (EndpointNotFoundException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (CommunicationObjectFaultedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (CommunicationObjectAbortedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (SocketException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
-            }
-            catch (TimeoutException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            finally
-            {
-                if (EstadoOperacion == EstadoOperacion.Error)
-                {
-                    clienteServicioAmistades.Abort();
-                }
-            }
-
-            return operacionRealizada;
-        }
-
-        public bool EliminarAmistad(string nombreJugadorA, string nombreJugadorB)
-        {
-            bool operacionRealizada = false;
-
-            try
-            {
-                operacionRealizada = clienteServicioAmistades.
-                    EnviarSolicitudDeAmistad(nombreJugadorA, nombreJugadorB);
-                EstadoOperacion = EstadoOperacion.Correcto;
-            }
-            catch (EndpointNotFoundException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (CommunicationObjectFaultedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (CommunicationObjectAbortedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (SocketException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
-            }
-            catch (TimeoutException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            finally
-            {
-                if (EstadoOperacion == EstadoOperacion.Error)
-                {
-                    clienteServicioAmistades.Abort();
-                }
-            }
-
-            return operacionRealizada;
-        }
-
-        public bool AceptarSolicitudDeAmistad(string nombreJugadorA, 
-            string nombreJugadorB)
-        {
-            bool operacionRealizada = false;
-
-            try
-            {
-                operacionRealizada = clienteServicioAmistades.
-                    AceptarSolicitudDeAmistad(nombreJugadorA, nombreJugadorB);
-                EstadoOperacion = EstadoOperacion.Correcto;
-            }
-            catch (EndpointNotFoundException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (CommunicationObjectFaultedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (CommunicationObjectAbortedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            catch (SocketException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, false);
-            }
-            catch (TimeoutException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion, true);
-            }
-            finally
-            {
-                if (EstadoOperacion == EstadoOperacion.Error)
-                {
-                    clienteServicioAmistades.Abort();
-                }
-            }
-
-            return operacionRealizada;
         }
     }
 }
