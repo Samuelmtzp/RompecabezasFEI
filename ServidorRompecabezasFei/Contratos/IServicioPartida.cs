@@ -12,8 +12,8 @@ namespace Contratos
         bool CrearNuevaPartida(string codigoSala, DificultadPartida dificultad, 
             int numeroImagen);
 
-        [OperationContract]
-        bool UnirseAPartida(string codigoSala, string nombreJugador);
+        [OperationContract(IsOneWay = true)]
+        void UnirseAPartida(string codigoSala, string nombreJugador);
 
         [OperationContract(IsOneWay = true)]
         void AbandonarPartida(string codigoSala, string nombreJugador);
@@ -71,9 +71,6 @@ namespace Contratos
 
         [OperationContract(IsOneWay = true)]
         void MostrarDesconexionDeJugadorEnPartida(string nombreJugadorDesconexion);
-
-        [OperationContract(IsOneWay = true)]
-        void MostrarNuevoJugadorEnPartida(CuentaJugador jugador);
 
         [OperationContract(IsOneWay = true)]
         void MostrarMensajePartidaCancelada();

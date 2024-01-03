@@ -24,7 +24,7 @@ namespace RompecabezasFei.Servicios
                     ManejarConexionConServidorCerrada(); 
                 clienteServicioJugador.InnerChannel.Faulted +=
                     (objetoOrigen, evento) =>
-                    ManejarConexionConServidorFallida();
+                    MostrarMensajeConexionPerdida();
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (CommunicationException excepcion)
@@ -41,20 +41,17 @@ namespace RompecabezasFei.Servicios
             }
         }
 
-        private void ManejarConexionConServidorFallida()
+        private void MostrarMensajeConexionPerdida()
         {
-            Application.Current.Dispatcher.Invoke(new Action(() =>
-            {
-                VentanaPrincipal.ObtenerVentanaActual().
-                    DeshabilitarMarcoPaginaActual();
-            }));
+            EstadoOperacion = EstadoOperacion.Error;
+            GestorControlesVentana.DeshabilitarControlesDeVentana();
             GestorCuadroDialogo.MostrarError(
                 Properties.Resources.ETIQUETA_ERRORCONEXIONPERDIDASERVIDOR_MENSAJE,
                 Properties.Resources.ETIQUETA_ERRORCONEXIONPERDIDASERVIDOR_TITULO);
             Dominio.CuentaJugador.Actual = null;
+            GestorControlesVentana.HabilitarControlesDeVentana();
             Application.Current.Dispatcher.Invoke(new Action(() =>
             {
-                VentanaPrincipal.ObtenerVentanaActual().HabilitarMarcoPaginaActual();
                 VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
             }));
         }
@@ -63,27 +60,8 @@ namespace RompecabezasFei.Servicios
         {
             if (!esConexionCerradaPorCliente)
             {
-                esConexionCerradaPorCliente = false;
-                Application.Current.Dispatcher.Invoke(new Action(() =>
-                {
-                    VentanaPrincipal.ObtenerVentanaActual().
-                        HabilitarMarcoPaginaActual();
-                })); 
-                GestorCuadroDialogo.MostrarError(
-                    Properties.Resources.ETIQUETA_ERRORCONEXIONPERDIDASERVIDOR_MENSAJE,
-                    Properties.Resources.ETIQUETA_ERRORCONEXIONPERDIDASERVIDOR_TITULO);
-                Dominio.CuentaJugador.Actual = null;
-                Application.Current.Dispatcher.Invoke(new Action(() =>
-                {
-                    VentanaPrincipal.ObtenerVentanaActual().HabilitarMarcoPaginaActual();
-                    VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
-                }));
+                MostrarMensajeConexionPerdida();
             }
-        }
-
-        public bool HayConexionAbierta()
-        {
-            return clienteServicioJugador.State == CommunicationState.Opened;
         }
 
         public override void CerrarConexion()
@@ -137,6 +115,10 @@ namespace RompecabezasFei.Servicios
             {
                 ManejarExcepcionDeServidor(excepcion);
             }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
             catch (TimeoutException excepcion)
             {
                 ManejarExcepcionDeServidor(excepcion);
@@ -176,6 +158,10 @@ namespace RompecabezasFei.Servicios
                 ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
             {
                 ManejarExcepcionDeServidor(excepcion);
             }
@@ -220,6 +206,10 @@ namespace RompecabezasFei.Servicios
             {
                 ManejarExcepcionDeServidor(excepcion);
             }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
             catch (TimeoutException excepcion)
             {
                 ManejarExcepcionDeServidor(excepcion);
@@ -237,36 +227,43 @@ namespace RompecabezasFei.Servicios
 
         public void CerrarSesion(string nombreJugador)
         {
-            try
+            if (clienteServicioJugador.State == CommunicationState.Opened)
             {
-                clienteServicioJugador.CerrarSesion(nombreJugador);
-                EstadoOperacion = EstadoOperacion.Correcto;
-            }
-            catch (EndpointNotFoundException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion);
-            }
-            catch (CommunicationObjectFaultedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion);
-            }
-            catch (CommunicationObjectAbortedException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion);
-            }
-            catch (CommunicationException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion);
-            }
-            catch (TimeoutException excepcion)
-            {
-                ManejarExcepcionDeServidor(excepcion);
-            }
-            finally
-            {
-                if (EstadoOperacion == EstadoOperacion.Error)
+                try
                 {
-                    clienteServicioJugador.Abort();
+                    clienteServicioJugador.CerrarSesion(nombreJugador);
+                    EstadoOperacion = EstadoOperacion.Correcto;
+                }
+                catch (EndpointNotFoundException excepcion)
+                {
+                    ManejarExcepcionDeServidor(excepcion);
+                }
+                catch (CommunicationObjectFaultedException excepcion)
+                {
+                    ManejarExcepcionDeServidor(excepcion);
+                }
+                catch (CommunicationObjectAbortedException excepcion)
+                {
+                    ManejarExcepcionDeServidor(excepcion);
+                }
+                catch (CommunicationException excepcion)
+                {
+                    ManejarExcepcionDeServidor(excepcion);
+                }
+                catch (ObjectDisposedException excepcion)
+                {
+                    ManejarExcepcionDeServidor(excepcion);
+                }
+                catch (TimeoutException excepcion)
+                {
+                    ManejarExcepcionDeServidor(excepcion);
+                }
+                finally
+                {
+                    if (EstadoOperacion == EstadoOperacion.Error)
+                    {
+                        clienteServicioJugador.Abort();
+                    }
                 }
             }
         }
@@ -295,6 +292,10 @@ namespace RompecabezasFei.Servicios
                 ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
             {
                 ManejarExcepcionDeServidor(excepcion);
             }
@@ -340,6 +341,10 @@ namespace RompecabezasFei.Servicios
             {
                 ManejarExcepcionDeServidor(excepcion);
             }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
             catch (TimeoutException excepcion)
             {
                 ManejarExcepcionDeServidor(excepcion);
@@ -378,6 +383,10 @@ namespace RompecabezasFei.Servicios
                 ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
             {
                 ManejarExcepcionDeServidor(excepcion);
             }
@@ -422,6 +431,10 @@ namespace RompecabezasFei.Servicios
             {
                 ManejarExcepcionDeServidor(excepcion);
             }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
             catch (TimeoutException excepcion)
             {
                 ManejarExcepcionDeServidor(excepcion);
@@ -460,6 +473,10 @@ namespace RompecabezasFei.Servicios
                 ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
             {
                 ManejarExcepcionDeServidor(excepcion);
             }

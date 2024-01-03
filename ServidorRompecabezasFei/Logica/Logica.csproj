@@ -60,7 +60,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccesoDatos\AccesoJugador.cs" />
+    <Compile Include="AccesoDatos\AccesoCuentaJugador.cs" />
+    <Compile Include="AccesoDatos\AccesoResultadoPartida.cs" />
+    <Compile Include="AccesoDatos\AccesoSolicitudAmistad.cs" />
     <Compile Include="CuentaJugador.cs" />
     <Compile Include="Enumeraciones\TipoBloqueo.cs" />
     <Compile Include="Bloqueador.cs" />
@@ -69,7 +71,7 @@
     <Compile Include="Enumeraciones\EstadoPartida.cs" />
     <Compile Include="Enumeraciones\NumeroAvatar.cs" />
     <Compile Include="GeneradorMensajeCorreo.cs" />
-    <Compile Include="AccesoDatos\AccesoAmistades.cs" />
+    <Compile Include="AccesoDatos\AccesoAmistad.cs" />
     <Compile Include="AccesoDatos\AccesoPartida.cs" />
     <Compile Include="AccesoDatos\AccesoSala.cs" />
     <Compile Include="Partida.cs" />

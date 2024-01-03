@@ -73,7 +73,8 @@ namespace RompecabezasFei.Servicios
         {
             try
             {
-                clienteServicioInvitaciones.ActivarInvitacionesDeSala(nombreJugador);
+                clienteServicioInvitaciones.
+                    ActivarInvitacionesDeSala(nombreJugador);
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
@@ -89,6 +90,10 @@ namespace RompecabezasFei.Servicios
                 ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
             {
                 ManejarExcepcionDeServidor(excepcion);
             }
@@ -106,12 +111,12 @@ namespace RompecabezasFei.Servicios
         }
 
         public void DesactivarInvitacionesDeSala(string nombreJugador, 
-            EstadoJugador estado)
+            EstadoJugador nuevoEstado)
         {
             try
             {
                 clienteServicioInvitaciones.
-                    DesactivarInvitacionesDeSala(nombreJugador, estado);
+                    DesactivarInvitacionesDeSala(nombreJugador, nuevoEstado);
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)
@@ -127,6 +132,10 @@ namespace RompecabezasFei.Servicios
                 ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
             {
                 ManejarExcepcionDeServidor(excepcion);
             }
@@ -172,6 +181,10 @@ namespace RompecabezasFei.Servicios
                 ManejarExcepcionDeServidor(excepcion);
             }
             catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
             {
                 ManejarExcepcionDeServidor(excepcion);
             }

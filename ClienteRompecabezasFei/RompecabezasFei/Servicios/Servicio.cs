@@ -1,6 +1,5 @@
 ﻿using RompecabezasFei.Utilidades;
 using System;
-using System.Net.Sockets;
 using System.ServiceModel;
 
 namespace RompecabezasFei.Servicios
@@ -35,6 +34,10 @@ namespace RompecabezasFei.Servicios
             else if (excepcionGeneral is InvalidOperationException excepcionF)
             {
                 Registros.Registrador.EscribirRegistro(excepcionF);
+            }
+            else if (excepcionGeneral is ObjectDisposedException excepcionG)
+            {
+                Registros.Registrador.EscribirRegistro(excepcionG);
             }
             else
             {

@@ -12,7 +12,7 @@ namespace Logica
 
         public EstadoPartida Estado { get ; set;}
 
-        public Tablero Tablero { get; set; }
+        public Tablero Tablero { get; private set; }
 
         public ConcurrentDictionary<string, int> PuntajesDeJugadores { get; set; }
 
@@ -31,9 +31,16 @@ namespace Logica
             Estado = EstadoPartida.SinIniciar;
         }
 
+        public bool HayCantidadMinimaJugadoresParaPartida()
+        {
+            return PuntajesDeJugadores.Count >= 
+                Sala.CantidadMinimaJugadoresParaPartida;
+        }
+
         public bool AgregarNombreDeJugador(string nombreJugador)
         {
-            return PuntajesDeJugadores.TryAdd(nombreJugador, Pieza.PuntajeVacio);
+            return PuntajesDeJugadores.TryAdd(nombreJugador, 
+                Pieza.PuntajeVacio);
         }
 
         public bool RemoverNombreDeJugador(string nombreJugador)

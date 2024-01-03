@@ -23,6 +23,8 @@ namespace RompecabezasFei
 
         private Temporizador temporizador;
 
+        private const int CantidadJugadoresMinimosParaIniciarPartida = 2;
+
         Color colorActivo = (Color)ColorConverter.ConvertFromString("#FF03A64A");
         
         Color colorDesactivado = (Color)ColorConverter.ConvertFromString("#808080");
@@ -52,7 +54,7 @@ namespace RompecabezasFei
         }
 
         public PaginaSala() 
-        { 
+        {
         }
 
         public PaginaSala(bool esAnfitrion, string codigoSala)
@@ -85,8 +87,9 @@ namespace RompecabezasFei
 
                 if (servicioSala.EstadoOperacion == EstadoOperacion.Correcto)                
                 {
-                    MostrarFuncionesDeAnfitrion();
+                    HayConexionConSala = true;
                     CargarJugadoresEnSala();
+                    MostrarFuncionesDeAnfitrionEnSala();
                 }
             }
             else
@@ -99,7 +102,7 @@ namespace RompecabezasFei
                     
                     if (creacionSalaRealizada)
                     {
-                        MostrarFuncionesDeAnfitrion();
+                        MostrarFuncionesDeAnfitrionEnSala();
                     }
                     else
                     {
@@ -225,7 +228,7 @@ namespace RompecabezasFei
         }
 
         private void CargarJugadoresEnSala()
-        {            
+        {
             List<CuentaJugador> jugadoresRecuperados = servicioSala.
                 ObtenerJugadoresEnSala(CodigoSala);
 
@@ -428,13 +431,6 @@ namespace RompecabezasFei
             VentanaPrincipal.CambiarPagina(paginaPartida);
         }
 
-        public void MostrarFuncionesDeAnfitrion()
-        {
-            etiquetaModificarJugador.Visibility = Visibility.Visible;
-            imagenModificarJugador.Visibility = Visibility.Visible;
-            botonNuevaPartida.Visibility = Visibility.Visible;
-        }
-
         public void MostrarMensajeExpulsionDeSala()
         {
             servicioSala.CerrarConexion();
@@ -446,9 +442,14 @@ namespace RompecabezasFei
 
         public void MostrarFuncionesDeAnfitrionEnSala()
         {
-            botonNuevaPartida.Visibility = Visibility.Visible;
             etiquetaModificarJugador.Visibility = Visibility.Visible;
             imagenModificarJugador.Visibility = Visibility.Visible;
+
+            if (JugadoresEnSala.Count() >=
+                CantidadJugadoresMinimosParaIniciarPartida)
+            {
+                botonNuevaPartida.Visibility = Visibility.Visible;
+            }
         }
 
         public void HabilitarInicioDePartida()

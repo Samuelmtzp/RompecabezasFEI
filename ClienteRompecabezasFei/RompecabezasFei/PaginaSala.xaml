@@ -62,7 +62,7 @@
             </ListView>
         </Grid>
 
-        <Grid Margin="72,139,640,330" x:Name="panelModificacionJugador">
+        <Grid Margin="72,139,640,330" x:Name="panelModificacionJugador" Visibility="Hidden">
             <Grid Background="#3D3E3F">
                 <Grid.RenderTransform>
                     <ScaleTransform ScaleX="2" ScaleY="2"/>
