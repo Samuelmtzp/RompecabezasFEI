@@ -141,12 +141,6 @@
   <wsdl:message name="IServicioInvitaciones_DesactivarInvitacionesDeSala_InputMessage">
     <wsdl:part name="parameters" element="tns:DesactivarInvitacionesDeSala" />
   </wsdl:message>
-  <wsdl:message name="IServicioInvitaciones_ObtenerAmigosDisponibles_InputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerAmigosDisponibles" />
-  </wsdl:message>
-  <wsdl:message name="IServicioInvitaciones_ObtenerAmigosDisponibles_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerAmigosDisponiblesResponse" />
-  </wsdl:message>
   <wsdl:message name="IServicioInvitaciones_MostrarInvitacionDeSala_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:MostrarInvitacionDeSala" />
   </wsdl:message>
@@ -336,6 +330,12 @@
   <wsdl:message name="IServicioSala_ExpulsarJugadorEnSala_InputMessage">
     <wsdl:part name="parameters" element="tns:ExpulsarJugadorEnSala" />
   </wsdl:message>
+  <wsdl:message name="IServicioSala_ObtenerAmigosDisponibles_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerAmigosDisponibles" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSala_ObtenerAmigosDisponibles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerAmigosDisponiblesResponse" />
+  </wsdl:message>
   <wsdl:message name="IServicioSala_MostrarNuevaPartida_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:MostrarNuevaPartida" />
   </wsdl:message>
@@ -434,10 +434,6 @@
     </wsdl:operation>
     <wsdl:operation name="DesactivarInvitacionesDeSala">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioInvitaciones/DesactivarInvitacionesDeSala" message="tns:IServicioInvitaciones_DesactivarInvitacionesDeSala_InputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ObtenerAmigosDisponibles">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioInvitaciones/ObtenerAmigosDisponibles" message="tns:IServicioInvitaciones_ObtenerAmigosDisponibles_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioInvitaciones/ObtenerAmigosDisponiblesResponse" message="tns:IServicioInvitaciones_ObtenerAmigosDisponibles_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="MostrarInvitacionDeSala">
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioInvitaciones/MostrarInvitacionDeSala" message="tns:IServicioInvitaciones_MostrarInvitacionDeSala_OutputCallbackMessage" />
@@ -599,6 +595,10 @@
     </wsdl:operation>
     <wsdl:operation name="ExpulsarJugadorEnSala">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioSala/ExpulsarJugadorEnSala" message="tns:IServicioSala_ExpulsarJugadorEnSala_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAmigosDisponibles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSala/ObtenerAmigosDisponibles" message="tns:IServicioSala_ObtenerAmigosDisponibles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSala/ObtenerAmigosDisponiblesResponse" message="tns:IServicioSala_ObtenerAmigosDisponibles_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="MostrarNuevaPartida">
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioSala/MostrarNuevaPartida" message="tns:IServicioSala_MostrarNuevaPartida_OutputCallbackMessage" />
@@ -779,15 +779,6 @@
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
-    </wsdl:operation>
-    <wsdl:operation name="ObtenerAmigosDisponibles">
-      <soap12:operation soapAction="http://tempuri.org/IServicioInvitaciones/ObtenerAmigosDisponibles" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="MostrarInvitacionDeSala">
       <soap12:operation soapAction="http://tempuri.org/IServicioInvitaciones/MostrarInvitacionDeSala" style="document" />
@@ -1127,6 +1118,15 @@
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAmigosDisponibles">
+      <soap12:operation soapAction="http://tempuri.org/IServicioSala/ObtenerAmigosDisponibles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="MostrarNuevaPartida">
       <soap12:operation soapAction="http://tempuri.org/IServicioSala/MostrarNuevaPartida" style="document" />

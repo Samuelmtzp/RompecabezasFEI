@@ -237,25 +237,20 @@ namespace RompecabezasFei
 
         private void CargarAmigosDisponibles()
         {
-            var servicioInvitaciones = new ServicioInvitaciones();
+            var amigosRecuperados = servicioSala.
+                ObtenerAmigosDisponibles(Dominio.CuentaJugador.Actual.NombreJugador);
 
-            if (servicioInvitaciones.EstadoOperacion == EstadoOperacion.Correcto)
+            if (servicioSala.EstadoOperacion == EstadoOperacion.Correcto)
             {
-                var amigosRecuperados = servicioInvitaciones.
-                    ObtenerAmigosDisponibles(Dominio.CuentaJugador.Actual.NombreJugador);
-
-                if (servicioInvitaciones.EstadoOperacion == EstadoOperacion.Correcto)
+                foreach (var amigo in amigosRecuperados)
                 {
-                    foreach (var amigo in amigosRecuperados)
+                    var cuentaAmigo = new Dominio.CuentaJugador
                     {
-                        var cuentaAmigo = new Dominio.CuentaJugador
-                        {
-                            NombreJugador = amigo.NombreJugador,
-                            FuenteImagenAvatar = GeneradorImagenes.
-                                GenerarFuenteImagenAvatar(amigo.NumeroAvatar)
-                        };
-                        AmigosDisponibles.Add(cuentaAmigo);
-                    }
+                        NombreJugador = amigo.NombreJugador,
+                        FuenteImagenAvatar = GeneradorImagenes.
+                            GenerarFuenteImagenAvatar(amigo.NumeroAvatar)
+                    };
+                    AmigosDisponibles.Add(cuentaAmigo);
                 }
             }
         }
@@ -429,7 +424,6 @@ namespace RompecabezasFei
             etiquetaModificarJugador.Visibility = Visibility.Visible;
             imagenModificarJugador.Visibility = Visibility.Visible;
             CargarJugadoresEnSalaModificacion();
-            CargarAmigosDisponibles();
 
             if (JugadoresEnSala.Count() >=
                 CantidadJugadoresMinimosParaIniciarPartida)

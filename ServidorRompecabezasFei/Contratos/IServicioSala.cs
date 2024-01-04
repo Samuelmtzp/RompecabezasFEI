@@ -42,6 +42,9 @@ namespace Contratos
 
         [OperationContract(IsOneWay = true)]
         void ExpulsarJugadorEnSala(string nombreJugadorExpulsion, string codigoSala);
+
+        [OperationContract]
+        List<CuentaJugador> ObtenerAmigosDisponibles(string nombreAnfitrion);
     }
 
     [ServiceContract]
