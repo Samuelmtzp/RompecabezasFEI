@@ -448,6 +448,15 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a El campo de contraseña actual es incorrecto.
+        /// </summary>
+        public static string ETIQUETA_ACTUALIZACIONCONTRASENA_MENSAJECONTRASENAACTUALERROR {
+            get {
+                return ResourceManager.GetString("ETIQUETA_ACTUALIZACIONCONTRASENA_MENSAJECONTRASENAACTUALERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Actualizar información.
         /// </summary>
         public static string ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONINFORMACION {
@@ -889,6 +898,51 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Crear partida.
+        /// </summary>
+        public static string ETIQUETA_CREACIONNUEVAPARTIDA_CREARPARTIDA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_CREACIONNUEVAPARTIDA_CREARPARTIDA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nueva partida.
+        /// </summary>
+        public static string ETIQUETA_CREACIONNUEVAPARTIDA_NUEVAPARTIDA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_CREACIONNUEVAPARTIDA_NUEVAPARTIDA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Selecciona una imagen.
+        /// </summary>
+        public static string ETIQUETA_CREACIONNUEVAPARTIDA_SELECCIONIMAGEN {
+            get {
+                return ResourceManager.GetString("ETIQUETA_CREACIONNUEVAPARTIDA_SELECCIONIMAGEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error de creación de partida.
+        /// </summary>
+        public static string ETIQUETA_CREACIONPARTIDA_ERRORCREACIONPARTIDA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_CREACIONPARTIDA_ERRORCREACIONPARTIDA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La partida no pudo ser creada correctamente.
+        /// </summary>
+        public static string ETIQUETA_CREACIONPARTIDA_MENSAJEERRORCREACIONPARTIDA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_CREACIONPARTIDA_MENSAJEERRORCREACIONPARTIDA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a ¿Está seguro de que quieres eliminar al jugador de tu lista de amigos?.
         /// </summary>
         public static string ETIQUETA_ELIMINACIONAMIGO_MENSAJE {
@@ -1114,6 +1168,15 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Regresar.
+        /// </summary>
+        public static string ETIQUETA_GENERAL_REGRESAR {
+            get {
+                return ResourceManager.GetString("ETIQUETA_GENERAL_REGRESAR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a La contraseña debe ser de al menos 8 caracteres, debes incluir letras mayúsculas, minúsculas y números.
         /// </summary>
         public static string ETIQUETA_GENERAL_REQUISITOSCONTRASENA {
@@ -1213,6 +1276,15 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a El nombre de jugador no existe.
+        /// </summary>
+        public static string ETIQUETA_INICIOSESION_MENSAJENOMBRENOENCONTRADO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_INICIOSESION_MENSAJENOMBRENOENCONTRADO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a ¿Olvidaste tu contraseña?.
         /// </summary>
         public static string ETIQUETA_INICIOSESION_RECUPERACIONCONTRASENA {
@@ -1272,24 +1344,6 @@ namespace RompecabezasFei.Properties {
         public static string ETIQUETA_INVITACIONSALAENVIADA_TITULO {
             get {
                 return ResourceManager.GetString("ETIQUETA_INVITACIONSALAENVIADA_TITULO", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a se ha unido a la sala!.
-        /// </summary>
-        public static string ETIQUETA_MENSAJESALA_BIENVENIDA {
-            get {
-                return ResourceManager.GetString("ETIQUETA_MENSAJESALA_BIENVENIDA", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a ha abandonado la sala!.
-        /// </summary>
-        public static string ETIQUETA_MENSAJESALA_DESPEDIDA {
-            get {
-                return ResourceManager.GetString("ETIQUETA_MENSAJESALA_DESPEDIDA", resourceCulture);
             }
         }
         
@@ -1429,11 +1483,47 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Has sido expulsado.
+        /// </summary>
+        public static string ETIQUETA_PARTIDA_EXPULSIONDEPARTIDA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_PARTIDA_EXPULSIONDEPARTIDA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Fin del juego.
         /// </summary>
         public static string ETIQUETA_PARTIDA_JUEGOFINALIZADO {
             get {
                 return ResourceManager.GetString("ETIQUETA_PARTIDA_JUEGOFINALIZADO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El anfitrión te ha expulsado de la partida.
+        /// </summary>
+        public static string ETIQUETA_PARTIDA_MENSAJEEXPULSIONDEPARTIDA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_PARTIDA_MENSAJEEXPULSIONDEPARTIDA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Se ha cancelado la partida, por lo que serás redirigido al menú principal.
+        /// </summary>
+        public static string ETIQUETA_PARTIDA_MENSAJEPARTIDACANCELADA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_PARTIDA_MENSAJEPARTIDACANCELADA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Partida cancelada.
+        /// </summary>
+        public static string ETIQUETA_PARTIDA_PARTIDACANCELADA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_PARTIDA_PARTIDACANCELADA", resourceCulture);
             }
         }
         
@@ -1452,24 +1542,6 @@ namespace RompecabezasFei.Properties {
         public static string ETIQUETA_PARTIDA_TIEMPORESTANTE {
             get {
                 return ResourceManager.GetString("ETIQUETA_PARTIDA_TIEMPORESTANTE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a No es posible unirse a la sala debido a que hay una partida en progreso. Por favor, inténtelo más tarde..
-        /// </summary>
-        public static string ETIQUETA_PARTIDAENCURSO_MENSAJE {
-            get {
-                return ResourceManager.GetString("ETIQUETA_PARTIDAENCURSO_MENSAJE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Partida en transcurso.
-        /// </summary>
-        public static string ETIQUETA_PARTIDAENCURSO_TITULO {
-            get {
-                return ResourceManager.GetString("ETIQUETA_PARTIDAENCURSO_TITULO", resourceCulture);
             }
         }
         
@@ -1582,6 +1654,42 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Correo no disponible.
+        /// </summary>
+        public static string ETIQUETA_REGISTROJUGADOR_CORREONODISPONIBLE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_REGISTROJUGADOR_CORREONODISPONIBLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El correo electrónico que deseas registrar ya está registrado.
+        /// </summary>
+        public static string ETIQUETA_REGISTROJUGADOR_MENSAJECORREONODISPONIBLE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_REGISTROJUGADOR_MENSAJECORREONODISPONIBLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El nombre del jugador que deseas registrar ya está registrado.
+        /// </summary>
+        public static string ETIQUETA_REGISTROJUGADOR_MENSAJENOMBRENODISPONIBLE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_REGISTROJUGADOR_MENSAJENOMBRENODISPONIBLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre no disponible.
+        /// </summary>
+        public static string ETIQUETA_REGISTROJUGADOR_NOMBRENODISPONIBLE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_REGISTROJUGADOR_NOMBRENODISPONIBLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Se ha realizado el registro correctamente. Ya puedes iniciar sesión en tu cuenta..
         /// </summary>
         public static string ETIQUETA_REGISTROREALIZADO_MENSAJE {
@@ -1663,6 +1771,15 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Ha ocurrido un empate.
+        /// </summary>
+        public static string ETIQUETA_RESULTADOSPARTIDA_MENSAJEEMPATE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_RESULTADOSPARTIDA_MENSAJEEMPATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Anfitrión.
         /// </summary>
         public static string ETIQUETA_SALA_ANFITRION {
@@ -1677,6 +1794,42 @@ namespace RompecabezasFei.Properties {
         public static string ETIQUETA_SALA_COPIAR {
             get {
                 return ResourceManager.GetString("ETIQUETA_SALA_COPIAR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error al crear la sala.
+        /// </summary>
+        public static string ETIQUETA_SALA_ERRORCREACIONSALA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_SALA_ERRORCREACIONSALA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Expulsión de sala.
+        /// </summary>
+        public static string ETIQUETA_SALA_EXPULSIONDESALA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_SALA_EXPULSIONDESALA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se ha podido realizar la creación de la sala.
+        /// </summary>
+        public static string ETIQUETA_SALA_MENSAJECREACIONSALACANCELADA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_SALA_MENSAJECREACIONSALACANCELADA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El anfitrión te ha expulsado de la sala.
+        /// </summary>
+        public static string ETIQUETA_SALA_MENSAJEEXPULSIONDESALA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_SALA_MENSAJEEXPULSIONDESALA", resourceCulture);
             }
         }
         
@@ -1717,15 +1870,6 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Sala llena.
-        /// </summary>
-        public static string ETIQUETA_SALALLENA_TITULO {
-            get {
-                return ResourceManager.GetString("ETIQUETA_SALALLENA_TITULO", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a La solicitud de amistad se ha enviado correctamente.
         /// </summary>
         public static string ETIQUETA_SOLICITUDAMISTADENVIADA_MENSAJE {
@@ -1758,6 +1902,24 @@ namespace RompecabezasFei.Properties {
         public static string ETIQUETA_UNIRSESALA_INSTRUCCIONUNIRSE {
             get {
                 return ResourceManager.GetString("ETIQUETA_UNIRSESALA_INSTRUCCIONUNIRSE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No es posible unirse a la sala debido a que la sala no está disponible.
+        /// </summary>
+        public static string ETIQUETA_UNIRSESALA_MENSAJESALANODISPONIBLE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_UNIRSESALA_MENSAJESALANODISPONIBLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Sala no disponible.
+        /// </summary>
+        public static string ETIQUETA_UNIRSESALA_SALANODISPONIBLE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_UNIRSESALA_SALANODISPONIBLE", resourceCulture);
             }
         }
         

@@ -494,14 +494,15 @@ namespace RompecabezasFei.Servicios
             }
         }
 
-        public List<CuentaJugador> ObtenerJugadoresEnPartida(string codigoSala)
+        public List<CuentaJugador> ObtenerJugadoresConPresenciaSinConfirmarEnPartida(
+            string codigoSala)
         {
             List<CuentaJugador> jugadoresEnPartida = new List<CuentaJugador>();
 
             try
             {
                 var jugadoresObtenidos = clienteServicioPartida.
-                    ObtenerJugadoresEnPartida(codigoSala);
+                    ObtenerJugadoresConPresenciaSinConfirmarEnPartida(codigoSala);
 
                 foreach (var jugadorObtenido in jugadoresObtenidos)
                 {

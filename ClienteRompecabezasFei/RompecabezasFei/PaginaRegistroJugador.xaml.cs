@@ -81,8 +81,10 @@ namespace RompecabezasFei
                         else
                         {
                             GestorCuadroDialogo.MostrarAdvertencia(
-                                "El nombre del jugador que deseas registrar ya está registrado",
-                                "Nombre de jugador no disponible");
+                                Properties.Resources.
+                                ETIQUETA_REGISTROJUGADOR_MENSAJENOMBRENODISPONIBLE,
+                                Properties.Resources.
+                                ETIQUETA_REGISTROJUGADOR_NOMBRENODISPONIBLE);
                         }
                     }
                 }
@@ -117,8 +119,9 @@ namespace RompecabezasFei
                     else
                     {
                         GestorCuadroDialogo.MostrarAdvertencia(
-                            "El correo electrónico que deseas registrar ya está registrado",
-                            "Correo no disponible");
+                            Properties.Resources.
+                            ETIQUETA_REGISTROJUGADOR_MENSAJECORREONODISPONIBLE,
+                            Properties.Resources.ETIQUETA_REGISTROJUGADOR_CORREONODISPONIBLE);
                     }
                 }
             }

@@ -23,7 +23,7 @@
             </StackPanel>
         </Button>
 
-        <Image Source="/Imagenes/Indicadores/CerrarSesion.png" HorizontalAlignment="Left" Height="82" Margin="79,520,0,0" VerticalAlignment="Top" Width="82" MouseDown="ConfirmarCierreDeSesion"/>
+        <Image Source="/Imagenes/Indicadores/Cerrar.png" HorizontalAlignment="Left" Height="82" Margin="79,520,0,0" VerticalAlignment="Top" Width="82" MouseDown="ConfirmarCierreDeSesion"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_MENUPRINCIPAL_CERRARSESION}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="45,602,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Width="148" MouseDown="ConfirmarCierreDeSesion"/>
         <Image Name="imagenMisAmigos" Source="/Imagenes/Indicadores/Amigos.png" HorizontalAlignment="Left" Height="82" Margin="732,520,0,0" VerticalAlignment="Top" Width="82" MouseDown="IrAPaginaAmistades" Visibility="Hidden"/>
         <Label Name="etiquetaMisAmigos" MouseDown="IrAPaginaAmistades" Content="{x:Static p:Resources.ETIQUETA_GENERAL_AMIGOS}" HorizontalAlignment="Left" Margin="726,602,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Visibility="Hidden"/>

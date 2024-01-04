@@ -246,6 +246,9 @@
   <data name="ETIQUETA_ACTUALIZACIONCONTRASENA_CONTRASENAACTUAL" xml:space="preserve">
     <value>Contraseña actual</value>
   </data>
+  <data name="ETIQUETA_ACTUALIZACIONCONTRASENA_MENSAJECONTRASENAACTUALERROR" xml:space="preserve">
+    <value>El campo de contraseña actual es incorrecto</value>
+  </data>
   <data name="ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONINFORMACION" xml:space="preserve">
     <value>Actualizar información</value>
   </data>
@@ -393,6 +396,21 @@
   <data name="ETIQUETA_CONVERTIRANFITRION_TITULO" xml:space="preserve">
     <value>Confirmación de convertir jugador en anfitrión</value>
   </data>
+  <data name="ETIQUETA_CREACIONNUEVAPARTIDA_CREARPARTIDA" xml:space="preserve">
+    <value>Crear partida</value>
+  </data>
+  <data name="ETIQUETA_CREACIONNUEVAPARTIDA_NUEVAPARTIDA" xml:space="preserve">
+    <value>Nueva partida</value>
+  </data>
+  <data name="ETIQUETA_CREACIONNUEVAPARTIDA_SELECCIONIMAGEN" xml:space="preserve">
+    <value>Selecciona una imagen</value>
+  </data>
+  <data name="ETIQUETA_CREACIONPARTIDA_ERRORCREACIONPARTIDA" xml:space="preserve">
+    <value>Error de creación de partida</value>
+  </data>
+  <data name="ETIQUETA_CREACIONPARTIDA_MENSAJEERRORCREACIONPARTIDA" xml:space="preserve">
+    <value>La partida no pudo ser creada correctamente</value>
+  </data>
   <data name="ETIQUETA_ELIMINACIONAMIGO_MENSAJE" xml:space="preserve">
     <value>¿Está seguro de que quieres eliminar al jugador de tu lista de amigos?</value>
   </data>
@@ -468,6 +486,9 @@
   <data name="ETIQUETA_GENERAL_NUEVACONTRASENA" xml:space="preserve">
     <value>Nueva contraseña</value>
   </data>
+  <data name="ETIQUETA_GENERAL_REGRESAR" xml:space="preserve">
+    <value>Regresar</value>
+  </data>
   <data name="ETIQUETA_GENERAL_REQUISITOSCONTRASENA" xml:space="preserve">
     <value>La contraseña debe ser de al menos 8 caracteres, debes incluir letras mayúsculas, minúsculas y números</value>
   </data>
@@ -501,6 +522,9 @@
   <data name="ETIQUETA_INICIOSESION_MENSAJEINICIOSESIONERROR" xml:space="preserve">
     <value>No se pudo iniciar sesión</value>
   </data>
+  <data name="ETIQUETA_INICIOSESION_MENSAJENOMBRENOENCONTRADO" xml:space="preserve">
+    <value>El nombre de jugador no existe</value>
+  </data>
   <data name="ETIQUETA_INICIOSESION_RECUPERACIONCONTRASENA" xml:space="preserve">
     <value>¿Olvidaste tu contraseña?</value>
   </data>
@@ -521,12 +545,6 @@
   </data>
   <data name="ETIQUETA_INVITACIONSALA_TITULO" xml:space="preserve">
     <value>Invitación a sala</value>
-  </data>
-  <data name="ETIQUETA_MENSAJESALA_BIENVENIDA" xml:space="preserve">
-    <value>se ha unido a la sala!</value>
-  </data>
-  <data name="ETIQUETA_MENSAJESALA_DESPEDIDA" xml:space="preserve">
-    <value>ha abandonado la sala!</value>
   </data>
   <data name="ETIQUETA_MENUPRINCIPAL_CERRARSESION" xml:space="preserve">
     <value>Cerrar sesión</value>
@@ -573,14 +591,20 @@
   <data name="ETIQUETA_OPCIONESSALA_INSTRUCCIONINVITACIONCORREO" xml:space="preserve">
     <value>Para invitar a un jugador que no esta en tu lista de amigos, es necesario que ingreses su correo electrónico para que le podamos enviar el código de sala</value>
   </data>
-  <data name="ETIQUETA_PARTIDAENCURSO_MENSAJE" xml:space="preserve">
-    <value>No es posible unirse a la sala debido a que hay una partida en progreso. Por favor, inténtelo más tarde.</value>
-  </data>
-  <data name="ETIQUETA_PARTIDAENCURSO_TITULO" xml:space="preserve">
-    <value>Partida en transcurso</value>
+  <data name="ETIQUETA_PARTIDA_EXPULSIONDEPARTIDA" xml:space="preserve">
+    <value>Has sido expulsado</value>
   </data>
   <data name="ETIQUETA_PARTIDA_JUEGOFINALIZADO" xml:space="preserve">
     <value>Fin del juego</value>
+  </data>
+  <data name="ETIQUETA_PARTIDA_MENSAJEEXPULSIONDEPARTIDA" xml:space="preserve">
+    <value>El anfitrión te ha expulsado de la partida</value>
+  </data>
+  <data name="ETIQUETA_PARTIDA_MENSAJEPARTIDACANCELADA" xml:space="preserve">
+    <value>Se ha cancelado la partida, por lo que serás redirigido al menú principal</value>
+  </data>
+  <data name="ETIQUETA_PARTIDA_PARTIDACANCELADA" xml:space="preserve">
+    <value>Partida cancelada</value>
   </data>
   <data name="ETIQUETA_PARTIDA_PUNTAJE" xml:space="preserve">
     <value>Puntaje</value>
@@ -608,6 +632,18 @@
   </data>
   <data name="ETIQUETA_RECUPERACION_RECUPERACIONCONTRASENA" xml:space="preserve">
     <value>Recuperación de contraseña</value>
+  </data>
+  <data name="ETIQUETA_REGISTROJUGADOR_CORREONODISPONIBLE" xml:space="preserve">
+    <value>Correo no disponible</value>
+  </data>
+  <data name="ETIQUETA_REGISTROJUGADOR_MENSAJECORREONODISPONIBLE" xml:space="preserve">
+    <value>El correo electrónico que deseas registrar ya está registrado</value>
+  </data>
+  <data name="ETIQUETA_REGISTROJUGADOR_MENSAJENOMBRENODISPONIBLE" xml:space="preserve">
+    <value>El nombre del jugador que deseas registrar ya está registrado</value>
+  </data>
+  <data name="ETIQUETA_REGISTROJUGADOR_NOMBRENODISPONIBLE" xml:space="preserve">
+    <value>Nombre no disponible</value>
   </data>
   <data name="ETIQUETA_REGISTROREALIZADO_MENSAJE" xml:space="preserve">
     <value>Se ha realizado el registro correctamente. Ya puedes iniciar sesión en tu cuenta.</value>
@@ -645,6 +681,9 @@
   <data name="ETIQUETA_RESTABLECIMIENTO_RESTABLECIMIENTOCONTRASENA" xml:space="preserve">
     <value>Restablecer contraseña</value>
   </data>
+  <data name="ETIQUETA_RESULTADOSPARTIDA_MENSAJEEMPATE" xml:space="preserve">
+    <value>Ha ocurrido un empate</value>
+  </data>
   <data name="ETIQUETA_RESULTADOS_MENSAJEGANADOR" xml:space="preserve">
     <value>ha ganado la partida</value>
   </data>
@@ -654,14 +693,23 @@
   <data name="ETIQUETA_SALALLENA_MENSAJE" xml:space="preserve">
     <value>No es posible unirse a la sala debido a que se encuentra llena. Por favor, inténtelo más tarde.</value>
   </data>
-  <data name="ETIQUETA_SALALLENA_TITULO" xml:space="preserve">
-    <value>Sala llena</value>
-  </data>
   <data name="ETIQUETA_SALA_ANFITRION" xml:space="preserve">
     <value>Anfitrión</value>
   </data>
   <data name="ETIQUETA_SALA_COPIAR" xml:space="preserve">
     <value>Copiar</value>
+  </data>
+  <data name="ETIQUETA_SALA_ERRORCREACIONSALA" xml:space="preserve">
+    <value>Error al crear la sala</value>
+  </data>
+  <data name="ETIQUETA_SALA_EXPULSIONDESALA" xml:space="preserve">
+    <value>Expulsión de sala</value>
+  </data>
+  <data name="ETIQUETA_SALA_MENSAJECREACIONSALACANCELADA" xml:space="preserve">
+    <value>No se ha podido realizar la creación de la sala</value>
+  </data>
+  <data name="ETIQUETA_SALA_MENSAJEEXPULSIONDESALA" xml:space="preserve">
+    <value>El anfitrión te ha expulsado de la sala</value>
   </data>
   <data name="ETIQUETA_SALA_MENSAJES" xml:space="preserve">
     <value>Mensajes</value>
@@ -683,6 +731,12 @@
   </data>
   <data name="ETIQUETA_UNIRSESALA_INSTRUCCIONUNIRSE" xml:space="preserve">
     <value>Si cuentas con un código de acceso a una sala, puedes ingresarlo a continuación para poder unirte</value>
+  </data>
+  <data name="ETIQUETA_UNIRSESALA_MENSAJESALANODISPONIBLE" xml:space="preserve">
+    <value>No es posible unirse a la sala debido a que la sala no está disponible</value>
+  </data>
+  <data name="ETIQUETA_UNIRSESALA_SALANODISPONIBLE" xml:space="preserve">
+    <value>Sala no disponible</value>
   </data>
   <data name="ETIQUETA_UNIRSESALA_UNIRSESALA" xml:space="preserve">
     <value>Unirse a sala</value>

@@ -41,7 +41,8 @@ namespace Contratos
         void ExpulsarJugadorEnPartida(string nombreJugadorExpulsion, string codigoSala);
 
         [OperationContract]
-        List<CuentaJugador> ObtenerJugadoresEnPartida(string codigoSala);
+        List<CuentaJugador> ObtenerJugadoresConPresenciaSinConfirmarEnPartida(
+            string codigoSala);
 
         [OperationContract(IsOneWay = true)]
         void ConvertirJugadorEnAnfitrionDesdePartida(string nombreJugador, string codigoSala);
@@ -64,7 +65,7 @@ namespace Contratos
             int puntaje, Posicion posicion);
 
         [OperationContract(IsOneWay = true)]
-        void MostrarResultadosDePartida();
+        void MostrarResultadosDePartida(string nombreJugadorGanador);
 
         [OperationContract(IsOneWay = true)]
         void HabilitarOpcionDeRegresoASala();
@@ -79,6 +80,6 @@ namespace Contratos
         void MostrarMensajeExpulsionDePartida();
 
         [OperationContract(IsOneWay = true)]
-        void MostrarFuncionesDeAnfitrionEnPartida();
+        void HabilitarFuncionesDeAnfitrionEnPartida();
     }
 }

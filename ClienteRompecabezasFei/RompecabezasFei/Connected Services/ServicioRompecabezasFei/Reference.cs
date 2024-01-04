@@ -390,11 +390,11 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/ExisteAmistadConJugador", ReplyAction="http://tempuri.org/IServicioAmistades/ExisteAmistadConJugadorResponse")]
         System.Threading.Tasks.Task<bool> ExisteAmistadConJugadorAsync(string nombreJugadorA, string nombreJugadorB);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/EliminarAmistadEntreJugadores", ReplyAction="http://tempuri.org/IServicioAmistades/EliminarAmistadEntreJugadoresResponse")]
-        bool EliminarAmistadEntreJugadores(string nombreJugadorA, string nombreJugadorB);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/EliminarAmistad", ReplyAction="http://tempuri.org/IServicioAmistades/EliminarAmistadResponse")]
+        bool EliminarAmistad(string nombreJugadorA, string nombreJugadorB);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/EliminarAmistadEntreJugadores", ReplyAction="http://tempuri.org/IServicioAmistades/EliminarAmistadEntreJugadoresResponse")]
-        System.Threading.Tasks.Task<bool> EliminarAmistadEntreJugadoresAsync(string nombreJugadorA, string nombreJugadorB);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAmistades/EliminarAmistad", ReplyAction="http://tempuri.org/IServicioAmistades/EliminarAmistadResponse")]
+        System.Threading.Tasks.Task<bool> EliminarAmistadAsync(string nombreJugadorA, string nombreJugadorB);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioAmistades/ActivarNotificacionesDeAmistades")]
         void ActivarNotificacionesDeAmistades(string nombreJugador);
@@ -415,11 +415,11 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioAmistades/MostrarSolicitudDeAmistadRecibida")]
         void MostrarSolicitudDeAmistadRecibida(RompecabezasFei.ServicioRompecabezasFei.CuentaJugador cuentaNuevaSolicitud);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioAmistades/MostrarNuevoAmigo")]
-        void MostrarNuevoAmigo(RompecabezasFei.ServicioRompecabezasFei.CuentaJugador cuentaNuevoAmigo);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioAmistades/AgregarAmigoAListaDeAmigos")]
+        void AgregarAmigoAListaDeAmigos(RompecabezasFei.ServicioRompecabezasFei.CuentaJugador cuentaNuevoAmigo);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioAmistades/RemoverAmigoConAmistadCancelada")]
-        void RemoverAmigoConAmistadCancelada(string nombreJugador);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioAmistades/RemoverAmigoDeListaDeAmigos")]
+        void RemoverAmigoDeListaDeAmigos(string nombreJugador);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioAmistades/ActualizarEstadoDeJugador")]
         void ActualizarEstadoDeJugador(string nombreJugador, RompecabezasFei.ServicioRompecabezasFei.EstadoJugador estado);
@@ -509,12 +509,12 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
             return base.Channel.ExisteAmistadConJugadorAsync(nombreJugadorA, nombreJugadorB);
         }
         
-        public bool EliminarAmistadEntreJugadores(string nombreJugadorA, string nombreJugadorB) {
-            return base.Channel.EliminarAmistadEntreJugadores(nombreJugadorA, nombreJugadorB);
+        public bool EliminarAmistad(string nombreJugadorA, string nombreJugadorB) {
+            return base.Channel.EliminarAmistad(nombreJugadorA, nombreJugadorB);
         }
         
-        public System.Threading.Tasks.Task<bool> EliminarAmistadEntreJugadoresAsync(string nombreJugadorA, string nombreJugadorB) {
-            return base.Channel.EliminarAmistadEntreJugadoresAsync(nombreJugadorA, nombreJugadorB);
+        public System.Threading.Tasks.Task<bool> EliminarAmistadAsync(string nombreJugadorA, string nombreJugadorB) {
+            return base.Channel.EliminarAmistadAsync(nombreJugadorA, nombreJugadorB);
         }
         
         public void ActivarNotificacionesDeAmistades(string nombreJugador) {
@@ -909,11 +909,15 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioPartida/ExpulsarJugadorEnPartida")]
         System.Threading.Tasks.Task ExpulsarJugadorEnPartidaAsync(string nombreJugadorExpulsion, string codigoSala);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/ObtenerJugadoresEnPartida", ReplyAction="http://tempuri.org/IServicioPartida/ObtenerJugadoresEnPartidaResponse")]
-        RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[] ObtenerJugadoresEnPartida(string codigoSala);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/ObtenerJugadoresConPresenciaSinConfirmarEnPar" +
+            "tida", ReplyAction="http://tempuri.org/IServicioPartida/ObtenerJugadoresConPresenciaSinConfirmarEnPar" +
+            "tidaResponse")]
+        RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[] ObtenerJugadoresConPresenciaSinConfirmarEnPartida(string codigoSala);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/ObtenerJugadoresEnPartida", ReplyAction="http://tempuri.org/IServicioPartida/ObtenerJugadoresEnPartidaResponse")]
-        System.Threading.Tasks.Task<RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[]> ObtenerJugadoresEnPartidaAsync(string codigoSala);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/ObtenerJugadoresConPresenciaSinConfirmarEnPar" +
+            "tida", ReplyAction="http://tempuri.org/IServicioPartida/ObtenerJugadoresConPresenciaSinConfirmarEnPar" +
+            "tidaResponse")]
+        System.Threading.Tasks.Task<RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[]> ObtenerJugadoresConPresenciaSinConfirmarEnPartidaAsync(string codigoSala);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioPartida/ConvertirJugadorEnAnfitrionDesdePartida")]
         void ConvertirJugadorEnAnfitrionDesdePartida(string nombreJugador, string codigoSala);
@@ -938,7 +942,7 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         void MostrarColocacionDePieza(int numeroPieza, string nombreJugador, int puntaje, RompecabezasFei.ServicioRompecabezasFei.Posicion posicion);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioPartida/MostrarResultadosDePartida")]
-        void MostrarResultadosDePartida();
+        void MostrarResultadosDePartida(string nombreJugadorGanador);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioPartida/HabilitarOpcionDeRegresoASala")]
         void HabilitarOpcionDeRegresoASala();
@@ -952,8 +956,8 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioPartida/MostrarMensajeExpulsionDePartida")]
         void MostrarMensajeExpulsionDePartida();
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioPartida/MostrarFuncionesDeAnfitrionEnPartida")]
-        void MostrarFuncionesDeAnfitrionEnPartida();
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioPartida/HabilitarFuncionesDeAnfitrionEnPartida")]
+        void HabilitarFuncionesDeAnfitrionEnPartida();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1064,12 +1068,12 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
             return base.Channel.ExpulsarJugadorEnPartidaAsync(nombreJugadorExpulsion, codigoSala);
         }
         
-        public RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[] ObtenerJugadoresEnPartida(string codigoSala) {
-            return base.Channel.ObtenerJugadoresEnPartida(codigoSala);
+        public RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[] ObtenerJugadoresConPresenciaSinConfirmarEnPartida(string codigoSala) {
+            return base.Channel.ObtenerJugadoresConPresenciaSinConfirmarEnPartida(codigoSala);
         }
         
-        public System.Threading.Tasks.Task<RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[]> ObtenerJugadoresEnPartidaAsync(string codigoSala) {
-            return base.Channel.ObtenerJugadoresEnPartidaAsync(codigoSala);
+        public System.Threading.Tasks.Task<RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[]> ObtenerJugadoresConPresenciaSinConfirmarEnPartidaAsync(string codigoSala) {
+            return base.Channel.ObtenerJugadoresConPresenciaSinConfirmarEnPartidaAsync(codigoSala);
         }
         
         public void ConvertirJugadorEnAnfitrionDesdePartida(string nombreJugador, string codigoSala) {

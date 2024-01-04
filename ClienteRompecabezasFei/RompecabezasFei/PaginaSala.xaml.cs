@@ -19,15 +19,15 @@ namespace RompecabezasFei
     {
         private string codigoSala;
 
-        private ServicioSala servicioSala;
+        private readonly ServicioSala servicioSala;
 
         private Temporizador temporizador;
 
         private const int CantidadJugadoresMinimosParaIniciarPartida = 2;
 
-        Color colorActivo = (Color)ColorConverter.ConvertFromString("#FF03A64A");
+        //Color colorActivo = (Color)ColorConverter.ConvertFromString("#FF03A64A");
         
-        Color colorDesactivado = (Color)ColorConverter.ConvertFromString("#808080");
+        //Color colorDesactivado = (Color)ColorConverter.ConvertFromString("#808080");
 
         public bool HayConexionConSala { get; set; }
 
@@ -80,43 +80,23 @@ namespace RompecabezasFei
 
         private void ConfigurarSesionEnSala(bool esAnfitrion)
         {
-            if (esAnfitrion && !string.IsNullOrEmpty(codigoSala))
+            if (esAnfitrion)
             {
-                servicioSala.ActivarNotificacionesDeSala(
-                    Dominio.CuentaJugador.Actual.NombreJugador);
-
-                if (servicioSala.EstadoOperacion == EstadoOperacion.Correcto)                
-                {
-                    HayConexionConSala = true;
-                    CargarJugadoresEnSala();
-                    MostrarFuncionesDeAnfitrionEnSala();
-                }
-            }
-            else
-            {
-                bool creacionSalaRealizada = false;
-
-                if (esAnfitrion && string.IsNullOrEmpty(codigoSala))
-                {
-                    creacionSalaRealizada = CrearNuevaSala();
-                    
-                    if (creacionSalaRealizada)
-                    {
-                        MostrarFuncionesDeAnfitrionEnSala();
-                    }
-                    else
-                    {
-                        servicioSala.CerrarConexion();
-                    }
-                }
-
-                if ((esAnfitrion && !string.IsNullOrEmpty(codigoSala) 
-                    && creacionSalaRealizada) || 
-                    !esAnfitrion && !string.IsNullOrEmpty(codigoSala))
+                if (!string.IsNullOrEmpty(codigoSala))
                 {
                     UnirseASala();
                 }
-            }            
+                else
+                {
+                    CrearNuevaSala();
+                }
+
+                MostrarFuncionesDeAnfitrionEnSala();
+            }
+            else
+            {
+                UnirseASala();
+            }
         }
 
         public void ActualizarTiempoRestante(object objetoOrigen, EventArgs evento)
@@ -141,13 +121,13 @@ namespace RompecabezasFei
         private void HabilitarBotonEnviarInvitacion()
         {
             botonEnviarInvitacion.IsEnabled = true;
-            botonEnviarInvitacion.Background = new SolidColorBrush(colorActivo);
+            //botonEnviarInvitacion.Background = new SolidColorBrush(colorActivo);
         }
 
         private void DeshabilitarBotonEnviarInvitacion()
         {
             botonEnviarInvitacion.IsEnabled = false;
-            botonEnviarInvitacion.Background = new SolidColorBrush(colorDesactivado);
+            //botonEnviarInvitacion.Background = new SolidColorBrush(colorDesactivado);
         }
 
         private void ComenzarTemporizador()
@@ -181,14 +161,14 @@ namespace RompecabezasFei
         private void EnviarMensajeEnChatDeSala(object objetoOrigen, RoutedEventArgs evento)
         {
             if (!ValidadorDatos.EsCadenaVacia(
-                cuadroTextoMensajeUsuario.Text.Trim()))
+                cuadroTextoMensaje.Text.Trim()))
             {
                 servicioSala.EnviarMensajeDeSala(
-                    cuadroTextoMensajeUsuario.Text, CodigoSala);
+                    cuadroTextoMensaje.Text, CodigoSala);
                 
                 if (servicioSala.EstadoOperacion == EstadoOperacion.Correcto)
                 {
-                    cuadroTextoMensajeUsuario.Clear();
+                    cuadroTextoMensaje.Clear();
                 }
             }
         }
@@ -209,7 +189,7 @@ namespace RompecabezasFei
         private void UnirseASala()
         {            
             HayConexionConSala = servicioSala.UnirseASala(
-                Dominio.CuentaJugador.Actual.NombreJugador, codigoSala);
+                Dominio.CuentaJugador.Actual.NombreJugador, CodigoSala);
 
             if (servicioSala.EstadoOperacion == EstadoOperacion.Correcto)
             {
@@ -220,8 +200,8 @@ namespace RompecabezasFei
                 else
                 {
                     GestorCuadroDialogo.MostrarAdvertencia(
-                        "No se ha podido conectar al jugador a la sala debido a que la sala no está disponible",
-                        "Sala no disponible");
+                        Properties.Resources.ETIQUETA_UNIRSESALA_MENSAJESALANODISPONIBLE,
+                        Properties.Resources.ETIQUETA_UNIRSESALA_SALANODISPONIBLE);
                     servicioSala.CerrarConexion();
                 }
             }
@@ -303,19 +283,24 @@ namespace RompecabezasFei
                     creacionRealizada = servicioSala.CrearNuevaSala(
                         Dominio.CuentaJugador.Actual.NombreJugador, CodigoSala);
 
-                    if (servicioSala.EstadoOperacion == EstadoOperacion.Correcto && 
-                        !creacionRealizada)
+                    if (servicioSala.EstadoOperacion == EstadoOperacion.Correcto)
+                    {
+                        UnirseASala();
+                    }
+                    else
                     {
                         GestorCuadroDialogo.MostrarAdvertencia(
-                            "No se ha podido realizar la creación de la sala",
-                            "Error al crear la sala");
+                            Properties.Resources.ETIQUETA_SALA_MENSAJECREACIONSALACANCELADA,
+                            Properties.Resources.ETIQUETA_SALA_ERRORCREACIONSALA);
+                        servicioSala.CerrarConexion();
                     }
                 }
                 else
                 {
                     GestorCuadroDialogo.MostrarAdvertencia(
-                        "No se ha podido realizar la creación de la sala",
-                        "Error al crear la sala");
+                        Properties.Resources.ETIQUETA_SALA_MENSAJECREACIONSALACANCELADA,
+                        Properties.Resources.ETIQUETA_SALA_ERRORCREACIONSALA);
+                    servicioSala.CerrarConexion();
                 }
             }
 
@@ -337,12 +322,14 @@ namespace RompecabezasFei
         private void MostrarPanelModificarJugadoresEnSala(object objetoOrigen,
             MouseButtonEventArgs evento)
         {
+            panelFondoModificacionJugador.Visibility = Visibility.Visible;
             panelModificacionJugador.Visibility = Visibility.Visible;  
         }
 
         private void CerrarModificacionJugadores(object objetoOrigen, 
             MouseButtonEventArgs evento)
         {
+            panelFondoModificacionJugador.Visibility = Visibility.Hidden;
             panelModificacionJugador.Visibility = Visibility.Hidden;
         }
 
@@ -397,7 +384,7 @@ namespace RompecabezasFei
 
         public void MostrarMensajeDeSala(string mensaje)
         {
-            cuadroTextoMensajes.AppendText(mensaje + "\n");
+            cuadroTextoChatDeSala.AppendText(mensaje + "\n");
         }
 
         public void MostrarNuevoJugadorEnSala(CuentaJugador nuevoJugador)
@@ -435,15 +422,15 @@ namespace RompecabezasFei
         {
             servicioSala.CerrarConexion();
             GestorCuadroDialogo.MostrarAdvertencia(
-                "El anfitrión te ha expulsado de la sala",
-                "Expulsión de sala");
+                Properties.Resources.ETIQUETA_SALA_MENSAJEEXPULSIONDESALA,
+                Properties.Resources.ETIQUETA_SALA_EXPULSIONDESALA);
             VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());                    
         }
 
         public void MostrarFuncionesDeAnfitrionEnSala()
         {
             etiquetaModificarJugador.Visibility = Visibility.Visible;
-            imagenModificarJugador.Visibility = Visibility.Visible;
+            imagenModificarJugador.Visibility = Visibility.Visible;            
 
             if (JugadoresEnSala.Count() >=
                 CantidadJugadoresMinimosParaIniciarPartida)
@@ -483,6 +470,21 @@ namespace RompecabezasFei
             {
                 AmigosDisponibles.Remove(amigoNoDisponible);
             }
+        }
+
+        private void botonHacerAnfitrion_Click(object objetoOrigen, RoutedEventArgs evento)
+        {
+
+        }
+
+        private void botonExpulsarJugador_Click(object objetoOrigen, RoutedEventArgs evento)
+        {
+
+        }
+
+        private void botonInvitar_Click(object objetoOrigen, RoutedEventArgs evento)
+        {
+
         }
     }
 }

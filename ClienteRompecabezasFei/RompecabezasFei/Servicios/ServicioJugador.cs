@@ -44,12 +44,12 @@ namespace RompecabezasFei.Servicios
         private void MostrarMensajeConexionPerdida()
         {
             EstadoOperacion = EstadoOperacion.Error;
-            GestorControlesVentana.DeshabilitarControlesDeVentana();
+            GestorPanelBloqueoVentana.MostrarPanelBloqueo();
             GestorCuadroDialogo.MostrarError(
                 Properties.Resources.ETIQUETA_ERRORCONEXIONPERDIDASERVIDOR_MENSAJE,
                 Properties.Resources.ETIQUETA_ERRORCONEXIONPERDIDASERVIDOR_TITULO);
             Dominio.CuentaJugador.Actual = null;
-            GestorControlesVentana.HabilitarControlesDeVentana();
+            GestorPanelBloqueoVentana.OcultarPanelBloqueo();
             Application.Current.Dispatcher.Invoke(new Action(() =>
             {
                 VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());

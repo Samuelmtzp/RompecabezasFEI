@@ -16,6 +16,8 @@ namespace Logica
 
         public ConcurrentDictionary<string, int> PuntajesDeJugadores { get; set; }
 
+        public ConcurrentDictionary<string, bool> ConfirmacionesJugadores { get; set; }
+
         public DificultadPartida Dificultad
         {
             get { return dificultad; }
@@ -37,15 +39,27 @@ namespace Logica
                 Sala.CantidadMinimaJugadoresParaPartida;
         }
 
+        public bool EsJugadorConPresenciaConfirmada(string nombreJugador)
+        {
+            return ConfirmacionesJugadores.ContainsKey(nombreJugador) && 
+                ConfirmacionesJugadores[nombreJugador];
+        }
+
+        public bool ConfirmarPresenciaJugador(string nombreJugador)
+        {
+            return ConfirmacionesJugadores[nombreJugador] = true;
+        }
+
         public bool AgregarNombreDeJugador(string nombreJugador)
         {
-            return PuntajesDeJugadores.TryAdd(nombreJugador, 
-                Pieza.PuntajeVacio);
+            return PuntajesDeJugadores.TryAdd(nombreJugador, Pieza.PuntajeVacio) &&
+                ConfirmacionesJugadores.TryAdd(nombreJugador, false);
         }
 
         public bool RemoverNombreDeJugador(string nombreJugador)
         {
-            return PuntajesDeJugadores.TryRemove(nombreJugador, out _);
+            return PuntajesDeJugadores.TryRemove(nombreJugador, out _) && 
+                ConfirmacionesJugadores.TryRemove(nombreJugador, out _);
         }
     }
 }
