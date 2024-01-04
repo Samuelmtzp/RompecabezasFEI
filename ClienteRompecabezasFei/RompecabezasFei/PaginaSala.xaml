@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RompecabezasFei"
-      xmlns:p="clr-namespace:RompecabezasFei.Properties"
+      xmlns:p="clr-namespace:RompecabezasFei.Properties" xmlns:serviciorompecabezasfei="clr-namespace:RompecabezasFei.ServicioRompecabezasFei" d:DataContext="{d:DesignInstance Type=serviciorompecabezasfei:CuentaJugador}"
       mc:Ignorable="d"
       d:DesignHeight="720" d:DesignWidth="1280">
     <Grid>
@@ -77,7 +77,7 @@
                     <ScaleTransform ScaleX="2" ScaleY="2"/>
                 </Border.RenderTransform>
                 <Grid>
-                    <TabControl Background="#FF4A4A4A" Foreground="White" Name="tabModificacionJugadorSala">
+                    <TabControl Background="#FF4A4A4A" Foreground="White" Name="pestanaModificacionJugadorSala">
                         <TabControl.Resources>
                             <Style TargetType="{x:Type TabItem}">
                                 <Setter Property="Template">
@@ -104,14 +104,14 @@
                             </Style>
                         </TabControl.Resources>
 
-                        <TabItem Width="120" Foreground="White" x:Name="pestañaEnSala" Background="{x:Null}">
+                        <TabItem Width="120" Foreground="White" x:Name="pestanaEnSala" Background="{x:Null}">
                             <TabItem.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="{x:Static p:Resources.ETIQUETA_MODIFICACIONSALA_PESTAÑAENSALA}" FontWeight="Bold"/>
                                 </StackPanel>
                             </TabItem.Header>
                             <Grid>
-                                <ListView x:Name="listaJugadoresEnSala" VerticalAlignment="Stretch" Foreground="White" Background="#FF4A4A4A" ItemsSource="{Binding JugadoresEnSalaPestana}" HorizontalContentAlignment="Center" SelectionMode="Single">
+                                <ListView x:Name="listaJugadoresSalaModificacion" VerticalAlignment="Stretch" Foreground="White" Background="#FF4A4A4A" ItemsSource="{Binding JugadoresEnSalaModificacion}" HorizontalContentAlignment="Center" SelectionMode="Single">
                                     <ListView.ItemContainerStyle>
                                         <Style TargetType="{x:Type ListViewItem}">
                                             <Style.Triggers>
@@ -149,8 +149,8 @@
                                                 <GridViewColumn.CellTemplate>
                                                     <DataTemplate>
                                                         <StackPanel Orientation="Horizontal">
-                                                            <Button Name="botonHacerAnfitrion" Content="{x:Static p:Resources.BOTON_SALA_HACERANFITRION}" Width="85" Height="20" Background="Green" Foreground="White" Margin="5" Click="botonHacerAnfitrion_Click"></Button>
-                                                            <Button Name="botonExpulsarJugador" Content="{x:Static p:Resources.BOTON_SALA_EXPULSAR}" Width="85" Height="20" Background="Red" Foreground="White" Margin="5" Click="botonExpulsarJugador_Click"></Button>
+                                                            <Button Name="botonHacerAnfitrion" Content="{x:Static p:Resources.BOTON_SALA_HACERANFITRION}" Width="85" Height="20" Background="Green" Foreground="White" Margin="5" Click="SeleccionarNuevoAnfitrionEnSala"></Button>
+                                                            <Button Name="botonExpulsarJugador" Content="{x:Static p:Resources.BOTON_SALA_EXPULSAR}" Width="85" Height="20" Background="Red" Foreground="White" Margin="5" Click="SeleccionarJugadorAExpulsar"></Button>
                                                         </StackPanel>
                                                     </DataTemplate>
                                                 </GridViewColumn.CellTemplate>
@@ -167,7 +167,7 @@
                                 </StackPanel>
                             </TabItem.Header>
                             <Grid>
-                                <ListView x:Name="listaAmigosDisponibles" VerticalAlignment="Center" Foreground="White" Background="#FF4A4A4A" ItemsSource="{Binding CuentasDeAmigos}" HorizontalContentAlignment="Center" SelectionMode="Single" Height="217">
+                                <ListView x:Name="listaAmigosDisponibles" VerticalAlignment="Center" Foreground="White" Background="#FF4A4A4A" ItemsSource="{Binding AmigosDisponibles}" HorizontalContentAlignment="Center" SelectionMode="Single" Height="217">
                                     <ListView.ItemContainerStyle>
                                         <Style TargetType="{x:Type ListViewItem}">
                                             <Style.Triggers>
@@ -204,7 +204,7 @@
                                             <GridViewColumn Width="130" Header="Opción invitar">
                                                 <GridViewColumn.CellTemplate>
                                                     <DataTemplate>
-                                                        <Button Name="botonInvitar" Content="{x:Static p:Resources.BOTON_SALA_INVITAR}" Width="85" Height="20" Background="Green" Foreground="White" Click="botonInvitar_Click"></Button>
+                                                        <Button Name="botonInvitar" Content="{x:Static p:Resources.BOTON_SALA_INVITAR}" Width="85" Height="20" Background="Green" Foreground="White" Click="SeleccionarJugadorAInvitar"></Button>
                                                     </DataTemplate>
                                                 </GridViewColumn.CellTemplate>
                                             </GridViewColumn>

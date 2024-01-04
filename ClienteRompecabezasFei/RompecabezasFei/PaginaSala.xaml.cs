@@ -10,7 +10,6 @@ using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
 
 namespace RompecabezasFei
 {
@@ -19,23 +18,20 @@ namespace RompecabezasFei
     {
         private string codigoSala;
 
+        private readonly bool esAnfitrion;
+
         private readonly ServicioSala servicioSala;
 
         private Temporizador temporizador;
 
         private const int CantidadJugadoresMinimosParaIniciarPartida = 2;
 
-        //Color colorActivo = (Color)ColorConverter.ConvertFromString("#FF03A64A");
-        
-        //Color colorDesactivado = (Color)ColorConverter.ConvertFromString("#808080");
-
         public bool HayConexionConSala { get; set; }
-
-        public ObservableCollection<Dominio.CuentaJugador> CuentasDeAmigos { get; set; }
-
+        
         public ObservableCollection<Dominio.CuentaJugador> JugadoresEnSala { get; set; }
 
-        public ObservableCollection<Dominio.CuentaJugador> JugadoresEnSalaPestana { get; set; }
+        public ObservableCollection<Dominio.CuentaJugador> 
+            JugadoresEnSalaModificacion { get; set; }
 
         public ObservableCollection<Dominio.CuentaJugador> AmigosDisponibles { get; set; }
 
@@ -60,15 +56,14 @@ namespace RompecabezasFei
         public PaginaSala(bool esAnfitrion, string codigoSala)
         {
             InitializeComponent();
-            JugadoresEnSala = new ObservableCollection<Dominio.CuentaJugador>();
-            JugadoresEnSalaPestana = new ObservableCollection<Dominio.CuentaJugador>();
-            AmigosDisponibles = new ObservableCollection<Dominio.CuentaJugador>();
-            CuentasDeAmigos = new ObservableCollection<Dominio.CuentaJugador>();
-            listaJugadoresSala.DataContext = this;
-            listaJugadoresEnSala.DataContext = this;
-            listaAmigosDisponibles.DataContext = this;
-            panelModificacionJugador.Visibility = Visibility.Hidden;
             CodigoSala = codigoSala;
+            this.esAnfitrion = esAnfitrion;
+            AmigosDisponibles = new ObservableCollection<Dominio.CuentaJugador>();
+            JugadoresEnSala = new ObservableCollection<Dominio.CuentaJugador>();
+            JugadoresEnSalaModificacion = new ObservableCollection<Dominio.CuentaJugador>();
+            listaJugadoresSala.DataContext = this;
+            listaJugadoresSalaModificacion.DataContext = this;
+            listaAmigosDisponibles.DataContext = this;
             HayConexionConSala = false;
             servicioSala = new ServicioSala(this);
             
@@ -121,13 +116,11 @@ namespace RompecabezasFei
         private void HabilitarBotonEnviarInvitacion()
         {
             botonEnviarInvitacion.IsEnabled = true;
-            //botonEnviarInvitacion.Background = new SolidColorBrush(colorActivo);
         }
 
         private void DeshabilitarBotonEnviarInvitacion()
         {
             botonEnviarInvitacion.IsEnabled = false;
-            //botonEnviarInvitacion.Background = new SolidColorBrush(colorDesactivado);
         }
 
         private void ComenzarTemporizador()
@@ -209,8 +202,7 @@ namespace RompecabezasFei
 
         private void CargarJugadoresEnSala()
         {
-            List<CuentaJugador> jugadoresRecuperados = servicioSala.
-                ObtenerJugadoresEnSala(CodigoSala);
+            var jugadoresRecuperados = servicioSala.ObtenerJugadoresEnSala(CodigoSala);
 
             if (servicioSala.EstadoOperacion == EstadoOperacion.Correcto)
             {
@@ -226,24 +218,21 @@ namespace RompecabezasFei
             }
         }
 
-        private void CargarJugadoresEnPestanaSala()
+        private void CargarJugadoresEnSalaModificacion()
         {
-            var jugadoresRecuperados = servicioSala.
-                ObtenerJugadoresEnSala(CodigoSala);
-
-            if (servicioSala.EstadoOperacion == EstadoOperacion.Correcto)
+            foreach (var jugador in JugadoresEnSala.Where(jugador => 
+                jugador.NombreJugador != Dominio.CuentaJugador.Actual.NombreJugador))
             {
-                foreach (var jugador in jugadoresRecuperados)
+                var cuentaJugador = new Dominio.CuentaJugador
                 {
-                    var cuentaJugador = new Dominio.CuentaJugador
-                    {
-                        NombreJugador = jugador.NombreJugador,
-                        FuenteImagenAvatar = GeneradorImagenes.
-                        GenerarFuenteImagenAvatar(jugador.NumeroAvatar)
-                    };
-                    JugadoresEnSalaPestana.Add(cuentaJugador);
-                }
+                    NombreJugador = jugador.NombreJugador,
+                    FuenteImagenAvatar = GeneradorImagenes.
+                    GenerarFuenteImagenAvatar(jugador.NumeroAvatar)
+                };
+                JugadoresEnSalaModificacion.Add(cuentaJugador);
             }
+
+            CargarAmigosDisponibles();
         }
 
         private void CargarAmigosDisponibles()
@@ -255,7 +244,7 @@ namespace RompecabezasFei
                 var amigosRecuperados = servicioInvitaciones.
                     ObtenerAmigosDisponibles(Dominio.CuentaJugador.Actual.NombreJugador);
 
-                if (servicioSala.EstadoOperacion == EstadoOperacion.Correcto)
+                if (servicioInvitaciones.EstadoOperacion == EstadoOperacion.Correcto)
                 {
                     foreach (var amigo in amigosRecuperados)
                     {
@@ -396,7 +385,11 @@ namespace RompecabezasFei
                 NombreJugador = nuevoJugador.NombreJugador
             };
             JugadoresEnSala.Add(nuevaCuentaJugador);
-            JugadoresEnSalaPestana.Add(nuevaCuentaJugador);
+
+            if (esAnfitrion)
+            {
+                JugadoresEnSalaModificacion.Add(nuevaCuentaJugador);
+            }
         }
 
         public void MostrarDesconexionDeJugadorEnSala(string nombreJugadorDesconexion)
@@ -408,7 +401,11 @@ namespace RompecabezasFei
             if (cuentaJugadorEncontrada != null)
             {
                 JugadoresEnSala.Remove(cuentaJugadorEncontrada);
-                JugadoresEnSalaPestana.Remove(cuentaJugadorEncontrada);
+
+                if (esAnfitrion)
+                {
+                    JugadoresEnSalaModificacion.Remove(cuentaJugadorEncontrada);
+                }
             }
         }
 
@@ -430,12 +427,29 @@ namespace RompecabezasFei
         public void MostrarFuncionesDeAnfitrionEnSala()
         {
             etiquetaModificarJugador.Visibility = Visibility.Visible;
-            imagenModificarJugador.Visibility = Visibility.Visible;            
+            imagenModificarJugador.Visibility = Visibility.Visible;
+            CargarJugadoresEnSalaModificacion();
+            CargarAmigosDisponibles();
 
             if (JugadoresEnSala.Count() >=
                 CantidadJugadoresMinimosParaIniciarPartida)
             {
                 botonNuevaPartida.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void OcultarFuncionesDeAnfitrionEnSala()
+        {
+            etiquetaModificarJugador.Visibility = Visibility.Visible;
+            imagenModificarJugador.Visibility = Visibility.Visible;
+            botonNuevaPartida.Visibility = Visibility.Visible;
+            JugadoresEnSalaModificacion = null;
+            AmigosDisponibles = null;
+
+            if (panelModificacionJugador.IsVisible)
+            {
+                panelModificacionJugador.Visibility = Visibility.Hidden;
+                panelFondoModificacionJugador.Visibility = Visibility.Hidden;
             }
         }
 
@@ -472,17 +486,31 @@ namespace RompecabezasFei
             }
         }
 
-        private void botonHacerAnfitrion_Click(object objetoOrigen, RoutedEventArgs evento)
+        private void SeleccionarNuevoAnfitrionEnSala(object objetoOrigen, 
+            RoutedEventArgs evento)
+        {
+            var filaActual = (ListBoxItem)listaJugadoresSalaModificacion.
+                ContainerFromElement((Button)objetoOrigen);
+            filaActual.IsSelected = true;
+            var jugadorSeleccionado = (Dominio.CuentaJugador)
+                listaJugadoresSalaModificacion.SelectedItem;
+
+            servicioSala.ConvertirJugadorEnAnfitrionDesdeSala(
+                jugadorSeleccionado.NombreJugador, codigoSala);
+
+            if (servicioSala.EstadoOperacion == EstadoOperacion.Correcto)
+            {
+                OcultarFuncionesDeAnfitrionEnSala();
+            }
+        }
+
+        private void SeleccionarJugadorAExpulsar(object objetoOrigen, 
+            RoutedEventArgs evento)
         {
 
         }
 
-        private void botonExpulsarJugador_Click(object objetoOrigen, RoutedEventArgs evento)
-        {
-
-        }
-
-        private void botonInvitar_Click(object objetoOrigen, RoutedEventArgs evento)
+        private void SeleccionarJugadorAInvitar(object objetoOrigen, RoutedEventArgs evento)
         {
 
         }

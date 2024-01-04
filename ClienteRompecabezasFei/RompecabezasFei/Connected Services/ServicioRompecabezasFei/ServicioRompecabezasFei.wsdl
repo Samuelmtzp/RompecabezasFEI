@@ -216,6 +216,9 @@
   <wsdl:message name="IServicioPartida_AbandonarPartida_InputMessage">
     <wsdl:part name="parameters" element="tns:AbandonarPartida" />
   </wsdl:message>
+  <wsdl:message name="IServicioPartida_CancelarPartida_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelarPartida" />
+  </wsdl:message>
   <wsdl:message name="IServicioPartida_IniciarPartida_InputMessage">
     <wsdl:part name="parameters" element="tns:IniciarPartida" />
   </wsdl:message>
@@ -490,6 +493,9 @@
     </wsdl:operation>
     <wsdl:operation name="AbandonarPartida">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioPartida/AbandonarPartida" message="tns:IServicioPartida_AbandonarPartida_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelarPartida">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioPartida/CancelarPartida" message="tns:IServicioPartida_CancelarPartida_InputMessage" />
     </wsdl:operation>
     <wsdl:operation name="IniciarPartida">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioPartida/IniciarPartida" message="tns:IServicioPartida_IniciarPartida_InputMessage" />
@@ -898,6 +904,12 @@
     </wsdl:operation>
     <wsdl:operation name="AbandonarPartida">
       <soap12:operation soapAction="http://tempuri.org/IServicioPartida/AbandonarPartida" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="CancelarPartida">
+      <soap12:operation soapAction="http://tempuri.org/IServicioPartida/CancelarPartida" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -110,13 +110,12 @@ namespace RompecabezasFei.Servicios
             }
         }
 
-        public void DesactivarInvitacionesDeSala(string nombreJugador, 
-            EstadoJugador nuevoEstado)
+        public void DesactivarInvitacionesDeSala(string nombreJugador)
         {
             try
             {
                 clienteServicioInvitaciones.
-                    DesactivarInvitacionesDeSala(nombreJugador, nuevoEstado);
+                    DesactivarInvitacionesDeSala(nombreJugador);
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)

@@ -606,10 +606,10 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         System.Threading.Tasks.Task ActivarInvitacionesDeSalaAsync(string nombreJugador);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioInvitaciones/DesactivarInvitacionesDeSala")]
-        void DesactivarInvitacionesDeSala(string nombreJugador, RompecabezasFei.ServicioRompecabezasFei.EstadoJugador nuevoEstado);
+        void DesactivarInvitacionesDeSala(string nombreJugador);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioInvitaciones/DesactivarInvitacionesDeSala")]
-        System.Threading.Tasks.Task DesactivarInvitacionesDeSalaAsync(string nombreJugador, RompecabezasFei.ServicioRompecabezasFei.EstadoJugador nuevoEstado);
+        System.Threading.Tasks.Task DesactivarInvitacionesDeSalaAsync(string nombreJugador);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioInvitaciones/ObtenerAmigosDisponibles", ReplyAction="http://tempuri.org/IServicioInvitaciones/ObtenerAmigosDisponiblesResponse")]
         RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[] ObtenerAmigosDisponibles(string nombreAnfitrion);
@@ -661,12 +661,12 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
             return base.Channel.ActivarInvitacionesDeSalaAsync(nombreJugador);
         }
         
-        public void DesactivarInvitacionesDeSala(string nombreJugador, RompecabezasFei.ServicioRompecabezasFei.EstadoJugador nuevoEstado) {
-            base.Channel.DesactivarInvitacionesDeSala(nombreJugador, nuevoEstado);
+        public void DesactivarInvitacionesDeSala(string nombreJugador) {
+            base.Channel.DesactivarInvitacionesDeSala(nombreJugador);
         }
         
-        public System.Threading.Tasks.Task DesactivarInvitacionesDeSalaAsync(string nombreJugador, RompecabezasFei.ServicioRompecabezasFei.EstadoJugador nuevoEstado) {
-            return base.Channel.DesactivarInvitacionesDeSalaAsync(nombreJugador, nuevoEstado);
+        public System.Threading.Tasks.Task DesactivarInvitacionesDeSalaAsync(string nombreJugador) {
+            return base.Channel.DesactivarInvitacionesDeSalaAsync(nombreJugador);
         }
         
         public RompecabezasFei.ServicioRompecabezasFei.CuentaJugador[] ObtenerAmigosDisponibles(string nombreAnfitrion) {
@@ -867,6 +867,12 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioPartida/AbandonarPartida")]
         System.Threading.Tasks.Task AbandonarPartidaAsync(string codigoSala, string nombreJugador);
         
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioPartida/CancelarPartida")]
+        void CancelarPartida(string codigoSala);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioPartida/CancelarPartida")]
+        System.Threading.Tasks.Task CancelarPartidaAsync(string codigoSala);
+        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioPartida/IniciarPartida")]
         void IniciarPartida(string codigoSala);
         
@@ -1010,6 +1016,14 @@ namespace RompecabezasFei.ServicioRompecabezasFei {
         
         public System.Threading.Tasks.Task AbandonarPartidaAsync(string codigoSala, string nombreJugador) {
             return base.Channel.AbandonarPartidaAsync(codigoSala, nombreJugador);
+        }
+        
+        public void CancelarPartida(string codigoSala) {
+            base.Channel.CancelarPartida(codigoSala);
+        }
+        
+        public System.Threading.Tasks.Task CancelarPartidaAsync(string codigoSala) {
+            return base.Channel.CancelarPartidaAsync(codigoSala);
         }
         
         public void IniciarPartida(string codigoSala) {
