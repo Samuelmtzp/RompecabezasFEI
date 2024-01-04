@@ -107,8 +107,9 @@ namespace RompecabezasFei
                     if (!esContrasenaActualCorrecta)
                     {
                         GestorCuadroDialogo.MostrarAdvertencia(
-                            "El campo de contraseña actual es incorrecto", 
-                            "Contraseña actual no coincide");
+                            Properties.Resources.
+                            ETIQUETA_ACTUALIZACIONCONTRASENA_MENSAJECONTRASENAACTUALERROR,
+                            Properties.Resources.ETIQUETA_VALIDACION_CONTRASENADIFERENTE);
                         hayDatosInvalidos = true;
                     }
                 }

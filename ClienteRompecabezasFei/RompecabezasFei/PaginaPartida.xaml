@@ -13,8 +13,8 @@
         <Canvas Name="tableroRompecabezas" Margin="10,56,370,124" Width="900" Height="540" Background="AliceBlue"/>
         <Button Name="botonIniciarPartida" Content="{x:Static p:Resources.BOTON_SALA_INICIARPARTIDA}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="314" Click="IniciarPartida" Margin="935,471,0,0" Background="#03A64A" Foreground="White" FontWeight="Bold" FontSize="32" Visibility="Hidden"/>
         <Button Name="botonAbandonarPartida" Content="{x:Static p:Resources.BOTON_PARTIDA_ABANDONOPARTIDA}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="314" Click="AbandonarPartida" Margin="935,540,0,0" Background="Red" Foreground="White" FontWeight="Bold" FontSize="32" Visibility="Visible"/>
-        <Image Name="imagenAjustesPartida" Source="/Imagenes/Indicadores/Ajustes.png" HorizontalAlignment="Left" Height="82" Margin="1155,15,0,0" VerticalAlignment="Top" Width="82" MouseDown="MostrarAjustesPartida" Visibility="Hidden"/>
-        <Label Name="etiquetaAJustesPartida" Content="{x:Static p:Resources.ETIQUETA_GENERAL_AJUSTES}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="1143,97,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Width="106" Visibility="Hidden"/>
+        <Image Name="imagenAjustesPartida" Source="/Imagenes/Indicadores/Ajustes.png" HorizontalAlignment="Left" Height="82" Margin="1155,15,0,0" VerticalAlignment="Top" Width="82" MouseDown="MostrarPanelAjustesPartida" Visibility="Hidden"/>
+        <Label Name="etiquetaAJustesPartida" Content="{x:Static p:Resources.ETIQUETA_GENERAL_AJUSTES}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="1143,97,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Width="106" Visibility="Hidden" MouseDown="MostrarPanelAjustesPartida"/>
         <Grid Margin="950,180,56,278" ShowGridLines="True">
             <ListView Name="listaJugadoresPartida" VerticalAlignment="Top" Foreground="White" Background="#FF4A4A4A" ItemsSource="{Binding JugadoresEnPartida}" HorizontalContentAlignment="Center" Width="264" Height="260" >
                 <ListView.ItemContainerStyle>
@@ -57,19 +57,21 @@
             </ListView>
         </Grid>
 
-        <Grid Margin="72,139,640,330" x:Name="panelAjustesPartida" Visibility="Hidden">
+        <Grid Background="Black" Opacity="0.8" Name="panelFondoPartida" Visibility="Visible"/>
+
+        <Grid Margin="72,109,640,360" x:Name="panelAjustesPartida" Visibility="Visible">
             <Grid Background="#3D3E3F">
                 <Grid.RenderTransform>
                     <ScaleTransform ScaleX="2" ScaleY="2"/>
                 </Grid.RenderTransform>
             </Grid>
-            <Image Name="botonCerrarPanelAjustes" Source="Imagenes/Indicadores/CerrarSesion.png" Stretch="Fill" Margin="1091,7,-557,210" Panel.ZIndex="1" MouseDown="CerrarPanelAjustesPartida"/>
-            <Border BorderBrush="White" BorderThickness="3">
+            <Image Name="botonCerrarPanelAjustesPartida" Source="Imagenes/Indicadores/Cerrar.png" Stretch="Fill" Margin="1091,7,-557,210" Panel.ZIndex="1" MouseDown="CerrarPanelAjustesPartida"/>
+            <Border BorderBrush="Green" BorderThickness="3">
                 <Border.RenderTransform>
                     <ScaleTransform ScaleX="2" ScaleY="2"/>
                 </Border.RenderTransform>
                 <Grid>
-                    <TabControl Background="#FF4A4A4A" Foreground="White" Name="tabAjustesPartida">
+                    <TabControl Background="#FF4A4A4A" Foreground="White">
                         <TabControl.Resources>
                             <Style TargetType="{x:Type TabItem}">
                                 <Setter Property="Template">
@@ -96,14 +98,14 @@
                             </Style>
                         </TabControl.Resources>
 
-                        <TabItem Width="120" Foreground="White" x:Name="pestanaEnSala" Background="{x:Null}" BorderBrush="#048ABF">
+                        <TabItem Width="120" Foreground="White" x:Name="pestanaEnPartida" Background="{x:Null}" BorderBrush="#048ABF">
                             <TabItem.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="{x:Static p:Resources.ETIQUETA_AMIGOS_ENPARTIDA}" FontWeight="Bold"/>
                                 </StackPanel>
                             </TabItem.Header>
                             <Grid>
-                                <ListView x:Name="listaJugadoresEnSala" Foreground="White" Background="#FF4A4A4A" ItemsSource="{Binding JugadoresEnPartida}" HorizontalContentAlignment="Center" SelectionMode="Single" Margin="0,0,0,47">
+                                <ListView x:Name="listaJugadoresPanelAjustes" Foreground="White" Background="#FF4A4A4A" ItemsSource="{Binding JugadoresEnPartida}" HorizontalContentAlignment="Center" SelectionMode="Single" Margin="0,0,0,47" d:ItemsSource="{d:SampleData ItemCount=3}">
                                     <ListView.ItemContainerStyle>
                                         <Style TargetType="{x:Type ListViewItem}">
                                             <Style.Triggers>
@@ -141,8 +143,8 @@
                                                 <GridViewColumn.CellTemplate>
                                                     <DataTemplate>
                                                         <StackPanel Orientation="Horizontal">
-                                                            <Button Name="botonHacerAnfitrion" Content="{x:Static p:Resources.BOTON_SALA_HACERANFITRION}" Width="85" Height="20" Background="Green" Foreground="White" Margin="5"></Button>
-                                                            <Button Name="botonExpulsarJugador" Content="{x:Static p:Resources.BOTON_SALA_EXPULSAR}" Width="85" Height="20" Background="Red" Foreground="White" Margin="5"></Button>
+                                                            <Button Name="botonHacerAnfitrionAJugador" Content="{x:Static p:Resources.BOTON_SALA_HACERANFITRION}" Width="85" Height="20" Background="Green" Foreground="White" Margin="5" Click="botonHacerAnfitrionAJugador_Click"></Button>
+                                                            <Button Name="botonExpulsarJugador" Content="{x:Static p:Resources.BOTON_SALA_EXPULSAR}" Width="85" Height="20" Background="Red" Foreground="White" Margin="5" Click="botonExpulsarJugador_Click"></Button>
                                                         </StackPanel>
                                                     </DataTemplate>
                                                 </GridViewColumn.CellTemplate>
@@ -150,12 +152,69 @@
                                         </GridView>
                                     </ListView.View>
                                 </ListView>
-                                <Button x:Name="botonExpulsarJugador" Content="{x:Static p:Resources.BOTON_OPCIONESPARTIDA_FINALIZARPARTIDA}" Background="Red" Foreground="White" Margin="198,175,198,10"/>
+                                <Button x:Name="botonFinalizarPartida" Content="{x:Static p:Resources.BOTON_OPCIONESPARTIDA_FINALIZARPARTIDA}" Background="Red" Foreground="White" Margin="190,175,190,10" FontSize="18" Click="botonFinalizarPartida_Click"/>
                             </Grid>
                         </TabItem>
                     </TabControl>
                 </Grid>
             </Border>
         </Grid>
+
+        <Grid Name="panelResultadosPartida" Background="#262626" Visibility="Hidden">
+            <Label Content="{x:Static p:Resources.ETIQUETA_RESULTADOS_RESULTADOS}" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="48" FontWeight="Bold"/>
+            <Button Name="botonRegresarASala" Content="{x:Static p:Resources.BOTON_OPCIONESRESULTADOS_REGRESARASALA}" HorizontalAlignment="Left" Margin="513,574,0,0" VerticalAlignment="Top" Height="72" Width="318" FontSize="36" Background="#FF03A64A" Foreground="White" FontWeight="Bold" Click="IrAPaginaSala" Visibility="Hidden"/>
+            <ListView Name="listaJugadoresResultadoPartida" VerticalAlignment="Top" Foreground="White" Background="#FF4A4A4A" ItemsSource="{Binding Jugadores}" HorizontalContentAlignment="Center" Height="350" Margin="208,122,208,0">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="#FF4A4A4A" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FF4A4A4A" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.View>
+                    <GridView>
+                        <GridView.ColumnHeaderContainerStyle>
+                            <Style TargetType="GridViewColumnHeader">
+                                <Setter Property="Visibility" Value="Visible" />
+                                <Setter Property="FontSize" Value="30"/>
+                            </Style>
+                        </GridView.ColumnHeaderContainerStyle>
+
+                        <GridViewColumn Width="100">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image HorizontalAlignment="Center" Width="60" Height="70" Source="{Binding FuenteImagenAvatar}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="450" Header="{x:Static p:Resources.ETIQUETA_GENERAL_JUGADORES}">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Center" Foreground="White" FontSize="24" Text="{Binding NombreJugador}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="300" Header="{x:Static p:Resources.ETIQUETA_PARTIDA_PUNTAJE}">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Center" Foreground="White" FontSize="24" Text="{Binding Puntaje}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <Button Content="{x:Static p:Resources.BOTON_OPCIONESRESULTADOS_IRMENUPRINCIPAL}" HorizontalAlignment="Left" Margin="898,574,0,0" VerticalAlignment="Top" Height="72" Width="348" FontSize="36" Background="#FF048ABF" Foreground="White" FontWeight="Bold" Click="IrAMenuPrincipal"/>
+            <Label Name="etiquetaJugadorGanador" FontSize="32" Foreground="White" HorizontalContentAlignment="Center" Margin="162,496,162,0" VerticalAlignment="Top" Height="48"/>
+
+        </Grid>
+
     </Grid>
 </Page>

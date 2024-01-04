@@ -38,8 +38,8 @@ namespace RompecabezasFei
                     else
                     {
                         GestorCuadroDialogo.MostrarAdvertencia(
-                            "No se ha podido conectar al jugador a la sala debido a que la sala no está disponible",
-                            "Sala no disponible");
+                            Properties.Resources.ETIQUETA_UNIRSESALA_MENSAJESALANODISPONIBLE,
+                            Properties.Resources.ETIQUETA_UNIRSESALA_SALANODISPONIBLE);
                     }
                 }
             }

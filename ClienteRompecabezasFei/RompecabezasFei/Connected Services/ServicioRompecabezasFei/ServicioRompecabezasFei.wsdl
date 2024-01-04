@@ -99,11 +99,11 @@
   <wsdl:message name="IServicioAmistades_ExisteAmistadConJugador_OutputMessage">
     <wsdl:part name="parameters" element="tns:ExisteAmistadConJugadorResponse" />
   </wsdl:message>
-  <wsdl:message name="IServicioAmistades_EliminarAmistadEntreJugadores_InputMessage">
-    <wsdl:part name="parameters" element="tns:EliminarAmistadEntreJugadores" />
+  <wsdl:message name="IServicioAmistades_EliminarAmistad_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarAmistad" />
   </wsdl:message>
-  <wsdl:message name="IServicioAmistades_EliminarAmistadEntreJugadores_OutputMessage">
-    <wsdl:part name="parameters" element="tns:EliminarAmistadEntreJugadoresResponse" />
+  <wsdl:message name="IServicioAmistades_EliminarAmistad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarAmistadResponse" />
   </wsdl:message>
   <wsdl:message name="IServicioAmistades_ActivarNotificacionesDeAmistades_InputMessage">
     <wsdl:part name="parameters" element="tns:ActivarNotificacionesDeAmistades" />
@@ -114,11 +114,11 @@
   <wsdl:message name="IServicioAmistades_MostrarSolicitudDeAmistadRecibida_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:MostrarSolicitudDeAmistadRecibida" />
   </wsdl:message>
-  <wsdl:message name="IServicioAmistades_MostrarNuevoAmigo_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:MostrarNuevoAmigo" />
+  <wsdl:message name="IServicioAmistades_AgregarAmigoAListaDeAmigos_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:AgregarAmigoAListaDeAmigos" />
   </wsdl:message>
-  <wsdl:message name="IServicioAmistades_RemoverAmigoConAmistadCancelada_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:RemoverAmigoConAmistadCancelada" />
+  <wsdl:message name="IServicioAmistades_RemoverAmigoDeListaDeAmigos_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RemoverAmigoDeListaDeAmigos" />
   </wsdl:message>
   <wsdl:message name="IServicioAmistades_ActualizarEstadoDeJugador_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:ActualizarEstadoDeJugador" />
@@ -243,11 +243,11 @@
   <wsdl:message name="IServicioPartida_ExpulsarJugadorEnPartida_InputMessage">
     <wsdl:part name="parameters" element="tns:ExpulsarJugadorEnPartida" />
   </wsdl:message>
-  <wsdl:message name="IServicioPartida_ObtenerJugadoresEnPartida_InputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerJugadoresEnPartida" />
+  <wsdl:message name="IServicioPartida_ObtenerJugadoresConPresenciaSinConfirmarEnPartida_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerJugadoresConPresenciaSinConfirmarEnPartida" />
   </wsdl:message>
-  <wsdl:message name="IServicioPartida_ObtenerJugadoresEnPartida_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerJugadoresEnPartidaResponse" />
+  <wsdl:message name="IServicioPartida_ObtenerJugadoresConPresenciaSinConfirmarEnPartida_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerJugadoresConPresenciaSinConfirmarEnPartidaResponse" />
   </wsdl:message>
   <wsdl:message name="IServicioPartida_ConvertirJugadorEnAnfitrionDesdePartida_InputMessage">
     <wsdl:part name="parameters" element="tns:ConvertirJugadorEnAnfitrionDesdePartida" />
@@ -279,8 +279,8 @@
   <wsdl:message name="IServicioPartida_MostrarMensajeExpulsionDePartida_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:MostrarMensajeExpulsionDePartida" />
   </wsdl:message>
-  <wsdl:message name="IServicioPartida_MostrarFuncionesDeAnfitrionEnPartida_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:MostrarFuncionesDeAnfitrionEnPartida" />
+  <wsdl:message name="IServicioPartida_HabilitarFuncionesDeAnfitrionEnPartida_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:HabilitarFuncionesDeAnfitrionEnPartida" />
   </wsdl:message>
   <wsdl:message name="IServicioSala_CrearNuevaSala_InputMessage">
     <wsdl:part name="parameters" element="tns:CrearNuevaSala" />
@@ -392,9 +392,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/ExisteAmistadConJugador" message="tns:IServicioAmistades_ExisteAmistadConJugador_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/ExisteAmistadConJugadorResponse" message="tns:IServicioAmistades_ExisteAmistadConJugador_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="EliminarAmistadEntreJugadores">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/EliminarAmistadEntreJugadores" message="tns:IServicioAmistades_EliminarAmistadEntreJugadores_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/EliminarAmistadEntreJugadoresResponse" message="tns:IServicioAmistades_EliminarAmistadEntreJugadores_OutputMessage" />
+    <wsdl:operation name="EliminarAmistad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/EliminarAmistad" message="tns:IServicioAmistades_EliminarAmistad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/EliminarAmistadResponse" message="tns:IServicioAmistades_EliminarAmistad_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ActivarNotificacionesDeAmistades">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioAmistades/ActivarNotificacionesDeAmistades" message="tns:IServicioAmistades_ActivarNotificacionesDeAmistades_InputMessage" />
@@ -405,11 +405,11 @@
     <wsdl:operation name="MostrarSolicitudDeAmistadRecibida">
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/MostrarSolicitudDeAmistadRecibida" message="tns:IServicioAmistades_MostrarSolicitudDeAmistadRecibida_OutputCallbackMessage" />
     </wsdl:operation>
-    <wsdl:operation name="MostrarNuevoAmigo">
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/MostrarNuevoAmigo" message="tns:IServicioAmistades_MostrarNuevoAmigo_OutputCallbackMessage" />
+    <wsdl:operation name="AgregarAmigoAListaDeAmigos">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/AgregarAmigoAListaDeAmigos" message="tns:IServicioAmistades_AgregarAmigoAListaDeAmigos_OutputCallbackMessage" />
     </wsdl:operation>
-    <wsdl:operation name="RemoverAmigoConAmistadCancelada">
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/RemoverAmigoConAmistadCancelada" message="tns:IServicioAmistades_RemoverAmigoConAmistadCancelada_OutputCallbackMessage" />
+    <wsdl:operation name="RemoverAmigoDeListaDeAmigos">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/RemoverAmigoDeListaDeAmigos" message="tns:IServicioAmistades_RemoverAmigoDeListaDeAmigos_OutputCallbackMessage" />
     </wsdl:operation>
     <wsdl:operation name="ActualizarEstadoDeJugador">
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioAmistades/ActualizarEstadoDeJugador" message="tns:IServicioAmistades_ActualizarEstadoDeJugador_OutputCallbackMessage" />
@@ -514,9 +514,9 @@
     <wsdl:operation name="ExpulsarJugadorEnPartida">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioPartida/ExpulsarJugadorEnPartida" message="tns:IServicioPartida_ExpulsarJugadorEnPartida_InputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ObtenerJugadoresEnPartida">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioPartida/ObtenerJugadoresEnPartida" message="tns:IServicioPartida_ObtenerJugadoresEnPartida_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/ObtenerJugadoresEnPartidaResponse" message="tns:IServicioPartida_ObtenerJugadoresEnPartida_OutputMessage" />
+    <wsdl:operation name="ObtenerJugadoresConPresenciaSinConfirmarEnPartida">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioPartida/ObtenerJugadoresConPresenciaSinConfirmarEnPartida" message="tns:IServicioPartida_ObtenerJugadoresConPresenciaSinConfirmarEnPartida_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/ObtenerJugadoresConPresenciaSinConfirmarEnPartidaResponse" message="tns:IServicioPartida_ObtenerJugadoresConPresenciaSinConfirmarEnPartida_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ConvertirJugadorEnAnfitrionDesdePartida">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioPartida/ConvertirJugadorEnAnfitrionDesdePartida" message="tns:IServicioPartida_ConvertirJugadorEnAnfitrionDesdePartida_InputMessage" />
@@ -548,8 +548,8 @@
     <wsdl:operation name="MostrarMensajeExpulsionDePartida">
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/MostrarMensajeExpulsionDePartida" message="tns:IServicioPartida_MostrarMensajeExpulsionDePartida_OutputCallbackMessage" />
     </wsdl:operation>
-    <wsdl:operation name="MostrarFuncionesDeAnfitrionEnPartida">
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/MostrarFuncionesDeAnfitrionEnPartida" message="tns:IServicioPartida_MostrarFuncionesDeAnfitrionEnPartida_OutputCallbackMessage" />
+    <wsdl:operation name="HabilitarFuncionesDeAnfitrionEnPartida">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/HabilitarFuncionesDeAnfitrionEnPartida" message="tns:IServicioPartida_HabilitarFuncionesDeAnfitrionEnPartida_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IServicioSala">
@@ -691,8 +691,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="EliminarAmistadEntreJugadores">
-      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/EliminarAmistadEntreJugadores" style="document" />
+    <wsdl:operation name="EliminarAmistad">
+      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/EliminarAmistad" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -718,14 +718,14 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="MostrarNuevoAmigo">
-      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/MostrarNuevoAmigo" style="document" />
+    <wsdl:operation name="AgregarAmigoAListaDeAmigos">
+      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/AgregarAmigoAListaDeAmigos" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="RemoverAmigoConAmistadCancelada">
-      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/RemoverAmigoConAmistadCancelada" style="document" />
+    <wsdl:operation name="RemoverAmigoDeListaDeAmigos">
+      <soap12:operation soapAction="http://tempuri.org/IServicioAmistades/RemoverAmigoDeListaDeAmigos" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
@@ -950,8 +950,8 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
-    <wsdl:operation name="ObtenerJugadoresEnPartida">
-      <soap12:operation soapAction="http://tempuri.org/IServicioPartida/ObtenerJugadoresEnPartida" style="document" />
+    <wsdl:operation name="ObtenerJugadoresConPresenciaSinConfirmarEnPartida">
+      <soap12:operation soapAction="http://tempuri.org/IServicioPartida/ObtenerJugadoresConPresenciaSinConfirmarEnPartida" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -1019,8 +1019,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="MostrarFuncionesDeAnfitrionEnPartida">
-      <soap12:operation soapAction="http://tempuri.org/IServicioPartida/MostrarFuncionesDeAnfitrionEnPartida" style="document" />
+    <wsdl:operation name="HabilitarFuncionesDeAnfitrionEnPartida">
+      <soap12:operation soapAction="http://tempuri.org/IServicioPartida/HabilitarFuncionesDeAnfitrionEnPartida" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

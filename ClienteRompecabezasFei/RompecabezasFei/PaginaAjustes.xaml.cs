@@ -10,11 +10,7 @@ namespace RompecabezasFei
     {
         private string idiomaActual;
 
-        private bool hayMusicaActivadaInicialmente;
-        
-        private const string IdiomaIngles = "en-US";
-        
-        private const string IdiomaEspanol = "es-MX";
+        private bool hayMusicaActivadaInicialmente;                
 
         public PaginaAjustes()
         {
@@ -23,7 +19,7 @@ namespace RompecabezasFei
 
         private void InicializarSeleccionIdioma()
         {
-            if (App.Current.IdiomaActual == IdiomaIngles)
+            if (App.Current.IdiomaActual == App.RepresentacionIdiomaIngles)
             {
                 cajaOpcionesIdioma.SelectedIndex = (int)Idioma.Ingles;
             }
@@ -62,11 +58,11 @@ namespace RompecabezasFei
         {
             if (cajaOpcionesIdioma.SelectedIndex == (int)Idioma.Ingles)
             {
-                idiomaActual = IdiomaIngles;
+                idiomaActual = App.RepresentacionIdiomaIngles;
             }
             else
             {
-                idiomaActual = IdiomaEspanol;
+                idiomaActual = App.RepresentacionIdiomaEspanol;
             }
         }
 

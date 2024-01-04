@@ -3,25 +3,23 @@ using System.Windows;
 
 namespace RompecabezasFei.Utilidades
 {
-    public static class GestorControlesVentana
+    public static class GestorPanelBloqueoVentana
     {
-        public static void DeshabilitarControlesDeVentana()
+        public static void MostrarPanelBloqueo()
         {
             Application.Current.Dispatcher.Invoke(new Action(() =>
             {
                 VentanaPrincipal.ObtenerVentanaActual().
-                    marcoPaginaActual.IsEnabled = false;
+                    panelBloqueo.Visibility = Visibility.Visible;
             }));
         }
 
-        public static void HabilitarControlesDeVentana()
+        public static void OcultarPanelBloqueo()
         {
             Application.Current.Dispatcher.Invoke(new Action(() =>
             {
                 VentanaPrincipal.ObtenerVentanaActual().
-                    marcoPaginaActual.IsEnabled = true;
-                VentanaPrincipal.ObtenerVentanaActual().
-                    RecargarPaginaActual();
+                    panelBloqueo.Visibility = Visibility.Hidden;
             }));
         }
     }

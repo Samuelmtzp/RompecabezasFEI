@@ -106,7 +106,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="EliminarAmistadEntreJugadores">
+  <xs:element name="EliminarAmistad">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="nombreJugadorA" nillable="true" type="xs:string" />
@@ -114,10 +114,10 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="EliminarAmistadEntreJugadoresResponse">
+  <xs:element name="EliminarAmistadResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="EliminarAmistadEntreJugadoresResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="EliminarAmistadResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -142,14 +142,14 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="MostrarNuevoAmigo">
+  <xs:element name="AgregarAmigoAListaDeAmigos">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="cuentaNuevoAmigo" nillable="true" type="q4:CuentaJugador" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="RemoverAmigoConAmistadCancelada">
+  <xs:element name="RemoverAmigoDeListaDeAmigos">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
@@ -464,17 +464,17 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ObtenerJugadoresEnPartida">
+  <xs:element name="ObtenerJugadoresConPresenciaSinConfirmarEnPartida">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="codigoSala" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ObtenerJugadoresEnPartidaResponse">
+  <xs:element name="ObtenerJugadoresConPresenciaSinConfirmarEnPartidaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="ObtenerJugadoresEnPartidaResult" nillable="true" type="q13:ArrayOfCuentaJugador" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Logica" minOccurs="0" name="ObtenerJugadoresConPresenciaSinConfirmarEnPartidaResult" nillable="true" type="q13:ArrayOfCuentaJugador" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -521,7 +521,9 @@
   </xs:element>
   <xs:element name="MostrarResultadosDePartida">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombreJugadorGanador" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="HabilitarOpcionDeRegresoASala">
@@ -546,7 +548,7 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="MostrarFuncionesDeAnfitrionEnPartida">
+  <xs:element name="HabilitarFuncionesDeAnfitrionEnPartida">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

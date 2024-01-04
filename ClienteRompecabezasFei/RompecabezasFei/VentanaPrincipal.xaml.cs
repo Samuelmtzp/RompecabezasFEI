@@ -40,11 +40,6 @@ namespace RompecabezasFei
             return (VentanaPrincipal)GetWindow(PaginaActual);
         }
 
-        public void RecargarPaginaActual()
-        {
-            marcoPaginaActual.Navigate(PaginaActual);
-        }
-
         public static void CerrarSesion()
         {
             if (Dominio.CuentaJugador.Actual != null)

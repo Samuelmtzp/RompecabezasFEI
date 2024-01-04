@@ -10,6 +10,7 @@
 
     <Grid>
         <Image Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="30,30,1145,598" Height="81" Width="81" MouseDown="IrAPaginaInformacionJugador"/>
+        <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_REGRESAR}" Margin="20,116,1135,560" HorizontalContentAlignment="Center" Visibility="Visible" FontSize="20" Foreground="White" MouseDown="IrAPaginaInformacionJugador"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_ACTUALIZACIONCONTRASENA}" HorizontalAlignment="Center" Margin="0,26,0,0" VerticalAlignment="Top" Foreground="White" FontSize="48" FontWeight="Bold"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_ACTUALIZACIONCONTRASENA_CONTRASENAACTUAL}" HorizontalAlignment="Left" Margin="82,219,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32"/>
         <PasswordBox Name="cuadroContrasenaActual" HorizontalAlignment="Left" Margin="82,272,0,0" VerticalAlignment="Top" Width="508" Height="42" FontSize="24"/>
