@@ -19,6 +19,9 @@ namespace Contratos
         void AbandonarPartida(string codigoSala, string nombreJugador);
 
         [OperationContract(IsOneWay = true)]
+        void CancelarPartida(string codigoSala);
+
+        [OperationContract(IsOneWay = true)]
         void IniciarPartida(string codigoSala);
 
         [OperationContract(IsOneWay = true)]

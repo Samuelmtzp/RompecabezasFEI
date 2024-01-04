@@ -606,17 +606,6 @@ namespace RompecabezasFei
             }
         }
 
-        public void ConvertirJugadorEnAnfitrionDesdePartida(string nombreJugador)
-        {
-            servicioPartida.ConvertirJugadorEnAnfitrionDesdePartida(
-                nombreJugador, codigoSala);
-            
-            if (servicioPartida.EstadoOperacion == EstadoOperacion.Correcto)
-            {
-                DeshabilitarFuncionesDeAnfitrionEnPartida();
-            }
-        }
-
         public void MostrarMensajePartidaCancelada()
         {
             hayPartidaEnCurso = false;
@@ -729,19 +718,41 @@ namespace RompecabezasFei
             }
         }
 
-        private void botonHacerAnfitrionAJugador_Click(object sender, RoutedEventArgs e)
+        private void SeleccionarNuevoAnfitrion(object objetoOrigen, 
+            RoutedEventArgs evento)
         {
+            var filaActual = (ListBoxItem)listaJugadoresPanelAjustes.
+                ContainerFromElement((Button)objetoOrigen);
+            filaActual.IsSelected = true;
+            var jugadorSeleccionado = (Dominio.CuentaJugador)
+                listaJugadoresPanelAjustes.SelectedItem;
 
+            servicioPartida.ConvertirJugadorEnAnfitrionDesdePartida(
+                jugadorSeleccionado.NombreJugador, codigoSala);
+
+            if (servicioPartida.EstadoOperacion == EstadoOperacion.Correcto)
+            {
+                DeshabilitarFuncionesDeAnfitrionEnPartida();
+            }
         }
 
-        private void botonExpulsarJugador_Click(object sender, RoutedEventArgs e)
+        private void SeleccionarJugadorAExpulsar(object objetoOrigen, 
+            RoutedEventArgs evento)
         {
+            var filaActual = (ListBoxItem)listaJugadoresPanelAjustes.
+                ContainerFromElement((Button)objetoOrigen);
+            filaActual.IsSelected = true;
+            var jugadorSeleccionado = (Dominio.CuentaJugador)
+                listaJugadoresPanelAjustes.SelectedItem;
 
+            servicioPartida.ExpulsarJugadorEnPartida(
+                jugadorSeleccionado.NombreJugador, codigoSala);
         }
 
-        private void botonFinalizarPartida_Click(object sender, RoutedEventArgs e)
+        private void CancelarPartida(object objetoOrigen, 
+            RoutedEventArgs evento)
         {
-
+            servicioPartida.CancelarPartida(codigoSala);
         }
     }
 }

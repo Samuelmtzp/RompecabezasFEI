@@ -143,8 +143,8 @@
                                                 <GridViewColumn.CellTemplate>
                                                     <DataTemplate>
                                                         <StackPanel Orientation="Horizontal">
-                                                            <Button Name="botonHacerAnfitrionAJugador" Content="{x:Static p:Resources.BOTON_SALA_HACERANFITRION}" Width="85" Height="20" Background="Green" Foreground="White" Margin="5" Click="botonHacerAnfitrionAJugador_Click"></Button>
-                                                            <Button Name="botonExpulsarJugador" Content="{x:Static p:Resources.BOTON_SALA_EXPULSAR}" Width="85" Height="20" Background="Red" Foreground="White" Margin="5" Click="botonExpulsarJugador_Click"></Button>
+                                                            <Button Name="botonHacerAnfitrionAJugador" Content="{x:Static p:Resources.BOTON_SALA_HACERANFITRION}" Width="85" Height="20" Background="Green" Foreground="White" Margin="5" Click="SeleccionarNuevoAnfitrion"></Button>
+                                                            <Button Name="botonExpulsarJugador" Content="{x:Static p:Resources.BOTON_SALA_EXPULSAR}" Width="85" Height="20" Background="Red" Foreground="White" Margin="5" Click="SeleccionarJugadorAExpulsar"></Button>
                                                         </StackPanel>
                                                     </DataTemplate>
                                                 </GridViewColumn.CellTemplate>
@@ -152,7 +152,7 @@
                                         </GridView>
                                     </ListView.View>
                                 </ListView>
-                                <Button x:Name="botonFinalizarPartida" Content="{x:Static p:Resources.BOTON_OPCIONESPARTIDA_FINALIZARPARTIDA}" Background="Red" Foreground="White" Margin="190,175,190,10" FontSize="18" Click="botonFinalizarPartida_Click"/>
+                                <Button x:Name="botonFinalizarPartida" Content="{x:Static p:Resources.BOTON_OPCIONESPARTIDA_FINALIZARPARTIDA}" Background="Red" Foreground="White" Margin="190,175,190,10" FontSize="18" Click="CancelarPartida"/>
                             </Grid>
                         </TabItem>
                     </TabControl>
