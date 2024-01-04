@@ -530,14 +530,7 @@ namespace Servicios
             jugadoresActivos[nombreJugador].ContextoOperacion = null;
             jugadoresActivos[nombreJugador].TipoInterfazCallback =
                 typeof(IServicioJugador);
-        }
-
-        public List<CuentaJugador> ObtenerAmigosDisponibles(string nombreAnfitrion)
-        {
-            return jugadoresActivos.Values.Where(jugador => !jugador.EsInvitado &&
-                ExisteAmistadConJugador(nombreAnfitrion, jugador.NombreJugador) && 
-                jugador.Estado == EstadoJugador.Disponible).ToList();
-        }
+        }        
     }
     #endregion
 
@@ -584,18 +577,9 @@ namespace Servicios
 
         public List<CuentaJugador> ObtenerJugadoresEnSala(string codigoSala)
         {
-            var jugadoresEnSala = jugadoresActivos.Values.Where(jugador =>
-                salas[codigoSala].NombresDeJugadores.ContainsKey(jugador.NombreJugador));
-
-            foreach (var jugador in jugadoresEnSala)
-            {
-                Console.WriteLine(jugador.NombreJugador);
-                Console.WriteLine(jugador.NombreJugador + 
-                    " tiene interfaz de callback de sala? " + 
-                    (jugador.TipoInterfazCallback == typeof(IServicioSalaCallback)));
-            }
-
-            return jugadoresEnSala.ToList();
+            return jugadoresActivos.Values.Where(jugador =>
+                salas[codigoSala].NombresDeJugadores.
+                ContainsKey(jugador.NombreJugador)).ToList();
         }
 
         public bool UnirseASala(string nombreJugador, string codigoSala)
@@ -634,7 +618,7 @@ namespace Servicios
             jugadoresActivos[nombreJugador].ContextoOperacion = 
                 OperationContext.Current;
             jugadoresActivos[nombreJugador].TipoInterfazCallback = 
-                typeof(IServicioSalaCallback);            
+                typeof(IServicioSalaCallback);
         }
 
         public void DesactivarNotificacionesDeSala(string nombreJugador)
@@ -771,6 +755,13 @@ namespace Servicios
                     Registros.Registrador.EscribirRegistro(excepcion);
                 }
             }
+        }
+
+        public List<CuentaJugador> ObtenerAmigosDisponibles(string nombreAnfitrion)
+        {
+            return jugadoresActivos.Values.Where(jugador => !jugador.EsInvitado &&
+                ExisteAmistadConJugador(nombreAnfitrion, jugador.NombreJugador) &&
+                jugador.Estado == EstadoJugador.Disponible).ToList();
         }
     }
     #endregion

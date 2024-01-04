@@ -584,5 +584,56 @@ namespace RompecabezasFei.Servicios
                 }
             }
         }
+
+        public List<CuentaJugador> ObtenerAmigosDisponibles(string nombreAnfitrion)
+        {
+            var amigosDisponibles = new List<CuentaJugador>();
+
+            try
+            {
+                var amigosObtenidos = clienteServicioSala.
+                    ObtenerAmigosDisponibles(nombreAnfitrion);
+
+                foreach (var amigoObtenido in amigosObtenidos)
+                {
+                    amigosDisponibles.Add(amigoObtenido);
+                }
+
+                EstadoOperacion = EstadoOperacion.Correcto;
+            }
+            catch (EndpointNotFoundException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectFaultedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationObjectAbortedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (CommunicationException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (ObjectDisposedException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            catch (TimeoutException excepcion)
+            {
+                ManejarExcepcionDeServidor(excepcion);
+            }
+            finally
+            {
+                if (EstadoOperacion == EstadoOperacion.Error)
+                {
+                    clienteServicioSala.Abort();
+                }
+            }
+
+            return amigosDisponibles;
+        }
     }
 }

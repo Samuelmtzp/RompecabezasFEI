@@ -9,7 +9,7 @@ namespace RompecabezasFei
 {
     public partial class PaginaMenuPrincipal : Page, IServicioInvitacionesCallback
     {
-        private ServicioInvitaciones servicioInvitaciones;
+        private readonly ServicioInvitaciones servicioInvitaciones;
 
         public PaginaMenuPrincipal()
         {
