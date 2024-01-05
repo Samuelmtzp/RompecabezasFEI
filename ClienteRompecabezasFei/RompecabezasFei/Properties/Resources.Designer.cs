@@ -1627,11 +1627,29 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a El correo eléctronico ingresado no está disponible. Ingrese uno diferente. .
+        ///   Busca una cadena traducida similar a El correo electrónico ingresado no está disponible. Ingrese uno diferente. .
         /// </summary>
         public static string ETIQUETA_REGISTRO_MENSAJECORREONODISPONIBLE {
             get {
                 return ResourceManager.GetString("ETIQUETA_REGISTRO_MENSAJECORREONODISPONIBLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre de jugador no disponible.
+        /// </summary>
+        public static string ETIQUETA_REGISTRO_NOMBRENODISPONIBLE {
+            get {
+                return ResourceManager.GetString("ETIQUETA_REGISTRO_NOMBRENODISPONIBLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El nombre del jugador que deseas registrar ya está registrado.
+        /// </summary>
+        public static string ETIQUETA_REGISTRO_NOMBREUSUARIOYAREGISTRADO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_REGISTRO_NOMBREUSUARIOYAREGISTRADO", resourceCulture);
             }
         }
         
@@ -1809,6 +1827,27 @@ namespace RompecabezasFei.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Expulsión de sala.
         /// </summary>
+        public static string ETIQUETA_SALA_EXPULSIONSALA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_SALA_EXPULSIONSALA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El código de sala no pudo enviarse.
+        /// </summary>
+        public static string ETIQUETA_SALA_MENSAJECODIGOSALANOENVIADO {
+            get {
+                return ResourceManager.GetString("ETIQUETA_SALA_MENSAJECODIGOSALANOENVIADO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El anfitrión te ha expulsado de la sala.
+        /// </summary>
+        public static string ETIQUETA_SALA_MENSAJEEXPULSION {
+            get {
+                return ResourceManager.GetString("ETIQUETA_SALA_MENSAJEEXPULSION", resourceCulture);
         public static string ETIQUETA_SALA_EXPULSIONDESALA {
             get {
                 return ResourceManager.GetString("ETIQUETA_SALA_EXPULSIONDESALA", resourceCulture);
@@ -1818,6 +1857,9 @@ namespace RompecabezasFei.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a No se ha podido realizar la creación de la sala.
         /// </summary>
+        public static string ETIQUETA_SALA_MENSAJEFALLACREACIONSALA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_SALA_MENSAJEFALLACREACIONSALA", resourceCulture);
         public static string ETIQUETA_SALA_MENSAJECREACIONSALACANCELADA {
             get {
                 return ResourceManager.GetString("ETIQUETA_SALA_MENSAJECREACIONSALACANCELADA", resourceCulture);
@@ -1906,7 +1948,7 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a No es posible unirse a la sala debido a que la sala no está disponible.
+        ///   Busca una cadena traducida similar a No se ha podido conectar al jugador a la sala debido a que la sala no está disponible.
         /// </summary>
         public static string ETIQUETA_UNIRSESALA_MENSAJESALANODISPONIBLE {
             get {
@@ -2122,7 +2164,7 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Tu código de verificación es:.
+        ///   Busca una cadena traducida similar a Tu código de verificación es: .
         /// </summary>
         public static string ETIQUETA_VERIFICACIONCORREO_MENSAJE {
             get {

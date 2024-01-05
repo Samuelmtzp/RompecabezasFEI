@@ -101,7 +101,7 @@ namespace Logica.AccesoDatos
             return resultado;
         }
 
-        public static bool ActualizarContrasena(string correo, string contrasena)
+        public static bool ActualizacionContrasena(string contrasenaNueva, string correo)
         {
             bool resultado = false;
 
@@ -112,7 +112,7 @@ namespace Logica.AccesoDatos
 
                 if (cuentaObtenida != null)
                 {
-                    cuentaObtenida.Contrasena = contrasena;
+                    cuentaObtenida.Contrasena = contrasenaNueva;
                 }
 
                 resultado = contexto.SaveChanges() > 0;

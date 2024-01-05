@@ -582,6 +582,12 @@
   <data name="ETIQUETA_MENUPRINCIPAL_PERFIL" xml:space="preserve">
     <value>My profile</value>
   </data>
+  <data name="ETIQUETA_MENU_MENSAJEINVITACIONSALA" xml:space="preserve">
+    <value> has invited you to join his lobby, do you accept?</value>
+  </data>
+  <data name="ETIQUETA_MENU_SALALLENA" xml:space="preserve">
+    <value>Unable to join the lobby because it is full or a game is in progress</value>
+  </data>
   <data name="ETIQUETA_MODIFICACIONSALA_CORREOINVITACIONASUNTO" xml:space="preserve">
     <value>Game room code</value>
   </data>
@@ -696,7 +702,13 @@
   <data name="ETIQUETA_REGISTRO_MENSAJECORREONODISPONIBLE" xml:space="preserve">
     <value>The email address entered is not available. Enter a different one.</value>
   </data>
-  <data name="ETIQUETA_REGISTRO_REGISTROUSUARIO" xml:space="preserve">
+  <data name="ETIQUETA_REGISTRO_NOMBRENODISPONIBLE" xml:space="preserve">
+    <value>Player name not available</value>
+  </data>
+  <data name="ETIQUETA_REGISTRO_NOMBREUSUARIOYAREGISTRADO" xml:space="preserve">
+    <value>The name of the player you want to register is already registered</value>
+  </data>
+  <data name="ETIQUETA_REGISTRO_REGISTROJUGADOR" xml:space="preserve">
     <value>Player register</value>
   </data>
   <data name="ETIQUETA_REGISTRO_SELECCIONAVATAR" xml:space="preserve">
@@ -741,14 +753,17 @@
   <data name="ETIQUETA_SALA_ERRORCREACIONSALA" xml:space="preserve">
     <value>Error creating room</value>
   </data>
-  <data name="ETIQUETA_SALA_EXPULSIONDESALA" xml:space="preserve">
-    <value>Expulsion from room</value>
+  <data name="ETIQUETA_SALA_EXPULSIONSALA" xml:space="preserve">
+    <value>Expulsion from lobby</value>
   </data>
-  <data name="ETIQUETA_SALA_MENSAJECREACIONSALACANCELADA" xml:space="preserve">
-    <value>Room creation could not be performed</value>
+  <data name="ETIQUETA_SALA_MENSAJECODIGOSALANOENVIADO" xml:space="preserve">
+    <value>Room code could not be sent</value>
   </data>
-  <data name="ETIQUETA_SALA_MENSAJEEXPULSIONDESALA" xml:space="preserve">
-    <value>The host has kicked you out of the room</value>
+  <data name="ETIQUETA_SALA_MENSAJEEXPULSION" xml:space="preserve">
+    <value>The host has kicked you out of the lobby</value>
+  </data>
+  <data name="ETIQUETA_SALA_MENSAJEFALLACREACIONSALA" xml:space="preserve">
+    <value>Lobby creation could not be performed</value>
   </data>
   <data name="ETIQUETA_SALA_MENSAJES" xml:space="preserve">
     <value>Messages</value>
@@ -772,7 +787,7 @@
     <value>If you have an access code to a room, you can enter it below to join</value>
   </data>
   <data name="ETIQUETA_UNIRSESALA_MENSAJESALANODISPONIBLE" xml:space="preserve">
-    <value>Unable to join the room because the room is not available</value>
+    <value>The player could not be connected to the lobby because the lobby is not available</value>
   </data>
   <data name="ETIQUETA_UNIRSESALA_SALANODISPONIBLE" xml:space="preserve">
     <value>Room not available</value>
@@ -780,8 +795,14 @@
   <data name="ETIQUETA_UNIRSESALA_UNIRSESALA" xml:space="preserve">
     <value>Join room</value>
   </data>
+  <data name="ETIQUETA_VALIDACION_CONTRASENADIFERENTE" xml:space="preserve">
+    <value>Different passwords</value>
+  </data>
   <data name="ETIQUETA_VALIDACION_CONTRASENAEXCEDIDA" xml:space="preserve">
     <value>The password entered exceeds the maximum length</value>
+  </data>
+  <data name="ETIQUETA_VALIDACION_CONTRASENAINVALIDA" xml:space="preserve">
+    <value>Invalid password</value>
   </data>
   <data name="ETIQUETA_VALIDACION_CORREOINVALIDO" xml:space="preserve">
     <value>Invalid email</value>
@@ -797,6 +818,9 @@
   </data>
   <data name="ETIQUETA_VALIDACION_MENSAJECAMPOSVACIOS" xml:space="preserve">
     <value>You cannot leave empty fields</value>
+  </data>
+  <data name="ETIQUETA_VALIDACION_MENSAJECONTRASENADIFERENTE" xml:space="preserve">
+    <value>Passwords do not match</value>
   </data>
   <data name="ETIQUETA_VALIDACION_MENSAJECONTRASENAINVALIDA" xml:space="preserve">
     <value>The password you entered is invalid</value>
@@ -826,7 +850,7 @@
     <value>Error when registering</value>
   </data>
   <data name="ETIQUETA_VERIFICACIONCORREO_MENSAJE" xml:space="preserve">
-    <value>Your verification code is:</value>
+    <value>Your verification code is: </value>
   </data>
   <data name="ETIQUETA_VERIFICACIONCORREO_MENSAJECODIGOINCORRECTO" xml:space="preserve">
     <value>The verification code is wrong</value>

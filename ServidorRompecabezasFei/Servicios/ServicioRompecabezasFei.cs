@@ -98,11 +98,11 @@ namespace Servicios
         public bool ActualizarContrasena(string correo, string contrasena)
         {
             bool operacionRealizada = false;
-            
+
             try
             {
                 operacionRealizada = AccesoCuentaJugador.
-                    ActualizarContrasena(correo, contrasena);
+                    ActualizacionContrasena(contrasena, correo);
             }
             catch (EntityException excepcion)
             {
@@ -345,26 +345,33 @@ namespace Servicios
                 Registros.Registrador.EscribirRegistro(excepcion);
             }
 
-            if (operacionRealizada && jugadoresActivos[nombreJugadorDestino].
-                TipoInterfazCallback == typeof(IServicioAmistadesCallback))
+            try
             {
-                try
+                if (operacionRealizada && jugadoresActivos[nombreJugadorDestino].
+                TipoInterfazCallback == typeof(IServicioAmistadesCallback))
                 {
-                    jugadoresActivos[nombreJugadorDestino].ContextoOperacion?.
-                        GetCallbackChannel<IServicioAmistadesCallback>().
-                        MostrarSolicitudDeAmistadRecibida(
-                        jugadoresActivos[nombreJugadorOrigen]);
-                }
-                catch (CommunicationObjectAbortedException excepcion)
-                {
-                    Registros.Registrador.EscribirRegistro(excepcion);
-                }
-                catch (InvalidCastException excepcion)
-                {
-                    Registros.Registrador.EscribirRegistro(excepcion);
+                    try
+                    {
+                        jugadoresActivos[nombreJugadorDestino].ContextoOperacion?.
+                            GetCallbackChannel<IServicioAmistadesCallback>().
+                            MostrarSolicitudDeAmistadRecibida(
+                            jugadoresActivos[nombreJugadorOrigen]);
+                    }
+                    catch (CommunicationObjectAbortedException excepcion)
+                    {
+                        Registros.Registrador.EscribirRegistro(excepcion);
+                    }
+                    catch (InvalidCastException excepcion)
+                    {
+                        Registros.Registrador.EscribirRegistro(excepcion);
+                    }
                 }
             }
-
+            catch (KeyNotFoundException excepcion)
+            {
+                Registros.Registrador.EscribirRegistro(excepcion);
+            }
+           
             return operacionRealizada;
         }
 
@@ -434,6 +441,10 @@ namespace Servicios
             if (operacionRealizada)
             {
                 MostrarEliminacionDeAmigoAJugador(nombreJugadorB, nombreJugadorA);
+            }
+            catch (KeyNotFoundException excepcion)
+            {
+                Registros.Registrador.EscribirRegistro(excepcion);
             }
 
             return operacionRealizada;

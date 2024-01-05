@@ -17,7 +17,7 @@ namespace RompecabezasFei
         private void IrAPaginaRestablecimientoContrasena(object objetoOrigen,
             RoutedEventArgs evento)
         {
-            string correo = cuadroTextoCorreo.Text;
+            string correo = cuadroTextoCorreo.Text.Trim();
 
             if (!ValidadorDatos.ExistenCaracteresInvalidosParaCorreo(correo))
             {

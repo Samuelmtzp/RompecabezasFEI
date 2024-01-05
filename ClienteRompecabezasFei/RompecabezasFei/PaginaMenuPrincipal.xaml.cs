@@ -101,9 +101,8 @@ namespace RompecabezasFei
         {
             MessageBoxResult opcionSeleccionada =
                 GestorCuadroDialogo.MostrarPreguntaNormal(
-                nombreJugador + " " + 
-                Properties.Resources.ETIQUETA_INVITACIONSALA_MENSAJE,
-                Properties.Resources.ETIQUETA_INVITACIONSALA_TITULO);
+                nombreJugador + Properties.Resources.ETIQUETA_MENU_MENSAJEINVITACIONSALA,
+                Properties.Resources.ETIQUETA_MENU_INVITACIONSALA);
 
             if (opcionSeleccionada == MessageBoxResult.Yes)
             {
@@ -133,8 +132,8 @@ namespace RompecabezasFei
                     else
                     {
                         GestorCuadroDialogo.MostrarAdvertencia(
-                            Properties.Resources.ETIQUETA_UNIRSESALA_MENSAJESALANODISPONIBLE,
-                            Properties.Resources.ETIQUETA_UNIRSESALA_SALANODISPONIBLE);
+                             Properties.Resources.ETIQUETA_MENU_SALALLENA,
+                             Properties.Resources.ETIQUETA_UNIRSESALA_SALANODISPONIBLE);
                     }
                 }
             }

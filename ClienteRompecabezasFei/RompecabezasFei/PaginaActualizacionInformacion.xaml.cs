@@ -42,42 +42,45 @@ namespace RompecabezasFei
             {
                 VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
             }
-
-            if (!ExistenDatosInvalidosParaActualizacion())
+            else
             {
-                bool actualizacionNombreRealizada = false;
-                bool actualizacionAvatarRealizada = false;
+                if (!ExistenDatosInvalidosParaActualizacion())
+                {
+                    bool actualizacionNombreRealizada = false;
+                    bool actualizacionAvatarRealizada = false;
 
-                if (esNombreDiferente)
-                {
-                    actualizacionNombreRealizada = 
-                        ActualizarNombreJugador(Dominio.CuentaJugador.
-                        Actual.NombreJugador, nuevoNombre);
-                }
+                    if (esNombreDiferente)
+                    {
+                        actualizacionNombreRealizada =
+                            ActualizarNombreJugador(Dominio.CuentaJugador.
+                            Actual.NombreJugador, nuevoNombre);
+                    }
 
-                if (VentanaPrincipal.ServicioJugador.EstadoOperacion == 
-                    EstadoOperacion.Correcto && esAvatarDiferente)
-                {
-                    actualizacionAvatarRealizada = 
-                        ActualizarNumeroAvatar(Dominio.CuentaJugador.
-                        Actual.NombreJugador, nuevoNumeroAvatar);
-                }
+                    if (VentanaPrincipal.ServicioJugador.EstadoOperacion ==
+                        EstadoOperacion.Correcto && esAvatarDiferente)
+                    {
+                        actualizacionAvatarRealizada =
+                            ActualizarNumeroAvatar(Dominio.CuentaJugador.
+                            Actual.NombreJugador, nuevoNumeroAvatar);
+                    }
 
-                if ((esNombreDiferente && !actualizacionNombreRealizada) || 
-                    (esAvatarDiferente && !actualizacionAvatarRealizada))
-                {
-                    GestorCuadroDialogo.MostrarAdvertencia(Properties.Resources.
-                        ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONNOREALIZADA,
-                        Properties.Resources.
-                        ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACION);
-                    VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
-                }
-                else
-                {
-                    GestorCuadroDialogo.MostrarInformacion(Properties.Resources.
-                        ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONREALIZADA,
-                        Properties.Resources.
-                        ETIQUETA_ACTUALIZACIONINFORMACION_MENSAJEACTUALIZACION);
+                    if ((esNombreDiferente && !actualizacionNombreRealizada) ||
+                        (esAvatarDiferente && !actualizacionAvatarRealizada))
+                    {
+                        GestorCuadroDialogo.MostrarAdvertencia(Properties.Resources.
+                            ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONNOREALIZADA,
+                            Properties.Resources.
+                            ETIQUETA_ACTUALIZACIONINFORMACION_ERRORACTUALIZACION);
+                        VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
+                    }
+                    else
+                    {
+                        GestorCuadroDialogo.MostrarInformacion(Properties.Resources.
+                            ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONREALIZADA,
+                            Properties.Resources.
+                            ETIQUETA_ACTUALIZACIONINFORMACION_MENSAJEACTUALIZACION);
+                        VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
+                    }
                 }
             }
         }

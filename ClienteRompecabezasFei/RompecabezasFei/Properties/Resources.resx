@@ -552,6 +552,15 @@
   <data name="ETIQUETA_MENUPRINCIPAL_PERFIL" xml:space="preserve">
     <value>Mi perfil</value>
   </data>
+  <data name="ETIQUETA_MENU_INVITACIONSALA" xml:space="preserve">
+    <value>Invitación de sala</value>
+  </data>
+  <data name="ETIQUETA_MENU_MENSAJEINVITACIONSALA" xml:space="preserve">
+    <value> te ha invitado a unirte a su sala, ¿Aceptas?</value>
+  </data>
+  <data name="ETIQUETA_MENU_SALALLENA" xml:space="preserve">
+    <value>No es posible unirse a la sala debido a que está llena o hay una partida en curso</value>
+  </data>
   <data name="ETIQUETA_MODIFICACIONSALA_CORREOINVITACIONASUNTO" xml:space="preserve">
     <value>Código de sala de juego</value>
   </data>
@@ -658,7 +667,13 @@
     <value>Correo electrónico no disponible</value>
   </data>
   <data name="ETIQUETA_REGISTRO_MENSAJECORREONODISPONIBLE" xml:space="preserve">
-    <value>El correo eléctronico ingresado no está disponible. Ingrese uno diferente. </value>
+    <value>El correo electrónico ingresado no está disponible. Ingrese uno diferente. </value>
+  </data>
+  <data name="ETIQUETA_REGISTRO_NOMBRENODISPONIBLE" xml:space="preserve">
+    <value>Nombre de jugador no disponible</value>
+  </data>
+  <data name="ETIQUETA_REGISTRO_NOMBREUSUARIOYAREGISTRADO" xml:space="preserve">
+    <value>El nombre del jugador que deseas registrar ya está registrado</value>
   </data>
   <data name="ETIQUETA_REGISTRO_REGISTROJUGADOR" xml:space="preserve">
     <value>Registro de jugador</value>
@@ -702,14 +717,17 @@
   <data name="ETIQUETA_SALA_ERRORCREACIONSALA" xml:space="preserve">
     <value>Error al crear la sala</value>
   </data>
-  <data name="ETIQUETA_SALA_EXPULSIONDESALA" xml:space="preserve">
+  <data name="ETIQUETA_SALA_EXPULSIONSALA" xml:space="preserve">
     <value>Expulsión de sala</value>
   </data>
-  <data name="ETIQUETA_SALA_MENSAJECREACIONSALACANCELADA" xml:space="preserve">
-    <value>No se ha podido realizar la creación de la sala</value>
+  <data name="ETIQUETA_SALA_MENSAJECODIGOSALANOENVIADO" xml:space="preserve">
+    <value>El código de sala no pudo enviarse</value>
   </data>
-  <data name="ETIQUETA_SALA_MENSAJEEXPULSIONDESALA" xml:space="preserve">
+  <data name="ETIQUETA_SALA_MENSAJEEXPULSION" xml:space="preserve">
     <value>El anfitrión te ha expulsado de la sala</value>
+  </data>
+  <data name="ETIQUETA_SALA_MENSAJEFALLACREACIONSALA" xml:space="preserve">
+    <value>No se ha podido realizar la creación de la sala</value>
   </data>
   <data name="ETIQUETA_SALA_MENSAJES" xml:space="preserve">
     <value>Mensajes</value>
@@ -733,7 +751,7 @@
     <value>Si cuentas con un código de acceso a una sala, puedes ingresarlo a continuación para poder unirte</value>
   </data>
   <data name="ETIQUETA_UNIRSESALA_MENSAJESALANODISPONIBLE" xml:space="preserve">
-    <value>No es posible unirse a la sala debido a que la sala no está disponible</value>
+    <value>No se ha podido conectar al jugador a la sala debido a que la sala no está disponible</value>
   </data>
   <data name="ETIQUETA_UNIRSESALA_SALANODISPONIBLE" xml:space="preserve">
     <value>Sala no disponible</value>
@@ -805,7 +823,7 @@
     <value>Error al realizar registro</value>
   </data>
   <data name="ETIQUETA_VERIFICACIONCORREO_MENSAJE" xml:space="preserve">
-    <value>Tu código de verificación es:</value>
+    <value>Tu código de verificación es: </value>
   </data>
   <data name="ETIQUETA_VERIFICACIONCORREO_MENSAJECODIGOINCORRECTO" xml:space="preserve">
     <value>El código de verificacion es incorrecto</value>

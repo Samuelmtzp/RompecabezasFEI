@@ -338,7 +338,7 @@ namespace RompecabezasFei
                         if (!envioDeInvitacionRealizado)
                         {
                             GestorCuadroDialogo.MostrarAdvertencia(Properties.Resources.
-                                ETIQUETA_CODIGO_MENSAJENOENVIADO, Properties.Resources.
+                                ETIQUETA_SALA_MENSAJECODIGOSALANOENVIADO, Properties.Resources.
                                 ETIQUETA_CODIGO_CODIGONOENVIADO);
                         }
                         else
@@ -413,6 +413,7 @@ namespace RompecabezasFei
         public void MostrarMensajeExpulsionDeSala()
         {
             servicioSala.CerrarConexion();
+            VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
             GestorCuadroDialogo.MostrarAdvertencia(
                 Properties.Resources.ETIQUETA_SALA_MENSAJEEXPULSIONDESALA,
                 Properties.Resources.ETIQUETA_SALA_EXPULSIONDESALA);

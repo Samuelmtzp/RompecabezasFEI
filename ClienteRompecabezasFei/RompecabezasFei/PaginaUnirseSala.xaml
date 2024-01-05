@@ -12,7 +12,7 @@
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_REGRESAR}" Margin="20,116,1135,560" HorizontalContentAlignment="Center" Visibility="Visible" FontSize="20" Foreground="White" MouseDown="IrAPaginaMenuPrincipal"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_UNIRSESALA_UNIRSESALA}" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,28,0,0" VerticalAlignment="Top" Width="768" Height="84" FontSize="48" Foreground="White" FontWeight="Bold"/>
         <TextBlock Text="{x:Static p:Resources.ETIQUETA_UNIRSESALA_INSTRUCCIONUNIRSE}" HorizontalAlignment="Left" Margin="82,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="99" Width="1125" FontSize="36" Foreground="White"/>
-        <TextBox Name="cuadroTextoCodigoSala" HorizontalAlignment="Left" Margin="82,401,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1125" Height="58" FontSize="24"/>
+        <TextBox Name="cuadroTextoCodigoSala" HorizontalAlignment="Left" Margin="82,401,0,0" TextWrapping="Wrap" MaxLength="36" VerticalAlignment="Top" Width="1125" Height="58" FontSize="24"/>
         <Button Content="{x:Static p:Resources.BOTON_UNIRSESALA_UNIRSE}" HorizontalAlignment="Left" Margin="328,566,0,0" VerticalAlignment="Top" Height="72" Width="618" Background="#FF03A64A" Foreground="White" FontSize="36" Click="IntentarUnirJugadorASala" FontWeight="Bold"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_CODIGOSALA}" HorizontalAlignment="Left" Margin="82,0,0,0" VerticalAlignment="Center" Height="60" Width="419" FontSize="36" Foreground="White"/>
 
