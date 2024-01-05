@@ -132,7 +132,7 @@ namespace RompecabezasFei
                     else
                     {
                         GestorCuadroDialogo.MostrarAdvertencia(
-                             Properties.Resources.ETIQUETA_MENU_SALALLENA,
+                             Properties.Resources.ETIQUETA_SALALLENA_MENSAJE,
                              Properties.Resources.ETIQUETA_UNIRSESALA_SALANODISPONIBLE);
                     }
                 }

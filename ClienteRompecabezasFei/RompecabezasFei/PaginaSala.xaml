@@ -19,7 +19,7 @@
         <Button Content="{x:Static p:Resources.BOTON_SALA_ENVIARMENSAJE}" HorizontalAlignment="Left" Margin="1107,460,0,0" VerticalAlignment="Top" Height="33" Width="129" Background="#FF048ABF" Foreground="White" FontSize="18" FontWeight="Bold" Click="EnviarMensajeEnChatDeSala"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_SALA_MENSAJES}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="760,20,0,0" VerticalAlignment="Top" Foreground="White" FontSize="40" FontWeight="Bold" Width="284"/>
         <Label Name="etiquetaCodigoSala" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="42,576,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20" FontWeight="Bold" Width="658" Height="43"/>
-        <Button Name="botonNuevaPartida" Content="Nueva partida" HorizontalAlignment="Left" Margin="931,579,0,0" VerticalAlignment="Top" Height="72" Width="305" FontSize="36" Background="#FF03A64A" Foreground="White" FontWeight="Bold" Click="IrAPaginaCreacionNuevaPartida" Visibility="Hidden">
+        <Button Name="botonNuevaPartida" Content="{x:Static p:Resources.BOTON_SALA_NUEVAPARTIDA}" HorizontalAlignment="Left" Margin="931,579,0,0" VerticalAlignment="Top" Height="72" Width="305" FontSize="36" Background="#FF03A64A" Foreground="White" FontWeight="Bold" Click="IrAPaginaCreacionNuevaPartida" Visibility="Hidden">
         </Button>
         <Button Content="{x:Static p:Resources.ETIQUETA_SALA_COPIAR}" HorizontalAlignment="Left" Margin="42,619,0,0" VerticalAlignment="Top" Height="34" Width="128" Background="#FF048ABF" Foreground="White" FontSize="18" FontWeight="Bold" Click="CopiarCodigoDeSalaEnPortapapeles"/>
 

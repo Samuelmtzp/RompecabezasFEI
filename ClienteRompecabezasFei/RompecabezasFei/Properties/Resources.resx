@@ -219,6 +219,9 @@
   <data name="BOTON_SALA_INVITAR" xml:space="preserve">
     <value>Invitar</value>
   </data>
+  <data name="BOTON_SALA_NUEVAPARTIDA" xml:space="preserve">
+    <value>Nueva partida</value>
+  </data>
   <data name="BOTON_SALA_OPCIONESSALA" xml:space="preserve">
     <value>Opciones sala</value>
   </data>
@@ -574,7 +577,7 @@
     <value>Invitación enviada</value>
   </data>
   <data name="ETIQUETA_MODIFICACIONSALA_MENSAJECORREOINVITACIONASUNTO" xml:space="preserve">
-    <value>El código de la sala es el siguiente:</value>
+    <value>El código de la sala es el siguiente: </value>
   </data>
   <data name="ETIQUETA_MODIFICACIONSALA_MENSAJEINVITACIONENVIADA" xml:space="preserve">
     <value>La invitación de sala ha sido enviada exitosamente</value>
@@ -637,7 +640,7 @@
     <value>Introduce el código</value>
   </data>
   <data name="ETIQUETA_RECUPERACION_MENSAJE" xml:space="preserve">
-    <value>Tu código de restablecimiento es:</value>
+    <value>Tu código de restablecimiento es: </value>
   </data>
   <data name="ETIQUETA_RECUPERACION_RECUPERACIONCONTRASENA" xml:space="preserve">
     <value>Recuperación de contraseña</value>
@@ -723,11 +726,11 @@
   <data name="ETIQUETA_SALA_MENSAJECODIGOSALANOENVIADO" xml:space="preserve">
     <value>El código de sala no pudo enviarse</value>
   </data>
+  <data name="ETIQUETA_SALA_MENSAJECREACIONSALACANCELADA" xml:space="preserve">
+    <value>No se ha podido realizar la creación de la sala</value>
+  </data>
   <data name="ETIQUETA_SALA_MENSAJEEXPULSION" xml:space="preserve">
     <value>El anfitrión te ha expulsado de la sala</value>
-  </data>
-  <data name="ETIQUETA_SALA_MENSAJEFALLACREACIONSALA" xml:space="preserve">
-    <value>No se ha podido realizar la creación de la sala</value>
   </data>
   <data name="ETIQUETA_SALA_MENSAJES" xml:space="preserve">
     <value>Mensajes</value>
