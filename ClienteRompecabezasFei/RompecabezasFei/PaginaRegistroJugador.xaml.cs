@@ -81,8 +81,10 @@ namespace RompecabezasFei
                         else
                         {
                             GestorCuadroDialogo.MostrarAdvertencia(
-                                Properties.Resources.ETIQUETA_REGISTRO_NOMBREUSUARIOYAREGISTRADO,
-                                Properties.Resources.ETIQUETA_REGISTRO_NOMBRENODISPONIBLE);
+                                Properties.Resources.
+                                ETIQUETA_REGISTROJUGADOR_MENSAJENOMBRENODISPONIBLE,
+                                Properties.Resources.
+                                ETIQUETA_REGISTROJUGADOR_NOMBRENODISPONIBLE);
                         }
                     }
                 }
@@ -117,8 +119,9 @@ namespace RompecabezasFei
                     else
                     {
                         GestorCuadroDialogo.MostrarAdvertencia(
-                            Properties.Resources.ETIQUETA_REGISTRO_MENSAJECORREONODISPONIBLE,
-                            Properties.Resources.ETIQUETA_REGISTRO_CORREONODISPONIBLE);
+                            Properties.Resources.
+                            ETIQUETA_REGISTROJUGADOR_MENSAJECORREONODISPONIBLE,
+                            Properties.Resources.ETIQUETA_REGISTROJUGADOR_CORREONODISPONIBLE);
                     }
                 }
             }

@@ -23,6 +23,8 @@ namespace RompecabezasFei
 
         private bool hayPartidaEnCurso;
 
+        private bool hayPartidaFinalizada;
+
         private bool esAnfitrion;
 
         private string codigoSala;
@@ -70,12 +72,13 @@ namespace RompecabezasFei
             this.esAnfitrion = esAnfitrion;
             this.codigoSala = codigoSala;
             hayPartidaEnCurso = false;
+            hayPartidaFinalizada = false;
             HayConexionConPartida = false;
             servicioPartida = new ServicioPartida(this);
 
             if (esAnfitrion)
             {
-                MostrarFuncionesDeAnfitrionEnPartida();
+                HabilitarFuncionesDeAnfitrionEnPartida();
             }
         }
 
@@ -89,13 +92,15 @@ namespace RompecabezasFei
             {
                 if (hayPartidaCreada)
                 {
-                    UnirseAPartida(Dominio.CuentaJugador.Actual.NombreJugador);                        
+                    UnirseAPartida(Dominio.CuentaJugador.Actual.NombreJugador);
                 }
                 else
                 {
                     GestorCuadroDialogo.MostrarAdvertencia(
-                        "La partida no pudo ser creada correctamente",
-                        "Error de creación de partida");
+                        Properties.Resources.
+                        ETIQUETA_CREACIONPARTIDA_MENSAJEERRORCREACIONPARTIDA,
+                        Properties.Resources.
+                        ETIQUETA_CREACIONPARTIDA_ERRORCREACIONPARTIDA);
                     servicioPartida.CerrarConexion();
                 }
             }
@@ -115,7 +120,7 @@ namespace RompecabezasFei
         public void CargarJugadoresEnPartida()
         {
             var jugadoresEnPartida = servicioPartida.
-                ObtenerJugadoresEnPartida(codigoSala);
+                ObtenerJugadoresConPresenciaSinConfirmarEnPartida(codigoSala);
 
             if (servicioPartida.EstadoOperacion == EstadoOperacion.Correcto)
             {
@@ -565,9 +570,28 @@ namespace RompecabezasFei
             }
         }
 
-        public void MostrarResultadosDePartida()
+        public void MostrarResultadosDePartida(string nombreJugadorGanador)
         {
-            // Mostrar panel de resultados
+            hayPartidaEnCurso = false;
+            hayPartidaFinalizada = true;
+            panelFondoPartida.Visibility = Visibility.Visible;
+            panelResultadosPartida.Visibility = Visibility.Visible;
+            
+            if (!string.IsNullOrEmpty(nombreJugadorGanador))
+            {
+                etiquetaAJustesPartida.Content = nombreJugadorGanador + " " +
+                    Properties.Resources.ETIQUETA_RESULTADOS_MENSAJEGANADOR;
+            }
+            else
+            {
+                etiquetaAJustesPartida.Content = Properties.Resources.
+                    ETIQUETA_RESULTADOSPARTIDA_MENSAJEEMPATE;
+            }
+
+            if (esAnfitrion)
+            {
+                botonRegresarASala.Visibility = Visibility.Visible;
+            }
         }
 
         public void MostrarDesconexionDeJugadorEnPartida(string nombreJugadorDesconexion)
@@ -582,62 +606,66 @@ namespace RompecabezasFei
             }
         }
 
-        public void ConvertirJugadorEnAnfitrionDesdePartida(string nombreJugador)
-        {
-            servicioPartida.ConvertirJugadorEnAnfitrionDesdePartida(
-                nombreJugador, codigoSala);
-            
-            if (servicioPartida.EstadoOperacion == EstadoOperacion.Correcto)
-            {
-                OcultarFuncionesDeAnfitrionEnPartida();
-            }
-        }
-
         public void MostrarMensajePartidaCancelada()
         {
-            GestorControlesVentana.DeshabilitarControlesDeVentana();
+            hayPartidaEnCurso = false;
+            hayPartidaFinalizada = true;
+            GestorPanelBloqueoVentana.MostrarPanelBloqueo();
             servicioPartida.CerrarConexion();
             GestorCuadroDialogo.MostrarAdvertencia(
-                "Se ha cancelado la partida, por lo que serás redirigido al menú principal",
-                "Partida cancelada");
+                Properties.Resources.ETIQUETA_PARTIDA_MENSAJEPARTIDACANCELADA,
+                Properties.Resources.ETIQUETA_PARTIDA_PARTIDACANCELADA);
 
             if (VentanaPrincipal.ServicioJugador.
                 EstadoOperacion == EstadoOperacion.Correcto)
             {
-                GestorControlesVentana.HabilitarControlesDeVentana();
+                GestorPanelBloqueoVentana.OcultarPanelBloqueo();
                 IrPaginaMenuPrincipal();
             }
         }
 
         public void MostrarMensajeExpulsionDePartida()
         {
-            GestorControlesVentana.DeshabilitarControlesDeVentana();
+            hayPartidaEnCurso = false;
+            hayPartidaFinalizada = true;
+            GestorPanelBloqueoVentana.MostrarPanelBloqueo();
             servicioPartida.CerrarConexion();
             GestorCuadroDialogo.MostrarAdvertencia(
-                "El anfitrión te ha expulsado de la partida",
-                "Expulsión de partida");
+                Properties.Resources.ETIQUETA_PARTIDA_MENSAJEEXPULSIONDEPARTIDA,
+                Properties.Resources.ETIQUETA_PARTIDA_EXPULSIONDEPARTIDA);
             
             if (VentanaPrincipal.ServicioJugador.
                 EstadoOperacion == EstadoOperacion.Correcto)
             {
-                GestorControlesVentana.HabilitarControlesDeVentana();
+                GestorPanelBloqueoVentana.OcultarPanelBloqueo();
                 IrPaginaMenuPrincipal();
             }
         }
 
-        public void MostrarFuncionesDeAnfitrionEnPartida()
+        public void HabilitarFuncionesDeAnfitrionEnPartida()
         {
-            if (!hayPartidaEnCurso)
-            {
-                botonIniciarPartida.Visibility = Visibility.Visible;
-            }
+            esAnfitrion = true;
 
-            imagenAjustesPartida.Visibility = Visibility.Visible;
-            etiquetaAJustesPartida.Visibility = Visibility.Visible;
+            if (!hayPartidaFinalizada)
+            {
+                if (!hayPartidaEnCurso)
+                {
+                    botonIniciarPartida.Visibility = Visibility.Visible;
+                }
+
+                imagenAjustesPartida.Visibility = Visibility.Visible;
+                etiquetaAJustesPartida.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                botonRegresarASala.Visibility = Visibility.Visible;
+            }
         }
 
-        public void OcultarFuncionesDeAnfitrionEnPartida()
+        public void DeshabilitarFuncionesDeAnfitrionEnPartida()
         {
+            esAnfitrion = false;
+            
             if (!hayPartidaEnCurso)
             {
                 botonIniciarPartida.Visibility = Visibility.Hidden;
@@ -648,25 +676,83 @@ namespace RompecabezasFei
 
             if (panelAjustesPartida.IsVisible)
             {
+                panelFondoPartida.Visibility = Visibility.Hidden;
                 panelAjustesPartida.Visibility = Visibility.Hidden;
             }
         }
 
         public void HabilitarOpcionDeRegresoASala()
         {
-            // habilitar el botón de regreso a la sala
+            if (!hayPartidaEnCurso && panelResultadosPartida.IsVisible)
+            {
+                botonRegresarASala.Visibility = Visibility.Visible;
+            }
         }
 
-        private void MostrarAjustesPartida(object objetoOrigen, 
+        private void MostrarPanelAjustesPartida(object objetoOrigen, 
             MouseButtonEventArgs evento)
-        {            
+        {
+            panelFondoPartida.Visibility = Visibility.Visible;
             panelAjustesPartida.Visibility = Visibility.Visible;
         }
 
         private void CerrarPanelAjustesPartida(object objetoOrigen, 
             MouseButtonEventArgs evento)
         {
+            panelFondoPartida.Visibility = Visibility.Hidden;
             panelAjustesPartida.Visibility = Visibility.Hidden;
+        }
+
+        private void IrAMenuPrincipal(object objetoOrigen, RoutedEventArgs evento)
+        {
+            AbandonarPartida(objetoOrigen, evento);
+        }
+
+        private void IrAPaginaSala(object objetoOrigen, RoutedEventArgs evento)
+        {
+            PaginaSala paginaSala = new PaginaSala(esAnfitrion, codigoSala);
+
+            if (paginaSala.HayConexionConSala)
+            {
+                VentanaPrincipal.CambiarPagina(paginaSala);
+            }
+        }
+
+        private void SeleccionarNuevoAnfitrion(object objetoOrigen, 
+            RoutedEventArgs evento)
+        {
+            var filaActual = (ListBoxItem)listaJugadoresPanelAjustes.
+                ContainerFromElement((Button)objetoOrigen);
+            filaActual.IsSelected = true;
+            var jugadorSeleccionado = (Dominio.CuentaJugador)
+                listaJugadoresPanelAjustes.SelectedItem;
+
+            servicioPartida.ConvertirJugadorEnAnfitrionDesdePartida(
+                jugadorSeleccionado.NombreJugador, codigoSala);
+
+            if (servicioPartida.EstadoOperacion == EstadoOperacion.Correcto)
+            {
+                DeshabilitarFuncionesDeAnfitrionEnPartida();
+            }
+        }
+
+        private void SeleccionarJugadorAExpulsar(object objetoOrigen, 
+            RoutedEventArgs evento)
+        {
+            var filaActual = (ListBoxItem)listaJugadoresPanelAjustes.
+                ContainerFromElement((Button)objetoOrigen);
+            filaActual.IsSelected = true;
+            var jugadorSeleccionado = (Dominio.CuentaJugador)
+                listaJugadoresPanelAjustes.SelectedItem;
+
+            servicioPartida.ExpulsarJugadorEnPartida(
+                jugadorSeleccionado.NombreJugador, codigoSala);
+        }
+
+        private void CancelarPartida(object objetoOrigen, 
+            RoutedEventArgs evento)
+        {
+            servicioPartida.CancelarPartida(codigoSala);
         }
     }
 }

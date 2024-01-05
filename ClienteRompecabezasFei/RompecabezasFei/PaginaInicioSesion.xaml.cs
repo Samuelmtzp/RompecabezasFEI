@@ -176,8 +176,10 @@ namespace RompecabezasFei
                     if (!existeNombre)
                     {
                         GestorCuadroDialogo.MostrarAdvertencia(
-                            "El nombre de jugador ingresado no existe",
-                            "No se pudo iniciar sesión");
+                            Properties.Resources.
+                            ETIQUETA_INICIOSESION_MENSAJENOMBRENOENCONTRADO,
+                            Properties.Resources.
+                            ETIQUETA_INICIOSESION_MENSAJEINICIOSESIONERROR);
                         hayCamposInvalidos = true;
                         VentanaPrincipal.ServicioJugador.CerrarConexion();
                     }
@@ -198,8 +200,10 @@ namespace RompecabezasFei
                             !esMismaContrasena)
                         {
                             GestorCuadroDialogo.MostrarAdvertencia(
-                                "La contraseña no coincide",
-                                "Contraseña incorrecta");
+                                Properties.Resources.
+                                ETIQUETA_INICIOSESION_CONTRASENAINCORRECTA,
+                                Properties.Resources.
+                                ETIQUETA_INICIOSESION_MENSAJEINICIOSESIONERROR);
                             hayCamposInvalidos = true;
                             VentanaPrincipal.ServicioJugador.CerrarConexion();
                         }

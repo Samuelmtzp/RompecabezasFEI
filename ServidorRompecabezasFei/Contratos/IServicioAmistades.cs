@@ -30,7 +30,7 @@ namespace Contratos
         bool ExisteAmistadConJugador(string nombreJugadorA, string nombreJugadorB);
 
         [OperationContract]
-        bool EliminarAmistadEntreJugadores(string nombreJugadorA, string nombreJugadorB);
+        bool EliminarAmistad(string nombreJugadorA, string nombreJugadorB);
 
         [OperationContract(IsOneWay = true)]
         void ActivarNotificacionesDeAmistades(string nombreJugador);
@@ -46,10 +46,10 @@ namespace Contratos
         void MostrarSolicitudDeAmistadRecibida(CuentaJugador cuentaNuevaSolicitud);
 
         [OperationContract(IsOneWay = true)]
-        void MostrarNuevoAmigo(CuentaJugador cuentaNuevoAmigo);
+        void AgregarAmigoAListaDeAmigos(CuentaJugador cuentaNuevoAmigo);
 
         [OperationContract(IsOneWay = true)]
-        void RemoverAmigoConAmistadCancelada(string nombreJugador);
+        void RemoverAmigoDeListaDeAmigos(string nombreJugador);
 
         [OperationContract(IsOneWay = true)]
         void ActualizarEstadoDeJugador(string nombreJugador,

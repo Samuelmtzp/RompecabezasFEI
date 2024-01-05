@@ -181,6 +181,7 @@
             </TabControl>
         </Grid>
         <Image Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="42,36,1157,280" Height="81" Width="81" MouseDown="IrAPaginaMenuPrincipal"/>
+        <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_REGRESAR}" Margin="20,116,1135,560" HorizontalContentAlignment="Center" Visibility="Visible" FontSize="20" Foreground="White" MouseDown="IrAPaginaMenuPrincipal"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_AMIGOS}" HorizontalAlignment="Center" Margin="0,26,0,0" VerticalAlignment="Top" Foreground="White" FontSize="48" FontWeight="Bold"/>
     </Grid>
 </Page>

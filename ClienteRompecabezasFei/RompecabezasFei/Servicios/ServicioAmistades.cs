@@ -410,7 +410,7 @@ namespace RompecabezasFei.Servicios
             return existeSolicitudAmistad;
         }
         
-        public bool EliminarAmistadEntreJugadores(string nombreJugadorA, 
+        public bool EliminarAmistad(string nombreJugadorA, 
             string nombreJugadorB)
         {
             bool operacionRealizada = false;
@@ -418,7 +418,7 @@ namespace RompecabezasFei.Servicios
             try
             {
                 operacionRealizada = clienteServicioAmistades.
-                    EliminarAmistadEntreJugadores(nombreJugadorA, nombreJugadorB);
+                    EliminarAmistad(nombreJugadorA, nombreJugadorB);
                 EstadoOperacion = EstadoOperacion.Correcto;
             }
             catch (EndpointNotFoundException excepcion)

@@ -153,7 +153,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ResourceSonidos.resx</DependentUpon>
     </Compile>
-    <Compile Include="Utilidades\GestorControlesVentana.cs" />
+    <Compile Include="Utilidades\GestorPanelBloqueoVentana.cs" />
     <Compile Include="Utilidades\GestorCuadroDialogo.cs" />
     <Compile Include="Utilidades\GeneradorImagenes.cs" />
     <Compile Include="Utilidades\Temporizador.cs" />
@@ -289,7 +289,7 @@
     <Resource Include="Imagenes\Indicadores\CrearSala.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\Indicadores\CerrarSesion.png" />
+    <Resource Include="Imagenes\Indicadores\Cerrar.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\Indicadores\Amigos.png" />

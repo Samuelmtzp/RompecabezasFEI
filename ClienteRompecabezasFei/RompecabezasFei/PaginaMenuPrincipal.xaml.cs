@@ -9,7 +9,7 @@ namespace RompecabezasFei
 {
     public partial class PaginaMenuPrincipal : Page, IServicioInvitacionesCallback
     {
-        private ServicioInvitaciones servicioInvitaciones;
+        private readonly ServicioInvitaciones servicioInvitaciones;
 
         public PaginaMenuPrincipal()
         {
@@ -33,10 +33,11 @@ namespace RompecabezasFei
                 Dominio.CuentaJugador.Actual.NombreJugador);
         }
 
-        private void DesactivarInvitacionesDeSala(EstadoJugador nuevoEstado)
+        private void DesactivarInvitacionesDeSala()
         {
             servicioInvitaciones.DesactivarInvitacionesDeSala(
-                Dominio.CuentaJugador.Actual.NombreJugador, nuevoEstado);
+                Dominio.CuentaJugador.Actual.NombreJugador);
+            servicioInvitaciones.CerrarConexion();
         }
 
         private void MostrarOpcionesJugadorRegistrado()
@@ -50,6 +51,7 @@ namespace RompecabezasFei
 
         private void CrearNuevaSala(object objetoOrigen, RoutedEventArgs evento)
         {
+            DesactivarInvitacionesDeSala();
             PaginaSala paginaSala = new PaginaSala(true, null);
 
             if (paginaSala.HayConexionConSala)
@@ -60,12 +62,13 @@ namespace RompecabezasFei
 
         private void IrAPaginaUnirseSala(object objetoOrigen, RoutedEventArgs evento)
         {
-            DesactivarInvitacionesDeSala(EstadoJugador.Conectado);
+            DesactivarInvitacionesDeSala();
             VentanaPrincipal.CambiarPagina(new PaginaUnirseSala());
         }
 
         private void IrAPaginaAmistades(object objetoOrigen, MouseButtonEventArgs evento)
-        {            
+        {
+            DesactivarInvitacionesDeSala();
             VentanaPrincipal.CambiarPagina(new PaginaAmistades(true));
         }
 
@@ -78,23 +81,19 @@ namespace RompecabezasFei
 
             if (opcionSeleccionada == MessageBoxResult.Yes)
             {
-                // No es necesario cerrar sesión explícitamente,
-                // el servidor desconecta al jugador si pasa al estado desconectado
-                DesactivarInvitacionesDeSala(EstadoJugador.Desconectado);
-                Dominio.CuentaJugador.Actual = null;
-                VentanaPrincipal.CambiarPagina(new PaginaInicioSesion());
+                VentanaPrincipal.CerrarSesion();
             }
         }
 
         private void IrAPaginaInformacionJugador(object objetoOrigen, MouseButtonEventArgs evento)
         {
-            DesactivarInvitacionesDeSala(EstadoJugador.Conectado);
+            DesactivarInvitacionesDeSala();
             VentanaPrincipal.CambiarPagina(new PaginaInformacionJugador());
         }
 
         private void IrAPaginaAjustes(object objetoOrigen, MouseButtonEventArgs evento)
         {
-            DesactivarInvitacionesDeSala(EstadoJugador.Conectado);
+            DesactivarInvitacionesDeSala();
             VentanaPrincipal.CambiarPaginaGuardandoAnterior(new PaginaAjustes());
         }
 

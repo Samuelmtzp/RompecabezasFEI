@@ -29,10 +29,6 @@ namespace RompecabezasFei
 
         private void ConfigurarDatosIniciales()
         {
-            listaAmigos.DataContext = this;
-            listaSolicitudes.DataContext = this;
-            CuentasDeAmigos = new ObservableCollection<Dominio.CuentaJugador>();
-            CuentasDeSolicitudes = new ObservableCollection<Dominio.CuentaJugador>();                        
             servicioAmistades = new ServicioAmistades(this);
 
             if (servicioAmistades.EstadoOperacion == EstadoOperacion.Correcto)
@@ -43,6 +39,8 @@ namespace RompecabezasFei
 
         private void CargarAmigosJugador()
         {
+            CuentasDeAmigos = new ObservableCollection<Dominio.CuentaJugador>();
+            listaAmigos.DataContext = this;
             var amigosDeJugador = servicioAmistades.ObtenerAmigosDeJugador(
                 Dominio.CuentaJugador.Actual.NombreJugador);
 
@@ -68,6 +66,8 @@ namespace RompecabezasFei
 
         private void CargarJugadoresConSolicitudPendiente()
         {
+            CuentasDeSolicitudes = new ObservableCollection<Dominio.CuentaJugador>();
+            listaSolicitudes.DataContext = this;
             var jugadoresObtenidos = servicioAmistades.
                 ObtenerJugadoresConSolicitudPendiente(
                 Dominio.CuentaJugador.Actual.NombreJugador);
@@ -96,13 +96,6 @@ namespace RompecabezasFei
         {
             servicioAmistades.ActivarNotificaciones(
                 Dominio.CuentaJugador.Actual.NombreJugador);
-        }
-
-        private void DesactivarNotificaciones()
-        {
-            servicioAmistades.DesactivarNotificaciones(
-                Dominio.CuentaJugador.Actual.NombreJugador);
-            servicioAmistades.CerrarConexion();
         }
 
         private SolidColorBrush ObtenerColorDeEstadoJugador(EstadoJugador estado)
@@ -151,8 +144,9 @@ namespace RompecabezasFei
                 EstadoOperacion == EstadoOperacion.Correcto && !existeNombreJugador)
             {
                 GestorCuadroDialogo.MostrarAdvertencia(
-                    "El nombre de jugador al que deseas enviar una solicitud de amistad no existe", 
-                    "Solicitud no enviada");
+                            Properties.Resources.
+                            ETIQUETA_INICIOSESION_MENSAJENOMBRENOENCONTRADO,
+                            Properties.Resources.ETIQUETA_AMISTADES_SOLICITUDNOENVIADA);
             }
 
             return existeNombreJugador;
@@ -196,6 +190,7 @@ namespace RompecabezasFei
 
         private void IrAPaginaMenuPrincipal(object objetoOrigen, MouseButtonEventArgs evento)
         {            
+            servicioAmistades.CerrarConexion();
             VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
         }
 
@@ -235,7 +230,7 @@ namespace RompecabezasFei
             filaActual.IsSelected = true;
             var jugadorSeleccionado = (Dominio.CuentaJugador)listaAmigos.SelectedItem;
             bool eliminacionRealizada = servicioAmistades.
-                EliminarAmistadEntreJugadores(Dominio.CuentaJugador.
+                EliminarAmistad(Dominio.CuentaJugador.
                 Actual.NombreJugador, jugadorSeleccionado.NombreJugador);
             
             if (servicioAmistades.EstadoOperacion == EstadoOperacion.Correcto)
@@ -309,7 +304,7 @@ namespace RompecabezasFei
                         Properties.Resources.ETIQUETA_AMISTADES_ERRORRECHAZARSOLICITUD);
                 }
             }
-        }        
+        }
 
         public void ActualizarEstadoDeJugador(string nombreJugador,
             EstadoJugador estado)
@@ -340,7 +335,7 @@ namespace RompecabezasFei
             });
         }
 
-        public void MostrarNuevoAmigo(CuentaJugador cuentaNuevoAmigo)
+        public void AgregarAmigoAListaDeAmigos(CuentaJugador cuentaNuevoAmigo)
         {
             var solicitudAmistadResidual = CuentasDeSolicitudes.FirstOrDefault(
                 cuentaSolicitud => cuentaSolicitud.NombreJugador ==
@@ -362,7 +357,7 @@ namespace RompecabezasFei
             });
         }
 
-        public void RemoverAmigoConAmistadCancelada(string nombreJugador)
+        public void RemoverAmigoDeListaDeAmigos(string nombreJugador)
         {
             var cuentaAmigoEliminacion = CuentasDeAmigos.
                 FirstOrDefault(amigo => amigo.NombreJugador == nombreJugador);

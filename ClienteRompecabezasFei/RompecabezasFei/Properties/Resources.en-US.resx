@@ -246,6 +246,9 @@
   <data name="ETIQUETA_ACTUALIZACIONCONTRASENA_CONTRASENAACTUAL" xml:space="preserve">
     <value>Current password</value>
   </data>
+  <data name="ETIQUETA_ACTUALIZACIONCONTRASENA_MENSAJECONTRASENAACTUALERROR" xml:space="preserve">
+    <value>Current password field is incorrect</value>
+  </data>
   <data name="ETIQUETA_ACTUALIZACIONINFORMACION_ACTUALIZACIONINFORMACION" xml:space="preserve">
     <value>Update information</value>
   </data>
@@ -393,6 +396,21 @@
   <data name="ETIQUETA_CONVERTIRANFITRION_TITULO" xml:space="preserve">
     <value>Confirmation of converting player to host</value>
   </data>
+  <data name="ETIQUETA_CREACIONNUEVAPARTIDA_CREARPARTIDA" xml:space="preserve">
+    <value>Create game</value>
+  </data>
+  <data name="ETIQUETA_CREACIONNUEVAPARTIDA_NUEVAPARTIDA" xml:space="preserve">
+    <value>New game</value>
+  </data>
+  <data name="ETIQUETA_CREACIONNUEVAPARTIDA_SELECCIONIMAGEN" xml:space="preserve">
+    <value>Select an image</value>
+  </data>
+  <data name="ETIQUETA_CREACIONPARTIDA_ERRORCREACIONPARTIDA" xml:space="preserve">
+    <value>Game creation error</value>
+  </data>
+  <data name="ETIQUETA_CREACIONPARTIDA_MENSAJEERRORCREACIONPARTIDA" xml:space="preserve">
+    <value>The game could not be created correctly</value>
+  </data>
   <data name="ETIQUETA_ELIMINACIONAMIGO_MENSAJE" xml:space="preserve">
     <value>Are you sure you want to remove the player from your friends list?</value>
   </data>
@@ -489,6 +507,9 @@
   <data name="ETIQUETA_GENERAL_NUEVACONTRASENA" xml:space="preserve">
     <value>New password</value>
   </data>
+  <data name="ETIQUETA_GENERAL_REGRESAR" xml:space="preserve">
+    <value>Go back</value>
+  </data>
   <data name="ETIQUETA_GENERAL_REQUISITOSCONTRASENA" xml:space="preserve">
     <value>The password must be at least 8 characters, including uppercase and lowercase letters and numbers.</value>
   </data>
@@ -524,6 +545,9 @@
   </data>
   <data name="ETIQUETA_INICIOSESION_MENSAJEINICIOSESIONERROR" xml:space="preserve">
     <value>Failed to log in</value>
+  </data>
+  <data name="ETIQUETA_INICIOSESION_MENSAJENOMBRENOENCONTRADO" xml:space="preserve">
+    <value>The player's name does not exist.</value>
   </data>
   <data name="ETIQUETA_INICIOSESION_RECUPERACIONCONTRASENA" xml:space="preserve">
     <value>Did you forget your password?</value>
@@ -609,8 +633,20 @@
   <data name="ETIQUETA_PARTIDAENCURSO_TITULO" xml:space="preserve">
     <value>Game in progress</value>
   </data>
+  <data name="ETIQUETA_PARTIDA_EXPULSIONDEPARTIDA" xml:space="preserve">
+    <value>You have been expelled</value>
+  </data>
   <data name="ETIQUETA_PARTIDA_JUEGOFINALIZADO" xml:space="preserve">
     <value>Game over</value>
+  </data>
+  <data name="ETIQUETA_PARTIDA_MENSAJEEXPULSIONDEPARTIDA" xml:space="preserve">
+    <value>The host has expelled you from the game</value>
+  </data>
+  <data name="ETIQUETA_PARTIDA_MENSAJEPARTIDACANCELADA" xml:space="preserve">
+    <value>The game has been cancelled, so you will be redirected to the main menu</value>
+  </data>
+  <data name="ETIQUETA_PARTIDA_PARTIDACANCELADA" xml:space="preserve">
+    <value>Canceled game</value>
   </data>
   <data name="ETIQUETA_PARTIDA_PUNTAJE" xml:space="preserve">
     <value>Score</value>
@@ -638,6 +674,18 @@
   </data>
   <data name="ETIQUETA_RECUPERACION_RECUPERACIONCONTRASENA" xml:space="preserve">
     <value>Password recovery</value>
+  </data>
+  <data name="ETIQUETA_REGISTROJUGADOR_CORREONODISPONIBLE" xml:space="preserve">
+    <value>Email not available</value>
+  </data>
+  <data name="ETIQUETA_REGISTROJUGADOR_MENSAJECORREONODISPONIBLE" xml:space="preserve">
+    <value>The email you want to register is already registered</value>
+  </data>
+  <data name="ETIQUETA_REGISTROJUGADOR_MENSAJENOMBRENODISPONIBLE" xml:space="preserve">
+    <value>The name of the player you want to register is already registered</value>
+  </data>
+  <data name="ETIQUETA_REGISTROJUGADOR_NOMBRENODISPONIBLE" xml:space="preserve">
+    <value>Name not available</value>
   </data>
   <data name="ETIQUETA_REGISTROREALIZADO_MENSAJE" xml:space="preserve">
     <value>Registration has been completed successfully. You can now log in to your account.</value>
@@ -680,6 +728,9 @@
   </data>
   <data name="ETIQUETA_RESTABLECIMIENTO_RESTABLECIMIENTOCONTRASENA" xml:space="preserve">
     <value>Restore password</value>
+  </data>
+  <data name="ETIQUETA_RESULTADOSPARTIDA_MENSAJEEMPATE" xml:space="preserve">
+    <value>A tie has occurred</value>
   </data>
   <data name="ETIQUETA_RESULTADOS_MENSAJEGANADOR" xml:space="preserve">
     <value>has won the game</value>

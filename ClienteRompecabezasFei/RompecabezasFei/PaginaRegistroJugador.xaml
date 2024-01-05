@@ -10,6 +10,7 @@
 
     <Grid>
         <Image Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="30,30,1145,598" Height="81" Width="81" MouseDown="IrAPaginaInicioSesion"/>
+        <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_REGRESAR}" Margin="20,116,1135,560" HorizontalContentAlignment="Center" Visibility="Visible" FontSize="20" Foreground="White" MouseDown="IrAPaginaInicioSesion"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_REGISTRO_REGISTROJUGADOR}" HorizontalAlignment="Center" Margin="0,26,0,0" VerticalAlignment="Top" Foreground="White" FontSize="48" FontWeight="Bold"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_NOMBREJUGADOR}" HorizontalAlignment="Left" Margin="77,320,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32"/>
         <TextBox Name="cuadroTextoNombreJugador" HorizontalAlignment="Left" Margin="77,373,0,0" TextWrapping="Wrap" MaxLength="15" VerticalAlignment="Top" Width="508" Height="42" FontSize="24"/>

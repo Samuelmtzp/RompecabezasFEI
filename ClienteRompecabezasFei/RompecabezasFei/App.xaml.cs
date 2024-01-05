@@ -7,6 +7,10 @@ namespace RompecabezasFei
 {
     public partial class App : Application
     {
+        public const string RepresentacionIdiomaEspanol = "es-MX";
+
+        public const string RepresentacionIdiomaIngles = "en-US";
+        
         private readonly List<string> idiomasDisponibles;
 
         private string idiomaActual;
@@ -36,8 +40,8 @@ namespace RompecabezasFei
             const int NumeroIdiomaInicial = 0;
             idiomasDisponibles = new List<string>()
             {
-                "es-MX",
-                "en-US"
+                RepresentacionIdiomaEspanol,
+                RepresentacionIdiomaIngles,
             };
             IdiomaActual = idiomasDisponibles[NumeroIdiomaInicial];
         }

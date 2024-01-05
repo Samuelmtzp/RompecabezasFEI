@@ -4,23 +4,24 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RompecabezasFei"
-      xmlns:p="clr-namespace:RompecabezasFei.Properties"
+      xmlns:p="clr-namespace:RompecabezasFei.Properties" xmlns:serviciorompecabezasfei="clr-namespace:RompecabezasFei.ServicioRompecabezasFei" d:DataContext="{d:DesignInstance Type=serviciorompecabezasfei:CuentaJugador}"
       mc:Ignorable="d"
       d:DesignHeight="720" d:DesignWidth="1280">
     <Grid>
         <Image Source="/Imagenes/Indicadores/Regresar.png" Stretch="Fill" Margin="30,30,1145,598" Height="81" Width="81" MouseDown="IrAPaginaMenuPrincipal"/>
-        <Image Name="imagenModificarJugador" Source="/Imagenes/Indicadores/ModificarJugadores.png" Stretch="Fill" Margin="70,520,1116,106" Height="94" Width="94" MouseDown="MostrarPanelModificarJugadoresEnSala" Visibility="Hidden"/>
-        <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_CODIGOSALA}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="240,511,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36" FontWeight="Bold"/>
+        <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_REGRESAR}" Margin="20,116,1135,560" HorizontalContentAlignment="Center" Visibility="Visible" FontSize="20" Foreground="White" MouseDown="IrAPaginaMenuPrincipal"/>
+        <Image Name="imagenModificarJugador" Source="/Imagenes/Indicadores/ModificarJugadores.png" Stretch="Fill" Margin="759,521,427,105" Height="94" Width="94" MouseDown="MostrarPanelModificarJugadoresEnSala" Visibility="Hidden"/>
+        <Label Name="etiquetaModificarJugador" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="699,624,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20" FontWeight="Bold" Width="215" Height="37" Content="{x:Static p:Resources.ETIQUETA_SALA_MODIFICARJUGADORES}" MouseDown="MostrarPanelModificarJugadoresEnSala" Visibility="Hidden"/>
+        <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_CODIGOSALA}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="42,513,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36" FontWeight="Bold"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_JUGADORES}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="212,109,0,0" VerticalAlignment="Top" Foreground="White" FontSize="40" FontWeight="Bold"/>
-        <RichTextBox Name="cuadroTextoMensajes" HorizontalAlignment="Left" Margin="569,88,0,0" VerticalAlignment="Top" Width="667" Height="372" FontSize="18" IsReadOnly="True" Background="#FF4A4A4A" Foreground="White" VerticalScrollBarVisibility="Visible" />
-        <TextBox Name="cuadroTextoMensajeUsuario" HorizontalAlignment="Left" Margin="569,460,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="538" Height="33" FontSize="18" MaxLength="100"/>
+        <RichTextBox Name="cuadroTextoChatDeSala" HorizontalAlignment="Left" Margin="569,88,0,0" VerticalAlignment="Top" Width="667" Height="372" FontSize="18" IsReadOnly="True" Background="#FF4A4A4A" Foreground="White" VerticalScrollBarVisibility="Visible" />
+        <TextBox Name="cuadroTextoMensaje" HorizontalAlignment="Left" Margin="569,460,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="538" Height="33" FontSize="18" MaxLength="100"/>
         <Button Content="{x:Static p:Resources.BOTON_SALA_ENVIARMENSAJE}" HorizontalAlignment="Left" Margin="1107,460,0,0" VerticalAlignment="Top" Height="33" Width="129" Background="#FF048ABF" Foreground="White" FontSize="18" FontWeight="Bold" Click="EnviarMensajeEnChatDeSala"/>
         <Label Content="{x:Static p:Resources.ETIQUETA_SALA_MENSAJES}" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="760,20,0,0" VerticalAlignment="Top" Foreground="White" FontSize="40" FontWeight="Bold" Width="284"/>
-        <Label Name="etiquetaCodigoSala" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="240,574,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20" FontWeight="Bold" Width="658" Height="43"/>
+        <Label Name="etiquetaCodigoSala" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="42,576,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20" FontWeight="Bold" Width="658" Height="43"/>
         <Button Name="botonNuevaPartida" Content="Nueva partida" HorizontalAlignment="Left" Margin="931,579,0,0" VerticalAlignment="Top" Height="72" Width="305" FontSize="36" Background="#FF03A64A" Foreground="White" FontWeight="Bold" Click="IrAPaginaCreacionNuevaPartida" Visibility="Hidden">
         </Button>
-        <Button Content="{x:Static p:Resources.ETIQUETA_SALA_COPIAR}" HorizontalAlignment="Left" Margin="240,617,0,0" VerticalAlignment="Top" Height="34" Width="128" Background="#FF048ABF" Foreground="White" FontSize="18" FontWeight="Bold" Click="CopiarCodigoDeSalaEnPortapapeles"/>
-        <Label Name="etiquetaModificarJugador"  HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="20,624,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20" FontWeight="Bold" Width="215" Height="37" Content="{x:Static p:Resources.ETIQUETA_SALA_MODIFICARJUGADORES}" MouseDown="MostrarPanelModificarJugadoresEnSala" Visibility="Hidden"/>
+        <Button Content="{x:Static p:Resources.ETIQUETA_SALA_COPIAR}" HorizontalAlignment="Left" Margin="42,619,0,0" VerticalAlignment="Top" Height="34" Width="128" Background="#FF048ABF" Foreground="White" FontSize="18" FontWeight="Bold" Click="CopiarCodigoDeSalaEnPortapapeles"/>
 
         <Grid Width="495" Height="316" Margin="36,177,749,227">
             <ListView Name="listaJugadoresSala" VerticalAlignment="Top" Foreground="White" Background="#FF4A4A4A" ItemsSource="{Binding JugadoresEnSala}" HorizontalContentAlignment="Center" Width="495" Height="316" >
@@ -62,19 +63,21 @@
             </ListView>
         </Grid>
 
-        <Grid Margin="72,139,640,330" x:Name="panelModificacionJugador" Visibility="Hidden">
+        <Grid Background="Black" Opacity="0.8" Name="panelFondoModificacionJugador" Visibility="Hidden"/>
+
+        <Grid Margin="72,109,640,360" x:Name="panelModificacionJugador" Visibility="HIdden">
             <Grid Background="#3D3E3F">
                 <Grid.RenderTransform>
                     <ScaleTransform ScaleX="2" ScaleY="2"/>
                 </Grid.RenderTransform>
             </Grid>
-            <Image Source="Imagenes/Indicadores/CerrarSesion.png" Stretch="Fill" Margin="1091,7,-557,210" Panel.ZIndex="1" MouseDown="CerrarModificacionJugadores"/>
-            <Border BorderBrush="White" BorderThickness="3">
+            <Image Source="Imagenes/Indicadores/Cerrar.png" Stretch="Fill" Margin="1091,7,-557,210" Panel.ZIndex="1" MouseDown="CerrarModificacionJugadores"/>
+            <Border BorderBrush="Green" BorderThickness="3">
                 <Border.RenderTransform>
                     <ScaleTransform ScaleX="2" ScaleY="2"/>
                 </Border.RenderTransform>
                 <Grid>
-                    <TabControl Background="#FF4A4A4A" Foreground="White" Name="tabModificacionJugadorSala">
+                    <TabControl Background="#FF4A4A4A" Foreground="White" Name="pestanaModificacionJugadorSala">
                         <TabControl.Resources>
                             <Style TargetType="{x:Type TabItem}">
                                 <Setter Property="Template">
@@ -101,14 +104,14 @@
                             </Style>
                         </TabControl.Resources>
 
-                        <TabItem Width="120" Foreground="White" x:Name="pestañaEnSala" Background="{x:Null}">
+                        <TabItem Width="120" Foreground="White" x:Name="pestanaEnSala" Background="{x:Null}">
                             <TabItem.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="{x:Static p:Resources.ETIQUETA_MODIFICACIONSALA_PESTAÑAENSALA}" FontWeight="Bold"/>
                                 </StackPanel>
                             </TabItem.Header>
                             <Grid>
-                                <ListView x:Name="listaJugadoresEnSala" VerticalAlignment="Stretch" Foreground="White" Background="#FF4A4A4A" ItemsSource="{Binding JugadoresEnSalaPestana}" HorizontalContentAlignment="Center" SelectionMode="Single">
+                                <ListView x:Name="listaJugadoresSalaModificacion" VerticalAlignment="Stretch" Foreground="White" Background="#FF4A4A4A" ItemsSource="{Binding JugadoresEnSalaModificacion}" HorizontalContentAlignment="Center" SelectionMode="Single">
                                     <ListView.ItemContainerStyle>
                                         <Style TargetType="{x:Type ListViewItem}">
                                             <Style.Triggers>
@@ -146,8 +149,8 @@
                                                 <GridViewColumn.CellTemplate>
                                                     <DataTemplate>
                                                         <StackPanel Orientation="Horizontal">
-                                                            <Button Name="botonHacerAnfitrion" Content="{x:Static p:Resources.BOTON_SALA_HACERANFITRION}" Width="85" Height="20" Background="Green" Foreground="White" Margin="5"></Button>
-                                                            <Button Name="botonExpulsarJugador" Content="{x:Static p:Resources.BOTON_SALA_EXPULSAR}" Width="85" Height="20" Background="Red" Foreground="White" Margin="5"></Button>
+                                                            <Button Name="botonHacerAnfitrion" Content="{x:Static p:Resources.BOTON_SALA_HACERANFITRION}" Width="85" Height="20" Background="Green" Foreground="White" Margin="5" Click="SeleccionarNuevoAnfitrionEnSala"></Button>
+                                                            <Button Name="botonExpulsarJugador" Content="{x:Static p:Resources.BOTON_SALA_EXPULSAR}" Width="85" Height="20" Background="Red" Foreground="White" Margin="5" Click="SeleccionarJugadorAExpulsar"></Button>
                                                         </StackPanel>
                                                     </DataTemplate>
                                                 </GridViewColumn.CellTemplate>
@@ -164,7 +167,7 @@
                                 </StackPanel>
                             </TabItem.Header>
                             <Grid>
-                                <ListView x:Name="listaAmigosDisponibles" VerticalAlignment="Top" Background="#FF4A4A4A" ItemsSource="{Binding CuentasDeAmigos}" HorizontalContentAlignment="Center" SelectionMode="Single">
+                                <ListView x:Name="listaAmigosDisponibles" VerticalAlignment="Center" Foreground="White" Background="#FF4A4A4A" ItemsSource="{Binding AmigosDisponibles}" HorizontalContentAlignment="Center" SelectionMode="Single" Height="217">
                                     <ListView.ItemContainerStyle>
                                         <Style TargetType="{x:Type ListViewItem}">
                                             <Style.Triggers>
@@ -184,30 +187,25 @@
                                                     <Setter Property="Visibility" Value="Collapsed" />
                                                 </Style>
                                             </GridView.ColumnHeaderContainerStyle>
-                                            <GridViewColumn Width="50" Header="Imagen">
+                                            <GridViewColumn Width="60" Header="Imagen">
                                                 <GridViewColumn.CellTemplate>
                                                     <DataTemplate>
                                                         <Image HorizontalAlignment="Center" Width="30" Height="30" Source="{Binding FuenteImagenAvatar}" />
                                                     </DataTemplate>
                                                 </GridViewColumn.CellTemplate>
                                             </GridViewColumn>
-                                            <GridViewColumn Width="310" Header="Nombre">
+                                            <GridViewColumn Width="350" Header="Nombre">
                                                 <GridViewColumn.CellTemplate>
                                                     <DataTemplate>
                                                         <TextBlock HorizontalAlignment="Center" Foreground="White" Text="{Binding NombreJugador}" />
                                                     </DataTemplate>
                                                 </GridViewColumn.CellTemplate>
                                             </GridViewColumn>
-                                            <GridViewColumn Width="95" Header="Opción aceptar">
+                                            <GridViewColumn Width="130" Header="Opción invitar">
                                                 <GridViewColumn.CellTemplate>
                                                     <DataTemplate>
-                                                        <Button Name="botonInvitar" Content="{x:Static p:Resources.BOTON_SALA_INVITAR}" Width="85" Height="20" Background="Green" Foreground="White"></Button>
+                                                        <Button Name="botonInvitar" Content="{x:Static p:Resources.BOTON_SALA_INVITAR}" Width="85" Height="20" Background="Green" Foreground="White" Click="SeleccionarJugadorAInvitar"></Button>
                                                     </DataTemplate>
-                                                </GridViewColumn.CellTemplate>
-                                            </GridViewColumn>
-                                            <GridViewColumn Width="95" Header="Opción rechazar" >
-                                                <GridViewColumn.CellTemplate>
-                                                    <DataTemplate/>
                                                 </GridViewColumn.CellTemplate>
                                             </GridViewColumn>
                                         </GridView>
