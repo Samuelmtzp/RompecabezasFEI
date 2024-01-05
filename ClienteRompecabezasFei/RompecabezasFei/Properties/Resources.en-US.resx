@@ -219,6 +219,9 @@
   <data name="BOTON_SALA_INVITAR" xml:space="preserve">
     <value>Invite</value>
   </data>
+  <data name="BOTON_SALA_NUEVAPARTIDA" xml:space="preserve">
+    <value>New game</value>
+  </data>
   <data name="BOTON_SALA_OPCIONESSALA" xml:space="preserve">
     <value>Room options</value>
   </data>
@@ -601,7 +604,7 @@
     <value>Invitation sent</value>
   </data>
   <data name="ETIQUETA_MODIFICACIONSALA_MENSAJECORREOINVITACIONASUNTO" xml:space="preserve">
-    <value>The room code is as follows:</value>
+    <value>The lobby code is as follows: </value>
   </data>
   <data name="ETIQUETA_MODIFICACIONSALA_MENSAJEINVITACIONENVIADA" xml:space="preserve">
     <value>The room invitation has been sent successfully</value>
@@ -670,7 +673,7 @@
     <value>Enter the code</value>
   </data>
   <data name="ETIQUETA_RECUPERACION_MENSAJE" xml:space="preserve">
-    <value>Your reset code is:</value>
+    <value>Your reset code is: </value>
   </data>
   <data name="ETIQUETA_RECUPERACION_RECUPERACIONCONTRASENA" xml:space="preserve">
     <value>Password recovery</value>
@@ -759,11 +762,11 @@
   <data name="ETIQUETA_SALA_MENSAJECODIGOSALANOENVIADO" xml:space="preserve">
     <value>Room code could not be sent</value>
   </data>
+  <data name="ETIQUETA_SALA_MENSAJECREACIONSALACANCELADA" xml:space="preserve">
+    <value>Lobby creation could not be performed</value>
+  </data>
   <data name="ETIQUETA_SALA_MENSAJEEXPULSION" xml:space="preserve">
     <value>The host has kicked you out of the lobby</value>
-  </data>
-  <data name="ETIQUETA_SALA_MENSAJEFALLACREACIONSALA" xml:space="preserve">
-    <value>Lobby creation could not be performed</value>
   </data>
   <data name="ETIQUETA_SALA_MENSAJES" xml:space="preserve">
     <value>Messages</value>

@@ -442,10 +442,6 @@ namespace Servicios
             {
                 MostrarEliminacionDeAmigoAJugador(nombreJugadorB, nombreJugadorA);
             }
-            catch (KeyNotFoundException excepcion)
-            {
-                Registros.Registrador.EscribirRegistro(excepcion);
-            }
 
             return operacionRealizada;
         }

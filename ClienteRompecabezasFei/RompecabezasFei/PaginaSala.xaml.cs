@@ -330,10 +330,12 @@ namespace RompecabezasFei
                     if (servicioCorreo.EstadoOperacion == EstadoOperacion.Correcto)
                     {
                         bool envioDeInvitacionRealizado = servicioCorreo.
-                            EnviarMensajeACorreoElectronico(correoDestino, Properties.Resources.
-                            ETIQUETA_MODIFICACIONSALA_CORREOINVITACIONASUNTO, 
+                            EnviarMensajeACorreoElectronico(Properties.Resources.
+                            ETIQUETA_GENERAL_ROMPECABEZASFEI, 
+                            correoDestino, Properties.Resources.
+                            ETIQUETA_MODIFICACIONSALA_CORREOINVITACIONASUNTO,
                             Properties.Resources.
-                            ETIQUETA_MODIFICACIONSALA_MENSAJECORREOINVITACIONASUNTO, CodigoSala);
+                            ETIQUETA_MODIFICACIONSALA_MENSAJECORREOINVITACIONASUNTO + CodigoSala);
 
                         if (!envioDeInvitacionRealizado)
                         {
@@ -399,7 +401,7 @@ namespace RompecabezasFei
 
                 if (esAnfitrion)
                 {
-                    JugadoresEnSalaModificacion.Remove(cuentaJugadorEncontrada);
+                    JugadoresEnSalaModificacion.Remove(cuentaJugadorEncontrada); //DEVOLVIO NULL CUANDO ANFITRION SELECCIONADO ABANDONO 
                 }
             }
         }
@@ -415,9 +417,8 @@ namespace RompecabezasFei
             servicioSala.CerrarConexion();
             VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
             GestorCuadroDialogo.MostrarAdvertencia(
-                Properties.Resources.ETIQUETA_SALA_MENSAJEEXPULSIONDESALA,
-                Properties.Resources.ETIQUETA_SALA_EXPULSIONDESALA);
-            VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());                    
+                Properties.Resources.ETIQUETA_SALA_MENSAJEEXPULSION,
+                Properties.Resources.ETIQUETA_SALA_EXPULSIONSALA);               
         }
 
         public void MostrarFuncionesDeAnfitrionEnSala()
@@ -435,9 +436,9 @@ namespace RompecabezasFei
 
         private void OcultarFuncionesDeAnfitrionEnSala()
         {
-            etiquetaModificarJugador.Visibility = Visibility.Visible;
-            imagenModificarJugador.Visibility = Visibility.Visible;
-            botonNuevaPartida.Visibility = Visibility.Visible;
+            etiquetaModificarJugador.Visibility = Visibility.Hidden;
+            imagenModificarJugador.Visibility = Visibility.Hidden;
+            botonNuevaPartida.Visibility = Visibility.Hidden;
             JugadoresEnSalaModificacion = null;
             AmigosDisponibles = null;
 
@@ -502,12 +503,28 @@ namespace RompecabezasFei
         private void SeleccionarJugadorAExpulsar(object objetoOrigen, 
             RoutedEventArgs evento)
         {
+            var filaActual = (ListBoxItem)listaJugadoresSalaModificacion.
+               ContainerFromElement((Button)objetoOrigen);
+            filaActual.IsSelected = true;
+            var jugadorSeleccionado = (Dominio.CuentaJugador)
+                listaJugadoresSalaModificacion.SelectedItem;
+
+            servicioSala.ExpulsarJugadorEnSala(
+              jugadorSeleccionado.NombreJugador, codigoSala);
 
         }
 
         private void SeleccionarJugadorAInvitar(object objetoOrigen, RoutedEventArgs evento)
         {
+            var filaActual = (ListBoxItem)listaAmigosDisponibles.
+               ContainerFromElement((Button)objetoOrigen);
+            filaActual.IsSelected = true;
+            var jugadorSeleccionado = (Dominio.CuentaJugador)
+                listaAmigosDisponibles.SelectedItem;
 
+            servicioSala.InvitarJugador(
+              jugadorSeleccionado.NombreJugador,
+              Dominio.CuentaJugador.Actual.NombreJugador, codigoSala);
         }
     }
 }

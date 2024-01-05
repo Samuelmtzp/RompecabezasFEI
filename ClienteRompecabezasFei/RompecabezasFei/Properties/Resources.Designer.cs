@@ -367,6 +367,15 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Nueva partida.
+        /// </summary>
+        public static string BOTON_SALA_NUEVAPARTIDA {
+            get {
+                return ResourceManager.GetString("BOTON_SALA_NUEVAPARTIDA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Opciones sala.
         /// </summary>
         public static string BOTON_SALA_OPCIONESSALA {
@@ -1348,6 +1357,33 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Invitación de sala.
+        /// </summary>
+        public static string ETIQUETA_MENU_INVITACIONSALA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_MENU_INVITACIONSALA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a  te ha invitado a unirte a su sala, ¿Aceptas?.
+        /// </summary>
+        public static string ETIQUETA_MENU_MENSAJEINVITACIONSALA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_MENU_MENSAJEINVITACIONSALA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No es posible unirse a la sala debido a que está llena o hay una partida en curso.
+        /// </summary>
+        public static string ETIQUETA_MENU_SALALLENA {
+            get {
+                return ResourceManager.GetString("ETIQUETA_MENU_SALALLENA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Cerrar sesión.
         /// </summary>
         public static string ETIQUETA_MENUPRINCIPAL_CERRARSESION {
@@ -1402,7 +1438,7 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a El código de la sala es el siguiente:.
+        ///   Busca una cadena traducida similar a El código de la sala es el siguiente: .
         /// </summary>
         public static string ETIQUETA_MODIFICACIONSALA_MENSAJECORREOINVITACIONASUNTO {
             get {
@@ -1573,7 +1609,7 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Tu código de restablecimiento es:.
+        ///   Busca una cadena traducida similar a Tu código de restablecimiento es: .
         /// </summary>
         public static string ETIQUETA_RECUPERACION_MENSAJE {
             get {
@@ -1843,23 +1879,8 @@ namespace RompecabezasFei.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a El anfitrión te ha expulsado de la sala.
-        /// </summary>
-        public static string ETIQUETA_SALA_MENSAJEEXPULSION {
-            get {
-                return ResourceManager.GetString("ETIQUETA_SALA_MENSAJEEXPULSION", resourceCulture);
-        public static string ETIQUETA_SALA_EXPULSIONDESALA {
-            get {
-                return ResourceManager.GetString("ETIQUETA_SALA_EXPULSIONDESALA", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a No se ha podido realizar la creación de la sala.
         /// </summary>
-        public static string ETIQUETA_SALA_MENSAJEFALLACREACIONSALA {
-            get {
-                return ResourceManager.GetString("ETIQUETA_SALA_MENSAJEFALLACREACIONSALA", resourceCulture);
         public static string ETIQUETA_SALA_MENSAJECREACIONSALACANCELADA {
             get {
                 return ResourceManager.GetString("ETIQUETA_SALA_MENSAJECREACIONSALACANCELADA", resourceCulture);
@@ -1869,9 +1890,9 @@ namespace RompecabezasFei.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a El anfitrión te ha expulsado de la sala.
         /// </summary>
-        public static string ETIQUETA_SALA_MENSAJEEXPULSIONDESALA {
+        public static string ETIQUETA_SALA_MENSAJEEXPULSION {
             get {
-                return ResourceManager.GetString("ETIQUETA_SALA_MENSAJEEXPULSIONDESALA", resourceCulture);
+                return ResourceManager.GetString("ETIQUETA_SALA_MENSAJEEXPULSION", resourceCulture);
             }
         }
         
