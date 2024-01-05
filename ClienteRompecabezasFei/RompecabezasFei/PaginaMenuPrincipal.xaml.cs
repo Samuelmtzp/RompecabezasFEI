@@ -102,8 +102,8 @@ namespace RompecabezasFei
         {
             MessageBoxResult opcionSeleccionada =
                 GestorCuadroDialogo.MostrarPreguntaNormal(
-                $"{nombreJugador} te ha invitado a unirte a su sala, ¿Aceptas?", 
-                "Invitación de sala");
+                nombreJugador + Properties.Resources.ETIQUETA_MENU_MENSAJEINVITACIONSALA,
+                Properties.Resources.ETIQUETA_MENU_INVITACIONSALA);
 
             if (opcionSeleccionada == MessageBoxResult.Yes)
             {
@@ -133,8 +133,8 @@ namespace RompecabezasFei
                     else
                     {
                         GestorCuadroDialogo.MostrarAdvertencia(
-                            "No es posible unirse a la sala debido a que está llena o hay una partida en curso",
-                            "Sala no disponible");
+                             Properties.Resources.ETIQUETA_MENU_SALALLENA,
+                             Properties.Resources.ETIQUETA_UNIRSESALA_SALANODISPONIBLE);
                     }
                 }
             }

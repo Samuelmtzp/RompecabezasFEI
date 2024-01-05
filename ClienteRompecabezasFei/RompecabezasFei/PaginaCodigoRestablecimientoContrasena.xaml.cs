@@ -21,8 +21,7 @@ namespace RompecabezasFei
         {
             GestorCodigoCorreo.EnviarNuevoCodigoDeVerificacionACorreo(correoDestino,
                 Properties.Resources.ETIQUETA_CODIGO_CODIGORESTABLECIMIENTO, 
-                Properties.Resources.ETIQUETA_RECUPERACION_MENSAJE + 
-                $" {GestorCodigoCorreo.CodigoGenerado}");
+                Properties.Resources.ETIQUETA_RECUPERACION_MENSAJE);
         }
 
         private void IrAPaginaInicioSesion(object objetoOrigen, RoutedEventArgs evento)

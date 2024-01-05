@@ -174,7 +174,7 @@
                     <Grid>
                         <TextBlock TextWrapping="Wrap" Text="{x:Static p:Resources.ETIQUETA_AMIGOS_INSTRUCCIONSOLICITUDAMISTAD}" Margin="66,17,66,152" FontSize="14"/>
                         <Label Content="{x:Static p:Resources.ETIQUETA_GENERAL_NOMBREJUGADOR}" Margin="66,71,210,116" FontWeight="Bold" FontSize="20" Foreground="White"/>
-                        <TextBox Name="cuadroTextoNombreUsuarioInvitacion" HorizontalAlignment="Center" Margin="0,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="430" FontSize="16" Height="30"/>
+                        <TextBox Name="cuadroTextoNombreUsuarioInvitacion" HorizontalAlignment="Center" Margin="0,107,0,0" TextWrapping="Wrap" MaxLength="15"  VerticalAlignment="Top" Width="430" FontSize="16" Height="30"/>
                         <Button Content="{x:Static p:Resources.BOTON_AMIGOS_ENVIARSOLICITUD}" HorizontalAlignment="Center" Margin="0,156,0,0" VerticalAlignment="Top" FontSize="20" Height="35" Width="197"  Background="#FF03A64A" Foreground="White" Click="EnviarSolicitudDeAmistad" FontWeight="Bold"/>
                     </Grid>
                 </TabItem>

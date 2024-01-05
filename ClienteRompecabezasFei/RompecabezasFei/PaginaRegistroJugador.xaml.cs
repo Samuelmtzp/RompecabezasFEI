@@ -81,8 +81,8 @@ namespace RompecabezasFei
                         else
                         {
                             GestorCuadroDialogo.MostrarAdvertencia(
-                                "El nombre del jugador que deseas registrar ya está registrado",
-                                "Nombre de jugador no disponible");
+                                Properties.Resources.ETIQUETA_REGISTRO_NOMBREUSUARIOYAREGISTRADO,
+                                Properties.Resources.ETIQUETA_REGISTRO_NOMBRENODISPONIBLE);
                         }
                     }
                 }
@@ -102,7 +102,7 @@ namespace RompecabezasFei
 
                 if (servicioCorreo.EstadoOperacion == EstadoOperacion.Correcto)
                 {
-                    if (!esCorreoDisponible)
+                    if (esCorreoDisponible)
                     {
                         var jugadorRegistro = new CuentaJugador
                         {
@@ -117,8 +117,8 @@ namespace RompecabezasFei
                     else
                     {
                         GestorCuadroDialogo.MostrarAdvertencia(
-                            "El correo electrónico que deseas registrar ya está registrado",
-                            "Correo no disponible");
+                            Properties.Resources.ETIQUETA_REGISTRO_MENSAJECORREONODISPONIBLE,
+                            Properties.Resources.ETIQUETA_REGISTRO_CORREONODISPONIBLE);
                     }
                 }
             }
@@ -163,14 +163,6 @@ namespace RompecabezasFei
                 hayCamposInvalidos = true;
             }
 
-            if (!hayCamposInvalidos && ExistenLongitudesExcedidas())
-            {
-                GestorCuadroDialogo.MostrarAdvertencia(
-                    Properties.Resources.ETIQUETA_VALIDACION_MENSAJECAMPOSEXCEDIDOS, 
-                    Properties.Resources.ETIQUETA_VALIDACION_CAMPOSEXCEDIDOS);
-                hayCamposInvalidos = true;
-            }
-
             if (!hayCamposInvalidos && !cuadroContrasenaContrasena.Password.
                 Equals(cuadroContrasenaConfirmacionContrasena.Password))
             {
@@ -191,23 +183,6 @@ namespace RompecabezasFei
                 || ValidadorDatos.EsCadenaVacia(cuadroTextoCorreoElectronico.Text)
                 || ValidadorDatos.EsCadenaVacia(cuadroContrasenaContrasena.Password)
                 || ValidadorDatos.EsCadenaVacia(cuadroContrasenaConfirmacionContrasena.Password))
-            {
-                resultado = true;
-            }
-
-            return resultado;
-        }
-
-        private bool ExistenLongitudesExcedidas()
-        {
-            bool resultado = false;
-
-            if (ValidadorDatos.ExisteLongitudExcedidaEnNombreJugador(
-                cuadroTextoNombreJugador.Text) ||
-                ValidadorDatos.ExisteLongitudExcedidaEnCorreo(
-                cuadroTextoCorreoElectronico.Text) ||
-                ValidadorDatos.ExisteLongitudExcedidaEnContrasena(
-                cuadroContrasenaContrasena.Password))
             {
                 resultado = true;
             }

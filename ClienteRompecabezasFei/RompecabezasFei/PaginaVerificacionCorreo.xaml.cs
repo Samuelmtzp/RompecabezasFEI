@@ -24,8 +24,7 @@ namespace RompecabezasFei
             GestorCodigoCorreo.EnviarNuevoCodigoDeVerificacionACorreo(
                 jugadorRegistro.Correo, 
                 Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ASUNTO,
-                Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJE + " " + 
-                GestorCodigoCorreo.CodigoGenerado);
+                Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJE);
             ComenzarTemporizador();
         }
 
@@ -33,9 +32,9 @@ namespace RompecabezasFei
         {
             DeshabilitarBotonEnvioCodigo();
             temporizador = new Temporizador();
-            temporizador.DespachadorDeTiempo.Tick += ActualizarTiempoRestante;
             temporizador.IniciarTemporizador(Temporizador.
                 DuracionSegundosMaximaReenvioDeCorreo);
+            temporizador.DespachadorDeTiempo.Tick += ActualizarTiempoRestante;
         }
 
         public void ActualizarTiempoRestante(object objetoOrigen, EventArgs evento)
@@ -135,8 +134,7 @@ namespace RompecabezasFei
             GestorCodigoCorreo.EnviarNuevoCodigoDeVerificacionACorreo(
                 jugadorRegistro.Correo, 
                 Properties.Resources.ETIQUETA_VERIFICACIONCORREO_ASUNTO,
-                Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJE + " " +
-                GestorCodigoCorreo.CodigoGenerado);
+                Properties.Resources.ETIQUETA_VERIFICACIONCORREO_MENSAJE);
             ComenzarTemporizador();
         }
 

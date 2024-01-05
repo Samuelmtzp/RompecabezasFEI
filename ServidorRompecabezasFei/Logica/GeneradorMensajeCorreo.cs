@@ -51,6 +51,11 @@ namespace Logica
                 Registros.Registrador.EscribirRegistro(excepcion);
                 resultado = false;
             }
+            catch (FormatException excepcion)
+            {
+                Registros.Registrador.EscribirRegistro(excepcion);
+                resultado = false;
+            }
             finally
             {
                 clienteSmtp.Dispose();

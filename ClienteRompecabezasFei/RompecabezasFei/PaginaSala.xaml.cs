@@ -220,8 +220,8 @@ namespace RompecabezasFei
                 else
                 {
                     GestorCuadroDialogo.MostrarAdvertencia(
-                        "No se ha podido conectar al jugador a la sala debido a que la sala no está disponible",
-                        "Sala no disponible");
+                        Properties.Resources.ETIQUETA_UNIRSESALA_MENSAJESALANODISPONIBLE,
+                        Properties.Resources.ETIQUETA_UNIRSESALA_SALANODISPONIBLE);
                     servicioSala.CerrarConexion();
                 }
             }
@@ -307,15 +307,15 @@ namespace RompecabezasFei
                         !creacionRealizada)
                     {
                         GestorCuadroDialogo.MostrarAdvertencia(
-                            "No se ha podido realizar la creación de la sala",
-                            "Error al crear la sala");
+                            Properties.Resources.ETIQUETA_SALA_MENSAJEFALLACREACIONSALA,
+                            Properties.Resources.ETIQUETA_SALA_ERRORCREACIONSALA);
                     }
                 }
                 else
                 {
                     GestorCuadroDialogo.MostrarAdvertencia(
-                        "No se ha podido realizar la creación de la sala",
-                        "Error al crear la sala");
+                         Properties.Resources.ETIQUETA_SALA_MENSAJEFALLACREACIONSALA,
+                         Properties.Resources.ETIQUETA_SALA_ERRORCREACIONSALA);
                 }
             }
 
@@ -367,7 +367,7 @@ namespace RompecabezasFei
                         if (!envioDeInvitacionRealizado)
                         {
                             GestorCuadroDialogo.MostrarAdvertencia(Properties.Resources.
-                                ETIQUETA_CODIGO_MENSAJENOENVIADO, Properties.Resources.
+                                ETIQUETA_SALA_MENSAJECODIGOSALANOENVIADO, Properties.Resources.
                                 ETIQUETA_CODIGO_CODIGONOENVIADO);
                         }
                         else
@@ -434,10 +434,10 @@ namespace RompecabezasFei
         public void MostrarMensajeExpulsionDeSala()
         {
             servicioSala.CerrarConexion();
+            VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());
             GestorCuadroDialogo.MostrarAdvertencia(
-                "El anfitrión te ha expulsado de la sala",
-                "Expulsión de sala");
-            VentanaPrincipal.CambiarPagina(new PaginaMenuPrincipal());                    
+                Properties.Resources.ETIQUETA_SALA_MENSAJEEXPULSION,
+                Properties.Resources.ETIQUETA_SALA_EXPULSIONSALA);
         }
 
         public void MostrarFuncionesDeAnfitrionEnSala()

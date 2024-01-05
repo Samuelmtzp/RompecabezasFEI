@@ -30,7 +30,7 @@ namespace RompecabezasFei.Utilidades
             {
                 esMensajeEnviado = servicioCorreo.EnviarMensajeACorreoElectronico(
                     Properties.Resources.ETIQUETA_GENERAL_ROMPECABEZASFEI, 
-                    correoDestino, asunto, mensaje);
+                    correoDestino, asunto, mensaje + CodigoGenerado);
 
                 if (servicioCorreo.EstadoOperacion == EstadoOperacion.Correcto && 
                     !esMensajeEnviado)
